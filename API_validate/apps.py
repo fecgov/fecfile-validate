@@ -2,4 +2,4 @@ from django.apps import AppConfig
 
 
 class FecvalidateConfig(AppConfig):
-    name = 'FECvalidate'
+    name = 'API_validate'
