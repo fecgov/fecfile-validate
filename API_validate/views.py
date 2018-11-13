@@ -22,7 +22,7 @@ logger = logging.getLogger(__name__)
 
 
 @api_view(['POST'])
-def validate_f99(data.json):
+def validate_f99(request):
     # # get all comm info
     # if request.method == 'GET':
     #     comm_info = CommitteeInfo.objects.all()
@@ -31,7 +31,7 @@ def validate_f99(data.json):
 
     # insert a new record for a comm_info
     if request.method == 'POST':
-
+        import ipdb; ipdb.set_trace()
         #incoming_file = requests.get(request.data.get('upload'))
         f99_obj = json.loads(request.data['upload'])        
         #return JsonResponse({'success':'Data validated!'}, status=200, safe=False)
