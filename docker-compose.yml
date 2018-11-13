@@ -1,0 +1,13 @@
+version: '3'
+networks:
+  default:
+    external:
+      name: nxg_fec_default
+services:
+  validate:
+    build: .
+    #command: python manage.py runserver 0.0.0.0:8085
+    volumes:
+      - ./:/opt/fecfile_validate
+    ports:
+      - "8085:8085"
