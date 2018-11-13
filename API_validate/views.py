@@ -29,6 +29,8 @@ def validate_f99(request):
 
     # insert a new record for a comm_info
     if request.method == 'POST':
+        with open('data.json') as f:
+        data = json.load(f)
         data = {
             'committeeid': request.data.get('committeeid'),
             'committeename': request.data.get('committeename'),
