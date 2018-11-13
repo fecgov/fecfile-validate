@@ -1,3 +1,4 @@
+
 """
 Django settings for FEC_validate project.
 
@@ -25,7 +26,7 @@ SECRET_KEY = '%z!+$ese%q$9kzp3ew!z9=jq41smixw3tppm-^#ra735y&qi_!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -38,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'API_validate',
+    'rest_framework',
+    'rest_framework_swagger',
+    'FECvalidate',
 ]
 
 MIDDLEWARE = [
