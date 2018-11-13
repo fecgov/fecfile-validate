@@ -22,7 +22,7 @@ logger = logging.getLogger(__name__)
 
 
 @api_view(['POST'])
-def validate_f99(request):
+def validate_f99(data.json):
     # # get all comm info
     # if request.method == 'GET':
     #     comm_info = CommitteeInfo.objects.all()
@@ -31,8 +31,8 @@ def validate_f99(request):
 
     # insert a new record for a comm_info
     if request.method == 'POST':
+
         #incoming_file = requests.get(request.data.get('upload'))
-        import ipdb; ipdb.set_trace()
         f99_obj = json.loads(request.data['upload'])        
         #return JsonResponse({'success':'Data validated!'}, status=200, safe=False)
         
@@ -123,7 +123,6 @@ def validate_f99(request):
     #         errormess.append('Unacceptable file extension. Only files with .pdf extensions are accepted.')
     #     if file._size > 33554432:
     #         errormess.append('The File size is more than 32 MB. Kindly reduce the size of the file before you upload it.')    
-
             
 
     if len(errormess)==0:
