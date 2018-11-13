@@ -30,25 +30,25 @@ def validate_f99(request):
     # insert a new record for a comm_info
     if request.method == 'POST':
         with open('data.json') as f:
-        data = json.load(f)
-        data = {
-            'committeeid': request.data.get('committeeid'),
-            'committeename': request.data.get('committeename'),
-            'street1': request.data.get('street1'),
-            'street2': request.data.get('street2'),
-            'city': request.data.get('city'),
-            'state': request.data.get('state'),
-            'text': request.data.get('text'),
-            'reason' :request.data.get('reason'),
-            'zipcode': request.data.get('zipcode'),
-            'treasurerlastname': request.data.get('treasurerlastname'),
-            'treasurerfirstname': request.data.get('treasurerfirstname'),
-            'treasurermiddlename': request.data.get('treasurermiddlename'),
-            'treasurerprefix': request.data.get('treasurerprefix'),
-            'treasurersuffix': request.data.get('treasurersuffix'),
-            'email_on_file' : request.data.get('email_on_file'),
-            'file': request.data.get('file'),
-        }
+            data = json.load(f)
+            data = {
+                'committeeid': request.data.get('committeeid'),
+                'committeename': request.data.get('committeename'),
+                'street1': request.data.get('street1'),
+                'street2': request.data.get('street2'),
+                'city': request.data.get('city'),
+                'state': request.data.get('state'),
+                'text': request.data.get('text'),
+                'reason' :request.data.get('reason'),
+                'zipcode': request.data.get('zipcode'),
+                'treasurerlastname': request.data.get('treasurerlastname'),
+                'treasurerfirstname': request.data.get('treasurerfirstname'),
+                'treasurermiddlename': request.data.get('treasurermiddlename'),
+                'treasurerprefix': request.data.get('treasurerprefix'),
+                'treasurersuffix': request.data.get('treasurersuffix'),
+                'email_on_file' : request.data.get('email_on_file'),
+                'file': request.data.get('file'),
+            }
     else:
         return Response(status=status.HTTP_400_BAD_REQUEST)
 
