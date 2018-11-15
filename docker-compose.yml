@@ -10,4 +10,4 @@ services:
     volumes:
       - ./:/opt/fecfile_validate
     ports:
-      - "8085:8085"
+      - "8001:8001"
