@@ -26,15 +26,9 @@ schema_view = get_swagger_view(title='FEC-Validate API')
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    #url(r'^admin$', include(admin.site.urls)),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^api/v1/', include('API_validate.urls')),
-    
-    #url(r'^api/v1/auth/login$', csrf_exempt(LoginView.as_view()), name='login'),
-    #url(r'^api/v1/auth/login$', LoginView.as_view(), name='login'),
-    #url(r'^api/v1/auth/logout/$', LogoutView.as_view(), name='logout'),
-    #url(r'^api/docs/', include('rest_framework_swagger.urls')),
-    url(r'^api/docs$', schema_view),
+    url(r'^api/docs', schema_view),
     url(r'^api/v1/token/obtain$', obtain_jwt_token),
     url(r'^api/v1/token/refresh$', refresh_jwt_token),
     #url('^.*$', IndexView.as_view(), name='index'),
