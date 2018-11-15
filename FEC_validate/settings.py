@@ -122,3 +122,29 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# AWS SES Configuration Settings
+EMAIL_BACKEND = 'django_ses.SESBackend'
+
+AWS_ACCESS_KEY_ID = 'AKIAIH4XBCHDF3EWFC7Q'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_HOST_NAME = 'us-east-1'
+AWS_REGION = 'us-east-1'
+
+AWS_SES_AUTO_THROTTLE = 0.5 # (default; safety factor applied to rate limit, turn off automatic throttling, set this to None)
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'level': os.getenv('DJANGO_LOG_LEVEL', 'INFO'),
+        },
+    },
+}

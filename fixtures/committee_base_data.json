@@ -1,5 +1,5 @@
 [{
-	"model": "FECvalidate.committee",
+	"model": "API_validate.committee",
 	"pk": 1,
 	"fields": {
 		"committeeid": "C01234567",
@@ -21,7 +21,7 @@
 		"email_on_file": "jsmith@gmail.com"
 	}
 }, {
-	"model": "FECvalidate.committee",
+	"model": "API_validate.committee",
 	"pk": 2,
 	"fields": {
 		"committeeid": "C11234567",
