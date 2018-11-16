@@ -23,8 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '%z!+$ese%q$9kzp3ew!z9=jq41smixw3tppm-^#ra735y&qi_!'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', False)
 
 ALLOWED_HOSTS = ['*']
 
@@ -81,11 +80,12 @@ WSGI_APPLICATION = 'FEC_validate.wsgi.application'
 DATABASES = {
     'default': {
          'ENGINE': 'django.db.backends.postgresql_psycopg2',
-         'NAME': 'postgres',
-         'USER': 'postgres',
-         'PASSWORD': 'postgres',
-         'HOST': 'localhost',
-         'PORT': '5432', }
+         'NAME': os.environ.get('DB_NAME', 'postgres'),
+         'USER': os.environ.get('DB_USERNAME', 'postgres'),
+         'PASSWORD': os.environ.get('DB_PASSWORD', 'postgres'),
+         'HOST': os.environ.get('DB_HOST', 'db'),
+         'PORT': os.environ.get('DB_PORT', '5432')
+         }
 }
 
 
@@ -130,8 +130,8 @@ STATIC_URL = '/static/'
 # AWS SES Configuration Settings
 EMAIL_BACKEND = 'django_ses.SESBackend'
 
-AWS_ACCESS_KEY_ID = 'AKIAIH4XBCHDF3EWFC7Q'
-AWS_SECRET_ACCESS_KEY = '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'
+AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID', 'AKIAIH4XBCHDF3EWFC7Q')
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY', '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')
 AWS_HOST_NAME = 'us-east-1'
 AWS_REGION = 'us-east-1'
 
