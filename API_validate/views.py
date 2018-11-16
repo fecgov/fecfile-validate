@@ -338,7 +338,7 @@ def validate_f99(request):
 
 #email through AWS SES
 def email(boolean, recipient):
-    SENDER = "donotreply@fec.gov"
+    SENDER = "pjinka.ctr@fec.gov"
     RECIPIENT = "%s" % recipient
     
     SUBJECT = "Test - Form 99 submitted successfully"
