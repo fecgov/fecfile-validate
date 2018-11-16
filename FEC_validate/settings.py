@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'API_validate',
     'rest_framework',
     'rest_framework_swagger',
-    'FECvalidate',
+    'FEC_validate',
 ]
 
 MIDDLEWARE = [
