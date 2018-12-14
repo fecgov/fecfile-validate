@@ -30,5 +30,11 @@ pipeline {
       }
 
     }
+   stage('Deploy to dev '){
+       when { branch "develop"}
+       step {
+          sh "kubectl --context=arn:aws:eks:us-east-1:813218302951:cluster/fecfile --namespace=dev set image deployment/fecfile-validate fecfile-validate=813218302951.dkr.ecr.us-east-1.amazonaws.com/fecfile-validate:${VERSION} --dry-run=true"
+     }    
+   }
   }
 }

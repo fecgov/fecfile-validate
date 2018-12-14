@@ -130,8 +130,8 @@ STATIC_URL = '/static/'
 # AWS SES Configuration Settings
 EMAIL_BACKEND = 'django_ses.SESBackend'
 
-AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID', 'AKIAIH4XBCHDF3EWFC7Q')
-AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY', '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')
+AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID', '')
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY', '')
 AWS_HOST_NAME = 'us-east-1'
 AWS_REGION = 'us-east-1'
 
