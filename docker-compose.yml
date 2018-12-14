@@ -6,7 +6,6 @@ networks:
 services:
   validate:
     build: .
-    command: python manage.py runserver 0.0.0.0:8001 
     volumes:
       - ./:/opt/fecfile_validate
     ports:
