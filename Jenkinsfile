@@ -36,7 +36,7 @@ pipeline {
           sh "kubectl --context=arn:aws:eks:us-east-1:813218302951:cluster/fecfile --namespace=dev set image deployment/fecfile-validate fecfile-validate=813218302951.dkr.ecr.us-east-1.amazonaws.com/fecfile-validate:${VERSION} --dry-run=true"
      }
    }
-
+ }
    post{
      success {
        slackSend color: 'good', message: env.BRANCH_NAME + ": Deployed ${VERSION} of fecfile-Validate to k8s"
@@ -45,5 +45,5 @@ pipeline {
        slackSend color: 'danger', message: env.BRANCH_NAME + ": Deployment of ${VERSION} failed"
      }
    }
-  }
+
 }
