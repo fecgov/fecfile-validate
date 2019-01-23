@@ -3,7 +3,7 @@ import os
 from retrying import retry
 
 
- @retry
+@retry
 def postgres_test():
     try:
         conn = psycopg2.connect(
