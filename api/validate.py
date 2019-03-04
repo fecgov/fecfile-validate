@@ -143,7 +143,7 @@ def validate():
         else:
             error = json.dumps({'errors': ['validate parameter missing in request body']})
             return json_response(error, 400)
-        data = json.loads(json_data)
+        data = json.loads(json_data.decode("utf-8"))
     except Exception as e:
         error = json.dumps({'errors': ['Error while loading JSON file attachment on validate parameter']})
         data = json.loads(json_data.decode("utf-8"))
