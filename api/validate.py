@@ -139,7 +139,9 @@ def validate():
         return json_response(error, 400)
     try:
         if 'json_validate' in request.files:
-            json_data = request.files.get('json_validate').read()
+            json_data = request.files.['json_validate']
+            json_data.seek(0)
+            json_data = json_data.read()
         else:
             error = json.dumps({'errors': ['validate parameter missing in request body']})
             return json_response(error, 400)
