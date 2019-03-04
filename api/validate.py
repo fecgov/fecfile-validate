@@ -146,7 +146,7 @@ def validate():
         data = json.loads(json_data)
     except Exception as e:
         error = json.dumps({'errors': ['Error while loading JSON file attachment on validate parameter']})
-        return json_response(error, 400)
+        data = json.loads(json_data.decode("utf-8"))
     errors = []
     error_message = " is required"
     warnings = []
