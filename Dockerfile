@@ -7,4 +7,4 @@ ADD . /opt/fecfile_validate
 RUN pip3 install -r requirements.txt
 
 EXPOSE 8001
-ENTRYPOINT ["sh", "-c","python wait_for_db.py && gunicorn --bind 0,0,0,0:8001 FEC_validate.wsgi"]
+ENTRYPOINT ["sh", "-c","python wait_for_db.py && gunicorn --bind 0,0,0,0:8001 run:app"]
