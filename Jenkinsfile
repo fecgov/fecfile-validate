@@ -36,6 +36,18 @@ pipeline {
           sh "kubectl --context=arn:aws:eks:us-east-1:813218302951:cluster/fecfile --namespace=dev set image deployment/fecfile-validate fecfile-validate=813218302951.dkr.ecr.us-east-1.amazonaws.com/fecfile-validate:${VERSION}"
      }
    }
+   stage('Deploy to QA '){
+       when { branch "release"}
+       steps {
+          sh "kubectl --context=arn:aws:eks:us-east-1:813218302951:cluster/fecfile --namespace=qa set image deployment/fecfile-validate fecfile-validate=813218302951.dkr.ecr.us-east-1.amazonaws.com/fecfile-validate:${VERSION}"
+     }
+   }
+   stage('Deploy to UAT '){
+       when { branch "master"}
+       steps {
+          sh "kubectl --context=arn:aws:eks:us-east-1:813218302951:cluster/fecfile --namespace=uat set image deployment/fecfile-validate fecfile-validate=813218302951.dkr.ecr.us-east-1.amazonaws.com/fecfile-validate:${VERSION}"
+     }
+   }
  }
    post{
      success {
