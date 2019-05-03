@@ -1,6 +1,8 @@
 import json
 from flask import Flask, request, g
 from .utils import json_response, JSON_MIME_TYPE
+import re
+import csv
 
 
 app = Flask(__name__)
@@ -8,120 +10,80 @@ app = Flask(__name__)
 """
 ************************************************* Functions to check if fields exist in JSON *******************************************************************
 """
-def check_form_type(data):
-    if 'form_type' in data and data.get('form_type'):
-        if len(data.get('form_type')) == 3:
-            return True, "Success"
-    return False, "form_type"
+def check_null_value(check_value):
+    try:
+        if check_value in ["none", "null", " ", ""]:
+            return None
+        else:
+            return check_value
+    except:
+        raise
+        
+def length(value):
+    try:
+        if value in None:
+            return 0
+        else:
+            return len(value)
+    except:
+        raise
+        
+def alpha_numeric(value):
+    return not bool(re.match('^[a-zA-Z0-9]([ ]*[a-zA-Z0-9])+$', value))
 
-def check_committee_id(data):
-    if 'committeeid' in data and data.get('committeeid'):
-        if len(data.get('committeeid')) == 9:
-            return True, "Success"
-    return False, "committeeid"
+def alpha(value):
+    return not bool(re.match('^[a-zA-Z]+$', value))
 
-def check_committee_name(data):
-    if 'committeename' in data and data.get('committeename'):
-        if len(data.get('committeename')) <= 200:
-            return True, "Success"
-    return False, "committeename"
+def numeric(value):
+    return not bool(re.match('^[0-9]+$', value))
 
-def check_street1(data):
-    if 'street1' in data and data.get('street1'):
-        if len(data.get('street1')) <= 34:
-            return True, "Success"
-    return False, "street1"
+def amount(value):
+    return not bool(re.match('^[0-9.]+$', value))
 
-def check_street2(data):
-    if 'street2' in data and data.get('street2'):
-        if len(data.get('street2')) > 34:
-            return False, "street2"
-    return True, "Success"
+def func_validate(field_list, data):
 
-def check_city(data):
-    if 'city' in data and data.get('city'):
-        if len(data.get('city')) <= 30:
-            return True, "Success"
-    return False, "city"
+    errors_list = []
+    warnings_list = []
+    special_list = []
+    str_field_not_in_json = " field is not provided"
+    str_field_not_in_format = " field is not in the format of "
+    str_field_not_length = " field should not be greater than "
 
-def check_state(data):
-    if 'state' in data and data.get('state'):
-        if len(data.get('state')) == 2:
-            if not any(char.isdigit() for char in data.get('state')):
-                return True, "Success"
-    return False, "state"
+    for field_list in field_list:
+        temp_list = []
+        if field_list[0] in data and check_null_value(data.get(field_list[0])):
+            if field_list[1] == 'A/N':
+                if alpha_numeric(data.get(field_list[0])):
+                    str_output = field_list[0] + str_field_not_in_format + field_list[1]
+                    temp_list.append(str_output)
+            if field_list[1] == 'A':
+                if alpha(data.get(field_list[0])):
+                    str_output = field_list[0] + str_field_not_in_format + field_list[1]
+                    temp_list.append(str_output)
+            if field_list[1] == 'N':
+                if numeric(data.get(field_list[0])):
+                    str_output = field_list[0] + str_field_not_in_format + field_list[1]
+                    temp_list.append(str_output)
+            if field_list[1] == 'Amt':
+                if amount(data.get(field_list[0])):
+                    str_output = field_list[0] + str_field_not_in_format + field_list[1]
+                    temp_list.append(str_output)
 
-def check_zipcode(data):
-    if 'zipcode' in data and data.get('zipcode'):
-        if len(data.get('zipcode')) == 5 or len(data.get('zipcode')) == 9:
-            return True, "Success"
-    return False, "zipcode"
+            if len(data.get(field_list[0])) > int(field_list[2]):
+                str_output = field_list[0] + str_field_not_length + field_list[2]
+                temp_list.append(str_output)
+        else:
+            str_output = field_list[0] + str_field_not_in_json
+            temp_list.append(str_output)
 
-def check_treasurer_last_name(data):
-    #null values are being taken care of
-    if 'treasurerlastname' in data and data.get('treasurerlastname'):
-        if len(data.get('treasurerlastname')) <= 30:
-            return True, "Success"
-    return False, "treasurerlastname"
+        if field_list[3] == 'error':
+            errors_list = errors_list + temp_list
+        elif field_list[3] == 'warning':
+            warnings_list = warnings_list + temp_list
 
-def check_treasurer_first_name(data):
-    if 'treasurerfirstname' in data and data.get('treasurerfirstname'):
-        if len(data.get('treasurerfirstname')) <= 20:
-            return True, "Success"
-    return False, "treasurerfirstname"
-
-def check_treasurer_middle_name(data):
-    if 'treasurermiddlename' in data and data.get('treasurermiddlename'):
-        if len(data.get('treasurermiddlename')) > 20:
-            return False, "treasurermiddlename"
-    return True, "Success"
-
-def check_treasurer_prefix(data):
-    if 'treasurerprefix' in data and data.get('treasurerprefix'):
-        if len(data.get('treasurerprefix')) > 10:
-            return False, "treasurerprefix"
-    return True, "Success" 
-
-def check_treasurer_suffix(data):
-    if 'treasurersuffix' in data and data.get('treasurersuffix'):
-        if len(data.get('treasurersuffix')) > 10:
-            return False, "treasurersuffix"
-    return True, "Success" 
-
-def check_date_signed(data):
-    if 'datesigned' in data and data.get('datesigned'):
-        if len(data.get('datesigned')) == 8:
-            if data.get('datesigned').isdigit():
-                return True, "Success"
-        return False, "datesigned"
-    return True, "Success"
-
-def check_f99_reason_type(data):
-    f99_reason_list = ["MSI", "MST", "MSM", "MSW"]
-    if 'reason' in data and data.get('reason'):
-        if not (data.get('reason') in f99_reason_list):
-            return False, "reason"
-    return True, "Success"
-
-def check_text(data):
-    if 'text' in data and data.get('text'):
-        if len(data.get('text')) > 20000:
-            return False, "text"
-    return True, "Success"
-
-def check_attachment_extension(data):
-    if 'hasAttachment' in data and data.get('hasAttachment'):
-        if data.get('hasAttachment'):
-            if 'attachmentName' in data and data.get('attachmentName'):
-                if data.get('attachmentName').endswith('.pdf'):
-                    return True, "Success"
-            return False, "attachment"
-    return True, "Success"
-
-
-"""
-************************************************* Functions to check Cha *******************************************************************
-"""
+    output = {'errors': errors_list,
+                'warnings': warnings_list}
+    return output
 
 """
 ******************************************************************************************************************************
@@ -149,7 +111,8 @@ def validate():
         data = json.loads(json_data.decode("utf-8"))
     except Exception as e:
         error = json.dumps({'errors': ['Error while loading JSON file attachment on validate parameter']})
-        data = json.loads(json_data.decode("utf-8"))
+        return json_response(error, 400)
+
     errors = []
     error_message = " is required"
     warnings = []
@@ -159,79 +122,44 @@ def validate():
     ************************************************* FORM 99 Valdation Rules *******************************************************************
     """
     if request.form.get('form_type') == "F99":
+        with open('api/rules/F99.csv') as csvfile:
+            fields = []
+            readCSV = csv.reader(csvfile, delimiter=',')
+            for row in readCSV:
+                fields.append(row)
+        output = func_validate(fields, data.get('data'))
 
-        status, message = check_form_type(data.get('data'))
-        if not status:
-            errors.append(message)
+    if request.form.get('form_type') == "F3X":
+        schedule_lists = ['SA']
+        final_output = {}
+        for schedule_list in schedule_lists:
+            final_output['schedules'] = {} 
+            if schedule_list in data.get('data').get('schedules') and len(data.get('data').get('schedules').get(schedule_list)) > 0:
+                final_output['schedules'][schedule_list] = []
+                file_name = 'api/rules/' + schedule_list + '.csv'
+                with open(file_name) as csvfile:
+                    fields = []
+                    readCSV = csv.reader(csvfile, delimiter=',')
+                    for row in readCSV:
+                        fields.append(row)
+                for sa in data.get('data').get('schedules').get(schedule_list):
+                    output = func_validate(fields, sa)                    
+                    if 'child' in sa and len(sa.get('child')) > 0:
+                        output['child'] = []
+                        for ch in sa.get('child'):
+                            child_output = func_validate(fields, ch)
+                            if len(child_output.get('errors')) > 0 or len(child_output.get('warnings')) > 0:
+                                child_output['transaction_id'] = ch.get('transactionId')
+                                output['child'].append(child_output)
+                    if len(output.get('errors')) > 0 or len(output.get('warnings')) > 0 or len(output.get('child')) > 0:
+                        output['transaction_id'] = sa.get('transactionId')
+                        final_output['schedules'][schedule_list].append(output)
 
-        status, message = check_committee_id(data.get('data'))
-        if not status:
-            errors.append(message)
-
-        status, message = check_committee_name(data.get('data'))
-        if not status:
-            warnings.append(message)
-
-        status, message = check_street1(data.get('data'))
-        if not status:
-            warnings.append(message)
-
-        status, message = check_street2(data.get('data'))
-        if not status:
-            errors.append(message)
-
-        status, message = check_city(data.get('data'))
-        if not status:
-            warnings.append(message)
-
-        status, message = check_state(data.get('data'))
-        if not status:
-            warnings.append(message)
-
-        status, message = check_zipcode(data.get('data'))
-        if not status:
-            warnings.append(message)
-
-        status, message = check_treasurer_last_name(data.get('data'))
-        if not status:
-            errors.append(message)
-
-        status, message = check_treasurer_first_name(data.get('data'))
-        if not status:
-            errors.append(message)
-
-        status, message = check_treasurer_middle_name(data.get('data'))
-        if not status:
-            errors.append(message)
-
-        status, message = check_treasurer_prefix(data.get('data'))
-        if not status:
-            errors.append(message)
-
-        status, message = check_treasurer_suffix(data.get('data'))
-        if not status:
-            errors.append(message)
-
-        status, message = check_date_signed(data.get('data'))
-        if not status:
-            errors.append(message)
-
-        status, message = check_f99_reason_type(data.get('data'))
-        if not status:
-            errors.append(message)
-
-        status, message = check_text(data.get('data'))
-        if not status:
-            errors.append(message)
-
-        status, message = check_attachment_extension(data.get('data'))
-        if not status:
-            errors.append(message)
-
+        
         """
         ************************************************* END - FORM 99 Valdation Rules *******************************************************************
         """
-
+        """
         if len(errors) == 0 and len(warnings) == 0:
             error = json.dumps({})
             return json_response(error,200)
@@ -247,6 +175,16 @@ def validate():
         else:
             error = json.dumps({'errors': errors, 'warnings': warnings})
             return json_response(error,400)
+        """
+        if request.form.get('form_type') == "F99":
+            error = json.dumps({'headers': data.get('header'),
+                                'errors': output.get('errors'),
+                                'warnings': output.get('warnings')})
+            return json_response(error,200)
+        else:
+            error = json.dumps({'headers': data.get('header'),
+                                'data': final_output})
+            return json_response(error,200)
 
 
 """
