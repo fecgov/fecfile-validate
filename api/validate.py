@@ -134,26 +134,27 @@ def validate():
         final_output = {}
         for schedule_list in schedule_lists:
             final_output['schedules'] = {} 
-            if schedule_list in data.get('data').get('schedules') and len(data.get('data').get('schedules').get(schedule_list)) > 0:
-                final_output['schedules'][schedule_list] = []
-                file_name = 'api/rules/' + schedule_list + '.csv'
-                with open(file_name) as csvfile:
-                    fields = []
-                    readCSV = csv.reader(csvfile, delimiter=',')
-                    for row in readCSV:
-                        fields.append(row)
-                for sa in data.get('data').get('schedules').get(schedule_list):
-                    output = func_validate(fields, sa)                    
-                    if 'child' in sa and len(sa.get('child')) > 0:
-                        output['child'] = []
-                        for ch in sa.get('child'):
-                            child_output = func_validate(fields, ch)
-                            if len(child_output.get('errors')) > 0 or len(child_output.get('warnings')) > 0:
-                                child_output['transaction_id'] = ch.get('transactionId')
-                                output['child'].append(child_output)
-                    if len(output.get('errors')) > 0 or len(output.get('warnings')) > 0 or len(output.get('child')) > 0:
-                        output['transaction_id'] = sa.get('transactionId')
-                        final_output['schedules'][schedule_list].append(output)
+            if 'schedules' in data.get('data') and data.get('data').get('schedules'):
+                if schedule_list in data.get('data').get('schedules') and data.get('data').get('schedules').get(schedule_list):
+                    final_output['schedules'][schedule_list] = []
+                    file_name = 'api/rules/' + schedule_list + '.csv'
+                    with open(file_name) as csvfile:
+                        fields = []
+                        readCSV = csv.reader(csvfile, delimiter=',')
+                        for row in readCSV:
+                            fields.append(row)
+                    for sa in data.get('data').get('schedules').get(schedule_list):
+                        output = func_validate(fields, sa)                    
+                        if 'child' in sa and len(sa.get('child')) > 0:
+                            output['child'] = []
+                            for ch in sa.get('child'):
+                                child_output = func_validate(fields, ch)
+                                if child_output.get('errors') or child_output.get('warnings'):
+                                    child_output['transaction_id'] = ch.get('transactionId')
+                                    output['child'].append(child_output)
+                        if output.get('errors') or output.get('warnings') or output.get('child'):
+                            output['transaction_id'] = sa.get('transactionId')
+                            final_output['schedules'][schedule_list].append(output)
 
         
         """
