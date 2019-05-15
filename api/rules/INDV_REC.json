@@ -50,7 +50,7 @@
 	{"entityType": {"field_type": "A/N",
 					"field_size": "3",
 					"message_type": "error",
-					"value_check": ["IND"],
+					"value_check": ["CAN", "CCM", "COM", "IND", "ORG", "PAC", "PTY"],
 					"additional_validation_key": "",
 					"additional_validation_value": "",
 					"additional_validation_operator": ""
