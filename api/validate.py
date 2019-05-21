@@ -10,14 +10,14 @@ app = Flask(__name__)
 """
 ************************************************* GLOBAL LISTS used *******************************************************************************************
 """
-list_SA_similar_INDV_REC_transactionTypeCode = ["INDV_REC", "PAR_MEMO"]
+list_SA_similar_INDV_REC_transactionTypeCode = ["INDV_REC", "PAR_MEMO", "INK_REC"]
 list_SA_similar_PAR_CON_transactionTypeCode = ["PAR_CON"]
-list_SB_similar_OP_EXP_transactionTypeCode = ["OP_EXP"]
+list_SB_similar_OP_EXP_transactionTypeCode = ["OP_EXP","INK_OUT"]
 list_f3x_total = list_SA_similar_INDV_REC_transactionTypeCode + list_SA_similar_PAR_CON_transactionTypeCode + list_SB_similar_OP_EXP_transactionTypeCode
 
 
 list_f3x_schedules = ['SA','SB']
-dict_parent_child_association = {"PAR_CON":["PAR_MEMO"]}
+dict_parent_child_association = {"PAR_CON":["PAR_MEMO"], "INK_REC":["INK_OUT"]}
 
 """
 ************************************************* Functions to check if fields exist in JSON *******************************************************************
@@ -172,6 +172,7 @@ def func_json_validate(data):
     try:
         transaction_id = data.get('transactionId')
         output = {'errors': [], 'warnings': []}
+        # JSON file name function gathers the file name
         file_flag, file_name = json_file_name(data.get('transactionTypeCode'))
         if file_flag:
             message = file_name
@@ -242,6 +243,8 @@ def func_json_validate(data):
                                     if operator == "not in":
                                         if not data.get(key) in value:
                                             validation_error_flag =  True
+                                            if data.get('transactionTypeCode') == "INK_OUT" and field_name == "payeeOrgName":
+                                                validation_error_flag =  False
                                             error_value = ', '.join(value)
                                             message = field_name + " field is mandatory as " + key + " " + operator + " [" + error_value + "]"
                                             message_type = "error"
