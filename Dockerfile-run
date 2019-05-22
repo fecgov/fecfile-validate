@@ -7,4 +7,4 @@ ADD . /opt/fecfile_validate
 RUN pip3 install -r requirements.txt
 
 EXPOSE 8080
-ENTRYPOINT ["sh","-c","python wait_for_db.py && gunicorn --bind 0.0.0.0:8080 run:app"]
+ENTRYPOINT ["gunicorn", "-w", "4", "--bind",  "0.0.0.0:8080", "run:app"]
