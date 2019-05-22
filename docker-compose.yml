@@ -1,8 +1,8 @@
 version: '3'
-#networks:
-#  default:
-#    external:
-#      name: nxg_fec_default
+networks:
+  default:
+    external:
+      name: nxg_fec_default
 services:
   validate:
     build: .
