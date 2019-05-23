@@ -10,14 +10,16 @@ app = Flask(__name__)
 """
 ************************************************* GLOBAL LISTS used *******************************************************************************************
 """
-list_SA_similar_INDV_REC_transactionTypeCode = ["INDV_REC", "PAR_MEMO", "INK_REC"]
+list_SA_similar_INDV_REC_transactionTypeCode = ["INDV_REC", "PAR_MEMO", "INK_REC", "INKB_REC", "REATT", "REATT_MEMO", "RET_BOU_REC", "EARM_REC"]
 list_SA_similar_PAR_CON_transactionTypeCode = ["PAR_CON"]
-list_SB_similar_OP_EXP_transactionTypeCode = ["OP_EXP","INK_OUT"]
-list_f3x_total = list_SA_similar_INDV_REC_transactionTypeCode + list_SA_similar_PAR_CON_transactionTypeCode + list_SB_similar_OP_EXP_transactionTypeCode
+list_SB_similar_OP_EXP_transactionTypeCode = ["OP_EXP",]
+list_SB_similar_INK_OUT_transactionTypeCode = ["INK_OUT", "INKB_OUT"]
+list_SB_similar_EARM_OUT_transactionTypeCode = ["EARM_OUT"]
+list_f3x_total = list_SA_similar_INDV_REC_transactionTypeCode + list_SA_similar_PAR_CON_transactionTypeCode + list_SB_similar_OP_EXP_transactionTypeCode + list_SB_similar_INK_OUT_transactionTypeCode + list_SB_similar_EARM_OUT_transactionTypeCode
 
 
 list_f3x_schedules = ['SA','SB']
-dict_parent_child_association = {"PAR_CON":["PAR_MEMO"], "INK_REC":["INK_OUT"]}
+dict_parent_child_association = {"PAR_CON":["PAR_MEMO"], "INK_REC":["INK_OUT"], "INKB_REC":["INKB_OUT"], "REATT":["REATT_MEMO"], "EARM_REC":["EARM_OUT"]}
 
 """
 ************************************************* Functions to check if fields exist in JSON *******************************************************************
@@ -90,7 +92,11 @@ def json_file_name(transactionTypeCode):
         elif transactionTypeCode in list_SA_similar_PAR_CON_transactionTypeCode:
             file_name += 'PAR_CON.json'
         elif transactionTypeCode in list_SB_similar_OP_EXP_transactionTypeCode:
-            file_name += 'OP_EXP.json'            
+            file_name += 'OP_EXP.json'
+        elif transactionTypeCode in list_SB_similar_INK_OUT_transactionTypeCode:
+            file_name += 'INK_OUT.json'
+        elif transactionTypeCode in list_SB_similar_EARM_OUT_transactionTypeCode:
+            file_name += 'EARM_OUT.json'     
         else:
             error_flag = True
             error_string = ', '.join(list_f3x_total)
@@ -243,8 +249,6 @@ def func_json_validate(data):
                                     if operator == "not in":
                                         if not data.get(key) in value:
                                             validation_error_flag =  True
-                                            if data.get('transactionTypeCode') == "INK_OUT" and field_name == "payeeOrgName":
-                                                validation_error_flag =  False
                                             error_value = ', '.join(value)
                                             message = field_name + " field is mandatory as " + key + " " + operator + " [" + error_value + "]"
                                             message_type = "error"
@@ -272,7 +276,8 @@ def child_validation(parent, list_parent):
             for ch in parent.get('child'):
                 # validatiing if the child transactionTypeCode is a part established parent child relationships for the respective parent transactionTypeCode
                 if not ch.get('transactionTypeCode') in dict_parent_child_association.get(parent.get('transactionTypeCode')):
-                    message = ch.get('transactionTypeCode') + " field cannot be a child of "+ parent.get('transactionTypeCode') + " as per rules in dict_parent_child_association dictionary definition"
+                    child_transaction_codes_string = ', '.join(dict_parent_child_association.get(parent.get('transactionTypeCode')))
+                    message = ch.get('transactionTypeCode') + " transaction type cannot be a child of "+ parent.get('transactionTypeCode') + " as per rules in dict_parent_child_association dictionary definition. Expected values are: [" + child_transaction_codes_string + "]"
                     message_type = "error"
                     dict_temp = error_json_template(message_type, message, "transactionTypeCode", ch.get('transactionTypeCode'), ch.get('transactionId'))
                     output['errors'].append(dict_temp)
@@ -286,7 +291,7 @@ def child_validation(parent, list_parent):
                 output['errors'].extend(child_output.get('errors'))
                 output['warnings'].extend(child_output.get('warnings'))
         else:
-            message = parent.get('transactionTypeCode') + " field cannot have a child transaction as per rules in dict_parent_child_association dictionary definition"
+            message = parent.get('transactionTypeCode') + " transaction type cannot have a child transaction as per rules in dict_parent_child_association dictionary definition"
             message_type = "error"
             dict_temp = error_json_template(message_type, message, "transactionTypeCode", parent.get('transactionTypeCode'), parent.get('transactionId'))
             output['errors'].append(dict_temp)
@@ -304,6 +309,10 @@ def validate():
     try:
         if not 'form_type' in request.form:
             raise Exception('form_type input parameter is missing in request body')
+        forms_list = ['F99', 'F3X']
+        if not request.form.get('form_type') in forms_list:
+            error_string = ', '.join(forms_list)
+            raise Exception('form_type input parameter can only have the following values: [' + error_string + ']. Input Received: ' + request.form.get('form_type'))
         try:
             if 'json_validate' in request.files:
                 json_data = request.files['json_validate']
