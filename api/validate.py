@@ -10,6 +10,7 @@ app = Flask(__name__)
 """
 ************************************************* GLOBAL LISTS used *******************************************************************************************
 """
+
 list_SA_similar_INDV_REC_transactionTypeCode = ["INDV_REC", "PAR_MEMO", "INK_REC", "INKB_REC", "REATT", "REATT_MEMO", "RET_BOU_REC", "EARM_REC"]
 list_SA_similar_PAR_CON_transactionTypeCode = ["PAR_CON"]
 list_SB_similar_OP_EXP_transactionTypeCode = ["OP_EXP",]
@@ -43,24 +44,22 @@ def length(value):
         raise Exception('length function is throwing an error: ' + str(e))
 """
 ************************************************* Functions to check the type of the field *******************************************************************
-"""        
+"""
+def capital_alpha_numeric(value):
+    try:
+        return not bool(re.match('^[\x20-\x60\x7B-\x7D]+$', value))
+    except Exception as e:
+        raise Exception('capital_alpha_numeric function is throwing an error: ' + str(e))
+
 def alpha_numeric(value):
     try:
-        if len(value) > 1:
-            return not bool(re.match('^[a-zA-Z0-9]([ ]*[a-zA-Z0-9])+$', value))
-        else:
-            return not bool(re.match('^[a-zA-Z0-9]+$', value))
+        return not bool(re.match('^[\x20-\x7E]+$', value))
+        # if len(value) > 1:
+        #     return not bool(re.match('^[a-zA-Z0-9]([ ]*[a-zA-Z0-9])+$', value))
+        # else:
+        #     return not bool(re.match('^[a-zA-Z0-9]+$', value))
     except Exception as e:
         raise Exception('alpha_numeric function is throwing an error: ' + str(e))
-
-def alpha_numeric_underscore(value):
-    try:
-        if len(value) > 1:
-            return not bool(re.match('^[a-zA-Z0-9]([ ]*[a-zA-Z0-9_])+$', value))
-        else:
-            return not bool(re.match('^[a-zA-Z0-9]+$', value))
-    except Exception as e:
-        raise Exception('alpha_numeric_underscore function is throwing an error: ' + str(e))
 
 def alpha(value):
     try:
@@ -194,11 +193,12 @@ def func_json_validate(data):
                     if field_name in data and check_null_value(data.get(field_name)):
                         type_error_flag = False
                         if field_rule.get('field_type') == 'A/N':
-                            if alpha_numeric(data.get(field_name)):
-                                type_error_flag = True
-                        if field_rule.get('field_type') == 'A/N_':
-                            if alpha_numeric_underscore(data.get(field_name)):
-                                type_error_flag = True
+                            if field_name == 'transactionId':     
+                                if capital_alpha_numeric(data.get(field_name)):
+                                    type_error_flag = True
+                            else:
+                                if alpha_numeric(data.get(field_name)):
+                                    type_error_flag = True
                         if field_rule.get('field_type') == 'A':
                             if alpha(data.get(field_name)):
                                 type_error_flag = True
@@ -210,7 +210,10 @@ def func_json_validate(data):
                                 type_error_flag = True
 
                         if type_error_flag:
-                            message = field_name + " field is not in " + field_rule.get('field_type') + " format"
+                            if field_name == 'transactionId':
+                                message = field_name + " field is not in " + field_rule.get('field_type') + " format. In case of alphabets, only uppercase are allowed for this field."
+                            else:
+                                message = field_name + " field is not in " + field_rule.get('field_type') + " format"
                             message_type = "error"                
                             dict_temp = error_json_template(message_type, message, field_name, data.get(field_name), transaction_id)
                             output['errors'].append(dict_temp)

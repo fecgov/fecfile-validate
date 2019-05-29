@@ -15,7 +15,7 @@
 					"additional_validation_value": "",
 					"additional_validation_operator": ""
 					}},
-	{"transactionTypeCode": {"field_type": "A/N_",
+	{"transactionTypeCode": {"field_type": "A/N",
 					"field_size": "12",
 					"message_type": "error",
 					"value_check": [],
