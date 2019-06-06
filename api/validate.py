@@ -11,16 +11,18 @@ app = Flask(__name__)
 ************************************************* GLOBAL LISTS used *******************************************************************************************
 """
 
-list_SA_similar_INDV_REC_transactionTypeCode = ["INDV_REC", "PAR_MEMO", "INK_REC", "INKB_REC", "REATT", "REATT_MEMO", "RET_BOU_REC", "EARM_REC"]
+list_SA_similar_INDV_REC_transactionTypeCode = ["INDV_REC", "PAR_MEMO", "INK_REC", "INKB_REC", "REATT", "REATT_MEMO", "RET_BOU_REC", "EARM_REC", "COND_EARMU", "COND_EARMD"]
 list_SA_similar_PAR_CON_transactionTypeCode = ["PAR_CON"]
+list_SA_similar_EARM_MEMO_transactionTypeCode = ["EARM_MEMO"]
+list_SA_similar_COND_EARM_PAC_transactionTypeCode = ["COND_EARM_PACU", "COND_EARM_PACD", "EARM_REC_PAC", "EARM_MEMO_PAC", "INK_REC_PTY", "INK_REC_PAC"]
 list_SB_similar_OP_EXP_transactionTypeCode = ["OP_EXP",]
 list_SB_similar_INK_OUT_transactionTypeCode = ["INK_OUT", "INKB_OUT"]
-list_SB_similar_EARM_OUT_transactionTypeCode = ["EARM_OUT"]
-list_f3x_total = list_SA_similar_INDV_REC_transactionTypeCode + list_SA_similar_PAR_CON_transactionTypeCode + list_SB_similar_OP_EXP_transactionTypeCode + list_SB_similar_INK_OUT_transactionTypeCode + list_SB_similar_EARM_OUT_transactionTypeCode
-
+list_SB_similar_EARM_OUT_transactionTypeCode = ["EARM_OUT", "EARM_OUT_MEMO", "EARM_OUT_NMEMO", "EARM_OUT_MEMO_PAC", "EARM_OUT_NMEMO_PAC"]
+list_SB_similar_INK_OUT_PTY_transactionTypeCode = ["INK_OUT_PTY", "INK_OUT_PAC"]
+list_f3x_total = list_SA_similar_INDV_REC_transactionTypeCode + list_SA_similar_PAR_CON_transactionTypeCode + list_SB_similar_OP_EXP_transactionTypeCode + list_SB_similar_INK_OUT_transactionTypeCode + list_SB_similar_EARM_OUT_transactionTypeCode + list_SA_similar_EARM_MEMO_transactionTypeCode + list_SA_similar_COND_EARM_PAC_transactionTypeCode + list_SB_similar_INK_OUT_PTY_transactionTypeCode
 
 list_f3x_schedules = ['SA','SB']
-dict_parent_child_association = {"PAR_CON":["PAR_MEMO"], "INK_REC":["INK_OUT"], "INKB_REC":["INKB_OUT"], "REATT":["REATT_MEMO"], "EARM_REC":["EARM_OUT"]}
+dict_parent_child_association = {"PAR_CON":["PAR_MEMO"], "INK_REC":["INK_OUT"], "INKB_REC":["INKB_OUT"], "REATT":["REATT_MEMO"], "EARM_REC":["EARM_MEMO"], "COND_EARMU":["EARM_OUT_MEMO"], "COND_EARMD":["EARM_OUT_NMEMO"], "COND_EARM_PACU":["EARM_OUT_MEMO_PAC"], "COND_EARM_PACD":["EARM_OUT_NMEMO_PAC"], "EARM_REC_PAC":["EARM_MEMO_PAC"], "INK_REC_PTY":["INK_OUT_PTY"], "INK_REC_PAC":["INK_OUT_PAC"]}
 
 """
 ************************************************* Functions to check if fields exist in JSON *******************************************************************
@@ -95,7 +97,13 @@ def json_file_name(transactionTypeCode):
         elif transactionTypeCode in list_SB_similar_INK_OUT_transactionTypeCode:
             file_name += 'INK_OUT.json'
         elif transactionTypeCode in list_SB_similar_EARM_OUT_transactionTypeCode:
-            file_name += 'EARM_OUT.json'     
+            file_name += 'EARM_OUT.json'
+        elif transactionTypeCode in list_SA_similar_EARM_MEMO_transactionTypeCode:
+            file_name += 'EARM_MEMO.json'
+        elif transactionTypeCode in list_SA_similar_COND_EARM_PAC_transactionTypeCode:
+            file_name += 'COND_EARM_PAC.json'
+        elif transactionTypeCode in list_SB_similar_INK_OUT_PTY_transactionTypeCode:
+            file_name += 'INK_OUT_PTY.json'                  
         else:
             error_flag = True
             error_string = ', '.join(list_f3x_total)
