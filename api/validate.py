@@ -17,12 +17,12 @@ list_SA_similar_EAR_MEMO_transactionTypeCode = ["EAR_MEMO"]
 list_SA_similar_COND_EAR_PAC_transactionTypeCode = ["COND_E_PACU", "COND_E_PACD", "EAR_REC_PAC", "EAR_MEMO_PAC", "INK_REC_PTY", "INK_REC_PAC"]
 list_SB_similar_OP_EXP_transactionTypeCode = ["OP_EXP",]
 list_SB_similar_INK_OUT_transactionTypeCode = ["INK_OUT", "INKB_OUT"]
-list_SB_similar_EAR_OUT_transactionTypeCode = ["EAR_OUT", "EAR_OUTM", "EAR_OUTNM", "EAR_OUTM_PAC", "EAR_OUTNM_PAC"]
+list_SB_similar_EAR_OUT_transactionTypeCode = ["EAR_OUT", "EAR_OUTM", "EAR_OUTNM", "EAR_OUTM_PAC", "EAR_OUTNMPAC"]
 list_SB_similar_INK_OUT_PTY_transactionTypeCode = ["INK_OUT_PTY", "INK_OUT_PAC"]
 list_f3x_total = list_SA_similar_INDV_REC_transactionTypeCode + list_SA_similar_PAR_CON_transactionTypeCode + list_SB_similar_OP_EXP_transactionTypeCode + list_SB_similar_INK_OUT_transactionTypeCode + list_SB_similar_EAR_OUT_transactionTypeCode + list_SA_similar_EAR_MEMO_transactionTypeCode + list_SA_similar_COND_EAR_PAC_transactionTypeCode + list_SB_similar_INK_OUT_PTY_transactionTypeCode
 
 list_f3x_schedules = ['SA','SB']
-dict_parent_child_association = {"PAR_CON":["PAR_MEMO"], "INK_REC":["INK_OUT"], "INKB_REC":["INKB_OUT"], "REATT":["REATT_MEMO"], "EAR_REC":["EAR_MEMO"], "COND_EARU":["EAR_OUTM"], "COND_EARD":["EAR_OUTNM"], "COND_E_PACU":["EAR_OUTM_PAC"], "COND_E_PACD":["EAR_OUTNM_PAC"], "EAR_REC_PAC":["EAR_MEMO_PAC"], "INK_REC_PTY":["INK_OUT_PTY"], "INK_REC_PAC":["INK_OUT_PAC"]}
+dict_parent_child_association = {"PAR_CON":["PAR_MEMO"], "INK_REC":["INK_OUT"], "INKB_REC":["INKB_OUT"], "REATT":["REATT_MEMO"], "EAR_REC":["EAR_MEMO"], "COND_EARU":["EAR_OUTM"], "COND_EARD":["EAR_OUTNM"], "COND_E_PACU":["EAR_OUTM_PAC"], "COND_E_PACD":["EAR_OUTNMPAC"], "EAR_REC_PAC":["EAR_MEMO_PAC"], "INK_REC_PTY":["INK_OUT_PTY"], "INK_REC_PAC":["INK_OUT_PAC"]}
 
 """
 ************************************************* Functions to check if fields exist in JSON *******************************************************************
