@@ -12,9 +12,9 @@ app = Flask(__name__)
 """
 
 list_SA_similar_INDV_REC_transactionTypeCode = ["INDV_REC", "PAR_MEMO", "INK_REC", "INKB_REC", "REATT", "REATT_MEMO", "RET_BOU_REC", "EAR_REC", "COND_EARU", "COND_EARD"]
-list_SA_similar_PAR_CON_transactionTypeCode = ["PAR_CON"]
+list_SA_similar_PAR_CON_transactionTypeCode = ["PAR_CON", "TRI_REC"]
 list_SA_similar_EAR_MEMO_transactionTypeCode = ["EAR_MEMO"]
-list_SA_similar_COND_EAR_PAC_transactionTypeCode = ["COND_E_PACU", "COND_E_PACD", "EAR_REC_PAC", "EAR_MEMO_PAC", "INK_REC_PTY", "INK_REC_PAC"]
+list_SA_similar_COND_EAR_PAC_transactionTypeCode = ["COND_E_PACU", "COND_E_PACD", "EAR_REC_PAC", "EAR_MEMO_PAC", "INK_REC_PTY", "INK_REC_PAC", "PTY_REC", "PAC_REC", "NF_PAC_REC"]
 list_SB_similar_OP_EXP_transactionTypeCode = ["OP_EXP",]
 list_SB_similar_INK_OUT_transactionTypeCode = ["INK_OUT", "INKB_OUT"]
 list_SB_similar_EAR_OUT_transactionTypeCode = ["EAR_OUT", "EAR_OUTM", "EAR_OUTNM", "EAR_OUTM_PAC", "EAR_OUTNMPAC"]
