@@ -11,18 +11,18 @@ app = Flask(__name__)
 ************************************************* GLOBAL LISTS used *******************************************************************************************
 """
 
-list_SA_similar_INDV_REC_transactionTypeCode = ["INDV_REC", "PAR_MEMO", "INK_REC", "INKB_REC", "REATT", "REATT_MEMO", "RET_BOU_REC", "EAR_REC", "COND_EARU", "COND_EARD"]
-list_SA_similar_PAR_CON_transactionTypeCode = ["PAR_CON", "TRI_REC"]
+list_SA_similar_INDV_REC_transactionTypeCode = ["INDV_REC", "PAR_MEMO", "IK_REC", "IK_BC_REC", "REATT_FROM", "REATT_TO", "RET_REC", "EAR_REC", "COND_EARU", "COND_EARD"]
+list_SA_similar_PAR_CON_transactionTypeCode = ["PAR_CON", "TRIB_REC"]
 list_SA_similar_EAR_MEMO_transactionTypeCode = ["EAR_MEMO"]
-list_SA_similar_COND_EAR_PAC_transactionTypeCode = ["COND_E_PACU", "COND_E_PACD", "EAR_REC_PAC", "EAR_MEMO_PAC", "INK_REC_PTY", "INK_REC_PAC", "PTY_REC", "PAC_REC", "NF_PAC_REC"]
+list_SA_similar_COND_EAR_PAC_transactionTypeCode = ["COND_E_PACU", "COND_E_PACD", "EAR_REC_PAC", "EAR_MEMO_PAC", "INK_REC_PTY", "INK_REC_PAC", "PTY_REC", "PAC_REC", "NF_PAC_REC", "NPAC_RET", "PAC_RET", "PAR_RET"]
 list_SB_similar_OP_EXP_transactionTypeCode = ["OP_EXP",]
-list_SB_similar_INK_OUT_transactionTypeCode = ["INK_OUT", "INKB_OUT"]
+list_SB_similar_INK_OUT_transactionTypeCode = ["IK_OUT", "IK_BC_OUT"]
 list_SB_similar_EAR_OUT_transactionTypeCode = ["EAR_OUT", "EAR_OUTM", "EAR_OUTNM", "EAR_OUTM_PAC", "EAR_OUTNMPAC"]
 list_SB_similar_INK_OUT_PTY_transactionTypeCode = ["INK_OUT_PTY", "INK_OUT_PAC"]
 list_f3x_total = list_SA_similar_INDV_REC_transactionTypeCode + list_SA_similar_PAR_CON_transactionTypeCode + list_SB_similar_OP_EXP_transactionTypeCode + list_SB_similar_INK_OUT_transactionTypeCode + list_SB_similar_EAR_OUT_transactionTypeCode + list_SA_similar_EAR_MEMO_transactionTypeCode + list_SA_similar_COND_EAR_PAC_transactionTypeCode + list_SB_similar_INK_OUT_PTY_transactionTypeCode
 
 list_f3x_schedules = ['SA','SB']
-dict_parent_child_association = {"PAR_CON":["PAR_MEMO"], "INK_REC":["INK_OUT"], "INKB_REC":["INKB_OUT"], "REATT":["REATT_MEMO"], "EAR_REC":["EAR_MEMO"], "COND_EARU":["EAR_OUTM"], "COND_EARD":["EAR_OUTNM"], "COND_E_PACU":["EAR_OUTM_PAC"], "COND_E_PACD":["EAR_OUTNMPAC"], "EAR_REC_PAC":["EAR_MEMO_PAC"], "INK_REC_PTY":["INK_OUT_PTY"], "INK_REC_PAC":["INK_OUT_PAC"]}
+dict_parent_child_association = {"PAR_CON":["PAR_MEMO"], "IK_REC":["IK_OUT"], "IK_BC_REC":["IK_BC_OUT"], "REATT_FROM":["REATT_TO"], "EAR_REC":["EAR_MEMO"], "COND_EARU":["EAR_OUTM"], "COND_EARD":["EAR_OUTNM"], "COND_E_PACU":["EAR_OUTM_PAC"], "COND_E_PACD":["EAR_OUTNMPAC"], "EAR_REC_PAC":["EAR_MEMO_PAC"], "INK_REC_PTY":["INK_OUT_PTY"], "INK_REC_PAC":["INK_OUT_PAC"]}
 
 """
 ************************************************* Functions to check if fields exist in JSON *******************************************************************
