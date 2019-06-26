@@ -80,7 +80,7 @@ def numeric(value):
 
 def amount(value):
     try:
-        return not bool(re.match('^[0-9.]+$', value))
+        return not bool(re.match('^-?[0-9.]+$', value))
     except Exception as e:
         raise Exception('amount function is throwing an error: ' + str(e))
 
