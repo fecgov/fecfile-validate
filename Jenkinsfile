@@ -62,15 +62,13 @@ def deployImage(String version, String toEnv) {
       set image deployment/fecfile-validate \
       fecfile-validate=813218302951.dkr.ecr.us-east-1.amazonaws.com/fecfile-validate:${version}
    """
-   if ( toEnv == "dev" || toEnv == "qa" ){
-     sh """
-       kubectl \
-         --context=arn:aws:eks:us-east-1:813218302951:cluster/fecfile4 \
-         --namespace=${toEnv} \
-         set image deployment/fecfile-validate \
-         fecfile-validate=813218302951.dkr.ecr.us-east-1.amazonaws.com/fecfile-validate:${version}
+   sh """
+     kubectl \
+       --context=arn:aws:eks:us-east-1:813218302951:cluster/fecfile4 \
+       --namespace=${toEnv} \
+       set image deployment/fecfile-validate \
+       fecfile-validate=813218302951.dkr.ecr.us-east-1.amazonaws.com/fecfile-validate:${version}
    """
-   }
 }
 
 def code_quality(String id, String hash) {
