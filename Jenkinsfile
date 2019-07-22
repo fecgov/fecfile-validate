@@ -56,13 +56,6 @@ pipeline {
 
 def deployImage(String version, String toEnv) {
    sh """
-    kubectl \
-      --context=arn:aws:eks:us-east-1:813218302951:cluster/fecfile \
-      --namespace=${toEnv} \
-      set image deployment/fecfile-validate \
-      fecfile-validate=813218302951.dkr.ecr.us-east-1.amazonaws.com/fecfile-validate:${version}
-   """
-   sh """
      kubectl \
        --context=arn:aws:eks:us-east-1:813218302951:cluster/fecfile4 \
        --namespace=${toEnv} \
