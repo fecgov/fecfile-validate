@@ -11,20 +11,20 @@ app = Flask(__name__)
 ************************************************* GLOBAL LISTS used *******************************************************************************************
 """
 
-list_SA_similar_INDV_REC_transactionTypeCode = ["INDV_REC", "PAR_MEMO", "IK_REC", "IK_BC_REC", "REATT_FROM", "REATT_TO", "RET_REC", "EAR_REC", "COND_EARU", "COND_EARD", "IND_RECNT", "IND_NP_RECNT", "IND_HQ_ACCNT", "IND_CO_ACCNT", "IND_CAREY"]
-list_SA_similar_PAR_CON_transactionTypeCode = ["PAR_CON", "TRIB_REC", "TRI_NP_RCNT", "TRI_HQ_ACCNT", "TRI_CO_ACCNT", "BU_LAB_CAREY"]
+list_SA_similar_INDV_REC_transactionTypeCode = ["INDV_REC", "PAR_MEMO", "IK_REC", "IK_BC_REC", "REATT_FROM", "REATT_TO", "RET_REC", "EAR_REC", "COND_EARU", "COND_EARD", "IND_RECNT", "IND_NP_RECNT", "IND_HQ_ACCNT", "IND_CO_ACCNT", "IND_CAREY", "IND_JF_MEM", "IND_JF_R_MEM", "IND_JF_C_MEM", "IND_JF_H_MEM"]
+list_SA_similar_PAR_CON_transactionTypeCode = ["PAR_CON", "TRIB_REC", "TRI_NP_RCNT", "TRI_HQ_ACCNT", "TRI_CO_ACCNT", "BU_LAB_CAREY", "TRI_JF_MEM", "TRI_JF_R_MEM", "TRI_JF_C_MEM", "TRI_JF_H_MEM"]
 list_SA_similar_EAR_MEMO_transactionTypeCode = ["EAR_MEMO"]
-list_SA_similar_COND_EARM_PAC_transactionTypeCode = ["COND_E_PACU", "COND_E_PACD", "EAR_REC_PAC", "EAR_MEMO_PAC", "INK_REC_PTY", "INK_REC_PAC", "PTY_REC", "PAC_REC", "NF_PAC_REC", "NPAC_RET", "PAC_RET", "PAR_RET", "TRAN", "REF_FED_CAN", "PTY_RCNT", "PAC_RCNT", "TRI_RCNT", "PTY_NP_RCNT", "PAC_NP_RCNT", "PTY_HQ_ACCNT", "PAC_HQ_ACCNT", "PTY_CO_ACCNT", "PAC_CO_ACCNT", "OT_COM_CAREY", "IK_TRAN","IK_TRAN_FEA" ]
+list_SA_similar_COND_EARM_PAC_transactionTypeCode = ["COND_E_PACU", "COND_E_PACD", "EAR_REC_PAC", "EAR_MEMO_PAC", "IK_REC_PTY", "IK_REC_PAC", "PTY_REC", "PAC_REC", "NF_PAC_REC", "NPAC_RET", "PAC_RET", "PAR_RET", "TRAN", "REF_FED_CAN", "PTY_RCNT", "PAC_RCNT", "TRI_RCNT", "PTY_NP_RCNT", "PAC_NP_RCNT", "PTY_HQ_ACCNT", "PAC_HQ_ACCNT", "PTY_CO_ACCNT", "PAC_CO_ACCNT", "OT_COM_CAREY", "IK_TRAN","IK_TRAN_FEA", "JF_TRAN", "PTY_JF_MEM", "PAC_JF_MEM", "JF_TRAN_R", "PAC_JF_R_MEM", "JF_TRAN_C", "PAC_JF_C_MEM", "JF_TRAN_H", "PAC_JF_H_MEM"]
 list_SA_similar_OFFSET = ["OFFSET", "OTH_REC"]
 list_SA_similar_REF_NFED_CAN = ["REF_NFED_CAN"]
 list_SB_similar_OP_EXP_transactionTypeCode = ["OP_EXP",]
 list_SB_similar_INK_OUT_transactionTypeCode = ["IK_OUT", "IK_BC_OUT", "IK_TF_OUT", "IK_OUT_FEA"]
 list_SB_similar_EAR_OUT_transactionTypeCode = ["EAR_OUT", "EAR_OUTM", "EAR_OUTNM", "EAR_OUTM_PAC", "EAR_OUTNMPAC"]
-list_SB_similar_INK_OUT_PTY_transactionTypeCode = ["INK_OUT_PTY", "INK_OUT_PAC"]
+list_SB_similar_INK_OUT_PTY_transactionTypeCode = ["IK_OUT_PTY", "IK_OUT_PAC"]
 list_f3x_total = list_SA_similar_INDV_REC_transactionTypeCode + list_SA_similar_PAR_CON_transactionTypeCode + list_SB_similar_OP_EXP_transactionTypeCode + list_SB_similar_INK_OUT_transactionTypeCode + list_SB_similar_EAR_OUT_transactionTypeCode + list_SA_similar_EAR_MEMO_transactionTypeCode + list_SA_similar_COND_EARM_PAC_transactionTypeCode + list_SB_similar_INK_OUT_PTY_transactionTypeCode + list_SA_similar_OFFSET + list_SA_similar_REF_NFED_CAN
 
 list_f3x_schedules = ['SA','SB']
-dict_parent_child_association = {"PAR_CON":["PAR_MEMO"], "IK_REC":["IK_OUT"], "IK_BC_REC":["IK_BC_OUT"], "REATT_FROM":["REATT_TO"], "EAR_REC":["EAR_MEMO"], "COND_EARU":["EAR_OUTM"], "COND_EARD":["EAR_OUTNM"], "COND_E_PACU":["EAR_OUTM_PAC"], "COND_E_PACD":["EAR_OUTNMPAC"], "EAR_REC_PAC":["EAR_MEMO_PAC"], "INK_REC_PTY":["INK_OUT_PTY"], "INK_REC_PAC":["INK_OUT_PAC"], "IK_TRAN":["IK_TF_OUT"], "IK_TRAN_FEA":["IK_OUT_FEA"]}
+dict_parent_child_association = {"PAR_CON":["PAR_MEMO"], "IK_REC":["IK_OUT"], "IK_BC_REC":["IK_BC_OUT"], "REATT_FROM":["REATT_TO"], "EAR_REC":["EAR_MEMO"], "COND_EARU":["EAR_OUTM"], "COND_EARD":["EAR_OUTNM"], "COND_E_PACU":["EAR_OUTM_PAC"], "COND_E_PACD":["EAR_OUTNMPAC"], "EAR_REC_PAC":["EAR_MEMO_PAC"], "IK_REC_PTY":["IK_OUT_PTY"], "IK_REC_PAC":["IK_OUT_PAC"], "IK_TRAN":["IK_TF_OUT"], "IK_TRAN_FEA":["IK_OUT_FEA"], "JF_TRAN":["IND_JF_MEM", "PTY_JF_MEM", "PAC_JF_MEM", "TRI_JF_MEM"], "JF_TRAN_R":["IND_JF_R_MEM", "PAC_JF_R_MEM", "TRI_JF_R_MEM"], "JF_TRAN_C":["IND_JF_C_MEM", "PAC_JF_C_MEM", "TRI_JF_C_MEM"], "JF_TRAN_H":["IND_JF_H_MEM", "PAC_JF_H_MEM", "TRI_JF_H_MEM"]}
 
 """
 ************************************************* Functions to check if fields exist in JSON *******************************************************************
