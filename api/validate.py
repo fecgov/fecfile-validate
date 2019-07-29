@@ -17,10 +17,12 @@ list_SA_similar_EAR_MEMO_transactionTypeCode = ["EAR_MEMO"]
 list_SA_similar_COND_EARM_PAC_transactionTypeCode = ["COND_E_PACU", "COND_E_PACD", "EAR_REC_PAC", "EAR_MEMO_PAC", "IK_REC_PTY", "IK_REC_PAC", "PTY_REC", "PAC_REC", "NF_PAC_REC", "NPAC_RET", "PAC_RET", "PAR_RET", "TRAN", "REF_FED_CAN", "PTY_RCNT", "PAC_RCNT", "TRI_RCNT", "PTY_NP_RCNT", "PAC_NP_RCNT", "PTY_HQ_ACCNT", "PAC_HQ_ACCNT", "PTY_CO_ACCNT", "PAC_CO_ACCNT", "OT_COM_CAREY", "IK_TRAN","IK_TRAN_FEA", "JF_TRAN", "PTY_JF_MEM", "PAC_JF_MEM", "JF_TRAN_R", "PAC_JF_R_MEM", "JF_TRAN_C", "PAC_JF_C_MEM", "JF_TRAN_H", "PAC_JF_H_MEM"]
 list_SA_similar_OFFSET = ["OFFSET", "OTH_REC"]
 list_SA_similar_REF_NFED_CAN = ["REF_NFED_CAN"]
-list_SB_similar_OP_EXP_transactionTypeCode = ["OP_EXP",]
+
+list_SB_similar_OP_EXP_transactionTypeCode = ["OP_EXP", "HQ_ACC_DIS", "CO_ACC_DIS"]
 list_SB_similar_INK_OUT_transactionTypeCode = ["IK_OUT", "IK_BC_OUT", "IK_TF_OUT", "IK_OUT_FEA"]
 list_SB_similar_EAR_OUT_transactionTypeCode = ["EAR_OUT", "EAR_OUTM", "EAR_OUTNM", "EAR_OUTM_PAC", "EAR_OUTNMPAC"]
 list_SB_similar_INK_OUT_PTY_transactionTypeCode = ["IK_OUT_PTY", "IK_OUT_PAC"]
+
 list_f3x_total = list_SA_similar_INDV_REC_transactionTypeCode + list_SA_similar_PAR_CON_transactionTypeCode + list_SB_similar_OP_EXP_transactionTypeCode + list_SB_similar_INK_OUT_transactionTypeCode + list_SB_similar_EAR_OUT_transactionTypeCode + list_SA_similar_EAR_MEMO_transactionTypeCode + list_SA_similar_COND_EARM_PAC_transactionTypeCode + list_SB_similar_INK_OUT_PTY_transactionTypeCode + list_SA_similar_OFFSET + list_SA_similar_REF_NFED_CAN
 
 list_f3x_schedules = ['SA','SB']
@@ -165,7 +167,6 @@ def func_validate(field_lists, data):
                     if amount(data.get(field_list[0])):
                         str_output = field_list[0] + str_field_not_in_format + field_list[1]
                         temp_list.append(str_output)
-
                 if len(data.get(field_list[0])) > int(field_list[2]):
                     str_output = field_list[0] + str_field_not_length + field_list[2]
                     temp_list.append(str_output)
@@ -281,6 +282,20 @@ def func_json_validate(data):
                                     output['errors'].append(dict_temp)
                                 else:
                                     output['warnings'].append(dict_temp)
+            # Code to check if there are any additional fields in the data apart from the format specs and throwing an error if there are such fields. 
+            # This has to be uncommented once JSON builder is implemented based on this logic.
+            # for key, value in data.items():
+            #     check_flag = True
+            #     for rule in rules:
+            #         for field_name in rule:
+            #             if key == field_name:
+            #                 check_flag = False
+            #     if check_flag:
+            #         message = key + " field is not expected for this transaction type code: " + data.get('transactionTypeCode')
+            #         message_type = "error"
+            #         field_dict_temp = error_json_template(message_type, message, key, "none", transaction_id)
+            #         output['errors'].append(field_dict_temp)
+
         return output
     except Exception as e:
         raise Exception('func_json_validate function is throwing an error: ' + str(e))
@@ -365,7 +380,6 @@ def validate():
             list_parent= []
             for parent, child in dict_parent_child_association.items():
                 list_parent.append(parent)
-                # list_child.extend(child)
             for schedule_list in list_f3x_schedules: 
                 if 'schedules' in data.get('data') and data.get('data').get('schedules'):
                     if schedule_list in data.get('data').get('schedules') and data.get('data').get('schedules').get(schedule_list):

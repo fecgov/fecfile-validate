@@ -167,14 +167,6 @@
 					"additional_validation_value": "",
 					"additional_validation_operator": ""
 					}},
-	{"categoryCode": {"field_type": "A/N",
-					"field_size": "3",
-					"message_type": "none",
-					"value_check": ["001", "002", "003", "004", "005", "006", "007", "008", "009", "010", "011", "012", "101", "102", "103", "104", "105", "106", "107"],
-					"additional_validation_key": "",
-					"additional_validation_value": "",
-					"additional_validation_operator": ""
-					}},
 	{"memoCode": {"field_type": "A/N",
 					"field_size": "1",
 					"message_type": "none",
