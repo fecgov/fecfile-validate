@@ -161,7 +161,7 @@
 					}},
 	{"expenditurePurposeDescription": {"field_type": "A/N",
 					"field_size": "100",
-					"message_type": "none",
+					"message_type": "error",
 					"value_check": [],
 					"additional_validation_key": "",
 					"additional_validation_value": "",
