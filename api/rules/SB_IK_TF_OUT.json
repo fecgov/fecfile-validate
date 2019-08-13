@@ -1,20 +1,4 @@
 [
-	{"formType": {"field_type": "A/N",
-				"field_size": "8",
-				"message_type": "error",
-				"value_check": [],
-				"additional_validation_key": "",
-				"additional_validation_value": "",
-				"additional_validation_operator": ""
-				}},	
-	{"committeeId": {"field_type": "A/N",
-					"field_size": "9",
-					"message_type": "error",
-					"value_check": [],
-					"additional_validation_key": "",
-					"additional_validation_value": "",
-					"additional_validation_operator": ""
-					}},
 	{"transactionTypeCode": {"field_type": "A/N",
 					"field_size": "12",
 					"message_type": "error",
@@ -55,15 +39,15 @@
 					"additional_validation_value": "",
 					"additional_validation_operator": ""
 					}},
-	{"contributorOrgName": {"field_type": "A/N",
+	{"payeeOrgName": {"field_type": "A/N",
 					"field_size": "200",
 					"message_type": "error",
 					"value_check": [],
 					"additional_validation_key": "",
-					"additional_validation_value": "",
+					"additional_validation_value": [],
 					"additional_validation_operator": ""
 					}},
-	{"contributorStreet1": {"field_type": "A/N",
+	{"payeeStreet1": {"field_type": "A/N",
 					"field_size": "34",
 					"message_type": "error",
 					"value_check": [],
@@ -71,7 +55,7 @@
 					"additional_validation_value": "",
 					"additional_validation_operator": ""
 					}},
-	{"contributorStreet2": {"field_type": "A/N",
+	{"payeeStreet2": {"field_type": "A/N",
 					"field_size": "34",
 					"message_type": "none",
 					"value_check": [],
@@ -79,7 +63,7 @@
 					"additional_validation_value": "",
 					"additional_validation_operator": ""
 					}},
-	{"contributorCity": {"field_type": "A/N",
+	{"payeeCity": {"field_type": "A/N",
 					"field_size": "30",
 					"message_type": "error",
 					"value_check": [],
@@ -87,7 +71,7 @@
 					"additional_validation_value": "",
 					"additional_validation_operator": ""
 					}},
-	{"contributorState": {"field_type": "A/N",
+	{"payeeState": {"field_type": "A/N",
 					"field_size": "2",
 					"message_type": "error",
 					"value_check": [],
@@ -95,7 +79,7 @@
 					"additional_validation_value": "",
 					"additional_validation_operator": ""
 					}},
-	{"contributorZip": {"field_type": "A/N",
+	{"payeeZip": {"field_type": "A/N",
 					"field_size": "9",
 					"message_type": "error",
 					"value_check": [],
@@ -103,7 +87,7 @@
 					"additional_validation_value": "",
 					"additional_validation_operator": ""
 					}},
-	{"contributionDate": {"field_type": "NUM",
+	{"expenditureDate": {"field_type": "NUM",
 					"field_size": "8",
 					"message_type": "error",
 					"value_check": [],
@@ -111,7 +95,7 @@
 					"additional_validation_value": "",
 					"additional_validation_operator": ""
 					}},
-	{"contributionAmount": {"field_type": "AMT",
+	{"expenditureAmount": {"field_type": "AMT",
 					"field_size": "12",
 					"message_type": "error",
 					"value_check": [],
@@ -119,18 +103,18 @@
 					"additional_validation_value": "",
 					"additional_validation_operator": ""
 					}},
-	{"contributionAggregate": {"field_type": "AMT",
-					"field_size": "12",
-					"message_type": "error",
-					"value_check": [],
-					"additional_validation_key": "",
-					"additional_validation_value": "",
-					"additional_validation_operator": ""
-					}},
-	{"contributionPurposeDescription": {"field_type": "A/N",
+	{"expenditurePurposeDescription": {"field_type": "A/N",
 					"field_size": "100",
-					"message_type": "error",
+					"message_type": "none",
 					"value_check": [],
+					"additional_validation_key": "",
+					"additional_validation_value": "",
+					"additional_validation_operator": ""
+					}},
+	{"categoryCode": {"field_type": "A/N",
+					"field_size": "3",
+					"message_type": "none",
+					"value_check": ["001", "002", "003", "004", "005", "006", "007", "008", "009", "010", "011", "012", "101", "102", "103", "104", "105", "106", "107"],
 					"additional_validation_key": "",
 					"additional_validation_value": "",
 					"additional_validation_operator": ""
