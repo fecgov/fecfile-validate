@@ -87,8 +87,8 @@
 					"additional_validation_value": "",
 					"additional_validation_operator": ""
 					}},
-	{"expenditureDate": {"field_type": "NUM",
-					"field_size": "8",
+	{"expenditureDate": {"field_type": "DATE",
+					"field_size": "10",
 					"message_type": "error",
 					"value_check": [],
 					"additional_validation_key": "",

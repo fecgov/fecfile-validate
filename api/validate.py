@@ -10,23 +10,46 @@ app = Flask(__name__)
 """
 ************************************************* GLOBAL LISTS used *******************************************************************************************
 """
+EXCLUDED_FROM_FIELD_CHECK = ['lineNumber', 'transactionTypeIdentifier', 'child']
 
-list_SA_similar_INDV_REC_transactionTypeCode = ["INDV_REC", "PAR_MEMO", "IK_REC", "REATT_FROM", "REATT_TO", "RET_REC", "EAR_REC", "COND_EARU", "COND_EARD", "IND_RECNT", "IND_NP_RECNT", "IND_HQ_ACCNT", "IND_CO_ACCNT", "IND_CAREY", "IND_JF_MEM", "IND_JF_R_MEM", "IND_JF_C_MEM", "IND_JF_H_MEM", "EAR_MEM_RECT", "EAR_REC_CONV", "EAR_REC_HQ"]
-list_SA_similar_PAR_CON_transactionTypeCode = ["PAR_CON", "TRIB_REC", "TRI_NP_RCNT", "TRI_HQ_ACCNT", "TRI_CO_ACCNT", "BU_LAB_CAREY", "TRI_JF_MEM", "TRI_JF_R_MEM", "TRI_JF_C_MEM", "TRI_JF_H_MEM"]
-list_SA_similar_EAR_MEMO_transactionTypeCode = ["EAR_MEMO"]
-list_SA_similar_COND_EARM_PAC_transactionTypeCode = ["COND_E_PACU", "COND_E_PACD", "EAR_REC_PAC", "EAR_MEMO_PAC", "IK_REC_PTY", "IK_REC_PAC", "PTY_REC", "PAC_REC", "NF_PAC_REC", "NPAC_RET", "PAC_RET", "PAR_RET", "TRAN", "REF_FED_CAN", "PTY_RCNT", "PAC_RCNT", "TRI_RCNT", "PTY_NP_RCNT", "PAC_NP_RCNT", "PTY_HQ_ACCNT", "PAC_HQ_ACCNT", "PTY_CO_ACCNT", "PAC_CO_ACCNT", "OT_COM_CAREY", "IK_TRAN","IK_TRAN_FEA", "JF_TRAN", "PTY_JF_MEM", "PAC_JF_MEM", "JF_TRAN_R", "PAC_JF_R_MEM", "JF_TRAN_C", "PAC_JF_C_MEM", "JF_TRAN_H", "PAC_JF_H_MEM","EAR_REC_RECT", "EAR_MEM_CONV", "EAR_MEM_HQ"]
-list_SA_similar_OFFSET = ["OFFSET", "OTH_REC"]
-list_SA_similar_REF_NFED_CAN = ["REF_NFED_CAN"]
+list_SA_similar_INDV_REC = ["INDV_REC", "PARTN_MEMO", "IK_REC", "REATT_FROM", "REATT_MEMO", "RET_REC", "EAR_REC",
+                            "CON_EAR_UNDEP", "CON_EAR_DEP", "IND_RECNT_REC", "IND_NP_RECNT_ACC", "IND_NP_HQ_ACC", "IND_NP_CONVEN_ACC",
+                            "IND_REC_NON_CONT_ACC", "JF_TRAN_IND_MEMO", "JF_TRAN_NP_RECNT_IND_MEMO", "JF_TRAN_NP_CONVEN_IND_MEMO", 
+                            "JF_TRAN_NP_HQ_IND_MEMO", "EAR_REC_RECNT_ACC", "EAR_REC_CONVEN_ACC", "EAR_REC_HQ_ACC"]
+list_SA_similar_PAR_CON = ["PARTN_REC", "TRIB_REC", "TRIB_NP_RECNT_ACC", "TRIB_NP_HQ_ACC", "TRIB_NP_CONVEN_ACC", 
+                            "BUS_LAB_NON_CONT_ACC", "JF_TRAN_TRIB_MEMO", "JF_TRAN_NP_RECNT_TRIB_MEMO", "JF_TRAN_NP_CONVEN_TRIB_MEMO", 
+                            "JF_TRAN_NP_HQ_TRIB_MEMO"]
+list_SA_similar_COND_EARM_PAC = ["EAR_MEMO", "PAC_CON_EAR_UNDEP", "PAC_CON_EAR_DEP", "PAC_EAR_REC", "PAC_EAR_MEMO", "PARTY_IK_REC", "PAC_IK_REC", "PARTY_REC", 
+                                "PAC_REC", "PAC_NON_FED_REC", "PAC_NON_FED_RET", "PAC_RET", "PARTY_RET", "TRAN", "PARTY_RECNT_REC", "PAC_RECNT_REC", 
+                                "TRIB_RECNT_REC", "PARTY_NP_RECNT_ACC", "PAC_NP_RECNT_ACC", 
+                                "PARTY_NP_HQ_ACC", "PAC_NP_HQ_ACC", "PARTY_NP_CONVEN_ACC", "PAC_NP_CONVEN_ACC", "OTH_CMTE_NON_CONT_ACC", "IK_TRAN","IK_TRAN_FEA", 
+                                "JF_TRAN", "JF_TRAN_PARTY_MEMO", "JF_TRAN_PAC_MEMO", 
+                                "JF_TRAN_NP_RECNT_ACC", "JF_TRAN_NP_RECNT_PAC_MEMO", "JF_TRAN_NP_CONVEN_ACC", "JF_TRAN_NP_CONVEN_PAC_MEMO", "JF_TRAN_NP_HQ_ACC", 
+                                "JF_TRAN_NP_HQ_PAC_MEMO", "EAR_REC_RECNT_ACC_MEMO", "EAR_REC_CONVEN_ACC_MEMO", "EAR_REC_HQ_ACC_MEMO"]
+list_SA_similar_OFFSET = ["OFFSET_TO_OPEX"]
+list_SA_similar_OTH_REC = ["OTH_REC"] 
+list_SA_similar_REF_NFED_CAN = ["REF_TO_OTH_CMTE"]
+list_SA_similar_REF_FED_CAN = ["REF_TO_FED_CAN"]
 
-list_SB_similar_OP_EXP_transactionTypeCode = ["OP_EXP", "HQ_ACC_DIS", "CO_ACC_DIS"]
-list_SB_similar_INK_OUT_transactionTypeCode = ["IK_OUT", "IK_TF_OUT", "IK_OUT_FEA"]
-list_SB_similar_EAR_OUT_transactionTypeCode = ["EAR_OUT", "EAR_OUTM", "EAR_OUTNM", "EAR_OUTM_PAC", "EAR_OUTNMPAC"]
-list_SB_similar_INK_OUT_PTY_transactionTypeCode = ["IK_OUT_PTY", "IK_OUT_PAC"]
-
+list_SB_similar_OP_EXP = ["OPEXP", "HQ_ACC_DIS", "CO_ACC_DIS"]
+list_SB_similar_IK_OUT = ["IK_OUT"]
+list_SB_similar_IK_TF_OUT = ["IK_TRAN_OUT", "IK_TRAN_FEA_OUT"]
+list_SB_similar_EAR_OUT = ["CON_EAR_UNDEP_MEMO", "CON_EAR_DEP_MEMO", "PAC_CON_EAR_UNDEP_MEMO", "PAC_CON_EAR_DEP_OUT"]
+list_SB_similar_IK_OUT_PTY = ["PARTY_IK_OUT", "PAC_IK_OUT"]
 list_f3x_total = list_SA_similar_INDV_REC + list_SA_similar_PAR_CON + list_SB_similar_OP_EXP + list_SB_similar_IK_OUT + list_SB_similar_IK_TF_OUT + list_SB_similar_EAR_OUT + list_SA_similar_COND_EARM_PAC + list_SB_similar_IK_OUT_PTY + list_SA_similar_OFFSET + list_SA_similar_OTH_REC + list_SA_similar_REF_NFED_CAN + list_SA_similar_REF_FED_CAN
 
 list_f3x_schedules = ['SA','SB']
-dict_parent_child_association = {"PAR_CON":["PAR_MEMO"], "IK_REC":["IK_OUT"], "REATT_FROM":["REATT_TO"], "EAR_REC":["EAR_MEMO"], "COND_EARU":["EAR_OUTM"], "COND_EARD":["EAR_OUTNM"], "COND_E_PACU":["EAR_OUTM_PAC"], "COND_E_PACD":["EAR_OUTNMPAC"], "EAR_REC_PAC":["EAR_MEMO_PAC"], "IK_REC_PTY":["IK_OUT_PTY"], "IK_REC_PAC":["IK_OUT_PAC"], "IK_TRAN":["IK_TF_OUT"], "IK_TRAN_FEA":["IK_OUT_FEA"], "JF_TRAN":["IND_JF_MEM", "PTY_JF_MEM", "PAC_JF_MEM", "TRI_JF_MEM"], "JF_TRAN_R":["IND_JF_R_MEM", "PAC_JF_R_MEM", "TRI_JF_R_MEM"], "JF_TRAN_C":["IND_JF_C_MEM", "PAC_JF_C_MEM", "TRI_JF_C_MEM"], "JF_TRAN_H":["IND_JF_H_MEM", "PAC_JF_H_MEM", "TRI_JF_H_MEM"], "EAR_REC_RECT":["EAR_MEM_RECT"], "EAR_REC_CONV":["EAR_MEM_CONV"], "EAR_REC_HQ":["EAR_MEM_HQ"]}
+dict_parent_child_association = {
+                            "PARTN_REC":["PARTN_MEMO"], "IK_REC":["IK_OUT"], "REATT_FROM":["REATT_MEMO"], "EAR_REC":["EAR_MEMO"], "CON_EAR_DEP":["CON_EAR_DEP_MEMO"], 
+                            "CON_EAR_UNDEP":["CON_EAR_UNDEP_MEMO"], "PARTY_IK_REC":["PARTY_IK_OUT"], 
+                            "PAC_IK_REC":["PAC_IK_OUT"], "PAC_CON_EAR_DEP":["PAC_CON_EAR_DEP_OUT"], "PAC_CON_EAR_UNDEP":["PAC_CON_EAR_UNDEP_MEMO"], 
+                            "PAC_EAR_REC":["PAC_EAR_MEMO"], "JF_TRAN":["JF_TRAN_PAC_MEMO", "JF_TRAN_IND_MEMO", "JF_TRAN_PARTY_MEMO", "JF_TRAN_TRIB_MEMO"], 
+                            "IK_TRAN":["IK_TRAN_OUT"], "IK_TRAN_FEA":["IK_TRAN_FEA_OUT"], 
+                            "JF_TRAN_NP_RECNT_ACC":["JF_TRAN_NP_RECNT_TRIB_MEMO", "JF_TRAN_NP_RECNT_IND_MEMO", "JF_TRAN_NP_RECNT_PAC_MEMO"], 
+                            "JF_TRAN_NP_CONVEN_ACC":["JF_TRAN_NP_CONVEN_TRIB_MEMO", "JF_TRAN_NP_CONVEN_PAC_MEMO", "JF_TRAN_NP_CONVEN_IND_MEMO"], 
+                            "JF_TRAN_NP_HQ_ACC":["JF_TRAN_NP_HQ_IND_MEMO", "JF_TRAN_NP_HQ_TRIB_MEMO", "JF_TRAN_NP_HQ_PAC_MEMO"], 
+                            "EAR_REC_RECNT_ACC":["EAR_REC_RECNT_ACC_MEMO"], "EAR_REC_CONVEN_ACC":["EAR_REC_CONVEN_ACC_MEMO"], "EAR_REC_HQ_ACC":["EAR_REC_HQ_ACC_MEMO"],
+                            }
 
 """
 ************************************************* Functions to check if fields exist in JSON *******************************************************************
@@ -81,9 +104,15 @@ def numeric(value):
 
 def amount(value):
     try:
-        return not bool(re.match('^-?[0-9.]+$', value))
+        return not bool(re.match('^-?[0-9.]+$', str(value)))
     except Exception as e:
         raise Exception('amount function is throwing an error: ' + str(e))
+
+def date_check(value):
+    try:
+        return not bool(re.match('^-?[0-9/]+$', str(value)))
+    except Exception as e:
+        raise Exception('amount function is throwing an error: ' + str(e))    
 
 """
 ************************************************* Function used to find the file based on the transactionTypeIdentifier *******************************************************************
@@ -100,7 +129,7 @@ def json_file_name(transactionTypeIdentifier):
             file_name += 'SB_OP_EXP.json'
         elif transactionTypeIdentifier in list_SB_similar_IK_OUT:
             file_name += 'SB_IK_OUT.json'
-        elif transactionTypeIdentifier in list_SB_similar_IK_TF_OUT
+        elif transactionTypeIdentifier in list_SB_similar_IK_TF_OUT:
             file_name += 'SB_IK_TF_OUT.json'
         elif transactionTypeIdentifier in list_SB_similar_EAR_OUT:
             file_name += 'SB_EARM_OUT.json'
@@ -227,6 +256,9 @@ def func_json_validate(data):
                         if field_rule.get('field_type') == 'AMT':
                             if amount(data.get(field_name)):
                                 type_error_flag = True
+                        if field_rule.get('field_type') == 'DATE':
+                            if date_check(data.get(field_name)):
+                                type_error_flag = True
 
                         if type_error_flag:
                             if field_name == 'transactionId':
@@ -245,7 +277,7 @@ def func_json_validate(data):
                                 dict_temp = error_json_template(message_type, message, field_name, data.get(field_name), transaction_id)
                                 output['errors'].append(dict_temp)
 
-                        if len(data.get(field_name)) > int(field_rule.get('field_size')):
+                        if len(str(data.get(field_name))) > int(field_rule.get('field_size')):
                             message = field_name + " field has "+ str(len(data.get(field_name))) + " characters. Maximum expected characters are " + field_rule.get('field_size')
                             message_type = "error"
                             dict_temp = error_json_template(message_type, message, field_name, data.get(field_name), transaction_id)
@@ -294,17 +326,19 @@ def func_json_validate(data):
                                     output['warnings'].append(dict_temp)
             # Code to check if there are any additional fields in the data apart from the format specs and throwing an error if there are such fields. 
             # This has to be uncommented once JSON builder is implemented based on this logic.
-            # for key, value in data.items():
-            #     check_flag = True
-            #     for rule in rules:
-            #         for field_name in rule:
-            #             if key == field_name:
-            #                 check_flag = False
-            #     if check_flag:
-            #         message = key + " field is not expected for this transaction type code: " + data.get('transactionTypeIdentifier')
-            #         message_type = "error"
-            #         field_dict_temp = error_json_template(message_type, message, key, "none", transaction_id)
-            #         output['errors'].append(field_dict_temp)
+            for key, value in data.items():
+                check_flag = True
+                for rule in rules:
+                    for field_name in rule:
+                        if key == field_name or key in EXCLUDED_FROM_FIELD_CHECK:
+                            check_flag = False
+                    if not check_flag:
+                        break
+                if check_flag:
+                    message = key + " field is not expected for this transaction type code: " + data.get('transactionTypeIdentifier')
+                    message_type = "error"
+                    field_dict_temp = error_json_template(message_type, message, key, "none", transaction_id)
+                    output['errors'].append(field_dict_temp)
 
         return output
     except Exception as e:
