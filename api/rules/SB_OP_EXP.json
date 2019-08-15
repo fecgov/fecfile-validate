@@ -119,7 +119,7 @@
 					"additional_validation_value": "",
 					"additional_validation_operator": ""
 					}},
-	{"payeeZip": {"field_type": "A/N",
+	{"payeeZipCode": {"field_type": "A/N",
 					"field_size": "9",
 					"message_type": "error",
 					"value_check": [],
