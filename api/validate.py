@@ -31,24 +31,51 @@ list_SA_similar_OTH_REC = ["OTH_REC"]
 list_SA_similar_REF_NFED_CAN = ["REF_TO_OTH_CMTE"]
 list_SA_similar_REF_FED_CAN = ["REF_TO_FED_CAN"]
 
-list_SB_similar_OP_EXP = ["OPEXP", "HQ_ACC_DIS", "CO_ACC_DIS"]
 list_SB_similar_IK_OUT = ["IK_OUT"]
 list_SB_similar_IK_TF_OUT = ["IK_TRAN_OUT", "IK_TRAN_FEA_OUT"]
 list_SB_similar_EAR_OUT = ["CON_EAR_UNDEP_MEMO", "CON_EAR_DEP_MEMO", "PAC_CON_EAR_UNDEP_MEMO", "PAC_CON_EAR_DEP_OUT"]
 list_SB_similar_IK_OUT_PTY = ["PARTY_IK_OUT", "PAC_IK_OUT"]
-list_f3x_total = list_SA_similar_INDV_REC + list_SA_similar_PAR_CON + list_SB_similar_OP_EXP + list_SB_similar_IK_OUT + list_SB_similar_IK_TF_OUT + list_SB_similar_EAR_OUT + list_SA_similar_COND_EARM_PAC + list_SB_similar_IK_OUT_PTY + list_SA_similar_OFFSET + list_SA_similar_OTH_REC + list_SA_similar_REF_NFED_CAN + list_SA_similar_REF_FED_CAN
+
+list_SB_similar_OPEX_REC = ['OPEXP', 'OPEXP_CC_PAY_MEMO', 'OPEXP_STAF_REIM', 'OPEXP_STAF_REIM_MEMO', 'OPEXP_PMT_TO_PROL_VOID', 'OTH_DISB', 
+                'OTH_DISB_CC_PAY_MEMO', 'OTH_DISB_STAF_REIM', 'OTH_DISB_STAF_REIM_MEMO', 'OPEXP_HQ_ACC_OP_EXP_NP', 
+                'OPEXP_CONV_ACC_OP_EXP_NP', 'OTH_DISB_NC_ACC', 'OTH_DISB_NC_ACC_CC_PAY_MEMO', 'OTH_DISB_NC_ACC_STAF_REIM', 
+                'OTH_DISB_NC_ACC_STAF_REIM_MEMO', 'OTH_DISB_NC_ACC_PMT_TO_PROL_VOID']
+list_SB_similar_OPEX_CC = ['OPEXP_CC_PAY','OPEXP_PMT_TO_PROL','OTH_DISB_CC_PAY','OTH_DISB_PMT_TO_PROL','OTH_DISB_RECNT', 
+                'OTH_DISB_NP_RECNT_ACC', 'OTH_DISB_NC_ACC_CC_PAY', 'OTH_DISB_NC_ACC_PMT_TO_PROL', 'OPEXP_HQ_ACC_TRIB_REF', 
+                'OPEXP_CONV_ACC_TRIB_REF', 'OTH_DISB_NP_RECNT_TRIB_REF']
+list_SB_similar_PAY_MEMO = ['OPEXP_PMT_TO_PROL_MEMO','REF_CONT_IND', 'REF_CONT_IND_VOID','OTH_DISB_PMT_TO_PROL_MEMO', 
+                'OTH_DISB_NC_ACC_PMT_TO_PROL_MEMO', 'OPEXP_HQ_ACC_IND_REF', 'OPEXP_CONV_ACC_IND_REF', 'OTH_DISB_NP_RECNT_IND_REF']
+list_SB_similar_OPEX_TRAN = ['TRAN_TO_AFFI', 'CONT_TO_OTH_CMTE', 'REF_CONT_PARTY', 'REF_CONT_PARTY_VOID', 'OPEXP_HQ_ACC_REG_REF', 
+                'OPEXP_CONV_ACC_REG_REF', 'OTH_DISB_NP_RECNT_REG_REF']
+list_SB_similar_NONFED_PAC_RFD = ['REF_CONT_PAC', 'REF_CONT_NON_FED']
+list_SB_similar_CONTR_CAND = ['CONT_TO_CAN', 'CONT_TO_OTH_CMTE_VOID']
+list_SB_similar_VOID_RFND_PAC = ['REF_CONT_PAC_VOID', 'REF_CONT_NON_FED_VOID']
+list_SB_similar_FEA_CC = ['FEA_CC_PAY', 'FEA_PAY_TO_PROL']
+list_SB_similar_FEA_CC_MEMO = ['FEA_CC_PAY_MEMO', 'FEA_STAF_REIM', 'FEA_STAF_REIM_MEMO', 'FEA_PAY_TO_PROL_VOID']
+list_SB_similar_FEA_PAY_MEMO = ['FEA_PAY_TO_PROL_MEMO']
+
+list_f3x_total = list_SA_similar_INDV_REC + list_SA_similar_PAR_CON + list_SB_similar_OPEX_REC + list_SB_similar_IK_OUT + list_SB_similar_IK_TF_OUT 
+list_f3x_total += list_SB_similar_EAR_OUT + list_SA_similar_COND_EARM_PAC + list_SB_similar_IK_OUT_PTY + list_SA_similar_OFFSET + list_SA_similar_OTH_REC
+list_f3x_total += list_SA_similar_REF_NFED_CAN + list_SA_similar_REF_FED_CAN + list_SB_similar_OPEX_CC + list_SB_similar_PAY_MEMO + list_SB_similar_OPEX_TRAN
+list_f3x_total += list_SB_similar_NONFED_PAC_RFD + list_SB_similar_CONTR_CAND + list_SB_similar_VOID_RFND_PAC + list_SB_similar_FEA_CC
+list_f3x_total += list_SB_similar_FEA_CC_MEMO + list_SB_similar_FEA_PAY_MEMO
 
 list_f3x_schedules = ['SA','SB']
 dict_parent_child_association = {
-                            "PARTN_REC":["PARTN_MEMO"], "IK_REC":["IK_OUT"], "REATT_FROM":["REATT_MEMO"], "EAR_REC":["EAR_MEMO"], "CON_EAR_DEP":["CON_EAR_DEP_MEMO"], 
-                            "CON_EAR_UNDEP":["CON_EAR_UNDEP_MEMO"], "PARTY_IK_REC":["PARTY_IK_OUT"], 
-                            "PAC_IK_REC":["PAC_IK_OUT"], "PAC_CON_EAR_DEP":["PAC_CON_EAR_DEP_OUT"], "PAC_CON_EAR_UNDEP":["PAC_CON_EAR_UNDEP_MEMO"], 
-                            "PAC_EAR_REC":["PAC_EAR_MEMO"], "JF_TRAN":["JF_TRAN_PAC_MEMO", "JF_TRAN_IND_MEMO", "JF_TRAN_PARTY_MEMO", "JF_TRAN_TRIB_MEMO"], 
-                            "IK_TRAN":["IK_TRAN_OUT"], "IK_TRAN_FEA":["IK_TRAN_FEA_OUT"], 
-                            "JF_TRAN_NP_RECNT_ACC":["JF_TRAN_NP_RECNT_TRIB_MEMO", "JF_TRAN_NP_RECNT_IND_MEMO", "JF_TRAN_NP_RECNT_PAC_MEMO"], 
-                            "JF_TRAN_NP_CONVEN_ACC":["JF_TRAN_NP_CONVEN_TRIB_MEMO", "JF_TRAN_NP_CONVEN_PAC_MEMO", "JF_TRAN_NP_CONVEN_IND_MEMO"], 
-                            "JF_TRAN_NP_HQ_ACC":["JF_TRAN_NP_HQ_IND_MEMO", "JF_TRAN_NP_HQ_TRIB_MEMO", "JF_TRAN_NP_HQ_PAC_MEMO"], 
-                            "EAR_REC_RECNT_ACC":["EAR_REC_RECNT_ACC_MEMO"], "EAR_REC_CONVEN_ACC":["EAR_REC_CONVEN_ACC_MEMO"], "EAR_REC_HQ_ACC":["EAR_REC_HQ_ACC_MEMO"],
+                        "PARTN_REC":["PARTN_MEMO"], "IK_REC":["IK_OUT"], "REATT_FROM":["REATT_MEMO"], "EAR_REC":["EAR_MEMO"], "CON_EAR_DEP":["CON_EAR_DEP_MEMO"], 
+                        "CON_EAR_UNDEP":["CON_EAR_UNDEP_MEMO"], "PARTY_IK_REC":["PARTY_IK_OUT"], 
+                        "PAC_IK_REC":["PAC_IK_OUT"], "PAC_CON_EAR_DEP":["PAC_CON_EAR_DEP_OUT"], "PAC_CON_EAR_UNDEP":["PAC_CON_EAR_UNDEP_MEMO"], 
+                        "PAC_EAR_REC":["PAC_EAR_MEMO"], "JF_TRAN":["JF_TRAN_PAC_MEMO", "JF_TRAN_IND_MEMO", "JF_TRAN_PARTY_MEMO", "JF_TRAN_TRIB_MEMO"], 
+                        "IK_TRAN":["IK_TRAN_OUT"], "IK_TRAN_FEA":["IK_TRAN_FEA_OUT"], 
+                        "JF_TRAN_NP_RECNT_ACC":["JF_TRAN_NP_RECNT_TRIB_MEMO", "JF_TRAN_NP_RECNT_IND_MEMO", "JF_TRAN_NP_RECNT_PAC_MEMO"], 
+                        "JF_TRAN_NP_CONVEN_ACC":["JF_TRAN_NP_CONVEN_TRIB_MEMO", "JF_TRAN_NP_CONVEN_PAC_MEMO", "JF_TRAN_NP_CONVEN_IND_MEMO"], 
+                        "JF_TRAN_NP_HQ_ACC":["JF_TRAN_NP_HQ_IND_MEMO", "JF_TRAN_NP_HQ_TRIB_MEMO", "JF_TRAN_NP_HQ_PAC_MEMO"], 
+                        "EAR_REC_RECNT_ACC":["EAR_REC_RECNT_ACC_MEMO"], "EAR_REC_CONVEN_ACC":["EAR_REC_CONVEN_ACC_MEMO"], 
+                        "EAR_REC_HQ_ACC":["EAR_REC_HQ_ACC_MEMO"], "OPEXP_CC_PAY":["OPEXP_CC_PAY_MEMO"], "OPEXP_STAF_REIM":["OPEXP_STAF_REIM_MEMO"],
+                        "OPEXP_PMT_TO_PROL":["OPEXP_PMT_TO_PROL_MEMO"], "OTH_DISB_CC_PAY":["OTH_DISB_CC_PAY_MEMO"], 
+                        "OTH_DISB_STAF_REIM":["OTH_DISB_STAF_REIM_MEMO"], "OTH_DISB_PMT_TO_PROL":["OTH_DISB_PMT_TO_PROL_MEMO"],
+                        "OTH_DISB_NC_ACC_CC_PAY":["OTH_DISB_NC_ACC_CC_PAY_MEMO"], "OTH_DISB_NC_ACC_STAF_REIM":["OTH_DISB_NC_ACC_STAF_REIM_MEMO"],
+                        "FEA_CC_PAY":["FEA_CC_PAY_MEMO"], "FEA_STAF_REIM":["FEA_STAF_REIM_MEMO"], "FEA_PAY_TO_PROL":["FEA_PAY_TO_PROL_MEMO"],
                             }
 
 """
@@ -120,23 +147,13 @@ def date_check(value):
 def json_file_name(transactionTypeIdentifier):
     try:
         error_flag = False
-        file_name = 'api/rules/'        
+        file_name = 'api/rules/'
         if transactionTypeIdentifier in list_SA_similar_INDV_REC:
             file_name += 'SA_INDV_REC.json'            
         elif transactionTypeIdentifier in list_SA_similar_PAR_CON:
             file_name += 'SA_PAR_CON.json'
-        elif transactionTypeIdentifier in list_SB_similar_OP_EXP:
-            file_name += 'SB_OP_EXP.json'
-        elif transactionTypeIdentifier in list_SB_similar_IK_OUT:
-            file_name += 'SB_IK_OUT.json'
-        elif transactionTypeIdentifier in list_SB_similar_IK_TF_OUT:
-            file_name += 'SB_IK_TF_OUT.json'
-        elif transactionTypeIdentifier in list_SB_similar_EAR_OUT:
-            file_name += 'SB_EARM_OUT.json'
         elif transactionTypeIdentifier in list_SA_similar_COND_EARM_PAC:
             file_name += 'SA_COND_EARM_PAC.json'
-        elif transactionTypeIdentifier in list_SB_similar_IK_OUT_PTY:
-            file_name += 'SB_IK_OUT_PTY.json'
         elif transactionTypeIdentifier in list_SA_similar_OFFSET:
             file_name += 'SA_OFFSET.json'
         elif transactionTypeIdentifier in list_SA_similar_OTH_REC:
@@ -144,11 +161,39 @@ def json_file_name(transactionTypeIdentifier):
         elif transactionTypeIdentifier in list_SA_similar_REF_NFED_CAN:
             file_name += 'SA_REF_NFED_CAN.json'
         elif transactionTypeIdentifier in list_SA_similar_REF_FED_CAN:
-            file_name += 'SA_REF_FED_CAN.json'                              
+            file_name += 'SA_REF_FED_CAN.json'
+        elif transactionTypeIdentifier in list_SB_similar_IK_OUT:
+            file_name += 'SB_IK_OUT.json'
+        elif transactionTypeIdentifier in list_SB_similar_IK_TF_OUT:
+            file_name += 'SB_IK_TF_OUT.json'
+        elif transactionTypeIdentifier in list_SB_similar_EAR_OUT:
+            file_name += 'SB_EARM_OUT.json'
+        elif transactionTypeIdentifier in list_SB_similar_IK_OUT_PTY:
+            file_name += 'SB_IK_OUT_PTY.json'
+        elif transactionTypeIdentifier in list_SB_similar_OPEX_REC:
+            file_name += 'SB_OP_EXP.json'
+        elif transactionTypeIdentifier in list_SB_similar_OPEX_CC: 
+            file_name += 'SB_OPEX_CC.json'
+        elif transactionTypeIdentifier in list_SB_similar_PAY_MEMO: 
+            file_name += 'SB_PAY_MEMO.json'
+        elif transactionTypeIdentifier in list_SB_similar_OPEX_TRAN: 
+            file_name += 'SB_OPEX_TRAN.json'
+        elif transactionTypeIdentifier in list_SB_similar_NONFED_PAC_RFD: 
+            file_name += 'SB_NONFED_PAC_RFD.json'
+        elif transactionTypeIdentifier in list_SB_similar_CONTR_CAND: 
+            file_name += 'SB_CONTR_CAND.json'
+        elif transactionTypeIdentifier in list_SB_similar_VOID_RFND_PAC: 
+            file_name += 'SB_VOID_RFND_PAC.json'
+        elif transactionTypeIdentifier in list_SB_similar_FEA_CC: 
+            file_name += 'SB_FEA_CC.json'
+        elif transactionTypeIdentifier in list_SB_similar_FEA_CC_MEMO: 
+            file_name += 'SB_FEA_CC_MEMO.json'
+        elif transactionTypeIdentifier in list_SB_similar_FEA_PAY_MEMO: 
+            file_name += 'SB_FEA_PAY_MEMO.json'
         else:
             error_flag = True
             error_string = ', '.join(list_f3x_total)
-            file_name = 'transactionTypeIdentifier should be limited to these values: [' + error_string + ']'
+            file_name = 'transactionTypeIdentifier should be limited to these values: [' + error_string + ']. Input Received: ' + transactionTypeIdentifier
         return error_flag, file_name
     except Exception as e:
         raise Exception('json_file_name function is throwing an error: ' + str(e))
@@ -221,7 +266,7 @@ def func_validate(field_lists, data):
 """
 ************************************************* Function which validates all the rules for form F3x using json files *******************************************************************
 """
-def func_json_validate(data):
+def func_json_validate(data, form_type):
     try:
         transaction_id = data.get('transactionId')
         output = {'errors': [], 'warnings': []}
@@ -318,6 +363,15 @@ def func_json_validate(data):
                                             error_value = ', '.join(value)
                                             message = field_name + " field is mandatory as " + key + " " + operator + " [" + error_value + "]"
                                             message_type = "error"
+                                elif operator == "form":
+                                    if form_type == value:
+                                        validation_error_flag =  True
+                                        message = field_name + " field is mandatory for " + data.get('transactionTypeIdentifier') + " transaction type for " + value + " form"
+                                        message_type = "error"
+                                else:
+                                    validation_error_flag =  True
+                                    message = key + " field is required in the data to determine if " + field_name + " is mandatory or not"
+                                    message_type = "error"
                             if validation_error_flag:
                                 dict_temp = error_json_template(message_type, message, field_name, "none", transaction_id)
                                 if message_type == "error":
@@ -339,12 +393,11 @@ def func_json_validate(data):
                     message_type = "error"
                     field_dict_temp = error_json_template(message_type, message, key, "none", transaction_id)
                     output['errors'].append(field_dict_temp)
-
         return output
     except Exception as e:
         raise Exception('func_json_validate function is throwing an error: ' + str(e))
 
-def child_validation(parent, list_parent):
+def child_validation(parent, list_parent, form_type):
     try:
         output = {"errors": [], "warnings": []}
         # validating if the transactionTypeIdentifier of a transaction can be a valid parent based on the established parent child relationships defined in dict_parent_child_association
@@ -363,7 +416,7 @@ def child_validation(parent, list_parent):
                     message_type = "error"
                     dict_temp = error_json_template(message_type, message, "backReferenceTransactionIdNumber", ch.get('backReferenceTransactionIdNumber'), ch.get('transactionId'))
                     output['errors'].append(dict_temp)                                   
-                child_output = func_json_validate(ch)
+                child_output = func_json_validate(ch, form_type)
                 output['errors'].extend(child_output.get('errors'))
                 output['warnings'].extend(child_output.get('warnings'))
         else:
@@ -429,13 +482,13 @@ def validate():
                     if schedule_list in data.get('data').get('schedules') and data.get('data').get('schedules').get(schedule_list):
                         if len(data.get('data').get('schedules').get(schedule_list)) > 0:
                             for sa in data.get('data').get('schedules').get(schedule_list):
-                                output = func_json_validate(sa)
+                                output = func_json_validate(sa, request.form.get('form_type'))
                                 errors.extend(output.get('errors'))
                                 warnings.extend(output.get('warnings'))
                                 if 'child' in sa and sa.get('child'):
                                     if len(sa.get('child')) > 0:
                                         # Child Transactions validations in function child_output function
-                                        child_output = child_validation(sa, list_parent)
+                                        child_output = child_validation(sa, list_parent, request.form.get('form_type'))
                                         errors.extend(child_output.get('errors'))
                                         warnings.extend(child_output.get('warnings'))
             result = {} 
