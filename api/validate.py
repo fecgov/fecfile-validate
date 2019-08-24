@@ -10,17 +10,73 @@ app = Flask(__name__)
 """
 ************************************************* GLOBAL LISTS used *******************************************************************************************
 """
+EXCLUDED_FROM_FIELD_CHECK = ['lineNumber', 'transactionTypeIdentifier', 'child']
 
-list_SA_similar_INDV_REC_transactionTypeCode = ["INDV_REC", "PAR_MEMO", "INK_REC", "INKB_REC", "REATT", "REATT_MEMO", "RET_BOU_REC", "EARM_REC"]
-list_SA_similar_PAR_CON_transactionTypeCode = ["PAR_CON"]
-list_SB_similar_OP_EXP_transactionTypeCode = ["OP_EXP",]
-list_SB_similar_INK_OUT_transactionTypeCode = ["INK_OUT", "INKB_OUT"]
-list_SB_similar_EARM_OUT_transactionTypeCode = ["EARM_OUT"]
-list_f3x_total = list_SA_similar_INDV_REC_transactionTypeCode + list_SA_similar_PAR_CON_transactionTypeCode + list_SB_similar_OP_EXP_transactionTypeCode + list_SB_similar_INK_OUT_transactionTypeCode + list_SB_similar_EARM_OUT_transactionTypeCode
+list_SA_similar_INDV_REC = ["INDV_REC", "PARTN_MEMO", "IK_REC", "REATT_FROM", "REATT_MEMO", "RET_REC", "EAR_REC",
+                            "CON_EAR_UNDEP", "CON_EAR_DEP", "IND_RECNT_REC", "IND_NP_RECNT_ACC", "IND_NP_HQ_ACC", "IND_NP_CONVEN_ACC",
+                            "IND_REC_NON_CONT_ACC", "JF_TRAN_IND_MEMO", "JF_TRAN_NP_RECNT_IND_MEMO", "JF_TRAN_NP_CONVEN_IND_MEMO", 
+                            "JF_TRAN_NP_HQ_IND_MEMO", "EAR_REC_RECNT_ACC", "EAR_REC_CONVEN_ACC", "EAR_REC_HQ_ACC"]
+list_SA_similar_PAR_CON = ["PARTN_REC", "TRIB_REC", "TRIB_NP_RECNT_ACC", "TRIB_NP_HQ_ACC", "TRIB_NP_CONVEN_ACC", 
+                            "BUS_LAB_NON_CONT_ACC", "JF_TRAN_TRIB_MEMO", "JF_TRAN_NP_RECNT_TRIB_MEMO", "JF_TRAN_NP_CONVEN_TRIB_MEMO", 
+                            "JF_TRAN_NP_HQ_TRIB_MEMO"]
+list_SA_similar_COND_EARM_PAC = ["EAR_MEMO", "PAC_CON_EAR_UNDEP", "PAC_CON_EAR_DEP", "PAC_EAR_REC", "PAC_EAR_MEMO", "PARTY_IK_REC", "PAC_IK_REC", "PARTY_REC", 
+                                "PAC_REC", "PAC_NON_FED_REC", "PAC_NON_FED_RET", "PAC_RET", "PARTY_RET", "TRAN", "PARTY_RECNT_REC", "PAC_RECNT_REC", 
+                                "TRIB_RECNT_REC", "PARTY_NP_RECNT_ACC", "PAC_NP_RECNT_ACC", 
+                                "PARTY_NP_HQ_ACC", "PAC_NP_HQ_ACC", "PARTY_NP_CONVEN_ACC", "PAC_NP_CONVEN_ACC", "OTH_CMTE_NON_CONT_ACC", "IK_TRAN","IK_TRAN_FEA", 
+                                "JF_TRAN", "JF_TRAN_PARTY_MEMO", "JF_TRAN_PAC_MEMO", 
+                                "JF_TRAN_NP_RECNT_ACC", "JF_TRAN_NP_RECNT_PAC_MEMO", "JF_TRAN_NP_CONVEN_ACC", "JF_TRAN_NP_CONVEN_PAC_MEMO", "JF_TRAN_NP_HQ_ACC", 
+                                "JF_TRAN_NP_HQ_PAC_MEMO", "EAR_REC_RECNT_ACC_MEMO", "EAR_REC_CONVEN_ACC_MEMO", "EAR_REC_HQ_ACC_MEMO"]
+list_SA_similar_OFFSET = ["OFFSET_TO_OPEX"]
+list_SA_similar_OTH_REC = ["OTH_REC"] 
+list_SA_similar_REF_NFED_CAN = ["REF_TO_OTH_CMTE"]
+list_SA_similar_REF_FED_CAN = ["REF_TO_FED_CAN"]
 
+list_SB_similar_IK_OUT = ["IK_OUT"]
+list_SB_similar_IK_TF_OUT = ["IK_TRAN_OUT", "IK_TRAN_FEA_OUT"]
+list_SB_similar_EAR_OUT = ["CON_EAR_UNDEP_MEMO", "CON_EAR_DEP_MEMO", "PAC_CON_EAR_UNDEP_MEMO", "PAC_CON_EAR_DEP_OUT"]
+list_SB_similar_IK_OUT_PTY = ["PARTY_IK_OUT", "PAC_IK_OUT"]
+
+list_SB_similar_OPEX_REC = ['OPEXP', 'OPEXP_CC_PAY_MEMO', 'OPEXP_STAF_REIM', 'OPEXP_STAF_REIM_MEMO', 'OPEXP_PMT_TO_PROL_VOID', 'OTH_DISB', 
+                'OTH_DISB_CC_PAY_MEMO', 'OTH_DISB_STAF_REIM', 'OTH_DISB_STAF_REIM_MEMO', 'OPEXP_HQ_ACC_OP_EXP_NP', 
+                'OPEXP_CONV_ACC_OP_EXP_NP', 'OTH_DISB_NC_ACC', 'OTH_DISB_NC_ACC_CC_PAY_MEMO', 'OTH_DISB_NC_ACC_STAF_REIM', 
+                'OTH_DISB_NC_ACC_STAF_REIM_MEMO', 'OTH_DISB_NC_ACC_PMT_TO_PROL_VOID']
+list_SB_similar_OPEX_CC = ['OPEXP_CC_PAY','OPEXP_PMT_TO_PROL','OTH_DISB_CC_PAY','OTH_DISB_PMT_TO_PROL','OTH_DISB_RECNT', 
+                'OTH_DISB_NP_RECNT_ACC', 'OTH_DISB_NC_ACC_CC_PAY', 'OTH_DISB_NC_ACC_PMT_TO_PROL', 'OPEXP_HQ_ACC_TRIB_REF', 
+                'OPEXP_CONV_ACC_TRIB_REF', 'OTH_DISB_NP_RECNT_TRIB_REF']
+list_SB_similar_PAY_MEMO = ['OPEXP_PMT_TO_PROL_MEMO','REF_CONT_IND', 'REF_CONT_IND_VOID','OTH_DISB_PMT_TO_PROL_MEMO', 
+                'OTH_DISB_NC_ACC_PMT_TO_PROL_MEMO', 'OPEXP_HQ_ACC_IND_REF', 'OPEXP_CONV_ACC_IND_REF', 'OTH_DISB_NP_RECNT_IND_REF']
+list_SB_similar_OPEX_TRAN = ['TRAN_TO_AFFI', 'CONT_TO_OTH_CMTE', 'REF_CONT_PARTY', 'REF_CONT_PARTY_VOID', 'OPEXP_HQ_ACC_REG_REF', 
+                'OPEXP_CONV_ACC_REG_REF', 'OTH_DISB_NP_RECNT_REG_REF']
+list_SB_similar_NONFED_PAC_RFD = ['REF_CONT_PAC', 'REF_CONT_NON_FED']
+list_SB_similar_CONTR_CAND = ['CONT_TO_CAN', 'CONT_TO_OTH_CMTE_VOID']
+list_SB_similar_VOID_RFND_PAC = ['REF_CONT_PAC_VOID', 'REF_CONT_NON_FED_VOID']
+list_SB_similar_FEA_CC = ['FEA_CC_PAY', 'FEA_PAY_TO_PROL']
+list_SB_similar_FEA_CC_MEMO = ['FEA_CC_PAY_MEMO', 'FEA_STAF_REIM', 'FEA_STAF_REIM_MEMO', 'FEA_PAY_TO_PROL_VOID']
+list_SB_similar_FEA_PAY_MEMO = ['FEA_PAY_TO_PROL_MEMO']
+
+list_f3x_total = list_SA_similar_INDV_REC + list_SA_similar_PAR_CON + list_SB_similar_OPEX_REC + list_SB_similar_IK_OUT + list_SB_similar_IK_TF_OUT 
+list_f3x_total += list_SB_similar_EAR_OUT + list_SA_similar_COND_EARM_PAC + list_SB_similar_IK_OUT_PTY + list_SA_similar_OFFSET + list_SA_similar_OTH_REC
+list_f3x_total += list_SA_similar_REF_NFED_CAN + list_SA_similar_REF_FED_CAN + list_SB_similar_OPEX_CC + list_SB_similar_PAY_MEMO + list_SB_similar_OPEX_TRAN
+list_f3x_total += list_SB_similar_NONFED_PAC_RFD + list_SB_similar_CONTR_CAND + list_SB_similar_VOID_RFND_PAC + list_SB_similar_FEA_CC
+list_f3x_total += list_SB_similar_FEA_CC_MEMO + list_SB_similar_FEA_PAY_MEMO
 
 list_f3x_schedules = ['SA','SB']
-dict_parent_child_association = {"PAR_CON":["PAR_MEMO"], "INK_REC":["INK_OUT"], "INKB_REC":["INKB_OUT"], "REATT":["REATT_MEMO"], "EARM_REC":["EARM_OUT"]}
+dict_parent_child_association = {
+                        "PARTN_REC":["PARTN_MEMO"], "IK_REC":["IK_OUT"], "REATT_FROM":["REATT_MEMO"], "EAR_REC":["EAR_MEMO"], "CON_EAR_DEP":["CON_EAR_DEP_MEMO"], 
+                        "CON_EAR_UNDEP":["CON_EAR_UNDEP_MEMO"], "PARTY_IK_REC":["PARTY_IK_OUT"], 
+                        "PAC_IK_REC":["PAC_IK_OUT"], "PAC_CON_EAR_DEP":["PAC_CON_EAR_DEP_OUT"], "PAC_CON_EAR_UNDEP":["PAC_CON_EAR_UNDEP_MEMO"], 
+                        "PAC_EAR_REC":["PAC_EAR_MEMO"], "JF_TRAN":["JF_TRAN_PAC_MEMO", "JF_TRAN_IND_MEMO", "JF_TRAN_PARTY_MEMO", "JF_TRAN_TRIB_MEMO"], 
+                        "IK_TRAN":["IK_TRAN_OUT"], "IK_TRAN_FEA":["IK_TRAN_FEA_OUT"], 
+                        "JF_TRAN_NP_RECNT_ACC":["JF_TRAN_NP_RECNT_TRIB_MEMO", "JF_TRAN_NP_RECNT_IND_MEMO", "JF_TRAN_NP_RECNT_PAC_MEMO"], 
+                        "JF_TRAN_NP_CONVEN_ACC":["JF_TRAN_NP_CONVEN_TRIB_MEMO", "JF_TRAN_NP_CONVEN_PAC_MEMO", "JF_TRAN_NP_CONVEN_IND_MEMO"], 
+                        "JF_TRAN_NP_HQ_ACC":["JF_TRAN_NP_HQ_IND_MEMO", "JF_TRAN_NP_HQ_TRIB_MEMO", "JF_TRAN_NP_HQ_PAC_MEMO"], 
+                        "EAR_REC_RECNT_ACC":["EAR_REC_RECNT_ACC_MEMO"], "EAR_REC_CONVEN_ACC":["EAR_REC_CONVEN_ACC_MEMO"], 
+                        "EAR_REC_HQ_ACC":["EAR_REC_HQ_ACC_MEMO"], "OPEXP_CC_PAY":["OPEXP_CC_PAY_MEMO"], "OPEXP_STAF_REIM":["OPEXP_STAF_REIM_MEMO"],
+                        "OPEXP_PMT_TO_PROL":["OPEXP_PMT_TO_PROL_MEMO"], "OTH_DISB_CC_PAY":["OTH_DISB_CC_PAY_MEMO"], 
+                        "OTH_DISB_STAF_REIM":["OTH_DISB_STAF_REIM_MEMO"], "OTH_DISB_PMT_TO_PROL":["OTH_DISB_PMT_TO_PROL_MEMO"],
+                        "OTH_DISB_NC_ACC_CC_PAY":["OTH_DISB_NC_ACC_CC_PAY_MEMO"], "OTH_DISB_NC_ACC_STAF_REIM":["OTH_DISB_NC_ACC_STAF_REIM_MEMO"],
+                        "FEA_CC_PAY":["FEA_CC_PAY_MEMO"], "FEA_STAF_REIM":["FEA_STAF_REIM_MEMO"], "FEA_PAY_TO_PROL":["FEA_PAY_TO_PROL_MEMO"],
+                            }
 
 """
 ************************************************* Functions to check if fields exist in JSON *******************************************************************
@@ -75,31 +131,69 @@ def numeric(value):
 
 def amount(value):
     try:
-        return not bool(re.match('^[0-9.]+$', value))
+        return not bool(re.match('^-?[0-9.]+$', str(value)))
     except Exception as e:
         raise Exception('amount function is throwing an error: ' + str(e))
 
+def date_check(value):
+    try:
+        return not bool(re.match('^-?[0-9/]+$', str(value)))
+    except Exception as e:
+        raise Exception('amount function is throwing an error: ' + str(e))    
+
 """
-************************************************* Function used to find the file based on the transactionTypeCode *******************************************************************
+************************************************* Function used to find the file based on the transactionTypeIdentifier *******************************************************************
 """
-def json_file_name(transactionTypeCode):
+def json_file_name(transactionTypeIdentifier):
     try:
         error_flag = False
-        file_name = 'api/rules/'        
-        if transactionTypeCode in list_SA_similar_INDV_REC_transactionTypeCode:
-            file_name += 'INDV_REC.json'            
-        elif transactionTypeCode in list_SA_similar_PAR_CON_transactionTypeCode:
-            file_name += 'PAR_CON.json'
-        elif transactionTypeCode in list_SB_similar_OP_EXP_transactionTypeCode:
-            file_name += 'OP_EXP.json'
-        elif transactionTypeCode in list_SB_similar_INK_OUT_transactionTypeCode:
-            file_name += 'INK_OUT.json'
-        elif transactionTypeCode in list_SB_similar_EARM_OUT_transactionTypeCode:
-            file_name += 'EARM_OUT.json'     
+        file_name = 'api/rules/'
+        if transactionTypeIdentifier in list_SA_similar_INDV_REC:
+            file_name += 'SA_INDV_REC.json'            
+        elif transactionTypeIdentifier in list_SA_similar_PAR_CON:
+            file_name += 'SA_PAR_CON.json'
+        elif transactionTypeIdentifier in list_SA_similar_COND_EARM_PAC:
+            file_name += 'SA_COND_EARM_PAC.json'
+        elif transactionTypeIdentifier in list_SA_similar_OFFSET:
+            file_name += 'SA_OFFSET.json'
+        elif transactionTypeIdentifier in list_SA_similar_OTH_REC:
+            file_name += 'SA_OTH_REC.json'
+        elif transactionTypeIdentifier in list_SA_similar_REF_NFED_CAN:
+            file_name += 'SA_REF_NFED_CAN.json'
+        elif transactionTypeIdentifier in list_SA_similar_REF_FED_CAN:
+            file_name += 'SA_REF_FED_CAN.json'
+        elif transactionTypeIdentifier in list_SB_similar_IK_OUT:
+            file_name += 'SB_IK_OUT.json'
+        elif transactionTypeIdentifier in list_SB_similar_IK_TF_OUT:
+            file_name += 'SB_IK_TF_OUT.json'
+        elif transactionTypeIdentifier in list_SB_similar_EAR_OUT:
+            file_name += 'SB_EARM_OUT.json'
+        elif transactionTypeIdentifier in list_SB_similar_IK_OUT_PTY:
+            file_name += 'SB_IK_OUT_PTY.json'
+        elif transactionTypeIdentifier in list_SB_similar_OPEX_REC:
+            file_name += 'SB_OP_EXP.json'
+        elif transactionTypeIdentifier in list_SB_similar_OPEX_CC: 
+            file_name += 'SB_OPEX_CC.json'
+        elif transactionTypeIdentifier in list_SB_similar_PAY_MEMO: 
+            file_name += 'SB_PAY_MEMO.json'
+        elif transactionTypeIdentifier in list_SB_similar_OPEX_TRAN: 
+            file_name += 'SB_OPEX_TRAN.json'
+        elif transactionTypeIdentifier in list_SB_similar_NONFED_PAC_RFD: 
+            file_name += 'SB_NONFED_PAC_RFD.json'
+        elif transactionTypeIdentifier in list_SB_similar_CONTR_CAND: 
+            file_name += 'SB_CONTR_CAND.json'
+        elif transactionTypeIdentifier in list_SB_similar_VOID_RFND_PAC: 
+            file_name += 'SB_VOID_RFND_PAC.json'
+        elif transactionTypeIdentifier in list_SB_similar_FEA_CC: 
+            file_name += 'SB_FEA_CC.json'
+        elif transactionTypeIdentifier in list_SB_similar_FEA_CC_MEMO: 
+            file_name += 'SB_FEA_CC_MEMO.json'
+        elif transactionTypeIdentifier in list_SB_similar_FEA_PAY_MEMO: 
+            file_name += 'SB_FEA_PAY_MEMO.json'
         else:
             error_flag = True
             error_string = ', '.join(list_f3x_total)
-            file_name = 'transactionTypeCode should be limited to these values: [' + error_string + ']'
+            file_name = 'transactionTypeIdentifier should be limited to these values: [' + error_string + ']. Input Received: ' + transactionTypeIdentifier
         return error_flag, file_name
     except Exception as e:
         raise Exception('json_file_name function is throwing an error: ' + str(e))
@@ -151,7 +245,6 @@ def func_validate(field_lists, data):
                     if amount(data.get(field_list[0])):
                         str_output = field_list[0] + str_field_not_in_format + field_list[1]
                         temp_list.append(str_output)
-
                 if len(data.get(field_list[0])) > int(field_list[2]):
                     str_output = field_list[0] + str_field_not_length + field_list[2]
                     temp_list.append(str_output)
@@ -173,16 +266,16 @@ def func_validate(field_lists, data):
 """
 ************************************************* Function which validates all the rules for form F3x using json files *******************************************************************
 """
-def func_json_validate(data):
+def func_json_validate(data, form_type):
     try:
         transaction_id = data.get('transactionId')
         output = {'errors': [], 'warnings': []}
         # JSON file name function gathers the file name
-        file_flag, file_name = json_file_name(data.get('transactionTypeCode'))
+        file_flag, file_name = json_file_name(data.get('transactionTypeIdentifier'))
         if file_flag:
             message = file_name
             message_type = "error"
-            dict_temp = error_json_template(message_type, message, "transactionTypeCode", data.get('transactionTypeCode'), transaction_id)
+            dict_temp = error_json_template(message_type, message, "transactionTypeIdentifier", data.get('transactionTypeIdentifier'), transaction_id)
             output['errors'].append(dict_temp)
         else:
             with open(file_name) as json_file:
@@ -208,6 +301,9 @@ def func_json_validate(data):
                         if field_rule.get('field_type') == 'AMT':
                             if amount(data.get(field_name)):
                                 type_error_flag = True
+                        if field_rule.get('field_type') == 'DATE':
+                            if date_check(data.get(field_name)):
+                                type_error_flag = True
 
                         if type_error_flag:
                             if field_name == 'transactionId':
@@ -226,7 +322,7 @@ def func_json_validate(data):
                                 dict_temp = error_json_template(message_type, message, field_name, data.get(field_name), transaction_id)
                                 output['errors'].append(dict_temp)
 
-                        if len(data.get(field_name)) > int(field_rule.get('field_size')):
+                        if len(str(data.get(field_name))) > int(field_rule.get('field_size')):
                             message = field_name + " field has "+ str(len(data.get(field_name))) + " characters. Maximum expected characters are " + field_rule.get('field_size')
                             message_type = "error"
                             dict_temp = error_json_template(message_type, message, field_name, data.get(field_name), transaction_id)
@@ -244,11 +340,17 @@ def func_json_validate(data):
                                 value = field_rule.get('additional_validation_value')
                                 operator = field_rule.get('additional_validation_operator')
                                 if key in data and check_null_value(data.get(key)):
-                                    if operator == ">":                           
+                                    if operator == ">":
                                         if Decimal(data.get(key)) > Decimal(value):
                                             validation_error_flag =  True
                                             message = field_name + " field is mandatory as " + key + " " + operator + " " + value
                                             message_type = "error"
+                                    if operator == "IND >":
+                                        if data.get('entityType') == 'IND':
+                                            if Decimal(data.get(key)) > Decimal(value):
+                                                validation_error_flag =  True
+                                                message = field_name + " field is mandatory as " + key + " " + operator + " " + value
+                                                message_type = "error"
                                     if operator == "not in":
                                         if not data.get(key) in value:
                                             validation_error_flag =  True
@@ -261,28 +363,52 @@ def func_json_validate(data):
                                             error_value = ', '.join(value)
                                             message = field_name + " field is mandatory as " + key + " " + operator + " [" + error_value + "]"
                                             message_type = "error"
+                                elif operator == "form":
+                                    if form_type == value:
+                                        validation_error_flag =  True
+                                        message = field_name + " field is mandatory for " + data.get('transactionTypeIdentifier') + " transaction type for " + value + " form"
+                                        message_type = "error"
+                                else:
+                                    validation_error_flag =  True
+                                    message = key + " field is required in the data to determine if " + field_name + " is mandatory or not"
+                                    message_type = "error"
                             if validation_error_flag:
                                 dict_temp = error_json_template(message_type, message, field_name, "none", transaction_id)
                                 if message_type == "error":
                                     output['errors'].append(dict_temp)
                                 else:
                                     output['warnings'].append(dict_temp)
+            # Code to check if there are any additional fields in the data apart from the format specs and throwing an error if there are such fields. 
+            # This has to be uncommented once JSON builder is implemented based on this logic.
+            for key, value in data.items():
+                check_flag = True
+                for rule in rules:
+                    for field_name in rule:
+                        if key == field_name or key in EXCLUDED_FROM_FIELD_CHECK:
+                            check_flag = False
+                    if not check_flag:
+                        break
+                if check_flag:
+                    message = key + " field is not expected for this transaction type code: " + data.get('transactionTypeIdentifier')
+                    message_type = "error"
+                    field_dict_temp = error_json_template(message_type, message, key, "none", transaction_id)
+                    output['errors'].append(field_dict_temp)
         return output
     except Exception as e:
         raise Exception('func_json_validate function is throwing an error: ' + str(e))
 
-def child_validation(parent, list_parent):
+def child_validation(parent, list_parent, form_type):
     try:
         output = {"errors": [], "warnings": []}
-        # validating if the transactionTypeCode of a transaction can be a valid parent based on the established parent child relationships defined in dict_parent_child_association
-        if parent.get('transactionTypeCode') in list_parent:
+        # validating if the transactionTypeIdentifier of a transaction can be a valid parent based on the established parent child relationships defined in dict_parent_child_association
+        if parent.get('transactionTypeIdentifier') in list_parent:
             for ch in parent.get('child'):
-                # validatiing if the child transactionTypeCode is a part established parent child relationships for the respective parent transactionTypeCode
-                if not ch.get('transactionTypeCode') in dict_parent_child_association.get(parent.get('transactionTypeCode')):
-                    child_transaction_codes_string = ', '.join(dict_parent_child_association.get(parent.get('transactionTypeCode')))
-                    message = ch.get('transactionTypeCode') + " transaction type cannot be a child of "+ parent.get('transactionTypeCode') + " as per rules in dict_parent_child_association dictionary definition. Expected values are: [" + child_transaction_codes_string + "]"
+                # validatiing if the child transactionTypeIdentifier is a part established parent child relationships for the respective parent transactionTypeIdentifier
+                if not ch.get('transactionTypeIdentifier') in dict_parent_child_association.get(parent.get('transactionTypeIdentifier')):
+                    child_transaction_codes_string = ', '.join(dict_parent_child_association.get(parent.get('transactionTypeIdentifier')))
+                    message = ch.get('transactionTypeIdentifier') + " transaction type cannot be a child of "+ parent.get('transactionTypeIdentifier') + " as per rules in dict_parent_child_association dictionary definition. Expected values are: [" + child_transaction_codes_string + "]"
                     message_type = "error"
-                    dict_temp = error_json_template(message_type, message, "transactionTypeCode", ch.get('transactionTypeCode'), ch.get('transactionId'))
+                    dict_temp = error_json_template(message_type, message, "transactionTypeIdentifier", ch.get('transactionTypeIdentifier'), ch.get('transactionId'))
                     output['errors'].append(dict_temp)
                 # validating if child backReferenceTransactionIdNumber is same as parent transactionId
                 if ch.get('backReferenceTransactionIdNumber') != parent.get('transactionId'):
@@ -290,17 +416,18 @@ def child_validation(parent, list_parent):
                     message_type = "error"
                     dict_temp = error_json_template(message_type, message, "backReferenceTransactionIdNumber", ch.get('backReferenceTransactionIdNumber'), ch.get('transactionId'))
                     output['errors'].append(dict_temp)                                   
-                child_output = func_json_validate(ch)
+                child_output = func_json_validate(ch, form_type)
                 output['errors'].extend(child_output.get('errors'))
                 output['warnings'].extend(child_output.get('warnings'))
         else:
-            message = parent.get('transactionTypeCode') + " transaction type cannot have a child transaction as per rules in dict_parent_child_association dictionary definition"
+            message = parent.get('transactionTypeIdentifier') + " transaction type cannot have a child transaction as per rules in dict_parent_child_association dictionary definition"
             message_type = "error"
-            dict_temp = error_json_template(message_type, message, "transactionTypeCode", parent.get('transactionTypeCode'), parent.get('transactionId'))
+            dict_temp = error_json_template(message_type, message, "transactionTypeIdentifier", parent.get('transactionTypeIdentifier'), parent.get('transactionId'))
             output['errors'].append(dict_temp)
         return output
     except Exception as e:
         raise Exception('child_validation function is throwing an error: ' + str(e))
+        
 """
 ******************************************************************************************************************************
 VALIDATE API - SPRINT 8 - FNE 452 - BY PRAVEEN JINKA
@@ -350,19 +477,18 @@ def validate():
             list_parent= []
             for parent, child in dict_parent_child_association.items():
                 list_parent.append(parent)
-                # list_child.extend(child)
             for schedule_list in list_f3x_schedules: 
                 if 'schedules' in data.get('data') and data.get('data').get('schedules'):
                     if schedule_list in data.get('data').get('schedules') and data.get('data').get('schedules').get(schedule_list):
                         if len(data.get('data').get('schedules').get(schedule_list)) > 0:
                             for sa in data.get('data').get('schedules').get(schedule_list):
-                                output = func_json_validate(sa)
+                                output = func_json_validate(sa, request.form.get('form_type'))
                                 errors.extend(output.get('errors'))
                                 warnings.extend(output.get('warnings'))
                                 if 'child' in sa and sa.get('child'):
                                     if len(sa.get('child')) > 0:
                                         # Child Transactions validations in function child_output function
-                                        child_output = child_validation(sa, list_parent)
+                                        child_output = child_validation(sa, list_parent, request.form.get('form_type'))
                                         errors.extend(child_output.get('errors'))
                                         warnings.extend(child_output.get('warnings'))
             result = {} 
