@@ -1,0 +1,1413 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://github.com/mjtravers/fecfile-online-sandbox/blob/main/validator/schema/F3P.json",
+    "title": "FEC F3P",
+    "description": "FORM 3P - REPORT OF RECEIPTS AND DISBURSEMENTS BY AN AUTHORIZED COMMITTEE OF A \n                    CANDIDATE FOR THE OFFICE OF PRESIDENT OR VICE-PRESIDENT   ",
+    "type": "object",
+    "properties": {
+        "FORM_TYPE": {
+            "title": "FORM TYPE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 4,
+            "pattern": "^[ A-z0-9]{0,4}$",
+            "examples": [
+                "F3PN"
+            ],
+            "fec_col_seq": 1,
+            "fec_form_line": "0",
+            "fec_type": "A/N-4",
+            "fec_requiredErrorLevel": "X (error)",
+            "fec_valueReference": "F3P+[N|A|T]"
+        },
+        "FILER_COMMITTEE_ID_NUMBER": {
+            "title": "FILER COMMITTEE ID NUMBER",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 9,
+            "pattern": "^[ A-z0-9]{0,9}$",
+            "examples": [
+                "C00123456"
+            ],
+            "fec_col_seq": 2,
+            "fec_form_line": "0",
+            "fec_type": "A/N-9",
+            "fec_requiredErrorLevel": "X (error)"
+        },
+        "COMMITTEE_NAME": {
+            "title": "COMMITTEE NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 200,
+            "pattern": "^[ A-z0-9]{0,200}$",
+            "examples": [
+                "Pat for Pres."
+            ],
+            "fec_col_seq": 3,
+            "fec_form_line": "0",
+            "fec_type": "A/N-200",
+            "fec_requiredErrorLevel": "X (warning)"
+        },
+        "CHANGE_OF_ADDRESS": {
+            "title": "CHANGE OF ADDRESS",
+            "description": "",
+            "type": "boolean",
+            "examples": [
+                "X"
+            ],
+            "fec_col_seq": 4,
+            "fec_form_line": "0",
+            "fec_type": "A-1",
+            "fec_valueReference": "X = Yes",
+            "fec_ruleReference": "Check-box"
+        },
+        "STREET__1": {
+            "title": "STREET  1",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 34,
+            "pattern": "^[ A-z0-9]{0,34}$",
+            "examples": [
+                "123 Oak St"
+            ],
+            "fec_col_seq": 5,
+            "fec_form_line": "0",
+            "fec_type": "A/N-34",
+            "fec_requiredErrorLevel": "X (warning)"
+        },
+        "STREET__2": {
+            "title": "STREET  2",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 34,
+            "pattern": "^[ A-z0-9]{0,34}$",
+            "fec_col_seq": 6,
+            "fec_form_line": "0",
+            "fec_type": "A/N-34"
+        },
+        "CITY": {
+            "title": "CITY",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 30,
+            "pattern": "^[ A-z0-9]{0,30}$",
+            "examples": [
+                "Anytown"
+            ],
+            "fec_col_seq": 7,
+            "fec_form_line": "0",
+            "fec_type": "A/N-30",
+            "fec_requiredErrorLevel": "X (warning)"
+        },
+        "STATE": {
+            "title": "STATE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 2,
+            "pattern": "^[ A-z0-9]{0,2}$",
+            "examples": [
+                "FL"
+            ],
+            "fec_col_seq": 8,
+            "fec_form_line": "0",
+            "fec_type": "A-2",
+            "fec_requiredErrorLevel": "X (warning)",
+            "fec_ruleReference": "Edit: ST"
+        },
+        "ZIP": {
+            "title": "ZIP",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 9,
+            "pattern": "^[ A-z0-9]{0,9}$",
+            "examples": [
+                33034
+            ],
+            "fec_col_seq": 9,
+            "fec_form_line": "0",
+            "fec_type": "A/N-9",
+            "fec_requiredErrorLevel": "X (warning)"
+        },
+        "ACTIVITY_PRIMARY": {
+            "title": "ACTIVITY PRIMARY",
+            "description": "",
+            "type": "boolean",
+            "examples": [
+                "X"
+            ],
+            "fec_col_seq": 10,
+            "fec_form_line": "0",
+            "fec_type": "A-1",
+            "fec_valueReference": "X = Yes",
+            "fec_ruleReference": "Check-box"
+        },
+        "ACTIVITY_GENERAL": {
+            "title": "ACTIVITY GENERAL",
+            "description": "",
+            "type": "boolean",
+            "examples": [
+                "X"
+            ],
+            "fec_col_seq": 11,
+            "fec_form_line": "0",
+            "fec_type": "A-1",
+            "fec_valueReference": "X = Yes",
+            "fec_ruleReference": "Check-box"
+        },
+        "REPORT_CODE": {
+            "title": "REPORT CODE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 3,
+            "pattern": "^[ A-z0-9]{0,3}$",
+            "examples": [
+                "12P"
+            ],
+            "fec_col_seq": 12,
+            "fec_form_line": "0",
+            "fec_type": "A-3 ",
+            "fec_requiredErrorLevel": "X (warning)",
+            "fec_valueReference": "12C,..., TER",
+            "fec_ruleReference": "Warning if Code is missing;\nError if Coded incorrectly.\nNote: Monthly Year-End reports should be coded with 'MYE'.\nQuarterly Year-End reports will continue to be coded with 'YE'."
+        },
+        "ELECTION_CODE__{was_RPTPGI}": {
+            "title": "ELECTION CODE  {was RPTPGI}",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 5,
+            "pattern": "^[ A-z0-9]{0,5}$",
+            "examples": [
+                "P2012"
+            ],
+            "fec_col_seq": 13,
+            "fec_form_line": "0",
+            "fec_type": "A/N-5",
+            "fec_requiredErrorLevel": "X (warn if REPORT CODE=12[?])",
+            "fec_valueReference": "C,G,P,R,S,E[YYYY]",
+            "fec_ruleReference": "Edit: PGI"
+        },
+        "DATE_OF_ELECTION": {
+            "title": "DATE OF ELECTION",
+            "description": "",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 99999999,
+            "examples": [
+                20120715
+            ],
+            "fec_col_seq": 14,
+            "fec_form_line": "0",
+            "fec_type": "NUM-8",
+            "fec_requiredErrorLevel": "X (warn if REPORT CODE=[12?|30?])",
+            "fec_valueReference": "YYYYMMDD"
+        },
+        "STATE_OF_ELECTION": {
+            "title": "STATE OF ELECTION",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 2,
+            "pattern": "^[ A-z0-9]{0,2}$",
+            "examples": [
+                "FL"
+            ],
+            "fec_col_seq": 15,
+            "fec_form_line": "0",
+            "fec_type": "A-2",
+            "fec_requiredErrorLevel": "X (warn if REPORT CODE=[12?] but not [12G])",
+            "fec_ruleReference": "Edit: St"
+        },
+        "COVERAGE_FROM_DATE": {
+            "title": "COVERAGE FROM DATE",
+            "description": "",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 99999999,
+            "examples": [
+                20120501
+            ],
+            "fec_col_seq": 16,
+            "fec_form_line": "0",
+            "fec_type": "NUM-8",
+            "fec_requiredErrorLevel": "X (warning)",
+            "fec_valueReference": "YYYYMMDD"
+        },
+        "COVERAGE_THROUGH_DATE": {
+            "title": "COVERAGE THROUGH DATE",
+            "description": "",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 99999999,
+            "examples": [
+                20120531
+            ],
+            "fec_col_seq": 17,
+            "fec_form_line": "0",
+            "fec_type": "NUM-8",
+            "fec_requiredErrorLevel": "X (warning)",
+            "fec_valueReference": "YYYYMMDD"
+        },
+        "TREASURER_LAST_NAME": {
+            "title": "TREASURER LAST NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 30,
+            "pattern": "^[ A-z0-9]{0,30}$",
+            "examples": [
+                "Smith"
+            ],
+            "fec_col_seq": 18,
+            "fec_form_line": "0",
+            "fec_type": "A/N-30",
+            "fec_requiredErrorLevel": "X (error)"
+        },
+        "TREASURER_FIRST_NAME": {
+            "title": "TREASURER FIRST NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 20,
+            "pattern": "^[ A-z0-9]{0,20}$",
+            "examples": [
+                "Patrick"
+            ],
+            "fec_col_seq": 19,
+            "fec_form_line": "0",
+            "fec_type": "A/N-20",
+            "fec_requiredErrorLevel": "X (error)"
+        },
+        "TREASURER_MIDDLE_NAME": {
+            "title": "TREASURER MIDDLE NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 20,
+            "pattern": "^[ A-z0-9]{0,20}$",
+            "examples": [
+                "Thomas"
+            ],
+            "fec_col_seq": 20,
+            "fec_form_line": "0",
+            "fec_type": "A/N-20"
+        },
+        "TREASURER_PREFIX": {
+            "title": "TREASURER PREFIX",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 10,
+            "pattern": "^[ A-z0-9]{0,10}$",
+            "examples": [
+                "Mr."
+            ],
+            "fec_col_seq": 21,
+            "fec_form_line": "0",
+            "fec_type": "A/N-10"
+        },
+        "TREASURER_SUFFIX": {
+            "title": "TREASURER SUFFIX",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 10,
+            "pattern": "^[ A-z0-9]{0,10}$",
+            "examples": [
+                "Jr."
+            ],
+            "fec_col_seq": 22,
+            "fec_form_line": "0",
+            "fec_type": "A/N-10"
+        },
+        "DATE_SIGNED": {
+            "title": "DATE SIGNED",
+            "description": "",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 99999999,
+            "examples": [
+                20120729
+            ],
+            "fec_col_seq": 23,
+            "fec_form_line": "0",
+            "fec_type": "NUM-8 ",
+            "fec_requiredErrorLevel": "X (error)"
+        },
+        "6__Cash_on_Hand_Beginning_Period": {
+            "title": "6.  Cash on Hand Beginning Period",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 24,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "7__Total_Receipts": {
+            "title": "7.  Total Receipts",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 25,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12",
+            "fec_ruleReference": "= 22"
+        },
+        "8__Subtotal": {
+            "title": "8.  Subtotal",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 26,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12",
+            "fec_ruleReference": "= 6 + 7"
+        },
+        "9__Total_Disbursements": {
+            "title": "9.  Total Disbursements",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 27,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12",
+            "fec_ruleReference": "= 30"
+        },
+        "10__Cash_on_Hand_Close_of_Period": {
+            "title": "10.  Cash on Hand Close of Period",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 28,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12",
+            "fec_ruleReference": "= 8 - 9"
+        },
+        "11__Debts_to": {
+            "title": "11.  Debts to",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 29,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12",
+            "fec_ruleReference": "= Total from Sch C &/or D"
+        },
+        "12__Debts_by": {
+            "title": "12.  Debts by",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 30,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12",
+            "fec_ruleReference": "= Total from Sch C &/or D"
+        },
+        "13__Expenditures_Subject_to_Limits": {
+            "title": "13.  Expenditures Subject to Limits",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 31,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "14__Net_Contributions": {
+            "title": "14.  Net Contributions",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 32,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12",
+            "fec_ruleReference": "= 17e Col B - 28d Col B"
+        },
+        "15__Net_Operating_Expenditures": {
+            "title": "15.  Net Operating Expenditures",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 33,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12",
+            "fec_ruleReference": "=  23 Col B - 20a Col B"
+        },
+        "16_Federal_Funds": {
+            "title": "16. Federal Funds",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 121,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "17ai_Individuals_Itemized": {
+            "title": "17(a.i) Individuals Itemized",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 122,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "17aii_Individuals_Unitemized": {
+            "title": "17(a.ii) Individuals Unitemized",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 123,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "17aiii_Individual_Contribution_Total": {
+            "title": "17(a.iii) Individual Contribution Total",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 124,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "17b_Political_Party_Committees": {
+            "title": "17(b) Political Party Committees",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 125,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "17c_Other_Political_Committees_PACs": {
+            "title": "17(c) Other Political Committees (PACs)",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 126,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "17d_The_Candidate": {
+            "title": "17(d) The Candidate",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 127,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "17e_Total_Contributions": {
+            "title": "17(e) Total Contributions",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 41,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12",
+            "fec_ruleReference": "= 17aiii + 17b + 17c + 17d"
+        },
+        "18_Transfers_From_Aff/Other_Party_Cmttees": {
+            "title": "18. Transfers From Aff/Other Party Cmttees",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 129,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "19a_Received_from_or_Guaranteed_by_Cand": {
+            "title": "19(a) Received from or Guaranteed by Cand.",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 43,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "19b_Other_Loans": {
+            "title": "19(b) Other Loans",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 131,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "19c_Total_Loans": {
+            "title": "19(c) Total Loans",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 132,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12",
+            "fec_ruleReference": "= 19(a)+19(b))"
+        },
+        "20a_Operating": {
+            "title": "20(a) Operating",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 133,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "20b_Fundraising": {
+            "title": "20(b) Fundraising",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 134,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "20c_Legal_and_Accounting": {
+            "title": "20(c) Legal and Accounting",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 135,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "20d_Total_offsets_to_Expenditures": {
+            "title": "20(d) Total offsets to Expenditures",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 49,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12",
+            "fec_ruleReference": "= 20a + 20b + 20c"
+        },
+        "21_Other_Receipts": {
+            "title": "21. Other Receipts",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 137,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "22_Total_Receipts": {
+            "title": "22. Total Receipts",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 138,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12",
+            "fec_ruleReference": "= 16+17e+18+19c+20d+21"
+        },
+        "23_Operating_Expenditures": {
+            "title": "23. Operating Expenditures",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 139,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "24_Transfers_to_Other_Authorized_Committees": {
+            "title": "24. Transfers to Other Authorized Committees",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 140,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "25_Fundraising_Disbursements": {
+            "title": "25. Fundraising Disbursements",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 141,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "26_Exempt_Legal_&_Accounting_Disbursement": {
+            "title": "26. Exempt Legal & Accounting Disbursement",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 142,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "27a_Made_or_guaranteed_by_Candidate": {
+            "title": "27(a) Made or guaranteed by Candidate",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 56,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "27b_Other_Repayments": {
+            "title": "27(b) Other Repayments",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 144,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "27c_Total_Loan_Repayments_Made": {
+            "title": "27(c) Total Loan Repayments Made",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 145,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12",
+            "fec_ruleReference": "= 27a+27b"
+        },
+        "28a_Individuals": {
+            "title": "28(a) Individuals",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 59,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "28b_Political_Party_Committees": {
+            "title": "28(b) Political Party Committees",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 147,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "28c_Other_Political_Committees": {
+            "title": "28(c) Other Political Committees",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 148,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "28d_Total_Contributions_Refunds": {
+            "title": "28(d) Total Contributions Refunds",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 149,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12",
+            "fec_ruleReference": "= 28a+28b+28c"
+        },
+        "29_Other_Disbursements": {
+            "title": "29. Other Disbursements",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 150,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "30_Total_Disbursements": {
+            "title": "30. Total Disbursements",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 151,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12",
+            "fec_ruleReference": "= 23+24+25+26+27c+28d+29"
+        },
+        "31_Items_on_Hand_to_be_Liquidated": {
+            "title": "31. Items on Hand to be Liquidated",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 65,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "ALABAMA": {
+            "title": "ALABAMA",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 152,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "ALASKA": {
+            "title": "ALASKA",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 153,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "ARIZONA": {
+            "title": "ARIZONA",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 154,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "ARKANSAS": {
+            "title": "ARKANSAS",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 155,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "CALIFORNIA": {
+            "title": "CALIFORNIA",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 156,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "COLORADO": {
+            "title": "COLORADO",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 157,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "CONNECTICUT": {
+            "title": "CONNECTICUT",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 158,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "DELAWARE": {
+            "title": "DELAWARE",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 159,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "DIST_OF_COLUMBIA": {
+            "title": "DIST OF COLUMBIA",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 160,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "FLORIDA": {
+            "title": "FLORIDA",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 161,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "GEORGIA": {
+            "title": "GEORGIA",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 162,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "_HAWAII": {
+            "title": " HAWAII",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 77,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "IDAHO": {
+            "title": "IDAHO",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 164,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "ILLINOIS": {
+            "title": "ILLINOIS",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 165,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "INDIANA": {
+            "title": "INDIANA",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 166,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "IOWA": {
+            "title": "IOWA",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 167,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "KANSAS": {
+            "title": "KANSAS",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 168,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "KENTUCKY": {
+            "title": "KENTUCKY",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 169,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "LOUISIANA": {
+            "title": "LOUISIANA",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 170,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "MAINE": {
+            "title": "MAINE",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 171,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "MARYLAND": {
+            "title": "MARYLAND",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 172,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "MASSACHUSETTS": {
+            "title": "MASSACHUSETTS",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 173,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "MICHIGAN": {
+            "title": "MICHIGAN",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 174,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "MINNESOTA": {
+            "title": "MINNESOTA",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 175,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "MISSISSIPPI": {
+            "title": "MISSISSIPPI",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 176,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "MISSOURI": {
+            "title": "MISSOURI",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 177,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "_MONTANA": {
+            "title": " MONTANA",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 92,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "NEBRASKA": {
+            "title": "NEBRASKA",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 179,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "NEVADA": {
+            "title": "NEVADA",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 180,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "NEW_HAMPSHIRE": {
+            "title": "NEW HAMPSHIRE",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 181,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "NEW_JERSEY": {
+            "title": "NEW JERSEY",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 182,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "NEW_MEXICO": {
+            "title": "NEW MEXICO",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 183,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "NEW_YORK": {
+            "title": "NEW YORK",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 184,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "NORTH_CAROLINA": {
+            "title": "NORTH CAROLINA",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 185,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "NORTH_DAKOTA": {
+            "title": "NORTH DAKOTA",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 186,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "OHIO": {
+            "title": "OHIO",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 187,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "OKLAHOMA": {
+            "title": "OKLAHOMA",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 188,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "OREGON": {
+            "title": "OREGON",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 189,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "PENNSYLVANIA": {
+            "title": "PENNSYLVANIA",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 190,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "RHODE_ISLAND": {
+            "title": "RHODE ISLAND",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 191,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "SOUTH_CAROLINA": {
+            "title": "SOUTH CAROLINA",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 192,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "SOUTH_DAKOTA": {
+            "title": "SOUTH DAKOTA",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 193,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "TENNESSEE": {
+            "title": "TENNESSEE",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 194,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "TEXAS": {
+            "title": "TEXAS",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 195,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "UTAH": {
+            "title": "UTAH",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 196,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "VERMONT": {
+            "title": "VERMONT",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 197,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "VIRGINIA": {
+            "title": "VIRGINIA",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 198,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "WASHINGTON": {
+            "title": "WASHINGTON",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 199,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "WEST_VIRGINIA": {
+            "title": "WEST VIRGINIA",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 200,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "WISCONSIN": {
+            "title": "WISCONSIN",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 201,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "WYOMING": {
+            "title": "WYOMING",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 202,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "PUERTO_RICO": {
+            "title": "PUERTO RICO",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 203,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "GUAM": {
+            "title": "GUAM",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 204,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "VIRGIN_ISLANDS": {
+            "title": "VIRGIN ISLANDS",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 205,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "TOTALS": {
+            "title": "TOTALS",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 206,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12",
+            "fec_ruleReference": "= Fields 152+153+...+205"
+        },
+        "17e_Total_contributions__Other_than_Loans": {
+            "title": "17(e) Total contributions  (Other than Loans)",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 128,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12",
+            "fec_ruleReference": "= 17aiii+17b+17c+17d"
+        },
+        "19a_Received_from_or_Guaranteed__by_Cand": {
+            "title": "19(a) Received from or Guaranteed  by Cand.",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 130,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "20d_Total_Offsets_to_Operating_Expenditures": {
+            "title": "20(d) Total Offsets to Operating Expenditures",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 136,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12",
+            "fec_ruleReference": "= 20a+20b+20c)"
+        },
+        "27a_Made_or_Guaranteed_by_the_Candidate": {
+            "title": "27(a) Made or Guaranteed by the Candidate",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 143,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "28a__Individuals": {
+            "title": "28(a)  Individuals",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 146,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "HAWAII": {
+            "title": "HAWAII",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 163,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "MONTANA": {
+            "title": "MONTANA",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 178,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        }
+    },
+    "additionalProperties": false,
+    "required": [
+        "FORM_TYPE",
+        "FILER_COMMITTEE_ID_NUMBER",
+        "TREASURER_LAST_NAME",
+        "TREASURER_FIRST_NAME",
+        "DATE_SIGNED"
+    ]
+}

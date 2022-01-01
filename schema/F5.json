@@ -1,0 +1,451 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://github.com/mjtravers/fecfile-online-sandbox/blob/main/validator/schema/F5.json",
+    "title": "FEC F5",
+    "description": "FORM 5 - REPORT OF INDEPENDENT EXPENDITURES MADE AND CONTRIBUTIONS RECEIVED",
+    "type": "object",
+    "properties": {
+        "FORM_TYPE": {
+            "title": "FORM TYPE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 8,
+            "pattern": "^[ A-z0-9]{0,8}$",
+            "examples": [
+                "F5N"
+            ],
+            "fec_col_seq": 1,
+            "fec_form_line": "0",
+            "fec_type": "A/N-8 ",
+            "fec_requiredErrorLevel": "X (error)",
+            "fec_valueReference": "F5+[N|A|T]"
+        },
+        "FILER_COMMITTEE_ID_NUMBER": {
+            "title": "FILER COMMITTEE ID NUMBER",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 9,
+            "pattern": "^[ A-z0-9]{0,9}$",
+            "examples": [
+                "C90065431"
+            ],
+            "fec_col_seq": 2,
+            "fec_form_line": "0",
+            "fec_type": "A/N-9 ",
+            "fec_requiredErrorLevel": "X (error)"
+        },
+        "ENTITY_TYPE": {
+            "title": "ENTITY TYPE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 3,
+            "pattern": "^[ A-z0-9]{0,3}$",
+            "examples": [
+                "IND"
+            ],
+            "fec_col_seq": 3,
+            "fec_form_line": "0",
+            "fec_type": "A/N-3",
+            "fec_valueReference": "IND,ORG"
+        },
+        "ORGANIZATION_NAME": {
+            "title": "ORGANIZATION NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 200,
+            "pattern": "^[ A-z0-9]{0,200}$",
+            "examples": [
+                "John Smith & Co."
+            ],
+            "fec_col_seq": 4,
+            "fec_form_line": "0",
+            "fec_type": "A/N-200",
+            "fec_requiredErrorLevel": "X (error) If not Individual"
+        },
+        "INDIVIDUAL_LAST_NAME": {
+            "title": "INDIVIDUAL LAST NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 30,
+            "pattern": "^[ A-z0-9]{0,30}$",
+            "examples": [
+                "Smith"
+            ],
+            "fec_col_seq": 5,
+            "fec_form_line": "0",
+            "fec_type": "A/N-30",
+            "fec_requiredErrorLevel": "X (error) If not Organization"
+        },
+        "INDIVIDUAL_FIRST_NAME": {
+            "title": "INDIVIDUAL FIRST NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 20,
+            "pattern": "^[ A-z0-9]{0,20}$",
+            "examples": [
+                "Patrick"
+            ],
+            "fec_col_seq": 6,
+            "fec_form_line": "0",
+            "fec_type": "A/N-20",
+            "fec_requiredErrorLevel": "X (error) If not Organization"
+        },
+        "INDIVIDUAL_MIDDLE_NAME": {
+            "title": "INDIVIDUAL MIDDLE NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 20,
+            "pattern": "^[ A-z0-9]{0,20}$",
+            "examples": [
+                "Thomas"
+            ],
+            "fec_col_seq": 7,
+            "fec_form_line": "0",
+            "fec_type": "A/N-20"
+        },
+        "INDIVIDUAL_PREFIX": {
+            "title": "INDIVIDUAL PREFIX",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 10,
+            "pattern": "^[ A-z0-9]{0,10}$",
+            "examples": [
+                "Mr."
+            ],
+            "fec_col_seq": 8,
+            "fec_form_line": "0",
+            "fec_type": "A/N-10"
+        },
+        "INDIVIDUAL_SUFFIX": {
+            "title": "INDIVIDUAL SUFFIX",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 10,
+            "pattern": "^[ A-z0-9]{0,10}$",
+            "examples": [
+                "Jr."
+            ],
+            "fec_col_seq": 9,
+            "fec_form_line": "0",
+            "fec_type": "A/N-10"
+        },
+        "CHANGE_OF_ADDRESS": {
+            "title": "CHANGE OF ADDRESS",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 1,
+            "pattern": "^[ A-z0-9]{0,1}$",
+            "fec_col_seq": 10,
+            "fec_form_line": "0",
+            "fec_type": "A-1"
+        },
+        "STREET__1": {
+            "title": "STREET  1",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 34,
+            "pattern": "^[ A-z0-9]{0,34}$",
+            "examples": [
+                "123 Sycamore St"
+            ],
+            "fec_col_seq": 11,
+            "fec_form_line": "0",
+            "fec_type": "A/N-34",
+            "fec_requiredErrorLevel": "X (warning)"
+        },
+        "STREET__2": {
+            "title": "STREET  2",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 34,
+            "pattern": "^[ A-z0-9]{0,34}$",
+            "fec_col_seq": 12,
+            "fec_form_line": "0",
+            "fec_type": "A/N-34"
+        },
+        "CITY": {
+            "title": "CITY",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 30,
+            "pattern": "^[ A-z0-9]{0,30}$",
+            "examples": [
+                "Anytown"
+            ],
+            "fec_col_seq": 13,
+            "fec_form_line": "0",
+            "fec_type": "A/N-30",
+            "fec_requiredErrorLevel": "X (warning)"
+        },
+        "STATE": {
+            "title": "STATE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 2,
+            "pattern": "^[ A-z0-9]{0,2}$",
+            "examples": [
+                "FL"
+            ],
+            "fec_col_seq": 14,
+            "fec_form_line": "0",
+            "fec_type": "A-2",
+            "fec_requiredErrorLevel": "X (warning)"
+        },
+        "ZIP": {
+            "title": "ZIP",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 9,
+            "pattern": "^[ A-z0-9]{0,9}$",
+            "examples": [
+                33034
+            ],
+            "fec_col_seq": 15,
+            "fec_form_line": "0",
+            "fec_type": "A/N-9",
+            "fec_requiredErrorLevel": "X (warning)"
+        },
+        "INDIVIDUAL_OCCUPATION": {
+            "title": "INDIVIDUAL OCCUPATION",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 38,
+            "pattern": "^[ A-z0-9]{0,38}$",
+            "fec_col_seq": 16,
+            "fec_form_line": "0",
+            "fec_type": "A/N-38",
+            "fec_requiredErrorLevel": "X(Warning) if IND",
+            "fec_ruleReference": "If Entity = IND "
+        },
+        "INDIVIDUAL_EMPLOYER": {
+            "title": "INDIVIDUAL EMPLOYER",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 38,
+            "pattern": "^[ A-z0-9]{0,38}$",
+            "fec_col_seq": 17,
+            "fec_form_line": "0",
+            "fec_type": "A/N-38",
+            "fec_requiredErrorLevel": "X(Warning) if IND",
+            "fec_ruleReference": "If Entity = IND "
+        },
+        "REPORT_CODE": {
+            "title": "REPORT CODE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 3,
+            "pattern": "^[ A-z0-9]{0,3}$",
+            "examples": [
+                "Q1"
+            ],
+            "fec_col_seq": 18,
+            "fec_form_line": "0",
+            "fec_type": "A-3 ",
+            "fec_requiredErrorLevel": "X (warning) if 24/48hr code has no value",
+            "fec_valueReference": "Q1, Q2, Q3, Q4, YE",
+            "fec_ruleReference": "Either Report Code or 24/48-Hour Code is required.  If both are missing, Report Code is flagged as missing data at a Warning Level.\n{Report Code flagged as an Error if it has an incorrect value.}"
+        },
+        "24HOUR_48HOUR_CODE": {
+            "title": "24HOUR 48HOUR CODE",
+            "description": "",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 99,
+            "examples": [
+                24
+            ],
+            "fec_col_seq": 19,
+            "fec_form_line": "0",
+            "fec_type": "NUM-2",
+            "fec_requiredErrorLevel": "X (warning) if REPORT CODE contains no value",
+            "fec_valueReference": "24, 48",
+            "fec_ruleReference": "If 24/48-Hour Code is coded, and Report Code contains data, then 24/48-Hour Code is flagged as \"not needed\"."
+        },
+        "ORIGINAL_AMENDMENT_DATE": {
+            "title": "ORIGINAL AMENDMENT DATE",
+            "description": "",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 99999999,
+            "examples": [
+                20130829
+            ],
+            "fec_col_seq": 20,
+            "fec_form_line": "0",
+            "fec_type": "NUM-8",
+            "fec_requiredErrorLevel": "X (error if Form Type=F5A)",
+            "fec_valueReference": "YYYYMMDD",
+            "fec_ruleReference": "Use date of original report or of most recent amendment"
+        },
+        "COVERAGE_FROM_DATE": {
+            "title": "COVERAGE FROM DATE",
+            "description": "",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 99999999,
+            "examples": [
+                20120101
+            ],
+            "fec_col_seq": 21,
+            "fec_form_line": "0",
+            "fec_type": "NUM-8",
+            "fec_requiredErrorLevel": "X (warning)",
+            "fec_valueReference": "YYYYMMDD"
+        },
+        "COVERAGE_THROUGH_DATE": {
+            "title": "COVERAGE THROUGH DATE",
+            "description": "",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 99999999,
+            "examples": [
+                20121231
+            ],
+            "fec_col_seq": 22,
+            "fec_form_line": "0",
+            "fec_type": "NUM-8",
+            "fec_requiredErrorLevel": "X (warning)",
+            "fec_valueReference": "YYYYMMDD"
+        },
+        "TOTAL_CONTRIBUTION": {
+            "title": "TOTAL CONTRIBUTION",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 23,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12",
+            "fec_requiredErrorLevel": "X (warning)"
+        },
+        "TOTAL_INDEPENDENT_EXPENDITURE": {
+            "title": "TOTAL INDEPENDENT EXPENDITURE",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 24,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12",
+            "fec_requiredErrorLevel": "X (error)"
+        },
+        "PERSON_COMPLETING_LAST_NAME": {
+            "title": "PERSON COMPLETING LAST NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 30,
+            "pattern": "^[ A-z0-9]{0,30}$",
+            "examples": [
+                "Smith"
+            ],
+            "fec_col_seq": 25,
+            "fec_form_line": "0",
+            "fec_type": "A/N-30",
+            "fec_requiredErrorLevel": "X (error)"
+        },
+        "PERSON_COMPLETING_FIRST_NAME": {
+            "title": "PERSON COMPLETING FIRST NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 20,
+            "pattern": "^[ A-z0-9]{0,20}$",
+            "examples": [
+                "Patrick"
+            ],
+            "fec_col_seq": 26,
+            "fec_form_line": "0",
+            "fec_type": "A/N-20",
+            "fec_requiredErrorLevel": "X (error)"
+        },
+        "PERSON_COMPLETING_MIDDLE_NAME": {
+            "title": "PERSON COMPLETING MIDDLE NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 20,
+            "pattern": "^[ A-z0-9]{0,20}$",
+            "examples": [
+                "Thomas"
+            ],
+            "fec_col_seq": 27,
+            "fec_form_line": "0",
+            "fec_type": "A/N-20"
+        },
+        "PERSON_COMPLETING_PREFIX": {
+            "title": "PERSON COMPLETING PREFIX",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 10,
+            "pattern": "^[ A-z0-9]{0,10}$",
+            "examples": [
+                "Mr."
+            ],
+            "fec_col_seq": 28,
+            "fec_form_line": "0",
+            "fec_type": "A/N-10"
+        },
+        "PERSON_COMPLETING_SUFFIX": {
+            "title": "PERSON COMPLETING SUFFIX",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 10,
+            "pattern": "^[ A-z0-9]{0,10}$",
+            "examples": [
+                "Jr."
+            ],
+            "fec_col_seq": 29,
+            "fec_form_line": "0",
+            "fec_type": "A/N-10"
+        },
+        "DATE_SIGNED": {
+            "title": "DATE SIGNED",
+            "description": "",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 99999999,
+            "examples": [
+                20120820
+            ],
+            "fec_col_seq": 30,
+            "fec_form_line": "0",
+            "fec_type": "NUM-8",
+            "fec_requiredErrorLevel": "X (error)",
+            "fec_valueReference": "YYYYMMDD"
+        }
+    },
+    "additionalProperties": false,
+    "required": [
+        "FORM_TYPE",
+        "FILER_COMMITTEE_ID_NUMBER",
+        "ORGANIZATION_NAME",
+        "INDIVIDUAL_LAST_NAME",
+        "INDIVIDUAL_FIRST_NAME",
+        "ORIGINAL_AMENDMENT_DATE",
+        "TOTAL_INDEPENDENT_EXPENDITURE",
+        "PERSON_COMPLETING_LAST_NAME",
+        "PERSON_COMPLETING_FIRST_NAME",
+        "DATE_SIGNED"
+    ]
+}

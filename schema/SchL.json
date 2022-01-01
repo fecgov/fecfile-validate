@@ -1,0 +1,309 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://github.com/mjtravers/fecfile-online-sandbox/blob/main/validator/schema/SchL.json",
+    "title": "FEC Sch L",
+    "description": "SCHEDULE L - ADDITIONAL SUMMARY REPORT OF RECEIPTS AND DISBURSEMENTS FOR AN\n                         UNAUTHORIZED COMMITTEE REPORTING A NON-FEDERAL ACCOUNT FOR SHARED\n                         FEDERAL ELECTION ACTIVITY  ",
+    "type": "object",
+    "properties": {
+        "FORM_TYPE": {
+            "title": "FORM TYPE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 8,
+            "pattern": "^[ A-z0-9]{0,8}$",
+            "examples": [
+                "SL"
+            ],
+            "fec_col_seq": 1,
+            "fec_form_line": "0",
+            "fec_type": "A/N-8",
+            "fec_requiredErrorLevel": "X (error)",
+            "fec_valueReference": "SL"
+        },
+        "FILER_COMMITTEE_ID": {
+            "title": "FILER COMMITTEE ID",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 9,
+            "pattern": "^[ A-z0-9]{0,9}$",
+            "examples": [
+                "C00123456"
+            ],
+            "fec_col_seq": 2,
+            "fec_form_line": "0",
+            "fec_type": "A/N-9 ",
+            "fec_requiredErrorLevel": "X (error)"
+        },
+        "TRANSACTION_ID_NUMBER": {
+            "title": "TRANSACTION ID NUMBER",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 20,
+            "pattern": "^[ A-z0-9]{0,20}$",
+            "examples": [
+                "L123456789-3456"
+            ],
+            "fec_col_seq": 3,
+            "fec_form_line": "0",
+            "fec_type": "A/N-20",
+            "fec_requiredErrorLevel": "X (error)",
+            "fec_ruleReference": "must be unique and UPPER CASE for the life of the report (original + all amendments)"
+        },
+        "RECORD_ID_NUMBER_for_account_name": {
+            "title": "RECORD ID NUMBER (for account name)",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 9,
+            "pattern": "^[ A-z0-9]{0,9}$",
+            "examples": [
+                "123xyzABC"
+            ],
+            "fec_col_seq": 4,
+            "fec_form_line": "0",
+            "fec_type": "A/N-9",
+            "fec_requiredErrorLevel": "X (error)",
+            "fec_ruleReference": "must be unique for the life of the report"
+        },
+        "ACCOUNT_NAME": {
+            "title": "ACCOUNT NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 90,
+            "pattern": "^[ A-z0-9]{0,90}$",
+            "fec_col_seq": 5,
+            "fec_form_line": "0",
+            "fec_type": "A/N-90",
+            "fec_requiredErrorLevel": "X (warning)"
+        },
+        "COVERAGE_FROM_DATE": {
+            "title": "COVERAGE FROM DATE",
+            "description": "",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 99999999,
+            "examples": [
+                20120911
+            ],
+            "fec_col_seq": 6,
+            "fec_form_line": "0",
+            "fec_type": "NUM-8 ",
+            "fec_requiredErrorLevel": "X (warning)",
+            "fec_valueReference": "YYYYMMDD"
+        },
+        "COVERAGE_THROUGH_DATE": {
+            "title": "COVERAGE THROUGH DATE",
+            "description": "",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 99999999,
+            "examples": [
+                20120911
+            ],
+            "fec_col_seq": 7,
+            "fec_form_line": "0",
+            "fec_type": "NUM-8",
+            "fec_requiredErrorLevel": "X (warning)",
+            "fec_valueReference": "YYYYMMDD"
+        },
+        "1a_Itemized_Receipts_From_Persons": {
+            "title": "1a. Itemized Receipts From Persons",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 25,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "1b_Unitemized_Receipts_From_Persons": {
+            "title": "1b. Unitemized Receipts From Persons",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 26,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "1c_Total_Receipts_From_Persons": {
+            "title": "1c. Total Receipts From Persons",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 27,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12",
+            "fec_ruleReference": "= 1a + 1b"
+        },
+        "2_OTHER_RECEIPTS": {
+            "title": "2. OTHER RECEIPTS",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 28,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "3_TOTAL_RECEIPTS": {
+            "title": "3. TOTAL RECEIPTS",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 29,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12",
+            "fec_ruleReference": "= 1c + 2"
+        },
+        "4a_Voter_Registration_DISBURSEMENTS": {
+            "title": "4(a). Voter Registration DISBURSEMENTS",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 30,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "4b_Voter_ID_DISBURSEMENTS": {
+            "title": "4(b). Voter ID DISBURSEMENTS",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 31,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "4c_GOTV_DISBURSEMENTS": {
+            "title": "4(c). GOTV DISBURSEMENTS",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 32,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "4d_Generic_Campaign_DISBURSEMENTS": {
+            "title": "4(d). Generic Campaign DISBURSEMENTS",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 33,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12",
+            "fec_ruleReference": "= 4a + 4b + 4c"
+        },
+        "4e_Line_4_Total_": {
+            "title": "4(e) Line 4 Total ",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 34,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "5_OTHER_DISBURSEMENTS": {
+            "title": "5. OTHER DISBURSEMENTS",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 35,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "6_TOTAL_DISBURSEMENTS": {
+            "title": "6. TOTAL DISBURSEMENTS",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 36,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12",
+            "fec_ruleReference": "= 4d + 5"
+        },
+        "7_CASH_ON_HAND_Beginning": {
+            "title": "7. CASH ON HAND (Beginning)",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 20,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "8_RECEIPTS": {
+            "title": "8. RECEIPTS",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 38,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12",
+            "fec_ruleReference": "= 3"
+        },
+        "9_SUBTOTAL": {
+            "title": "9. SUBTOTAL",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 39,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12",
+            "fec_ruleReference": "= 7 + 8"
+        },
+        "10_DISBURSEMENTS": {
+            "title": "10. DISBURSEMENTS",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 40,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12",
+            "fec_ruleReference": "= 6"
+        },
+        "11_ENDING_CASH_ON_HAND": {
+            "title": "11. ENDING CASH ON HAND",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 41,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12",
+            "fec_ruleReference": "= 9 - 10"
+        },
+        "7_CASH_ON_HAND_as_of_Jan_1": {
+            "title": "7. CASH ON HAND as of Jan 1",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 37,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        }
+    },
+    "additionalProperties": false,
+    "required": [
+        "FORM_TYPE",
+        "FILER_COMMITTEE_ID",
+        "TRANSACTION_ID_NUMBER",
+        "RECORD_ID_NUMBER_for_account_name"
+    ]
+}

@@ -1,0 +1,258 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://github.com/mjtravers/fecfile-online-sandbox/blob/main/validator/schema/F94.json",
+    "title": "FEC F94",
+    "description": "FORM 94 - FEDERAL CANDIDATE LIST FOR FORM 93 TRANSACTIONS",
+    "type": "object",
+    "properties": {
+        "FORM_TYPE": {
+            "title": "FORM TYPE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 8,
+            "pattern": "^[ A-z0-9]{0,8}$",
+            "examples": [
+                "F94"
+            ],
+            "fec_col_seq": 1,
+            "fec_form_line": "0",
+            "fec_type": "A/N-8 ",
+            "fec_requiredErrorLevel": "X (error)",
+            "fec_valueReference": "F94"
+        },
+        "FILER_COMMITTEE_ID_NUMBER": {
+            "title": "FILER COMMITTEE ID NUMBER",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 9,
+            "pattern": "^[ A-z0-9]{0,9}$",
+            "examples": [
+                "C00123456"
+            ],
+            "fec_col_seq": 2,
+            "fec_form_line": "0",
+            "fec_type": "A/N-9 ",
+            "fec_requiredErrorLevel": "X (error)"
+        },
+        "TRANSACTION_ID_NUMBER": {
+            "title": "TRANSACTION ID NUMBER",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 20,
+            "pattern": "^[ A-z0-9]{0,20}$",
+            "examples": [
+                "B5614789-1234"
+            ],
+            "fec_col_seq": 3,
+            "fec_form_line": "0",
+            "fec_type": "A/N-20",
+            "fec_requiredErrorLevel": "X (error)",
+            "fec_ruleReference": "must be unique and UPPER CASE for the life of the report (original + all amendments)"
+        },
+        "BACK_REFERENCE_TRAN_ID": {
+            "title": "BACK REFERENCE TRAN ID",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 20,
+            "pattern": "^[ A-z0-9]{0,20}$",
+            "examples": [
+                "A123789-1234"
+            ],
+            "fec_col_seq": 4,
+            "fec_form_line": "0",
+            "fec_type": "A/N-20",
+            "fec_ruleReference": "Reference to the Tran ID of a Related Record"
+        },
+        "BACK_REFERENCE_SCHED_NAME": {
+            "title": "BACK REFERENCE SCHED NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 8,
+            "pattern": "^[ A-z0-9]{0,8}$",
+            "examples": [
+                "F93"
+            ],
+            "fec_col_seq": 5,
+            "fec_form_line": "0",
+            "fec_type": "A/N-8 ",
+            "fec_valueReference": "F93",
+            "fec_ruleReference": "Ref to the Schedule that has the Related Record"
+        },
+        "CANDIDATE_ID_NUMBER": {
+            "title": "CANDIDATE ID NUMBER",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 9,
+            "pattern": "^[ A-z0-9]{0,9}$",
+            "examples": [
+                "H04MA3210"
+            ],
+            "fec_col_seq": 6,
+            "fec_form_line": "0",
+            "fec_type": "A/N-9"
+        },
+        "CANDIDATE_LAST_NAME": {
+            "title": "CANDIDATE LAST NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 30,
+            "pattern": "^[ A-z0-9]{0,30}$",
+            "examples": [
+                "Smith"
+            ],
+            "fec_col_seq": 7,
+            "fec_form_line": "0",
+            "fec_type": "A/N-30",
+            "fec_requiredErrorLevel": "X (error)"
+        },
+        "CANDIDATE_FIRST_NAME": {
+            "title": "CANDIDATE FIRST NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 20,
+            "pattern": "^[ A-z0-9]{0,20}$",
+            "examples": [
+                "Patrick"
+            ],
+            "fec_col_seq": 8,
+            "fec_form_line": "0",
+            "fec_type": "A/N-20",
+            "fec_requiredErrorLevel": "X (error)"
+        },
+        "CANDIDATE_MIDDLE_NAME": {
+            "title": "CANDIDATE MIDDLE NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 20,
+            "pattern": "^[ A-z0-9]{0,20}$",
+            "examples": [
+                "Thomas"
+            ],
+            "fec_col_seq": 9,
+            "fec_form_line": "0",
+            "fec_type": "A/N-20"
+        },
+        "CANDIDATE_PREFIX": {
+            "title": "CANDIDATE PREFIX",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 10,
+            "pattern": "^[ A-z0-9]{0,10}$",
+            "examples": [
+                "Mr."
+            ],
+            "fec_col_seq": 10,
+            "fec_form_line": "0",
+            "fec_type": "A/N-10"
+        },
+        "CANDIDATE_SUFFIX": {
+            "title": "CANDIDATE SUFFIX",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 10,
+            "pattern": "^[ A-z0-9]{0,10}$",
+            "examples": [
+                "Jr."
+            ],
+            "fec_col_seq": 11,
+            "fec_form_line": "0",
+            "fec_type": "A/N-10"
+        },
+        "CANDIDATE_OFFICE": {
+            "title": "CANDIDATE OFFICE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 1,
+            "pattern": "^[ A-z0-9]{0,1}$",
+            "examples": [
+                "H"
+            ],
+            "fec_col_seq": 12,
+            "fec_form_line": "0",
+            "fec_type": "A/N-1",
+            "fec_requiredErrorLevel": "X (warning)",
+            "fec_valueReference": "H,S,P",
+            "fec_ruleReference": "Edit: OFFICE"
+        },
+        "CANDIDATE_STATE_": {
+            "title": "CANDIDATE STATE ",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 2,
+            "pattern": "^[ A-z0-9]{0,2}$",
+            "examples": [
+                "MA"
+            ],
+            "fec_col_seq": 13,
+            "fec_form_line": "0",
+            "fec_type": "A/N-2",
+            "fec_requiredErrorLevel": "X (warn if Cand Office=H or S)",
+            "fec_valueReference": "AK,AL,...,ZZ",
+            "fec_ruleReference": "Edit: ST"
+        },
+        "CANDIDATE_DIST": {
+            "title": "CANDIDATE DIST",
+            "description": "",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 99,
+            "examples": [
+                70
+            ],
+            "fec_col_seq": 14,
+            "fec_form_line": "0",
+            "fec_type": "NUM-2",
+            "fec_requiredErrorLevel": "X (warn if Cand Office=H)",
+            "fec_valueReference": "01, ..., 99"
+        },
+        "ELECTION_CODE": {
+            "title": "ELECTION CODE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 5,
+            "pattern": "^[ A-z0-9]{0,5}$",
+            "examples": [
+                "P2012"
+            ],
+            "fec_col_seq": 15,
+            "fec_form_line": "0",
+            "fec_type": "A/N-5",
+            "fec_valueReference": "G,P,O[YYYY]",
+            "fec_ruleReference": "Edit: PGI"
+        },
+        "ELECTION_OTHER_DESCRIPTION_": {
+            "title": "ELECTION OTHER DESCRIPTION ",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 20,
+            "pattern": "^[ A-z0-9]{0,20}$",
+            "fec_col_seq": 16,
+            "fec_form_line": "0",
+            "fec_type": "A/N-20",
+            "fec_ruleReference": "Req if PGI = \"O\""
+        }
+    },
+    "additionalProperties": false,
+    "required": [
+        "FORM_TYPE",
+        "FILER_COMMITTEE_ID_NUMBER",
+        "TRANSACTION_ID_NUMBER",
+        "CANDIDATE_LAST_NAME",
+        "CANDIDATE_FIRST_NAME"
+    ]
+}

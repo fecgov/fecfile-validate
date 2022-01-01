@@ -1,0 +1,478 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://github.com/mjtravers/fecfile-online-sandbox/blob/main/validator/schema/F3PZ2.json",
+    "title": "FEC F3PZ2",
+    "description": "FORM 3PZ (File with Form 3P) Part 2: CONSOLIDATED TOTALS FOR ALL AUTHORIZED COMMITTEES\n                    (To Be Used By A Principal Campaign Committee) ",
+    "type": "object",
+    "properties": {
+        "FIELD\nDESCRIPTION": {
+            "title": "FIELD\nDESCRIPTION",
+            "description": "",
+            "examples": [
+                "SAMPLE\nDATA"
+            ],
+            "fec_col_seq": "COL\nSEQ",
+            "fec_form_line": "0",
+            "fec_type": "TYPE",
+            "fec_requiredErrorLevel": "REQUIRED",
+            "fec_valueReference": "VALUE\nREFERENCE",
+            "fec_ruleReference": "RULE\nREFERENCE"
+        },
+        "FORM_TYPE": {
+            "title": "FORM TYPE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 5,
+            "pattern": "^[ A-z0-9]{0,5}$",
+            "examples": [
+                "F3PZ2"
+            ],
+            "fec_col_seq": 1,
+            "fec_form_line": "0",
+            "fec_type": "A/N-5",
+            "fec_requiredErrorLevel": "X (error)",
+            "fec_valueReference": "F3PZ2"
+        },
+        "FILER_COMMITTEE_ID_NUMBER_PCC": {
+            "title": "FILER COMMITTEE ID NUMBER (PCC)",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 9,
+            "pattern": "^[ A-z0-9]{0,9}$",
+            "examples": [
+                "C00123456"
+            ],
+            "fec_col_seq": 2,
+            "fec_form_line": "0",
+            "fec_type": "A/N-9 ",
+            "fec_requiredErrorLevel": "X (error)",
+            "fec_ruleReference": "Same as field #2 on F3P record"
+        },
+        "COMMITTEE_NAME_PCC": {
+            "title": "COMMITTEE NAME (PCC)",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 200,
+            "pattern": "^[ A-z0-9]{0,200}$",
+            "examples": [
+                "C00123456"
+            ],
+            "fec_col_seq": 3,
+            "fec_form_line": "0",
+            "fec_type": "A/N-200",
+            "fec_requiredErrorLevel": "X (warning)",
+            "fec_ruleReference": "Same as field #3 on F3P record"
+        },
+        "COVERAGE_FROM_DATE": {
+            "title": "COVERAGE FROM DATE",
+            "description": "",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 99999999,
+            "examples": [
+                20120101
+            ],
+            "fec_col_seq": 4,
+            "fec_form_line": "0",
+            "fec_type": "NUM-8",
+            "fec_requiredErrorLevel": "X (warning)",
+            "fec_valueReference": "YYYYMMDD",
+            "fec_ruleReference": "Same as field #16 on F3P record"
+        },
+        "COVERAGE_THROUGH_DATE": {
+            "title": "COVERAGE THROUGH DATE",
+            "description": "",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 99999999,
+            "examples": [
+                20121231
+            ],
+            "fec_col_seq": 5,
+            "fec_form_line": "0",
+            "fec_type": "NUM-8",
+            "fec_requiredErrorLevel": "X (warning)",
+            "fec_valueReference": "YYYYMMDD",
+            "fec_ruleReference": "Same as field #17 on F3P record"
+        },
+        "6_Cash_on_Hand_at_Beginning_of_Reporting_Period": {
+            "title": "6 Cash on Hand at Beginning of Reporting Period",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 6,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12",
+            "fec_ruleReference": "F3PZ2 amounts = Sum of corresponding\namounts on all F3PZ1 records"
+        },
+        "10_Cash_on_Hand_at_Close_of_Reporting_Period": {
+            "title": "10 Cash on Hand at Close of Reporting Period",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 7,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "11_Debts_and_Obligations_Owed_TO_the_Committee": {
+            "title": "11 Debts and Obligations Owed TO the Committee",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 8,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "12_Debts_and_Obligations_Owed_BY_the_Committee": {
+            "title": "12 Debts and Obligations Owed BY the Committee",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 9,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "13_Expenditures_Subject_to_Limitation": {
+            "title": "13 Expenditures Subject to Limitation",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 10,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "14_Net_Contributions": {
+            "title": "14 Net Contributions",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 11,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "15_Net_Operating_Expenditures": {
+            "title": "15 Net Operating Expenditures",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 12,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "16_Federal_Funds": {
+            "title": "16 Federal Funds",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 13,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "17aiii_Contributions_from_Individuals/Persons_Other_Than_Political_Committees": {
+            "title": "17(a)(iii) Contributions from Individuals/Persons Other Than Political Committees",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 14,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "17b_Contributions_from_Political_Party_Committees": {
+            "title": "17(b) Contributions from Political Party Committees",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 15,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "17c_Contributions_from_Other_Political_Committees": {
+            "title": "17(c) Contributions from Other Political Committees",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 16,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "17d_Contributions_from_the_Candidate_": {
+            "title": "17(d) Contributions from the Candidate ",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 17,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "17e_Total_Contributions": {
+            "title": "17(e) Total Contributions",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 18,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "18_Transfers_from_Other_Authorized_Committees": {
+            "title": "18 Transfers from Other Authorized Committees",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 19,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "19a_Loans_Received_From_or_Guaranteed_by_the_Candidate": {
+            "title": "19(a) Loans Received From or Guaranteed by the Candidate",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 20,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "19b_Other_Loans": {
+            "title": "19(b) Other Loans",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 21,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "19c_Total_Loans": {
+            "title": "19(c) Total Loans",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 22,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "20a_Offsets_to_Operating_Expenditures": {
+            "title": "20(a) Offsets to Operating Expenditures",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 23,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "20b_Offsets_to_Fundraising_Expenditures": {
+            "title": "20(b) Offsets to Fundraising Expenditures",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 24,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "20c_Offsets_to_Legal_and_Accounting_Expenditures": {
+            "title": "20(c) Offsets to Legal and Accounting Expenditures",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 25,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "20d_Total_Offsets_to_Expenditures": {
+            "title": "20(d) Total Offsets to Expenditures",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 26,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "21_Other_Receipts_": {
+            "title": "21 Other Receipts ",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 27,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "22_Total_Receipts": {
+            "title": "22 Total Receipts",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 28,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "23_Operating_Expenditures": {
+            "title": "23 Operating Expenditures",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 29,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "24_Transfers_to_Other_Authorized_Committees": {
+            "title": "24 Transfers to Other Authorized Committees",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 30,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "25_Fundraising_Disbursements": {
+            "title": "25 Fundraising Disbursements",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 31,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "26_Exempt_Legal_and_Accounting_Disbursements": {
+            "title": "26 Exempt Legal and Accounting Disbursements",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 32,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "27a_Repayments_of_Loans_Made_or_Guaranteed_by_Candidate": {
+            "title": "27(a) Repayments of Loans Made or Guaranteed by Candidate",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 33,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "27b_Other_Loan_Repayments": {
+            "title": "27(b) Other Loan Repayments",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 34,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "27c_Total_Loan_Repayments_Made": {
+            "title": "27(c) Total Loan Repayments Made",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 35,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "28a_Refunds_of_Contributions_from_Individuals/Persons": {
+            "title": "28(a) Refunds of Contributions from Individuals/Persons",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 36,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "28b_Refunds_of_Contributions_from_Political_Party_Committees": {
+            "title": "28(b) Refunds of Contributions from Political Party Committees",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 37,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "28c_Refunds_of_Contributions_from_Other_Political_Committees": {
+            "title": "28(c) Refunds of Contributions from Other Political Committees",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 38,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "28d_Total_Contributions_Refunds": {
+            "title": "28(d) Total Contributions Refunds",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 39,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "29_Other_Disbursements": {
+            "title": "29 Other Disbursements",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 40,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "30_Total_Disbursements": {
+            "title": "30 Total Disbursements",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 41,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "kk\u00a0\u00a031_Items_on_Hand_to_be_Liquidated": {
+            "title": "kk)\u00a0\u00a031 Items on Hand to be Liquidated",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 42,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        }
+    },
+    "additionalProperties": false,
+    "required": [
+        "FORM_TYPE",
+        "FILER_COMMITTEE_ID_NUMBER_PCC"
+    ]
+}

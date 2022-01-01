@@ -1,0 +1,51 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://github.com/mjtravers/fecfile-online-sandbox/blob/main/validator/schema/form3x.json",
+    "title": "FEC Form 3X",
+    "description": "Report of receipts and disbursements for other than an authorized committee.",
+    "type": "object",
+    "properties": {
+
+      "FORM_TYPE": {
+        "title": "FORM TYPE",
+        "description": "Form code that describes the form type and whether it is New or Amended",
+        "enum": ["F3XN", "F3XA", "F3XT"],
+        "examples": ["F3XN"],
+        "fec_line": "3",
+        "fec_type": "A/N-4",
+        "fec_requiredErrorLevel": "error",
+        "fec_valueReference": "F3X+[N|A|T]",
+        "fec_ruleReference": null
+      },
+
+      "FILER_COMMITTEE_ID_NUMBER": {
+        "title": "FILER COMMITTEE ID NUMBER",
+        "description": "FEC ID number registered to this committee",
+        "type": "string",
+        "pattern": "^C[0-9]{8}$",
+        "minLength": 9,
+        "maxLength": 9,
+        "examples": ["C00123456"],
+        "fec_line": "2",
+        "fec_type": "A/N-9",
+        "fec_requiredErrorLevel": "error",
+        "fec_valueReference": null,
+        "fec_ruleReference": null
+      },
+
+      "COMMITTEE_NAME": {
+        "title": "COMMITTEE NAME",
+        "description": "",
+        "type": "string",
+        "minLength": 0,
+        "maxLength": 200,
+        "pattern": "^[ A-z0-9]{0,200}$",
+        "examples": ["Foes of Pat"],
+        "fec_line": "0",
+        "fec_type": "A/N-200",
+        "fec_requiredErrorLevel": "X (warning)"
+      }
+    },
+    "additionalProperties": false,
+    "required": ["FORM_TYPE", "FILER_COMMITTEE_ID_NUMBER"]
+  }

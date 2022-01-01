@@ -1,0 +1,130 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://github.com/mjtravers/fecfile-online-sandbox/blob/main/validator/schema/HDR.json",
+    "title": "FEC HDR",
+    "description": "HDR - Header Record",
+    "type": "object",
+    "properties": {
+        "Record_Type": {
+            "title": "Record Type",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 3,
+            "pattern": "^[ A-z0-9]{0,3}$",
+            "examples": [
+                "HDR"
+            ],
+            "fec_col_seq": 1,
+            "fec_form_line": "0",
+            "fec_type": "A/N-3",
+            "fec_requiredErrorLevel": "X (error)",
+            "fec_valueReference": "HDR"
+        },
+        "EF_Type": {
+            "title": "EF Type",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 3,
+            "pattern": "^[ A-z0-9]{0,3}$",
+            "examples": [
+                "FEC"
+            ],
+            "fec_col_seq": 2,
+            "fec_form_line": "0",
+            "fec_type": "A/N-3",
+            "fec_requiredErrorLevel": "X (error)",
+            "fec_valueReference": "FEC"
+        },
+        "FEC_Version_#": {
+            "title": "FEC Version #",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 4,
+            "pattern": "^[ A-z0-9]{0,4}$",
+            "examples": [
+                "8.3"
+            ],
+            "fec_col_seq": 3,
+            "fec_form_line": "0",
+            "fec_type": "A/N-4",
+            "fec_requiredErrorLevel": "X (error)",
+            "fec_valueReference": "8.3"
+        },
+        "Soft_Name": {
+            "title": "Soft Name",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 90,
+            "pattern": "^[ A-z0-9]{0,90}$",
+            "examples": [
+                "SUPERFILER"
+            ],
+            "fec_col_seq": 4,
+            "fec_form_line": "0",
+            "fec_type": "A/N-90"
+        },
+        "Soft_Ver": {
+            "title": "Soft Ver",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 16,
+            "pattern": "^[ A-z0-9]{0,16}$",
+            "examples": [
+                "1.0"
+            ],
+            "fec_col_seq": 5,
+            "fec_form_line": "0",
+            "fec_type": "A/N-16"
+        },
+        "Rpt_ID": {
+            "title": "Rpt ID",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 16,
+            "pattern": "^[ A-z0-9]{0,16}$",
+            "examples": [
+                "FEC-123467"
+            ],
+            "fec_col_seq": 6,
+            "fec_form_line": "0",
+            "fec_type": "A/N-16",
+            "fec_ruleReference": "FEC report ID of original report (Amendment only)"
+        },
+        "Rpt_Number": {
+            "title": "Rpt Number",
+            "description": "",
+            "examples": [
+                "1"
+            ],
+            "fec_col_seq": 7,
+            "fec_form_line": "0",
+            "fec_type": "N-3",
+            "fec_valueReference": "1,2,3,4\u2026",
+            "fec_ruleReference": "Sequential number of amendments"
+        },
+        "HDRcomment_": {
+            "title": "HDRcomment ",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 200,
+            "pattern": "^[ A-z0-9]{0,200}$",
+            "fec_col_seq": 8,
+            "fec_form_line": "0",
+            "fec_type": "A/N-200",
+            "fec_ruleReference": "Use as needed  {no tabs, line-feeds, etc. allowed}"
+        }
+    },
+    "additionalProperties": false,
+    "required": [
+        "Record_Type",
+        "EF_Type",
+        "FEC_Version_#"
+    ]
+}

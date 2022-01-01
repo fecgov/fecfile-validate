@@ -1,0 +1,699 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://github.com/mjtravers/fecfile-online-sandbox/blob/main/validator/schema/SchC1.json",
+    "title": "FEC Sch C1",
+    "description": "SCHEDULE C1 - LOANS AND LINES OF CREDIT FROM LENDING INSTITUTIONS",
+    "type": "object",
+    "properties": {
+        "FORM_TYPE": {
+            "title": "FORM TYPE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 8,
+            "pattern": "^[ A-z0-9]{0,8}$",
+            "examples": [
+                "SC1/9"
+            ],
+            "fec_col_seq": 1,
+            "fec_form_line": "0",
+            "fec_type": "A/N-8 ",
+            "fec_requiredErrorLevel": "X (error)",
+            "fec_valueReference": "SC1/[line# ref]",
+            "fec_ruleReference": "Appendix C"
+        },
+        "FILER_COMMITTEE_ID_NUMBER": {
+            "title": "FILER COMMITTEE ID NUMBER",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 9,
+            "pattern": "^[ A-z0-9]{0,9}$",
+            "examples": [
+                "C00123456"
+            ],
+            "fec_col_seq": 2,
+            "fec_form_line": "0",
+            "fec_type": "A/N-9 ",
+            "fec_requiredErrorLevel": "X (error)"
+        },
+        "TRANSACTION_ID_NUMBER": {
+            "title": "TRANSACTION ID NUMBER",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 20,
+            "pattern": "^[ A-z0-9]{0,20}$",
+            "examples": [
+                "C123456789-3456-001"
+            ],
+            "fec_col_seq": 3,
+            "fec_form_line": "0",
+            "fec_type": "A/N-20",
+            "fec_requiredErrorLevel": "X (error)",
+            "fec_valueReference": "May be a combination of Parent SC/ TranID + a unique ID for this Child SC1/ record",
+            "fec_ruleReference": "must be unique and UPPER CASE for the life of the report (original + all amendments)"
+        },
+        "BACK_REFERENCE_TRAN_ID_NUMBER": {
+            "title": "BACK REFERENCE TRAN ID NUMBER",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 20,
+            "pattern": "^[ A-z0-9]{0,20}$",
+            "examples": [
+                "C123456789-3456"
+            ],
+            "fec_col_seq": 4,
+            "fec_form_line": "0",
+            "fec_type": "A/N-20",
+            "fec_requiredErrorLevel": "X (error)",
+            "fec_ruleReference": "Reference to the Tran ID of a Related SC/{***} Record"
+        },
+        "LENDER_ORGANIZATION_NAME": {
+            "title": "LENDER ORGANIZATION NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 200,
+            "pattern": "^[ A-z0-9]{0,200}$",
+            "examples": [
+                "The Bank of Banks"
+            ],
+            "fec_col_seq": 5,
+            "fec_form_line": "0",
+            "fec_type": "A/N-200",
+            "fec_requiredErrorLevel": "X (error)",
+            "fec_ruleReference": "Required if NOT [IND|CAN] "
+        },
+        "LENDER_STREET__1": {
+            "title": "LENDER STREET  1",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 34,
+            "pattern": "^[ A-z0-9]{0,34}$",
+            "examples": [
+                "The Bank Tower"
+            ],
+            "fec_col_seq": 6,
+            "fec_form_line": "0",
+            "fec_type": "A/N-34",
+            "fec_requiredErrorLevel": "X (warning)"
+        },
+        "LENDER_STREET__2": {
+            "title": "LENDER STREET  2",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 34,
+            "pattern": "^[ A-z0-9]{0,34}$",
+            "examples": [
+                "100 Broadway"
+            ],
+            "fec_col_seq": 7,
+            "fec_form_line": "0",
+            "fec_type": "A/N-34"
+        },
+        "LENDER_CITY": {
+            "title": "LENDER CITY",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 30,
+            "pattern": "^[ A-z0-9]{0,30}$",
+            "examples": [
+                "New York"
+            ],
+            "fec_col_seq": 8,
+            "fec_form_line": "0",
+            "fec_type": "A/N-30",
+            "fec_requiredErrorLevel": "X (warning)"
+        },
+        "LENDER_STATE": {
+            "title": "LENDER STATE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 2,
+            "pattern": "^[ A-z0-9]{0,2}$",
+            "examples": [
+                "NY"
+            ],
+            "fec_col_seq": 9,
+            "fec_form_line": "0",
+            "fec_type": "A/N-2",
+            "fec_requiredErrorLevel": "X (warning)"
+        },
+        "LENDER_ZIP": {
+            "title": "LENDER ZIP",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 9,
+            "pattern": "^[ A-z0-9]{0,9}$",
+            "examples": [
+                10011
+            ],
+            "fec_col_seq": 10,
+            "fec_form_line": "0",
+            "fec_type": "A/N-9",
+            "fec_requiredErrorLevel": "X (warning)"
+        },
+        "LOAN_AMOUNT": {
+            "title": "LOAN AMOUNT",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "examples": [
+                10000
+            ],
+            "fec_col_seq": 11,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12",
+            "fec_requiredErrorLevel": "X (error)"
+        },
+        "LOAN_INTEREST_RATE_%": {
+            "title": "LOAN INTEREST RATE %",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 15,
+            "pattern": "^[ A-z0-9]{0,15}$",
+            "examples": [
+                0.0565
+            ],
+            "fec_col_seq": 12,
+            "fec_form_line": "0",
+            "fec_type": "A/N-15 ",
+            "fec_requiredErrorLevel": "X (warning)"
+        },
+        "LOAN_INCURRED_DATE": {
+            "title": "LOAN INCURRED DATE",
+            "description": "",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 99999999,
+            "examples": [
+                20120101
+            ],
+            "fec_col_seq": 13,
+            "fec_form_line": "0",
+            "fec_type": "NUM-8",
+            "fec_requiredErrorLevel": "X (error)",
+            "fec_valueReference": "YYYYMMDD"
+        },
+        "LOAN_DUE_DATE": {
+            "title": "LOAN DUE DATE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 15,
+            "pattern": "^[ A-z0-9]{0,15}$",
+            "examples": [
+                20121231
+            ],
+            "fec_col_seq": 14,
+            "fec_form_line": "0",
+            "fec_type": "A/N-15",
+            "fec_requiredErrorLevel": "X (error)",
+            "fec_valueReference": "YYYYMMDD"
+        },
+        "A1YES/NO_Loan_Restructured": {
+            "title": "A1.YES/NO (Loan Restructured)",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 1,
+            "pattern": "^[ A-z0-9]{0,1}$",
+            "examples": [
+                "N"
+            ],
+            "fec_col_seq": 15,
+            "fec_form_line": "0",
+            "fec_type": "A/N-1",
+            "fec_valueReference": "Y,N",
+            "fec_ruleReference": "Edit: Yes/No"
+        },
+        "A2_DATE_Of_Original_Loan": {
+            "title": "A2. DATE (Of Original Loan)",
+            "description": "",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 99999999,
+            "examples": [
+                20120101
+            ],
+            "fec_col_seq": 16,
+            "fec_form_line": "0",
+            "fec_type": "NUM-8",
+            "fec_valueReference": "YYYYMMDD"
+        },
+        "B1_CREDIT_AMOUNT_THIS_DRAW": {
+            "title": "B.1. CREDIT AMOUNT THIS DRAW",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "examples": [
+                500
+            ],
+            "fec_col_seq": 17,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "B2_TOTAL_BALANCE": {
+            "title": "B.2. TOTAL BALANCE",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "examples": [
+                10000
+            ],
+            "fec_col_seq": 18,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "C_YES/NO_Others_liable?": {
+            "title": "C. YES/NO (Others liable?)",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 1,
+            "pattern": "^[ A-z0-9]{0,1}$",
+            "examples": [
+                "Y"
+            ],
+            "fec_col_seq": 19,
+            "fec_form_line": "0",
+            "fec_type": "A/N-1",
+            "fec_valueReference": "Y,N",
+            "fec_ruleReference": "Edit: Yes/No"
+        },
+        "D_YES/NO_Collateral?": {
+            "title": "D. YES/NO (Collateral?)",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 1,
+            "pattern": "^[ A-z0-9]{0,1}$",
+            "examples": [
+                "Y"
+            ],
+            "fec_col_seq": 20,
+            "fec_form_line": "0",
+            "fec_type": "A/N-1",
+            "fec_valueReference": "Y,N",
+            "fec_ruleReference": "Edit: Yes/No"
+        },
+        "D1_DESC_Collateral": {
+            "title": "D.1 DESC (Collateral)",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 100,
+            "pattern": "^[ A-z0-9]{0,100}$",
+            "examples": [
+                "House & Car"
+            ],
+            "fec_col_seq": 21,
+            "fec_form_line": "0",
+            "fec_type": "A/N-100"
+        },
+        "D2_COLLATERAL_VALUE/AMOUNT": {
+            "title": "D.2 COLLATERAL VALUE/AMOUNT",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "examples": [
+                95000
+            ],
+            "fec_col_seq": 22,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "D3_YES/NO__Perfected_Interest?": {
+            "title": "D.3 YES/NO  (Perfected Interest?))",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 1,
+            "pattern": "^[ A-z0-9]{0,1}$",
+            "examples": [
+                "N"
+            ],
+            "fec_col_seq": 23,
+            "fec_form_line": "0",
+            "fec_type": "A/N-1",
+            "fec_valueReference": "Y,N",
+            "fec_ruleReference": "Edit: Yes/No"
+        },
+        "E1_YES/NO__Future_Income": {
+            "title": "E.1 YES/NO  (Future Income)",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 1,
+            "pattern": "^[ A-z0-9]{0,1}$",
+            "examples": [
+                "N"
+            ],
+            "fec_col_seq": 24,
+            "fec_form_line": "0",
+            "fec_type": "A/N-1",
+            "fec_valueReference": "Y,N",
+            "fec_ruleReference": "Edit: Yes/No"
+        },
+        "E2__DESC__Specification_of_the_above": {
+            "title": "E.2  DESC  (Specification of the above)",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 100,
+            "pattern": "^[ A-z0-9]{0,100}$",
+            "fec_col_seq": 25,
+            "fec_form_line": "0",
+            "fec_type": "A/N-100"
+        },
+        "E3_ESTIMATED_VALUE": {
+            "title": "E.3 ESTIMATED VALUE",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_col_seq": 26,
+            "fec_form_line": "0",
+            "fec_type": "AMT-12"
+        },
+        "E4_DATE_Depository_account_established": {
+            "title": "E.4 DATE (Depository account established)",
+            "description": "",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 99999999,
+            "fec_col_seq": 27,
+            "fec_form_line": "0",
+            "fec_type": "NUM-8"
+        },
+        "E5_IND/NAME_Account_Location": {
+            "title": "E.5 IND/NAME (Account Location)",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 200,
+            "pattern": "^[ A-z0-9]{0,200}$",
+            "fec_col_seq": 28,
+            "fec_form_line": "0",
+            "fec_type": "A/N-200"
+        },
+        "E6_STREET__1": {
+            "title": "E.6 STREET  1",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 34,
+            "pattern": "^[ A-z0-9]{0,34}$",
+            "fec_col_seq": 29,
+            "fec_form_line": "0",
+            "fec_type": "A/N-34"
+        },
+        "E7_STREET__2": {
+            "title": "E.7 STREET  2",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 34,
+            "pattern": "^[ A-z0-9]{0,34}$",
+            "fec_col_seq": 30,
+            "fec_form_line": "0",
+            "fec_type": "A/N-34"
+        },
+        "E8_CITY": {
+            "title": "E.8 CITY",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 30,
+            "pattern": "^[ A-z0-9]{0,30}$",
+            "fec_col_seq": 31,
+            "fec_form_line": "0",
+            "fec_type": "A/N-30"
+        },
+        "E9_STATE": {
+            "title": "E.9 STATE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 2,
+            "pattern": "^[ A-z0-9]{0,2}$",
+            "fec_col_seq": 32,
+            "fec_form_line": "0",
+            "fec_type": "A/N-2"
+        },
+        "E10_ZIP": {
+            "title": "E.10 ZIP",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 9,
+            "pattern": "^[ A-z0-9]{0,9}$",
+            "fec_col_seq": 33,
+            "fec_form_line": "0",
+            "fec_type": "A/N-9"
+        },
+        "E11_DEP_ACCT_AUTH_DATE_Presidential": {
+            "title": "E.11 DEP ACCT AUTH DATE (Presidential)",
+            "description": "",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 99999999,
+            "fec_col_seq": 34,
+            "fec_form_line": "0",
+            "fec_type": "NUM-8"
+        },
+        "F_BASIS_OF_LOAN_DESCRIPTION": {
+            "title": "F. BASIS OF LOAN DESCRIPTION",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 100,
+            "pattern": "^[ A-z0-9]{0,100}$",
+            "examples": [
+                "Handshake"
+            ],
+            "fec_col_seq": 35,
+            "fec_form_line": "0",
+            "fec_type": "A/N-100"
+        },
+        "G_TREASURER_LAST_NAME": {
+            "title": "G. TREASURER LAST NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 30,
+            "pattern": "^[ A-z0-9]{0,30}$",
+            "examples": [
+                "Smith"
+            ],
+            "fec_col_seq": 36,
+            "fec_form_line": "0",
+            "fec_type": "A/N-30",
+            "fec_requiredErrorLevel": "X (error)"
+        },
+        "G_TREASURER_FIRST_NAME": {
+            "title": "G. TREASURER FIRST NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 20,
+            "pattern": "^[ A-z0-9]{0,20}$",
+            "examples": [
+                "Patrick"
+            ],
+            "fec_col_seq": 37,
+            "fec_form_line": "0",
+            "fec_type": "A/N-20",
+            "fec_requiredErrorLevel": "X (error)"
+        },
+        "G_TREASURER_MIDDLE_NAME": {
+            "title": "G. TREASURER MIDDLE NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 20,
+            "pattern": "^[ A-z0-9]{0,20}$",
+            "examples": [
+                "Thomas"
+            ],
+            "fec_col_seq": 38,
+            "fec_form_line": "0",
+            "fec_type": "A/N-20"
+        },
+        "G_TREASURER_PREFIX": {
+            "title": "G. TREASURER PREFIX",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 10,
+            "pattern": "^[ A-z0-9]{0,10}$",
+            "examples": [
+                "Mr."
+            ],
+            "fec_col_seq": 39,
+            "fec_form_line": "0",
+            "fec_type": "A/N-10"
+        },
+        "G_TREASURER_SUFFIX": {
+            "title": "G. TREASURER SUFFIX",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 10,
+            "pattern": "^[ A-z0-9]{0,10}$",
+            "examples": [
+                "Jr."
+            ],
+            "fec_col_seq": 40,
+            "fec_form_line": "0",
+            "fec_type": "A/N-10"
+        },
+        "G_DATE_SIGNED": {
+            "title": "G. DATE SIGNED",
+            "description": "",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 99999999,
+            "examples": [
+                20120729
+            ],
+            "fec_col_seq": 41,
+            "fec_form_line": "0",
+            "fec_type": "NUM-8 ",
+            "fec_requiredErrorLevel": "X (error)",
+            "fec_valueReference": "YYYYMMDD"
+        },
+        "H_AUTHORIZED_LAST_NAME": {
+            "title": "H. AUTHORIZED LAST NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 30,
+            "pattern": "^[ A-z0-9]{0,30}$",
+            "examples": [
+                "Smith"
+            ],
+            "fec_col_seq": 42,
+            "fec_form_line": "0",
+            "fec_type": "A/N-30",
+            "fec_requiredErrorLevel": "X (error)"
+        },
+        "H_AUTHORIZED_FIRST_NAME": {
+            "title": "H. AUTHORIZED FIRST NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 20,
+            "pattern": "^[ A-z0-9]{0,20}$",
+            "examples": [
+                "Patrick"
+            ],
+            "fec_col_seq": 43,
+            "fec_form_line": "0",
+            "fec_type": "A/N-20",
+            "fec_requiredErrorLevel": "X (error)"
+        },
+        "H_AUTHORIZED_MIDDLE_NAME": {
+            "title": "H. AUTHORIZED MIDDLE NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 20,
+            "pattern": "^[ A-z0-9]{0,20}$",
+            "examples": [
+                "Thomas"
+            ],
+            "fec_col_seq": 44,
+            "fec_form_line": "0",
+            "fec_type": "A/N-20"
+        },
+        "H_AUTHORIZED_PREFIX": {
+            "title": "H. AUTHORIZED PREFIX",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 10,
+            "pattern": "^[ A-z0-9]{0,10}$",
+            "examples": [
+                "Mr."
+            ],
+            "fec_col_seq": 45,
+            "fec_form_line": "0",
+            "fec_type": "A/N-10"
+        },
+        "H_AUTHORIZED_SUFFIX": {
+            "title": "H. AUTHORIZED SUFFIX",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 10,
+            "pattern": "^[ A-z0-9]{0,10}$",
+            "examples": [
+                "Jr."
+            ],
+            "fec_col_seq": 46,
+            "fec_form_line": "0",
+            "fec_type": "A/N-10"
+        },
+        "H_AUTHORIZED_TITLE": {
+            "title": "H. AUTHORIZED TITLE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 20,
+            "pattern": "^[ A-z0-9]{0,20}$",
+            "examples": [
+                "Treasurer"
+            ],
+            "fec_col_seq": 47,
+            "fec_form_line": "0",
+            "fec_type": "A/N-20",
+            "fec_requiredErrorLevel": "X (error)"
+        },
+        "H_DATE_SIGNED": {
+            "title": "H. DATE SIGNED",
+            "description": "",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 99999999,
+            "examples": [
+                20120820
+            ],
+            "fec_col_seq": 48,
+            "fec_form_line": "0",
+            "fec_type": "NUM-8",
+            "fec_requiredErrorLevel": "X (error)",
+            "fec_valueReference": "YYYYMMDD"
+        }
+    },
+    "additionalProperties": false,
+    "required": [
+        "FORM_TYPE",
+        "FILER_COMMITTEE_ID_NUMBER",
+        "TRANSACTION_ID_NUMBER",
+        "BACK_REFERENCE_TRAN_ID_NUMBER",
+        "LENDER_ORGANIZATION_NAME",
+        "LOAN_AMOUNT",
+        "LOAN_INCURRED_DATE",
+        "LOAN_DUE_DATE",
+        "G_TREASURER_LAST_NAME",
+        "G_TREASURER_FIRST_NAME",
+        "G_DATE_SIGNED",
+        "H_AUTHORIZED_LAST_NAME",
+        "H_AUTHORIZED_FIRST_NAME",
+        "H_AUTHORIZED_TITLE",
+        "H_DATE_SIGNED"
+    ]
+}
