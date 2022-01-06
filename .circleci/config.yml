@@ -32,7 +32,7 @@ jobs:
           path: htmlcov
 
       - run:
-          name: Run tests, save a coverage report, and save coverage percentage
+          name: Compare the actual code coverage to the minimum target coverage
           command: |
             export NEW_PERCENT=$(cat htmlcov/total_percent.txt)
             echo Comparing the current code coverage percentage of ${NEW_PERCENT}% to the target of ${MIN_COVERAGE_PERCENT-85}%
