@@ -19,7 +19,7 @@ jobs:
 
       - python/install-packages:
           pkg-manager: pip
-          pip-dependency-file: requirements.txt
+          pip-dependency-file: requirements-test.txt
 
       - run:
           name: Run tests, save a coverage report, and save coverage percentage
