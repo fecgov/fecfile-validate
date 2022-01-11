@@ -43,6 +43,21 @@ jobs:
             fi
             echo Coverage is good.
 
+  lint:
+    docker:
+      - image: cimg/python:3.8
+
+    steps:
+      - checkout
+
+      - python/install-packages:
+          pkg-manager: pip
+          pip-dependency-file: requirements-test.txt
+
+      - run:
+          name: Run lint
+          command: flake8 .
+
 
 
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
@@ -50,3 +65,4 @@ workflows:
   sample:
     jobs:
       - unit-test
+      - lint
