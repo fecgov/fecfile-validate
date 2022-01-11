@@ -24,7 +24,8 @@ jobs:
       - run:
           name: Run tests, save a coverage report, and save coverage percentage
           command: |
-            export NEW_PERCENT=$(pytest --cov=. --cov-report=html --cov-report=term | grep TOTAL | awk '{print $4}' | grep -oE "[0-9]+" )
+            pytest --cov=. --cov-report=html --cov-report=term | tee pytest.out
+            export NEW_PERCENT=$(cat pytest.out | grep TOTAL | awk '{print $4}' | grep -oE "[0-9]+" )
             echo ${NEW_PERCENT} > htmlcov/total_percent.txt
             echo Total code coverage percentage is ${NEW_PERCENT}%
 
