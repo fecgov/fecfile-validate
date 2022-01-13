@@ -17,7 +17,7 @@ standard and are specific to the FEC data.
 import openpyxl
 import json
 
-FILENAME = "FEC_Format_v8.3.0.1.xlsx"
+FILENAME = "Form_3X_ Receipts_Vendor_10.20.2020.xlsx"
 SCHEMA_ID_PREFIX = "https://github.com/mjtravers/fecfile-online-sandbox/blob/main/validator/schema"
 
 # Column postions of fields in the spreadsheet row array
@@ -88,8 +88,12 @@ def convert_row_to_property(row):
 wb = openpyxl.load_workbook(FILENAME)
 
 for ws in wb.worksheets:
+    print(ws.title)
+    if ws.title in ['All receipts', 'All Schedule A Transactions', 'Version 8.3', 'SUMMARY OF CHANGES']:
+        continue
 
-    if ws.title in ['Version 8.3', 'SUMMARY OF CHANGES']:
+    print(ws.cell(3,5).value)
+    if ws.cell(3,5).value.strip() == 'Auto populate':
         continue
 
     output_file = ws.title.replace(' ', '') + ".json"
@@ -110,6 +114,7 @@ for ws in wb.worksheets:
         if (not row[COL_SEQ]
             or row[COL_SEQ] == "--"
             or not row[FIELD_DESCRIPTION]
+            or not row[TYPE]
             or len(row) > 10):
             continue
 

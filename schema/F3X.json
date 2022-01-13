@@ -7,8 +7,11 @@
     "properties": {
         "FORM_TYPE": {
             "title": "FORM TYPE",
-            "description": "Form code that describes the form type and whether it is New or Amended",
-            "enum": ["F3XN", "F3XA", "F3XT"],
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 4,
+            "pattern": "^[ A-z0-9]{0,4}$",
             "examples": [
                 "F3XN"
             ],
@@ -20,10 +23,11 @@
         },
         "FILER_COMMITTEE_ID_NUMBER": {
             "title": "FILER COMMITTEE ID NUMBER",
-            "description": "FEC ID number registered to this committee",
-            "pattern": "^C[0-9]{8}$",
-            "minLength": 9,
+            "description": "",
+            "type": "string",
+            "minLength": 0,
             "maxLength": 9,
+            "pattern": "^[ A-z0-9]{0,9}$",
             "examples": [
                 "C00123456"
             ],
