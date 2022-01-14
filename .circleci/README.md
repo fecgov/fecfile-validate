@@ -37,4 +37,4 @@ circleci local execute -e MIN_COVERAGE_PERCENT=15 --job unit-test
 
 ## CircleCI configuration
 To get CircleCI to run tests, you have to configure the
-project in the Circle web applicaiton https://app.circleci.com/
+project in the Circle web application https://app.circleci.com/
