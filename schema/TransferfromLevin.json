@@ -17,7 +17,7 @@
             ],
             "fec_col_seq": 1,
             "fec_form_line": "0",
-            "fec_type": "A/N-8 ",
+            "fec_type": "A/N-8",
             "fec_requiredErrorLevel": "X (error)",
             "fec_valueReference": "H5"
         },
@@ -33,7 +33,7 @@
             ],
             "fec_col_seq": 2,
             "fec_form_line": "0",
-            "fec_type": "A/N-9 ",
+            "fec_type": "A/N-9",
             "fec_requiredErrorLevel": "X (error)"
         },
         "TRANSACTION_TYPE_IDENTIFIER": {
@@ -94,8 +94,8 @@
             "fec_requiredErrorLevel": "X (error)",
             "fec_valueReference": "YYYYMMDD"
         },
-        "TOTAL_AMOUNT_TRANSFERRED_": {
-            "title": "TOTAL AMOUNT TRANSFERRED ",
+        "TOTAL_AMOUNT_TRANSFERRED": {
+            "title": "TOTAL AMOUNT TRANSFERRED",
             "description": "",
             "type": "number",
             "minimum": 0,
@@ -178,7 +178,7 @@
         "TRANSACTION_ID_NUMBER",
         "ACCOUNT_NAME",
         "RECEIPT_DATE",
-        "TOTAL_AMOUNT_TRANSFERRED_",
+        "TOTAL_AMOUNT_TRANSFERRED",
         "VOTER_REGISTRATION_AMOUNT",
         "VOTER_ID_AMOUNT",
         "GOTV_AMOUNT",

@@ -17,7 +17,7 @@
             ],
             "fec_col_seq": 1,
             "fec_form_line": "0",
-            "fec_type": "A/N-8 ",
+            "fec_type": "A/N-8",
             "fec_requiredErrorLevel": "X (error)",
             "fec_valueReference": "H3",
             "fec_ruleReference": "Appendix C"
@@ -34,7 +34,7 @@
             ],
             "fec_col_seq": 2,
             "fec_form_line": "0",
-            "fec_type": "A/N-9 ",
+            "fec_type": "A/N-9",
             "fec_requiredErrorLevel": "X (error)"
         },
         "TRANSACTION_TYPE_IDENTIFIER": {

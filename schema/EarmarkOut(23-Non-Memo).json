@@ -17,7 +17,7 @@
             ],
             "fec_col_seq": 1,
             "fec_form_line": "0",
-            "fec_type": "A/N-8 ",
+            "fec_type": "A/N-8",
             "fec_requiredErrorLevel": "X (error)",
             "fec_valueReference": "SA[line# ref]"
         },
@@ -33,7 +33,7 @@
             ],
             "fec_col_seq": 2,
             "fec_form_line": "0",
-            "fec_type": "A/N-9 ",
+            "fec_type": "A/N-9",
             "fec_requiredErrorLevel": "X (error)"
         },
         "TRANSACTION_TYPE_IDENTIFIER": {
@@ -48,8 +48,8 @@
             "fec_type": "A/N-12",
             "fec_requiredErrorLevel": "X (error)"
         },
-        "TRANSACTION_ID_": {
-            "title": "TRANSACTION ID ",
+        "TRANSACTION_ID": {
+            "title": "TRANSACTION ID",
             "description": "",
             "type": "string",
             "minLength": 0,
@@ -199,8 +199,8 @@
             "fec_type": "A/N-9",
             "fec_requiredErrorLevel": "X (error)"
         },
-        "ELECTION_CODE": {
-            "title": "ELECTION CODE",
+        "ELECTION_CODE/YEAR": {
+            "title": "ELECTION CODE/YEAR",
             "description": "",
             "type": "string",
             "minLength": 0,
@@ -214,8 +214,8 @@
             "fec_type": "A/N-5",
             "fec_valueReference": "G,P,O[YYYY]"
         },
-        "ELECTION_OTHER_DESCRIPTION_": {
-            "title": "ELECTION OTHER DESCRIPTION ",
+        "ELECTION_OTHER_DESCRIPTION": {
+            "title": "ELECTION OTHER DESCRIPTION",
             "description": "",
             "type": "string",
             "minLength": 0,
@@ -240,8 +240,8 @@
             "fec_requiredErrorLevel": "X (error)",
             "fec_valueReference": "YYYYMMDD"
         },
-        "EXPENDITURE_AMOUNT_": {
-            "title": "EXPENDITURE AMOUNT ",
+        "EXPENDITURE_AMOUNT": {
+            "title": "EXPENDITURE AMOUNT",
             "description": "",
             "type": "number",
             "minimum": 0,
@@ -409,8 +409,8 @@
             "fec_requiredErrorLevel": "X (error)",
             "fec_valueReference": "H,S,P"
         },
-        "BENEFICIARY_CANDIDATE_STATE_": {
-            "title": "BENEFICIARY CANDIDATE STATE ",
+        "BENEFICIARY_CANDIDATE_STATE": {
+            "title": "BENEFICIARY CANDIDATE STATE",
             "description": "",
             "type": "string",
             "minLength": 0,
@@ -470,7 +470,7 @@
         "FORM_TYPE",
         "FILER_COMMITTEE_ID_NUMBER",
         "TRANSACTION_TYPE_IDENTIFIER",
-        "TRANSACTION_ID_",
+        "TRANSACTION_ID",
         "ENTITY_TYPE",
         "PAYEE_ORGANIZATION_NAME",
         "PAYEE_STREET__1",
@@ -478,7 +478,7 @@
         "PAYEE_STATE",
         "PAYEE_ZIP",
         "EXPENDITURE_DATE",
-        "EXPENDITURE_AMOUNT_",
+        "EXPENDITURE_AMOUNT",
         "PURPOSE_OF_DISBURSEMENT",
         "BENEFICIARY_COMMITTEE_FEC_ID",
         "BENEFICIARY_COMMITTEE_NAME",
@@ -486,7 +486,7 @@
         "BENEFICIARY_CANDIDATE_LAST_NAME",
         "BENEFICIARY_CANDIDATE_FIRST_NAME",
         "BENEFICIARY_CANDIDATE_OFFICE",
-        "BENEFICIARY_CANDIDATE_STATE_",
+        "BENEFICIARY_CANDIDATE_STATE",
         "BENEFICIARY_CANDIDATE_DISTRICT"
     ]
 }

@@ -17,7 +17,7 @@
             ],
             "fec_col_seq": 1,
             "fec_form_line": "0",
-            "fec_type": "A/N-8 ",
+            "fec_type": "A/N-8",
             "fec_requiredErrorLevel": "X (error)",
             "fec_valueReference": "SA[line# ref]"
         },
@@ -33,7 +33,7 @@
             ],
             "fec_col_seq": 2,
             "fec_form_line": "0",
-            "fec_type": "A/N-9 ",
+            "fec_type": "A/N-9",
             "fec_requiredErrorLevel": "X (error)"
         },
         "TRANSACTION_TYPE_IDENTIFIER": {
@@ -51,8 +51,8 @@
             "fec_type": "A/N-12",
             "fec_requiredErrorLevel": "X (error)"
         },
-        "TRANSACTION_ID_": {
-            "title": "TRANSACTION ID ",
+        "TRANSACTION_ID": {
+            "title": "TRANSACTION ID",
             "description": "",
             "type": "string",
             "minLength": 0,
@@ -381,7 +381,7 @@
         "FORM_TYPE",
         "FILER_COMMITTEE_ID_NUMBER",
         "TRANSACTION_TYPE_IDENTIFIER",
-        "TRANSACTION_ID_",
+        "TRANSACTION_ID",
         "BACK_REFERENCE_TRAN_ID_NUMBER",
         "BACK_REFERENCE_SCHED_NAME",
         "ENTITY_TYPE",

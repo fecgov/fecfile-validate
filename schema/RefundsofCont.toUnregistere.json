@@ -5,6 +5,22 @@
     "description": "SCHEDULE A - ITEMIZED RECEIPTS-Line 17 Refund of nonfederal candidate",
     "type": "object",
     "properties": {
+        "FORM_TYPE": {
+            "title": "FORM TYPE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 8,
+            "pattern": "^[ A-z0-9]{0,8}$",
+            "examples": [
+                "SA11AI"
+            ],
+            "fec_col_seq": 1,
+            "fec_form_line": "0",
+            "fec_type": "A/N-8",
+            "fec_requiredErrorLevel": "X (error)",
+            "fec_valueReference": "SA[line# ref]"
+        },
         "FILER_COMMITTEE_ID_NUMBER": {
             "title": "FILER COMMITTEE ID NUMBER",
             "description": "",
@@ -17,7 +33,7 @@
             ],
             "fec_col_seq": 2,
             "fec_form_line": "0",
-            "fec_type": "A/N-9 ",
+            "fec_type": "A/N-9",
             "fec_requiredErrorLevel": "X (error)",
             "fec_ruleReference": "must be unique and UPPER CASE for the life of the report (original + all amendments)"
         },
@@ -36,8 +52,8 @@
             "fec_type": "A/N-12",
             "fec_requiredErrorLevel": "X (error)"
         },
-        "TRANSACTION_ID_": {
-            "title": "TRANSACTION ID ",
+        "TRANSACTION_ID": {
+            "title": "TRANSACTION ID",
             "description": "",
             "type": "string",
             "minLength": 0,
@@ -99,8 +115,8 @@
             "fec_valueReference": "CAN,CCM,...",
             "fec_ruleReference": "[CAN|CCM|COM|IND|ORG|PAC|PTY]"
         },
-        "CONTRIBUTOR_ORGANIZATION_NAME": {
-            "title": "CONTRIBUTOR ORGANIZATION NAME",
+        "CONTRIBUTOR_ORGANIZATION": {
+            "title": "CONTRIBUTOR ORGANIZATION",
             "description": "",
             "type": "string",
             "minLength": 0,
@@ -113,7 +129,7 @@
             "fec_form_line": "0",
             "fec_type": "A/N-200",
             "fec_requiredErrorLevel": "X (error)",
-            "fec_ruleReference": "Required if NOT [IND|CAN] "
+            "fec_ruleReference": "Required if NOT [IND|CAN]"
         },
         "CONTRIBUTOR_STREET__1": {
             "title": "CONTRIBUTOR STREET  1",
@@ -204,8 +220,8 @@
             "fec_valueReference": "G,P,O[YYYY]",
             "fec_ruleReference": "Values: [G|P|R|S|C|E|O]+Year{YYYY}"
         },
-        "ELECTION_OTHER_DESCRIPTION_": {
-            "title": "ELECTION OTHER DESCRIPTION ",
+        "ELECTION_OTHER_DESCRIPTION": {
+            "title": "ELECTION OTHER DESCRIPTION",
             "description": "",
             "type": "string",
             "minLength": 0,
@@ -231,8 +247,8 @@
             "fec_requiredErrorLevel": "X (error)",
             "fec_valueReference": "YYYYMMDD"
         },
-        "CONTRIBUTION_AMOUNT_": {
-            "title": "CONTRIBUTION AMOUNT ",
+        "CONTRIBUTION_AMOUNT": {
+            "title": "CONTRIBUTION AMOUNT",
             "description": "",
             "type": "number",
             "minimum": 0,
@@ -246,8 +262,8 @@
             "fec_requiredErrorLevel": "X (error)",
             "fec_ruleReference": "Contribution (F3L Bundled) Amount"
         },
-        "CONTRIBUTION_AGGREGATE\n": {
-            "title": "CONTRIBUTION AGGREGATE\n",
+        "CONTRIBUTION_AGGREGATE": {
+            "title": "CONTRIBUTION AGGREGATE",
             "description": "",
             "type": "number",
             "minimum": 0,
@@ -261,8 +277,8 @@
             "fec_requiredErrorLevel": "X (error)",
             "fec_ruleReference": "F3 | F3P - Cycle to Date; F3X - YTD;\nF3L - Semi-annual Bundled Total"
         },
-        "RECEIPT_DESCRIPTION_": {
-            "title": "RECEIPT DESCRIPTION ",
+        "RECEIPT_DESCRIPTION": {
+            "title": "RECEIPT DESCRIPTION",
             "description": "",
             "type": "string",
             "minLength": 0,
@@ -299,17 +315,18 @@
     },
     "additionalProperties": false,
     "required": [
+        "FORM_TYPE",
         "FILER_COMMITTEE_ID_NUMBER",
         "TRANSACTION_TYPE_IDENTIFIER",
-        "TRANSACTION_ID_",
+        "TRANSACTION_ID",
         "ENTITY_TYPE",
-        "CONTRIBUTOR_ORGANIZATION_NAME",
+        "CONTRIBUTOR_ORGANIZATION",
         "CONTRIBUTOR_STREET__1",
         "CONTRIBUTOR_CITY",
         "CONTRIBUTOR_STATE",
         "CONTRIBUTOR_ZIP",
         "CONTRIBUTION_DATE",
-        "CONTRIBUTION_AMOUNT_",
-        "CONTRIBUTION_AGGREGATE\n"
+        "CONTRIBUTION_AMOUNT",
+        "CONTRIBUTION_AGGREGATE"
     ]
 }

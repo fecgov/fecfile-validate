@@ -40,10 +40,10 @@ def convert_row_to_property(row):
         prop (dict): The property object to add to the schema.
     """
     prop = {}
-    field_type = row[TYPE]
-    token = row[FIELD_DESCRIPTION].replace(" ", "_").replace(".", "").replace("(", "").replace(")", "")
+    field_type = row[TYPE].strip()
+    token = row[FIELD_DESCRIPTION].strip().replace(" ", "_").replace(".", "").replace("(", "").replace(")", "")
 
-    prop["title"] = row[FIELD_DESCRIPTION]
+    prop["title"] = row[FIELD_DESCRIPTION].strip()
     prop["description"] = ""
 
     if field_type.startswith("AMT-"):
@@ -57,7 +57,7 @@ def convert_row_to_property(row):
         prop["maximum"] = int('9' * int(field_type.split('-')[1]))
 
     if field_type.startswith("A/N-") or field_type.startswith("A-"):
-        if field_type == "A-1" and row[RULE_REFERENCE] == "Check-box":
+        if field_type == "A-1" and row[RULE_REFERENCE].strip() == "Check-box":
             prop["type"] = "boolean"
         else:
             length = field_type.split('-')[1].strip()
@@ -74,13 +74,13 @@ def convert_row_to_property(row):
     prop["fec_type"] = field_type
 
     if row[REQUIRED]:
-        prop["fec_requiredErrorLevel"] = row[REQUIRED]
-        if "error" in row[REQUIRED]:
+        prop["fec_requiredErrorLevel"] = row[REQUIRED].strip()
+        if "error" in row[REQUIRED].strip():
             schema["required"].append(token)
     if row[VALUE_REFERENCE]:
-        prop["fec_valueReference"] = row[VALUE_REFERENCE]
+        prop["fec_valueReference"] = row[VALUE_REFERENCE].strip()
     if row[RULE_REFERENCE]:
-        prop["fec_ruleReference"] = row[RULE_REFERENCE]
+        prop["fec_ruleReference"] = row[RULE_REFERENCE].strip()
 
     return (token, prop)
 
@@ -88,11 +88,10 @@ def convert_row_to_property(row):
 wb = openpyxl.load_workbook(FILENAME)
 
 for ws in wb.worksheets:
-    print(ws.title)
     if ws.title in ['All receipts', 'All Schedule A Transactions', 'Version 8.3', 'SUMMARY OF CHANGES']:
         continue
 
-    print(ws.cell(3,5).value)
+    # we don't care about these now, but will in the future
     if ws.cell(3,5).value.strip() == 'Auto populate':
         continue
 
