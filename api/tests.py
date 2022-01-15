@@ -1,34 +1,36 @@
-import os
 import json
 import unittest
 
 from validate import app
 
 
+class BaseDatabaseTestCase(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        # app_step_3.config.update({
+        #     'DATABASE_NAME': TESTING_DATABASE_NAME
+        # })
+        # cls.db = sqlite3.connect(TESTING_DATABASE_NAME)
+        # cls.db.execute(CREATE_BOOK_TABLE_QUERY)
+        # cls.db.commit()
+        pass
 
-# class BaseDatabaseTestCase(unittest.TestCase):
-#     @classmethod
-#     def setUpClass(cls):
-#         app_step_3.config.update({
-#             'DATABASE_NAME': TESTING_DATABASE_NAME
-#         })
-#         cls.db = sqlite3.connect(TESTING_DATABASE_NAME)
-#         cls.db.execute(CREATE_BOOK_TABLE_QUERY)
-#         cls.db.commit()
+    @classmethod
+    def tearDownClass(cls):
+        # os.remove(TESTING_DATABASE_NAME)
+        pass
 
-#     @classmethod
-#     def tearDownClass(cls):
-#         os.remove(TESTING_DATABASE_NAME)
-
-#     def setUp(self):
-#         self.app = self.APP.test_client()
-#         self.db.execute("DELETE FROM book;")
-#         self.db.commit()
+    def setUp(self):
+        # self.app = self.APP.test_client()
+        # self.db.execute("DELETE FROM book;")
+        # self.db.commit()
+        pass
 
 
 class Step3TestCase(BaseDatabaseTestCase):
     APP = app
 
+    # noinspection SpellCheckingInspection
     def test_validate_parameters(self):
         # Preconditions
         resp = self.app.get('/book')
