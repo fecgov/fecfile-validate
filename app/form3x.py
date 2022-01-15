@@ -4,6 +4,7 @@ import os
 import json
 from jsonschema import Draft7Validator
 
+
 def get_schema():
     """Return form schema as JSON object"""
     with open(
@@ -11,6 +12,7 @@ def get_schema():
     ) as fp:
         form_schema = json.load(fp)
     return form_schema
+
 
 def validate(form_data):
     """Wrapper function around jsonschema validator"""

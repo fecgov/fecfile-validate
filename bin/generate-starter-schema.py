@@ -29,9 +29,11 @@ SAMPLE_DATA = 4
 VALUE_REFERENCE = 5
 RULE_REFERENCE = 6
 
-def convert_row_to_property(row):
+
+
+def convert_row_to_property(row):# noqa
     """Take a row from the spreadsheet and convert it into a schema object.
-    
+
     Args:
         row (array): Single row from the spreadsheet
 
@@ -92,7 +94,7 @@ for ws in wb.worksheets:
         continue
 
     # we don't care about these now, but will in the future
-    if ws.cell(3,5).value.strip() == 'Auto populate':
+    if ws.cell(3, 5).value.strip() == 'Auto populate':
         continue
 
     output_file = ws.title.replace(' ', '') + ".json"
@@ -111,10 +113,10 @@ for ws in wb.worksheets:
 
     for row in ws.iter_rows(min_row=5, max_col=7, values_only=True):
         if (not row[COL_SEQ]
-            or row[COL_SEQ] == "--"
-            or not row[FIELD_DESCRIPTION]
-            or not row[TYPE]
-            or len(row) > 10):
+                or row[COL_SEQ] == "--"
+                or not row[FIELD_DESCRIPTION]
+                or not row[TYPE]
+                or len(row) > 10):
             continue
 
         print(row)

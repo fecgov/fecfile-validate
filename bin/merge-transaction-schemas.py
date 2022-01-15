@@ -26,7 +26,7 @@ for schema_filename in glob.glob('*.json'):
         properties = schema_json.get('properties')
 
         transaction_type = properties.get('TRANSACTION_TYPE_IDENTIFIER')
-        if transaction_type == None:
+        if transaction_type is None:
             continue
         form_type = properties.get('FORM_TYPE')
         if 'SA' not in form_type.get('fec_valueReference'):
@@ -35,7 +35,7 @@ for schema_filename in glob.glob('*.json'):
         fields_str = ''.join(properties)
         similar_schemas = transaction_profiles.get(fields_str, []) + [title]
         transaction_profiles[fields_str] = similar_schemas
-        
+
 
 for profile in sorted(list(transaction_profiles)):
     print(profile)
@@ -48,6 +48,3 @@ f.write(json.dumps(transaction_profiles, indent=4))
 f.close()
 
 print('Done')
-
-
-
