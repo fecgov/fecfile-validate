@@ -17,7 +17,7 @@
             ],
             "fec_col_seq": 1,
             "fec_form_line": "0",
-            "fec_type": "A/N-4 ",
+            "fec_type": "A/N-4",
             "fec_requiredErrorLevel": "X (error)",
             "fec_valueReference": "F3X+[N|A|T]"
         },
@@ -33,7 +33,7 @@
             ],
             "fec_col_seq": 2,
             "fec_form_line": "0",
-            "fec_type": "A/N-9 ",
+            "fec_type": "A/N-9",
             "fec_requiredErrorLevel": "X (error)"
         },
         "COMMITTEE_NAME": {
@@ -148,7 +148,7 @@
             ],
             "fec_col_seq": 10,
             "fec_form_line": "0",
-            "fec_type": "A-3 ",
+            "fec_type": "A-3",
             "fec_requiredErrorLevel": "X (warning)",
             "fec_valueReference": "12C,..., TER",
             "fec_ruleReference": "Warning if Code is missing;\nError if Coded incorrectly.\nNote: Monthly Year-End reports should be coded with 'MYE'.\nQuarterly Year-End reports will continue to be coded with 'YE'."
@@ -209,7 +209,7 @@
             "maximum": 99999999,
             "fec_col_seq": 14,
             "fec_form_line": "0",
-            "fec_type": "NUM-8 ",
+            "fec_type": "NUM-8",
             "fec_requiredErrorLevel": "X (warning)"
         },
         "COVERAGE_THROUGH_DATE": {
@@ -220,22 +220,19 @@
             "maximum": 99999999,
             "fec_col_seq": 15,
             "fec_form_line": "0",
-            "fec_type": "NUM-8 ",
+            "fec_type": "NUM-8",
             "fec_requiredErrorLevel": "X (warning)"
         },
         "QUALIFIED_COMMITTEE": {
             "title": "QUALIFIED COMMITTEE",
             "description": "",
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 1,
-            "pattern": "^[ A-z0-9]{0,1}$",
+            "type": "boolean",
             "examples": [
                 "X"
             ],
             "fec_col_seq": 16,
             "fec_form_line": "0",
-            "fec_type": "A-1 ",
+            "fec_type": "A-1",
             "fec_valueReference": "X = Yes",
             "fec_ruleReference": "Check-box"
         },
@@ -322,7 +319,7 @@
             ],
             "fec_col_seq": 22,
             "fec_form_line": "0",
-            "fec_type": "NUM-8 ",
+            "fec_type": "NUM-8",
             "fec_requiredErrorLevel": "X (error)"
         },
         "6b_Cash_on_Hand_beginning": {
@@ -864,8 +861,8 @@
             "fec_type": "AMT-12",
             "fec_ruleReference": "= 36 - 37 or (21ai + 21b - 15)"
         },
-        "_6a_Cash_on_Hand_Jan_1,_19": {
-            "title": " 6(a) Cash on Hand Jan 1, 19",
+        "6a_Cash_on_Hand_Jan_1,_19": {
+            "title": "6(a) Cash on Hand Jan 1, 19",
             "description": "",
             "type": "number",
             "minimum": 0,
@@ -888,7 +885,7 @@
             ],
             "fec_col_seq": 75,
             "fec_form_line": "0",
-            "fec_type": "NUM-4 "
+            "fec_type": "NUM-4"
         },
         "7_Total_disbursements": {
             "title": "7. Total disbursements",

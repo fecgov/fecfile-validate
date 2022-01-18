@@ -16,8 +16,13 @@ standard and are specific to the FEC data.
 
 import openpyxl
 import json
+import argparse
 
-FILENAME = "Form_3X_ Receipts_Vendor_10.20.2020.xlsx"
+parser = argparse.ArgumentParser(description='Convert the FEC validation Excel spreadsheet into JSON schema documents.')
+parser.add_argument('excel_filename', help='an excel filename that will be parsed to generate JSON schema docs')
+args = parser.parse_args()
+FILENAME = args.excel_filename or "Form_3X_ Receipts_Vendor_10.20.2020.xlsx"
+print(FILENAME)
 SCHEMA_ID_PREFIX = "https://github.com/mjtravers/fecfile-online-sandbox/blob/main/validator/schema"
 
 # Column postions of fields in the spreadsheet row array
@@ -59,7 +64,7 @@ def convert_row_to_property(row):# noqa
         prop["maximum"] = int('9' * int(field_type.split('-')[1]))
 
     if field_type.startswith("A/N-") or field_type.startswith("A-"):
-        if field_type == "A-1" and row[RULE_REFERENCE].strip() == "Check-box":
+        if field_type == "A-1" and isinstance(row[RULE_REFERENCE], str) and row[RULE_REFERENCE].strip() == "Check-box":
             prop["type"] = "boolean"
         else:
             length = field_type.split('-')[1].strip()
@@ -75,13 +80,13 @@ def convert_row_to_property(row):# noqa
     prop["fec_form_line"] = "0"
     prop["fec_type"] = field_type
 
-    if row[REQUIRED]:
+    if isinstance(row[REQUIRED], str):
         prop["fec_requiredErrorLevel"] = row[REQUIRED].strip()
         if "error" in row[REQUIRED].strip():
             schema["required"].append(token)
-    if row[VALUE_REFERENCE]:
+    if isinstance(row[VALUE_REFERENCE], str):
         prop["fec_valueReference"] = row[VALUE_REFERENCE].strip()
-    if row[RULE_REFERENCE]:
+    if isinstance(row[RULE_REFERENCE], str):
         prop["fec_ruleReference"] = row[RULE_REFERENCE].strip()
 
     return (token, prop)
@@ -94,11 +99,18 @@ for ws in wb.worksheets:
         continue
 
     # we don't care about these now, but will in the future
-    if ws.cell(3, 5).value.strip() == 'Auto populate':
+    if ws.cell(3, 5).value is not None and ws.cell(3, 5).value.strip() == 'Auto populate':
         continue
+    
+    # transaction schemas should be named after their id
+    if (isinstance(ws.cell(7, 2).value, str)
+            and ws.cell(7, 2).value.strip() == 'TRANSACTION TYPE IDENTIFIER'
+            and isinstance(ws.cell(7, 5).value, str)):
+        output_file = ws.cell(7, 5).value + '.json'
+    else:
+        output_file = ws.title.replace(' ', '') + ".json"
 
-    output_file = ws.title.replace(' ', '') + ".json"
-    print(f'Creating {output_file}...')
+    print(f'Parsing {output_file}...')
 
     schema = {
         "$schema": "http://json-schema.org/draft-07/schema#",
