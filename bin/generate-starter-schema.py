@@ -102,13 +102,14 @@ for ws in wb.worksheets:
     if ws.cell(3, 5).value is not None and ws.cell(3, 5).value.strip() == 'Auto populate':
         continue
     
+    title = ws.title.replace(' ', '')
     # transaction schemas should be named after their id
     if (isinstance(ws.cell(7, 2).value, str)
             and ws.cell(7, 2).value.strip() == 'TRANSACTION TYPE IDENTIFIER'
             and isinstance(ws.cell(7, 5).value, str)):
-        output_file = ws.cell(7, 5).value + '.json'
+        output_file = title + '-' + ws.cell(7, 5).value + '.json'
     else:
-        output_file = ws.title.replace(' ', '') + ".json"
+        output_file = title + ".json"
 
     print(f'Parsing {output_file}...')
 
