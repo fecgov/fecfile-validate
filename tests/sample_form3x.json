@@ -1,5 +1,8 @@
 {
     "FORM_TYPE": "F3XN",
     "FILER_COMMITTEE_ID_NUMBER": "C00000012",
-    "COMMITTEE_NAME": "Foes of Pat"
+    "COMMITTEE_NAME": "Foes of Pat",
+    "TREASURER_LAST_NAME": "Smith",
+    "TREASURER_FIRST_NAME": "Patrick",
+    "DATE_SIGNED": 20040729
 }

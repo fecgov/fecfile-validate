@@ -101,7 +101,7 @@ for ws in wb.worksheets:
     # we don't care about these now, but will in the future
     if ws.cell(3, 5).value is not None and ws.cell(3, 5).value.strip() == 'Auto populate':
         continue
-    
+
     title = ws.title.replace(' ', '')
     # transaction schemas should be named after their id
     if (isinstance(ws.cell(7, 2).value, str)
