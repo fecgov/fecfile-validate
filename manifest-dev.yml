@@ -1,0 +1,9 @@
+---
+applications:
+- name: validator-demo
+  routes:
+  - route: fecfile-dev-validate.app.cloud.gov
+  stack: cflinuxfs3
+  buildpacks:
+    - python_buildpack
+  memory: 512M

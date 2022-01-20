@@ -529,6 +529,12 @@ VALIDATE API - SPRINT 8 - FNE 452 - BY PRAVEEN JINKA
 ******************************************************************************************************************************
 """
 
+@app.route("/")
+def hello():
+    """Hello world home page"""
+
+    return "Hello, World! I'm a demo validator."
+
 
 # TODO: This function is too complex. Requires refactoring.
 #       flake8 C901 (complexity limit) is disabled until this is resolved.
