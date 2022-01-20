@@ -2,7 +2,7 @@
 applications:
 - name: fecfile-validate
   routes:
-  - route: fecfile-dev-validate.app.cloud.gov
+  - route: fecfile-stage-validate.app.cloud.gov
   stack: cflinuxfs3
   buildpacks:
     - python_buildpack

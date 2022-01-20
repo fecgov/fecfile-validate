@@ -58,6 +58,8 @@ testem.log
 *.bower-registry
 *.bower-tmp
 
+# Cloud foundry
+.cfmeta
 
 
 # System Files
