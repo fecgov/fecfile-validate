@@ -53,7 +53,8 @@ def _detect_branch(repo):
 DEPLOY_RULES = (
     ("prod", _detect_prod),
     ("stage", lambda _, branch: branch.startswith("release")),
-    ("dev", lambda _, branch: branch == "develop"),
+    # ("dev", lambda _, branch: branch == "develop"),
+    ("dev", lambda _, branch: branch == "test-cloud-gov-deploy"),
 )
 
 

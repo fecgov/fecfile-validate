@@ -534,7 +534,7 @@ VALIDATE API - SPRINT 8 - FNE 452 - BY PRAVEEN JINKA
 def hello():
     """Hello world home page"""
 
-    return "Hello, World! I'm a demo validator. I was deployed with invoke."
+    return "Hello, World! I'm a demo validator. I was deployed with invoke and CircleCI."
 
 
 # TODO: This function is too complex. Requires refactoring.
