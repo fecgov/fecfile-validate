@@ -1,0 +1,419 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://github.com/fecgov/fecfile-Validate/blob/main/schema/F6.json",
+    "version": "8.3.0.1",
+    "title": "FEC F6",
+    "description": "FORM 6 - 48 HOUR NOTICE ",
+    "type": "object",
+    "required": [
+        "FORM_TYPE",
+        "FILER_COMMITTEE_ID_NUMBER",
+        "ORIGINAL_AMENDMENT_DATE",
+        "COMMITTEE_NAME",
+        "CANDIDATE_LAST_NAME",
+        "CANDIDATE_FIRST_NAME",
+        "SIGNER_LAST_NAME",
+        "SIGNER_FIRST_NAME",
+        "DATE_SIGNED"
+    ],
+    "properties": {
+        "FORM_TYPE": {
+            "title": "FORM TYPE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 8,
+            "pattern": "^[ A-z0-9]{0,8}$",
+            "examples": [
+                "F6N"
+            ],
+            "spec": {
+                "COL_SEQ": 1,
+                "FIELD_DESCRIPTION": "FORM TYPE",
+                "TYPE": "A/N-8",
+                "REQUIRED": "X (error)",
+                "AUTO_POPULATE": "X (error)",
+                "SAMPLE_DATA": "F6N",
+                "VALUE_REFERENCE": "F6+[N|A]"
+            }
+        },
+        "FILER_COMMITTEE_ID_NUMBER": {
+            "title": "FILER COMMITTEE ID NUMBER",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 9,
+            "pattern": "^[ A-z0-9]{0,9}$",
+            "examples": [
+                "C00123456"
+            ],
+            "spec": {
+                "COL_SEQ": 2,
+                "FIELD_DESCRIPTION": "FILER COMMITTEE ID NUMBER",
+                "TYPE": "A/N-9",
+                "REQUIRED": "X (error)",
+                "AUTO_POPULATE": "X (error)",
+                "SAMPLE_DATA": "C00123456"
+            }
+        },
+        "ORIGINAL_AMENDMENT_DATE": {
+            "title": "ORIGINAL AMENDMENT DATE",
+            "description": "",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 99999999,
+            "examples": [
+                20120729
+            ],
+            "spec": {
+                "COL_SEQ": 3,
+                "FIELD_DESCRIPTION": "ORIGINAL AMENDMENT DATE",
+                "TYPE": "NUM-8",
+                "REQUIRED": "X (error if Form Type=F6A)",
+                "AUTO_POPULATE": "X (error if Form Type=F6A)",
+                "SAMPLE_DATA": 20120729,
+                "VALUE_REFERENCE": "YYYYMMDD",
+                "RULE_REFERENCE": "Use the POSTed Filed on Date of Original (1st) F6 being amended."
+            }
+        },
+        "COMMITTEE_NAME": {
+            "title": "COMMITTEE NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 200,
+            "pattern": "^[ A-z0-9]{0,200}$",
+            "examples": [
+                "Friends of Pat"
+            ],
+            "spec": {
+                "COL_SEQ": 4,
+                "FIELD_DESCRIPTION": "COMMITTEE NAME",
+                "TYPE": "A/N-200",
+                "REQUIRED": "X (error)",
+                "AUTO_POPULATE": "X (error)",
+                "SAMPLE_DATA": "Friends of Pat"
+            }
+        },
+        "STREET__1": {
+            "title": "STREET  1",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 34,
+            "pattern": "^[ A-z0-9]{0,34}$",
+            "examples": [
+                "123 Sycamore St"
+            ],
+            "spec": {
+                "COL_SEQ": 5,
+                "FIELD_DESCRIPTION": "STREET  1",
+                "TYPE": "A/N-34",
+                "REQUIRED": "X (warning)",
+                "AUTO_POPULATE": "X (warning)",
+                "SAMPLE_DATA": "123 Sycamore St"
+            }
+        },
+        "STREET__2": {
+            "title": "STREET  2",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 34,
+            "pattern": "^[ A-z0-9]{0,34}$",
+            "spec": {
+                "COL_SEQ": 6,
+                "FIELD_DESCRIPTION": "STREET  2",
+                "TYPE": "A/N-34"
+            }
+        },
+        "CITY": {
+            "title": "CITY",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 30,
+            "pattern": "^[ A-z0-9]{0,30}$",
+            "examples": [
+                "Anytown"
+            ],
+            "spec": {
+                "COL_SEQ": 7,
+                "FIELD_DESCRIPTION": "CITY",
+                "TYPE": "A/N-30",
+                "REQUIRED": "X (warning)",
+                "AUTO_POPULATE": "X (warning)",
+                "SAMPLE_DATA": "Anytown",
+                "RULE_REFERENCE": "Edit: ST"
+            }
+        },
+        "STATE": {
+            "title": "STATE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 2,
+            "pattern": "^[ A-z0-9]{0,2}$",
+            "examples": [
+                "FL"
+            ],
+            "spec": {
+                "COL_SEQ": 8,
+                "FIELD_DESCRIPTION": "STATE",
+                "TYPE": "A/N-2",
+                "REQUIRED": "X (warning)",
+                "AUTO_POPULATE": "X (warning)",
+                "SAMPLE_DATA": "FL"
+            }
+        },
+        "ZIP": {
+            "title": "ZIP",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 9,
+            "pattern": "^[ A-z0-9]{0,9}$",
+            "examples": [
+                33034
+            ],
+            "spec": {
+                "COL_SEQ": 9,
+                "FIELD_DESCRIPTION": "ZIP",
+                "TYPE": "A/N-9",
+                "REQUIRED": "X (warning)",
+                "AUTO_POPULATE": "X (warning)",
+                "SAMPLE_DATA": 33034
+            }
+        },
+        "CANDIDATE_ID_NUMBER": {
+            "title": "CANDIDATE ID NUMBER",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 9,
+            "pattern": "^[ A-z0-9]{0,9}$",
+            "examples": [
+                "H98765431"
+            ],
+            "spec": {
+                "COL_SEQ": 10,
+                "FIELD_DESCRIPTION": "CANDIDATE ID NUMBER",
+                "TYPE": "A/N-9",
+                "SAMPLE_DATA": "H98765431"
+            }
+        },
+        "CANDIDATE_LAST_NAME": {
+            "title": "CANDIDATE LAST NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 30,
+            "pattern": "^[ A-z0-9]{0,30}$",
+            "spec": {
+                "COL_SEQ": 11,
+                "FIELD_DESCRIPTION": "CANDIDATE LAST NAME",
+                "TYPE": "A/N-30",
+                "REQUIRED": "X (error)",
+                "AUTO_POPULATE": "X (error)"
+            }
+        },
+        "CANDIDATE_FIRST_NAME": {
+            "title": "CANDIDATE FIRST NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 20,
+            "pattern": "^[ A-z0-9]{0,20}$",
+            "spec": {
+                "COL_SEQ": 12,
+                "FIELD_DESCRIPTION": "CANDIDATE FIRST NAME",
+                "TYPE": "A/N-20",
+                "REQUIRED": "X (error)",
+                "AUTO_POPULATE": "X (error)"
+            }
+        },
+        "CANDIDATE_MIDDLE_NAME": {
+            "title": "CANDIDATE MIDDLE NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 20,
+            "pattern": "^[ A-z0-9]{0,20}$",
+            "spec": {
+                "COL_SEQ": 13,
+                "FIELD_DESCRIPTION": "CANDIDATE MIDDLE NAME",
+                "TYPE": "A/N-20"
+            }
+        },
+        "CANDIDATE_PREFIX": {
+            "title": "CANDIDATE PREFIX",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 10,
+            "pattern": "^[ A-z0-9]{0,10}$",
+            "spec": {
+                "COL_SEQ": 14,
+                "FIELD_DESCRIPTION": "CANDIDATE PREFIX",
+                "TYPE": "A/N-10"
+            }
+        },
+        "CANDIDATE_SUFFIX": {
+            "title": "CANDIDATE SUFFIX",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 10,
+            "pattern": "^[ A-z0-9]{0,10}$",
+            "spec": {
+                "COL_SEQ": 15,
+                "FIELD_DESCRIPTION": "CANDIDATE SUFFIX",
+                "TYPE": "A/N-10",
+                "RULE_REFERENCE": "Edit: OFFICE"
+            }
+        },
+        "CANDIDATE_OFFICE": {
+            "title": "CANDIDATE OFFICE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 1,
+            "pattern": "^[ A-z0-9]{0,1}$",
+            "examples": [
+                "H"
+            ],
+            "spec": {
+                "COL_SEQ": 16,
+                "FIELD_DESCRIPTION": "CANDIDATE OFFICE",
+                "TYPE": "A/N-1",
+                "SAMPLE_DATA": "H",
+                "VALUE_REFERENCE": "H,S,P",
+                "RULE_REFERENCE": "Edit: ST"
+            }
+        },
+        "CANDIDATE_STATE": {
+            "title": "CANDIDATE STATE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 2,
+            "pattern": "^[ A-z0-9]{0,2}$",
+            "examples": [
+                "FL"
+            ],
+            "spec": {
+                "COL_SEQ": 17,
+                "FIELD_DESCRIPTION": "CANDIDATE STATE",
+                "TYPE": "A/N-2",
+                "SAMPLE_DATA": "FL",
+                "VALUE_REFERENCE": "AK,AL,..."
+            }
+        },
+        "CANDIDATE_DISTRICT": {
+            "title": "CANDIDATE DISTRICT",
+            "description": "",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 99,
+            "examples": [
+                35
+            ],
+            "spec": {
+                "COL_SEQ": 18,
+                "FIELD_DESCRIPTION": "CANDIDATE DISTRICT",
+                "TYPE": "NUM-2",
+                "SAMPLE_DATA": 35,
+                "VALUE_REFERENCE": "01 ... 99"
+            }
+        },
+        "SIGNER_LAST_NAME": {
+            "title": "SIGNER LAST NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 30,
+            "pattern": "^[ A-z0-9]{0,30}$",
+            "spec": {
+                "COL_SEQ": 19,
+                "FIELD_DESCRIPTION": "SIGNER LAST NAME",
+                "TYPE": "A/N-30",
+                "REQUIRED": "X (error)",
+                "AUTO_POPULATE": "X (error)"
+            }
+        },
+        "SIGNER_FIRST_NAME": {
+            "title": "SIGNER FIRST NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 20,
+            "pattern": "^[ A-z0-9]{0,20}$",
+            "spec": {
+                "COL_SEQ": 20,
+                "FIELD_DESCRIPTION": "SIGNER FIRST NAME",
+                "TYPE": "A/N-20",
+                "REQUIRED": "X (error)",
+                "AUTO_POPULATE": "X (error)"
+            }
+        },
+        "SIGNER_MIDDLE_NAME": {
+            "title": "SIGNER MIDDLE NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 20,
+            "pattern": "^[ A-z0-9]{0,20}$",
+            "spec": {
+                "COL_SEQ": 21,
+                "FIELD_DESCRIPTION": "SIGNER MIDDLE NAME",
+                "TYPE": "A/N-20"
+            }
+        },
+        "SIGNER_PREFIX": {
+            "title": "SIGNER PREFIX",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 10,
+            "pattern": "^[ A-z0-9]{0,10}$",
+            "spec": {
+                "COL_SEQ": 22,
+                "FIELD_DESCRIPTION": "SIGNER PREFIX",
+                "TYPE": "A/N-10"
+            }
+        },
+        "SIGNER_SUFFIX": {
+            "title": "SIGNER SUFFIX",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 10,
+            "pattern": "^[ A-z0-9]{0,10}$",
+            "spec": {
+                "COL_SEQ": 23,
+                "FIELD_DESCRIPTION": "SIGNER SUFFIX",
+                "TYPE": "A/N-10"
+            }
+        },
+        "DATE_SIGNED": {
+            "title": "DATE SIGNED",
+            "description": "",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 99999999,
+            "examples": [
+                20120820
+            ],
+            "spec": {
+                "COL_SEQ": 24,
+                "FIELD_DESCRIPTION": "DATE SIGNED",
+                "TYPE": "NUM-8",
+                "REQUIRED": "X (error)",
+                "AUTO_POPULATE": "X (error)",
+                "SAMPLE_DATA": 20120820,
+                "VALUE_REFERENCE": "YYYYMMDD"
+            }
+        }
+    },
+    "additionalProperties": false
+}

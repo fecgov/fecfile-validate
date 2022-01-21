@@ -1,0 +1,557 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://github.com/fecgov/fecfile-Validate/blob/main/schema/F5.json",
+    "version": "8.3.0.1",
+    "title": "FEC F5",
+    "description": "FORM 5 - REPORT OF INDEPENDENT EXPENDITURES MADE AND CONTRIBUTIONS RECEIVED",
+    "type": "object",
+    "required": [
+        "FORM_TYPE",
+        "FILER_COMMITTEE_ID_NUMBER",
+        "ORGANIZATION_NAME",
+        "INDIVIDUAL_LAST_NAME",
+        "INDIVIDUAL_FIRST_NAME",
+        "ORIGINAL_AMENDMENT_DATE",
+        "TOTAL_INDEPENDENT_EXPENDITURE",
+        "PERSON_COMPLETING_LAST_NAME",
+        "PERSON_COMPLETING_FIRST_NAME",
+        "DATE_SIGNED"
+    ],
+    "properties": {
+        "FORM_TYPE": {
+            "title": "FORM TYPE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 8,
+            "pattern": "^[ A-z0-9]{0,8}$",
+            "examples": [
+                "F5N"
+            ],
+            "spec": {
+                "COL_SEQ": 1,
+                "FIELD_DESCRIPTION": "FORM TYPE",
+                "TYPE": "A/N-8",
+                "REQUIRED": "X (error)",
+                "AUTO_POPULATE": "X (error)",
+                "SAMPLE_DATA": "F5N",
+                "VALUE_REFERENCE": "F5+[N|A|T]"
+            }
+        },
+        "FILER_COMMITTEE_ID_NUMBER": {
+            "title": "FILER COMMITTEE ID NUMBER",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 9,
+            "pattern": "^[ A-z0-9]{0,9}$",
+            "examples": [
+                "C90065431"
+            ],
+            "spec": {
+                "COL_SEQ": 2,
+                "FIELD_DESCRIPTION": "FILER COMMITTEE ID NUMBER",
+                "TYPE": "A/N-9",
+                "REQUIRED": "X (error)",
+                "AUTO_POPULATE": "X (error)",
+                "SAMPLE_DATA": "C90065431"
+            }
+        },
+        "ENTITY_TYPE": {
+            "title": "ENTITY TYPE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 3,
+            "pattern": "^[ A-z0-9]{0,3}$",
+            "examples": [
+                "IND"
+            ],
+            "spec": {
+                "COL_SEQ": 3,
+                "FIELD_DESCRIPTION": "ENTITY TYPE",
+                "TYPE": "A/N-3",
+                "SAMPLE_DATA": "IND",
+                "VALUE_REFERENCE": "IND,ORG"
+            }
+        },
+        "ORGANIZATION_NAME": {
+            "title": "ORGANIZATION NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 200,
+            "pattern": "^[ A-z0-9]{0,200}$",
+            "examples": [
+                "John Smith & Co."
+            ],
+            "spec": {
+                "COL_SEQ": 4,
+                "FIELD_DESCRIPTION": "ORGANIZATION NAME",
+                "TYPE": "A/N-200",
+                "REQUIRED": "X (error) If not Individual",
+                "AUTO_POPULATE": "X (error) If not Individual",
+                "SAMPLE_DATA": "John Smith & Co."
+            }
+        },
+        "INDIVIDUAL_LAST_NAME": {
+            "title": "INDIVIDUAL LAST NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 30,
+            "pattern": "^[ A-z0-9]{0,30}$",
+            "examples": [
+                "Smith"
+            ],
+            "spec": {
+                "COL_SEQ": 5,
+                "FIELD_DESCRIPTION": "INDIVIDUAL LAST NAME",
+                "TYPE": "A/N-30",
+                "REQUIRED": "X (error) If not Organization",
+                "AUTO_POPULATE": "X (error) If not Organization",
+                "SAMPLE_DATA": "Smith"
+            }
+        },
+        "INDIVIDUAL_FIRST_NAME": {
+            "title": "INDIVIDUAL FIRST NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 20,
+            "pattern": "^[ A-z0-9]{0,20}$",
+            "examples": [
+                "Patrick"
+            ],
+            "spec": {
+                "COL_SEQ": 6,
+                "FIELD_DESCRIPTION": "INDIVIDUAL FIRST NAME",
+                "TYPE": "A/N-20",
+                "REQUIRED": "X (error) If not Organization",
+                "AUTO_POPULATE": "X (error) If not Organization",
+                "SAMPLE_DATA": "Patrick"
+            }
+        },
+        "INDIVIDUAL_MIDDLE_NAME": {
+            "title": "INDIVIDUAL MIDDLE NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 20,
+            "pattern": "^[ A-z0-9]{0,20}$",
+            "examples": [
+                "Thomas"
+            ],
+            "spec": {
+                "COL_SEQ": 7,
+                "FIELD_DESCRIPTION": "INDIVIDUAL MIDDLE NAME",
+                "TYPE": "A/N-20",
+                "SAMPLE_DATA": "Thomas"
+            }
+        },
+        "INDIVIDUAL_PREFIX": {
+            "title": "INDIVIDUAL PREFIX",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 10,
+            "pattern": "^[ A-z0-9]{0,10}$",
+            "examples": [
+                "Mr."
+            ],
+            "spec": {
+                "COL_SEQ": 8,
+                "FIELD_DESCRIPTION": "INDIVIDUAL PREFIX",
+                "TYPE": "A/N-10",
+                "SAMPLE_DATA": "Mr."
+            }
+        },
+        "INDIVIDUAL_SUFFIX": {
+            "title": "INDIVIDUAL SUFFIX",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 10,
+            "pattern": "^[ A-z0-9]{0,10}$",
+            "examples": [
+                "Jr."
+            ],
+            "spec": {
+                "COL_SEQ": 9,
+                "FIELD_DESCRIPTION": "INDIVIDUAL SUFFIX",
+                "TYPE": "A/N-10",
+                "SAMPLE_DATA": "Jr."
+            }
+        },
+        "CHANGE_OF_ADDRESS": {
+            "title": "CHANGE OF ADDRESS",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 1,
+            "pattern": "^[ A-z0-9]{0,1}$",
+            "spec": {
+                "COL_SEQ": 10,
+                "FIELD_DESCRIPTION": "CHANGE OF ADDRESS",
+                "TYPE": "A-1"
+            }
+        },
+        "STREET__1": {
+            "title": "STREET  1",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 34,
+            "pattern": "^[ A-z0-9]{0,34}$",
+            "examples": [
+                "123 Sycamore St"
+            ],
+            "spec": {
+                "COL_SEQ": 11,
+                "FIELD_DESCRIPTION": "STREET  1",
+                "TYPE": "A/N-34",
+                "REQUIRED": "X (warning)",
+                "AUTO_POPULATE": "X (warning)",
+                "SAMPLE_DATA": "123 Sycamore St"
+            }
+        },
+        "STREET__2": {
+            "title": "STREET  2",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 34,
+            "pattern": "^[ A-z0-9]{0,34}$",
+            "spec": {
+                "COL_SEQ": 12,
+                "FIELD_DESCRIPTION": "STREET  2",
+                "TYPE": "A/N-34"
+            }
+        },
+        "CITY": {
+            "title": "CITY",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 30,
+            "pattern": "^[ A-z0-9]{0,30}$",
+            "examples": [
+                "Anytown"
+            ],
+            "spec": {
+                "COL_SEQ": 13,
+                "FIELD_DESCRIPTION": "CITY",
+                "TYPE": "A/N-30",
+                "REQUIRED": "X (warning)",
+                "AUTO_POPULATE": "X (warning)",
+                "SAMPLE_DATA": "Anytown"
+            }
+        },
+        "STATE": {
+            "title": "STATE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 2,
+            "pattern": "^[ A-z0-9]{0,2}$",
+            "examples": [
+                "FL"
+            ],
+            "spec": {
+                "COL_SEQ": 14,
+                "FIELD_DESCRIPTION": "STATE",
+                "TYPE": "A-2",
+                "REQUIRED": "X (warning)",
+                "AUTO_POPULATE": "X (warning)",
+                "SAMPLE_DATA": "FL"
+            }
+        },
+        "ZIP": {
+            "title": "ZIP",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 9,
+            "pattern": "^[ A-z0-9]{0,9}$",
+            "examples": [
+                33034
+            ],
+            "spec": {
+                "COL_SEQ": 15,
+                "FIELD_DESCRIPTION": "ZIP",
+                "TYPE": "A/N-9",
+                "REQUIRED": "X (warning)",
+                "AUTO_POPULATE": "X (warning)",
+                "SAMPLE_DATA": 33034
+            }
+        },
+        "INDIVIDUAL_OCCUPATION": {
+            "title": "INDIVIDUAL OCCUPATION",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 38,
+            "pattern": "^[ A-z0-9]{0,38}$",
+            "spec": {
+                "COL_SEQ": 16,
+                "FIELD_DESCRIPTION": "INDIVIDUAL OCCUPATION",
+                "TYPE": "A/N-38",
+                "REQUIRED": "X(Warning) if IND",
+                "AUTO_POPULATE": "X(Warning) if IND",
+                "RULE_REFERENCE": "If Entity = IND"
+            }
+        },
+        "INDIVIDUAL_EMPLOYER": {
+            "title": "INDIVIDUAL EMPLOYER",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 38,
+            "pattern": "^[ A-z0-9]{0,38}$",
+            "spec": {
+                "COL_SEQ": 17,
+                "FIELD_DESCRIPTION": "INDIVIDUAL EMPLOYER",
+                "TYPE": "A/N-38",
+                "REQUIRED": "X(Warning) if IND",
+                "AUTO_POPULATE": "X(Warning) if IND",
+                "RULE_REFERENCE": "If Entity = IND"
+            }
+        },
+        "REPORT_CODE": {
+            "title": "REPORT CODE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 3,
+            "pattern": "^[ A-z0-9]{0,3}$",
+            "examples": [
+                "Q1"
+            ],
+            "spec": {
+                "COL_SEQ": 18,
+                "FIELD_DESCRIPTION": "REPORT CODE",
+                "TYPE": "A-3",
+                "REQUIRED": "X (warning) if 24/48hr code has no value",
+                "AUTO_POPULATE": "X (warning) if 24/48hr code has no value",
+                "SAMPLE_DATA": "Q1",
+                "VALUE_REFERENCE": "Q1, Q2, Q3, Q4, YE",
+                "RULE_REFERENCE": "Either Report Code or 24/48-Hour Code is required.  If both are missing, Report Code is flagged as missing data at a Warning Level.\n{Report Code flagged as an Error if it has an incorrect value.}"
+            }
+        },
+        "24HOUR_48HOUR_CODE": {
+            "title": "24HOUR 48HOUR CODE",
+            "description": "",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 99,
+            "examples": [
+                24
+            ],
+            "spec": {
+                "COL_SEQ": 19,
+                "FIELD_DESCRIPTION": "24HOUR 48HOUR CODE",
+                "TYPE": "NUM-2",
+                "REQUIRED": "X (warning) if REPORT CODE contains no value",
+                "AUTO_POPULATE": "X (warning) if REPORT CODE contains no value",
+                "SAMPLE_DATA": 24,
+                "VALUE_REFERENCE": "24, 48",
+                "RULE_REFERENCE": "If 24/48-Hour Code is coded, and Report Code contains data, then 24/48-Hour Code is flagged as \"not needed\"."
+            }
+        },
+        "ORIGINAL_AMENDMENT_DATE": {
+            "title": "ORIGINAL AMENDMENT DATE",
+            "description": "",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 99999999,
+            "examples": [
+                20130829
+            ],
+            "spec": {
+                "COL_SEQ": 20,
+                "FIELD_DESCRIPTION": "ORIGINAL AMENDMENT DATE",
+                "TYPE": "NUM-8",
+                "REQUIRED": "X (error if Form Type=F5A)",
+                "AUTO_POPULATE": "X (error if Form Type=F5A)",
+                "SAMPLE_DATA": 20130829,
+                "VALUE_REFERENCE": "YYYYMMDD",
+                "RULE_REFERENCE": "Use date of original report or of most recent amendment"
+            }
+        },
+        "COVERAGE_FROM_DATE": {
+            "title": "COVERAGE FROM DATE",
+            "description": "",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 99999999,
+            "examples": [
+                20120101
+            ],
+            "spec": {
+                "COL_SEQ": 21,
+                "FIELD_DESCRIPTION": "COVERAGE FROM DATE",
+                "TYPE": "NUM-8",
+                "REQUIRED": "X (warning)",
+                "AUTO_POPULATE": "X (warning)",
+                "SAMPLE_DATA": 20120101,
+                "VALUE_REFERENCE": "YYYYMMDD"
+            }
+        },
+        "COVERAGE_THROUGH_DATE": {
+            "title": "COVERAGE THROUGH DATE",
+            "description": "",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 99999999,
+            "examples": [
+                20121231
+            ],
+            "spec": {
+                "COL_SEQ": 22,
+                "FIELD_DESCRIPTION": "COVERAGE THROUGH DATE",
+                "TYPE": "NUM-8",
+                "REQUIRED": "X (warning)",
+                "AUTO_POPULATE": "X (warning)",
+                "SAMPLE_DATA": 20121231,
+                "VALUE_REFERENCE": "YYYYMMDD"
+            }
+        },
+        "TOTAL_CONTRIBUTION": {
+            "title": "TOTAL CONTRIBUTION",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 23,
+                "FIELD_DESCRIPTION": "TOTAL CONTRIBUTION",
+                "TYPE": "AMT-12",
+                "REQUIRED": "X (warning)",
+                "AUTO_POPULATE": "X (warning)"
+            }
+        },
+        "TOTAL_INDEPENDENT_EXPENDITURE": {
+            "title": "TOTAL INDEPENDENT EXPENDITURE",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 24,
+                "FIELD_DESCRIPTION": "TOTAL INDEPENDENT EXPENDITURE",
+                "TYPE": "AMT-12",
+                "REQUIRED": "X (error)",
+                "AUTO_POPULATE": "X (error)"
+            }
+        },
+        "PERSON_COMPLETING_LAST_NAME": {
+            "title": "PERSON COMPLETING LAST NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 30,
+            "pattern": "^[ A-z0-9]{0,30}$",
+            "examples": [
+                "Smith"
+            ],
+            "spec": {
+                "COL_SEQ": 25,
+                "FIELD_DESCRIPTION": "PERSON COMPLETING LAST NAME",
+                "TYPE": "A/N-30",
+                "REQUIRED": "X (error)",
+                "AUTO_POPULATE": "X (error)",
+                "SAMPLE_DATA": "Smith"
+            }
+        },
+        "PERSON_COMPLETING_FIRST_NAME": {
+            "title": "PERSON COMPLETING FIRST NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 20,
+            "pattern": "^[ A-z0-9]{0,20}$",
+            "examples": [
+                "Patrick"
+            ],
+            "spec": {
+                "COL_SEQ": 26,
+                "FIELD_DESCRIPTION": "PERSON COMPLETING FIRST NAME",
+                "TYPE": "A/N-20",
+                "REQUIRED": "X (error)",
+                "AUTO_POPULATE": "X (error)",
+                "SAMPLE_DATA": "Patrick"
+            }
+        },
+        "PERSON_COMPLETING_MIDDLE_NAME": {
+            "title": "PERSON COMPLETING MIDDLE NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 20,
+            "pattern": "^[ A-z0-9]{0,20}$",
+            "examples": [
+                "Thomas"
+            ],
+            "spec": {
+                "COL_SEQ": 27,
+                "FIELD_DESCRIPTION": "PERSON COMPLETING MIDDLE NAME",
+                "TYPE": "A/N-20",
+                "SAMPLE_DATA": "Thomas"
+            }
+        },
+        "PERSON_COMPLETING_PREFIX": {
+            "title": "PERSON COMPLETING PREFIX",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 10,
+            "pattern": "^[ A-z0-9]{0,10}$",
+            "examples": [
+                "Mr."
+            ],
+            "spec": {
+                "COL_SEQ": 28,
+                "FIELD_DESCRIPTION": "PERSON COMPLETING PREFIX",
+                "TYPE": "A/N-10",
+                "SAMPLE_DATA": "Mr."
+            }
+        },
+        "PERSON_COMPLETING_SUFFIX": {
+            "title": "PERSON COMPLETING SUFFIX",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 10,
+            "pattern": "^[ A-z0-9]{0,10}$",
+            "examples": [
+                "Jr."
+            ],
+            "spec": {
+                "COL_SEQ": 29,
+                "FIELD_DESCRIPTION": "PERSON COMPLETING SUFFIX",
+                "TYPE": "A/N-10",
+                "SAMPLE_DATA": "Jr."
+            }
+        },
+        "DATE_SIGNED": {
+            "title": "DATE SIGNED",
+            "description": "",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 99999999,
+            "examples": [
+                20120820
+            ],
+            "spec": {
+                "COL_SEQ": 30,
+                "FIELD_DESCRIPTION": "DATE SIGNED",
+                "TYPE": "NUM-8",
+                "REQUIRED": "X (error)",
+                "AUTO_POPULATE": "X (error)",
+                "SAMPLE_DATA": 20120820,
+                "VALUE_REFERENCE": "YYYYMMDD"
+            }
+        }
+    },
+    "additionalProperties": false
+}

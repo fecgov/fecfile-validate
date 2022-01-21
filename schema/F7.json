@@ -1,0 +1,414 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://github.com/fecgov/fecfile-Validate/blob/main/schema/F7.json",
+    "version": "8.3.0.1",
+    "title": "FEC F7",
+    "description": "FORM 7 - COMMUNICATION COSTS ",
+    "type": "object",
+    "required": [
+        "FORM_TYPE",
+        "FILER_COMMITTEE_ID_NUMBER",
+        "ORGANIZATION_NAME",
+        "PERSON_DESIGNATED_TO_SIGN_LAST_NAME",
+        "PERSON_DESIGNATED_TO_SIGN_FIRST_NAME",
+        "DATE_SIGNED"
+    ],
+    "properties": {
+        "FORM_TYPE": {
+            "title": "FORM TYPE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 8,
+            "pattern": "^[ A-z0-9]{0,8}$",
+            "examples": [
+                "F7N"
+            ],
+            "spec": {
+                "COL_SEQ": 1,
+                "FIELD_DESCRIPTION": "FORM TYPE",
+                "TYPE": "A/N-8",
+                "REQUIRED": "X (error)",
+                "AUTO_POPULATE": "X (error)",
+                "SAMPLE_DATA": "F7N",
+                "VALUE_REFERENCE": "F7+[N|A|T]"
+            }
+        },
+        "FILER_COMMITTEE_ID_NUMBER": {
+            "title": "FILER COMMITTEE ID NUMBER",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 9,
+            "pattern": "^[ A-z0-9]{0,9}$",
+            "examples": [
+                "C70065431"
+            ],
+            "spec": {
+                "COL_SEQ": 2,
+                "FIELD_DESCRIPTION": "FILER COMMITTEE ID NUMBER",
+                "TYPE": "A/N-9",
+                "REQUIRED": "X (error)",
+                "AUTO_POPULATE": "X (error)",
+                "SAMPLE_DATA": "C70065431"
+            }
+        },
+        "ORGANIZATION_NAME": {
+            "title": "ORGANIZATION NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 200,
+            "pattern": "^[ A-z0-9]{0,200}$",
+            "examples": [
+                "John Smith & Co."
+            ],
+            "spec": {
+                "COL_SEQ": 3,
+                "FIELD_DESCRIPTION": "ORGANIZATION NAME",
+                "TYPE": "A/N-200",
+                "REQUIRED": "X (error)",
+                "AUTO_POPULATE": "X (error)",
+                "SAMPLE_DATA": "John Smith & Co."
+            }
+        },
+        "ORGANIZATION_STREET__1": {
+            "title": "ORGANIZATION STREET  1",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 34,
+            "pattern": "^[ A-z0-9]{0,34}$",
+            "examples": [
+                "125 Sycamore St"
+            ],
+            "spec": {
+                "COL_SEQ": 4,
+                "FIELD_DESCRIPTION": "ORGANIZATION STREET  1",
+                "TYPE": "A/N-34",
+                "REQUIRED": "X (warning)",
+                "AUTO_POPULATE": "X (warning)",
+                "SAMPLE_DATA": "125 Sycamore St"
+            }
+        },
+        "ORGANIZATION_STREET__2": {
+            "title": "ORGANIZATION STREET  2",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 34,
+            "pattern": "^[ A-z0-9]{0,34}$",
+            "spec": {
+                "COL_SEQ": 5,
+                "FIELD_DESCRIPTION": "ORGANIZATION STREET  2",
+                "TYPE": "A/N-34"
+            }
+        },
+        "ORGANIZATION_CITY": {
+            "title": "ORGANIZATION CITY",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 30,
+            "pattern": "^[ A-z0-9]{0,30}$",
+            "examples": [
+                "Anytown"
+            ],
+            "spec": {
+                "COL_SEQ": 6,
+                "FIELD_DESCRIPTION": "ORGANIZATION CITY",
+                "TYPE": "A/N-30",
+                "REQUIRED": "X (warning)",
+                "AUTO_POPULATE": "X (warning)",
+                "SAMPLE_DATA": "Anytown"
+            }
+        },
+        "ORGANIZATION_STATE": {
+            "title": "ORGANIZATION STATE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 2,
+            "pattern": "^[ A-z0-9]{0,2}$",
+            "examples": [
+                "FL"
+            ],
+            "spec": {
+                "COL_SEQ": 7,
+                "FIELD_DESCRIPTION": "ORGANIZATION STATE",
+                "TYPE": "A/N-2",
+                "REQUIRED": "X (warning)",
+                "AUTO_POPULATE": "X (warning)",
+                "SAMPLE_DATA": "FL",
+                "RULE_REFERENCE": "Edit: ST"
+            }
+        },
+        "ORGANIZATION_ZIP": {
+            "title": "ORGANIZATION ZIP",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 9,
+            "pattern": "^[ A-z0-9]{0,9}$",
+            "examples": [
+                33034
+            ],
+            "spec": {
+                "COL_SEQ": 8,
+                "FIELD_DESCRIPTION": "ORGANIZATION ZIP",
+                "TYPE": "A/N-9",
+                "REQUIRED": "X (warning)",
+                "AUTO_POPULATE": "X (warning)",
+                "SAMPLE_DATA": 33034
+            }
+        },
+        "ORGANIZATION_TYPE": {
+            "title": "ORGANIZATION TYPE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 1,
+            "pattern": "^[ A-z0-9]{0,1}$",
+            "examples": [
+                "C"
+            ],
+            "spec": {
+                "COL_SEQ": 9,
+                "FIELD_DESCRIPTION": "ORGANIZATION TYPE",
+                "TYPE": "A/N-1",
+                "SAMPLE_DATA": "C",
+                "VALUE_REFERENCE": "C,T,L,M,V,W",
+                "RULE_REFERENCE": "C - Corporation\n T  -Trade Association\n L - Labor Organization\n M - Membership\n       Organization\n V - Cooperative\n W - Corporation w/o\n        capital stock"
+            }
+        },
+        "REPORT_CODE": {
+            "title": "REPORT CODE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 3,
+            "pattern": "^[ A-z0-9]{0,3}$",
+            "examples": [
+                "12P"
+            ],
+            "spec": {
+                "COL_SEQ": 10,
+                "FIELD_DESCRIPTION": "REPORT CODE",
+                "TYPE": "A-3",
+                "REQUIRED": "X (warning)",
+                "AUTO_POPULATE": "X (warning)",
+                "SAMPLE_DATA": "12P",
+                "VALUE_REFERENCE": "12C,..., TER",
+                "RULE_REFERENCE": "Warning if Code is missing;\nError if Coded incorrectly."
+            }
+        },
+        "DATE_OF_ELECTION": {
+            "title": "DATE OF ELECTION",
+            "description": "",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 99999999,
+            "examples": [
+                20120715
+            ],
+            "spec": {
+                "COL_SEQ": 11,
+                "FIELD_DESCRIPTION": "DATE OF ELECTION",
+                "TYPE": "NUM-8",
+                "REQUIRED": "X (warn if REPORT CODE=[12?|30?])",
+                "AUTO_POPULATE": "X (warn if REPORT CODE=[12?|30?])",
+                "SAMPLE_DATA": 20120715,
+                "VALUE_REFERENCE": "YYYYMMDD"
+            }
+        },
+        "STATE_OF_ELECTION": {
+            "title": "STATE OF ELECTION",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 2,
+            "pattern": "^[ A-z0-9]{0,2}$",
+            "examples": [
+                "FL"
+            ],
+            "spec": {
+                "COL_SEQ": 12,
+                "FIELD_DESCRIPTION": "STATE OF ELECTION",
+                "TYPE": "A/N-2",
+                "REQUIRED": "X (warn if REPORT CODE=[12?|30?])",
+                "AUTO_POPULATE": "X (warn if REPORT CODE=[12?|30?])",
+                "SAMPLE_DATA": "FL",
+                "RULE_REFERENCE": "Edit: St"
+            }
+        },
+        "COVERAGE_FROM_DATE": {
+            "title": "COVERAGE FROM DATE",
+            "description": "",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 99999999,
+            "spec": {
+                "COL_SEQ": 13,
+                "FIELD_DESCRIPTION": "COVERAGE FROM DATE",
+                "TYPE": "NUM-8",
+                "REQUIRED": "X (warning)",
+                "AUTO_POPULATE": "X (warning)"
+            }
+        },
+        "COVERAGE_THROUGH_DATE": {
+            "title": "COVERAGE THROUGH DATE",
+            "description": "",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 99999999,
+            "spec": {
+                "COL_SEQ": 14,
+                "FIELD_DESCRIPTION": "COVERAGE THROUGH DATE",
+                "TYPE": "NUM-8",
+                "REQUIRED": "X (warning)",
+                "AUTO_POPULATE": "X (warning)"
+            }
+        },
+        "TOTAL_COSTS": {
+            "title": "TOTAL COSTS",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 15,
+                "FIELD_DESCRIPTION": "TOTAL COSTS",
+                "TYPE": "AMT-12",
+                "RULE_REFERENCE": "= Sum of F76 Itemized Costs"
+            }
+        },
+        "PERSON_DESIGNATED_TO_SIGN_LAST_NAME": {
+            "title": "PERSON DESIGNATED TO SIGN LAST NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 30,
+            "pattern": "^[ A-z0-9]{0,30}$",
+            "examples": [
+                "Smith"
+            ],
+            "spec": {
+                "COL_SEQ": 16,
+                "FIELD_DESCRIPTION": "PERSON DESIGNATED TO SIGN LAST NAME",
+                "TYPE": "A/N-30",
+                "REQUIRED": "X (error)",
+                "AUTO_POPULATE": "X (error)",
+                "SAMPLE_DATA": "Smith"
+            }
+        },
+        "PERSON_DESIGNATED_TO_SIGN_FIRST_NAME": {
+            "title": "PERSON DESIGNATED TO SIGN FIRST NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 20,
+            "pattern": "^[ A-z0-9]{0,20}$",
+            "examples": [
+                "Patrick"
+            ],
+            "spec": {
+                "COL_SEQ": 17,
+                "FIELD_DESCRIPTION": "PERSON DESIGNATED TO SIGN FIRST NAME",
+                "TYPE": "A/N-20",
+                "REQUIRED": "X (error)",
+                "AUTO_POPULATE": "X (error)",
+                "SAMPLE_DATA": "Patrick"
+            }
+        },
+        "PERSON_DESIGNATED_TO_SIGN_MIDDLE_NAME": {
+            "title": "PERSON DESIGNATED TO SIGN MIDDLE NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 20,
+            "pattern": "^[ A-z0-9]{0,20}$",
+            "examples": [
+                "Thomas"
+            ],
+            "spec": {
+                "COL_SEQ": 18,
+                "FIELD_DESCRIPTION": "PERSON DESIGNATED TO SIGN MIDDLE NAME",
+                "TYPE": "A/N-20",
+                "SAMPLE_DATA": "Thomas"
+            }
+        },
+        "PERSON_DESIGNATED_TO_SIGN_PREFIX": {
+            "title": "PERSON DESIGNATED TO SIGN PREFIX",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 10,
+            "pattern": "^[ A-z0-9]{0,10}$",
+            "examples": [
+                "Mr."
+            ],
+            "spec": {
+                "COL_SEQ": 19,
+                "FIELD_DESCRIPTION": "PERSON DESIGNATED TO SIGN PREFIX",
+                "TYPE": "A/N-10",
+                "SAMPLE_DATA": "Mr."
+            }
+        },
+        "PERSON_DESIGNATED_TO_SIGN_SUFFIX": {
+            "title": "PERSON DESIGNATED TO SIGN SUFFIX",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 10,
+            "pattern": "^[ A-z0-9]{0,10}$",
+            "examples": [
+                "Jr."
+            ],
+            "spec": {
+                "COL_SEQ": 20,
+                "FIELD_DESCRIPTION": "PERSON DESIGNATED TO SIGN SUFFIX",
+                "TYPE": "A/N-10",
+                "SAMPLE_DATA": "Jr."
+            }
+        },
+        "PERSON_DESIGNATED_TO_SIGN_TITLE": {
+            "title": "PERSON DESIGNATED TO SIGN TITLE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 20,
+            "pattern": "^[ A-z0-9]{0,20}$",
+            "examples": [
+                "Treasurer"
+            ],
+            "spec": {
+                "COL_SEQ": 21,
+                "FIELD_DESCRIPTION": "PERSON DESIGNATED TO SIGN TITLE",
+                "TYPE": "A/N-20",
+                "REQUIRED": "X (warning)",
+                "AUTO_POPULATE": "X (warning)",
+                "SAMPLE_DATA": "Treasurer"
+            }
+        },
+        "DATE_SIGNED": {
+            "title": "DATE SIGNED",
+            "description": "",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 99999999,
+            "examples": [
+                20120820
+            ],
+            "spec": {
+                "COL_SEQ": 22,
+                "FIELD_DESCRIPTION": "DATE SIGNED",
+                "TYPE": "NUM-8",
+                "REQUIRED": "X (error)",
+                "AUTO_POPULATE": "X (error)",
+                "SAMPLE_DATA": 20120820,
+                "VALUE_REFERENCE": "YYYYMMDD"
+            }
+        }
+    },
+    "additionalProperties": false
+}

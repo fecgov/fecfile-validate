@@ -1,0 +1,157 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://github.com/fecgov/fecfile-Validate/blob/main/schema/HDR.json",
+    "version": "8.3.0.1",
+    "title": "FEC HDR",
+    "description": "HDR - Header Record",
+    "type": "object",
+    "required": [
+        "Record_Type",
+        "EF_Type",
+        "FEC_Version_#"
+    ],
+    "properties": {
+        "Record_Type": {
+            "title": "Record Type",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 3,
+            "pattern": "^[ A-z0-9]{0,3}$",
+            "examples": [
+                "HDR"
+            ],
+            "spec": {
+                "COL_SEQ": 1,
+                "FIELD_DESCRIPTION": "Record Type",
+                "TYPE": "A/N-3",
+                "REQUIRED": "X (error)",
+                "AUTO_POPULATE": "X (error)",
+                "SAMPLE_DATA": "HDR",
+                "VALUE_REFERENCE": "HDR"
+            }
+        },
+        "EF_Type": {
+            "title": "EF Type",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 3,
+            "pattern": "^[ A-z0-9]{0,3}$",
+            "examples": [
+                "FEC"
+            ],
+            "spec": {
+                "COL_SEQ": 2,
+                "FIELD_DESCRIPTION": "EF Type",
+                "TYPE": "A/N-3",
+                "REQUIRED": "X (error)",
+                "AUTO_POPULATE": "X (error)",
+                "SAMPLE_DATA": "FEC",
+                "VALUE_REFERENCE": "FEC"
+            }
+        },
+        "FEC_Version_#": {
+            "title": "FEC Version #",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 4,
+            "pattern": "^[ A-z0-9]{0,4}$",
+            "examples": [
+                "8.3"
+            ],
+            "spec": {
+                "COL_SEQ": 3,
+                "FIELD_DESCRIPTION": "FEC Version #",
+                "TYPE": "A/N-4",
+                "REQUIRED": "X (error)",
+                "AUTO_POPULATE": "X (error)",
+                "SAMPLE_DATA": "8.3",
+                "VALUE_REFERENCE": "8.3"
+            }
+        },
+        "Soft_Name": {
+            "title": "Soft Name",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 90,
+            "pattern": "^[ A-z0-9]{0,90}$",
+            "examples": [
+                "SUPERFILER"
+            ],
+            "spec": {
+                "COL_SEQ": 4,
+                "FIELD_DESCRIPTION": "Soft Name",
+                "TYPE": "A/N-90",
+                "SAMPLE_DATA": "SUPERFILER"
+            }
+        },
+        "Soft_Ver": {
+            "title": "Soft Ver",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 16,
+            "pattern": "^[ A-z0-9]{0,16}$",
+            "examples": [
+                "1.0"
+            ],
+            "spec": {
+                "COL_SEQ": 5,
+                "FIELD_DESCRIPTION": "Soft Ver",
+                "TYPE": "A/N-16",
+                "SAMPLE_DATA": "1.0"
+            }
+        },
+        "Rpt_ID": {
+            "title": "Rpt ID",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 16,
+            "pattern": "^[ A-z0-9]{0,16}$",
+            "examples": [
+                "FEC-123467"
+            ],
+            "spec": {
+                "COL_SEQ": 6,
+                "FIELD_DESCRIPTION": "Rpt ID",
+                "TYPE": "A/N-16",
+                "SAMPLE_DATA": "FEC-123467",
+                "RULE_REFERENCE": "FEC report ID of original report (Amendment only)"
+            }
+        },
+        "Rpt_Number": {
+            "title": "Rpt Number",
+            "description": "",
+            "examples": [
+                "1"
+            ],
+            "spec": {
+                "COL_SEQ": 7,
+                "FIELD_DESCRIPTION": "Rpt Number",
+                "TYPE": "N-3",
+                "SAMPLE_DATA": "1",
+                "VALUE_REFERENCE": "1,2,3,4\u2026",
+                "RULE_REFERENCE": "Sequential number of amendments"
+            }
+        },
+        "HDRcomment": {
+            "title": "HDRcomment",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 200,
+            "pattern": "^[ A-z0-9]{0,200}$",
+            "spec": {
+                "COL_SEQ": 8,
+                "FIELD_DESCRIPTION": "HDRcomment",
+                "TYPE": "A/N-200",
+                "RULE_REFERENCE": "Use as needed  {no tabs, line-feeds, etc. allowed}"
+            }
+        }
+    },
+    "additionalProperties": false
+}

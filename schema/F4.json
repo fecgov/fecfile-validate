@@ -1,0 +1,909 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://github.com/fecgov/fecfile-Validate/blob/main/schema/F4.json",
+    "version": "8.3.0.1",
+    "title": "FEC F4",
+    "description": "FORM 4 - REPORT OF RECEIPTS AND DISBURSEMENTS FOR A COMMITTEE OR ORGANIZATION\n                  SUPPORTING A NOMINATION CONVENTION",
+    "type": "object",
+    "required": [
+        "FORM_TYPE",
+        "FILER_COMMITTEE_ID_NUMBER",
+        "COMMITTEE_NAME",
+        "TREASURER_LAST_NAME",
+        "TREASURER_FIRST_NAME",
+        "DATE_SIGNED"
+    ],
+    "properties": {
+        "FORM_TYPE": {
+            "title": "FORM TYPE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 4,
+            "pattern": "^[ A-z0-9]{0,4}$",
+            "examples": [
+                "F4N"
+            ],
+            "spec": {
+                "COL_SEQ": 1,
+                "FIELD_DESCRIPTION": "FORM TYPE",
+                "TYPE": "A/N-4",
+                "REQUIRED": "X (error)",
+                "AUTO_POPULATE": "X (error)",
+                "SAMPLE_DATA": "F4N",
+                "VALUE_REFERENCE": "F4+[N|A|T]"
+            }
+        },
+        "FILER_COMMITTEE_ID_NUMBER": {
+            "title": "FILER COMMITTEE ID NUMBER",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 9,
+            "pattern": "^[ A-z0-9]{0,9}$",
+            "examples": [
+                "C00123456"
+            ],
+            "spec": {
+                "COL_SEQ": 2,
+                "FIELD_DESCRIPTION": "FILER COMMITTEE ID NUMBER",
+                "TYPE": "A/N-9",
+                "REQUIRED": "X (error)",
+                "AUTO_POPULATE": "X (error)",
+                "SAMPLE_DATA": "C00123456"
+            }
+        },
+        "COMMITTEE_NAME": {
+            "title": "COMMITTEE NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 200,
+            "pattern": "^[ A-z0-9]{0,200}$",
+            "examples": [
+                "Friends of Pat"
+            ],
+            "spec": {
+                "COL_SEQ": 3,
+                "FIELD_DESCRIPTION": "COMMITTEE NAME",
+                "TYPE": "A/N-200",
+                "REQUIRED": "X (error)",
+                "AUTO_POPULATE": "X (error)",
+                "SAMPLE_DATA": "Friends of Pat"
+            }
+        },
+        "STREET__1": {
+            "title": "STREET  1",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 34,
+            "pattern": "^[ A-z0-9]{0,34}$",
+            "examples": [
+                "123 Sycamore St"
+            ],
+            "spec": {
+                "COL_SEQ": 4,
+                "FIELD_DESCRIPTION": "STREET  1",
+                "TYPE": "A/N-34",
+                "REQUIRED": "X (warning)",
+                "AUTO_POPULATE": "X (warning)",
+                "SAMPLE_DATA": "123 Sycamore St"
+            }
+        },
+        "STREET__2": {
+            "title": "STREET  2",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 34,
+            "pattern": "^[ A-z0-9]{0,34}$",
+            "spec": {
+                "COL_SEQ": 5,
+                "FIELD_DESCRIPTION": "STREET  2",
+                "TYPE": "A/N-34"
+            }
+        },
+        "CITY": {
+            "title": "CITY",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 30,
+            "pattern": "^[ A-z0-9]{0,30}$",
+            "examples": [
+                "Anytown"
+            ],
+            "spec": {
+                "COL_SEQ": 6,
+                "FIELD_DESCRIPTION": "CITY",
+                "TYPE": "A/N-30",
+                "REQUIRED": "X (warning)",
+                "AUTO_POPULATE": "X (warning)",
+                "SAMPLE_DATA": "Anytown"
+            }
+        },
+        "STATE": {
+            "title": "STATE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 2,
+            "pattern": "^[ A-z0-9]{0,2}$",
+            "examples": [
+                "FL"
+            ],
+            "spec": {
+                "COL_SEQ": 7,
+                "FIELD_DESCRIPTION": "STATE",
+                "TYPE": "A/N-2",
+                "REQUIRED": "X (warning)",
+                "AUTO_POPULATE": "X (warning)",
+                "SAMPLE_DATA": "FL",
+                "RULE_REFERENCE": "Edit: ST"
+            }
+        },
+        "ZIP": {
+            "title": "ZIP",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 9,
+            "pattern": "^[ A-z0-9]{0,9}$",
+            "examples": [
+                33034
+            ],
+            "spec": {
+                "COL_SEQ": 8,
+                "FIELD_DESCRIPTION": "ZIP",
+                "TYPE": "A/N-9",
+                "REQUIRED": "X (warning)",
+                "AUTO_POPULATE": "X (warning)",
+                "SAMPLE_DATA": 33034
+            }
+        },
+        "COMMITTEE/ORG_TYPE": {
+            "title": "COMMITTEE/ORG TYPE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 1,
+            "pattern": "^[ A-z0-9]{0,1}$",
+            "examples": [
+                "A"
+            ],
+            "spec": {
+                "COL_SEQ": 9,
+                "FIELD_DESCRIPTION": "COMMITTEE/ORG TYPE",
+                "TYPE": "A-1",
+                "REQUIRED": "X (warning)",
+                "AUTO_POPULATE": "X (warning)",
+                "SAMPLE_DATA": "A",
+                "VALUE_REFERENCE": "A=arrange; H=host; O=other",
+                "RULE_REFERENCE": "Edit: CMTE"
+            }
+        },
+        "COMMITTEE/ORG_TYPE_-_OTHER_DESCRIPTION": {
+            "title": "COMMITTEE/ORG TYPE - OTHER DESCRIPTION",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 40,
+            "pattern": "^[ A-z0-9]{0,40}$",
+            "spec": {
+                "COL_SEQ": 10,
+                "FIELD_DESCRIPTION": "COMMITTEE/ORG TYPE - OTHER DESCRIPTION",
+                "TYPE": "A/N-40"
+            }
+        },
+        "REPORT_CODE": {
+            "title": "REPORT CODE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 3,
+            "pattern": "^[ A-z0-9]{0,3}$",
+            "examples": [
+                "Q1"
+            ],
+            "spec": {
+                "COL_SEQ": 11,
+                "FIELD_DESCRIPTION": "REPORT CODE",
+                "TYPE": "A-3",
+                "REQUIRED": "X (warning)",
+                "AUTO_POPULATE": "X (warning)",
+                "SAMPLE_DATA": "Q1",
+                "VALUE_REFERENCE": "60D, Q1, Q2, ..., TER",
+                "RULE_REFERENCE": "Warning if Code is missing;\nError if Coded incorrectly."
+            }
+        },
+        "COVERAGE_FROM_DATE": {
+            "title": "COVERAGE FROM DATE",
+            "description": "",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 99999999,
+            "examples": [
+                20120101
+            ],
+            "spec": {
+                "COL_SEQ": 12,
+                "FIELD_DESCRIPTION": "COVERAGE FROM DATE",
+                "TYPE": "NUM-8",
+                "REQUIRED": "X (warning)",
+                "AUTO_POPULATE": "X (warning)",
+                "SAMPLE_DATA": 20120101,
+                "VALUE_REFERENCE": "YYYYMMDD"
+            }
+        },
+        "COVERAGE_THROUGH_DATE": {
+            "title": "COVERAGE THROUGH DATE",
+            "description": "",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 99999999,
+            "examples": [
+                20120330
+            ],
+            "spec": {
+                "COL_SEQ": 13,
+                "FIELD_DESCRIPTION": "COVERAGE THROUGH DATE",
+                "TYPE": "NUM-8",
+                "REQUIRED": "X (warning)",
+                "AUTO_POPULATE": "X (warning)",
+                "SAMPLE_DATA": 20120330,
+                "VALUE_REFERENCE": "YYYYMMDD",
+                "RULE_REFERENCE": "Edit: St"
+            }
+        },
+        "TREASURER_LAST_NAME": {
+            "title": "TREASURER LAST NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 30,
+            "pattern": "^[ A-z0-9]{0,30}$",
+            "examples": [
+                "Smith"
+            ],
+            "spec": {
+                "COL_SEQ": 14,
+                "FIELD_DESCRIPTION": "TREASURER LAST NAME",
+                "TYPE": "A/N-30",
+                "REQUIRED": "X (error)",
+                "AUTO_POPULATE": "X (error)",
+                "SAMPLE_DATA": "Smith"
+            }
+        },
+        "TREASURER_FIRST_NAME": {
+            "title": "TREASURER FIRST NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 20,
+            "pattern": "^[ A-z0-9]{0,20}$",
+            "examples": [
+                "Patrick"
+            ],
+            "spec": {
+                "COL_SEQ": 15,
+                "FIELD_DESCRIPTION": "TREASURER FIRST NAME",
+                "TYPE": "A/N-20",
+                "REQUIRED": "X (error)",
+                "AUTO_POPULATE": "X (error)",
+                "SAMPLE_DATA": "Patrick"
+            }
+        },
+        "TREASURER_MIDDLE_NAME": {
+            "title": "TREASURER MIDDLE NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 20,
+            "pattern": "^[ A-z0-9]{0,20}$",
+            "examples": [
+                "Thomas"
+            ],
+            "spec": {
+                "COL_SEQ": 16,
+                "FIELD_DESCRIPTION": "TREASURER MIDDLE NAME",
+                "TYPE": "A/N-20",
+                "SAMPLE_DATA": "Thomas"
+            }
+        },
+        "TREASURER_PREFIX": {
+            "title": "TREASURER PREFIX",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 10,
+            "pattern": "^[ A-z0-9]{0,10}$",
+            "examples": [
+                "Mr."
+            ],
+            "spec": {
+                "COL_SEQ": 17,
+                "FIELD_DESCRIPTION": "TREASURER PREFIX",
+                "TYPE": "A/N-10",
+                "SAMPLE_DATA": "Mr."
+            }
+        },
+        "TREASURER_SUFFIX": {
+            "title": "TREASURER SUFFIX",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 10,
+            "pattern": "^[ A-z0-9]{0,10}$",
+            "examples": [
+                "Jr."
+            ],
+            "spec": {
+                "COL_SEQ": 18,
+                "FIELD_DESCRIPTION": "TREASURER SUFFIX",
+                "TYPE": "A/N-10",
+                "SAMPLE_DATA": "Jr."
+            }
+        },
+        "DATE_SIGNED": {
+            "title": "DATE SIGNED",
+            "description": "",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 99999999,
+            "examples": [
+                20120729
+            ],
+            "spec": {
+                "COL_SEQ": 19,
+                "FIELD_DESCRIPTION": "DATE SIGNED",
+                "TYPE": "NUM-8",
+                "REQUIRED": "X (error)",
+                "AUTO_POPULATE": "X (error)",
+                "SAMPLE_DATA": 20120729,
+                "VALUE_REFERENCE": "YYYYMMDD"
+            }
+        },
+        "6b_cash_on_hand_beg_report_per": {
+            "title": "6.(b) cash on hand beg. report per.",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 20,
+                "FIELD_DESCRIPTION": "6.(b) cash on hand beg. report per.",
+                "TYPE": "AMT-12"
+            }
+        },
+        "6c_Total_receipts": {
+            "title": "6.(c) Total receipts",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 62,
+                "FIELD_DESCRIPTION": "6.(c) Total receipts",
+                "TYPE": "AMT-12"
+            }
+        },
+        "6d_Subtotal": {
+            "title": "6.(d) Subtotal",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 63,
+                "FIELD_DESCRIPTION": "6.(d) Subtotal",
+                "TYPE": "AMT-12"
+            }
+        },
+        "7_Total_disbursements": {
+            "title": "7. Total disbursements",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 64,
+                "FIELD_DESCRIPTION": "7. Total disbursements",
+                "TYPE": "AMT-12"
+            }
+        },
+        "8_COH_CLOSE_COL_A": {
+            "title": "8. COH CLOSE (COL A)",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 24,
+                "FIELD_DESCRIPTION": "8. COH CLOSE (COL A)",
+                "TYPE": "AMT-12"
+            }
+        },
+        "9_Debts_to": {
+            "title": "9. Debts to",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 25,
+                "FIELD_DESCRIPTION": "9. Debts to",
+                "TYPE": "AMT-12"
+            }
+        },
+        "10_Debts_by": {
+            "title": "10. Debts by",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 26,
+                "FIELD_DESCRIPTION": "10. Debts by",
+                "TYPE": "AMT-12"
+            }
+        },
+        "11_Convention_expenditures": {
+            "title": "11. Convention expenditures",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 66,
+                "FIELD_DESCRIPTION": "11. Convention expenditures",
+                "TYPE": "AMT-12"
+            }
+        },
+        "12_refunds/rebates/returns_relating_to_conv_exp": {
+            "title": "12. refunds/rebates/returns relating to conv exp.",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 67,
+                "FIELD_DESCRIPTION": "12. refunds/rebates/returns relating to conv exp.",
+                "TYPE": "AMT-12"
+            }
+        },
+        "12a_Expenditures_subject_to_limits": {
+            "title": "12(a) Expenditures subject to limits",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 68,
+                "FIELD_DESCRIPTION": "12(a) Expenditures subject to limits",
+                "TYPE": "AMT-12"
+            }
+        },
+        "12b_expend_from_prior_years_subject_to_limits": {
+            "title": "12(b) expend. from prior years subject to limits",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 69,
+                "FIELD_DESCRIPTION": "12(b) expend. from prior years subject to limits",
+                "TYPE": "AMT-12"
+            }
+        },
+        "13_Federal_Funds_SCH_A": {
+            "title": "13. Federal Funds SCH A",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 31,
+                "FIELD_DESCRIPTION": "13. Federal Funds SCH A",
+                "TYPE": "AMT-12"
+            }
+        },
+        "14a_Itemized": {
+            "title": "14(a) Itemized",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 32,
+                "FIELD_DESCRIPTION": "14(a) Itemized",
+                "TYPE": "AMT-12"
+            }
+        },
+        "14b_unitemized": {
+            "title": "14(b) unitemized",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 33,
+                "FIELD_DESCRIPTION": "14(b) unitemized",
+                "TYPE": "AMT-12"
+            }
+        },
+        "14c_subtotal": {
+            "title": "14(c) subtotal",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 72,
+                "FIELD_DESCRIPTION": "14(c) subtotal",
+                "TYPE": "AMT-12"
+            }
+        },
+        "15_Transfers_from_affiliated_cmtes": {
+            "title": "15. Transfers from affiliated cmtes.",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 73,
+                "FIELD_DESCRIPTION": "15. Transfers from affiliated cmtes.",
+                "TYPE": "AMT-12"
+            }
+        },
+        "16a_loans_received": {
+            "title": "16(a) loans received",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 36,
+                "FIELD_DESCRIPTION": "16(a) loans received",
+                "TYPE": "AMT-12"
+            }
+        },
+        "16b_loan_repayments_received": {
+            "title": "16(b) loan repayments received",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 37,
+                "FIELD_DESCRIPTION": "16(b) loan repayments received",
+                "TYPE": "AMT-12"
+            }
+        },
+        "16c_subtotal_loans/repayments": {
+            "title": "16(c) subtotal loans/repayments",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 74,
+                "FIELD_DESCRIPTION": "16(c) subtotal loans/repayments",
+                "TYPE": "AMT-12"
+            }
+        },
+        "17a_Itemized": {
+            "title": "17(a) Itemized",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 39,
+                "FIELD_DESCRIPTION": "17(a) Itemized",
+                "TYPE": "AMT-12"
+            }
+        },
+        "17b_unitemized": {
+            "title": "17(b) unitemized",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 40,
+                "FIELD_DESCRIPTION": "17(b) unitemized",
+                "TYPE": "AMT-12"
+            }
+        },
+        "17c_subtotal": {
+            "title": "17(c) subtotal",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 75,
+                "FIELD_DESCRIPTION": "17(c) subtotal",
+                "TYPE": "AMT-12"
+            }
+        },
+        "18a_Itemized": {
+            "title": "18(a) Itemized",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 42,
+                "FIELD_DESCRIPTION": "18(a) Itemized",
+                "TYPE": "AMT-12"
+            }
+        },
+        "18b_unitemized": {
+            "title": "18(b) unitemized",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 43,
+                "FIELD_DESCRIPTION": "18(b) unitemized",
+                "TYPE": "AMT-12"
+            }
+        },
+        "18c_subtotal": {
+            "title": "18(c) subtotal",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 76,
+                "FIELD_DESCRIPTION": "18(c) subtotal",
+                "TYPE": "AMT-12"
+            }
+        },
+        "19a_Itemized": {
+            "title": "19(a) Itemized",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 45,
+                "FIELD_DESCRIPTION": "19(a) Itemized",
+                "TYPE": "AMT-12"
+            }
+        },
+        "19b_unitemized": {
+            "title": "19(b) unitemized",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 46,
+                "FIELD_DESCRIPTION": "19(b) unitemized",
+                "TYPE": "AMT-12"
+            }
+        },
+        "19c_subtotal": {
+            "title": "19(c) subtotal",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 77,
+                "FIELD_DESCRIPTION": "19(c) subtotal",
+                "TYPE": "AMT-12"
+            }
+        },
+        "20_total_receipts": {
+            "title": "20. total receipts",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 78,
+                "FIELD_DESCRIPTION": "20. total receipts",
+                "TYPE": "AMT-12"
+            }
+        },
+        "21a_Itemized": {
+            "title": "21(a) Itemized",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 49,
+                "FIELD_DESCRIPTION": "21(a) Itemized",
+                "TYPE": "AMT-12"
+            }
+        },
+        "21b_unitemized": {
+            "title": "21(b) unitemized",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 50,
+                "FIELD_DESCRIPTION": "21(b) unitemized",
+                "TYPE": "AMT-12"
+            }
+        },
+        "21c_subtotal": {
+            "title": "21(c) subtotal",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 79,
+                "FIELD_DESCRIPTION": "21(c) subtotal",
+                "TYPE": "AMT-12"
+            }
+        },
+        "22_Transfers_to_Affiliated_Cmtes": {
+            "title": "22. Transfers to Affiliated Cmtes",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 80,
+                "FIELD_DESCRIPTION": "22. Transfers to Affiliated Cmtes",
+                "TYPE": "AMT-12"
+            }
+        },
+        "23a_loans_made": {
+            "title": "23(a) loans made",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 53,
+                "FIELD_DESCRIPTION": "23(a) loans made",
+                "TYPE": "AMT-12"
+            }
+        },
+        "23b_loan_repayments_made": {
+            "title": "23(b) loan repayments made",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 54,
+                "FIELD_DESCRIPTION": "23(b) loan repayments made",
+                "TYPE": "AMT-12"
+            }
+        },
+        "23c_subtotal": {
+            "title": "23(c) subtotal",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 81,
+                "FIELD_DESCRIPTION": "23(c) subtotal",
+                "TYPE": "AMT-12"
+            }
+        },
+        "24a_Itemized": {
+            "title": "24(a) Itemized",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 56,
+                "FIELD_DESCRIPTION": "24(a) Itemized",
+                "TYPE": "AMT-12"
+            }
+        },
+        "24b_unitemized": {
+            "title": "24(b) unitemized",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 57,
+                "FIELD_DESCRIPTION": "24(b) unitemized",
+                "TYPE": "AMT-12"
+            }
+        },
+        "24c_subtotal": {
+            "title": "24(c) subtotal",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 82,
+                "FIELD_DESCRIPTION": "24(c) subtotal",
+                "TYPE": "AMT-12"
+            }
+        },
+        "25_Total_disbursements": {
+            "title": "25. Total disbursements",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 83,
+                "FIELD_DESCRIPTION": "25. Total disbursements",
+                "TYPE": "AMT-12"
+            }
+        },
+        "6a_Cash_on_Hand": {
+            "title": "6.(a) Cash on Hand",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 60,
+                "FIELD_DESCRIPTION": "6.(a) Cash on Hand",
+                "TYPE": "AMT-12"
+            }
+        },
+        "6a_19_--_YEAR": {
+            "title": "6.(a) 19 -- (YEAR)",
+            "description": "",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9999,
+            "spec": {
+                "COL_SEQ": 61,
+                "FIELD_DESCRIPTION": "6.(a) 19 -- (YEAR)",
+                "TYPE": "NUM-4"
+            }
+        },
+        "8_COH_CLOSE_COL_B": {
+            "title": "8. COH CLOSE (COL B)",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 65,
+                "FIELD_DESCRIPTION": "8. COH CLOSE (COL B)",
+                "TYPE": "AMT-12"
+            }
+        },
+        "12c_total_expenditures_subject_to_limits": {
+            "title": "12(c) total expenditures subject to limits",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 70,
+                "FIELD_DESCRIPTION": "12(c) total expenditures subject to limits",
+                "TYPE": "AMT-12"
+            }
+        },
+        "13_Federal_Funds": {
+            "title": "13. Federal Funds",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 71,
+                "FIELD_DESCRIPTION": "13. Federal Funds",
+                "TYPE": "AMT-12"
+            }
+        }
+    },
+    "additionalProperties": false
+}
