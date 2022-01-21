@@ -36,5 +36,5 @@ $ python run.py
 ## Test
 
 ```bash
-$ make test
+$ pytest
 ```
