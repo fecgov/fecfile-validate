@@ -123,7 +123,6 @@ for ws in wb.worksheets:
 
     print(f'Parsing {output_file}...')
 
-
     sheet_has_autopopulate = ws.cell(3, 5).value is not None and ws.cell(3, 5).value.strip() == 'Auto populate'
     schema_properties = {}
     required_rows = []
@@ -136,13 +135,13 @@ for ws in wb.worksheets:
             continue
         token, prop, is_required = convert_row_to_property(row, sheet_has_autopopulate)
         if token == "TRANSACTION_TYPE_IDENTIFIER":
-            trans_type_id = prop.get('spec',{}).get(Columns.SAMPLE_DATA.name, "") or ""
+            trans_type_id = prop.get('spec', {}).get(Columns.SAMPLE_DATA.name, "") or ""
             trans_type_hits[trans_type_id] = (trans_type_hits.get(trans_type_id) or 0) + 1
             if (trans_type_hits[trans_type_id] > 1 or trans_type_id == ''):
                 output_file = trans_type_id + '-' + str(trans_type_hits[trans_type_id]) + '.json'
             else:
                 output_file = trans_type_id + '.json'
-        
+
         if is_required:
             required_rows.append(token)
         schema_properties[token] = prop
