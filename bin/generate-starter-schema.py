@@ -26,9 +26,9 @@ parser.add_argument('--sheets-to-generate', help="a json file containing an arra
 parser.add_argument('--version')
 args = parser.parse_args()
 EXCEL_FILENAME = args.excel_filename or "Form_3X_ Receipts_Vendor_10.20.2020.xlsx"
-SCHEMA_ID_PREFIX = "https://github.com/fecgov/fecfile-Validate/blob/main/schema"
+SCHEMA_ID_PREFIX = "https://github.com/fecgov/fecfile-validate/blob/main/schema"
 VERSION = args.version or "v0.0.0.0"
-SHEETS_TO_SKIP = ['All receipts', 'Version 8.3', 'SUMMARY OF CHANGES']
+SHEETS_TO_SKIP = ['All receipts', 'Version 8.3', 'SUMMARY OF CHANGES', "All Schedule A Transactions", "ScheduleC", "Schedule C1", "Scedule C2"]
 
 # Column postions of fields in the spreadsheet row array
 
@@ -62,7 +62,7 @@ def convert_row_to_property(row, sheet_has_autopopulate):# noqa
     prop = {}
     spec = {}
     for col in Columns:
-        if col.get(row, sheet_has_autopopulate):
+        if col != Columns.AUTO_POPULATE or sheet_has_autopopulate:
             spec[col.name] = col.get(row, sheet_has_autopopulate)
 
     title = spec.get(Columns.FIELD_DESCRIPTION.name)
@@ -98,11 +98,10 @@ def convert_row_to_property(row, sheet_has_autopopulate):# noqa
     if sample_data:
         prop["examples"] = [sample_data]
 
-    if required and "error" in required:
-            schema["required"].append(token)
+    is_required = required and "error" in required
 
     prop["spec"] = spec
-    return (token, prop)
+    return (token, prop, is_required)
 
 
 wb = openpyxl.load_workbook(EXCEL_FILENAME)
@@ -124,20 +123,10 @@ for ws in wb.worksheets:
 
     print(f'Parsing {output_file}...')
 
-    schema = {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "$id": f'{SCHEMA_ID_PREFIX}/{output_file}',
-        "version": VERSION,
-        "title": f'FEC {ws.title}',
-        "description": ws.cell(1, 1).value,
-        "type": "object",
-        "required": [],
-        "properties": {},
-        "additionalProperties": False
-    }
 
     sheet_has_autopopulate = ws.cell(3, 5).value is not None and ws.cell(3, 5).value.strip() == 'Auto populate'
-
+    schema_properties = {}
+    required_rows = []
     for row in ws.iter_rows(min_row=5, max_col=8, values_only=True):
         if (not Columns.COL_SEQ.get(row, sheet_has_autopopulate)
                 or Columns.COL_SEQ.get(row, sheet_has_autopopulate) == "--"
@@ -145,18 +134,30 @@ for ws in wb.worksheets:
                 or not Columns.TYPE.get(row, sheet_has_autopopulate)
                 or len(row) > 10):
             continue
-        print(row)
-        token, prop = convert_row_to_property(row, sheet_has_autopopulate)
+        token, prop, is_required = convert_row_to_property(row, sheet_has_autopopulate)
         if token == "TRANSACTION_TYPE_IDENTIFIER":
-            print(prop)
-            trans_type_id = prop.get('spec',{}).get(Columns.SAMPLE_DATA.name, "")
+            trans_type_id = prop.get('spec',{}).get(Columns.SAMPLE_DATA.name, "") or ""
             trans_type_hits[trans_type_id] = (trans_type_hits.get(trans_type_id) or 0) + 1
             if (trans_type_hits[trans_type_id] > 1 or trans_type_id == ''):
                 output_file = trans_type_id + '-' + str(trans_type_hits[trans_type_id]) + '.json'
             else:
                 output_file = trans_type_id + '.json'
-        schema["properties"][token] = prop
+        
+        if is_required:
+            required_rows.append(token)
+        schema_properties[token] = prop
 
+    schema = {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "$id": f'{SCHEMA_ID_PREFIX}/{output_file}',
+        "version": VERSION,
+        "title": f'FEC {ws.title}',
+        "description": ws.cell(1, 1).value,
+        "type": "object",
+        "required": required_rows,
+        "properties": schema_properties,
+        "additionalProperties": False
+    }
     f = open(output_file, "w")
     f.write(json.dumps(schema, indent=4))
     f.close()
