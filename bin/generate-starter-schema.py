@@ -25,7 +25,7 @@ parser.add_argument('excel_filename', help='an excel filename that will be parse
 parser.add_argument('--sheets-to-generate', help="a json file containing an array of sheet names to be parsed from the excel file")
 parser.add_argument('--version')
 args = parser.parse_args()
-EXCEL_FILENAME = args.excel_filename or "Form_3X_ Receipts_Vendor_10.20.2020.xlsx"
+EXCEL_FILENAME = args.excel_filename or "Form_3X_Receipts_Vendor_10.20.2020.xlsx"
 SCHEMA_ID_PREFIX = "https://github.com/fecgov/fecfile-validate/blob/main/schema"
 VERSION = args.version or "v0.0.0.0"
 SHEETS_TO_SKIP = ['All receipts', 'Version 8.3', 'SUMMARY OF CHANGES', "All Schedule A Transactions", "ScheduleC", "Schedule C1", "Scedule C2"]
