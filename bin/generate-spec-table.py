@@ -1,5 +1,7 @@
-"""Script to read in a JSON schema file and output an HTML file that
+"""Script to read in a JSON schema file and output HTML to STDOUT that
 displays the current spec in table format.
+
+USAGE: python generate-spec-table.py MY_SCHEMA.json > MY_SPEC_TABLE.html
 """
 
 import argparse
@@ -28,7 +30,7 @@ print('<html><head><link rel="stylesheet" href="spec_table.css"></head><body><ta
 for c in COLUMNS:
     print(f'<th>{c}</th>')
 print('</tr>')
- 
+
 for p in data['properties']:
     print('<tr>')
     for s in data['properties'][p]['spec']:
