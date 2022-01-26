@@ -1,0 +1,570 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/F3L.json",
+    "version": "8.3.0.1",
+    "title": "FEC F3L",
+    "description": "FORM 3L - REPORT OF CONTRIBUTIONS BUNDLED BY LOBBYISTS/REGISTRANTS \n                     AND LOBBYIST/REGISTRANT PACs",
+    "type": "object",
+    "required": [
+        "FORM_TYPE",
+        "FILER_COMMITTEE_ID_NUMBER",
+        "SEMI-ANNUAL_PERIOD_-_Sect_5c_or_d",
+        "TREASURER_LAST_NAME",
+        "TREASURER_FIRST_NAME",
+        "DATE_SIGNED"
+    ],
+    "properties": {
+        "FORM_TYPE": {
+            "title": "FORM TYPE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 4,
+            "pattern": "^[ A-z0-9]{0,4}$",
+            "examples": [
+                "F3LN"
+            ],
+            "spec": {
+                "COL_SEQ": 1,
+                "FIELD_DESCRIPTION": "FORM TYPE",
+                "TYPE": "A/N-4",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "F3LN",
+                "VALUE_REFERENCE": "F3L+[N|A]",
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "FILER_COMMITTEE_ID_NUMBER": {
+            "title": "FILER COMMITTEE ID NUMBER",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 9,
+            "pattern": "^[ A-z0-9]{0,9}$",
+            "examples": [
+                "C00123456"
+            ],
+            "spec": {
+                "COL_SEQ": 2,
+                "FIELD_DESCRIPTION": "FILER COMMITTEE ID NUMBER",
+                "TYPE": "A/N-9",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "C00123456",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "COMMITTEE_NAME": {
+            "title": "COMMITTEE NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 200,
+            "pattern": "^[ A-z0-9]{0,200}$",
+            "examples": [
+                "Friends of Pat"
+            ],
+            "spec": {
+                "COL_SEQ": 3,
+                "FIELD_DESCRIPTION": "COMMITTEE NAME",
+                "TYPE": "A/N-200",
+                "REQUIRED": "X (warning)",
+                "SAMPLE_DATA": "Friends of Pat",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "CHANGE_OF_ADDRESS": {
+            "title": "CHANGE OF ADDRESS",
+            "description": "",
+            "type": "boolean",
+            "examples": [
+                "X"
+            ],
+            "spec": {
+                "COL_SEQ": 4,
+                "FIELD_DESCRIPTION": "CHANGE OF ADDRESS",
+                "TYPE": "A-1",
+                "REQUIRED": null,
+                "SAMPLE_DATA": "X",
+                "VALUE_REFERENCE": "X = Yes",
+                "RULE_REFERENCE": "Check-box",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "STREET__1": {
+            "title": "STREET  1",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 34,
+            "pattern": "^[ A-z0-9]{0,34}$",
+            "examples": [
+                "123 Sycamore St"
+            ],
+            "spec": {
+                "COL_SEQ": 5,
+                "FIELD_DESCRIPTION": "STREET  1",
+                "TYPE": "A/N-34",
+                "REQUIRED": "X (warning)",
+                "SAMPLE_DATA": "123 Sycamore St",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "STREET__2": {
+            "title": "STREET  2",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 34,
+            "pattern": "^[ A-z0-9]{0,34}$",
+            "spec": {
+                "COL_SEQ": 6,
+                "FIELD_DESCRIPTION": "STREET  2",
+                "TYPE": "A/N-34",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "CITY": {
+            "title": "CITY",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 30,
+            "pattern": "^[ A-z0-9]{0,30}$",
+            "examples": [
+                "Anytown"
+            ],
+            "spec": {
+                "COL_SEQ": 7,
+                "FIELD_DESCRIPTION": "CITY",
+                "TYPE": "A/N-30",
+                "REQUIRED": "X (warning)",
+                "SAMPLE_DATA": "Anytown",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "STATE": {
+            "title": "STATE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 2,
+            "pattern": "^[ A-z0-9]{0,2}$",
+            "examples": [
+                "FL"
+            ],
+            "spec": {
+                "COL_SEQ": 8,
+                "FIELD_DESCRIPTION": "STATE",
+                "TYPE": "A-2",
+                "REQUIRED": "X (warning)",
+                "SAMPLE_DATA": "FL",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "Edit: ST",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "ZIP": {
+            "title": "ZIP",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 9,
+            "pattern": "^[ A-z0-9]{0,9}$",
+            "examples": [
+                33034
+            ],
+            "spec": {
+                "COL_SEQ": 9,
+                "FIELD_DESCRIPTION": "ZIP",
+                "TYPE": "A/N-9",
+                "REQUIRED": "X (warning)",
+                "SAMPLE_DATA": 33034,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "ELECTION_STATE": {
+            "title": "ELECTION STATE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 2,
+            "pattern": "^[ A-z0-9]{0,2}$",
+            "examples": [
+                "FL"
+            ],
+            "spec": {
+                "COL_SEQ": 10,
+                "FIELD_DESCRIPTION": "ELECTION STATE",
+                "TYPE": "A-2",
+                "REQUIRED": null,
+                "SAMPLE_DATA": "FL",
+                "VALUE_REFERENCE": "AK,AL, ..., ZZ",
+                "RULE_REFERENCE": "Edit: ST  {Candidates only}",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "ELECTION_DISTRICT": {
+            "title": "ELECTION DISTRICT",
+            "description": "",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 99,
+            "examples": [
+                45
+            ],
+            "spec": {
+                "COL_SEQ": 11,
+                "FIELD_DESCRIPTION": "ELECTION DISTRICT",
+                "TYPE": "NUM-2",
+                "REQUIRED": null,
+                "SAMPLE_DATA": 45,
+                "VALUE_REFERENCE": "01, ..., 99",
+                "RULE_REFERENCE": "{Candidates only}",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "REPORT_CODE": {
+            "title": "REPORT CODE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 3,
+            "pattern": "^[ A-z0-9]{0,3}$",
+            "examples": [
+                "12P"
+            ],
+            "spec": {
+                "COL_SEQ": 12,
+                "FIELD_DESCRIPTION": "REPORT CODE",
+                "TYPE": "A-3",
+                "REQUIRED": "X (warning)",
+                "SAMPLE_DATA": "12P",
+                "VALUE_REFERENCE": "12C,..., M2",
+                "RULE_REFERENCE": "Warning if Code is missing;\nError if Coded incorrectly. Refer to list of valid report codes in Version 6.4 Part I document - Appendix A.",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "DATE_OF_ELECTION": {
+            "title": "DATE OF ELECTION",
+            "description": "",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 99999999,
+            "examples": [
+                20120715
+            ],
+            "spec": {
+                "COL_SEQ": 13,
+                "FIELD_DESCRIPTION": "DATE OF ELECTION",
+                "TYPE": "NUM-8",
+                "REQUIRED": "X (warn if REPORT CODE=[12?|30?])",
+                "SAMPLE_DATA": 20120715,
+                "VALUE_REFERENCE": "YYYYMMDD",
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "STATE_OF_ELECTION": {
+            "title": "STATE OF ELECTION",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 2,
+            "pattern": "^[ A-z0-9]{0,2}$",
+            "examples": [
+                "FL"
+            ],
+            "spec": {
+                "COL_SEQ": 14,
+                "FIELD_DESCRIPTION": "STATE OF ELECTION",
+                "TYPE": "A-2",
+                "REQUIRED": "X (warn if REPORT CODE=[12?|30?])",
+                "SAMPLE_DATA": "FL",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "Edit: St",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "SEMI-ANNUAL_PERIOD_-_Sect_5c_or_d": {
+            "title": "SEMI-ANNUAL PERIOD - Sect 5(c) or (d)",
+            "description": "",
+            "type": "boolean",
+            "examples": [
+                "X"
+            ],
+            "spec": {
+                "COL_SEQ": 15,
+                "FIELD_DESCRIPTION": "SEMI-ANNUAL PERIOD - Sect 5(c) or (d)",
+                "TYPE": "A-1",
+                "REQUIRED": "X (error if coded and  REPORT CODE is [12?|30?])",
+                "SAMPLE_DATA": "X",
+                "VALUE_REFERENCE": "X=YES",
+                "RULE_REFERENCE": "Check-box",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "COVERAGE_FROM_DATE": {
+            "title": "COVERAGE FROM DATE",
+            "description": "",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 99999999,
+            "examples": [
+                20120501
+            ],
+            "spec": {
+                "COL_SEQ": 16,
+                "FIELD_DESCRIPTION": "COVERAGE FROM DATE",
+                "TYPE": "NUM-8",
+                "REQUIRED": "X (warning)",
+                "SAMPLE_DATA": 20120501,
+                "VALUE_REFERENCE": "YYYYMMDD",
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "COVERAGE_THROUGH_DATE": {
+            "title": "COVERAGE THROUGH DATE",
+            "description": "",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 99999999,
+            "examples": [
+                20120531
+            ],
+            "spec": {
+                "COL_SEQ": 17,
+                "FIELD_DESCRIPTION": "COVERAGE THROUGH DATE",
+                "TYPE": "NUM-8",
+                "REQUIRED": "X (warning)",
+                "SAMPLE_DATA": 20120531,
+                "VALUE_REFERENCE": "YYYYMMDD",
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "SEMI-ANNUAL_JAN-JUN_-_Sect_6b": {
+            "title": "SEMI-ANNUAL JAN-JUN - Sect 6(b)",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 1,
+            "pattern": "^[ A-z0-9]{0,1}$",
+            "examples": [
+                "X"
+            ],
+            "spec": {
+                "COL_SEQ": 18,
+                "FIELD_DESCRIPTION": "SEMI-ANNUAL JAN-JUN - Sect 6(b)",
+                "TYPE": "A-1",
+                "REQUIRED": "X (warn if coded and SEMI-ANNUAL PERIOD  Sect 5(c) or (d) has no value",
+                "SAMPLE_DATA": "X",
+                "VALUE_REFERENCE": "X=YES",
+                "RULE_REFERENCE": "Check-box - Mutually exclusive with Field# 19 and required if \"SEMI-ANNUAL PERIOD - Sect 5(c) or (d)\" had value.",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "SEMI-ANNUAL_JUL-DEC_-_Sect_6b": {
+            "title": "SEMI-ANNUAL JUL-DEC - Sect 6(b)",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 1,
+            "pattern": "^[ A-z0-9]{0,1}$",
+            "examples": [
+                "X"
+            ],
+            "spec": {
+                "COL_SEQ": 19,
+                "FIELD_DESCRIPTION": "SEMI-ANNUAL JUL-DEC - Sect 6(b)",
+                "TYPE": "A-1",
+                "REQUIRED": "X (warn if coded and SEMI-ANNUAL PERIOD  Sect 5(c) or (d) has no value OR\nX (warn if coded and SEMI-ANNUAL JAN-JUN (preceding) field is also marked 'X'",
+                "SAMPLE_DATA": "X",
+                "VALUE_REFERENCE": "X=YES",
+                "RULE_REFERENCE": "Check-box - Mutually exclusive with Field# 18 and required if \"SEMI-ANNUAL PERIOD - Sect 5(c) or (d)\" had value.",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "QTR/MON/POST_BUNDLED_CONTRIBUTIONS": {
+            "title": "QTR/MON/POST BUNDLED CONTRIBUTIONS",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "examples": [
+                1234.56
+            ],
+            "spec": {
+                "COL_SEQ": 20,
+                "FIELD_DESCRIPTION": "QTR/MON/POST BUNDLED CONTRIBUTIONS",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": 1234.56,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "SEMI-ANNUAL_BUNDLED_CONTRIBS": {
+            "title": "SEMI-ANNUAL BUNDLED CONTRIBS",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "examples": [
+                1234.56
+            ],
+            "spec": {
+                "COL_SEQ": 21,
+                "FIELD_DESCRIPTION": "SEMI-ANNUAL BUNDLED CONTRIBS",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": 1234.56,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "TREASURER_LAST_NAME": {
+            "title": "TREASURER LAST NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 30,
+            "pattern": "^[ A-z0-9]{0,30}$",
+            "examples": [
+                "Smith"
+            ],
+            "spec": {
+                "COL_SEQ": 22,
+                "FIELD_DESCRIPTION": "TREASURER LAST NAME",
+                "TYPE": "A/N-30",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "Smith",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "TREASURER_FIRST_NAME": {
+            "title": "TREASURER FIRST NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 20,
+            "pattern": "^[ A-z0-9]{0,20}$",
+            "examples": [
+                "Patrick"
+            ],
+            "spec": {
+                "COL_SEQ": 23,
+                "FIELD_DESCRIPTION": "TREASURER FIRST NAME",
+                "TYPE": "A/N-20",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "Patrick",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "TREASURER_MIDDLE_NAME": {
+            "title": "TREASURER MIDDLE NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 20,
+            "pattern": "^[ A-z0-9]{0,20}$",
+            "examples": [
+                "Thomas"
+            ],
+            "spec": {
+                "COL_SEQ": 24,
+                "FIELD_DESCRIPTION": "TREASURER MIDDLE NAME",
+                "TYPE": "A/N-20",
+                "REQUIRED": null,
+                "SAMPLE_DATA": "Thomas",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "TREASURER_PREFIX": {
+            "title": "TREASURER PREFIX",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 10,
+            "pattern": "^[ A-z0-9]{0,10}$",
+            "examples": [
+                "Mr."
+            ],
+            "spec": {
+                "COL_SEQ": 25,
+                "FIELD_DESCRIPTION": "TREASURER PREFIX",
+                "TYPE": "A/N-10",
+                "REQUIRED": null,
+                "SAMPLE_DATA": "Mr.",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "TREASURER_SUFFIX": {
+            "title": "TREASURER SUFFIX",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 10,
+            "pattern": "^[ A-z0-9]{0,10}$",
+            "examples": [
+                "Jr."
+            ],
+            "spec": {
+                "COL_SEQ": 26,
+                "FIELD_DESCRIPTION": "TREASURER SUFFIX",
+                "TYPE": "A/N-10",
+                "REQUIRED": null,
+                "SAMPLE_DATA": "Jr.",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "DATE_SIGNED": {
+            "title": "DATE SIGNED",
+            "description": "",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 99999999,
+            "examples": [
+                20120729
+            ],
+            "spec": {
+                "COL_SEQ": 27,
+                "FIELD_DESCRIPTION": "DATE SIGNED",
+                "TYPE": "NUM-8",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": 20120729,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        }
+    },
+    "additionalProperties": false
+}

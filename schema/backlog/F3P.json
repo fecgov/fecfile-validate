@@ -1,0 +1,2219 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/F3P.json",
+    "version": "8.3.0.1",
+    "title": "FEC F3P",
+    "description": "FORM 3P - REPORT OF RECEIPTS AND DISBURSEMENTS BY AN AUTHORIZED COMMITTEE OF A \n                    CANDIDATE FOR THE OFFICE OF PRESIDENT OR VICE-PRESIDENT   ",
+    "type": "object",
+    "required": [
+        "FORM_TYPE",
+        "FILER_COMMITTEE_ID_NUMBER",
+        "TREASURER_LAST_NAME",
+        "TREASURER_FIRST_NAME",
+        "DATE_SIGNED"
+    ],
+    "properties": {
+        "FORM_TYPE": {
+            "title": "FORM TYPE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 4,
+            "pattern": "^[ A-z0-9]{0,4}$",
+            "examples": [
+                "F3PN"
+            ],
+            "spec": {
+                "COL_SEQ": 1,
+                "FIELD_DESCRIPTION": "FORM TYPE",
+                "TYPE": "A/N-4",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "F3PN",
+                "VALUE_REFERENCE": "F3P+[N|A|T]",
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "FILER_COMMITTEE_ID_NUMBER": {
+            "title": "FILER COMMITTEE ID NUMBER",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 9,
+            "pattern": "^[ A-z0-9]{0,9}$",
+            "examples": [
+                "C00123456"
+            ],
+            "spec": {
+                "COL_SEQ": 2,
+                "FIELD_DESCRIPTION": "FILER COMMITTEE ID NUMBER",
+                "TYPE": "A/N-9",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "C00123456",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "COMMITTEE_NAME": {
+            "title": "COMMITTEE NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 200,
+            "pattern": "^[ A-z0-9]{0,200}$",
+            "examples": [
+                "Pat for Pres."
+            ],
+            "spec": {
+                "COL_SEQ": 3,
+                "FIELD_DESCRIPTION": "COMMITTEE NAME",
+                "TYPE": "A/N-200",
+                "REQUIRED": "X (warning)",
+                "SAMPLE_DATA": "Pat for Pres.",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "CHANGE_OF_ADDRESS": {
+            "title": "CHANGE OF ADDRESS",
+            "description": "",
+            "type": "boolean",
+            "examples": [
+                "X"
+            ],
+            "spec": {
+                "COL_SEQ": 4,
+                "FIELD_DESCRIPTION": "CHANGE OF ADDRESS",
+                "TYPE": "A-1",
+                "REQUIRED": null,
+                "SAMPLE_DATA": "X",
+                "VALUE_REFERENCE": "X = Yes",
+                "RULE_REFERENCE": "Check-box",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "STREET__1": {
+            "title": "STREET  1",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 34,
+            "pattern": "^[ A-z0-9]{0,34}$",
+            "examples": [
+                "123 Oak St"
+            ],
+            "spec": {
+                "COL_SEQ": 5,
+                "FIELD_DESCRIPTION": "STREET  1",
+                "TYPE": "A/N-34",
+                "REQUIRED": "X (warning)",
+                "SAMPLE_DATA": "123 Oak St",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "STREET__2": {
+            "title": "STREET  2",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 34,
+            "pattern": "^[ A-z0-9]{0,34}$",
+            "spec": {
+                "COL_SEQ": 6,
+                "FIELD_DESCRIPTION": "STREET  2",
+                "TYPE": "A/N-34",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "CITY": {
+            "title": "CITY",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 30,
+            "pattern": "^[ A-z0-9]{0,30}$",
+            "examples": [
+                "Anytown"
+            ],
+            "spec": {
+                "COL_SEQ": 7,
+                "FIELD_DESCRIPTION": "CITY",
+                "TYPE": "A/N-30",
+                "REQUIRED": "X (warning)",
+                "SAMPLE_DATA": "Anytown",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "STATE": {
+            "title": "STATE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 2,
+            "pattern": "^[ A-z0-9]{0,2}$",
+            "examples": [
+                "FL"
+            ],
+            "spec": {
+                "COL_SEQ": 8,
+                "FIELD_DESCRIPTION": "STATE",
+                "TYPE": "A-2",
+                "REQUIRED": "X (warning)",
+                "SAMPLE_DATA": "FL",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "Edit: ST",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "ZIP": {
+            "title": "ZIP",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 9,
+            "pattern": "^[ A-z0-9]{0,9}$",
+            "examples": [
+                33034
+            ],
+            "spec": {
+                "COL_SEQ": 9,
+                "FIELD_DESCRIPTION": "ZIP",
+                "TYPE": "A/N-9",
+                "REQUIRED": "X (warning)",
+                "SAMPLE_DATA": 33034,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "ACTIVITY_PRIMARY": {
+            "title": "ACTIVITY PRIMARY",
+            "description": "",
+            "type": "boolean",
+            "examples": [
+                "X"
+            ],
+            "spec": {
+                "COL_SEQ": 10,
+                "FIELD_DESCRIPTION": "ACTIVITY PRIMARY",
+                "TYPE": "A-1",
+                "REQUIRED": null,
+                "SAMPLE_DATA": "X",
+                "VALUE_REFERENCE": "X = Yes",
+                "RULE_REFERENCE": "Check-box",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "ACTIVITY_GENERAL": {
+            "title": "ACTIVITY GENERAL",
+            "description": "",
+            "type": "boolean",
+            "examples": [
+                "X"
+            ],
+            "spec": {
+                "COL_SEQ": 11,
+                "FIELD_DESCRIPTION": "ACTIVITY GENERAL",
+                "TYPE": "A-1",
+                "REQUIRED": null,
+                "SAMPLE_DATA": "X",
+                "VALUE_REFERENCE": "X = Yes",
+                "RULE_REFERENCE": "Check-box",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "REPORT_CODE": {
+            "title": "REPORT CODE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 3,
+            "pattern": "^[ A-z0-9]{0,3}$",
+            "examples": [
+                "12P"
+            ],
+            "spec": {
+                "COL_SEQ": 12,
+                "FIELD_DESCRIPTION": "REPORT CODE",
+                "TYPE": "A-3",
+                "REQUIRED": "X (warning)",
+                "SAMPLE_DATA": "12P",
+                "VALUE_REFERENCE": "12C,..., TER",
+                "RULE_REFERENCE": "Warning if Code is missing;\nError if Coded incorrectly.\nNote: Monthly Year-End reports should be coded with 'MYE'.\nQuarterly Year-End reports will continue to be coded with 'YE'.",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "ELECTION_CODE__{was_RPTPGI}": {
+            "title": "ELECTION CODE  {was RPTPGI}",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 5,
+            "pattern": "^[ A-z0-9]{0,5}$",
+            "examples": [
+                "P2012"
+            ],
+            "spec": {
+                "COL_SEQ": 13,
+                "FIELD_DESCRIPTION": "ELECTION CODE  {was RPTPGI}",
+                "TYPE": "A/N-5",
+                "REQUIRED": "X (warn if REPORT CODE=12[?])",
+                "SAMPLE_DATA": "P2012",
+                "VALUE_REFERENCE": "C,G,P,R,S,E[YYYY]",
+                "RULE_REFERENCE": "Edit: PGI",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "DATE_OF_ELECTION": {
+            "title": "DATE OF ELECTION",
+            "description": "",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 99999999,
+            "examples": [
+                20120715
+            ],
+            "spec": {
+                "COL_SEQ": 14,
+                "FIELD_DESCRIPTION": "DATE OF ELECTION",
+                "TYPE": "NUM-8",
+                "REQUIRED": "X (warn if REPORT CODE=[12?|30?])",
+                "SAMPLE_DATA": 20120715,
+                "VALUE_REFERENCE": "YYYYMMDD",
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "STATE_OF_ELECTION": {
+            "title": "STATE OF ELECTION",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 2,
+            "pattern": "^[ A-z0-9]{0,2}$",
+            "examples": [
+                "FL"
+            ],
+            "spec": {
+                "COL_SEQ": 15,
+                "FIELD_DESCRIPTION": "STATE OF ELECTION",
+                "TYPE": "A-2",
+                "REQUIRED": "X (warn if REPORT CODE=[12?] but not [12G])",
+                "SAMPLE_DATA": "FL",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "Edit: St",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "COVERAGE_FROM_DATE": {
+            "title": "COVERAGE FROM DATE",
+            "description": "",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 99999999,
+            "examples": [
+                20120501
+            ],
+            "spec": {
+                "COL_SEQ": 16,
+                "FIELD_DESCRIPTION": "COVERAGE FROM DATE",
+                "TYPE": "NUM-8",
+                "REQUIRED": "X (warning)",
+                "SAMPLE_DATA": 20120501,
+                "VALUE_REFERENCE": "YYYYMMDD",
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "COVERAGE_THROUGH_DATE": {
+            "title": "COVERAGE THROUGH DATE",
+            "description": "",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 99999999,
+            "examples": [
+                20120531
+            ],
+            "spec": {
+                "COL_SEQ": 17,
+                "FIELD_DESCRIPTION": "COVERAGE THROUGH DATE",
+                "TYPE": "NUM-8",
+                "REQUIRED": "X (warning)",
+                "SAMPLE_DATA": 20120531,
+                "VALUE_REFERENCE": "YYYYMMDD",
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "TREASURER_LAST_NAME": {
+            "title": "TREASURER LAST NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 30,
+            "pattern": "^[ A-z0-9]{0,30}$",
+            "examples": [
+                "Smith"
+            ],
+            "spec": {
+                "COL_SEQ": 18,
+                "FIELD_DESCRIPTION": "TREASURER LAST NAME",
+                "TYPE": "A/N-30",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "Smith",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "TREASURER_FIRST_NAME": {
+            "title": "TREASURER FIRST NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 20,
+            "pattern": "^[ A-z0-9]{0,20}$",
+            "examples": [
+                "Patrick"
+            ],
+            "spec": {
+                "COL_SEQ": 19,
+                "FIELD_DESCRIPTION": "TREASURER FIRST NAME",
+                "TYPE": "A/N-20",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "Patrick",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "TREASURER_MIDDLE_NAME": {
+            "title": "TREASURER MIDDLE NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 20,
+            "pattern": "^[ A-z0-9]{0,20}$",
+            "examples": [
+                "Thomas"
+            ],
+            "spec": {
+                "COL_SEQ": 20,
+                "FIELD_DESCRIPTION": "TREASURER MIDDLE NAME",
+                "TYPE": "A/N-20",
+                "REQUIRED": null,
+                "SAMPLE_DATA": "Thomas",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "TREASURER_PREFIX": {
+            "title": "TREASURER PREFIX",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 10,
+            "pattern": "^[ A-z0-9]{0,10}$",
+            "examples": [
+                "Mr."
+            ],
+            "spec": {
+                "COL_SEQ": 21,
+                "FIELD_DESCRIPTION": "TREASURER PREFIX",
+                "TYPE": "A/N-10",
+                "REQUIRED": null,
+                "SAMPLE_DATA": "Mr.",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "TREASURER_SUFFIX": {
+            "title": "TREASURER SUFFIX",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 10,
+            "pattern": "^[ A-z0-9]{0,10}$",
+            "examples": [
+                "Jr."
+            ],
+            "spec": {
+                "COL_SEQ": 22,
+                "FIELD_DESCRIPTION": "TREASURER SUFFIX",
+                "TYPE": "A/N-10",
+                "REQUIRED": null,
+                "SAMPLE_DATA": "Jr.",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "DATE_SIGNED": {
+            "title": "DATE SIGNED",
+            "description": "",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 99999999,
+            "examples": [
+                20120729
+            ],
+            "spec": {
+                "COL_SEQ": 23,
+                "FIELD_DESCRIPTION": "DATE SIGNED",
+                "TYPE": "NUM-8",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": 20120729,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "6__Cash_on_Hand_Beginning_Period": {
+            "title": "6.  Cash on Hand Beginning Period",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 24,
+                "FIELD_DESCRIPTION": "6.  Cash on Hand Beginning Period",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "7__Total_Receipts": {
+            "title": "7.  Total Receipts",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 25,
+                "FIELD_DESCRIPTION": "7.  Total Receipts",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "= 22",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "8__Subtotal": {
+            "title": "8.  Subtotal",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 26,
+                "FIELD_DESCRIPTION": "8.  Subtotal",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "= 6 + 7",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "9__Total_Disbursements": {
+            "title": "9.  Total Disbursements",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 27,
+                "FIELD_DESCRIPTION": "9.  Total Disbursements",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "= 30",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "10__Cash_on_Hand_Close_of_Period": {
+            "title": "10.  Cash on Hand Close of Period",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 28,
+                "FIELD_DESCRIPTION": "10.  Cash on Hand Close of Period",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "= 8 - 9",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "11__Debts_to": {
+            "title": "11.  Debts to",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 29,
+                "FIELD_DESCRIPTION": "11.  Debts to",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "= Total from Sch C &/or D",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "12__Debts_by": {
+            "title": "12.  Debts by",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 30,
+                "FIELD_DESCRIPTION": "12.  Debts by",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "= Total from Sch C &/or D",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "13__Expenditures_Subject_to_Limits": {
+            "title": "13.  Expenditures Subject to Limits",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 31,
+                "FIELD_DESCRIPTION": "13.  Expenditures Subject to Limits",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "14__Net_Contributions": {
+            "title": "14.  Net Contributions",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 32,
+                "FIELD_DESCRIPTION": "14.  Net Contributions",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "= 17e Col B - 28d Col B",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "15__Net_Operating_Expenditures": {
+            "title": "15.  Net Operating Expenditures",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 33,
+                "FIELD_DESCRIPTION": "15.  Net Operating Expenditures",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "=  23 Col B - 20a Col B",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "16_Federal_Funds": {
+            "title": "16. Federal Funds",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 121,
+                "FIELD_DESCRIPTION": "16. Federal Funds",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "17ai_Individuals_Itemized": {
+            "title": "17(a.i) Individuals Itemized",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 122,
+                "FIELD_DESCRIPTION": "17(a.i) Individuals Itemized",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "17aii_Individuals_Unitemized": {
+            "title": "17(a.ii) Individuals Unitemized",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 123,
+                "FIELD_DESCRIPTION": "17(a.ii) Individuals Unitemized",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "17aiii_Individual_Contribution_Total": {
+            "title": "17(a.iii) Individual Contribution Total",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 124,
+                "FIELD_DESCRIPTION": "17(a.iii) Individual Contribution Total",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "17b_Political_Party_Committees": {
+            "title": "17(b) Political Party Committees",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 125,
+                "FIELD_DESCRIPTION": "17(b) Political Party Committees",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "17c_Other_Political_Committees_PACs": {
+            "title": "17(c) Other Political Committees (PACs)",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 126,
+                "FIELD_DESCRIPTION": "17(c) Other Political Committees (PACs)",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "17d_The_Candidate": {
+            "title": "17(d) The Candidate",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 127,
+                "FIELD_DESCRIPTION": "17(d) The Candidate",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "17e_Total_Contributions": {
+            "title": "17(e) Total Contributions",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 41,
+                "FIELD_DESCRIPTION": "17(e) Total Contributions",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "= 17aiii + 17b + 17c + 17d",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "18_Transfers_From_Aff/Other_Party_Cmttees": {
+            "title": "18. Transfers From Aff/Other Party Cmttees",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 129,
+                "FIELD_DESCRIPTION": "18. Transfers From Aff/Other Party Cmttees",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "19a_Received_from_or_Guaranteed_by_Cand": {
+            "title": "19(a) Received from or Guaranteed by Cand.",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 43,
+                "FIELD_DESCRIPTION": "19(a) Received from or Guaranteed by Cand.",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "19b_Other_Loans": {
+            "title": "19(b) Other Loans",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 131,
+                "FIELD_DESCRIPTION": "19(b) Other Loans",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "19c_Total_Loans": {
+            "title": "19(c) Total Loans",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 132,
+                "FIELD_DESCRIPTION": "19(c) Total Loans",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "= 19(a)+19(b))",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "20a_Operating": {
+            "title": "20(a) Operating",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 133,
+                "FIELD_DESCRIPTION": "20(a) Operating",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "20b_Fundraising": {
+            "title": "20(b) Fundraising",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 134,
+                "FIELD_DESCRIPTION": "20(b) Fundraising",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "20c_Legal_and_Accounting": {
+            "title": "20(c) Legal and Accounting",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 135,
+                "FIELD_DESCRIPTION": "20(c) Legal and Accounting",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "20d_Total_offsets_to_Expenditures": {
+            "title": "20(d) Total offsets to Expenditures",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 49,
+                "FIELD_DESCRIPTION": "20(d) Total offsets to Expenditures",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "= 20a + 20b + 20c",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "21_Other_Receipts": {
+            "title": "21. Other Receipts",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 137,
+                "FIELD_DESCRIPTION": "21. Other Receipts",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "22_Total_Receipts": {
+            "title": "22. Total Receipts",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 138,
+                "FIELD_DESCRIPTION": "22. Total Receipts",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "= 16+17e+18+19c+20d+21",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "23_Operating_Expenditures": {
+            "title": "23. Operating Expenditures",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 139,
+                "FIELD_DESCRIPTION": "23. Operating Expenditures",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "24_Transfers_to_Other_Authorized_Committees": {
+            "title": "24. Transfers to Other Authorized Committees",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 140,
+                "FIELD_DESCRIPTION": "24. Transfers to Other Authorized Committees",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "25_Fundraising_Disbursements": {
+            "title": "25. Fundraising Disbursements",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 141,
+                "FIELD_DESCRIPTION": "25. Fundraising Disbursements",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "26_Exempt_Legal_&_Accounting_Disbursement": {
+            "title": "26. Exempt Legal & Accounting Disbursement",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 142,
+                "FIELD_DESCRIPTION": "26. Exempt Legal & Accounting Disbursement",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "27a_Made_or_guaranteed_by_Candidate": {
+            "title": "27(a) Made or guaranteed by Candidate",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 56,
+                "FIELD_DESCRIPTION": "27(a) Made or guaranteed by Candidate",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "27b_Other_Repayments": {
+            "title": "27(b) Other Repayments",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 144,
+                "FIELD_DESCRIPTION": "27(b) Other Repayments",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "27c_Total_Loan_Repayments_Made": {
+            "title": "27(c) Total Loan Repayments Made",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 145,
+                "FIELD_DESCRIPTION": "27(c) Total Loan Repayments Made",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "= 27a+27b",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "28a_Individuals": {
+            "title": "28(a) Individuals",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 59,
+                "FIELD_DESCRIPTION": "28(a) Individuals",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "28b_Political_Party_Committees": {
+            "title": "28(b) Political Party Committees",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 147,
+                "FIELD_DESCRIPTION": "28(b) Political Party Committees",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "28c_Other_Political_Committees": {
+            "title": "28(c) Other Political Committees",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 148,
+                "FIELD_DESCRIPTION": "28(c) Other Political Committees",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "28d_Total_Contributions_Refunds": {
+            "title": "28(d) Total Contributions Refunds",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 149,
+                "FIELD_DESCRIPTION": "28(d) Total Contributions Refunds",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "= 28a+28b+28c",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "29_Other_Disbursements": {
+            "title": "29. Other Disbursements",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 150,
+                "FIELD_DESCRIPTION": "29. Other Disbursements",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "30_Total_Disbursements": {
+            "title": "30. Total Disbursements",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 151,
+                "FIELD_DESCRIPTION": "30. Total Disbursements",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "= 23+24+25+26+27c+28d+29",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "31_Items_on_Hand_to_be_Liquidated": {
+            "title": "31. Items on Hand to be Liquidated",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 65,
+                "FIELD_DESCRIPTION": "31. Items on Hand to be Liquidated",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "ALABAMA": {
+            "title": "ALABAMA",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 152,
+                "FIELD_DESCRIPTION": "ALABAMA",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "ALASKA": {
+            "title": "ALASKA",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 153,
+                "FIELD_DESCRIPTION": "ALASKA",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "ARIZONA": {
+            "title": "ARIZONA",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 154,
+                "FIELD_DESCRIPTION": "ARIZONA",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "ARKANSAS": {
+            "title": "ARKANSAS",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 155,
+                "FIELD_DESCRIPTION": "ARKANSAS",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "CALIFORNIA": {
+            "title": "CALIFORNIA",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 156,
+                "FIELD_DESCRIPTION": "CALIFORNIA",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "COLORADO": {
+            "title": "COLORADO",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 157,
+                "FIELD_DESCRIPTION": "COLORADO",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "CONNECTICUT": {
+            "title": "CONNECTICUT",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 158,
+                "FIELD_DESCRIPTION": "CONNECTICUT",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "DELAWARE": {
+            "title": "DELAWARE",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 159,
+                "FIELD_DESCRIPTION": "DELAWARE",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "DIST_OF_COLUMBIA": {
+            "title": "DIST OF COLUMBIA",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 160,
+                "FIELD_DESCRIPTION": "DIST OF COLUMBIA",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "FLORIDA": {
+            "title": "FLORIDA",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 161,
+                "FIELD_DESCRIPTION": "FLORIDA",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "GEORGIA": {
+            "title": "GEORGIA",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 162,
+                "FIELD_DESCRIPTION": "GEORGIA",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "HAWAII": {
+            "title": "HAWAII",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 163,
+                "FIELD_DESCRIPTION": "HAWAII",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "IDAHO": {
+            "title": "IDAHO",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 164,
+                "FIELD_DESCRIPTION": "IDAHO",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "ILLINOIS": {
+            "title": "ILLINOIS",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 165,
+                "FIELD_DESCRIPTION": "ILLINOIS",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "INDIANA": {
+            "title": "INDIANA",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 166,
+                "FIELD_DESCRIPTION": "INDIANA",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "IOWA": {
+            "title": "IOWA",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 167,
+                "FIELD_DESCRIPTION": "IOWA",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "KANSAS": {
+            "title": "KANSAS",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 168,
+                "FIELD_DESCRIPTION": "KANSAS",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "KENTUCKY": {
+            "title": "KENTUCKY",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 169,
+                "FIELD_DESCRIPTION": "KENTUCKY",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "LOUISIANA": {
+            "title": "LOUISIANA",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 170,
+                "FIELD_DESCRIPTION": "LOUISIANA",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "MAINE": {
+            "title": "MAINE",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 171,
+                "FIELD_DESCRIPTION": "MAINE",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "MARYLAND": {
+            "title": "MARYLAND",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 172,
+                "FIELD_DESCRIPTION": "MARYLAND",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "MASSACHUSETTS": {
+            "title": "MASSACHUSETTS",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 173,
+                "FIELD_DESCRIPTION": "MASSACHUSETTS",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "MICHIGAN": {
+            "title": "MICHIGAN",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 174,
+                "FIELD_DESCRIPTION": "MICHIGAN",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "MINNESOTA": {
+            "title": "MINNESOTA",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 175,
+                "FIELD_DESCRIPTION": "MINNESOTA",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "MISSISSIPPI": {
+            "title": "MISSISSIPPI",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 176,
+                "FIELD_DESCRIPTION": "MISSISSIPPI",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "MISSOURI": {
+            "title": "MISSOURI",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 177,
+                "FIELD_DESCRIPTION": "MISSOURI",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "MONTANA": {
+            "title": "MONTANA",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 178,
+                "FIELD_DESCRIPTION": "MONTANA",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "NEBRASKA": {
+            "title": "NEBRASKA",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 179,
+                "FIELD_DESCRIPTION": "NEBRASKA",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "NEVADA": {
+            "title": "NEVADA",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 180,
+                "FIELD_DESCRIPTION": "NEVADA",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "NEW_HAMPSHIRE": {
+            "title": "NEW HAMPSHIRE",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 181,
+                "FIELD_DESCRIPTION": "NEW HAMPSHIRE",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "NEW_JERSEY": {
+            "title": "NEW JERSEY",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 182,
+                "FIELD_DESCRIPTION": "NEW JERSEY",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "NEW_MEXICO": {
+            "title": "NEW MEXICO",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 183,
+                "FIELD_DESCRIPTION": "NEW MEXICO",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "NEW_YORK": {
+            "title": "NEW YORK",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 184,
+                "FIELD_DESCRIPTION": "NEW YORK",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "NORTH_CAROLINA": {
+            "title": "NORTH CAROLINA",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 185,
+                "FIELD_DESCRIPTION": "NORTH CAROLINA",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "NORTH_DAKOTA": {
+            "title": "NORTH DAKOTA",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 186,
+                "FIELD_DESCRIPTION": "NORTH DAKOTA",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "OHIO": {
+            "title": "OHIO",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 187,
+                "FIELD_DESCRIPTION": "OHIO",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "OKLAHOMA": {
+            "title": "OKLAHOMA",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 188,
+                "FIELD_DESCRIPTION": "OKLAHOMA",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "OREGON": {
+            "title": "OREGON",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 189,
+                "FIELD_DESCRIPTION": "OREGON",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "PENNSYLVANIA": {
+            "title": "PENNSYLVANIA",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 190,
+                "FIELD_DESCRIPTION": "PENNSYLVANIA",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "RHODE_ISLAND": {
+            "title": "RHODE ISLAND",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 191,
+                "FIELD_DESCRIPTION": "RHODE ISLAND",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "SOUTH_CAROLINA": {
+            "title": "SOUTH CAROLINA",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 192,
+                "FIELD_DESCRIPTION": "SOUTH CAROLINA",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "SOUTH_DAKOTA": {
+            "title": "SOUTH DAKOTA",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 193,
+                "FIELD_DESCRIPTION": "SOUTH DAKOTA",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "TENNESSEE": {
+            "title": "TENNESSEE",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 194,
+                "FIELD_DESCRIPTION": "TENNESSEE",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "TEXAS": {
+            "title": "TEXAS",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 195,
+                "FIELD_DESCRIPTION": "TEXAS",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "UTAH": {
+            "title": "UTAH",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 196,
+                "FIELD_DESCRIPTION": "UTAH",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "VERMONT": {
+            "title": "VERMONT",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 197,
+                "FIELD_DESCRIPTION": "VERMONT",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "VIRGINIA": {
+            "title": "VIRGINIA",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 198,
+                "FIELD_DESCRIPTION": "VIRGINIA",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "WASHINGTON": {
+            "title": "WASHINGTON",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 199,
+                "FIELD_DESCRIPTION": "WASHINGTON",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "WEST_VIRGINIA": {
+            "title": "WEST VIRGINIA",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 200,
+                "FIELD_DESCRIPTION": "WEST VIRGINIA",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "WISCONSIN": {
+            "title": "WISCONSIN",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 201,
+                "FIELD_DESCRIPTION": "WISCONSIN",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "WYOMING": {
+            "title": "WYOMING",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 202,
+                "FIELD_DESCRIPTION": "WYOMING",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "PUERTO_RICO": {
+            "title": "PUERTO RICO",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 203,
+                "FIELD_DESCRIPTION": "PUERTO RICO",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "GUAM": {
+            "title": "GUAM",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 204,
+                "FIELD_DESCRIPTION": "GUAM",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "VIRGIN_ISLANDS": {
+            "title": "VIRGIN ISLANDS",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 205,
+                "FIELD_DESCRIPTION": "VIRGIN ISLANDS",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "TOTALS": {
+            "title": "TOTALS",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 206,
+                "FIELD_DESCRIPTION": "TOTALS",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "= Fields 152+153+...+205",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "17e_Total_contributions__Other_than_Loans": {
+            "title": "17(e) Total contributions  (Other than Loans)",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 128,
+                "FIELD_DESCRIPTION": "17(e) Total contributions  (Other than Loans)",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "= 17aiii+17b+17c+17d",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "19a_Received_from_or_Guaranteed__by_Cand": {
+            "title": "19(a) Received from or Guaranteed  by Cand.",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 130,
+                "FIELD_DESCRIPTION": "19(a) Received from or Guaranteed  by Cand.",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "20d_Total_Offsets_to_Operating_Expenditures": {
+            "title": "20(d) Total Offsets to Operating Expenditures",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 136,
+                "FIELD_DESCRIPTION": "20(d) Total Offsets to Operating Expenditures",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "= 20a+20b+20c)",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "27a_Made_or_Guaranteed_by_the_Candidate": {
+            "title": "27(a) Made or Guaranteed by the Candidate",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 143,
+                "FIELD_DESCRIPTION": "27(a) Made or Guaranteed by the Candidate",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "28a__Individuals": {
+            "title": "28(a)  Individuals",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "spec": {
+                "COL_SEQ": 146,
+                "FIELD_DESCRIPTION": "28(a)  Individuals",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        }
+    },
+    "additionalProperties": false
+}
