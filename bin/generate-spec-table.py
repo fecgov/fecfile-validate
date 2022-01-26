@@ -8,7 +8,8 @@ import argparse
 import json
 
 parser = argparse.ArgumentParser()
-parser.add_argument('filename', help='filename of JSON schema doc to convert to HTML table')
+parser.add_argument('filename', help='filename of JSON schema doc to convert'
+                    ' to HTML table')
 args = parser.parse_args()
 
 f = open(args.filename)
@@ -26,7 +27,9 @@ COLUMNS = [
     "FIELD FORM ASSOCIATION"
 ]
 
-print('<html><head><link rel="stylesheet" href="spec_table.css"></head><body><table><tr>')
+print('<html><head><link rel="stylesheet" href="spec_table.css"></head><body>'
+      '<table><tr>')
+
 for c in COLUMNS:
     print(f'<th>{c}</th>')
 print('</tr>')

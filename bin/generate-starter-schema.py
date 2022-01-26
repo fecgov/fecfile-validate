@@ -20,15 +20,22 @@ import json
 import argparse
 import os
 
-parser = argparse.ArgumentParser(description='Convert the FEC validation Excel spreadsheet into JSON schema documents.')
-parser.add_argument('excel_filename', help='an excel filename that will be parsed to generate JSON schema docs')
-parser.add_argument('--sheets-to-generate', help="a json file containing an array of sheet names to be parsed from the excel file")
+parser = argparse.ArgumentParser(description='Convert the FEC validation Excel'
+                                 ' spreadsheet into JSON schema documents.')
+parser.add_argument('excel_filename', help='an excel filename that will be'
+                    ' parsed to generate JSON schema docs')
+parser.add_argument('--sheets-to-generate', help='a json file containing an'
+                    ' array of sheet names to be parsed from the excel file')
 parser.add_argument('--version')
 args = parser.parse_args()
-EXCEL_FILENAME = args.excel_filename or "Form_3X_Receipts_Vendor_10.20.2020.xlsx"
-SCHEMA_ID_PREFIX = "https://github.com/fecgov/fecfile-validate/blob/main/schema"
+EXCEL_FILENAME = args.excel_filename or \
+    "Form_3X_Receipts_Vendor_10.20.2020.xlsx"
+SCHEMA_ID_PREFIX = ("https://github.com/fecgov/fecfile-validate/blob/"
+                    "main/schema")
 VERSION = args.version or "v0.0.0.0"
-SHEETS_TO_SKIP = ['All receipts', 'Version 8.3', 'SUMMARY OF CHANGES', "All Schedule A Transactions", "ScheduleC", "Schedule C1", "Scedule C2"]
+SHEETS_TO_SKIP = ['All receipts', 'Version 8.3', 'SUMMARY OF CHANGES',
+                  "All Schedule A Transactions", "ScheduleC", "Schedule C1",
+                  "Scedule C2"]
 
 # Column postions of fields in the spreadsheet row array
 
@@ -45,7 +52,8 @@ class Columns(Enum):
     FIELD_FORM_ASSOCIATION = 8
 
     def get(self, row, has_autopopulate):
-        index = self.value if has_autopopulate or self.value <= 3 else self.value - 1
+        index = self.value if has_autopopulate or \
+            self.value <= 3 else self.value - 1
         value = row[index] if index < len(row) else None
         return value.strip() if isinstance(value, str) else value
 
@@ -56,7 +64,8 @@ def convert_row_to_property(row, sheet_has_autopopulate):# noqa
         row (array): Single row from the spreadsheet
 
     Returns:
-        token (string): The token key identifier for this property in the schema.
+        token (string): The token key identifier for this property in
+                        the schema.
         prop (dict): The property object to add to the schema.
     """
     prop = {}
@@ -71,7 +80,8 @@ def convert_row_to_property(row, sheet_has_autopopulate):# noqa
     sample_data = spec.get(Columns.SAMPLE_DATA.name)
     rule_ref = spec.get(Columns.RULE_REFERENCE.name)
 
-    token = title.replace("\n", "_").replace(" ", "_").replace(".", "").replace("(", "").replace(")", "")
+    token = title.replace("\n", "_").replace(" ", "_").replace(".", "")\
+        .replace("(", "").replace(")", "")
     prop["title"] = title
     prop["description"] = ""
 
@@ -123,22 +133,28 @@ for ws in wb.worksheets:
 
     print(f'Parsing {output_file}...')
 
-    sheet_has_autopopulate = ws.cell(3, 5).value is not None and ws.cell(3, 5).value.strip() == 'Auto populate'
+    sheet_has_autopopulate = ws.cell(3, 5).value is not None and \
+        ws.cell(3, 5).value.strip() == 'Auto populate'
     schema_properties = {}
     required_rows = []
     for row in ws.iter_rows(min_row=5, max_col=8, values_only=True):
         if (not Columns.COL_SEQ.get(row, sheet_has_autopopulate)
                 or Columns.COL_SEQ.get(row, sheet_has_autopopulate) == "--"
-                or not Columns.FIELD_DESCRIPTION.get(row, sheet_has_autopopulate)
+                or not Columns.FIELD_DESCRIPTION.get(row,
+                                                     sheet_has_autopopulate)
                 or not Columns.TYPE.get(row, sheet_has_autopopulate)
                 or len(row) > 10):
             continue
-        token, prop, is_required = convert_row_to_property(row, sheet_has_autopopulate)
+        token, prop, is_required = \
+            convert_row_to_property(row, sheet_has_autopopulate)
         if token == "TRANSACTION_TYPE_IDENTIFIER":
-            trans_type_id = prop.get('spec', {}).get(Columns.SAMPLE_DATA.name, "") or ""
-            trans_type_hits[trans_type_id] = (trans_type_hits.get(trans_type_id) or 0) + 1
+            trans_type_id = prop.get('spec', {}).get(Columns.SAMPLE_DATA.name,
+                                                     "") or ""
+            trans_type_hits[trans_type_id] = \
+                (trans_type_hits.get(trans_type_id) or 0) + 1
             if (trans_type_hits[trans_type_id] > 1 or trans_type_id == ''):
-                output_file = trans_type_id + '-' + str(trans_type_hits[trans_type_id]) + '.json'
+                output_file = trans_type_id + '-' + \
+                    str(trans_type_hits[trans_type_id]) + '.json'
             else:
                 output_file = trans_type_id + '.json'
 
