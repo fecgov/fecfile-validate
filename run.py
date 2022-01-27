@@ -1,4 +1,3 @@
-import os
 import settings
 
 from api.validate import app

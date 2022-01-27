@@ -1,0 +1,100 @@
+# See: https://circleci.com/docs/2.0/configuration-reference
+version: 2.1
+
+# See: https://circleci.com/docs/2.0/orb-intro/
+orbs:
+  # See the orb documentation here: https://circleci.com/developer/orbs/orb/circleci/python
+  python: circleci/python@1.2
+
+# See: https://circleci.com/docs/2.0/configuration-reference/#jobs
+jobs:
+  unit-test:
+    # These next lines defines a Docker executors: https://circleci.com/docs/2.0/executor-types/
+    # A list of available CircleCI Docker convenience images are available here: https://circleci.com/developer/images/image/cimg/python
+    docker:
+      - image: cimg/python:3.8
+
+    steps:
+      - checkout
+
+      - python/install-packages:
+          pkg-manager: pip
+          pip-dependency-file: requirements-test.txt
+
+      - run:
+          name: Run tests, save a coverage report, and save coverage percentage
+          command: |
+            pytest --cov=. --cov-report=html --cov-report=term | tee pytest.out
+            export NEW_PERCENT=$(cat pytest.out | grep TOTAL | awk '{print $4}' | grep -oE "[0-9]+" )
+            echo ${NEW_PERCENT} > htmlcov/total_percent.txt
+            echo Total code coverage percentage is ${NEW_PERCENT}%
+
+      - store_artifacts:
+          path: htmlcov
+
+      - run:
+          name: Compare the actual code coverage to the minimum target coverage
+          command: |
+            export NEW_PERCENT=$(cat htmlcov/total_percent.txt)
+            echo Comparing the current code coverage percentage of ${NEW_PERCENT}% to the target of ${MIN_COVERAGE_PERCENT-85}%
+            if [ "${NEW_PERCENT}" -lt ${MIN_COVERAGE_PERCENT-85} ]; then
+              echo The total code coverage percentage of ${NEW_PERCENT}% is below the minimum of ${MIN_COVERAGE_PERCENT-85}%
+              echo If you would like to modify the minimum coverage, set the MIN_COVERAGE_PERCENT environment variable
+              exit 1
+            fi
+            echo Coverage is good.
+
+  lint:
+    docker:
+      - image: cimg/python:3.8
+
+    steps:
+      - checkout
+
+      - python/install-packages:
+          pkg-manager: pip
+          pip-dependency-file: requirements-test.txt
+
+      - run:
+          name: Run lint
+          command: flake8 .
+
+
+  dependency-check:
+    docker:
+      - image: cimg/python:3.8
+
+    steps:
+      - checkout
+
+      - python/install-packages:
+          pkg-manager: pip
+          pip-dependency-file: requirements-test.txt
+
+      - run:
+          name: Run depency check
+          command: |
+            export today=$(date "+%Y-%m-%d")
+
+            # gather up the -i ignore IDs fro safety check
+            export ignores=$(
+            grep -vE "^\s*#" .safety.dependency.ignore |  # print out any non-comment line
+              grep "[0-9]" |  # filter out any line that doesn't have a number in it
+              awk -v "today=${today}" '{ if ($2 > today || $2 == "") print "-i", $1}' | # print any line with date after today
+              xargs echo  # put all the output from previous command on one line
+            )
+            export command="safety check -r requirements.txt --full-report $ignores"
+
+            echo "----------------------------------------------------"
+            echo "If you need to modify the ignore list for the safety"
+            echo "check, edit .safety.dependency.ignore file"
+            echo "----------------------------------------------------"
+            eval $command
+
+# See: https://circleci.com/docs/2.0/configuration-reference/#workflows
+workflows:
+  sample:
+    jobs:
+      - unit-test
+      - lint
+      - dependency-check
