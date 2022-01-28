@@ -1,5 +1,5 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$schema": "https://json-schema.org/draft-07/schema#",
     "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/F3S.json",
     "version": "8.3.0.1",
     "title": "FEC F3S",

@@ -1,5 +1,5 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$schema": "https://json-schema.org/draft-07/schema#",
     "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/IND_RECNT-6.json",
     "version": "v0.0.0.0",
     "title": "FEC Earmark - Nat'l Party Conv.",

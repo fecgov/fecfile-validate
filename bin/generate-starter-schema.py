@@ -163,7 +163,7 @@ for ws in wb.worksheets:
         schema_properties[token] = prop
 
     schema = {
-        "$schema": "http://json-schema.org/draft-07/schema#",
+        "$schema": "https://json-schema.org/draft-07/schema#",
         "$id": f'{SCHEMA_ID_PREFIX}/{output_file}',
         "version": VERSION,
         "title": f'FEC {ws.title}',

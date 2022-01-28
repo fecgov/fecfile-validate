@@ -1,5 +1,5 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$schema": "https://json-schema.org/draft-07/schema#",
     "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/EAR_REC_23-2.json",
     "version": "v0.0.0.0",
     "title": "FEC Earmark Out PAC (Memo)",

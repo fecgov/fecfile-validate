@@ -16,6 +16,8 @@ f = open(args.filename)
 data = json.load(f)
 f.close()
 
+title = args.filename.split('.')[0]
+
 COLUMNS = [
     "COL SEQ",
     "FIELD DESCRIPTION",
@@ -27,8 +29,9 @@ COLUMNS = [
     "FIELD FORM ASSOCIATION"
 ]
 
-print('<html><head><link rel="stylesheet" href="spec_table.css"></head><body>'
-      '<table><tr>')
+print(f'<!DOCTYPE html><html lang="en"><head><title>{title}</title>'
+      '<link rel="stylesheet" href="spec_table.css"></head><body><table>'
+      f'<caption>Specification for {title}</caption><tr>')
 
 for c in COLUMNS:
     print(f'<th>{c}</th>')
