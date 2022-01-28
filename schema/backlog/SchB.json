@@ -1,0 +1,913 @@
+{
+    "$schema": "https://json-schema.org/draft-07/schema#",
+    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/SchB.json",
+    "version": "8.3.0.1",
+    "title": "FEC Sch B",
+    "description": "SCHEDULE B - ITEMIZED DISBURSEMENTS {v6.4 revised layout}",
+    "type": "object",
+    "required": [
+        "FORM_TYPE",
+        "FILER_COMMITTEE_ID_NUMBER",
+        "TRANSACTION_ID_NUMBER",
+        "ENTITY_TYPE",
+        "PAYEE_ORGANIZATION_NAME",
+        "PAYEE_LAST_NAME",
+        "PAYEE_FIRST_NAME"
+    ],
+    "properties": {
+        "FORM_TYPE": {
+            "title": "FORM TYPE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 8,
+            "pattern": "^[ A-z0-9]{0,8}$",
+            "examples": [
+                "SB17"
+            ],
+            "spec": {
+                "COL_SEQ": 1,
+                "FIELD_DESCRIPTION": "FORM TYPE",
+                "TYPE": "A/N-8",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "SB17",
+                "VALUE_REFERENCE": "SB[line# ref]",
+                "RULE_REFERENCE": "Appendix C.  SB3L must be used \nwith the F3L",
+                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+            }
+        },
+        "FILER_COMMITTEE_ID_NUMBER": {
+            "title": "FILER COMMITTEE ID NUMBER",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 9,
+            "pattern": "^[ A-z0-9]{0,9}$",
+            "examples": [
+                "C00123456"
+            ],
+            "spec": {
+                "COL_SEQ": 2,
+                "FIELD_DESCRIPTION": "FILER COMMITTEE ID NUMBER",
+                "TYPE": "A/N-9",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "C00123456",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+            }
+        },
+        "TRANSACTION_ID_NUMBER": {
+            "title": "TRANSACTION ID NUMBER",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 20,
+            "pattern": "^[ A-z0-9]{0,20}$",
+            "examples": [
+                "B56123456789-1234"
+            ],
+            "spec": {
+                "COL_SEQ": 3,
+                "FIELD_DESCRIPTION": "TRANSACTION ID NUMBER",
+                "TYPE": "A/N-20",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "B56123456789-1234",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "must be unique for the life of the report (original + all amendments)",
+                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+            }
+        },
+        "BACK_REFERENCE_TRAN_ID_NUMBER": {
+            "title": "BACK REFERENCE TRAN ID NUMBER",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 20,
+            "pattern": "^[ A-z0-9]{0,20}$",
+            "examples": [
+                "B123456789-1234"
+            ],
+            "spec": {
+                "COL_SEQ": 4,
+                "FIELD_DESCRIPTION": "BACK REFERENCE TRAN ID NUMBER",
+                "TYPE": "A/N-20",
+                "REQUIRED": null,
+                "SAMPLE_DATA": "B123456789-1234",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "Reference to the Tran ID of a Related Record",
+                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+            }
+        },
+        "BACK_REFERENCE_SCHED_NAME": {
+            "title": "BACK REFERENCE SCHED NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 8,
+            "pattern": "^[ A-z0-9]{0,8}$",
+            "examples": [
+                "SB21"
+            ],
+            "spec": {
+                "COL_SEQ": 5,
+                "FIELD_DESCRIPTION": "BACK REFERENCE SCHED NAME",
+                "TYPE": "A/N-8",
+                "REQUIRED": null,
+                "SAMPLE_DATA": "SB21",
+                "VALUE_REFERENCE": "SB[line# ref]",
+                "RULE_REFERENCE": "Ref to the Schedule that has the Related Record.  SB3L must be used \nwith the F3L",
+                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+            }
+        },
+        "ENTITY_TYPE": {
+            "title": "ENTITY TYPE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 3,
+            "pattern": "^[ A-z0-9]{0,3}$",
+            "examples": [
+                "CCM"
+            ],
+            "spec": {
+                "COL_SEQ": 6,
+                "FIELD_DESCRIPTION": "ENTITY TYPE",
+                "TYPE": "A/N-3",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "CCM",
+                "VALUE_REFERENCE": "CAN,CCM,...",
+                "RULE_REFERENCE": "[CAN|CCM|COM|IND|ORG|PAC|PTY]",
+                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+            }
+        },
+        "PAYEE_ORGANIZATION_NAME": {
+            "title": "PAYEE ORGANIZATION NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 200,
+            "pattern": "^[ A-z0-9]{0,200}$",
+            "examples": [
+                "John Smith & Co."
+            ],
+            "spec": {
+                "COL_SEQ": 7,
+                "FIELD_DESCRIPTION": "PAYEE ORGANIZATION NAME",
+                "TYPE": "A/N-200",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "John Smith & Co.",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "Required if NOT [IND|CAN]",
+                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+            }
+        },
+        "PAYEE_LAST_NAME": {
+            "title": "PAYEE LAST NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 30,
+            "pattern": "^[ A-z0-9]{0,30}$",
+            "examples": [
+                "Smith"
+            ],
+            "spec": {
+                "COL_SEQ": 8,
+                "FIELD_DESCRIPTION": "PAYEE LAST NAME",
+                "TYPE": "A/N-30",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "Smith",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "Required if [IND|CAN]",
+                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+            }
+        },
+        "PAYEE_FIRST_NAME": {
+            "title": "PAYEE FIRST NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 20,
+            "pattern": "^[ A-z0-9]{0,20}$",
+            "examples": [
+                "John"
+            ],
+            "spec": {
+                "COL_SEQ": 9,
+                "FIELD_DESCRIPTION": "PAYEE FIRST NAME",
+                "TYPE": "A/N-20",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "John",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "Required if [IND|CAN]",
+                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+            }
+        },
+        "PAYEE_MIDDLE_NAME": {
+            "title": "PAYEE MIDDLE NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 20,
+            "pattern": "^[ A-z0-9]{0,20}$",
+            "examples": [
+                "W"
+            ],
+            "spec": {
+                "COL_SEQ": 10,
+                "FIELD_DESCRIPTION": "PAYEE MIDDLE NAME",
+                "TYPE": "A/N-20",
+                "REQUIRED": null,
+                "SAMPLE_DATA": "W",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "Optional if [IND|CAN]",
+                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+            }
+        },
+        "PAYEE_PREFIX": {
+            "title": "PAYEE PREFIX",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 10,
+            "pattern": "^[ A-z0-9]{0,10}$",
+            "examples": [
+                "Dr"
+            ],
+            "spec": {
+                "COL_SEQ": 11,
+                "FIELD_DESCRIPTION": "PAYEE PREFIX",
+                "TYPE": "A/N-10",
+                "REQUIRED": null,
+                "SAMPLE_DATA": "Dr",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "Optional if [IND|CAN]",
+                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+            }
+        },
+        "PAYEE_SUFFIX": {
+            "title": "PAYEE SUFFIX",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 10,
+            "pattern": "^[ A-z0-9]{0,10}$",
+            "examples": [
+                "Jr"
+            ],
+            "spec": {
+                "COL_SEQ": 12,
+                "FIELD_DESCRIPTION": "PAYEE SUFFIX",
+                "TYPE": "A/N-10",
+                "REQUIRED": null,
+                "SAMPLE_DATA": "Jr",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "Optional if [IND|CAN]",
+                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+            }
+        },
+        "PAYEE_STREET__1": {
+            "title": "PAYEE STREET  1",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 34,
+            "pattern": "^[ A-z0-9]{0,34}$",
+            "examples": [
+                "Suite 16"
+            ],
+            "spec": {
+                "COL_SEQ": 13,
+                "FIELD_DESCRIPTION": "PAYEE STREET  1",
+                "TYPE": "A/N-34",
+                "REQUIRED": "X (warning)",
+                "SAMPLE_DATA": "Suite 16",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+            }
+        },
+        "PAYEE_STREET__2": {
+            "title": "PAYEE STREET  2",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 34,
+            "pattern": "^[ A-z0-9]{0,34}$",
+            "examples": [
+                "30 Oak Street"
+            ],
+            "spec": {
+                "COL_SEQ": 14,
+                "FIELD_DESCRIPTION": "PAYEE STREET  2",
+                "TYPE": "A/N-34",
+                "REQUIRED": null,
+                "SAMPLE_DATA": "30 Oak Street",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+            }
+        },
+        "PAYEE_CITY": {
+            "title": "PAYEE CITY",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 30,
+            "pattern": "^[ A-z0-9]{0,30}$",
+            "examples": [
+                "Springfield"
+            ],
+            "spec": {
+                "COL_SEQ": 15,
+                "FIELD_DESCRIPTION": "PAYEE CITY",
+                "TYPE": "A/N-30",
+                "REQUIRED": "X (warning)",
+                "SAMPLE_DATA": "Springfield",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+            }
+        },
+        "PAYEE_STATE": {
+            "title": "PAYEE STATE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 2,
+            "pattern": "^[ A-z0-9]{0,2}$",
+            "examples": [
+                "MA"
+            ],
+            "spec": {
+                "COL_SEQ": 16,
+                "FIELD_DESCRIPTION": "PAYEE STATE",
+                "TYPE": "A/N-2",
+                "REQUIRED": "X (warning)",
+                "SAMPLE_DATA": "MA",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+            }
+        },
+        "PAYEE_ZIP": {
+            "title": "PAYEE ZIP",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 9,
+            "pattern": "^[ A-z0-9]{0,9}$",
+            "examples": [
+                1012
+            ],
+            "spec": {
+                "COL_SEQ": 17,
+                "FIELD_DESCRIPTION": "PAYEE ZIP",
+                "TYPE": "A/N-9",
+                "REQUIRED": "X (warning)",
+                "SAMPLE_DATA": 1012,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+            }
+        },
+        "ELECTION_CODE": {
+            "title": "ELECTION CODE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 5,
+            "pattern": "^[ A-z0-9]{0,5}$",
+            "examples": [
+                "P2012"
+            ],
+            "spec": {
+                "COL_SEQ": 18,
+                "FIELD_DESCRIPTION": "ELECTION CODE",
+                "TYPE": "A/N-5",
+                "REQUIRED": null,
+                "SAMPLE_DATA": "P2012",
+                "VALUE_REFERENCE": "G,P,O[YYYY]",
+                "RULE_REFERENCE": "Values: [G|P|R|S|C|E|O]+Year{YYYY}",
+                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P"
+            }
+        },
+        "ELECTION_OTHER_DESCRIPTION": {
+            "title": "ELECTION OTHER DESCRIPTION",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 20,
+            "pattern": "^[ A-z0-9]{0,20}$",
+            "spec": {
+                "COL_SEQ": 19,
+                "FIELD_DESCRIPTION": "ELECTION OTHER DESCRIPTION",
+                "TYPE": "A/N-20",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "Req if PGI = \"OYYYY\"",
+                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P"
+            }
+        },
+        "EXPENDITURE_DATE": {
+            "title": "EXPENDITURE DATE",
+            "description": "",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 99999999,
+            "examples": [
+                20120720
+            ],
+            "spec": {
+                "COL_SEQ": 20,
+                "FIELD_DESCRIPTION": "EXPENDITURE DATE",
+                "TYPE": "NUM-8",
+                "REQUIRED": "X (warning)",
+                "SAMPLE_DATA": 20120720,
+                "VALUE_REFERENCE": "YYYYMMDD",
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P"
+            }
+        },
+        "EXPENDITURE_AMOUNT_{F3L_Bundled}": {
+            "title": "EXPENDITURE AMOUNT {F3L Bundled}",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "examples": [
+                1500
+            ],
+            "spec": {
+                "COL_SEQ": 21,
+                "FIELD_DESCRIPTION": "EXPENDITURE AMOUNT {F3L Bundled}",
+                "TYPE": "AMT-12",
+                "REQUIRED": "X (warning)",
+                "SAMPLE_DATA": 1500,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "Expenditure (F3L Bundled Refund) Amt",
+                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+            }
+        },
+        "SEMI-ANNUAL_REFUNDED_BUNDLED_AMT": {
+            "title": "SEMI-ANNUAL REFUNDED BUNDLED AMT",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "examples": [
+                2500
+            ],
+            "spec": {
+                "COL_SEQ": 22,
+                "FIELD_DESCRIPTION": "SEMI-ANNUAL REFUNDED BUNDLED AMT",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": 2500,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "Used for F3L only. Semi-annual Bundled Refund.",
+                "FIELD_FORM_ASSOCIATION": "F3L"
+            }
+        },
+        "EXPENDITURE_PURPOSE_DESCRIP": {
+            "title": "EXPENDITURE PURPOSE DESCRIP",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 100,
+            "pattern": "^[ A-z0-9]{0,100}$",
+            "examples": [
+                "Repay Loan"
+            ],
+            "spec": {
+                "COL_SEQ": 23,
+                "FIELD_DESCRIPTION": "EXPENDITURE PURPOSE DESCRIP",
+                "TYPE": "A/N-100",
+                "REQUIRED": null,
+                "SAMPLE_DATA": "Repay Loan",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P"
+            }
+        },
+        "CATEGORY_CODE": {
+            "title": "CATEGORY CODE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 3,
+            "pattern": "^[ A-z0-9]{0,3}$",
+            "examples": [
+                1
+            ],
+            "spec": {
+                "COL_SEQ": 24,
+                "FIELD_DESCRIPTION": "CATEGORY CODE",
+                "TYPE": "A/N-3",
+                "REQUIRED": null,
+                "SAMPLE_DATA": 1,
+                "VALUE_REFERENCE": "001, 002, ... 012;\nand\n101 - 107",
+                "RULE_REFERENCE": "Codes 001-012 are for use by, and only by, non-Presidential Committees.\nCodes 101-107 are used only by Presidential Committees",
+                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P"
+            }
+        },
+        "BENEFICIARY_COMMITTEE_FEC_ID": {
+            "title": "BENEFICIARY COMMITTEE FEC ID",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 9,
+            "pattern": "^[ A-z0-9]{0,9}$",
+            "examples": [
+                "C00654323"
+            ],
+            "spec": {
+                "COL_SEQ": 25,
+                "FIELD_DESCRIPTION": "BENEFICIARY COMMITTEE FEC ID",
+                "TYPE": "A/N-9",
+                "REQUIRED": null,
+                "SAMPLE_DATA": "C00654323",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "Used if CCM, PAC or PTY",
+                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+            }
+        },
+        "BENEFICIARY_COMMITTEE_NAME": {
+            "title": "BENEFICIARY COMMITTEE NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 200,
+            "pattern": "^[ A-z0-9]{0,200}$",
+            "examples": [
+                "John Smith & Co."
+            ],
+            "spec": {
+                "COL_SEQ": 26,
+                "FIELD_DESCRIPTION": "BENEFICIARY COMMITTEE NAME",
+                "TYPE": "A/N-200",
+                "REQUIRED": null,
+                "SAMPLE_DATA": "John Smith & Co.",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "Used if CCM, PAC or PTY",
+                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+            }
+        },
+        "BENEFICIARY_CANDIDATE_FEC_ID": {
+            "title": "BENEFICIARY CANDIDATE FEC ID",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 9,
+            "pattern": "^[ A-z0-9]{0,9}$",
+            "examples": [
+                "H98765431"
+            ],
+            "spec": {
+                "COL_SEQ": 27,
+                "FIELD_DESCRIPTION": "BENEFICIARY CANDIDATE FEC ID",
+                "TYPE": "A/N-9",
+                "REQUIRED": null,
+                "SAMPLE_DATA": "H98765431",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "Used if CAN or CCM",
+                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+            }
+        },
+        "BENEFICIARY_CANDIDATE_LAST_NAME": {
+            "title": "BENEFICIARY CANDIDATE LAST NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 30,
+            "pattern": "^[ A-z0-9]{0,30}$",
+            "spec": {
+                "COL_SEQ": 28,
+                "FIELD_DESCRIPTION": "BENEFICIARY CANDIDATE LAST NAME",
+                "TYPE": "A/N-30",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "Used if CAN or CCM",
+                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+            }
+        },
+        "BENEFICIARY_CANDIDATE_FIRST_NAME": {
+            "title": "BENEFICIARY CANDIDATE FIRST NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 20,
+            "pattern": "^[ A-z0-9]{0,20}$",
+            "spec": {
+                "COL_SEQ": 29,
+                "FIELD_DESCRIPTION": "BENEFICIARY CANDIDATE FIRST NAME",
+                "TYPE": "A/N-20",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "If either Last or First name coded;\nboth Last & First names required.",
+                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+            }
+        },
+        "BENEFICIARY_CANDIDATE_MIDDLE_NAME": {
+            "title": "BENEFICIARY CANDIDATE MIDDLE NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 20,
+            "pattern": "^[ A-z0-9]{0,20}$",
+            "spec": {
+                "COL_SEQ": 30,
+                "FIELD_DESCRIPTION": "BENEFICIARY CANDIDATE MIDDLE NAME",
+                "TYPE": "A/N-20",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+            }
+        },
+        "BENEFICIARY_CANDIDATE_PREFIX": {
+            "title": "BENEFICIARY CANDIDATE PREFIX",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 10,
+            "pattern": "^[ A-z0-9]{0,10}$",
+            "spec": {
+                "COL_SEQ": 31,
+                "FIELD_DESCRIPTION": "BENEFICIARY CANDIDATE PREFIX",
+                "TYPE": "A/N-10",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+            }
+        },
+        "BENEFICIARY_CANDIDATE_SUFFIX": {
+            "title": "BENEFICIARY CANDIDATE SUFFIX",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 10,
+            "pattern": "^[ A-z0-9]{0,10}$",
+            "spec": {
+                "COL_SEQ": 32,
+                "FIELD_DESCRIPTION": "BENEFICIARY CANDIDATE SUFFIX",
+                "TYPE": "A/N-10",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+            }
+        },
+        "BENEFICIARY_CANDIDATE_OFFICE": {
+            "title": "BENEFICIARY CANDIDATE OFFICE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 1,
+            "pattern": "^[ A-z0-9]{0,1}$",
+            "examples": [
+                "H"
+            ],
+            "spec": {
+                "COL_SEQ": 33,
+                "FIELD_DESCRIPTION": "BENEFICIARY CANDIDATE OFFICE",
+                "TYPE": "A/N-1",
+                "REQUIRED": null,
+                "SAMPLE_DATA": "H",
+                "VALUE_REFERENCE": "H,S,P",
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+            }
+        },
+        "BENEFICIARY_CANDIDATE_STATE": {
+            "title": "BENEFICIARY CANDIDATE STATE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 2,
+            "pattern": "^[ A-z0-9]{0,2}$",
+            "examples": [
+                "FL"
+            ],
+            "spec": {
+                "COL_SEQ": 34,
+                "FIELD_DESCRIPTION": "BENEFICIARY CANDIDATE STATE",
+                "TYPE": "A/N-2",
+                "REQUIRED": null,
+                "SAMPLE_DATA": "FL",
+                "VALUE_REFERENCE": "AK,AL,...",
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+            }
+        },
+        "BENEFICIARY_CANDIDATE_DISTRICT": {
+            "title": "BENEFICIARY CANDIDATE DISTRICT",
+            "description": "",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 99,
+            "examples": [
+                35
+            ],
+            "spec": {
+                "COL_SEQ": 35,
+                "FIELD_DESCRIPTION": "BENEFICIARY CANDIDATE DISTRICT",
+                "TYPE": "NUM-2",
+                "REQUIRED": null,
+                "SAMPLE_DATA": 35,
+                "VALUE_REFERENCE": "01 ... 99",
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+            }
+        },
+        "CONDUIT_NAME": {
+            "title": "CONDUIT NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 200,
+            "pattern": "^[ A-z0-9]{0,200}$",
+            "examples": [
+                "Middle Organization"
+            ],
+            "spec": {
+                "COL_SEQ": 36,
+                "FIELD_DESCRIPTION": "CONDUIT NAME",
+                "TYPE": "A/N-200",
+                "REQUIRED": null,
+                "SAMPLE_DATA": "Middle Organization",
+                "VALUE_REFERENCE": "If Conduit",
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P"
+            }
+        },
+        "CONDUIT_STREET_1": {
+            "title": "CONDUIT STREET 1",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 34,
+            "pattern": "^[ A-z0-9]{0,34}$",
+            "examples": [
+                "45 E Street"
+            ],
+            "spec": {
+                "COL_SEQ": 37,
+                "FIELD_DESCRIPTION": "CONDUIT STREET 1",
+                "TYPE": "A/N-34",
+                "REQUIRED": null,
+                "SAMPLE_DATA": "45 E Street",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P"
+            }
+        },
+        "CONDUIT_STREET_2": {
+            "title": "CONDUIT STREET 2",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 34,
+            "pattern": "^[ A-z0-9]{0,34}$",
+            "spec": {
+                "COL_SEQ": 38,
+                "FIELD_DESCRIPTION": "CONDUIT STREET 2",
+                "TYPE": "A/N-34",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P"
+            }
+        },
+        "CONDUIT_CITY": {
+            "title": "CONDUIT CITY",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 30,
+            "pattern": "^[ A-z0-9]{0,30}$",
+            "examples": [
+                "Springfield"
+            ],
+            "spec": {
+                "COL_SEQ": 39,
+                "FIELD_DESCRIPTION": "CONDUIT CITY",
+                "TYPE": "A/N-30",
+                "REQUIRED": null,
+                "SAMPLE_DATA": "Springfield",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P"
+            }
+        },
+        "CONDUIT_STATE": {
+            "title": "CONDUIT STATE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 2,
+            "pattern": "^[ A-z0-9]{0,2}$",
+            "examples": [
+                "MA"
+            ],
+            "spec": {
+                "COL_SEQ": 40,
+                "FIELD_DESCRIPTION": "CONDUIT STATE",
+                "TYPE": "A/N-2",
+                "REQUIRED": null,
+                "SAMPLE_DATA": "MA",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P"
+            }
+        },
+        "CONDUIT_ZIP": {
+            "title": "CONDUIT ZIP",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 9,
+            "pattern": "^[ A-z0-9]{0,9}$",
+            "examples": [
+                10111
+            ],
+            "spec": {
+                "COL_SEQ": 41,
+                "FIELD_DESCRIPTION": "CONDUIT ZIP",
+                "TYPE": "A/N-9",
+                "REQUIRED": null,
+                "SAMPLE_DATA": 10111,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P"
+            }
+        },
+        "MEMO_CODE": {
+            "title": "MEMO CODE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 1,
+            "pattern": "^[ A-z0-9]{0,1}$",
+            "spec": {
+                "COL_SEQ": 42,
+                "FIELD_DESCRIPTION": "MEMO CODE",
+                "TYPE": "A/N-1",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": "X",
+                "RULE_REFERENCE": "X = True",
+                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+            }
+        },
+        "MEMO_TEXT/DESCRIPTION": {
+            "title": "MEMO TEXT/DESCRIPTION",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 100,
+            "pattern": "^[ A-z0-9]{0,100}$",
+            "spec": {
+                "COL_SEQ": 43,
+                "FIELD_DESCRIPTION": "MEMO TEXT/DESCRIPTION",
+                "TYPE": "A/N-100",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+            }
+        },
+        "Reference_to_SI_or_SL_system_code_that_identifies_the_Account": {
+            "title": "Reference to SI or SL system code that identifies the Account",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 9,
+            "pattern": "^[ A-z0-9]{0,9}$",
+            "examples": [
+                "123xyzABC"
+            ],
+            "spec": {
+                "COL_SEQ": 44,
+                "FIELD_DESCRIPTION": "Reference to SI or SL system code that identifies the Account",
+                "TYPE": "A/N-9",
+                "REQUIRED": null,
+                "SAMPLE_DATA": "123xyzABC",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "Must contain a valid system code used in a Schedule I or L.",
+                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P"
+            }
+        }
+    },
+    "additionalProperties": false
+}
