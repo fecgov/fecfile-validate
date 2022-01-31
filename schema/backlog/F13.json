@@ -14,6 +14,18 @@
         "DESIGNATED_FIRST_NAME",
         "DATE_SIGNED"
     ],
+    "recommended": [
+        "STREET__1",
+        "CITY",
+        "STATE",
+        "ZIP",
+        "REPORT_CODE",
+        "COVERAGE_FROM_DATE",
+        "COVERAGE_THROUGH_DATE",
+        "5_TOTAL_DONATIONS_ACCEPTED",
+        "6_TOTAL_DONATIONS_REFUNDED",
+        "7_NET_DONATIONS"
+    ],
     "properties": {
         "FORM_TYPE": {
             "title": "FORM TYPE",

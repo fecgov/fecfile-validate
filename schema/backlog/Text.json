@@ -12,6 +12,7 @@
         "BACK_REFERENCE_TRAN_ID_NUMBER",
         "BACK_REFERENCE_SCHED_/_FORM_NAME"
     ],
+    "recommended": [],
     "properties": {
         "REC_TYPE": {
             "title": "REC TYPE",

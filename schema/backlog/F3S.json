@@ -11,6 +11,7 @@
         "Date_-_General_Election",
         "Date_-_Day_after_General_Election"
     ],
+    "recommended": [],
     "properties": {
         "FORM_TYPE": {
             "title": "FORM TYPE",

@@ -13,6 +13,14 @@
         "GUARANTOR_LAST_NAME",
         "GUARANTOR_FIRST_NAME"
     ],
+    "recommended": [
+        "GUARANTOR_STREET_1",
+        "GUARANTOR_CITY",
+        "GUARANTOR_STATE",
+        "GUARANTOR_ZIP",
+        "GUARANTOR_EMPLOYER",
+        "GUARANTOR_OCCUPATION"
+    ],
     "properties": {
         "FORM_TYPE": {
             "title": "FORM TYPE",

@@ -21,6 +21,7 @@
         "EXPENDITURE_AMOUNT",
         "PURPOSE_OF_DISBURSEMENT"
     ],
+    "recommended": [],
     "properties": {
         "FORM_TYPE": {
             "title": "FORM TYPE",

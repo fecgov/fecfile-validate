@@ -22,6 +22,13 @@
         "H_AUTHORIZED_TITLE",
         "H_DATE_SIGNED"
     ],
+    "recommended": [
+        "LENDER_STREET__1",
+        "LENDER_CITY",
+        "LENDER_STATE",
+        "LENDER_ZIP",
+        "LOAN_INTEREST_RATE_%"
+    ],
     "properties": {
         "FORM_TYPE": {
             "title": "FORM TYPE",

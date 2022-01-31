@@ -24,6 +24,7 @@
         "CONTRIBUTOR_EMPLOYER",
         "CONTRIBUTOR_OCCUPATION"
     ],
+    "recommended": [],
     "properties": {
         "FORM_TYPE": {
             "title": "FORM TYPE",

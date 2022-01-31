@@ -17,6 +17,17 @@
         "PERSON_COMPLETING_FIRST_NAME",
         "DATE_SIGNED"
     ],
+    "recommended": [
+        "STREET__1",
+        "CITY",
+        "STATE",
+        "ZIP",
+        "REPORT_CODE",
+        "24HOUR_48HOUR_CODE",
+        "COVERAGE_FROM_DATE",
+        "COVERAGE_THROUGH_DATE",
+        "TOTAL_CONTRIBUTION"
+    ],
     "properties": {
         "FORM_TYPE": {
             "title": "FORM TYPE",

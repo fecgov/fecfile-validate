@@ -10,6 +10,7 @@
         "EF_Type",
         "FEC_Version_#"
     ],
+    "recommended": [],
     "properties": {
         "Record_Type": {
             "title": "Record Type",

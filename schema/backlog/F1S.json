@@ -9,6 +9,7 @@
         "FORM_TYPE",
         "FILER_COMMITTEE_ID_NUMBER"
     ],
+    "recommended": [],
     "properties": {
         "FORM_TYPE": {
             "title": "FORM TYPE",

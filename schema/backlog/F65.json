@@ -13,6 +13,14 @@
         "CONTRIBUTOR_LAST_NAME",
         "CONTRIBUTOR_FIRST_NAME"
     ],
+    "recommended": [
+        "CONTRIBUTOR_STREET__1",
+        "CONTRIBUTOR_CITY",
+        "CONTRIBUTOR_STATE",
+        "CONTRIBUTOR_ZIP",
+        "CONTRIBUTION_DATE",
+        "CONTRIBUTION_AMOUNT"
+    ],
     "properties": {
         "FORM_TYPE": {
             "title": "FORM TYPE",

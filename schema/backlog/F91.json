@@ -12,6 +12,7 @@
         "CONTROLLER_LAST_NAME_Share/Exer_Control",
         "CONTROLLER_FIRST_NAME"
     ],
+    "recommended": [],
     "properties": {
         "FORM_TYPE": {
             "title": "FORM TYPE",

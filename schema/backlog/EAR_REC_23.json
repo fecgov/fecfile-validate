@@ -28,6 +28,7 @@
         "BENEFICIARY_CANDIDATE_STATE",
         "BENEFICIARY_CANDIDATE_DISTRICT"
     ],
+    "recommended": [],
     "properties": {
         "FORM_TYPE": {
             "title": "FORM TYPE",

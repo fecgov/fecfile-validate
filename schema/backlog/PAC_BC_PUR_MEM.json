@@ -21,6 +21,7 @@
         "MEMO_CODE",
         "TRANSACTION_TYPE_IDENTIFIER"
     ],
+    "recommended": [],
     "properties": {
         "FORM_TYPE": {
             "title": "FORM TYPE",

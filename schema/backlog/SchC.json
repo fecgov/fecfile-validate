@@ -13,6 +13,21 @@
         "LENDER_LAST_NAME",
         "LENDER_FIRST_NAME"
     ],
+    "recommended": [
+        "LENDER_STREET__1",
+        "LENDER_CITY",
+        "LENDER_STATE",
+        "LENDER_ZIP",
+        "ELECTION_CODE",
+        "LOAN_AMOUNT_Original",
+        "LOAN_PAYMENT_TO_DATE",
+        "LOAN_BALANCE",
+        "LOAN_INCURRED_DATE_Terms",
+        "LOAN_DUE_DATE_Terms",
+        "LOAN_INTEREST_RATE_%_Terms",
+        "YES/NO_Secured?",
+        "YES/NO_Personal_Funds"
+    ],
     "properties": {
         "FORM_TYPE": {
             "title": "FORM TYPE",

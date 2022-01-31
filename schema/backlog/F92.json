@@ -14,6 +14,14 @@
         "DONOR_LAST_NAME",
         "DONOR_FIRST_NAME"
     ],
+    "recommended": [
+        "DONOR_STREET__1",
+        "DONOR_CITY",
+        "DONOR_STATE",
+        "DONOR_ZIP",
+        "DATE_RECEIVED",
+        "AMOUNT_RECEIVED"
+    ],
     "properties": {
         "FORM_TYPE": {
             "title": "FORM TYPE",

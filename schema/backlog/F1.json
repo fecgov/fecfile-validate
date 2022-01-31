@@ -36,6 +36,21 @@
         "8_TREASURER_ZIP",
         "9_a_BANK_NAME"
     ],
+    "recommended": [
+        "EFFECTIVE_DATE",
+        "5_COMMITTEE_TYPE",
+        "5_CANDIDATE_ID_NUMBER",
+        "5_CANDIDATE_LAST_NAME",
+        "5_CANDIDATE_FIRST_NAME",
+        "5_PARTY_TYPE",
+        "5_e_ORGANIZATION_TYPE",
+        "8_TREASURER_TITLE",
+        "8_TREASURER_TELEPHONE",
+        "9_a_BANK_STREET_1",
+        "9_a_BANK_CITY",
+        "9_a_BANK_STATE",
+        "9_a_BANK_ZIP"
+    ],
     "properties": {
         "FORM_TYPE": {
             "title": "FORM TYPE",

@@ -17,6 +17,7 @@
         "GOTV_AMOUNT",
         "GENERIC_CAMPAIGN_AMOUNT"
     ],
+    "recommended": [],
     "properties": {
         "FORM_TYPE": {
             "title": "FORM TYPE",

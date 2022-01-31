@@ -16,6 +16,9 @@
         "TOTAL_AMOUNT_TRANSFERRED",
         "TRANSFERRED_AMOUNT"
     ],
+    "recommended": [
+        "EVENT/ACTIVITY_ID/NAME"
+    ],
     "properties": {
         "FORM_TYPE": {
             "title": "FORM TYPE",

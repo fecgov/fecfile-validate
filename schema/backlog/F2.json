@@ -21,6 +21,15 @@
         "CANDIDATE_SIGNATURE_FIRST_NAME",
         "DATE_SIGNED"
     ],
+    "recommended": [
+        "VICE_PRESIDENT_LAST_NAME",
+        "VICE_PRESIDENT_FIRST_NAME",
+        "PCC_COMMITTEE_NAME",
+        "PCC_STREET_1",
+        "PCC_CITY",
+        "PCC_STATE",
+        "PCC_ZIP"
+    ],
     "properties": {
         "FORM_TYPE": {
             "title": "FORM TYPE",

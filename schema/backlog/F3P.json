@@ -12,6 +12,19 @@
         "TREASURER_FIRST_NAME",
         "DATE_SIGNED"
     ],
+    "recommended": [
+        "COMMITTEE_NAME",
+        "STREET__1",
+        "CITY",
+        "STATE",
+        "ZIP",
+        "REPORT_CODE",
+        "ELECTION_CODE__{was_RPTPGI}",
+        "DATE_OF_ELECTION",
+        "STATE_OF_ELECTION",
+        "COVERAGE_FROM_DATE",
+        "COVERAGE_THROUGH_DATE"
+    ],
     "properties": {
         "FORM_TYPE": {
             "title": "FORM TYPE",

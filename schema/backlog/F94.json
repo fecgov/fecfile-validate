@@ -12,6 +12,11 @@
         "CANDIDATE_LAST_NAME",
         "CANDIDATE_FIRST_NAME"
     ],
+    "recommended": [
+        "CANDIDATE_OFFICE",
+        "CANDIDATE_STATE",
+        "CANDIDATE_DIST"
+    ],
     "properties": {
         "FORM_TYPE": {
             "title": "FORM TYPE",

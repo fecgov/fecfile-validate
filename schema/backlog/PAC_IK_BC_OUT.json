@@ -22,6 +22,7 @@
         "BENEFICIARY_COMMITTEE_NAME",
         "TRANSACTION_TYPE_IDENTIFIER"
     ],
+    "recommended": [],
     "properties": {
         "FORM_TYPE": {
             "title": "FORM TYPE",

@@ -12,6 +12,12 @@
         "CONTRIBUTOR_LAST_NAME",
         "CONTRIBUTOR_FIRST_NAME"
     ],
+    "recommended": [
+        "CONTRIBUTOR_STREET__1",
+        "CONTRIBUTOR_CITY",
+        "CONTRIBUTOR_STATE",
+        "CONTRIBUTOR_ZIP"
+    ],
     "properties": {
         "FILER_COMMITTEE_ID_NUMBER": {
             "title": "FILER COMMITTEE ID NUMBER",

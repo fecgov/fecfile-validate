@@ -16,6 +16,12 @@
         "SIGNER_FIRST_NAME",
         "DATE_SIGNED"
     ],
+    "recommended": [
+        "STREET__1",
+        "CITY",
+        "STATE",
+        "ZIP"
+    ],
     "properties": {
         "FORM_TYPE": {
             "title": "FORM TYPE",
