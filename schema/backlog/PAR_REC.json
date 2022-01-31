@@ -22,6 +22,7 @@
         "DONOR_COMMITTEE_FEC_ID",
         "DONOR_COMMITTEE_NAME"
     ],
+    "recommended": [],
     "properties": {
         "FORM_TYPE": {
             "title": "FORM TYPE",

@@ -21,6 +21,20 @@
         "PERSON_COMPLETING_FIRST_NAME",
         "DATE_SIGNED"
     ],
+    "recommended": [
+        "STREET_1",
+        "CITY",
+        "STATE",
+        "ZIP",
+        "COVERAGE_FROM_DATE",
+        "COVERAGE_THROUGH_DATE",
+        "FILER_CODE",
+        "FILER_CODE_DESCRIPTION",
+        "CUSTODIAN_STREET_1",
+        "CUSTODIAN_CITY",
+        "CUSTODIAN_STATE",
+        "CUSTODIAN_ZIP"
+    ],
     "properties": {
         "FORM_TYPE": {
             "title": "FORM TYPE",

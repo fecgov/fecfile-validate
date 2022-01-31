@@ -12,6 +12,13 @@
         "TREASURER_FIRST_NAME",
         "DATE_SIGNED"
     ],
+    "recommended": [
+        "COMMITTEE_NAME",
+        "STREET__1",
+        "CITY",
+        "STATE",
+        "ZIP"
+    ],
     "properties": {
         "FORM_TYPE": {
             "title": "FORM TYPE",

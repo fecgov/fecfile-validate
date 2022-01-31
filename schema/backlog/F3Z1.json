@@ -9,6 +9,13 @@
         "FORM_TYPE",
         "FILER_COMMITTEE_ID_NUMBER_PCC"
     ],
+    "recommended": [
+        "COMMITTEE_NAME_PCC",
+        "COVERAGE_FROM_DATE",
+        "COVERAGE_THROUGH_DATE",
+        "COMMITTEE_ID_NUMBER_Auth",
+        "COMMITTEE_NAME_Auth"
+    ],
     "properties": {
         "FIELD_DESCRIPTION": {
             "title": "FIELD\nDESCRIPTION",

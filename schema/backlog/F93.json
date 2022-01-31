@@ -18,6 +18,15 @@
         "EXPENDITURE_AMOUNT",
         "COMMUNICATION_DATE"
     ],
+    "recommended": [
+        "PAYEE_STREET__1",
+        "PAYEE_CITY",
+        "PAYEE_STATE",
+        "PAYEE_ZIP",
+        "EXPENDITURE_PURPOSE_DESCRIP",
+        "PAYEE_EMPLOYER",
+        "PAYEE_OCCUPATION"
+    ],
     "properties": {
         "FORM_TYPE": {
             "title": "FORM TYPE",

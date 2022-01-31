@@ -109,9 +109,10 @@ def convert_row_to_property(row, sheet_has_autopopulate):# noqa
         prop["examples"] = [sample_data]
 
     is_required = required and "error" in required
+    is_recommended = required and "warn" in required
 
     prop["spec"] = spec
-    return (token, prop, is_required)
+    return (token, prop, is_required, is_recommended)
 
 
 wb = openpyxl.load_workbook(EXCEL_FILENAME)
@@ -137,6 +138,7 @@ for ws in wb.worksheets:
         ws.cell(3, 5).value.strip() == 'Auto populate'
     schema_properties = {}
     required_rows = []
+    recommended_rows = []
     for row in ws.iter_rows(min_row=5, max_col=8, values_only=True):
         if (not Columns.COL_SEQ.get(row, sheet_has_autopopulate)
                 or Columns.COL_SEQ.get(row, sheet_has_autopopulate) == "--"
@@ -145,7 +147,7 @@ for ws in wb.worksheets:
                 or not Columns.TYPE.get(row, sheet_has_autopopulate)
                 or len(row) > 10):
             continue
-        token, prop, is_required = \
+        token, prop, is_required, is_recommended = \
             convert_row_to_property(row, sheet_has_autopopulate)
         if token == "TRANSACTION_TYPE_IDENTIFIER":
             trans_type_id = prop.get('spec', {}).get(Columns.SAMPLE_DATA.name,
@@ -160,6 +162,8 @@ for ws in wb.worksheets:
 
         if is_required:
             required_rows.append(token)
+        if is_recommended:
+            recommended_rows.append(token)
         schema_properties[token] = prop
 
     schema = {
@@ -170,6 +174,7 @@ for ws in wb.worksheets:
         "description": ws.cell(1, 1).value,
         "type": "object",
         "required": required_rows,
+        "recommended": recommended_rows,
         "properties": schema_properties,
         "additionalProperties": False
     }

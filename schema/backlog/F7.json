@@ -13,6 +13,18 @@
         "PERSON_DESIGNATED_TO_SIGN_FIRST_NAME",
         "DATE_SIGNED"
     ],
+    "recommended": [
+        "ORGANIZATION_STREET__1",
+        "ORGANIZATION_CITY",
+        "ORGANIZATION_STATE",
+        "ORGANIZATION_ZIP",
+        "REPORT_CODE",
+        "DATE_OF_ELECTION",
+        "STATE_OF_ELECTION",
+        "COVERAGE_FROM_DATE",
+        "COVERAGE_THROUGH_DATE",
+        "PERSON_DESIGNATED_TO_SIGN_TITLE"
+    ],
     "properties": {
         "FORM_TYPE": {
             "title": "FORM TYPE",

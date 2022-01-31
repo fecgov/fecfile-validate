@@ -18,6 +18,18 @@
         "S/O_CANDIDATE_LAST_NAME",
         "S/O_CANDIDATE_FIRST_NAME"
     ],
+    "recommended": [
+        "PAYEE_STREET__1",
+        "PAYEE_CITY",
+        "PAYEE_STATE",
+        "PAYEE_ZIP",
+        "CALENDAR_Y-T-D_per_election/office",
+        "EXPENDITURE_PURPOSE_DESCRIP",
+        "SUPPORT/OPPOSE_CODE",
+        "S/O_CANDIDATE_OFFICE",
+        "S/O_CANDIDATE_STATE",
+        "S/O_CANDIDATE_DISTRICT"
+    ],
     "properties": {
         "FORM_TYPE": {
             "title": "FORM TYPE",

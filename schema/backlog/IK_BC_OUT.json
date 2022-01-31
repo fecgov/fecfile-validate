@@ -20,6 +20,7 @@
         "EXPENDITURE_AMOUNT_{F3L_Bundled}",
         "TRANSACTION_TYPE_IDENTIFIER"
     ],
+    "recommended": [],
     "properties": {
         "FORM_TYPE": {
             "title": "FORM TYPE",

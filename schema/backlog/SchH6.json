@@ -13,6 +13,21 @@
         "PAYEE_LAST_NAME",
         "PAYEE_FIRST_NAME"
     ],
+    "recommended": [
+        "PAYEE_STREET__1",
+        "PAYEE_CITY",
+        "PAYEE_STATE",
+        "PAYEE_ZIP",
+        "EXPENDITURE_DATE",
+        "TOTAL_FED-LEVIN_AMOUNT",
+        "FEDERAL_SHARE",
+        "LEVIN_SHARE",
+        "ACTIVITY/EVENT_TOTAL_YTD",
+        "YES/NO__Activity_Is_Voter_Registration",
+        "YES/NO__Activity_GOTV",
+        "YES/NO__Activity_Is_Voter_ID",
+        "YES/NO__Activity_is_Generic_Campaign"
+    ],
     "properties": {
         "FORM_TYPE": {
             "title": "FORM TYPE",

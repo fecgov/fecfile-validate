@@ -1,8 +1,8 @@
 {
     "$schema": "https://json-schema.org/draft-07/schema#",
-    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/SA.json",
+    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/SchA.json",
     "version": "8.3.0.1",
-    "title": "FEC SA",
+    "title": "FEC Sch A",
     "description": "SCHEDULE A - ITEMIZED RECEIPTS",
     "type": "object",
     "required": [
@@ -13,6 +13,14 @@
         "CONTRIBUTOR_ORGANIZATION_NAME",
         "CONTRIBUTOR_LAST_NAME",
         "CONTRIBUTOR_FIRST_NAME"
+    ],
+    "recommended": [
+        "CONTRIBUTOR_STREET__1",
+        "CONTRIBUTOR_CITY",
+        "CONTRIBUTOR_STATE",
+        "CONTRIBUTOR_ZIP",
+        "CONTRIBUTION_DATE",
+        "CONTRIBUTION_AMOUNT_{F3L_Bundled}"
     ],
     "properties": {
         "FORM_TYPE": {

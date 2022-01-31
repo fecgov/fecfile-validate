@@ -11,6 +11,11 @@
         "TRANSACTION_ID_NUMBER",
         "RECORD_ID_NUMBER_for_account_name"
     ],
+    "recommended": [
+        "ACCOUNT_NAME",
+        "COVERAGE_FROM_DATE",
+        "COVERAGE_THROUGH_DATE"
+    ],
     "properties": {
         "FORM_TYPE": {
             "title": "FORM TYPE",

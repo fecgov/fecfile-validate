@@ -11,6 +11,13 @@
         "TREASURER_LAST_NAME",
         "TREASURER_FIRST_NAME"
     ],
+    "recommended": [
+        "COMMITTEE_NAME",
+        "STREET_1",
+        "CITY",
+        "STATE",
+        "ZIP"
+    ],
     "properties": {
         "FORM_TYPE": {
             "title": "FORM TYPE",

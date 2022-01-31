@@ -27,6 +27,7 @@
         "CONTRIBUTOR_OCCUPATION",
         "MEMO_CODE"
     ],
+    "recommended": [],
     "properties": {
         "FORM_TYPE": {
             "title": "FORM TYPE",

@@ -13,6 +13,17 @@
         "CREDITOR_LAST_NAME",
         "CREDITOR_FIRST_NAME"
     ],
+    "recommended": [
+        "CREDITOR_STREET__1",
+        "CREDITOR_CITY",
+        "CREDITOR_STATE",
+        "CREDITOR_ZIP",
+        "PURPOSE_OF_DEBT_OR_OBLIGATION",
+        "BEGINNING_BALANCE_This_Period",
+        "INCURRED_AMOUNT_This_Period",
+        "PAYMENT_AMOUNT_This_Period",
+        "BALANCE_AT_CLOSE__This_Period"
+    ],
     "properties": {
         "FORM_TYPE": {
             "title": "FORM TYPE",

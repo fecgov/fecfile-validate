@@ -21,6 +21,7 @@
         "CONTRIBUTION_AGGREGATE",
         "RECEIPT_DESCRIPTION"
     ],
+    "recommended": [],
     "properties": {
         "FORM_TYPE": {
             "title": "FORM TYPE",

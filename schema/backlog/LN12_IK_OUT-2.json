@@ -21,6 +21,7 @@
         "PURPOSE_OF_DISBURSEMENT",
         "TRANSACTION_TYPE_IDENTIFIER"
     ],
+    "recommended": [],
     "properties": {
         "FORM_TYPE": {
             "title": "FORM TYPE",

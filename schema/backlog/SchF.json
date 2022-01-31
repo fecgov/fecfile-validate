@@ -17,6 +17,18 @@
         "PAYEE_CANDIDATE_LAST_NAME",
         "PAYEE_CANDIDATE_FIRST_NAME"
     ],
+    "recommended": [
+        "DESIGNATING_COMMITTEE_NAME",
+        "PAYEE_STREET__1",
+        "PAYEE_CITY",
+        "PAYEE_STATE",
+        "PAYEE_ZIP",
+        "AGGREGATE_GENERAL_ELEC_EXPENDED",
+        "EXPENDITURE_PURPOSE_DESCRIP",
+        "PAYEE_CANDIDATE_OFFICE",
+        "PAYEE_CANDIDATE_STATE",
+        "PAYEE_CANDIDATE_DISTRICT"
+    ],
     "properties": {
         "FORM_TYPE": {
             "title": "FORM TYPE",

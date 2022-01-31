@@ -14,6 +14,14 @@
         "PAYEE_LAST_NAME",
         "PAYEE_FIRST_NAME"
     ],
+    "recommended": [
+        "PAYEE_STREET__1",
+        "PAYEE_CITY",
+        "PAYEE_STATE",
+        "PAYEE_ZIP",
+        "EXPENDITURE_DATE",
+        "EXPENDITURE_AMOUNT_{F3L_Bundled}"
+    ],
     "properties": {
         "FORM_TYPE": {
             "title": "FORM TYPE",

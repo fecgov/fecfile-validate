@@ -13,6 +13,23 @@
         "PAYEE_LAST_NAME",
         "PAYEE_FIRST_NAME"
     ],
+    "recommended": [
+        "PAYEE_STREET__1",
+        "PAYEE_CITY",
+        "PAYEE_STATE",
+        "PAYEE_ZIP",
+        "EXPENDITURE_DATE",
+        "TOTAL_FED-NONFED_AMOUNT",
+        "FEDERAL_SHARE",
+        "NONFEDERAL_SHARE",
+        "ACTIVITY/EVENT_TOTAL_YTD",
+        "YES/NO__Activity_is_Administrative_-_Only",
+        "YES/NO__Activity_is_Direct_Fundraising",
+        "YES/NO__Activity_is_an_Exempt_Activity",
+        "YES/NO__Activity_is_Generic_Voter_Drive_-_Only",
+        "YES/NO__Activity_is_Direct_Candidate_Support",
+        "YES/NO__Activity_is_Public_Communications_{Referring_Only_to_Party}_Made_by_PAC"
+    ],
     "properties": {
         "FORM_TYPE": {
             "title": "FORM TYPE",

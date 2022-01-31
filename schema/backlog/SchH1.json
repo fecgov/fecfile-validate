@@ -10,6 +10,7 @@
         "FILER_COMMITTEE_ID_NUMBER",
         "TRANSACTION_ID_NUMBER"
     ],
+    "recommended": [],
     "properties": {
         "FORM_TYPE": {
             "title": "FORM TYPE",

@@ -12,6 +12,12 @@
         "S/O_CANDIDATE_LAST_NAME",
         "S/O_CANDIDATE_FIRST_NAME"
     ],
+    "recommended": [
+        "COMMUNICATION_TYPE",
+        "COMMUNICATION_CLASS",
+        "COMMUNICATION_DATE",
+        "SUPPORT/OPPOSE"
+    ],
     "properties": {
         "FORM_TYPE": {
             "title": "FORM TYPE",

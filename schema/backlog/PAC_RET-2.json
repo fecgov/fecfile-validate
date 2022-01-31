@@ -20,6 +20,7 @@
         "CONTRIBUTION_AMOUNT",
         "CONTRIBUTION_AGGREGATE"
     ],
+    "recommended": [],
     "properties": {
         "FORM_TYPE": {
             "title": "FORM TYPE",
