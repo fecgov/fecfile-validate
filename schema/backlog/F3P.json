@@ -12,7 +12,7 @@
         "TREASURER_FIRST_NAME",
         "DATE_SIGNED"
     ],
-    "recommended": [
+    "fec_recommended": [
         "COMMITTEE_NAME",
         "STREET__1",
         "CITY",
@@ -36,7 +36,7 @@
             "examples": [
                 "F3PN"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 1,
                 "FIELD_DESCRIPTION": "FORM TYPE",
                 "TYPE": "A/N-4",
@@ -57,7 +57,7 @@
             "examples": [
                 "C00123456"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 2,
                 "FIELD_DESCRIPTION": "FILER COMMITTEE ID NUMBER",
                 "TYPE": "A/N-9",
@@ -78,7 +78,7 @@
             "examples": [
                 "Pat for Pres."
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 3,
                 "FIELD_DESCRIPTION": "COMMITTEE NAME",
                 "TYPE": "A/N-200",
@@ -96,7 +96,7 @@
             "examples": [
                 "X"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 4,
                 "FIELD_DESCRIPTION": "CHANGE OF ADDRESS",
                 "TYPE": "A-1",
@@ -117,7 +117,7 @@
             "examples": [
                 "123 Oak St"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 5,
                 "FIELD_DESCRIPTION": "STREET  1",
                 "TYPE": "A/N-34",
@@ -135,7 +135,7 @@
             "minLength": 0,
             "maxLength": 34,
             "pattern": "^[ A-z0-9]{0,34}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 6,
                 "FIELD_DESCRIPTION": "STREET  2",
                 "TYPE": "A/N-34",
@@ -156,7 +156,7 @@
             "examples": [
                 "Anytown"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 7,
                 "FIELD_DESCRIPTION": "CITY",
                 "TYPE": "A/N-30",
@@ -177,7 +177,7 @@
             "examples": [
                 "FL"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 8,
                 "FIELD_DESCRIPTION": "STATE",
                 "TYPE": "A-2",
@@ -198,7 +198,7 @@
             "examples": [
                 33034
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 9,
                 "FIELD_DESCRIPTION": "ZIP",
                 "TYPE": "A/N-9",
@@ -216,7 +216,7 @@
             "examples": [
                 "X"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 10,
                 "FIELD_DESCRIPTION": "ACTIVITY PRIMARY",
                 "TYPE": "A-1",
@@ -234,7 +234,7 @@
             "examples": [
                 "X"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 11,
                 "FIELD_DESCRIPTION": "ACTIVITY GENERAL",
                 "TYPE": "A-1",
@@ -255,7 +255,7 @@
             "examples": [
                 "12P"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 12,
                 "FIELD_DESCRIPTION": "REPORT CODE",
                 "TYPE": "A-3",
@@ -276,7 +276,7 @@
             "examples": [
                 "P2012"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 13,
                 "FIELD_DESCRIPTION": "ELECTION CODE  {was RPTPGI}",
                 "TYPE": "A/N-5",
@@ -296,7 +296,7 @@
             "examples": [
                 20120715
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 14,
                 "FIELD_DESCRIPTION": "DATE OF ELECTION",
                 "TYPE": "NUM-8",
@@ -317,7 +317,7 @@
             "examples": [
                 "FL"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 15,
                 "FIELD_DESCRIPTION": "STATE OF ELECTION",
                 "TYPE": "A-2",
@@ -337,7 +337,7 @@
             "examples": [
                 20120501
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 16,
                 "FIELD_DESCRIPTION": "COVERAGE FROM DATE",
                 "TYPE": "NUM-8",
@@ -357,7 +357,7 @@
             "examples": [
                 20120531
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 17,
                 "FIELD_DESCRIPTION": "COVERAGE THROUGH DATE",
                 "TYPE": "NUM-8",
@@ -378,7 +378,7 @@
             "examples": [
                 "Smith"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 18,
                 "FIELD_DESCRIPTION": "TREASURER LAST NAME",
                 "TYPE": "A/N-30",
@@ -399,7 +399,7 @@
             "examples": [
                 "Patrick"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 19,
                 "FIELD_DESCRIPTION": "TREASURER FIRST NAME",
                 "TYPE": "A/N-20",
@@ -420,7 +420,7 @@
             "examples": [
                 "Thomas"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 20,
                 "FIELD_DESCRIPTION": "TREASURER MIDDLE NAME",
                 "TYPE": "A/N-20",
@@ -441,7 +441,7 @@
             "examples": [
                 "Mr."
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 21,
                 "FIELD_DESCRIPTION": "TREASURER PREFIX",
                 "TYPE": "A/N-10",
@@ -462,7 +462,7 @@
             "examples": [
                 "Jr."
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 22,
                 "FIELD_DESCRIPTION": "TREASURER SUFFIX",
                 "TYPE": "A/N-10",
@@ -482,7 +482,7 @@
             "examples": [
                 20120729
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 23,
                 "FIELD_DESCRIPTION": "DATE SIGNED",
                 "TYPE": "NUM-8",
@@ -499,7 +499,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 24,
                 "FIELD_DESCRIPTION": "6.  Cash on Hand Beginning Period",
                 "TYPE": "AMT-12",
@@ -516,7 +516,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 25,
                 "FIELD_DESCRIPTION": "7.  Total Receipts",
                 "TYPE": "AMT-12",
@@ -533,7 +533,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 26,
                 "FIELD_DESCRIPTION": "8.  Subtotal",
                 "TYPE": "AMT-12",
@@ -550,7 +550,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 27,
                 "FIELD_DESCRIPTION": "9.  Total Disbursements",
                 "TYPE": "AMT-12",
@@ -567,7 +567,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 28,
                 "FIELD_DESCRIPTION": "10.  Cash on Hand Close of Period",
                 "TYPE": "AMT-12",
@@ -584,7 +584,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 29,
                 "FIELD_DESCRIPTION": "11.  Debts to",
                 "TYPE": "AMT-12",
@@ -601,7 +601,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 30,
                 "FIELD_DESCRIPTION": "12.  Debts by",
                 "TYPE": "AMT-12",
@@ -618,7 +618,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 31,
                 "FIELD_DESCRIPTION": "13.  Expenditures Subject to Limits",
                 "TYPE": "AMT-12",
@@ -635,7 +635,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 32,
                 "FIELD_DESCRIPTION": "14.  Net Contributions",
                 "TYPE": "AMT-12",
@@ -652,7 +652,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 33,
                 "FIELD_DESCRIPTION": "15.  Net Operating Expenditures",
                 "TYPE": "AMT-12",
@@ -669,7 +669,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 121,
                 "FIELD_DESCRIPTION": "16. Federal Funds",
                 "TYPE": "AMT-12",
@@ -686,7 +686,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 122,
                 "FIELD_DESCRIPTION": "17(a.i) Individuals Itemized",
                 "TYPE": "AMT-12",
@@ -703,7 +703,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 123,
                 "FIELD_DESCRIPTION": "17(a.ii) Individuals Unitemized",
                 "TYPE": "AMT-12",
@@ -720,7 +720,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 124,
                 "FIELD_DESCRIPTION": "17(a.iii) Individual Contribution Total",
                 "TYPE": "AMT-12",
@@ -737,7 +737,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 125,
                 "FIELD_DESCRIPTION": "17(b) Political Party Committees",
                 "TYPE": "AMT-12",
@@ -754,7 +754,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 126,
                 "FIELD_DESCRIPTION": "17(c) Other Political Committees (PACs)",
                 "TYPE": "AMT-12",
@@ -771,7 +771,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 127,
                 "FIELD_DESCRIPTION": "17(d) The Candidate",
                 "TYPE": "AMT-12",
@@ -788,7 +788,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 41,
                 "FIELD_DESCRIPTION": "17(e) Total Contributions",
                 "TYPE": "AMT-12",
@@ -805,7 +805,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 129,
                 "FIELD_DESCRIPTION": "18. Transfers From Aff/Other Party Cmttees",
                 "TYPE": "AMT-12",
@@ -822,7 +822,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 43,
                 "FIELD_DESCRIPTION": "19(a) Received from or Guaranteed by Cand.",
                 "TYPE": "AMT-12",
@@ -839,7 +839,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 131,
                 "FIELD_DESCRIPTION": "19(b) Other Loans",
                 "TYPE": "AMT-12",
@@ -856,7 +856,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 132,
                 "FIELD_DESCRIPTION": "19(c) Total Loans",
                 "TYPE": "AMT-12",
@@ -873,7 +873,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 133,
                 "FIELD_DESCRIPTION": "20(a) Operating",
                 "TYPE": "AMT-12",
@@ -890,7 +890,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 134,
                 "FIELD_DESCRIPTION": "20(b) Fundraising",
                 "TYPE": "AMT-12",
@@ -907,7 +907,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 135,
                 "FIELD_DESCRIPTION": "20(c) Legal and Accounting",
                 "TYPE": "AMT-12",
@@ -924,7 +924,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 49,
                 "FIELD_DESCRIPTION": "20(d) Total offsets to Expenditures",
                 "TYPE": "AMT-12",
@@ -941,7 +941,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 137,
                 "FIELD_DESCRIPTION": "21. Other Receipts",
                 "TYPE": "AMT-12",
@@ -958,7 +958,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 138,
                 "FIELD_DESCRIPTION": "22. Total Receipts",
                 "TYPE": "AMT-12",
@@ -975,7 +975,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 139,
                 "FIELD_DESCRIPTION": "23. Operating Expenditures",
                 "TYPE": "AMT-12",
@@ -992,7 +992,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 140,
                 "FIELD_DESCRIPTION": "24. Transfers to Other Authorized Committees",
                 "TYPE": "AMT-12",
@@ -1009,7 +1009,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 141,
                 "FIELD_DESCRIPTION": "25. Fundraising Disbursements",
                 "TYPE": "AMT-12",
@@ -1026,7 +1026,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 142,
                 "FIELD_DESCRIPTION": "26. Exempt Legal & Accounting Disbursement",
                 "TYPE": "AMT-12",
@@ -1043,7 +1043,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 56,
                 "FIELD_DESCRIPTION": "27(a) Made or guaranteed by Candidate",
                 "TYPE": "AMT-12",
@@ -1060,7 +1060,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 144,
                 "FIELD_DESCRIPTION": "27(b) Other Repayments",
                 "TYPE": "AMT-12",
@@ -1077,7 +1077,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 145,
                 "FIELD_DESCRIPTION": "27(c) Total Loan Repayments Made",
                 "TYPE": "AMT-12",
@@ -1094,7 +1094,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 59,
                 "FIELD_DESCRIPTION": "28(a) Individuals",
                 "TYPE": "AMT-12",
@@ -1111,7 +1111,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 147,
                 "FIELD_DESCRIPTION": "28(b) Political Party Committees",
                 "TYPE": "AMT-12",
@@ -1128,7 +1128,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 148,
                 "FIELD_DESCRIPTION": "28(c) Other Political Committees",
                 "TYPE": "AMT-12",
@@ -1145,7 +1145,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 149,
                 "FIELD_DESCRIPTION": "28(d) Total Contributions Refunds",
                 "TYPE": "AMT-12",
@@ -1162,7 +1162,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 150,
                 "FIELD_DESCRIPTION": "29. Other Disbursements",
                 "TYPE": "AMT-12",
@@ -1179,7 +1179,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 151,
                 "FIELD_DESCRIPTION": "30. Total Disbursements",
                 "TYPE": "AMT-12",
@@ -1196,7 +1196,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 65,
                 "FIELD_DESCRIPTION": "31. Items on Hand to be Liquidated",
                 "TYPE": "AMT-12",
@@ -1213,7 +1213,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 152,
                 "FIELD_DESCRIPTION": "ALABAMA",
                 "TYPE": "AMT-12",
@@ -1230,7 +1230,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 153,
                 "FIELD_DESCRIPTION": "ALASKA",
                 "TYPE": "AMT-12",
@@ -1247,7 +1247,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 154,
                 "FIELD_DESCRIPTION": "ARIZONA",
                 "TYPE": "AMT-12",
@@ -1264,7 +1264,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 155,
                 "FIELD_DESCRIPTION": "ARKANSAS",
                 "TYPE": "AMT-12",
@@ -1281,7 +1281,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 156,
                 "FIELD_DESCRIPTION": "CALIFORNIA",
                 "TYPE": "AMT-12",
@@ -1298,7 +1298,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 157,
                 "FIELD_DESCRIPTION": "COLORADO",
                 "TYPE": "AMT-12",
@@ -1315,7 +1315,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 158,
                 "FIELD_DESCRIPTION": "CONNECTICUT",
                 "TYPE": "AMT-12",
@@ -1332,7 +1332,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 159,
                 "FIELD_DESCRIPTION": "DELAWARE",
                 "TYPE": "AMT-12",
@@ -1349,7 +1349,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 160,
                 "FIELD_DESCRIPTION": "DIST OF COLUMBIA",
                 "TYPE": "AMT-12",
@@ -1366,7 +1366,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 161,
                 "FIELD_DESCRIPTION": "FLORIDA",
                 "TYPE": "AMT-12",
@@ -1383,7 +1383,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 162,
                 "FIELD_DESCRIPTION": "GEORGIA",
                 "TYPE": "AMT-12",
@@ -1400,7 +1400,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 163,
                 "FIELD_DESCRIPTION": "HAWAII",
                 "TYPE": "AMT-12",
@@ -1417,7 +1417,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 164,
                 "FIELD_DESCRIPTION": "IDAHO",
                 "TYPE": "AMT-12",
@@ -1434,7 +1434,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 165,
                 "FIELD_DESCRIPTION": "ILLINOIS",
                 "TYPE": "AMT-12",
@@ -1451,7 +1451,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 166,
                 "FIELD_DESCRIPTION": "INDIANA",
                 "TYPE": "AMT-12",
@@ -1468,7 +1468,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 167,
                 "FIELD_DESCRIPTION": "IOWA",
                 "TYPE": "AMT-12",
@@ -1485,7 +1485,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 168,
                 "FIELD_DESCRIPTION": "KANSAS",
                 "TYPE": "AMT-12",
@@ -1502,7 +1502,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 169,
                 "FIELD_DESCRIPTION": "KENTUCKY",
                 "TYPE": "AMT-12",
@@ -1519,7 +1519,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 170,
                 "FIELD_DESCRIPTION": "LOUISIANA",
                 "TYPE": "AMT-12",
@@ -1536,7 +1536,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 171,
                 "FIELD_DESCRIPTION": "MAINE",
                 "TYPE": "AMT-12",
@@ -1553,7 +1553,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 172,
                 "FIELD_DESCRIPTION": "MARYLAND",
                 "TYPE": "AMT-12",
@@ -1570,7 +1570,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 173,
                 "FIELD_DESCRIPTION": "MASSACHUSETTS",
                 "TYPE": "AMT-12",
@@ -1587,7 +1587,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 174,
                 "FIELD_DESCRIPTION": "MICHIGAN",
                 "TYPE": "AMT-12",
@@ -1604,7 +1604,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 175,
                 "FIELD_DESCRIPTION": "MINNESOTA",
                 "TYPE": "AMT-12",
@@ -1621,7 +1621,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 176,
                 "FIELD_DESCRIPTION": "MISSISSIPPI",
                 "TYPE": "AMT-12",
@@ -1638,7 +1638,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 177,
                 "FIELD_DESCRIPTION": "MISSOURI",
                 "TYPE": "AMT-12",
@@ -1655,7 +1655,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 178,
                 "FIELD_DESCRIPTION": "MONTANA",
                 "TYPE": "AMT-12",
@@ -1672,7 +1672,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 179,
                 "FIELD_DESCRIPTION": "NEBRASKA",
                 "TYPE": "AMT-12",
@@ -1689,7 +1689,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 180,
                 "FIELD_DESCRIPTION": "NEVADA",
                 "TYPE": "AMT-12",
@@ -1706,7 +1706,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 181,
                 "FIELD_DESCRIPTION": "NEW HAMPSHIRE",
                 "TYPE": "AMT-12",
@@ -1723,7 +1723,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 182,
                 "FIELD_DESCRIPTION": "NEW JERSEY",
                 "TYPE": "AMT-12",
@@ -1740,7 +1740,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 183,
                 "FIELD_DESCRIPTION": "NEW MEXICO",
                 "TYPE": "AMT-12",
@@ -1757,7 +1757,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 184,
                 "FIELD_DESCRIPTION": "NEW YORK",
                 "TYPE": "AMT-12",
@@ -1774,7 +1774,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 185,
                 "FIELD_DESCRIPTION": "NORTH CAROLINA",
                 "TYPE": "AMT-12",
@@ -1791,7 +1791,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 186,
                 "FIELD_DESCRIPTION": "NORTH DAKOTA",
                 "TYPE": "AMT-12",
@@ -1808,7 +1808,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 187,
                 "FIELD_DESCRIPTION": "OHIO",
                 "TYPE": "AMT-12",
@@ -1825,7 +1825,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 188,
                 "FIELD_DESCRIPTION": "OKLAHOMA",
                 "TYPE": "AMT-12",
@@ -1842,7 +1842,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 189,
                 "FIELD_DESCRIPTION": "OREGON",
                 "TYPE": "AMT-12",
@@ -1859,7 +1859,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 190,
                 "FIELD_DESCRIPTION": "PENNSYLVANIA",
                 "TYPE": "AMT-12",
@@ -1876,7 +1876,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 191,
                 "FIELD_DESCRIPTION": "RHODE ISLAND",
                 "TYPE": "AMT-12",
@@ -1893,7 +1893,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 192,
                 "FIELD_DESCRIPTION": "SOUTH CAROLINA",
                 "TYPE": "AMT-12",
@@ -1910,7 +1910,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 193,
                 "FIELD_DESCRIPTION": "SOUTH DAKOTA",
                 "TYPE": "AMT-12",
@@ -1927,7 +1927,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 194,
                 "FIELD_DESCRIPTION": "TENNESSEE",
                 "TYPE": "AMT-12",
@@ -1944,7 +1944,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 195,
                 "FIELD_DESCRIPTION": "TEXAS",
                 "TYPE": "AMT-12",
@@ -1961,7 +1961,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 196,
                 "FIELD_DESCRIPTION": "UTAH",
                 "TYPE": "AMT-12",
@@ -1978,7 +1978,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 197,
                 "FIELD_DESCRIPTION": "VERMONT",
                 "TYPE": "AMT-12",
@@ -1995,7 +1995,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 198,
                 "FIELD_DESCRIPTION": "VIRGINIA",
                 "TYPE": "AMT-12",
@@ -2012,7 +2012,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 199,
                 "FIELD_DESCRIPTION": "WASHINGTON",
                 "TYPE": "AMT-12",
@@ -2029,7 +2029,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 200,
                 "FIELD_DESCRIPTION": "WEST VIRGINIA",
                 "TYPE": "AMT-12",
@@ -2046,7 +2046,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 201,
                 "FIELD_DESCRIPTION": "WISCONSIN",
                 "TYPE": "AMT-12",
@@ -2063,7 +2063,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 202,
                 "FIELD_DESCRIPTION": "WYOMING",
                 "TYPE": "AMT-12",
@@ -2080,7 +2080,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 203,
                 "FIELD_DESCRIPTION": "PUERTO RICO",
                 "TYPE": "AMT-12",
@@ -2097,7 +2097,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 204,
                 "FIELD_DESCRIPTION": "GUAM",
                 "TYPE": "AMT-12",
@@ -2114,7 +2114,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 205,
                 "FIELD_DESCRIPTION": "VIRGIN ISLANDS",
                 "TYPE": "AMT-12",
@@ -2131,7 +2131,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 206,
                 "FIELD_DESCRIPTION": "TOTALS",
                 "TYPE": "AMT-12",
@@ -2148,7 +2148,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 128,
                 "FIELD_DESCRIPTION": "17(e) Total contributions  (Other than Loans)",
                 "TYPE": "AMT-12",
@@ -2165,7 +2165,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 130,
                 "FIELD_DESCRIPTION": "19(a) Received from or Guaranteed  by Cand.",
                 "TYPE": "AMT-12",
@@ -2182,7 +2182,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 136,
                 "FIELD_DESCRIPTION": "20(d) Total Offsets to Operating Expenditures",
                 "TYPE": "AMT-12",
@@ -2199,7 +2199,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 143,
                 "FIELD_DESCRIPTION": "27(a) Made or Guaranteed by the Candidate",
                 "TYPE": "AMT-12",
@@ -2216,7 +2216,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 146,
                 "FIELD_DESCRIPTION": "28(a)  Individuals",
                 "TYPE": "AMT-12",

@@ -21,7 +21,7 @@
         "PERSON_COMPLETING_FIRST_NAME",
         "DATE_SIGNED"
     ],
-    "recommended": [
+    "fec_recommended": [
         "STREET_1",
         "CITY",
         "STATE",
@@ -46,7 +46,7 @@
             "examples": [
                 "F9N"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 1,
                 "FIELD_DESCRIPTION": "FORM TYPE",
                 "TYPE": "A/N-3",
@@ -67,7 +67,7 @@
             "examples": [
                 "C30065431"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 2,
                 "FIELD_DESCRIPTION": "FILER COMMITTEE ID NUMBER",
                 "TYPE": "A/N-9",
@@ -88,7 +88,7 @@
             "examples": [
                 "IND"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 3,
                 "FIELD_DESCRIPTION": "ENTITY TYPE",
                 "TYPE": "A/N-3",
@@ -109,7 +109,7 @@
             "examples": [
                 "John Smith & Co."
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 4,
                 "FIELD_DESCRIPTION": "ORGANIZATION NAME",
                 "TYPE": "A/N-200",
@@ -130,7 +130,7 @@
             "examples": [
                 "Smith"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 5,
                 "FIELD_DESCRIPTION": "INDIVIDUAL LAST NAME",
                 "TYPE": "A/N-30",
@@ -151,7 +151,7 @@
             "examples": [
                 "Patrick"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 6,
                 "FIELD_DESCRIPTION": "INDIVIDUAL FIRST NAME",
                 "TYPE": "A/N-20",
@@ -172,7 +172,7 @@
             "examples": [
                 "Thomas"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 7,
                 "FIELD_DESCRIPTION": "INDIVIDUAL MIDDLE NAME",
                 "TYPE": "A/N-20",
@@ -193,7 +193,7 @@
             "examples": [
                 "Mr."
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 8,
                 "FIELD_DESCRIPTION": "INDIVIDUAL PREFIX",
                 "TYPE": "A/N-10",
@@ -214,7 +214,7 @@
             "examples": [
                 "Jr."
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 9,
                 "FIELD_DESCRIPTION": "INDIVIDUAL SUFFIX",
                 "TYPE": "A/N-10",
@@ -232,7 +232,7 @@
             "examples": [
                 "X"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 10,
                 "FIELD_DESCRIPTION": "CHANGE OF ADDRESS",
                 "TYPE": "A-1",
@@ -250,7 +250,7 @@
             "minLength": 0,
             "maxLength": 34,
             "pattern": "^[ A-z0-9]{0,34}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 11,
                 "FIELD_DESCRIPTION": "STREET 1",
                 "TYPE": "A/N-34",
@@ -268,7 +268,7 @@
             "minLength": 0,
             "maxLength": 34,
             "pattern": "^[ A-z0-9]{0,34}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 12,
                 "FIELD_DESCRIPTION": "STREET 2",
                 "TYPE": "A/N-34",
@@ -286,7 +286,7 @@
             "minLength": 0,
             "maxLength": 30,
             "pattern": "^[ A-z0-9]{0,30}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 13,
                 "FIELD_DESCRIPTION": "CITY",
                 "TYPE": "A/N-30",
@@ -304,7 +304,7 @@
             "minLength": 0,
             "maxLength": 2,
             "pattern": "^[ A-z0-9]{0,2}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 14,
                 "FIELD_DESCRIPTION": "STATE",
                 "TYPE": "A-2",
@@ -325,7 +325,7 @@
             "examples": [
                 "20643[1234]"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 15,
                 "FIELD_DESCRIPTION": "ZIP",
                 "TYPE": "A/N-9",
@@ -343,7 +343,7 @@
             "minLength": 0,
             "maxLength": 38,
             "pattern": "^[ A-z0-9]{0,38}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 16,
                 "FIELD_DESCRIPTION": "INDIVIDUAL EMPLOYER",
                 "TYPE": "A/N-38",
@@ -361,7 +361,7 @@
             "minLength": 0,
             "maxLength": 38,
             "pattern": "^[ A-z0-9]{0,38}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 17,
                 "FIELD_DESCRIPTION": "INDIVIDUAL OCCUPATION",
                 "TYPE": "A/N-38",
@@ -381,7 +381,7 @@
             "examples": [
                 20180529
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 18,
                 "FIELD_DESCRIPTION": "ORIGINAL AMENDMENT DATE",
                 "TYPE": "NUM-8",
@@ -401,7 +401,7 @@
             "examples": [
                 20120101
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 19,
                 "FIELD_DESCRIPTION": "COVERAGE FROM DATE",
                 "TYPE": "NUM-8",
@@ -421,7 +421,7 @@
             "examples": [
                 20121231
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 20,
                 "FIELD_DESCRIPTION": "COVERAGE THROUGH DATE",
                 "TYPE": "NUM-8",
@@ -441,7 +441,7 @@
             "examples": [
                 20120921
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 21,
                 "FIELD_DESCRIPTION": "DATE OF PUBLIC DISTRIBUTION",
                 "TYPE": "NUM-8",
@@ -459,7 +459,7 @@
             "minLength": 0,
             "maxLength": 40,
             "pattern": "^[ A-z0-9]{0,40}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 22,
                 "FIELD_DESCRIPTION": "COMMUNICATION TITLE",
                 "TYPE": "A/N-40",
@@ -480,7 +480,7 @@
             "examples": [
                 "QNC"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 23,
                 "FIELD_DESCRIPTION": "FILER CODE",
                 "TYPE": "A/N-3",
@@ -498,7 +498,7 @@
             "minLength": 0,
             "maxLength": 20,
             "pattern": "^[ A-z0-9]{0,20}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 24,
                 "FIELD_DESCRIPTION": "FILER CODE DESCRIPTION",
                 "TYPE": "A/N-20",
@@ -519,7 +519,7 @@
             "examples": [
                 "Y"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 25,
                 "FIELD_DESCRIPTION": "SEGREGATED BANK ACCOUNT",
                 "TYPE": "A-1",
@@ -540,7 +540,7 @@
             "examples": [
                 "Smith"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 26,
                 "FIELD_DESCRIPTION": "CUSTODIAN LAST NAME",
                 "TYPE": "A/N-30",
@@ -561,7 +561,7 @@
             "examples": [
                 "Patrick"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 27,
                 "FIELD_DESCRIPTION": "CUSTODIAN FIRST NAME",
                 "TYPE": "A/N-20",
@@ -582,7 +582,7 @@
             "examples": [
                 "Thomas"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 28,
                 "FIELD_DESCRIPTION": "CUSTODIAN MIDDLE NAME",
                 "TYPE": "A/N-20",
@@ -603,7 +603,7 @@
             "examples": [
                 "Mr."
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 29,
                 "FIELD_DESCRIPTION": "CUSTODIAN PREFIX",
                 "TYPE": "A/N-10",
@@ -624,7 +624,7 @@
             "examples": [
                 "Jr."
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 30,
                 "FIELD_DESCRIPTION": "CUSTODIAN SUFFIX",
                 "TYPE": "A/N-10",
@@ -642,7 +642,7 @@
             "minLength": 0,
             "maxLength": 34,
             "pattern": "^[ A-z0-9]{0,34}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 31,
                 "FIELD_DESCRIPTION": "CUSTODIAN STREET 1",
                 "TYPE": "A/N-34",
@@ -660,7 +660,7 @@
             "minLength": 0,
             "maxLength": 34,
             "pattern": "^[ A-z0-9]{0,34}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 32,
                 "FIELD_DESCRIPTION": "CUSTODIAN STREET 2",
                 "TYPE": "A/N-34",
@@ -678,7 +678,7 @@
             "minLength": 0,
             "maxLength": 30,
             "pattern": "^[ A-z0-9]{0,30}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 33,
                 "FIELD_DESCRIPTION": "CUSTODIAN CITY",
                 "TYPE": "A/N-30",
@@ -696,7 +696,7 @@
             "minLength": 0,
             "maxLength": 2,
             "pattern": "^[ A-z0-9]{0,2}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 34,
                 "FIELD_DESCRIPTION": "CUSTODIAN STATE",
                 "TYPE": "A-2",
@@ -714,7 +714,7 @@
             "minLength": 0,
             "maxLength": 9,
             "pattern": "^[ A-z0-9]{0,9}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 35,
                 "FIELD_DESCRIPTION": "CUSTODIAN ZIP",
                 "TYPE": "A/N-9",
@@ -732,7 +732,7 @@
             "minLength": 0,
             "maxLength": 38,
             "pattern": "^[ A-z0-9]{0,38}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 36,
                 "FIELD_DESCRIPTION": "CUSTODIAN EMPLOYER",
                 "TYPE": "A/N-38",
@@ -750,7 +750,7 @@
             "minLength": 0,
             "maxLength": 38,
             "pattern": "^[ A-z0-9]{0,38}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 37,
                 "FIELD_DESCRIPTION": "CUSTODIAN OCCUPATION",
                 "TYPE": "A/N-38",
@@ -770,7 +770,7 @@
             "examples": [
                 12343.49
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 38,
                 "FIELD_DESCRIPTION": "9. TOTAL DONATIONS THIS STATEMENT",
                 "TYPE": "AMT-12",
@@ -790,7 +790,7 @@
             "examples": [
                 527331.48
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 39,
                 "FIELD_DESCRIPTION": "10. TOTAL DISB./OBLIG. THIS STATEMENT",
                 "TYPE": "AMT-12",
@@ -811,7 +811,7 @@
             "examples": [
                 "Smith"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 40,
                 "FIELD_DESCRIPTION": "PERSON COMPLETING LAST NAME",
                 "TYPE": "A/N-30",
@@ -832,7 +832,7 @@
             "examples": [
                 "Patrick"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 41,
                 "FIELD_DESCRIPTION": "PERSON COMPLETING FIRST NAME",
                 "TYPE": "A/N-20",
@@ -853,7 +853,7 @@
             "examples": [
                 "Thomas"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 42,
                 "FIELD_DESCRIPTION": "PERSON COMPLETING MIDDLE NAME",
                 "TYPE": "A/N-20",
@@ -874,7 +874,7 @@
             "examples": [
                 "Mr."
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 43,
                 "FIELD_DESCRIPTION": "PERSON COMPLETING PREFIX",
                 "TYPE": "A/N-10",
@@ -895,7 +895,7 @@
             "examples": [
                 "Jr."
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 44,
                 "FIELD_DESCRIPTION": "PERSON COMPLETING SUFFIX",
                 "TYPE": "A/N-10",
@@ -915,7 +915,7 @@
             "examples": [
                 20120820
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 45,
                 "FIELD_DESCRIPTION": "DATE SIGNED",
                 "TYPE": "NUM-8",

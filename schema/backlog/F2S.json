@@ -9,7 +9,7 @@
         "FORM_TYPE",
         "FILER_CANDIDATE_ID_NUMBER"
     ],
-    "recommended": [],
+    "fec_recommended": [],
     "properties": {
         "FORM_TYPE": {
             "title": "FORM TYPE",
@@ -21,7 +21,7 @@
             "examples": [
                 "F2S"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 1,
                 "FIELD_DESCRIPTION": "FORM TYPE",
                 "TYPE": "A/N-3",
@@ -42,7 +42,7 @@
             "examples": [
                 "S04MA3210"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 2,
                 "FIELD_DESCRIPTION": "FILER CANDIDATE ID NUMBER",
                 "TYPE": "A/N-9",
@@ -60,7 +60,7 @@
             "minLength": 0,
             "maxLength": 9,
             "pattern": "^[ A-z0-9]{0,9}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 3,
                 "FIELD_DESCRIPTION": "AUTH COMMITTEE ID NUMBER",
                 "TYPE": "A/N-9",
@@ -78,7 +78,7 @@
             "minLength": 0,
             "maxLength": 200,
             "pattern": "^[ A-z0-9]{0,200}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 4,
                 "FIELD_DESCRIPTION": "AUTH COMMITTEE NAME",
                 "TYPE": "A/N-200",
@@ -96,7 +96,7 @@
             "minLength": 0,
             "maxLength": 34,
             "pattern": "^[ A-z0-9]{0,34}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 5,
                 "FIELD_DESCRIPTION": "AUTH STREET 1",
                 "TYPE": "A/N-34",
@@ -114,7 +114,7 @@
             "minLength": 0,
             "maxLength": 34,
             "pattern": "^[ A-z0-9]{0,34}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 6,
                 "FIELD_DESCRIPTION": "AUTH STREET 2",
                 "TYPE": "A/N-34",
@@ -132,7 +132,7 @@
             "minLength": 0,
             "maxLength": 30,
             "pattern": "^[ A-z0-9]{0,30}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 7,
                 "FIELD_DESCRIPTION": "AUTH CITY",
                 "TYPE": "A/N-30",
@@ -150,7 +150,7 @@
             "minLength": 0,
             "maxLength": 2,
             "pattern": "^[ A-z0-9]{0,2}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 8,
                 "FIELD_DESCRIPTION": "AUTH STATE",
                 "TYPE": "A-2",
@@ -168,7 +168,7 @@
             "minLength": 0,
             "maxLength": 9,
             "pattern": "^[ A-z0-9]{0,9}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 9,
                 "FIELD_DESCRIPTION": "AUTH ZIP",
                 "TYPE": "A/N-9",

@@ -16,7 +16,7 @@
         "SIGNER_FIRST_NAME",
         "DATE_SIGNED"
     ],
-    "recommended": [
+    "fec_recommended": [
         "STREET__1",
         "CITY",
         "STATE",
@@ -33,7 +33,7 @@
             "examples": [
                 "F6N"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 1,
                 "FIELD_DESCRIPTION": "FORM TYPE",
                 "TYPE": "A/N-8",
@@ -54,7 +54,7 @@
             "examples": [
                 "C00123456"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 2,
                 "FIELD_DESCRIPTION": "FILER COMMITTEE ID NUMBER",
                 "TYPE": "A/N-9",
@@ -74,7 +74,7 @@
             "examples": [
                 20120729
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 3,
                 "FIELD_DESCRIPTION": "ORIGINAL AMENDMENT DATE",
                 "TYPE": "NUM-8",
@@ -95,7 +95,7 @@
             "examples": [
                 "Friends of Pat"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 4,
                 "FIELD_DESCRIPTION": "COMMITTEE NAME",
                 "TYPE": "A/N-200",
@@ -116,7 +116,7 @@
             "examples": [
                 "123 Sycamore St"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 5,
                 "FIELD_DESCRIPTION": "STREET  1",
                 "TYPE": "A/N-34",
@@ -134,7 +134,7 @@
             "minLength": 0,
             "maxLength": 34,
             "pattern": "^[ A-z0-9]{0,34}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 6,
                 "FIELD_DESCRIPTION": "STREET  2",
                 "TYPE": "A/N-34",
@@ -155,7 +155,7 @@
             "examples": [
                 "Anytown"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 7,
                 "FIELD_DESCRIPTION": "CITY",
                 "TYPE": "A/N-30",
@@ -176,7 +176,7 @@
             "examples": [
                 "FL"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 8,
                 "FIELD_DESCRIPTION": "STATE",
                 "TYPE": "A/N-2",
@@ -197,7 +197,7 @@
             "examples": [
                 33034
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 9,
                 "FIELD_DESCRIPTION": "ZIP",
                 "TYPE": "A/N-9",
@@ -218,7 +218,7 @@
             "examples": [
                 "H98765431"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 10,
                 "FIELD_DESCRIPTION": "CANDIDATE ID NUMBER",
                 "TYPE": "A/N-9",
@@ -236,7 +236,7 @@
             "minLength": 0,
             "maxLength": 30,
             "pattern": "^[ A-z0-9]{0,30}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 11,
                 "FIELD_DESCRIPTION": "CANDIDATE LAST NAME",
                 "TYPE": "A/N-30",
@@ -254,7 +254,7 @@
             "minLength": 0,
             "maxLength": 20,
             "pattern": "^[ A-z0-9]{0,20}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 12,
                 "FIELD_DESCRIPTION": "CANDIDATE FIRST NAME",
                 "TYPE": "A/N-20",
@@ -272,7 +272,7 @@
             "minLength": 0,
             "maxLength": 20,
             "pattern": "^[ A-z0-9]{0,20}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 13,
                 "FIELD_DESCRIPTION": "CANDIDATE MIDDLE NAME",
                 "TYPE": "A/N-20",
@@ -290,7 +290,7 @@
             "minLength": 0,
             "maxLength": 10,
             "pattern": "^[ A-z0-9]{0,10}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 14,
                 "FIELD_DESCRIPTION": "CANDIDATE PREFIX",
                 "TYPE": "A/N-10",
@@ -308,7 +308,7 @@
             "minLength": 0,
             "maxLength": 10,
             "pattern": "^[ A-z0-9]{0,10}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 15,
                 "FIELD_DESCRIPTION": "CANDIDATE SUFFIX",
                 "TYPE": "A/N-10",
@@ -329,7 +329,7 @@
             "examples": [
                 "H"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 16,
                 "FIELD_DESCRIPTION": "CANDIDATE OFFICE",
                 "TYPE": "A/N-1",
@@ -350,7 +350,7 @@
             "examples": [
                 "FL"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 17,
                 "FIELD_DESCRIPTION": "CANDIDATE STATE",
                 "TYPE": "A/N-2",
@@ -370,7 +370,7 @@
             "examples": [
                 35
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 18,
                 "FIELD_DESCRIPTION": "CANDIDATE DISTRICT",
                 "TYPE": "NUM-2",
@@ -388,7 +388,7 @@
             "minLength": 0,
             "maxLength": 30,
             "pattern": "^[ A-z0-9]{0,30}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 19,
                 "FIELD_DESCRIPTION": "SIGNER LAST NAME",
                 "TYPE": "A/N-30",
@@ -406,7 +406,7 @@
             "minLength": 0,
             "maxLength": 20,
             "pattern": "^[ A-z0-9]{0,20}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 20,
                 "FIELD_DESCRIPTION": "SIGNER FIRST NAME",
                 "TYPE": "A/N-20",
@@ -424,7 +424,7 @@
             "minLength": 0,
             "maxLength": 20,
             "pattern": "^[ A-z0-9]{0,20}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 21,
                 "FIELD_DESCRIPTION": "SIGNER MIDDLE NAME",
                 "TYPE": "A/N-20",
@@ -442,7 +442,7 @@
             "minLength": 0,
             "maxLength": 10,
             "pattern": "^[ A-z0-9]{0,10}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 22,
                 "FIELD_DESCRIPTION": "SIGNER PREFIX",
                 "TYPE": "A/N-10",
@@ -460,7 +460,7 @@
             "minLength": 0,
             "maxLength": 10,
             "pattern": "^[ A-z0-9]{0,10}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 23,
                 "FIELD_DESCRIPTION": "SIGNER SUFFIX",
                 "TYPE": "A/N-10",
@@ -480,7 +480,7 @@
             "examples": [
                 20120820
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 24,
                 "FIELD_DESCRIPTION": "DATE SIGNED",
                 "TYPE": "NUM-8",

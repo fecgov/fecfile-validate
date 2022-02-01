@@ -13,7 +13,7 @@
         "GUARANTOR_LAST_NAME",
         "GUARANTOR_FIRST_NAME"
     ],
-    "recommended": [
+    "fec_recommended": [
         "GUARANTOR_STREET_1",
         "GUARANTOR_CITY",
         "GUARANTOR_STATE",
@@ -32,7 +32,7 @@
             "examples": [
                 "SC2/9"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 1,
                 "FIELD_DESCRIPTION": "FORM TYPE",
                 "TYPE": "A/N-8",
@@ -53,7 +53,7 @@
             "examples": [
                 "C00123456"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 2,
                 "FIELD_DESCRIPTION": "FILER COMMITTEE ID NUMBER",
                 "TYPE": "A/N-9",
@@ -74,7 +74,7 @@
             "examples": [
                 "C123456789-3456-001"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 3,
                 "FIELD_DESCRIPTION": "TRANSACTION ID NUMBER",
                 "TYPE": "A/N-20",
@@ -95,7 +95,7 @@
             "examples": [
                 "C123456789-3456"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 4,
                 "FIELD_DESCRIPTION": "BACK REFERENCE TRAN ID NUMBER",
                 "TYPE": "A/N-20",
@@ -116,7 +116,7 @@
             "examples": [
                 "Smith"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 5,
                 "FIELD_DESCRIPTION": "GUARANTOR LAST NAME",
                 "TYPE": "A/N-30",
@@ -137,7 +137,7 @@
             "examples": [
                 "John"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 6,
                 "FIELD_DESCRIPTION": "GUARANTOR FIRST NAME",
                 "TYPE": "A/N-20",
@@ -158,7 +158,7 @@
             "examples": [
                 "W"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 7,
                 "FIELD_DESCRIPTION": "GUARANTOR MIDDLE NAME",
                 "TYPE": "A/N-20",
@@ -179,7 +179,7 @@
             "examples": [
                 "Dr"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 8,
                 "FIELD_DESCRIPTION": "GUARANTOR PREFIX",
                 "TYPE": "A/N-10",
@@ -200,7 +200,7 @@
             "examples": [
                 "Jr"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 9,
                 "FIELD_DESCRIPTION": "GUARANTOR SUFFIX",
                 "TYPE": "A/N-10",
@@ -221,7 +221,7 @@
             "examples": [
                 "123 Main Street"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 10,
                 "FIELD_DESCRIPTION": "GUARANTOR STREET 1",
                 "TYPE": "A/N-34",
@@ -239,7 +239,7 @@
             "minLength": 0,
             "maxLength": 34,
             "pattern": "^[ A-z0-9]{0,34}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 11,
                 "FIELD_DESCRIPTION": "GUARANTOR STREET 2",
                 "TYPE": "A/N-34",
@@ -260,7 +260,7 @@
             "examples": [
                 "Anytown"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 12,
                 "FIELD_DESCRIPTION": "GUARANTOR CITY",
                 "TYPE": "A/N-30",
@@ -281,7 +281,7 @@
             "examples": [
                 "WA"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 13,
                 "FIELD_DESCRIPTION": "GUARANTOR STATE",
                 "TYPE": "A-2",
@@ -302,7 +302,7 @@
             "examples": [
                 981110123
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 14,
                 "FIELD_DESCRIPTION": "GUARANTOR ZIP",
                 "TYPE": "A/N-9",
@@ -323,7 +323,7 @@
             "examples": [
                 "XYZ Company"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 15,
                 "FIELD_DESCRIPTION": "GUARANTOR EMPLOYER",
                 "TYPE": "A/N-38",
@@ -344,7 +344,7 @@
             "examples": [
                 "QC Inspector"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 16,
                 "FIELD_DESCRIPTION": "GUARANTOR OCCUPATION",
                 "TYPE": "A/N-38",
@@ -364,7 +364,7 @@
             "examples": [
                 250
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 17,
                 "FIELD_DESCRIPTION": "GUARANTEED AMOUNT",
                 "TYPE": "AMT-12",

@@ -39,8 +39,8 @@ print('</tr>')
 
 for p in data['properties']:
     print('<tr>')
-    for s in data['properties'][p]['spec']:
-        value = data["properties"][p]["spec"][s]
+    for s in data['properties'][p]['fec_spec']:
+        value = data["properties"][p]["fec_spec"][s]
         if not value:
             value = ''
         print(f'<td>{value}</td>')

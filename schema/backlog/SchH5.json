@@ -17,7 +17,7 @@
         "GOTV_AMOUNT",
         "GENERIC_CAMPAIGN_AMOUNT"
     ],
-    "recommended": [],
+    "fec_recommended": [],
     "properties": {
         "FORM_TYPE": {
             "title": "FORM TYPE",
@@ -29,7 +29,7 @@
             "examples": [
                 "H5"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 1,
                 "FIELD_DESCRIPTION": "FORM TYPE",
                 "TYPE": "A/N-8",
@@ -50,7 +50,7 @@
             "examples": [
                 "C00123456"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 2,
                 "FIELD_DESCRIPTION": "FILER COMMITTEE ID NUMBER",
                 "TYPE": "A/N-9",
@@ -71,7 +71,7 @@
             "examples": [
                 "H3123789-1234"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 3,
                 "FIELD_DESCRIPTION": "TRANSACTION ID NUMBER",
                 "TYPE": "A/N-20",
@@ -89,7 +89,7 @@
             "minLength": 0,
             "maxLength": 90,
             "pattern": "^[ A-z0-9]{0,90}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 4,
                 "FIELD_DESCRIPTION": "ACCOUNT NAME",
                 "TYPE": "A/N-90",
@@ -109,7 +109,7 @@
             "examples": [
                 20120228
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 5,
                 "FIELD_DESCRIPTION": "RECEIPT DATE",
                 "TYPE": "NUM-8",
@@ -129,7 +129,7 @@
             "examples": [
                 30000
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 6,
                 "FIELD_DESCRIPTION": "TOTAL AMOUNT TRANSFERRED",
                 "TYPE": "AMT-12",
@@ -149,7 +149,7 @@
             "examples": [
                 7500
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 7,
                 "FIELD_DESCRIPTION": "VOTER REGISTRATION AMOUNT",
                 "TYPE": "AMT-12",
@@ -169,7 +169,7 @@
             "examples": [
                 7500
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 8,
                 "FIELD_DESCRIPTION": "VOTER ID AMOUNT",
                 "TYPE": "AMT-12",
@@ -189,7 +189,7 @@
             "examples": [
                 7500
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 9,
                 "FIELD_DESCRIPTION": "GOTV AMOUNT",
                 "TYPE": "AMT-12",
@@ -209,7 +209,7 @@
             "examples": [
                 7500
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 10,
                 "FIELD_DESCRIPTION": "GENERIC CAMPAIGN AMOUNT",
                 "TYPE": "AMT-12",

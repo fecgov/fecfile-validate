@@ -13,7 +13,7 @@
         "TREASURER_FIRST_NAME",
         "DATE_SIGNED"
     ],
-    "recommended": [
+    "fec_recommended": [
         "COMMITTEE_NAME",
         "STREET__1",
         "CITY",
@@ -38,7 +38,7 @@
             "examples": [
                 "F3LN"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 1,
                 "FIELD_DESCRIPTION": "FORM TYPE",
                 "TYPE": "A/N-4",
@@ -59,7 +59,7 @@
             "examples": [
                 "C00123456"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 2,
                 "FIELD_DESCRIPTION": "FILER COMMITTEE ID NUMBER",
                 "TYPE": "A/N-9",
@@ -80,7 +80,7 @@
             "examples": [
                 "Friends of Pat"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 3,
                 "FIELD_DESCRIPTION": "COMMITTEE NAME",
                 "TYPE": "A/N-200",
@@ -98,7 +98,7 @@
             "examples": [
                 "X"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 4,
                 "FIELD_DESCRIPTION": "CHANGE OF ADDRESS",
                 "TYPE": "A-1",
@@ -119,7 +119,7 @@
             "examples": [
                 "123 Sycamore St"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 5,
                 "FIELD_DESCRIPTION": "STREET  1",
                 "TYPE": "A/N-34",
@@ -137,7 +137,7 @@
             "minLength": 0,
             "maxLength": 34,
             "pattern": "^[ A-z0-9]{0,34}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 6,
                 "FIELD_DESCRIPTION": "STREET  2",
                 "TYPE": "A/N-34",
@@ -158,7 +158,7 @@
             "examples": [
                 "Anytown"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 7,
                 "FIELD_DESCRIPTION": "CITY",
                 "TYPE": "A/N-30",
@@ -179,7 +179,7 @@
             "examples": [
                 "FL"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 8,
                 "FIELD_DESCRIPTION": "STATE",
                 "TYPE": "A-2",
@@ -200,7 +200,7 @@
             "examples": [
                 33034
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 9,
                 "FIELD_DESCRIPTION": "ZIP",
                 "TYPE": "A/N-9",
@@ -221,7 +221,7 @@
             "examples": [
                 "FL"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 10,
                 "FIELD_DESCRIPTION": "ELECTION STATE",
                 "TYPE": "A-2",
@@ -241,7 +241,7 @@
             "examples": [
                 45
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 11,
                 "FIELD_DESCRIPTION": "ELECTION DISTRICT",
                 "TYPE": "NUM-2",
@@ -262,7 +262,7 @@
             "examples": [
                 "12P"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 12,
                 "FIELD_DESCRIPTION": "REPORT CODE",
                 "TYPE": "A-3",
@@ -282,7 +282,7 @@
             "examples": [
                 20120715
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 13,
                 "FIELD_DESCRIPTION": "DATE OF ELECTION",
                 "TYPE": "NUM-8",
@@ -303,7 +303,7 @@
             "examples": [
                 "FL"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 14,
                 "FIELD_DESCRIPTION": "STATE OF ELECTION",
                 "TYPE": "A-2",
@@ -321,7 +321,7 @@
             "examples": [
                 "X"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 15,
                 "FIELD_DESCRIPTION": "SEMI-ANNUAL PERIOD - Sect 5(c) or (d)",
                 "TYPE": "A-1",
@@ -341,7 +341,7 @@
             "examples": [
                 20120501
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 16,
                 "FIELD_DESCRIPTION": "COVERAGE FROM DATE",
                 "TYPE": "NUM-8",
@@ -361,7 +361,7 @@
             "examples": [
                 20120531
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 17,
                 "FIELD_DESCRIPTION": "COVERAGE THROUGH DATE",
                 "TYPE": "NUM-8",
@@ -382,7 +382,7 @@
             "examples": [
                 "X"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 18,
                 "FIELD_DESCRIPTION": "SEMI-ANNUAL JAN-JUN - Sect 6(b)",
                 "TYPE": "A-1",
@@ -403,7 +403,7 @@
             "examples": [
                 "X"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 19,
                 "FIELD_DESCRIPTION": "SEMI-ANNUAL JUL-DEC - Sect 6(b)",
                 "TYPE": "A-1",
@@ -423,7 +423,7 @@
             "examples": [
                 1234.56
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 20,
                 "FIELD_DESCRIPTION": "QTR/MON/POST BUNDLED CONTRIBUTIONS",
                 "TYPE": "AMT-12",
@@ -443,7 +443,7 @@
             "examples": [
                 1234.56
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 21,
                 "FIELD_DESCRIPTION": "SEMI-ANNUAL BUNDLED CONTRIBS",
                 "TYPE": "AMT-12",
@@ -464,7 +464,7 @@
             "examples": [
                 "Smith"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 22,
                 "FIELD_DESCRIPTION": "TREASURER LAST NAME",
                 "TYPE": "A/N-30",
@@ -485,7 +485,7 @@
             "examples": [
                 "Patrick"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 23,
                 "FIELD_DESCRIPTION": "TREASURER FIRST NAME",
                 "TYPE": "A/N-20",
@@ -506,7 +506,7 @@
             "examples": [
                 "Thomas"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 24,
                 "FIELD_DESCRIPTION": "TREASURER MIDDLE NAME",
                 "TYPE": "A/N-20",
@@ -527,7 +527,7 @@
             "examples": [
                 "Mr."
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 25,
                 "FIELD_DESCRIPTION": "TREASURER PREFIX",
                 "TYPE": "A/N-10",
@@ -548,7 +548,7 @@
             "examples": [
                 "Jr."
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 26,
                 "FIELD_DESCRIPTION": "TREASURER SUFFIX",
                 "TYPE": "A/N-10",
@@ -568,7 +568,7 @@
             "examples": [
                 20120729
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 27,
                 "FIELD_DESCRIPTION": "DATE SIGNED",
                 "TYPE": "NUM-8",

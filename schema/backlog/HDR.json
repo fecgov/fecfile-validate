@@ -10,7 +10,7 @@
         "EF_Type",
         "FEC_Version_#"
     ],
-    "recommended": [],
+    "fec_recommended": [],
     "properties": {
         "Record_Type": {
             "title": "Record Type",
@@ -22,7 +22,7 @@
             "examples": [
                 "HDR"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 1,
                 "FIELD_DESCRIPTION": "Record Type",
                 "TYPE": "A/N-3",
@@ -43,7 +43,7 @@
             "examples": [
                 "FEC"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 2,
                 "FIELD_DESCRIPTION": "EF Type",
                 "TYPE": "A/N-3",
@@ -64,7 +64,7 @@
             "examples": [
                 "8.3"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 3,
                 "FIELD_DESCRIPTION": "FEC Version #",
                 "TYPE": "A/N-4",
@@ -85,7 +85,7 @@
             "examples": [
                 "SUPERFILER"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 4,
                 "FIELD_DESCRIPTION": "Soft Name",
                 "TYPE": "A/N-90",
@@ -106,7 +106,7 @@
             "examples": [
                 "1.0"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 5,
                 "FIELD_DESCRIPTION": "Soft Ver",
                 "TYPE": "A/N-16",
@@ -127,7 +127,7 @@
             "examples": [
                 "FEC-123467"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 6,
                 "FIELD_DESCRIPTION": "Rpt ID",
                 "TYPE": "A/N-16",
@@ -144,7 +144,7 @@
             "examples": [
                 "1"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 7,
                 "FIELD_DESCRIPTION": "Rpt Number",
                 "TYPE": "N-3",
@@ -162,7 +162,7 @@
             "minLength": 0,
             "maxLength": 200,
             "pattern": "^[ A-z0-9]{0,200}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 8,
                 "FIELD_DESCRIPTION": "HDRcomment",
                 "TYPE": "A/N-200",

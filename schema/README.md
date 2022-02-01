@@ -10,8 +10,8 @@ can not be captured using the standard, legacy spec information, and descriptive
 meta-data.
 
 **Custom Property Attributes**
-- spec: Contains the property spec information captured in the original spec FEC spreadsheets
-- recommended: Fields that are not required and will prohibit submission of a form but are recommended, raising a warning if missing
+- fec_spec: Contains the property spec information captured in the original spec FEC spreadsheets
+- fec_recommended: Fields that are not required and will prohibit submission of a form but are recommended, raising a warning if missing
 
 ### Schema Backlog
 

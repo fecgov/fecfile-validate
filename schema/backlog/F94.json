@@ -12,7 +12,7 @@
         "CANDIDATE_LAST_NAME",
         "CANDIDATE_FIRST_NAME"
     ],
-    "recommended": [
+    "fec_recommended": [
         "CANDIDATE_OFFICE",
         "CANDIDATE_STATE",
         "CANDIDATE_DIST"
@@ -28,7 +28,7 @@
             "examples": [
                 "F94"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 1,
                 "FIELD_DESCRIPTION": "FORM TYPE",
                 "TYPE": "A/N-8",
@@ -49,7 +49,7 @@
             "examples": [
                 "C00123456"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 2,
                 "FIELD_DESCRIPTION": "FILER COMMITTEE ID NUMBER",
                 "TYPE": "A/N-9",
@@ -70,7 +70,7 @@
             "examples": [
                 "B5614789-1234"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 3,
                 "FIELD_DESCRIPTION": "TRANSACTION ID NUMBER",
                 "TYPE": "A/N-20",
@@ -91,7 +91,7 @@
             "examples": [
                 "A123789-1234"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 4,
                 "FIELD_DESCRIPTION": "BACK REFERENCE TRAN ID",
                 "TYPE": "A/N-20",
@@ -112,7 +112,7 @@
             "examples": [
                 "F93"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 5,
                 "FIELD_DESCRIPTION": "BACK REFERENCE SCHED NAME",
                 "TYPE": "A/N-8",
@@ -133,7 +133,7 @@
             "examples": [
                 "H04MA3210"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 6,
                 "FIELD_DESCRIPTION": "CANDIDATE ID NUMBER",
                 "TYPE": "A/N-9",
@@ -154,7 +154,7 @@
             "examples": [
                 "Smith"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 7,
                 "FIELD_DESCRIPTION": "CANDIDATE LAST NAME",
                 "TYPE": "A/N-30",
@@ -175,7 +175,7 @@
             "examples": [
                 "Patrick"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 8,
                 "FIELD_DESCRIPTION": "CANDIDATE FIRST NAME",
                 "TYPE": "A/N-20",
@@ -196,7 +196,7 @@
             "examples": [
                 "Thomas"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 9,
                 "FIELD_DESCRIPTION": "CANDIDATE MIDDLE NAME",
                 "TYPE": "A/N-20",
@@ -217,7 +217,7 @@
             "examples": [
                 "Mr."
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 10,
                 "FIELD_DESCRIPTION": "CANDIDATE PREFIX",
                 "TYPE": "A/N-10",
@@ -238,7 +238,7 @@
             "examples": [
                 "Jr."
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 11,
                 "FIELD_DESCRIPTION": "CANDIDATE SUFFIX",
                 "TYPE": "A/N-10",
@@ -259,7 +259,7 @@
             "examples": [
                 "H"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 12,
                 "FIELD_DESCRIPTION": "CANDIDATE OFFICE",
                 "TYPE": "A/N-1",
@@ -280,7 +280,7 @@
             "examples": [
                 "MA"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 13,
                 "FIELD_DESCRIPTION": "CANDIDATE STATE",
                 "TYPE": "A/N-2",
@@ -300,7 +300,7 @@
             "examples": [
                 70
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 14,
                 "FIELD_DESCRIPTION": "CANDIDATE DIST",
                 "TYPE": "NUM-2",
@@ -321,7 +321,7 @@
             "examples": [
                 "P2012"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 15,
                 "FIELD_DESCRIPTION": "ELECTION CODE",
                 "TYPE": "A/N-5",
@@ -339,7 +339,7 @@
             "minLength": 0,
             "maxLength": 20,
             "pattern": "^[ A-z0-9]{0,20}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 16,
                 "FIELD_DESCRIPTION": "ELECTION OTHER DESCRIPTION",
                 "TYPE": "A/N-20",
