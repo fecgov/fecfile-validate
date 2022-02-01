@@ -4,10 +4,8 @@ import os
 import json
 from jsonschema import Draft7Validator
 
-unused = 77
 
 def get_schema():
-    MORE_unused = 222
     """Return form schema as JSON object"""
     with open(
         os.path.join(os.path.dirname(__file__), '../schema/F3X.json')
