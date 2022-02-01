@@ -8,7 +8,7 @@ orbs:
 
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
-  unit-test:
+  test:
     # These next lines defines a Docker executors: https://circleci.com/docs/2.0/executor-types/
     # A list of available CircleCI Docker convenience images are available here: https://circleci.com/developer/images/image/cimg/python
     docker:
@@ -24,7 +24,7 @@ jobs:
       - run:
           name: Run tests, save a coverage report, and save coverage percentage
           command: |
-            pytest --cov=. --cov-report=html --cov-report=term | tee pytest.out
+            pytest --cov=.  --cov-report=xml --cov-report=html --cov-report=term | tee pytest.out
             export NEW_PERCENT=$(cat pytest.out | grep TOTAL | awk '{print $4}' | grep -oE "[0-9]+" )
             echo ${NEW_PERCENT} > htmlcov/total_percent.txt
             echo Total code coverage percentage is ${NEW_PERCENT}%
@@ -44,21 +44,41 @@ jobs:
             fi
             echo Coverage is good.
 
-  lint:
-    docker:
-      - image: cimg/python:3.8
 
-    steps:
-      - checkout
 
-      - python/install-packages:
-          pkg-manager: pip
-          pip-dependency-file: requirements-test.txt
-
+      # Sonar cloud setup and scanning
       - run:
-          name: Run lint
-          command: flake8 .
+          name: Create sonar-scanner cache directory if it doesn't exist
+          command: mkdir -p /tmp/cache/scanner
+      - restore_cache:
+          keys:
+            - v1-sonarcloud-scanner-4.6.2.2472
+      - run:
+          name: SonarCloud
+          command: |
+            set -e
+            VERSION=4.6.2.2472
+            if [ -z "$SONAR_TOKEN" ]; then
+                 echo "You must set SONAR_TOKEN environemnt variable"
+                 exit 1
+            fi
+            SCANNER_DIRECTORY=/tmp/cache/scanner
+            export SONAR_USER_HOME=$SCANNER_DIRECTORY/.sonar
+            OS="linux"
+            echo $SONAR_USER_HOME
+            if [[ ! -x "$SCANNER_DIRECTORY/sonar-scanner-$VERSION-$OS/bin/sonar-scanner" ]]; then
+              curl -Ol https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-$VERSION-$OS.zip
+              unzip -qq -o sonar-scanner-cli-$VERSION-$OS.zip -d $SCANNER_DIRECTORY
+            fi
 
+            chmod +x $SCANNER_DIRECTORY/sonar-scanner-$VERSION-$OS/bin/sonar-scanner
+            chmod +x $SCANNER_DIRECTORY/sonar-scanner-$VERSION-$OS/jre/bin/java
+            $SCANNER_DIRECTORY/sonar-scanner-$VERSION-$OS/bin/sonar-scanner
+          environment:
+            SONARQUBE_SCANNER_PARAMS: '{"sonar.host.url":"https://sonarcloud.io"}'
+      - save_cache:
+          key: v1-sonarcloud-scanner-4.6.2.2472
+          paths: /tmp/cache/scanner
 
   dependency-check:
     docker:
@@ -95,6 +115,5 @@ jobs:
 workflows:
   test:
     jobs:
-      - unit-test
-      - lint
+      - test
       - dependency-check

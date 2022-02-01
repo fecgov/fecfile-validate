@@ -1,0 +1,22 @@
+sonar.projectKey=fecgov_fecfile-validate
+sonar.organization=fecgov
+
+# This is the name and version displayed in the SonarCloud UI.
+sonar.projectName=fecfile-validate
+#sonar.projectVersion=1.0
+
+# Path is relative to the sonar-project.properties file. Replace "\" by "/" on Windows.
+sonar.sources=.
+
+# Encoding of the source code. Default is default system encoding
+#sonar.sourceEncoding=UTF-8
+
+sonar.python.coverage.reportPaths=coverage-reports/coverage.xml
+sonar.python.bandit.reportPaths=bandit.out
+sonar.python.flake8.reportPaths=flake8.out
+sonar.python.version=3
+
+sonar.host.url=https://sonarcloud.io
+
+
+sonar.python.coverage.reportPaths=coverage.xml
