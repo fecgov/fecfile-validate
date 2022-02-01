@@ -17,9 +17,16 @@ jobs:
     steps:
       - checkout
 
+      - run:
+          name: Create unified requirements so CircleCI can cache them
+          command: |
+            cat requirements.txt > requirements-all.txt
+            echo >> requirements-all.txt  # blank in case new newline at end of requirements.txt
+            cat requirements-test.txt >> requirements-all.txt
+
       - python/install-packages:
           pkg-manager: pip
-          pip-dependency-file: requirements-test.txt
+          pip-dependency-file: requirements-all.txt
 
       - run:
           name: Run tests, save a coverage report, and save coverage percentage
@@ -43,8 +50,6 @@ jobs:
               exit 1
             fi
             echo Coverage is good.
-
-
 
       # Sonar cloud setup and scanning
       - run:
