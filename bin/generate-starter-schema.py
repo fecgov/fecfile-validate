@@ -111,7 +111,7 @@ def convert_row_to_property(row, sheet_has_autopopulate):# noqa
     is_required = required and "error" in required
     is_recommended = required and "warn" in required
 
-    prop["spec"] = spec
+    prop["fec_spec"] = spec
     return (token, prop, is_required, is_recommended)
 
 
@@ -150,8 +150,9 @@ for ws in wb.worksheets:
         token, prop, is_required, is_recommended = \
             convert_row_to_property(row, sheet_has_autopopulate)
         if token == "TRANSACTION_TYPE_IDENTIFIER":
-            trans_type_id = prop.get('spec', {}).get(Columns.SAMPLE_DATA.name,
-                                                     "") or ""
+            trans_type_id = \
+                prop.get('fec_spec', {}).get(Columns.SAMPLE_DATA.name,
+                                             "") or ""
             trans_type_hits[trans_type_id] = \
                 (trans_type_hits.get(trans_type_id) or 0) + 1
             if (trans_type_hits[trans_type_id] > 1 or trans_type_id == ''):
@@ -174,7 +175,7 @@ for ws in wb.worksheets:
         "description": ws.cell(1, 1).value,
         "type": "object",
         "required": required_rows,
-        "recommended": recommended_rows,
+        "fec_recommended": recommended_rows,
         "properties": schema_properties,
         "additionalProperties": False
     }

@@ -18,7 +18,7 @@
         "S/O_CANDIDATE_LAST_NAME",
         "S/O_CANDIDATE_FIRST_NAME"
     ],
-    "recommended": [
+    "fec_recommended": [
         "PAYEE_STREET__1",
         "PAYEE_CITY",
         "PAYEE_STATE",
@@ -41,7 +41,7 @@
             "examples": [
                 "F57"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 1,
                 "FIELD_DESCRIPTION": "FORM TYPE",
                 "TYPE": "A/N-8",
@@ -62,7 +62,7 @@
             "examples": [
                 "C90065431"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 2,
                 "FIELD_DESCRIPTION": "FILER COMMITTEE ID NUMBER",
                 "TYPE": "A/N-9",
@@ -83,7 +83,7 @@
             "examples": [
                 "B56123456789-1234"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 3,
                 "FIELD_DESCRIPTION": "TRANSACTION ID NUMBER",
                 "TYPE": "A/N-20",
@@ -104,7 +104,7 @@
             "examples": [
                 "CCM"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 4,
                 "FIELD_DESCRIPTION": "ENTITY TYPE",
                 "TYPE": "A/N-3",
@@ -125,7 +125,7 @@
             "examples": [
                 "John Smith & Co."
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 5,
                 "FIELD_DESCRIPTION": "PAYEE ORGANIZATION NAME",
                 "TYPE": "A/N-200",
@@ -146,7 +146,7 @@
             "examples": [
                 "Smith"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 6,
                 "FIELD_DESCRIPTION": "PAYEE LAST NAME",
                 "TYPE": "A/N-30",
@@ -167,7 +167,7 @@
             "examples": [
                 "John"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 7,
                 "FIELD_DESCRIPTION": "PAYEE FIRST NAME",
                 "TYPE": "A/N-20",
@@ -188,7 +188,7 @@
             "examples": [
                 "W"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 8,
                 "FIELD_DESCRIPTION": "PAYEE MIDDLE NAME",
                 "TYPE": "A/N-20",
@@ -209,7 +209,7 @@
             "examples": [
                 "Dr"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 9,
                 "FIELD_DESCRIPTION": "PAYEE PREFIX",
                 "TYPE": "A/N-10",
@@ -230,7 +230,7 @@
             "examples": [
                 "Jr"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 10,
                 "FIELD_DESCRIPTION": "PAYEE SUFFIX",
                 "TYPE": "A/N-10",
@@ -251,7 +251,7 @@
             "examples": [
                 "Suite 16"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 11,
                 "FIELD_DESCRIPTION": "PAYEE STREET  1",
                 "TYPE": "A/N-34",
@@ -272,7 +272,7 @@
             "examples": [
                 "30 Oak Street"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 12,
                 "FIELD_DESCRIPTION": "PAYEE STREET  2",
                 "TYPE": "A/N-34",
@@ -293,7 +293,7 @@
             "examples": [
                 "Springfield"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 13,
                 "FIELD_DESCRIPTION": "PAYEE CITY",
                 "TYPE": "A/N-30",
@@ -314,7 +314,7 @@
             "examples": [
                 "MA"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 14,
                 "FIELD_DESCRIPTION": "PAYEE STATE",
                 "TYPE": "A/N-2",
@@ -335,7 +335,7 @@
             "examples": [
                 1012
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 15,
                 "FIELD_DESCRIPTION": "PAYEE ZIP",
                 "TYPE": "A/N-9",
@@ -356,7 +356,7 @@
             "examples": [
                 "P2012"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 16,
                 "FIELD_DESCRIPTION": "ELECTION CODE",
                 "TYPE": "A/N-5",
@@ -374,7 +374,7 @@
             "minLength": 0,
             "maxLength": 20,
             "pattern": "^[ A-z0-9]{0,20}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 17,
                 "FIELD_DESCRIPTION": "ELECTION OTHER DESCRIPTION",
                 "TYPE": "A/N-20",
@@ -394,7 +394,7 @@
             "examples": [
                 20120720
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 18,
                 "FIELD_DESCRIPTION": "DISSEMINATION DATE",
                 "TYPE": "NUM-8",
@@ -414,7 +414,7 @@
             "examples": [
                 1500
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 19,
                 "FIELD_DESCRIPTION": "EXPENDITURE AMOUNT",
                 "TYPE": "AMT-12",
@@ -434,7 +434,7 @@
             "examples": [
                 1500
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 20,
                 "FIELD_DESCRIPTION": "CALENDAR Y-T-D (per election/office)",
                 "TYPE": "AMT-12",
@@ -455,7 +455,7 @@
             "examples": [
                 "Loan Repayment"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 21,
                 "FIELD_DESCRIPTION": "EXPENDITURE PURPOSE DESCRIP",
                 "TYPE": "A/N-100",
@@ -476,7 +476,7 @@
             "examples": [
                 1
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 22,
                 "FIELD_DESCRIPTION": "CATEGORY CODE",
                 "TYPE": "A/N-3",
@@ -494,7 +494,7 @@
             "minLength": 0,
             "maxLength": 9,
             "pattern": "^[ A-z0-9]{0,9}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 23,
                 "FIELD_DESCRIPTION": "PAYEE CMTTE FEC ID NUMBER",
                 "TYPE": "A/N-9",
@@ -515,7 +515,7 @@
             "examples": [
                 "S"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 24,
                 "FIELD_DESCRIPTION": "SUPPORT/OPPOSE CODE",
                 "TYPE": "A/N-1",
@@ -536,7 +536,7 @@
             "examples": [
                 "H04MA3210"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 25,
                 "FIELD_DESCRIPTION": "S/O CANDIDATE ID NUMBER",
                 "TYPE": "A/N-9",
@@ -557,7 +557,7 @@
             "examples": [
                 "Smith"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 26,
                 "FIELD_DESCRIPTION": "S/O CANDIDATE LAST NAME",
                 "TYPE": "A/N-30",
@@ -578,7 +578,7 @@
             "examples": [
                 "Patrick"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 27,
                 "FIELD_DESCRIPTION": "S/O CANDIDATE FIRST NAME",
                 "TYPE": "A/N-20",
@@ -599,7 +599,7 @@
             "examples": [
                 "Thomas"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 28,
                 "FIELD_DESCRIPTION": "S/O CANDINATE MIDDLE NAME",
                 "TYPE": "A/N-20",
@@ -620,7 +620,7 @@
             "examples": [
                 "Mr."
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 29,
                 "FIELD_DESCRIPTION": "S/O CANDIDATE PREFIX",
                 "TYPE": "A/N-10",
@@ -641,7 +641,7 @@
             "examples": [
                 "Jr."
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 30,
                 "FIELD_DESCRIPTION": "S/O CANDIDATE SUFFIX",
                 "TYPE": "A/N-10",
@@ -662,7 +662,7 @@
             "examples": [
                 "H"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 31,
                 "FIELD_DESCRIPTION": "S/O CANDIDATE OFFICE",
                 "TYPE": "A/N-1",
@@ -683,7 +683,7 @@
             "examples": [
                 "FL"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 32,
                 "FIELD_DESCRIPTION": "S/O CANDIDATE STATE",
                 "TYPE": "A/N-2",
@@ -704,7 +704,7 @@
             "examples": [
                 35
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 33,
                 "FIELD_DESCRIPTION": "S/O CANDIDATE DISTRICT",
                 "TYPE": "A/N-2",

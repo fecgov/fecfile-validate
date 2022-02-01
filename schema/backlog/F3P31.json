@@ -12,7 +12,7 @@
         "CONTRIBUTOR_LAST_NAME",
         "CONTRIBUTOR_FIRST_NAME"
     ],
-    "recommended": [
+    "fec_recommended": [
         "CONTRIBUTOR_STREET__1",
         "CONTRIBUTOR_CITY",
         "CONTRIBUTOR_STATE",
@@ -29,7 +29,7 @@
             "examples": [
                 "C00123456"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 2,
                 "FIELD_DESCRIPTION": "FILER COMMITTEE ID NUMBER",
                 "TYPE": "A/N-9",
@@ -50,7 +50,7 @@
             "examples": [
                 "AL123456789-1234"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 3,
                 "FIELD_DESCRIPTION": "TRANSACTION ID NUMBER",
                 "TYPE": "A/N-20",
@@ -71,7 +71,7 @@
             "examples": [
                 "IND"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 4,
                 "FIELD_DESCRIPTION": "ENTITY TYPE",
                 "TYPE": "A/N-3",
@@ -92,7 +92,7 @@
             "examples": [
                 "John Smith & Co."
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 5,
                 "FIELD_DESCRIPTION": "CONTRIBUTOR ORGANIZATION NAME",
                 "TYPE": "A/N-200",
@@ -113,7 +113,7 @@
             "examples": [
                 "Smith"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 6,
                 "FIELD_DESCRIPTION": "CONTRIBUTOR LAST NAME",
                 "TYPE": "A/N-30",
@@ -134,7 +134,7 @@
             "examples": [
                 "Patrick"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 7,
                 "FIELD_DESCRIPTION": "CONTRIBUTOR FIRST NAME",
                 "TYPE": "A/N-20",
@@ -155,7 +155,7 @@
             "examples": [
                 "Thomas"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 8,
                 "FIELD_DESCRIPTION": "CONTRIBUTOR MIDDLE NAME",
                 "TYPE": "A/N-20",
@@ -176,7 +176,7 @@
             "examples": [
                 "Mr."
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 9,
                 "FIELD_DESCRIPTION": "CONTRIBUTOR PREFIX",
                 "TYPE": "A/N-10",
@@ -197,7 +197,7 @@
             "examples": [
                 "Jr."
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 10,
                 "FIELD_DESCRIPTION": "CONTRIBUTOR SUFFIX",
                 "TYPE": "A/N-10",
@@ -218,7 +218,7 @@
             "examples": [
                 "123 Main Street"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 11,
                 "FIELD_DESCRIPTION": "CONTRIBUTOR STREET  1",
                 "TYPE": "A/N-34",
@@ -236,7 +236,7 @@
             "minLength": 0,
             "maxLength": 34,
             "pattern": "^[ A-z0-9]{0,34}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 12,
                 "FIELD_DESCRIPTION": "CONTRIBUTOR STREET  2",
                 "TYPE": "A/N-34",
@@ -257,7 +257,7 @@
             "examples": [
                 "Anytown"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 13,
                 "FIELD_DESCRIPTION": "CONTRIBUTOR CITY",
                 "TYPE": "A/N-30",
@@ -278,7 +278,7 @@
             "examples": [
                 "WA"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 14,
                 "FIELD_DESCRIPTION": "CONTRIBUTOR STATE",
                 "TYPE": "A-2",
@@ -299,7 +299,7 @@
             "examples": [
                 981110123
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 15,
                 "FIELD_DESCRIPTION": "CONTRIBUTOR ZIP",
                 "TYPE": "A/N-9",
@@ -320,7 +320,7 @@
             "examples": [
                 "P2012"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 16,
                 "FIELD_DESCRIPTION": "ELECTION CODE  {was RPTPGI}",
                 "TYPE": "A/N-5",
@@ -341,7 +341,7 @@
             "examples": [
                 "Computer"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 17,
                 "FIELD_DESCRIPTION": "ITEM DESCRIPTION",
                 "TYPE": "A/N-100",
@@ -361,7 +361,7 @@
             "examples": [
                 20120615
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 18,
                 "FIELD_DESCRIPTION": "ITEM CONTRIBUTION/AQUIRED DATE",
                 "TYPE": "NUM-8",
@@ -378,7 +378,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 19,
                 "FIELD_DESCRIPTION": "ITEM FAIR MARKET VALUE",
                 "TYPE": "AMT-12",
@@ -399,7 +399,7 @@
             "examples": [
                 "XYZ Company"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 20,
                 "FIELD_DESCRIPTION": "CONTRIBUTOR EMPLOYER",
                 "TYPE": "A/N-38",
@@ -420,7 +420,7 @@
             "examples": [
                 "QC Inspector"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 21,
                 "FIELD_DESCRIPTION": "CONTRIBUTOR OCCUPATION",
                 "TYPE": "A/N-38",
@@ -438,7 +438,7 @@
             "minLength": 0,
             "maxLength": 1,
             "pattern": "^[ A-z0-9]{0,1}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 22,
                 "FIELD_DESCRIPTION": "MEMO CODE",
                 "TYPE": "A/N-1",
@@ -456,7 +456,7 @@
             "minLength": 0,
             "maxLength": 100,
             "pattern": "^[ A-z0-9]{0,100}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 23,
                 "FIELD_DESCRIPTION": "MEMO TEXT/DESCRIPTION",
                 "TYPE": "A/N-100",

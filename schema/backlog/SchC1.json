@@ -22,7 +22,7 @@
         "H_AUTHORIZED_TITLE",
         "H_DATE_SIGNED"
     ],
-    "recommended": [
+    "fec_recommended": [
         "LENDER_STREET__1",
         "LENDER_CITY",
         "LENDER_STATE",
@@ -40,7 +40,7 @@
             "examples": [
                 "SC1/9"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 1,
                 "FIELD_DESCRIPTION": "FORM TYPE",
                 "TYPE": "A/N-8",
@@ -61,7 +61,7 @@
             "examples": [
                 "C00123456"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 2,
                 "FIELD_DESCRIPTION": "FILER COMMITTEE ID NUMBER",
                 "TYPE": "A/N-9",
@@ -82,7 +82,7 @@
             "examples": [
                 "C123456789-3456-001"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 3,
                 "FIELD_DESCRIPTION": "TRANSACTION ID NUMBER",
                 "TYPE": "A/N-20",
@@ -103,7 +103,7 @@
             "examples": [
                 "C123456789-3456"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 4,
                 "FIELD_DESCRIPTION": "BACK REFERENCE TRAN ID NUMBER",
                 "TYPE": "A/N-20",
@@ -124,7 +124,7 @@
             "examples": [
                 "The Bank of Banks"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 5,
                 "FIELD_DESCRIPTION": "LENDER ORGANIZATION NAME",
                 "TYPE": "A/N-200",
@@ -145,7 +145,7 @@
             "examples": [
                 "The Bank Tower"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 6,
                 "FIELD_DESCRIPTION": "LENDER STREET  1",
                 "TYPE": "A/N-34",
@@ -166,7 +166,7 @@
             "examples": [
                 "100 Broadway"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 7,
                 "FIELD_DESCRIPTION": "LENDER STREET  2",
                 "TYPE": "A/N-34",
@@ -187,7 +187,7 @@
             "examples": [
                 "New York"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 8,
                 "FIELD_DESCRIPTION": "LENDER CITY",
                 "TYPE": "A/N-30",
@@ -208,7 +208,7 @@
             "examples": [
                 "NY"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 9,
                 "FIELD_DESCRIPTION": "LENDER STATE",
                 "TYPE": "A/N-2",
@@ -229,7 +229,7 @@
             "examples": [
                 10011
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 10,
                 "FIELD_DESCRIPTION": "LENDER ZIP",
                 "TYPE": "A/N-9",
@@ -249,7 +249,7 @@
             "examples": [
                 10000
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 11,
                 "FIELD_DESCRIPTION": "LOAN AMOUNT",
                 "TYPE": "AMT-12",
@@ -270,7 +270,7 @@
             "examples": [
                 0.0565
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 12,
                 "FIELD_DESCRIPTION": "LOAN INTEREST RATE %",
                 "TYPE": "A/N-15",
@@ -290,7 +290,7 @@
             "examples": [
                 20120101
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 13,
                 "FIELD_DESCRIPTION": "LOAN INCURRED DATE",
                 "TYPE": "NUM-8",
@@ -311,7 +311,7 @@
             "examples": [
                 20121231
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 14,
                 "FIELD_DESCRIPTION": "LOAN DUE DATE",
                 "TYPE": "A/N-15",
@@ -332,7 +332,7 @@
             "examples": [
                 "N"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 15,
                 "FIELD_DESCRIPTION": "A1.YES/NO (Loan Restructured)",
                 "TYPE": "A/N-1",
@@ -352,7 +352,7 @@
             "examples": [
                 20120101
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 16,
                 "FIELD_DESCRIPTION": "A2. DATE (Of Original Loan)",
                 "TYPE": "NUM-8",
@@ -372,7 +372,7 @@
             "examples": [
                 500
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 17,
                 "FIELD_DESCRIPTION": "B.1. CREDIT AMOUNT THIS DRAW",
                 "TYPE": "AMT-12",
@@ -392,7 +392,7 @@
             "examples": [
                 10000
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 18,
                 "FIELD_DESCRIPTION": "B.2. TOTAL BALANCE",
                 "TYPE": "AMT-12",
@@ -413,7 +413,7 @@
             "examples": [
                 "Y"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 19,
                 "FIELD_DESCRIPTION": "C. YES/NO (Others liable?)",
                 "TYPE": "A/N-1",
@@ -434,7 +434,7 @@
             "examples": [
                 "Y"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 20,
                 "FIELD_DESCRIPTION": "D. YES/NO (Collateral?)",
                 "TYPE": "A/N-1",
@@ -455,7 +455,7 @@
             "examples": [
                 "House & Car"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 21,
                 "FIELD_DESCRIPTION": "D.1 DESC (Collateral)",
                 "TYPE": "A/N-100",
@@ -475,7 +475,7 @@
             "examples": [
                 95000
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 22,
                 "FIELD_DESCRIPTION": "D.2 COLLATERAL VALUE/AMOUNT",
                 "TYPE": "AMT-12",
@@ -496,7 +496,7 @@
             "examples": [
                 "N"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 23,
                 "FIELD_DESCRIPTION": "D.3 YES/NO  (Perfected Interest?))",
                 "TYPE": "A/N-1",
@@ -517,7 +517,7 @@
             "examples": [
                 "N"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 24,
                 "FIELD_DESCRIPTION": "E.1 YES/NO  (Future Income)",
                 "TYPE": "A/N-1",
@@ -535,7 +535,7 @@
             "minLength": 0,
             "maxLength": 100,
             "pattern": "^[ A-z0-9]{0,100}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 25,
                 "FIELD_DESCRIPTION": "E.2  DESC  (Specification of the above)",
                 "TYPE": "A/N-100",
@@ -552,7 +552,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 26,
                 "FIELD_DESCRIPTION": "E.3 ESTIMATED VALUE",
                 "TYPE": "AMT-12",
@@ -569,7 +569,7 @@
             "type": "integer",
             "minimum": 0,
             "maximum": 99999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 27,
                 "FIELD_DESCRIPTION": "E.4 DATE (Depository account established)",
                 "TYPE": "NUM-8",
@@ -587,7 +587,7 @@
             "minLength": 0,
             "maxLength": 200,
             "pattern": "^[ A-z0-9]{0,200}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 28,
                 "FIELD_DESCRIPTION": "E.5 IND/NAME (Account Location)",
                 "TYPE": "A/N-200",
@@ -605,7 +605,7 @@
             "minLength": 0,
             "maxLength": 34,
             "pattern": "^[ A-z0-9]{0,34}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 29,
                 "FIELD_DESCRIPTION": "E.6 STREET  1",
                 "TYPE": "A/N-34",
@@ -623,7 +623,7 @@
             "minLength": 0,
             "maxLength": 34,
             "pattern": "^[ A-z0-9]{0,34}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 30,
                 "FIELD_DESCRIPTION": "E.7 STREET  2",
                 "TYPE": "A/N-34",
@@ -641,7 +641,7 @@
             "minLength": 0,
             "maxLength": 30,
             "pattern": "^[ A-z0-9]{0,30}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 31,
                 "FIELD_DESCRIPTION": "E.8 CITY",
                 "TYPE": "A/N-30",
@@ -659,7 +659,7 @@
             "minLength": 0,
             "maxLength": 2,
             "pattern": "^[ A-z0-9]{0,2}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 32,
                 "FIELD_DESCRIPTION": "E.9 STATE",
                 "TYPE": "A/N-2",
@@ -677,7 +677,7 @@
             "minLength": 0,
             "maxLength": 9,
             "pattern": "^[ A-z0-9]{0,9}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 33,
                 "FIELD_DESCRIPTION": "E.10 ZIP",
                 "TYPE": "A/N-9",
@@ -694,7 +694,7 @@
             "type": "integer",
             "minimum": 0,
             "maximum": 99999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 34,
                 "FIELD_DESCRIPTION": "E.11 DEP ACCT AUTH DATE (Presidential)",
                 "TYPE": "NUM-8",
@@ -715,7 +715,7 @@
             "examples": [
                 "Handshake"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 35,
                 "FIELD_DESCRIPTION": "F. BASIS OF LOAN DESCRIPTION",
                 "TYPE": "A/N-100",
@@ -736,7 +736,7 @@
             "examples": [
                 "Smith"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 36,
                 "FIELD_DESCRIPTION": "G. TREASURER LAST NAME",
                 "TYPE": "A/N-30",
@@ -757,7 +757,7 @@
             "examples": [
                 "Patrick"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 37,
                 "FIELD_DESCRIPTION": "G. TREASURER FIRST NAME",
                 "TYPE": "A/N-20",
@@ -778,7 +778,7 @@
             "examples": [
                 "Thomas"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 38,
                 "FIELD_DESCRIPTION": "G. TREASURER MIDDLE NAME",
                 "TYPE": "A/N-20",
@@ -799,7 +799,7 @@
             "examples": [
                 "Mr."
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 39,
                 "FIELD_DESCRIPTION": "G. TREASURER PREFIX",
                 "TYPE": "A/N-10",
@@ -820,7 +820,7 @@
             "examples": [
                 "Jr."
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 40,
                 "FIELD_DESCRIPTION": "G. TREASURER SUFFIX",
                 "TYPE": "A/N-10",
@@ -840,7 +840,7 @@
             "examples": [
                 20120729
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 41,
                 "FIELD_DESCRIPTION": "G. DATE SIGNED",
                 "TYPE": "NUM-8",
@@ -861,7 +861,7 @@
             "examples": [
                 "Smith"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 42,
                 "FIELD_DESCRIPTION": "H. AUTHORIZED LAST NAME",
                 "TYPE": "A/N-30",
@@ -882,7 +882,7 @@
             "examples": [
                 "Patrick"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 43,
                 "FIELD_DESCRIPTION": "H. AUTHORIZED FIRST NAME",
                 "TYPE": "A/N-20",
@@ -903,7 +903,7 @@
             "examples": [
                 "Thomas"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 44,
                 "FIELD_DESCRIPTION": "H. AUTHORIZED MIDDLE NAME",
                 "TYPE": "A/N-20",
@@ -924,7 +924,7 @@
             "examples": [
                 "Mr."
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 45,
                 "FIELD_DESCRIPTION": "H. AUTHORIZED PREFIX",
                 "TYPE": "A/N-10",
@@ -945,7 +945,7 @@
             "examples": [
                 "Jr."
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 46,
                 "FIELD_DESCRIPTION": "H. AUTHORIZED SUFFIX",
                 "TYPE": "A/N-10",
@@ -966,7 +966,7 @@
             "examples": [
                 "Treasurer"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 47,
                 "FIELD_DESCRIPTION": "H. AUTHORIZED TITLE",
                 "TYPE": "A/N-20",
@@ -986,7 +986,7 @@
             "examples": [
                 20120820
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 48,
                 "FIELD_DESCRIPTION": "H. DATE SIGNED",
                 "TYPE": "NUM-8",

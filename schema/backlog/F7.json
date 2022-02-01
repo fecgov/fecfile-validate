@@ -13,7 +13,7 @@
         "PERSON_DESIGNATED_TO_SIGN_FIRST_NAME",
         "DATE_SIGNED"
     ],
-    "recommended": [
+    "fec_recommended": [
         "ORGANIZATION_STREET__1",
         "ORGANIZATION_CITY",
         "ORGANIZATION_STATE",
@@ -36,7 +36,7 @@
             "examples": [
                 "F7N"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 1,
                 "FIELD_DESCRIPTION": "FORM TYPE",
                 "TYPE": "A/N-8",
@@ -57,7 +57,7 @@
             "examples": [
                 "C70065431"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 2,
                 "FIELD_DESCRIPTION": "FILER COMMITTEE ID NUMBER",
                 "TYPE": "A/N-9",
@@ -78,7 +78,7 @@
             "examples": [
                 "John Smith & Co."
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 3,
                 "FIELD_DESCRIPTION": "ORGANIZATION NAME",
                 "TYPE": "A/N-200",
@@ -99,7 +99,7 @@
             "examples": [
                 "125 Sycamore St"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 4,
                 "FIELD_DESCRIPTION": "ORGANIZATION STREET  1",
                 "TYPE": "A/N-34",
@@ -117,7 +117,7 @@
             "minLength": 0,
             "maxLength": 34,
             "pattern": "^[ A-z0-9]{0,34}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 5,
                 "FIELD_DESCRIPTION": "ORGANIZATION STREET  2",
                 "TYPE": "A/N-34",
@@ -138,7 +138,7 @@
             "examples": [
                 "Anytown"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 6,
                 "FIELD_DESCRIPTION": "ORGANIZATION CITY",
                 "TYPE": "A/N-30",
@@ -159,7 +159,7 @@
             "examples": [
                 "FL"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 7,
                 "FIELD_DESCRIPTION": "ORGANIZATION STATE",
                 "TYPE": "A/N-2",
@@ -180,7 +180,7 @@
             "examples": [
                 33034
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 8,
                 "FIELD_DESCRIPTION": "ORGANIZATION ZIP",
                 "TYPE": "A/N-9",
@@ -201,7 +201,7 @@
             "examples": [
                 "C"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 9,
                 "FIELD_DESCRIPTION": "ORGANIZATION TYPE",
                 "TYPE": "A/N-1",
@@ -222,7 +222,7 @@
             "examples": [
                 "12P"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 10,
                 "FIELD_DESCRIPTION": "REPORT CODE",
                 "TYPE": "A-3",
@@ -242,7 +242,7 @@
             "examples": [
                 20120715
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 11,
                 "FIELD_DESCRIPTION": "DATE OF ELECTION",
                 "TYPE": "NUM-8",
@@ -263,7 +263,7 @@
             "examples": [
                 "FL"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 12,
                 "FIELD_DESCRIPTION": "STATE OF ELECTION",
                 "TYPE": "A/N-2",
@@ -280,7 +280,7 @@
             "type": "integer",
             "minimum": 0,
             "maximum": 99999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 13,
                 "FIELD_DESCRIPTION": "COVERAGE FROM DATE",
                 "TYPE": "NUM-8",
@@ -297,7 +297,7 @@
             "type": "integer",
             "minimum": 0,
             "maximum": 99999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 14,
                 "FIELD_DESCRIPTION": "COVERAGE THROUGH DATE",
                 "TYPE": "NUM-8",
@@ -314,7 +314,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 15,
                 "FIELD_DESCRIPTION": "TOTAL COSTS",
                 "TYPE": "AMT-12",
@@ -335,7 +335,7 @@
             "examples": [
                 "Smith"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 16,
                 "FIELD_DESCRIPTION": "PERSON DESIGNATED TO SIGN LAST NAME",
                 "TYPE": "A/N-30",
@@ -356,7 +356,7 @@
             "examples": [
                 "Patrick"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 17,
                 "FIELD_DESCRIPTION": "PERSON DESIGNATED TO SIGN FIRST NAME",
                 "TYPE": "A/N-20",
@@ -377,7 +377,7 @@
             "examples": [
                 "Thomas"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 18,
                 "FIELD_DESCRIPTION": "PERSON DESIGNATED TO SIGN MIDDLE NAME",
                 "TYPE": "A/N-20",
@@ -398,7 +398,7 @@
             "examples": [
                 "Mr."
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 19,
                 "FIELD_DESCRIPTION": "PERSON DESIGNATED TO SIGN PREFIX",
                 "TYPE": "A/N-10",
@@ -419,7 +419,7 @@
             "examples": [
                 "Jr."
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 20,
                 "FIELD_DESCRIPTION": "PERSON DESIGNATED TO SIGN SUFFIX",
                 "TYPE": "A/N-10",
@@ -440,7 +440,7 @@
             "examples": [
                 "Treasurer"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 21,
                 "FIELD_DESCRIPTION": "PERSON DESIGNATED TO SIGN TITLE",
                 "TYPE": "A/N-20",
@@ -460,7 +460,7 @@
             "examples": [
                 20120820
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 22,
                 "FIELD_DESCRIPTION": "DATE SIGNED",
                 "TYPE": "NUM-8",

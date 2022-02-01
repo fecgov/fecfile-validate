@@ -22,7 +22,7 @@
         "DONOR_COMMITTEE_NAME",
         "TRANSACTION_TYPE_IDENTIFIER"
     ],
-    "recommended": [],
+    "fec_recommended": [],
     "properties": {
         "FORM_TYPE": {
             "title": "FORM TYPE",
@@ -34,7 +34,7 @@
             "examples": [
                 "SA11AI"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 1,
                 "FIELD_DESCRIPTION": "FORM TYPE",
                 "TYPE": "A/N-8",
@@ -56,7 +56,7 @@
             "examples": [
                 "C00123456"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 2,
                 "FIELD_DESCRIPTION": "FILER COMMITTEE ID NUMBER",
                 "TYPE": "A/N-9",
@@ -78,7 +78,7 @@
             "examples": [
                 "A56123456789-1234"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 4,
                 "FIELD_DESCRIPTION": "TRANSACTION ID",
                 "TYPE": "A/N-20",
@@ -100,7 +100,7 @@
             "examples": [
                 "A123456789-1234"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 5,
                 "FIELD_DESCRIPTION": "BACK REFERENCE TRAN ID NUMBER",
                 "TYPE": "A/N-20",
@@ -122,7 +122,7 @@
             "examples": [
                 "SA11AI"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 6,
                 "FIELD_DESCRIPTION": "BACK REFERENCE SCHED NAME",
                 "TYPE": "A/N-8",
@@ -144,7 +144,7 @@
             "examples": [
                 "IND"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 7,
                 "FIELD_DESCRIPTION": "ENTITY TYPE",
                 "TYPE": "A/N-3",
@@ -166,7 +166,7 @@
             "examples": [
                 "John Smith & Co."
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 8,
                 "FIELD_DESCRIPTION": "CONTRIBUTOR ORGANIZATION",
                 "TYPE": "A/N-200",
@@ -188,7 +188,7 @@
             "examples": [
                 "123 Main Street"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 14,
                 "FIELD_DESCRIPTION": "CONTRIBUTOR STREET  1",
                 "TYPE": "A/N-34",
@@ -207,7 +207,7 @@
             "minLength": 0,
             "maxLength": 34,
             "pattern": "^[ A-z0-9]{0,34}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 15,
                 "FIELD_DESCRIPTION": "CONTRIBUTOR STREET  2",
                 "TYPE": "A/N-34",
@@ -229,7 +229,7 @@
             "examples": [
                 "Anytown"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 16,
                 "FIELD_DESCRIPTION": "CONTRIBUTOR CITY",
                 "TYPE": "A/N-30",
@@ -251,7 +251,7 @@
             "examples": [
                 "WA"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 17,
                 "FIELD_DESCRIPTION": "CONTRIBUTOR STATE",
                 "TYPE": "A/N-2",
@@ -273,7 +273,7 @@
             "examples": [
                 981110123
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 18,
                 "FIELD_DESCRIPTION": "CONTRIBUTOR ZIP",
                 "TYPE": "A/N-9",
@@ -294,7 +294,7 @@
             "examples": [
                 20120615
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 21,
                 "FIELD_DESCRIPTION": "CONTRIBUTION DATE",
                 "TYPE": "NUM-8",
@@ -315,7 +315,7 @@
             "examples": [
                 250
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 22,
                 "FIELD_DESCRIPTION": "CONTRIBUTION AMOUNT",
                 "TYPE": "AMT-12",
@@ -336,7 +336,7 @@
             "examples": [
                 1000
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 23,
                 "FIELD_DESCRIPTION": "CONTRIBUTION AGGREGATE",
                 "TYPE": "AMT-12",
@@ -355,7 +355,7 @@
             "minLength": 0,
             "maxLength": 100,
             "pattern": "^[ A-z0-9]{0,100}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 24,
                 "FIELD_DESCRIPTION": "CONTRIBUTION PURPOSE DESCRIP",
                 "TYPE": "A/N-100",
@@ -374,7 +374,7 @@
             "minLength": 0,
             "maxLength": 9,
             "pattern": "^[ A-z0-9]{0,9}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 27,
                 "FIELD_DESCRIPTION": "DONOR COMMITTEE FEC ID",
                 "TYPE": "A/N-9",
@@ -396,7 +396,7 @@
             "examples": [
                 "Action PAC"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 28,
                 "FIELD_DESCRIPTION": "DONOR COMMITTEE NAME",
                 "TYPE": "A/N-200",
@@ -415,7 +415,7 @@
             "minLength": 0,
             "maxLength": 1,
             "pattern": "^[ A-z0-9]{0,1}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 44,
                 "FIELD_DESCRIPTION": "MEMO CODE",
                 "TYPE": "A/N-1",
@@ -434,7 +434,7 @@
             "minLength": 0,
             "maxLength": 100,
             "pattern": "^[ A-z0-9]{0,100}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 45,
                 "FIELD_DESCRIPTION": "MEMO TEXT/DESCRIPTION",
                 "TYPE": "A/N-100",
@@ -456,7 +456,7 @@
             "examples": [
                 "PAC_IK_BC_REC"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 47,
                 "FIELD_DESCRIPTION": "TRANSACTION TYPE IDENTIFIER",
                 "TYPE": "A/N-12",

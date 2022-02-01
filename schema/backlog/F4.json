@@ -13,7 +13,7 @@
         "TREASURER_FIRST_NAME",
         "DATE_SIGNED"
     ],
-    "recommended": [
+    "fec_recommended": [
         "STREET__1",
         "CITY",
         "STATE",
@@ -34,7 +34,7 @@
             "examples": [
                 "F4N"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 1,
                 "FIELD_DESCRIPTION": "FORM TYPE",
                 "TYPE": "A/N-4",
@@ -55,7 +55,7 @@
             "examples": [
                 "C00123456"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 2,
                 "FIELD_DESCRIPTION": "FILER COMMITTEE ID NUMBER",
                 "TYPE": "A/N-9",
@@ -76,7 +76,7 @@
             "examples": [
                 "Friends of Pat"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 3,
                 "FIELD_DESCRIPTION": "COMMITTEE NAME",
                 "TYPE": "A/N-200",
@@ -97,7 +97,7 @@
             "examples": [
                 "123 Sycamore St"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 4,
                 "FIELD_DESCRIPTION": "STREET  1",
                 "TYPE": "A/N-34",
@@ -115,7 +115,7 @@
             "minLength": 0,
             "maxLength": 34,
             "pattern": "^[ A-z0-9]{0,34}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 5,
                 "FIELD_DESCRIPTION": "STREET  2",
                 "TYPE": "A/N-34",
@@ -136,7 +136,7 @@
             "examples": [
                 "Anytown"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 6,
                 "FIELD_DESCRIPTION": "CITY",
                 "TYPE": "A/N-30",
@@ -157,7 +157,7 @@
             "examples": [
                 "FL"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 7,
                 "FIELD_DESCRIPTION": "STATE",
                 "TYPE": "A/N-2",
@@ -178,7 +178,7 @@
             "examples": [
                 33034
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 8,
                 "FIELD_DESCRIPTION": "ZIP",
                 "TYPE": "A/N-9",
@@ -199,7 +199,7 @@
             "examples": [
                 "A"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 9,
                 "FIELD_DESCRIPTION": "COMMITTEE/ORG TYPE",
                 "TYPE": "A-1",
@@ -217,7 +217,7 @@
             "minLength": 0,
             "maxLength": 40,
             "pattern": "^[ A-z0-9]{0,40}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 10,
                 "FIELD_DESCRIPTION": "COMMITTEE/ORG TYPE - OTHER DESCRIPTION",
                 "TYPE": "A/N-40",
@@ -238,7 +238,7 @@
             "examples": [
                 "Q1"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 11,
                 "FIELD_DESCRIPTION": "REPORT CODE",
                 "TYPE": "A-3",
@@ -258,7 +258,7 @@
             "examples": [
                 20120101
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 12,
                 "FIELD_DESCRIPTION": "COVERAGE FROM DATE",
                 "TYPE": "NUM-8",
@@ -278,7 +278,7 @@
             "examples": [
                 20120330
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 13,
                 "FIELD_DESCRIPTION": "COVERAGE THROUGH DATE",
                 "TYPE": "NUM-8",
@@ -299,7 +299,7 @@
             "examples": [
                 "Smith"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 14,
                 "FIELD_DESCRIPTION": "TREASURER LAST NAME",
                 "TYPE": "A/N-30",
@@ -320,7 +320,7 @@
             "examples": [
                 "Patrick"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 15,
                 "FIELD_DESCRIPTION": "TREASURER FIRST NAME",
                 "TYPE": "A/N-20",
@@ -341,7 +341,7 @@
             "examples": [
                 "Thomas"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 16,
                 "FIELD_DESCRIPTION": "TREASURER MIDDLE NAME",
                 "TYPE": "A/N-20",
@@ -362,7 +362,7 @@
             "examples": [
                 "Mr."
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 17,
                 "FIELD_DESCRIPTION": "TREASURER PREFIX",
                 "TYPE": "A/N-10",
@@ -383,7 +383,7 @@
             "examples": [
                 "Jr."
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 18,
                 "FIELD_DESCRIPTION": "TREASURER SUFFIX",
                 "TYPE": "A/N-10",
@@ -403,7 +403,7 @@
             "examples": [
                 20120729
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 19,
                 "FIELD_DESCRIPTION": "DATE SIGNED",
                 "TYPE": "NUM-8",
@@ -420,7 +420,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 20,
                 "FIELD_DESCRIPTION": "6.(b) cash on hand beg. report per.",
                 "TYPE": "AMT-12",
@@ -437,7 +437,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 62,
                 "FIELD_DESCRIPTION": "6.(c) Total receipts",
                 "TYPE": "AMT-12",
@@ -454,7 +454,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 63,
                 "FIELD_DESCRIPTION": "6.(d) Subtotal",
                 "TYPE": "AMT-12",
@@ -471,7 +471,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 64,
                 "FIELD_DESCRIPTION": "7. Total disbursements",
                 "TYPE": "AMT-12",
@@ -488,7 +488,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 24,
                 "FIELD_DESCRIPTION": "8. COH CLOSE (COL A)",
                 "TYPE": "AMT-12",
@@ -505,7 +505,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 25,
                 "FIELD_DESCRIPTION": "9. Debts to",
                 "TYPE": "AMT-12",
@@ -522,7 +522,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 26,
                 "FIELD_DESCRIPTION": "10. Debts by",
                 "TYPE": "AMT-12",
@@ -539,7 +539,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 66,
                 "FIELD_DESCRIPTION": "11. Convention expenditures",
                 "TYPE": "AMT-12",
@@ -556,7 +556,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 67,
                 "FIELD_DESCRIPTION": "12. refunds/rebates/returns relating to conv exp.",
                 "TYPE": "AMT-12",
@@ -573,7 +573,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 68,
                 "FIELD_DESCRIPTION": "12(a) Expenditures subject to limits",
                 "TYPE": "AMT-12",
@@ -590,7 +590,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 69,
                 "FIELD_DESCRIPTION": "12(b) expend. from prior years subject to limits",
                 "TYPE": "AMT-12",
@@ -607,7 +607,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 31,
                 "FIELD_DESCRIPTION": "13. Federal Funds SCH A",
                 "TYPE": "AMT-12",
@@ -624,7 +624,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 32,
                 "FIELD_DESCRIPTION": "14(a) Itemized",
                 "TYPE": "AMT-12",
@@ -641,7 +641,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 33,
                 "FIELD_DESCRIPTION": "14(b) unitemized",
                 "TYPE": "AMT-12",
@@ -658,7 +658,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 72,
                 "FIELD_DESCRIPTION": "14(c) subtotal",
                 "TYPE": "AMT-12",
@@ -675,7 +675,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 73,
                 "FIELD_DESCRIPTION": "15. Transfers from affiliated cmtes.",
                 "TYPE": "AMT-12",
@@ -692,7 +692,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 36,
                 "FIELD_DESCRIPTION": "16(a) loans received",
                 "TYPE": "AMT-12",
@@ -709,7 +709,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 37,
                 "FIELD_DESCRIPTION": "16(b) loan repayments received",
                 "TYPE": "AMT-12",
@@ -726,7 +726,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 74,
                 "FIELD_DESCRIPTION": "16(c) subtotal loans/repayments",
                 "TYPE": "AMT-12",
@@ -743,7 +743,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 39,
                 "FIELD_DESCRIPTION": "17(a) Itemized",
                 "TYPE": "AMT-12",
@@ -760,7 +760,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 40,
                 "FIELD_DESCRIPTION": "17(b) unitemized",
                 "TYPE": "AMT-12",
@@ -777,7 +777,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 75,
                 "FIELD_DESCRIPTION": "17(c) subtotal",
                 "TYPE": "AMT-12",
@@ -794,7 +794,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 42,
                 "FIELD_DESCRIPTION": "18(a) Itemized",
                 "TYPE": "AMT-12",
@@ -811,7 +811,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 43,
                 "FIELD_DESCRIPTION": "18(b) unitemized",
                 "TYPE": "AMT-12",
@@ -828,7 +828,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 76,
                 "FIELD_DESCRIPTION": "18(c) subtotal",
                 "TYPE": "AMT-12",
@@ -845,7 +845,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 45,
                 "FIELD_DESCRIPTION": "19(a) Itemized",
                 "TYPE": "AMT-12",
@@ -862,7 +862,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 46,
                 "FIELD_DESCRIPTION": "19(b) unitemized",
                 "TYPE": "AMT-12",
@@ -879,7 +879,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 77,
                 "FIELD_DESCRIPTION": "19(c) subtotal",
                 "TYPE": "AMT-12",
@@ -896,7 +896,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 78,
                 "FIELD_DESCRIPTION": "20. total receipts",
                 "TYPE": "AMT-12",
@@ -913,7 +913,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 49,
                 "FIELD_DESCRIPTION": "21(a) Itemized",
                 "TYPE": "AMT-12",
@@ -930,7 +930,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 50,
                 "FIELD_DESCRIPTION": "21(b) unitemized",
                 "TYPE": "AMT-12",
@@ -947,7 +947,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 79,
                 "FIELD_DESCRIPTION": "21(c) subtotal",
                 "TYPE": "AMT-12",
@@ -964,7 +964,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 80,
                 "FIELD_DESCRIPTION": "22. Transfers to Affiliated Cmtes",
                 "TYPE": "AMT-12",
@@ -981,7 +981,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 53,
                 "FIELD_DESCRIPTION": "23(a) loans made",
                 "TYPE": "AMT-12",
@@ -998,7 +998,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 54,
                 "FIELD_DESCRIPTION": "23(b) loan repayments made",
                 "TYPE": "AMT-12",
@@ -1015,7 +1015,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 81,
                 "FIELD_DESCRIPTION": "23(c) subtotal",
                 "TYPE": "AMT-12",
@@ -1032,7 +1032,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 56,
                 "FIELD_DESCRIPTION": "24(a) Itemized",
                 "TYPE": "AMT-12",
@@ -1049,7 +1049,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 57,
                 "FIELD_DESCRIPTION": "24(b) unitemized",
                 "TYPE": "AMT-12",
@@ -1066,7 +1066,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 82,
                 "FIELD_DESCRIPTION": "24(c) subtotal",
                 "TYPE": "AMT-12",
@@ -1083,7 +1083,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 83,
                 "FIELD_DESCRIPTION": "25. Total disbursements",
                 "TYPE": "AMT-12",
@@ -1100,7 +1100,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 60,
                 "FIELD_DESCRIPTION": "6.(a) Cash on Hand",
                 "TYPE": "AMT-12",
@@ -1117,7 +1117,7 @@
             "type": "integer",
             "minimum": 0,
             "maximum": 9999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 61,
                 "FIELD_DESCRIPTION": "6.(a) 19 -- (YEAR)",
                 "TYPE": "NUM-4",
@@ -1134,7 +1134,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 65,
                 "FIELD_DESCRIPTION": "8. COH CLOSE (COL B)",
                 "TYPE": "AMT-12",
@@ -1151,7 +1151,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 70,
                 "FIELD_DESCRIPTION": "12(c) total expenditures subject to limits",
                 "TYPE": "AMT-12",
@@ -1168,7 +1168,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 71,
                 "FIELD_DESCRIPTION": "13. Federal Funds",
                 "TYPE": "AMT-12",

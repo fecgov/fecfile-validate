@@ -10,7 +10,7 @@
         "FILER_COMMITTEE_ID_NUMBER",
         "TRANSACTION_ID_NUMBER"
     ],
-    "recommended": [
+    "fec_recommended": [
         "ACTIVITY/EVENT_NAME"
     ],
     "properties": {
@@ -24,7 +24,7 @@
             "examples": [
                 "H2"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 1,
                 "FIELD_DESCRIPTION": "FORM TYPE",
                 "TYPE": "A/N-8",
@@ -45,7 +45,7 @@
             "examples": [
                 "C00123456"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 2,
                 "FIELD_DESCRIPTION": "FILER COMMITTEE ID NUMBER",
                 "TYPE": "A/N-9",
@@ -66,7 +66,7 @@
             "examples": [
                 "H21234-3456"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 3,
                 "FIELD_DESCRIPTION": "TRANSACTION ID NUMBER",
                 "TYPE": "A/N-20",
@@ -84,7 +84,7 @@
             "minLength": 0,
             "maxLength": 90,
             "pattern": "^[ A-z0-9]{0,90}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 4,
                 "FIELD_DESCRIPTION": "ACTIVITY/EVENT NAME",
                 "TYPE": "A/N-90",
@@ -105,7 +105,7 @@
             "examples": [
                 "X"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 5,
                 "FIELD_DESCRIPTION": "YES/NO  (Direct Fundraising?)",
                 "TYPE": "A/N-1",
@@ -123,7 +123,7 @@
             "minLength": 0,
             "maxLength": 1,
             "pattern": "^[ A-z0-9]{0,1}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 6,
                 "FIELD_DESCRIPTION": "YES/NO  (Direct Candidate Support?)",
                 "TYPE": "A/N-1",
@@ -144,7 +144,7 @@
             "examples": [
                 "N"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 7,
                 "FIELD_DESCRIPTION": "RATIO CODE",
                 "TYPE": "A/N-1",
@@ -164,7 +164,7 @@
             "examples": [
                 0.5
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 8,
                 "FIELD_DESCRIPTION": "FEDERAL PERCENTAGE",
                 "TYPE": "NUM-5",
@@ -184,7 +184,7 @@
             "examples": [
                 0.5
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 9,
                 "FIELD_DESCRIPTION": "NON-FEDERAL PERCENTAGE",
                 "TYPE": "NUM-5",

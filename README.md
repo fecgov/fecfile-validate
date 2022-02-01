@@ -23,6 +23,14 @@ schema definition files that were then manually curated and updated.
 The data dictionary can be found in a human-freindly HTML format at:
 https://fecgov.github.io/fecfile-validate/
 
+### Custom Validation Algorithms
+JSON schema properties with a "fec_" prefix are not part of the JSON Schema Standard
+but are custom validation enhancements performed by the FEC validation engine in
+addition to the validation performed by the JSON Schema Standard validation tools.
+
+- fec_recommended: Array of properties that if the property listed in the array
+is missing a value, the validation passes but with a warning issued about the missing value
+
 ---
 
 # Deployment (FEC team only)

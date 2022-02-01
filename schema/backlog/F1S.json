@@ -9,7 +9,7 @@
         "FORM_TYPE",
         "FILER_COMMITTEE_ID_NUMBER"
     ],
-    "recommended": [],
+    "fec_recommended": [],
     "properties": {
         "FORM_TYPE": {
             "title": "FORM TYPE",
@@ -21,7 +21,7 @@
             "examples": [
                 "F1S"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 1,
                 "FIELD_DESCRIPTION": "FORM TYPE",
                 "TYPE": "A/N-3",
@@ -42,7 +42,7 @@
             "examples": [
                 "C00123456"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 2,
                 "FIELD_DESCRIPTION": "FILER COMMITTEE ID NUMBER",
                 "TYPE": "A/N-9",
@@ -60,7 +60,7 @@
             "minLength": 0,
             "maxLength": 200,
             "pattern": "^[ A-z0-9]{0,200}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 3,
                 "FIELD_DESCRIPTION": "5. JOINT FUND PARTICIPANT CMTTE NAME",
                 "TYPE": "A/N-200",
@@ -78,7 +78,7 @@
             "minLength": 0,
             "maxLength": 9,
             "pattern": "^[ A-z0-9]{0,9}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 4,
                 "FIELD_DESCRIPTION": "5. JOINT FUND PARTICIPANT CMTTE FEC-ID",
                 "TYPE": "A/N-9",
@@ -96,7 +96,7 @@
             "minLength": 0,
             "maxLength": 9,
             "pattern": "^[ A-z0-9]{0,9}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 5,
                 "FIELD_DESCRIPTION": "6. AFFILIATED CMTTE ID NUM",
                 "TYPE": "A/N-9",
@@ -114,7 +114,7 @@
             "minLength": 0,
             "maxLength": 200,
             "pattern": "^[ A-z0-9]{0,200}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 6,
                 "FIELD_DESCRIPTION": "6. AFFILIATED CMTTE NAME",
                 "TYPE": "A/N-200",
@@ -132,7 +132,7 @@
             "minLength": 0,
             "maxLength": 9,
             "pattern": "^[ A-z0-9]{0,9}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 7,
                 "FIELD_DESCRIPTION": "6. AFFILIATED CANDIDATE ID NUM",
                 "TYPE": "A/N-9",
@@ -153,7 +153,7 @@
             "examples": [
                 "Smith"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 8,
                 "FIELD_DESCRIPTION": "6. AFFILIATED LAST NAME",
                 "TYPE": "A/N-30",
@@ -174,7 +174,7 @@
             "examples": [
                 "John"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 9,
                 "FIELD_DESCRIPTION": "6. AFFILIATED FIRST NAME",
                 "TYPE": "A/N-20",
@@ -195,7 +195,7 @@
             "examples": [
                 "W"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 10,
                 "FIELD_DESCRIPTION": "6. AFFILIATED MIDDLE NAME",
                 "TYPE": "A/N-20",
@@ -216,7 +216,7 @@
             "examples": [
                 "Dr"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 11,
                 "FIELD_DESCRIPTION": "6. AFFILIATED PREFIX",
                 "TYPE": "A/N-10",
@@ -237,7 +237,7 @@
             "examples": [
                 "Jr"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 12,
                 "FIELD_DESCRIPTION": "6. AFFILIATED SUFFIX",
                 "TYPE": "A/N-10",
@@ -255,7 +255,7 @@
             "minLength": 0,
             "maxLength": 34,
             "pattern": "^[ A-z0-9]{0,34}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 13,
                 "FIELD_DESCRIPTION": "6. AFFILIATED STREET 1",
                 "TYPE": "A/N-34",
@@ -273,7 +273,7 @@
             "minLength": 0,
             "maxLength": 34,
             "pattern": "^[ A-z0-9]{0,34}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 14,
                 "FIELD_DESCRIPTION": "6. AFFILIATED STREET 2",
                 "TYPE": "A/N-34",
@@ -291,7 +291,7 @@
             "minLength": 0,
             "maxLength": 30,
             "pattern": "^[ A-z0-9]{0,30}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 15,
                 "FIELD_DESCRIPTION": "6. AFFILIATED CITY",
                 "TYPE": "A/N-30",
@@ -309,7 +309,7 @@
             "minLength": 0,
             "maxLength": 2,
             "pattern": "^[ A-z0-9]{0,2}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 16,
                 "FIELD_DESCRIPTION": "6. AFFILIATED STATE",
                 "TYPE": "A-2",
@@ -327,7 +327,7 @@
             "minLength": 0,
             "maxLength": 9,
             "pattern": "^[ A-z0-9]{0,9}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 17,
                 "FIELD_DESCRIPTION": "6. AFFILIATED ZIP",
                 "TYPE": "A/N-9",
@@ -348,7 +348,7 @@
             "examples": [
                 "AFF"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 18,
                 "FIELD_DESCRIPTION": "6. AFFILIATED RELATIONSHIP CODE\n  (with Filing Committee named in field #4)",
                 "TYPE": "A/N-3",
@@ -369,7 +369,7 @@
             "examples": [
                 "Smith"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 19,
                 "FIELD_DESCRIPTION": "8. AGENT LAST NAME",
                 "TYPE": "A/N-30",
@@ -390,7 +390,7 @@
             "examples": [
                 "Patrick"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 20,
                 "FIELD_DESCRIPTION": "8. AGENT FIRST NAME",
                 "TYPE": "A/N-20",
@@ -411,7 +411,7 @@
             "examples": [
                 "Thomas"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 21,
                 "FIELD_DESCRIPTION": "8. AGENT MIDDLE NAME",
                 "TYPE": "A/N-20",
@@ -432,7 +432,7 @@
             "examples": [
                 "Mr."
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 22,
                 "FIELD_DESCRIPTION": "8. AGENT PREFIX",
                 "TYPE": "A/N-10",
@@ -453,7 +453,7 @@
             "examples": [
                 "Jr."
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 23,
                 "FIELD_DESCRIPTION": "8. AGENT SUFFIX",
                 "TYPE": "A/N-10",
@@ -471,7 +471,7 @@
             "minLength": 0,
             "maxLength": 34,
             "pattern": "^[ A-z0-9]{0,34}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 24,
                 "FIELD_DESCRIPTION": "8. AGENT STREET 1",
                 "TYPE": "A/N-34",
@@ -489,7 +489,7 @@
             "minLength": 0,
             "maxLength": 34,
             "pattern": "^[ A-z0-9]{0,34}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 25,
                 "FIELD_DESCRIPTION": "8. AGENT STREET 2",
                 "TYPE": "A/N-34",
@@ -507,7 +507,7 @@
             "minLength": 0,
             "maxLength": 30,
             "pattern": "^[ A-z0-9]{0,30}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 26,
                 "FIELD_DESCRIPTION": "8. AGENT CITY",
                 "TYPE": "A/N-30",
@@ -525,7 +525,7 @@
             "minLength": 0,
             "maxLength": 2,
             "pattern": "^[ A-z0-9]{0,2}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 27,
                 "FIELD_DESCRIPTION": "8. AGENT STATE",
                 "TYPE": "A-2",
@@ -542,7 +542,7 @@
             "type": "integer",
             "minimum": 0,
             "maximum": 999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 28,
                 "FIELD_DESCRIPTION": "8. AGENT ZIP",
                 "TYPE": "NUM-9",
@@ -560,7 +560,7 @@
             "minLength": 0,
             "maxLength": 20,
             "pattern": "^[ A-z0-9]{0,20}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 29,
                 "FIELD_DESCRIPTION": "8. AGENT TITLE",
                 "TYPE": "A/N-20",
@@ -577,7 +577,7 @@
             "type": "integer",
             "minimum": 0,
             "maximum": 9999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 30,
                 "FIELD_DESCRIPTION": "8. AGENT TELEPHONE",
                 "TYPE": "NUM-10",
@@ -595,7 +595,7 @@
             "minLength": 0,
             "maxLength": 200,
             "pattern": "^[ A-z0-9]{0,200}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 31,
                 "FIELD_DESCRIPTION": "9. BANK NAME",
                 "TYPE": "A/N-200",
@@ -613,7 +613,7 @@
             "minLength": 0,
             "maxLength": 34,
             "pattern": "^[ A-z0-9]{0,34}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 32,
                 "FIELD_DESCRIPTION": "9. BANK STREET 1",
                 "TYPE": "A/N-34",
@@ -631,7 +631,7 @@
             "minLength": 0,
             "maxLength": 34,
             "pattern": "^[ A-z0-9]{0,34}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 33,
                 "FIELD_DESCRIPTION": "9. BANK STREET 2",
                 "TYPE": "A/N-34",
@@ -649,7 +649,7 @@
             "minLength": 0,
             "maxLength": 30,
             "pattern": "^[ A-z0-9]{0,30}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 34,
                 "FIELD_DESCRIPTION": "9. BANK CITY",
                 "TYPE": "A/N-30",
@@ -667,7 +667,7 @@
             "minLength": 0,
             "maxLength": 2,
             "pattern": "^[ A-z0-9]{0,2}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 35,
                 "FIELD_DESCRIPTION": "9. BANK STATE",
                 "TYPE": "A-2",
@@ -685,7 +685,7 @@
             "minLength": 0,
             "maxLength": 9,
             "pattern": "^[ A-z0-9]{0,9}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 36,
                 "FIELD_DESCRIPTION": "9. BANK ZIP",
                 "TYPE": "A/N-9",

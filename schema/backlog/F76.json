@@ -12,7 +12,7 @@
         "S/O_CANDIDATE_LAST_NAME",
         "S/O_CANDIDATE_FIRST_NAME"
     ],
-    "recommended": [
+    "fec_recommended": [
         "COMMUNICATION_TYPE",
         "COMMUNICATION_CLASS",
         "COMMUNICATION_DATE",
@@ -29,7 +29,7 @@
             "examples": [
                 "F76"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 1,
                 "FIELD_DESCRIPTION": "FORM TYPE",
                 "TYPE": "A/N-8",
@@ -50,7 +50,7 @@
             "examples": [
                 "C70065431"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 2,
                 "FIELD_DESCRIPTION": "FILER COMMITTEE ID NUMBER",
                 "TYPE": "A/N-9",
@@ -71,7 +71,7 @@
             "examples": [
                 "B56123456789-1234"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 3,
                 "FIELD_DESCRIPTION": "TRANSACTION ID NUMBER",
                 "TYPE": "A/N-20",
@@ -92,7 +92,7 @@
             "examples": [
                 "DM"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 4,
                 "FIELD_DESCRIPTION": "COMMUNICATION TYPE",
                 "TYPE": "A/N-2",
@@ -110,7 +110,7 @@
             "minLength": 0,
             "maxLength": 40,
             "pattern": "^[ A-z0-9]{0,40}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 5,
                 "FIELD_DESCRIPTION": "COMMUNICATION TYPE - OTHER DESCRIPTION",
                 "TYPE": "A/N-40",
@@ -131,7 +131,7 @@
             "examples": [
                 "E"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 6,
                 "FIELD_DESCRIPTION": "COMMUNICATION CLASS",
                 "TYPE": "A/N-1",
@@ -151,7 +151,7 @@
             "examples": [
                 20120820
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 7,
                 "FIELD_DESCRIPTION": "COMMUNICATION DATE",
                 "TYPE": "NUM-8",
@@ -168,7 +168,7 @@
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 8,
                 "FIELD_DESCRIPTION": "COMMUNICATION COST (per candidate)",
                 "TYPE": "AMT-12",
@@ -189,7 +189,7 @@
             "examples": [
                 "P2012"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 9,
                 "FIELD_DESCRIPTION": "ELECTION CODE",
                 "TYPE": "A/N-5",
@@ -207,7 +207,7 @@
             "minLength": 0,
             "maxLength": 20,
             "pattern": "^[ A-z0-9]{0,20}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 10,
                 "FIELD_DESCRIPTION": "ELECTION OTHER DESCRIPTION",
                 "TYPE": "A/N-20",
@@ -228,7 +228,7 @@
             "examples": [
                 "S"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 11,
                 "FIELD_DESCRIPTION": "SUPPORT/OPPOSE",
                 "TYPE": "A/N-1",
@@ -249,7 +249,7 @@
             "examples": [
                 "H98765431"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 12,
                 "FIELD_DESCRIPTION": "S/O CANDIDATE ID NUMBER",
                 "TYPE": "A/N-9",
@@ -267,7 +267,7 @@
             "minLength": 0,
             "maxLength": 30,
             "pattern": "^[ A-z0-9]{0,30}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 13,
                 "FIELD_DESCRIPTION": "S/O CANDIDATE LAST NAME",
                 "TYPE": "A/N-30",
@@ -285,7 +285,7 @@
             "minLength": 0,
             "maxLength": 20,
             "pattern": "^[ A-z0-9]{0,20}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 14,
                 "FIELD_DESCRIPTION": "S/O CANDIDATE FIRST NAME",
                 "TYPE": "A/N-20",
@@ -303,7 +303,7 @@
             "minLength": 0,
             "maxLength": 20,
             "pattern": "^[ A-z0-9]{0,20}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 15,
                 "FIELD_DESCRIPTION": "S/O CANDIDATE MIDDLE NAME",
                 "TYPE": "A/N-20",
@@ -321,7 +321,7 @@
             "minLength": 0,
             "maxLength": 10,
             "pattern": "^[ A-z0-9]{0,10}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 16,
                 "FIELD_DESCRIPTION": "S/O CANDIDATE PREFIX",
                 "TYPE": "A/N-10",
@@ -339,7 +339,7 @@
             "minLength": 0,
             "maxLength": 10,
             "pattern": "^[ A-z0-9]{0,10}$",
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 17,
                 "FIELD_DESCRIPTION": "S/O CANDIDATE SUFFIX",
                 "TYPE": "A/N-10",
@@ -360,7 +360,7 @@
             "examples": [
                 "H"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 18,
                 "FIELD_DESCRIPTION": "S/O CANDIDATE OFFICE",
                 "TYPE": "A/N-1",
@@ -381,7 +381,7 @@
             "examples": [
                 "FL"
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 19,
                 "FIELD_DESCRIPTION": "S/O CANDIDATE STATE",
                 "TYPE": "A/N-2",
@@ -401,7 +401,7 @@
             "examples": [
                 35
             ],
-            "spec": {
+            "fec_spec": {
                 "COL_SEQ": 20,
                 "FIELD_DESCRIPTION": "S/O CANDIDATE DISTRICT",
                 "TYPE": "NUM-2",
