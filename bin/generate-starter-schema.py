@@ -150,8 +150,9 @@ for ws in wb.worksheets:
         token, prop, is_required, is_recommended = \
             convert_row_to_property(row, sheet_has_autopopulate)
         if token == "TRANSACTION_TYPE_IDENTIFIER":
-            trans_type_id = prop.get('fec_spec', {}).get(Columns.SAMPLE_DATA.name,
-                                                     "") or ""
+            trans_type_id = \
+                prop.get('fec_spec', {}).get(Columns.SAMPLE_DATA.name,
+                                             "") or ""
             trans_type_hits[trans_type_id] = \
                 (trans_type_hits.get(trans_type_id) or 0) + 1
             if (trans_type_hits[trans_type_id] > 1 or trans_type_id == ''):
