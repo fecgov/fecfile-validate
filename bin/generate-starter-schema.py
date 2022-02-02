@@ -81,7 +81,12 @@ def convert_row_to_property(row, sheet_has_autopopulate):# noqa
     rule_ref = spec.get(Columns.RULE_REFERENCE.name)
 
     token = title.replace("\n", "_").replace(" ", "_").replace(".", "")\
-        .replace("(", "").replace(")", "")
+        .replace("(", "").replace(")", "").replace("/", "_")\
+        .replace("__", "_").lower()
+    # Prepend tokens that start with a number (presumed to be a line number)
+    # with capital letter "L".
+    if token[0].isdigit():
+        token = 'L' + token
     prop["title"] = title
     prop["description"] = ""
 
@@ -149,7 +154,7 @@ for ws in wb.worksheets:
             continue
         token, prop, is_required, is_recommended = \
             convert_row_to_property(row, sheet_has_autopopulate)
-        if token == "TRANSACTION_TYPE_IDENTIFIER":
+        if token == "transaction_type_identifier":
             trans_type_id = \
                 prop.get('fec_spec', {}).get(Columns.SAMPLE_DATA.name,
                                              "") or ""
@@ -160,6 +165,9 @@ for ws in wb.worksheets:
                     str(trans_type_hits[trans_type_id]) + '.json'
             else:
                 output_file = trans_type_id + '.json'
+        # Catch and mark token (i.e. spec property) clashes for manual fixing.
+        if token in schema_properties:
+            token = token + '-DUPLICATE'
 
         if is_required:
             required_rows.append(token)

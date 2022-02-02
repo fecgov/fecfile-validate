@@ -6,31 +6,31 @@
     "description": "SCHEDULE C1 - LOANS AND LINES OF CREDIT FROM LENDING INSTITUTIONS",
     "type": "object",
     "required": [
-        "FORM_TYPE",
-        "FILER_COMMITTEE_ID_NUMBER",
-        "TRANSACTION_ID_NUMBER",
-        "BACK_REFERENCE_TRAN_ID_NUMBER",
-        "LENDER_ORGANIZATION_NAME",
-        "LOAN_AMOUNT",
-        "LOAN_INCURRED_DATE",
-        "LOAN_DUE_DATE",
-        "G_TREASURER_LAST_NAME",
-        "G_TREASURER_FIRST_NAME",
-        "G_DATE_SIGNED",
-        "H_AUTHORIZED_LAST_NAME",
-        "H_AUTHORIZED_FIRST_NAME",
-        "H_AUTHORIZED_TITLE",
-        "H_DATE_SIGNED"
+        "form_type",
+        "filer_committee_id_number",
+        "transaction_id_number",
+        "back_reference_tran_id_number",
+        "lender_organization_name",
+        "loan_amount",
+        "loan_incurred_date",
+        "loan_due_date",
+        "g_treasurer_last_name",
+        "g_treasurer_first_name",
+        "g_date_signed",
+        "h_authorized_last_name",
+        "h_authorized_first_name",
+        "h_authorized_title",
+        "h_date_signed"
     ],
     "fec_recommended": [
-        "LENDER_STREET__1",
-        "LENDER_CITY",
-        "LENDER_STATE",
-        "LENDER_ZIP",
-        "LOAN_INTEREST_RATE_%"
+        "lender_street_1",
+        "lender_city",
+        "lender_state",
+        "lender_zip",
+        "loan_interest_rate_%"
     ],
     "properties": {
-        "FORM_TYPE": {
+        "form_type": {
             "title": "FORM TYPE",
             "description": "",
             "type": "string",
@@ -51,7 +51,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "FILER_COMMITTEE_ID_NUMBER": {
+        "filer_committee_id_number": {
             "title": "FILER COMMITTEE ID NUMBER",
             "description": "",
             "type": "string",
@@ -72,7 +72,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "TRANSACTION_ID_NUMBER": {
+        "transaction_id_number": {
             "title": "TRANSACTION ID NUMBER",
             "description": "",
             "type": "string",
@@ -93,7 +93,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "BACK_REFERENCE_TRAN_ID_NUMBER": {
+        "back_reference_tran_id_number": {
             "title": "BACK REFERENCE TRAN ID NUMBER",
             "description": "",
             "type": "string",
@@ -114,7 +114,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "LENDER_ORGANIZATION_NAME": {
+        "lender_organization_name": {
             "title": "LENDER ORGANIZATION NAME",
             "description": "",
             "type": "string",
@@ -135,7 +135,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "LENDER_STREET__1": {
+        "lender_street_1": {
             "title": "LENDER STREET  1",
             "description": "",
             "type": "string",
@@ -156,7 +156,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "LENDER_STREET__2": {
+        "lender_street_2": {
             "title": "LENDER STREET  2",
             "description": "",
             "type": "string",
@@ -177,7 +177,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "LENDER_CITY": {
+        "lender_city": {
             "title": "LENDER CITY",
             "description": "",
             "type": "string",
@@ -198,7 +198,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "LENDER_STATE": {
+        "lender_state": {
             "title": "LENDER STATE",
             "description": "",
             "type": "string",
@@ -219,7 +219,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "LENDER_ZIP": {
+        "lender_zip": {
             "title": "LENDER ZIP",
             "description": "",
             "type": "string",
@@ -240,7 +240,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "LOAN_AMOUNT": {
+        "loan_amount": {
             "title": "LOAN AMOUNT",
             "description": "",
             "type": "number",
@@ -260,7 +260,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "LOAN_INTEREST_RATE_%": {
+        "loan_interest_rate_%": {
             "title": "LOAN INTEREST RATE %",
             "description": "",
             "type": "string",
@@ -281,7 +281,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "LOAN_INCURRED_DATE": {
+        "loan_incurred_date": {
             "title": "LOAN INCURRED DATE",
             "description": "",
             "type": "integer",
@@ -301,7 +301,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "LOAN_DUE_DATE": {
+        "loan_due_date": {
             "title": "LOAN DUE DATE",
             "description": "",
             "type": "string",
@@ -322,7 +322,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "A1YES/NO_Loan_Restructured": {
+        "a1yes_no_loan_restructured": {
             "title": "A1.YES/NO (Loan Restructured)",
             "description": "",
             "type": "string",
@@ -343,7 +343,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "A2_DATE_Of_Original_Loan": {
+        "a2_date_of_original_loan": {
             "title": "A2. DATE (Of Original Loan)",
             "description": "",
             "type": "integer",
@@ -363,7 +363,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "B1_CREDIT_AMOUNT_THIS_DRAW": {
+        "b1_credit_amount_this_draw": {
             "title": "B.1. CREDIT AMOUNT THIS DRAW",
             "description": "",
             "type": "number",
@@ -383,7 +383,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "B2_TOTAL_BALANCE": {
+        "b2_total_balance": {
             "title": "B.2. TOTAL BALANCE",
             "description": "",
             "type": "number",
@@ -403,7 +403,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "C_YES/NO_Others_liable?": {
+        "c_yes_no_others_liable?": {
             "title": "C. YES/NO (Others liable?)",
             "description": "",
             "type": "string",
@@ -424,7 +424,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "D_YES/NO_Collateral?": {
+        "d_yes_no_collateral?": {
             "title": "D. YES/NO (Collateral?)",
             "description": "",
             "type": "string",
@@ -445,7 +445,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "D1_DESC_Collateral": {
+        "d1_desc_collateral": {
             "title": "D.1 DESC (Collateral)",
             "description": "",
             "type": "string",
@@ -466,7 +466,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "D2_COLLATERAL_VALUE/AMOUNT": {
+        "d2_collateral_value_amount": {
             "title": "D.2 COLLATERAL VALUE/AMOUNT",
             "description": "",
             "type": "number",
@@ -486,7 +486,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "D3_YES/NO__Perfected_Interest?": {
+        "d3_yes_no_perfected_interest?": {
             "title": "D.3 YES/NO  (Perfected Interest?))",
             "description": "",
             "type": "string",
@@ -507,7 +507,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "E1_YES/NO__Future_Income": {
+        "e1_yes_no_future_income": {
             "title": "E.1 YES/NO  (Future Income)",
             "description": "",
             "type": "string",
@@ -528,7 +528,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "E2__DESC__Specification_of_the_above": {
+        "e2_desc_specification_of_the_above": {
             "title": "E.2  DESC  (Specification of the above)",
             "description": "",
             "type": "string",
@@ -546,7 +546,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "E3_ESTIMATED_VALUE": {
+        "e3_estimated_value": {
             "title": "E.3 ESTIMATED VALUE",
             "description": "",
             "type": "number",
@@ -563,7 +563,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "E4_DATE_Depository_account_established": {
+        "e4_date_depository_account_established": {
             "title": "E.4 DATE (Depository account established)",
             "description": "",
             "type": "integer",
@@ -580,7 +580,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "E5_IND/NAME_Account_Location": {
+        "e5_ind_name_account_location": {
             "title": "E.5 IND/NAME (Account Location)",
             "description": "",
             "type": "string",
@@ -598,7 +598,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "E6_STREET__1": {
+        "e6_street_1": {
             "title": "E.6 STREET  1",
             "description": "",
             "type": "string",
@@ -616,7 +616,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "E7_STREET__2": {
+        "e7_street_2": {
             "title": "E.7 STREET  2",
             "description": "",
             "type": "string",
@@ -634,7 +634,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "E8_CITY": {
+        "e8_city": {
             "title": "E.8 CITY",
             "description": "",
             "type": "string",
@@ -652,7 +652,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "E9_STATE": {
+        "e9_state": {
             "title": "E.9 STATE",
             "description": "",
             "type": "string",
@@ -670,7 +670,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "E10_ZIP": {
+        "e10_zip": {
             "title": "E.10 ZIP",
             "description": "",
             "type": "string",
@@ -688,7 +688,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "E11_DEP_ACCT_AUTH_DATE_Presidential": {
+        "e11_dep_acct_auth_date_presidential": {
             "title": "E.11 DEP ACCT AUTH DATE (Presidential)",
             "description": "",
             "type": "integer",
@@ -705,7 +705,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "F_BASIS_OF_LOAN_DESCRIPTION": {
+        "f_basis_of_loan_description": {
             "title": "F. BASIS OF LOAN DESCRIPTION",
             "description": "",
             "type": "string",
@@ -726,7 +726,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "G_TREASURER_LAST_NAME": {
+        "g_treasurer_last_name": {
             "title": "G. TREASURER LAST NAME",
             "description": "",
             "type": "string",
@@ -747,7 +747,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "G_TREASURER_FIRST_NAME": {
+        "g_treasurer_first_name": {
             "title": "G. TREASURER FIRST NAME",
             "description": "",
             "type": "string",
@@ -768,7 +768,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "G_TREASURER_MIDDLE_NAME": {
+        "g_treasurer_middle_name": {
             "title": "G. TREASURER MIDDLE NAME",
             "description": "",
             "type": "string",
@@ -789,7 +789,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "G_TREASURER_PREFIX": {
+        "g_treasurer_prefix": {
             "title": "G. TREASURER PREFIX",
             "description": "",
             "type": "string",
@@ -810,7 +810,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "G_TREASURER_SUFFIX": {
+        "g_treasurer_suffix": {
             "title": "G. TREASURER SUFFIX",
             "description": "",
             "type": "string",
@@ -831,7 +831,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "G_DATE_SIGNED": {
+        "g_date_signed": {
             "title": "G. DATE SIGNED",
             "description": "",
             "type": "integer",
@@ -851,7 +851,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "H_AUTHORIZED_LAST_NAME": {
+        "h_authorized_last_name": {
             "title": "H. AUTHORIZED LAST NAME",
             "description": "",
             "type": "string",
@@ -872,7 +872,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "H_AUTHORIZED_FIRST_NAME": {
+        "h_authorized_first_name": {
             "title": "H. AUTHORIZED FIRST NAME",
             "description": "",
             "type": "string",
@@ -893,7 +893,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "H_AUTHORIZED_MIDDLE_NAME": {
+        "h_authorized_middle_name": {
             "title": "H. AUTHORIZED MIDDLE NAME",
             "description": "",
             "type": "string",
@@ -914,7 +914,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "H_AUTHORIZED_PREFIX": {
+        "h_authorized_prefix": {
             "title": "H. AUTHORIZED PREFIX",
             "description": "",
             "type": "string",
@@ -935,7 +935,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "H_AUTHORIZED_SUFFIX": {
+        "h_authorized_suffix": {
             "title": "H. AUTHORIZED SUFFIX",
             "description": "",
             "type": "string",
@@ -956,7 +956,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "H_AUTHORIZED_TITLE": {
+        "h_authorized_title": {
             "title": "H. AUTHORIZED TITLE",
             "description": "",
             "type": "string",
@@ -977,7 +977,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "H_DATE_SIGNED": {
+        "h_date_signed": {
             "title": "H. DATE SIGNED",
             "description": "",
             "type": "integer",

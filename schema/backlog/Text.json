@@ -6,15 +6,15 @@
     "description": "TEXT - MISC. TEXT RELATED TO A REPORT, SCHEDULE OR ITEMIZATION",
     "type": "object",
     "required": [
-        "REC_TYPE",
-        "FILER_COMMITTEE_ID_NUMBER",
-        "TRANSACTION_ID_NUMBER",
-        "BACK_REFERENCE_TRAN_ID_NUMBER",
-        "BACK_REFERENCE_SCHED_/_FORM_NAME"
+        "rec_type",
+        "filer_committee_id_number",
+        "transaction_id_number",
+        "back_reference_tran_id_number",
+        "back_reference_sched__form_name"
     ],
     "fec_recommended": [],
     "properties": {
-        "REC_TYPE": {
+        "rec_type": {
             "title": "REC TYPE",
             "description": "",
             "type": "string",
@@ -35,7 +35,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "FILER_COMMITTEE_ID_NUMBER": {
+        "filer_committee_id_number": {
             "title": "FILER COMMITTEE ID NUMBER",
             "description": "",
             "type": "string",
@@ -56,7 +56,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "TRANSACTION_ID_NUMBER": {
+        "transaction_id_number": {
             "title": "TRANSACTION ID NUMBER",
             "description": "",
             "type": "string",
@@ -77,7 +77,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "BACK_REFERENCE_TRAN_ID_NUMBER": {
+        "back_reference_tran_id_number": {
             "title": "BACK REFERENCE TRAN ID NUMBER",
             "description": "",
             "type": "string",
@@ -98,7 +98,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "BACK_REFERENCE_SCHED_/_FORM_NAME": {
+        "back_reference_sched__form_name": {
             "title": "BACK REFERENCE SCHED / FORM NAME",
             "description": "",
             "type": "string",
@@ -119,7 +119,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "TEXT4000": {
+        "text4000": {
             "title": "TEXT4000",
             "description": "",
             "type": "string",

@@ -6,21 +6,21 @@
     "description": "FORM 1M - NOTIFICATION OF MULTICANDIDATE STATUS",
     "type": "object",
     "required": [
-        "FORM_TYPE",
-        "FILER_COMMITTEE_ID_NUMBER",
-        "TREASURER_LAST_NAME",
-        "TREASURER_FIRST_NAME",
-        "DATE_SIGNED"
+        "form_type",
+        "filer_committee_id_number",
+        "treasurer_last_name",
+        "treasurer_first_name",
+        "date_signed"
     ],
     "fec_recommended": [
-        "COMMITTEE_NAME",
-        "STREET__1",
-        "CITY",
-        "STATE",
-        "ZIP"
+        "committee_name",
+        "street_1",
+        "city",
+        "state",
+        "zip"
     ],
     "properties": {
-        "FORM_TYPE": {
+        "form_type": {
             "title": "FORM TYPE",
             "description": "",
             "type": "string",
@@ -41,7 +41,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "FILER_COMMITTEE_ID_NUMBER": {
+        "filer_committee_id_number": {
             "title": "FILER COMMITTEE ID NUMBER",
             "description": "",
             "type": "string",
@@ -62,7 +62,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "COMMITTEE_NAME": {
+        "committee_name": {
             "title": "COMMITTEE NAME",
             "description": "",
             "type": "string",
@@ -83,7 +83,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "STREET__1": {
+        "street_1": {
             "title": "STREET  1",
             "description": "",
             "type": "string",
@@ -104,7 +104,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "STREET__2": {
+        "street_2": {
             "title": "STREET  2",
             "description": "",
             "type": "string",
@@ -122,7 +122,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "CITY": {
+        "city": {
             "title": "CITY",
             "description": "",
             "type": "string",
@@ -143,7 +143,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "STATE": {
+        "state": {
             "title": "STATE",
             "description": "",
             "type": "string",
@@ -164,7 +164,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "ZIP": {
+        "zip": {
             "title": "ZIP",
             "description": "",
             "type": "string",
@@ -185,7 +185,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "COMMITTEE_TYPE": {
+        "committee_type": {
             "title": "COMMITTEE TYPE",
             "description": "",
             "type": "string",
@@ -206,7 +206,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "AFFILIATED_-_DATE_FORM_F1_FILED": {
+        "affiliated_-_date_form_f1_filed": {
             "title": "AFFILIATED - DATE FORM F1 FILED",
             "description": "",
             "type": "integer",
@@ -226,7 +226,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "AFFILIATED_COMMITTEE_FEC_ID": {
+        "affiliated_committee_fec_id": {
             "title": "AFFILIATED COMMITTEE FEC ID",
             "description": "",
             "type": "string",
@@ -244,7 +244,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "AFFILIATED_COMMITTEE_NAME": {
+        "affiliated_committee_name": {
             "title": "AFFILIATED COMMITTEE NAME",
             "description": "",
             "type": "string",
@@ -262,7 +262,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "I_CANDIDATE_ID_NUMBER": {
+        "i_candidate_id_number": {
             "title": "I CANDIDATE ID NUMBER",
             "description": "",
             "type": "string",
@@ -283,7 +283,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "I_CANDIDATE_LAST_NAME": {
+        "i_candidate_last_name": {
             "title": "I CANDIDATE LAST NAME",
             "description": "",
             "type": "string",
@@ -304,7 +304,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "I_CANDIDATE_FIRST_NAME": {
+        "i_candidate_first_name": {
             "title": "I CANDIDATE FIRST NAME",
             "description": "",
             "type": "string",
@@ -325,7 +325,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "I_CANDIDATE_MIDDLE_NAME": {
+        "i_candidate_middle_name": {
             "title": "I CANDIDATE MIDDLE NAME",
             "description": "",
             "type": "string",
@@ -346,7 +346,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "I_CANDIDATE_PREFIX": {
+        "i_candidate_prefix": {
             "title": "I CANDIDATE PREFIX",
             "description": "",
             "type": "string",
@@ -367,7 +367,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "I_CANDIDATE_SUFFIX": {
+        "i_candidate_suffix": {
             "title": "I CANDIDATE SUFFIX",
             "description": "",
             "type": "string",
@@ -388,7 +388,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "I_CANDIDATE_OFFICE": {
+        "i_candidate_office": {
             "title": "I CANDIDATE OFFICE",
             "description": "",
             "type": "string",
@@ -409,7 +409,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "I_CANDIDATE_STATE": {
+        "i_candidate_state": {
             "title": "I CANDIDATE STATE",
             "description": "",
             "type": "string",
@@ -430,7 +430,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "I_CANDIDATE_DIST": {
+        "i_candidate_dist": {
             "title": "I CANDIDATE DIST",
             "description": "",
             "type": "integer",
@@ -450,7 +450,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "I_DATE_OF_CONTRIBUTION": {
+        "i_date_of_contribution": {
             "title": "I DATE OF CONTRIBUTION",
             "description": "",
             "type": "integer",
@@ -470,7 +470,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "II_CANDIDATE_ID_NUMBER": {
+        "ii_candidate_id_number": {
             "title": "II CANDIDATE ID NUMBER",
             "description": "",
             "type": "string",
@@ -491,7 +491,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "II_CANDIDATE_LAST_NAME": {
+        "ii_candidate_last_name": {
             "title": "II CANDIDATE LAST NAME",
             "description": "",
             "type": "string",
@@ -512,7 +512,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "II_CANDIDATE_FIRST_NAME": {
+        "ii_candidate_first_name": {
             "title": "II CANDIDATE FIRST NAME",
             "description": "",
             "type": "string",
@@ -533,7 +533,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "II_CANDIDATE_MIDDLE_NAME": {
+        "ii_candidate_middle_name": {
             "title": "II CANDIDATE MIDDLE NAME",
             "description": "",
             "type": "string",
@@ -554,7 +554,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "II_CANDIDATE_PREFIX": {
+        "ii_candidate_prefix": {
             "title": "II CANDIDATE PREFIX",
             "description": "",
             "type": "string",
@@ -575,7 +575,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "II_CANDIDATE_SUFFIX": {
+        "ii_candidate_suffix": {
             "title": "II CANDIDATE SUFFIX",
             "description": "",
             "type": "string",
@@ -596,7 +596,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "II_CANDIDATE_OFFICE": {
+        "ii_candidate_office": {
             "title": "II CANDIDATE OFFICE",
             "description": "",
             "type": "string",
@@ -617,7 +617,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "II_CANDIDATE_STATE": {
+        "ii_candidate_state": {
             "title": "II CANDIDATE STATE",
             "description": "",
             "type": "string",
@@ -638,7 +638,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "II_CANDIDATE_DIST": {
+        "ii_candidate_dist": {
             "title": "II CANDIDATE DIST",
             "description": "",
             "type": "integer",
@@ -658,7 +658,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "II_DATE_OF_CONTRIBUTION": {
+        "ii_date_of_contribution": {
             "title": "II DATE OF CONTRIBUTION",
             "description": "",
             "type": "integer",
@@ -678,7 +678,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "III_CANDIDATE_ID_NUMBER": {
+        "iii_candidate_id_number": {
             "title": "III CANDIDATE ID NUMBER",
             "description": "",
             "type": "string",
@@ -699,7 +699,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "III_CANDIDATE_LAST_NAME": {
+        "iii_candidate_last_name": {
             "title": "III CANDIDATE LAST NAME",
             "description": "",
             "type": "string",
@@ -720,7 +720,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "III_CANDIDATE_FIRST_NAME": {
+        "iii_candidate_first_name": {
             "title": "III CANDIDATE FIRST NAME",
             "description": "",
             "type": "string",
@@ -741,7 +741,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "III_CANDIDATE_MIDDLE_NAME": {
+        "iii_candidate_middle_name": {
             "title": "III CANDIDATE MIDDLE NAME",
             "description": "",
             "type": "string",
@@ -762,7 +762,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "III_CANDIDATE_PREFIX": {
+        "iii_candidate_prefix": {
             "title": "III CANDIDATE PREFIX",
             "description": "",
             "type": "string",
@@ -783,7 +783,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "III_CANDIDATE_SUFFIX": {
+        "iii_candidate_suffix": {
             "title": "III CANDIDATE SUFFIX",
             "description": "",
             "type": "string",
@@ -804,7 +804,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "III_CANDIDATE_OFFICE": {
+        "iii_candidate_office": {
             "title": "III CANDIDATE OFFICE",
             "description": "",
             "type": "string",
@@ -825,7 +825,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "III_CANDIDATE_STATE": {
+        "iii_candidate_state": {
             "title": "III CANDIDATE STATE",
             "description": "",
             "type": "string",
@@ -846,7 +846,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "III_CANDIDATE_DIST": {
+        "iii_candidate_dist": {
             "title": "III CANDIDATE DIST",
             "description": "",
             "type": "integer",
@@ -866,7 +866,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "III_DATE_OF_CONTRIBUTION": {
+        "iii_date_of_contribution": {
             "title": "III DATE OF CONTRIBUTION",
             "description": "",
             "type": "integer",
@@ -886,7 +886,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "IV_CANDIDATE_ID_NUMBER": {
+        "iv_candidate_id_number": {
             "title": "IV CANDIDATE ID NUMBER",
             "description": "",
             "type": "string",
@@ -907,7 +907,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "IV_CANDIDATE_LAST_NAME": {
+        "iv_candidate_last_name": {
             "title": "IV CANDIDATE LAST NAME",
             "description": "",
             "type": "string",
@@ -928,7 +928,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "IV_CANDIDATE_FIRST_NAME": {
+        "iv_candidate_first_name": {
             "title": "IV CANDIDATE FIRST NAME",
             "description": "",
             "type": "string",
@@ -949,7 +949,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "IV_CANDIDATE_MIDDLE_NAME": {
+        "iv_candidate_middle_name": {
             "title": "IV CANDIDATE MIDDLE NAME",
             "description": "",
             "type": "string",
@@ -970,7 +970,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "IV_CANDIDATE_PREFIX": {
+        "iv_candidate_prefix": {
             "title": "IV CANDIDATE PREFIX",
             "description": "",
             "type": "string",
@@ -991,7 +991,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "IV_CANDIDATE_SUFFIX": {
+        "iv_candidate_suffix": {
             "title": "IV CANDIDATE SUFFIX",
             "description": "",
             "type": "string",
@@ -1012,7 +1012,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "IV_CANDIDATE_OFFICE": {
+        "iv_candidate_office": {
             "title": "IV CANDIDATE OFFICE",
             "description": "",
             "type": "string",
@@ -1033,7 +1033,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "IV_CANDIDATE_STATE": {
+        "iv_candidate_state": {
             "title": "IV CANDIDATE STATE",
             "description": "",
             "type": "string",
@@ -1054,7 +1054,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "IV_CANDIDATE_DIST": {
+        "iv_candidate_dist": {
             "title": "IV CANDIDATE DIST",
             "description": "",
             "type": "integer",
@@ -1074,7 +1074,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "IV_DATE_OF_CONTRIBUTION": {
+        "iv_date_of_contribution": {
             "title": "IV DATE OF CONTRIBUTION",
             "description": "",
             "type": "integer",
@@ -1094,7 +1094,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "V_CANDIDATE_ID_NUMBER": {
+        "v_candidate_id_number": {
             "title": "V CANDIDATE ID NUMBER",
             "description": "",
             "type": "string",
@@ -1115,7 +1115,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "V_CANDIDATE_LAST_NAME": {
+        "v_candidate_last_name": {
             "title": "V CANDIDATE LAST NAME",
             "description": "",
             "type": "string",
@@ -1136,7 +1136,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "V_CANDIDATE_FIRST_NAME": {
+        "v_candidate_first_name": {
             "title": "V CANDIDATE FIRST NAME",
             "description": "",
             "type": "string",
@@ -1157,7 +1157,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "V_CANDIDATE_MIDDLE_NAME": {
+        "v_candidate_middle_name": {
             "title": "V CANDIDATE MIDDLE NAME",
             "description": "",
             "type": "string",
@@ -1178,7 +1178,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "V_CANDIDATE_PREFIX": {
+        "v_candidate_prefix": {
             "title": "V CANDIDATE PREFIX",
             "description": "",
             "type": "string",
@@ -1199,7 +1199,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "V_CANDIDATE_SUFFIX": {
+        "v_candidate_suffix": {
             "title": "V CANDIDATE SUFFIX",
             "description": "",
             "type": "string",
@@ -1220,7 +1220,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "V_CANDIDATE_OFFICE": {
+        "v_candidate_office": {
             "title": "V CANDIDATE OFFICE",
             "description": "",
             "type": "string",
@@ -1241,7 +1241,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "V_CANDIDATE_STATE": {
+        "v_candidate_state": {
             "title": "V CANDIDATE STATE",
             "description": "",
             "type": "string",
@@ -1262,7 +1262,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "V_CANDIDATE_DIST": {
+        "v_candidate_dist": {
             "title": "V CANDIDATE DIST",
             "description": "",
             "type": "integer",
@@ -1282,7 +1282,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "V_DATE_OF_CONTRIBUTION": {
+        "v_date_of_contribution": {
             "title": "V DATE OF CONTRIBUTION",
             "description": "",
             "type": "integer",
@@ -1302,7 +1302,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "DATE_Of_51st_Contributor": {
+        "date_of_51st_contributor": {
             "title": "DATE (Of 51st Contributor)",
             "description": "",
             "type": "integer",
@@ -1319,7 +1319,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "DATE_Of_Orig_Registration": {
+        "date_of_orig_registration": {
             "title": "DATE (Of Orig Registration)",
             "description": "",
             "type": "integer",
@@ -1336,7 +1336,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "DATE_Cmte_Met_Requirements": {
+        "date_cmte_met_requirements": {
             "title": "DATE (Cmte Met Requirements)",
             "description": "",
             "type": "integer",
@@ -1353,7 +1353,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "TREASURER_LAST_NAME": {
+        "treasurer_last_name": {
             "title": "TREASURER LAST NAME",
             "description": "",
             "type": "string",
@@ -1374,7 +1374,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "TREASURER_FIRST_NAME": {
+        "treasurer_first_name": {
             "title": "TREASURER FIRST NAME",
             "description": "",
             "type": "string",
@@ -1395,7 +1395,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "TREASURER_MIDDLE_NAME": {
+        "treasurer_middle_name": {
             "title": "TREASURER MIDDLE NAME",
             "description": "",
             "type": "string",
@@ -1416,7 +1416,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "TREASURER_PREFIX": {
+        "treasurer_prefix": {
             "title": "TREASURER PREFIX",
             "description": "",
             "type": "string",
@@ -1437,7 +1437,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "TREASURER_SUFFIX": {
+        "treasurer_suffix": {
             "title": "TREASURER SUFFIX",
             "description": "",
             "type": "string",
@@ -1458,7 +1458,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "DATE_SIGNED": {
+        "date_signed": {
             "title": "DATE SIGNED",
             "description": "",
             "type": "integer",

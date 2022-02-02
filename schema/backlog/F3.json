@@ -6,25 +6,25 @@
     "description": "FORM 3 - REPORT OF RECEIPTS AND DISBURSEMENTS FOR AN AUTHORIZED COMMITTEE ",
     "type": "object",
     "required": [
-        "FORM_TYPE",
-        "FILER_COMMITTEE_ID_NUMBER",
-        "TREASURER_LAST_NAME",
-        "TREASURER_FIRST_NAME",
-        "DATE_SIGNED"
+        "form_type",
+        "filer_committee_id_number",
+        "treasurer_last_name",
+        "treasurer_first_name",
+        "date_signed"
     ],
     "fec_recommended": [
-        "COMMITTEE_NAME",
-        "STREET__1",
-        "CITY",
-        "STATE",
-        "ZIP",
-        "ELECTION_STATE",
-        "REPORT_CODE",
-        "COVERAGE_FROM_DATE",
-        "COVERAGE_THROUGH_DATE"
+        "committee_name",
+        "street_1",
+        "city",
+        "state",
+        "zip",
+        "election_state",
+        "report_code",
+        "coverage_from_date",
+        "coverage_through_date"
     ],
     "properties": {
-        "FORM_TYPE": {
+        "form_type": {
             "title": "FORM TYPE",
             "description": "",
             "type": "string",
@@ -45,7 +45,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "FILER_COMMITTEE_ID_NUMBER": {
+        "filer_committee_id_number": {
             "title": "FILER COMMITTEE ID NUMBER",
             "description": "",
             "type": "string",
@@ -66,7 +66,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "COMMITTEE_NAME": {
+        "committee_name": {
             "title": "COMMITTEE NAME",
             "description": "",
             "type": "string",
@@ -87,7 +87,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "CHANGE_OF_ADDRESS": {
+        "change_of_address": {
             "title": "CHANGE OF ADDRESS",
             "description": "",
             "type": "boolean",
@@ -105,7 +105,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "STREET__1": {
+        "street_1": {
             "title": "STREET  1",
             "description": "",
             "type": "string",
@@ -126,7 +126,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "STREET__2": {
+        "street_2": {
             "title": "STREET  2",
             "description": "",
             "type": "string",
@@ -144,7 +144,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "CITY": {
+        "city": {
             "title": "CITY",
             "description": "",
             "type": "string",
@@ -165,7 +165,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "STATE": {
+        "state": {
             "title": "STATE",
             "description": "",
             "type": "string",
@@ -186,7 +186,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "ZIP": {
+        "zip": {
             "title": "ZIP",
             "description": "",
             "type": "string",
@@ -207,7 +207,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "ELECTION_STATE": {
+        "election_state": {
             "title": "ELECTION STATE",
             "description": "",
             "type": "string",
@@ -228,7 +228,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "ELECTION_DISTRICT": {
+        "election_district": {
             "title": "ELECTION DISTRICT",
             "description": "",
             "type": "integer",
@@ -248,7 +248,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "REPORT_CODE": {
+        "report_code": {
             "title": "REPORT CODE",
             "description": "",
             "type": "string",
@@ -269,7 +269,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "ELECTION_CODE__{was_RPTPGI}": {
+        "election_code_{was_rptpgi}": {
             "title": "ELECTION CODE  {was RPTPGI}",
             "description": "",
             "type": "string",
@@ -290,7 +290,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "DATE_OF_ELECTION": {
+        "date_of_election": {
             "title": "DATE OF ELECTION",
             "description": "",
             "type": "integer",
@@ -310,7 +310,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "STATE_OF_ELECTION": {
+        "state_of_election": {
             "title": "STATE OF ELECTION",
             "description": "",
             "type": "string",
@@ -331,7 +331,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "COVERAGE_FROM_DATE": {
+        "coverage_from_date": {
             "title": "COVERAGE FROM DATE",
             "description": "",
             "type": "integer",
@@ -351,7 +351,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "COVERAGE_THROUGH_DATE": {
+        "coverage_through_date": {
             "title": "COVERAGE THROUGH DATE",
             "description": "",
             "type": "integer",
@@ -371,7 +371,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "TREASURER_LAST_NAME": {
+        "treasurer_last_name": {
             "title": "TREASURER LAST NAME",
             "description": "",
             "type": "string",
@@ -392,7 +392,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "TREASURER_FIRST_NAME": {
+        "treasurer_first_name": {
             "title": "TREASURER FIRST NAME",
             "description": "",
             "type": "string",
@@ -413,7 +413,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "TREASURER_MIDDLE_NAME": {
+        "treasurer_middle_name": {
             "title": "TREASURER MIDDLE NAME",
             "description": "",
             "type": "string",
@@ -434,7 +434,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "TREASURER_PREFIX": {
+        "treasurer_prefix": {
             "title": "TREASURER PREFIX",
             "description": "",
             "type": "string",
@@ -455,7 +455,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "TREASURER_SUFFIX": {
+        "treasurer_suffix": {
             "title": "TREASURER SUFFIX",
             "description": "",
             "type": "string",
@@ -476,7 +476,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "DATE_SIGNED": {
+        "date_signed": {
             "title": "DATE SIGNED",
             "description": "",
             "type": "integer",
@@ -496,7 +496,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "6a_Total_Contributions_NO_Loans": {
+        "L6a_total_contributions_no_loans": {
             "title": "(6a) Total Contributions (NO Loans)",
             "description": "",
             "type": "number",
@@ -516,48 +516,54 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "6b_Total_Contribution_Refunds": {
+        "L6b_total_contribution_refunds": {
             "title": "(6b) Total Contribution Refunds",
             "description": "",
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
+            "examples": [
+                123.45
+            ],
             "fec_spec": {
-                "COL_SEQ": 64,
+                "COL_SEQ": 25,
                 "FIELD_DESCRIPTION": "(6b) Total Contribution Refunds",
                 "TYPE": "AMT-12",
                 "REQUIRED": null,
-                "SAMPLE_DATA": null,
+                "SAMPLE_DATA": 123.45,
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": "= 20d",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "6c_Net_Contributions": {
+        "L6c_net_contributions": {
             "title": "(6c) Net Contributions",
             "description": "",
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
+            "examples": [
+                12222.22
+            ],
             "fec_spec": {
-                "COL_SEQ": 65,
+                "COL_SEQ": 26,
                 "FIELD_DESCRIPTION": "(6c) Net Contributions",
                 "TYPE": "AMT-12",
                 "REQUIRED": null,
-                "SAMPLE_DATA": null,
+                "SAMPLE_DATA": 12222.22,
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": "= 6a - 6b",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "7a_Total_Operating_Expenditures": {
+        "L7a_total_operating_expenditures": {
             "title": "(7a) Total Operating Expenditures",
             "description": "",
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
             "fec_spec": {
-                "COL_SEQ": 66,
+                "COL_SEQ": 27,
                 "FIELD_DESCRIPTION": "(7a) Total Operating Expenditures",
                 "TYPE": "AMT-12",
                 "REQUIRED": null,
@@ -567,7 +573,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "7b_Total_Offset_to_Operating_Expenditures": {
+        "L7b_total_offset_to_operating_expenditures": {
             "title": "(7b) Total Offset to Operating Expenditures",
             "description": "",
             "type": "number",
@@ -584,14 +590,14 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "7c_NET_Operating_Expenditures": {
+        "L7c_net_operating_expenditures": {
             "title": "(7c) NET Operating Expenditures.",
             "description": "",
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
             "fec_spec": {
-                "COL_SEQ": 68,
+                "COL_SEQ": 29,
                 "FIELD_DESCRIPTION": "(7c) NET Operating Expenditures.",
                 "TYPE": "AMT-12",
                 "REQUIRED": null,
@@ -601,7 +607,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "8_CASH_ON_HAND_AT_CLOSE_": {
+        "L8_cash_on_hand_at_close_": {
             "title": "8. CASH ON HAND AT CLOSE ...",
             "description": "",
             "type": "number",
@@ -618,7 +624,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "9_DEBTS_TO__Totals_from_SCH_C_and/or_D": {
+        "L9_debts_to_totals_from_sch_c_and_or_d": {
             "title": "9. DEBTS TO ( Totals from SCH C and/or D)",
             "description": "",
             "type": "number",
@@ -635,7 +641,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "10_DEBTS_BY_Totals_from_SCH_C_and/or_D": {
+        "L10_debts_by_totals_from_sch_c_and_or_d": {
             "title": "10. DEBTS BY (Totals from SCH C and/or D)",
             "description": "",
             "type": "number",
@@ -652,31 +658,31 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "11a_i_Individuals_Itemized": {
+        "L11a_i_individuals_itemized": {
             "title": "11(a i.) Individuals Itemized",
             "description": "",
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
             "fec_spec": {
-                "COL_SEQ": 69,
+                "COL_SEQ": 33,
                 "FIELD_DESCRIPTION": "11(a i.) Individuals Itemized",
                 "TYPE": "AMT-12",
                 "REQUIRED": null,
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
+                "RULE_REFERENCE": "= Total from Sch A",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "11aii_Individuals_Unitemized": {
+        "L11aii_individuals_unitemized": {
             "title": "11(a.ii) Individuals Unitemized",
             "description": "",
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
             "fec_spec": {
-                "COL_SEQ": 70,
+                "COL_SEQ": 34,
                 "FIELD_DESCRIPTION": "11(a.ii) Individuals Unitemized",
                 "TYPE": "AMT-12",
                 "REQUIRED": null,
@@ -686,7 +692,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "11aiii_Individual_Contribution_Total": {
+        "L11aiii_individual_contribution_total": {
             "title": "11(a.iii) Individual Contribution Total",
             "description": "",
             "type": "number",
@@ -703,14 +709,14 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "11b_Political_Party_Committees": {
+        "L11b_political_party_committees": {
             "title": "11(b) Political Party Committees",
             "description": "",
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
             "fec_spec": {
-                "COL_SEQ": 72,
+                "COL_SEQ": 36,
                 "FIELD_DESCRIPTION": "11(b) Political Party Committees",
                 "TYPE": "AMT-12",
                 "REQUIRED": null,
@@ -720,7 +726,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "11c_Other_Political_Committees": {
+        "L11c_other_political_committees": {
             "title": "11(c) Other Political Committees",
             "description": "",
             "type": "number",
@@ -737,14 +743,14 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "11d_The_Candidate": {
+        "L11d_the_candidate": {
             "title": "11(d) The Candidate",
             "description": "",
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
             "fec_spec": {
-                "COL_SEQ": 74,
+                "COL_SEQ": 38,
                 "FIELD_DESCRIPTION": "11(d) The Candidate",
                 "TYPE": "AMT-12",
                 "REQUIRED": null,
@@ -754,14 +760,14 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "11e_Total_Contributions": {
+        "L11e_total_contributions": {
             "title": "11(e) Total Contributions",
             "description": "",
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
             "fec_spec": {
-                "COL_SEQ": 75,
+                "COL_SEQ": 39,
                 "FIELD_DESCRIPTION": "11(e) Total Contributions",
                 "TYPE": "AMT-12",
                 "REQUIRED": null,
@@ -771,7 +777,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "12_Transfers__From_Other_Authorized_Cmttes": {
+        "L12_transfers_from_other_authorized_cmttes": {
             "title": "12. Transfers  From Other Authorized Cmttes",
             "description": "",
             "type": "number",
@@ -788,14 +794,14 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "13a_Loans_made_or_guarn_by_the_Candidate": {
+        "L13a_loans_made_or_guarn_by_the_candidate": {
             "title": "13(a) Loans made or guarn. by the Candidate",
             "description": "",
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
             "fec_spec": {
-                "COL_SEQ": 77,
+                "COL_SEQ": 41,
                 "FIELD_DESCRIPTION": "13(a) Loans made or guarn. by the Candidate",
                 "TYPE": "AMT-12",
                 "REQUIRED": null,
@@ -805,14 +811,14 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "13b_All_Other_Loans": {
+        "L13b_all_other_loans": {
             "title": "13(b) All Other Loans",
             "description": "",
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
             "fec_spec": {
-                "COL_SEQ": 78,
+                "COL_SEQ": 42,
                 "FIELD_DESCRIPTION": "13(b) All Other Loans",
                 "TYPE": "AMT-12",
                 "REQUIRED": null,
@@ -822,14 +828,14 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "13c_Total_Loans": {
+        "L13c_total_loans": {
             "title": "13(c) Total Loans",
             "description": "",
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
             "fec_spec": {
-                "COL_SEQ": 79,
+                "COL_SEQ": 43,
                 "FIELD_DESCRIPTION": "13(c) Total Loans",
                 "TYPE": "AMT-12",
                 "REQUIRED": null,
@@ -839,14 +845,14 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "14_Offsets_to_Operating_Expenditures": {
+        "L14_offsets_to_operating_expenditures": {
             "title": "14. Offsets to Operating Expenditures",
             "description": "",
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
             "fec_spec": {
-                "COL_SEQ": 80,
+                "COL_SEQ": 44,
                 "FIELD_DESCRIPTION": "14. Offsets to Operating Expenditures",
                 "TYPE": "AMT-12",
                 "REQUIRED": null,
@@ -856,14 +862,14 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "15_Other_Receipts": {
+        "L15_other_receipts": {
             "title": "15. Other Receipts",
             "description": "",
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
             "fec_spec": {
-                "COL_SEQ": 81,
+                "COL_SEQ": 45,
                 "FIELD_DESCRIPTION": "15. Other Receipts",
                 "TYPE": "AMT-12",
                 "REQUIRED": null,
@@ -873,14 +879,14 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "16_Total_Receipts": {
+        "L16_total_receipts": {
             "title": "16. Total Receipts",
             "description": "",
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
             "fec_spec": {
-                "COL_SEQ": 82,
+                "COL_SEQ": 46,
                 "FIELD_DESCRIPTION": "16. Total Receipts",
                 "TYPE": "AMT-12",
                 "REQUIRED": null,
@@ -890,15 +896,15 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "17_Operating_Expenditures": {
-            "title": "17 Operating Expenditures",
+        "L17_operating_expenditures": {
+            "title": "17. Operating Expenditures",
             "description": "",
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
             "fec_spec": {
-                "COL_SEQ": 83,
-                "FIELD_DESCRIPTION": "17 Operating Expenditures",
+                "COL_SEQ": 47,
+                "FIELD_DESCRIPTION": "17. Operating Expenditures",
                 "TYPE": "AMT-12",
                 "REQUIRED": null,
                 "SAMPLE_DATA": null,
@@ -907,7 +913,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "18_Transfers_to_Other_Authorized_Committees": {
+        "L18_transfers_to_other_authorized_committees": {
             "title": "18. Transfers to Other Authorized Committees",
             "description": "",
             "type": "number",
@@ -924,7 +930,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "19a_Of_Loans_made_or_guar_by_the_Cand": {
+        "L19a_of_loans_made_or_guar_by_the_cand": {
             "title": "19(a) Of Loans made or guar. by the Cand.",
             "description": "",
             "type": "number",
@@ -941,7 +947,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "19b_Loan_Repayments,_All_Other_Loans": {
+        "L19b_loan_repayments,_all_other_loans": {
             "title": "19(b) Loan Repayments, All Other Loans",
             "description": "",
             "type": "number",
@@ -958,14 +964,14 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "19c_Total_Loan_Repayments": {
+        "L19c_total_loan_repayments": {
             "title": "19(c) Total Loan Repayments",
             "description": "",
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
             "fec_spec": {
-                "COL_SEQ": 87,
+                "COL_SEQ": 51,
                 "FIELD_DESCRIPTION": "19(c) Total Loan Repayments",
                 "TYPE": "AMT-12",
                 "REQUIRED": null,
@@ -975,14 +981,14 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "20a_Refund/Individuals_Other_than_Pol_Cmtes": {
+        "L20a_refund_individuals_other_than_pol_cmtes": {
             "title": "20(a) Refund/Individuals Other than Pol. Cmtes",
             "description": "",
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
             "fec_spec": {
-                "COL_SEQ": 88,
+                "COL_SEQ": 52,
                 "FIELD_DESCRIPTION": "20(a) Refund/Individuals Other than Pol. Cmtes",
                 "TYPE": "AMT-12",
                 "REQUIRED": null,
@@ -992,7 +998,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "20b_Refund/Political_Party_Committees": {
+        "L20b_refund_political_party_committees": {
             "title": "20(b) Refund/Political Party Committees",
             "description": "",
             "type": "number",
@@ -1009,7 +1015,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "20c_Refund/Other_Political_Committees": {
+        "L20c_refund_other_political_committees": {
             "title": "20(c) Refund/Other Political Committees",
             "description": "",
             "type": "number",
@@ -1026,7 +1032,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "20d_Total_Contribution_Refunds": {
+        "L20d_total_contribution_refunds": {
             "title": "20(d) Total Contribution Refunds",
             "description": "",
             "type": "number",
@@ -1043,14 +1049,14 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "21_Other_Disbursements": {
+        "L21_other_disbursements": {
             "title": "21. Other Disbursements",
             "description": "",
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
             "fec_spec": {
-                "COL_SEQ": 92,
+                "COL_SEQ": 56,
                 "FIELD_DESCRIPTION": "21. Other Disbursements",
                 "TYPE": "AMT-12",
                 "REQUIRED": null,
@@ -1060,14 +1066,14 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "22_Total_Disbursements": {
+        "L22_total_disbursements": {
             "title": "22. Total Disbursements",
             "description": "",
             "type": "number",
             "minimum": 0,
             "maximum": 999999999999,
             "fec_spec": {
-                "COL_SEQ": 93,
+                "COL_SEQ": 57,
                 "FIELD_DESCRIPTION": "22. Total Disbursements",
                 "TYPE": "AMT-12",
                 "REQUIRED": null,
@@ -1077,7 +1083,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "23_Cash_Beginning_Reporting_Period": {
+        "L23_cash_beginning_reporting_period": {
             "title": "23. Cash Beginning Reporting Period",
             "description": "",
             "type": "number",
@@ -1094,7 +1100,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "24_Total_Receipts_this_Period": {
+        "L24_total_receipts_this_period": {
             "title": "24. Total Receipts this Period",
             "description": "",
             "type": "number",
@@ -1111,7 +1117,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "25_Subtotals": {
+        "L25_subtotals": {
             "title": "25. Subtotals",
             "description": "",
             "type": "number",
@@ -1128,7 +1134,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "26_Total_Disbursements_this_Period": {
+        "L26_total_disbursements_this_period": {
             "title": "26. Total Disbursements this Period",
             "description": "",
             "type": "number",
@@ -1145,7 +1151,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "27_Cash_on_hand_at_Close_Period": {
+        "L27_cash_on_hand_at_close_period": {
             "title": "27. Cash on hand at Close Period",
             "description": "",
             "type": "number",
@@ -1162,7 +1168,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "6a_Total_Contributions_No_Loans": {
+        "L6a_total_contributions_no_loans-DUPLICATE": {
             "title": "(6a) Total Contributions (No Loans)",
             "description": "",
             "type": "number",
@@ -1179,7 +1185,58 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "7b_Total_Offsets_to_Operating_Expenditures": {
+        "L6b_total_contribution_refunds-DUPLICATE": {
+            "title": "(6b) Total Contribution Refunds",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_spec": {
+                "COL_SEQ": 64,
+                "FIELD_DESCRIPTION": "(6b) Total Contribution Refunds",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "= 20d",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "L6c_net_contributions-DUPLICATE": {
+            "title": "(6c) Net Contributions",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_spec": {
+                "COL_SEQ": 65,
+                "FIELD_DESCRIPTION": "(6c) Net Contributions",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "= 6a - 6b",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "L7a_total_operating_expenditures-DUPLICATE": {
+            "title": "(7a) Total Operating Expenditures",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_spec": {
+                "COL_SEQ": 66,
+                "FIELD_DESCRIPTION": "(7a) Total Operating Expenditures",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "= 17",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "L7b_total_offsets_to_operating_expenditures": {
             "title": "(7b) Total Offsets to Operating Expenditures",
             "description": "",
             "type": "number",
@@ -1196,7 +1253,58 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "11aiii_Individuals_Total": {
+        "L7c_net_operating_expenditures-DUPLICATE": {
+            "title": "(7c) NET Operating Expenditures.",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_spec": {
+                "COL_SEQ": 68,
+                "FIELD_DESCRIPTION": "(7c) NET Operating Expenditures.",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "= 7a - 7b",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "L11a_i_individuals_itemized-DUPLICATE": {
+            "title": "11(a i.) Individuals Itemized",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_spec": {
+                "COL_SEQ": 69,
+                "FIELD_DESCRIPTION": "11(a i.) Individuals Itemized",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "L11aii_individuals_unitemized-DUPLICATE": {
+            "title": "11(a.ii) Individuals Unitemized",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_spec": {
+                "COL_SEQ": 70,
+                "FIELD_DESCRIPTION": "11(a.ii) Individuals Unitemized",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "L11aiii_individuals_total": {
             "title": "11(a.iii) Individuals Total",
             "description": "",
             "type": "number",
@@ -1213,7 +1321,24 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "11c_All_Other_Political_Committees_PACS": {
+        "L11b_political_party_committees-DUPLICATE": {
+            "title": "11(b) Political Party Committees",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_spec": {
+                "COL_SEQ": 72,
+                "FIELD_DESCRIPTION": "11(b) Political Party Committees",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "L11c_all_other_political_committees_pacs": {
             "title": "11(c) All Other Political Committees (PACS)",
             "description": "",
             "type": "number",
@@ -1230,7 +1355,41 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "12_Transfers_From_Other_AUTH_Committees": {
+        "L11d_the_candidate-DUPLICATE": {
+            "title": "11(d) The Candidate",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_spec": {
+                "COL_SEQ": 74,
+                "FIELD_DESCRIPTION": "11(d) The Candidate",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "L11e_total_contributions-DUPLICATE": {
+            "title": "11(e) Total Contributions",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_spec": {
+                "COL_SEQ": 75,
+                "FIELD_DESCRIPTION": "11(e) Total Contributions",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "= 11aiii + 11b + 11c + 11d",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "L12_transfers_from_other_auth_committees": {
             "title": "12. Transfers From Other AUTH Committees",
             "description": "",
             "type": "number",
@@ -1247,7 +1406,126 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "18_Transfers_To_Other_AUTH_Committees": {
+        "L13a_loans_made_or_guarn_by_the_candidate-DUPLICATE": {
+            "title": "13(a) Loans made or guarn. by the Candidate",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_spec": {
+                "COL_SEQ": 77,
+                "FIELD_DESCRIPTION": "13(a) Loans made or guarn. by the Candidate",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "L13b_all_other_loans-DUPLICATE": {
+            "title": "13(b) All Other Loans",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_spec": {
+                "COL_SEQ": 78,
+                "FIELD_DESCRIPTION": "13(b) All Other Loans",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "L13c_total_loans-DUPLICATE": {
+            "title": "13(c) Total Loans",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_spec": {
+                "COL_SEQ": 79,
+                "FIELD_DESCRIPTION": "13(c) Total Loans",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "= 13a + 13b",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "L14_offsets_to_operating_expenditures-DUPLICATE": {
+            "title": "14. Offsets to Operating Expenditures",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_spec": {
+                "COL_SEQ": 80,
+                "FIELD_DESCRIPTION": "14. Offsets to Operating Expenditures",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "L15_other_receipts-DUPLICATE": {
+            "title": "15. Other Receipts",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_spec": {
+                "COL_SEQ": 81,
+                "FIELD_DESCRIPTION": "15. Other Receipts",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "L16_total_receipts-DUPLICATE": {
+            "title": "16. Total Receipts",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_spec": {
+                "COL_SEQ": 82,
+                "FIELD_DESCRIPTION": "16. Total Receipts",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "= 11e + 12+ 13c + 14 + 15",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "L17_operating_expenditures-DUPLICATE": {
+            "title": "17 Operating Expenditures",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_spec": {
+                "COL_SEQ": 83,
+                "FIELD_DESCRIPTION": "17 Operating Expenditures",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "L18_transfers_to_other_auth_committees": {
             "title": "18. Transfers To Other AUTH Committees",
             "description": "",
             "type": "number",
@@ -1264,7 +1542,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "19a_Loan_Repayment_By_Candidate": {
+        "L19a_loan_repayment_by_candidate": {
             "title": "19(a) Loan Repayment By Candidate",
             "description": "",
             "type": "number",
@@ -1281,7 +1559,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "19b_Loan_Repayments,__ALL_Other_Loans": {
+        "L19b_loan_repayments,_all_other_loans-DUPLICATE": {
             "title": "19(b) Loan Repayments,  ALL Other Loans",
             "description": "",
             "type": "number",
@@ -1298,7 +1576,41 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "20b_Refund,_Political_Party_Committees": {
+        "L19c_total_loan_repayments-DUPLICATE": {
+            "title": "19(c) Total Loan Repayments",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_spec": {
+                "COL_SEQ": 87,
+                "FIELD_DESCRIPTION": "19(c) Total Loan Repayments",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "= 19a + 19b",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "L20a_refund_individuals_other_than_pol_cmtes-DUPLICATE": {
+            "title": "20(a) Refund/Individuals Other than Pol. Cmtes",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_spec": {
+                "COL_SEQ": 88,
+                "FIELD_DESCRIPTION": "20(a) Refund/Individuals Other than Pol. Cmtes",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "L20b_refund,_political_party_committees": {
             "title": "20(b) Refund, Political Party Committees",
             "description": "",
             "type": "number",
@@ -1315,7 +1627,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "20c_Refund,_Other_Political_Committees": {
+        "L20c_refund,_other_political_committees": {
             "title": "20(c) Refund, Other Political Committees",
             "description": "",
             "type": "number",
@@ -1332,7 +1644,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "20d_Total_Contributions_Refunds": {
+        "L20d_total_contributions_refunds": {
             "title": "20(d) Total Contributions Refunds",
             "description": "",
             "type": "number",
@@ -1346,6 +1658,40 @@
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": "= 20a + 20b + 20c",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "L21_other_disbursements-DUPLICATE": {
+            "title": "21. Other Disbursements",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_spec": {
+                "COL_SEQ": 92,
+                "FIELD_DESCRIPTION": "21. Other Disbursements",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "L22_total_disbursements-DUPLICATE": {
+            "title": "22. Total Disbursements",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_spec": {
+                "COL_SEQ": 93,
+                "FIELD_DESCRIPTION": "22. Total Disbursements",
+                "TYPE": "AMT-12",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "= 17 + 18 + 19c + 20d + 21",
                 "FIELD_FORM_ASSOCIATION": null
             }
         }

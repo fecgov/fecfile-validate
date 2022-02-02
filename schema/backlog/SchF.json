@@ -6,31 +6,31 @@
     "description": "SCHEDULE F - ITEMIZED COORDINATED EXPENDITURES MADE BY POLITICAL PARTY COMMITTEES \n                 OR DESIGNATED AGENT(S) ON BEHALF OF CANDIDATES FOR FEDERAL OFFICE  {v6.4 revised layout}",
     "type": "object",
     "required": [
-        "FORM_TYPE",
-        "FILER_COMMITTEE_ID_NUMBER",
-        "TRANSACTION_ID_NUMBER",
-        "PAYEE_ORGANIZATION_NAME",
-        "PAYEE_LAST_NAME",
-        "PAYEE_FIRST_NAME",
-        "EXPENDITURE_DATE",
-        "EXPENDITURE_AMOUNT",
-        "PAYEE_CANDIDATE_LAST_NAME",
-        "PAYEE_CANDIDATE_FIRST_NAME"
+        "form_type",
+        "filer_committee_id_number",
+        "transaction_id_number",
+        "payee_organization_name",
+        "payee_last_name",
+        "payee_first_name",
+        "expenditure_date",
+        "expenditure_amount",
+        "payee_candidate_last_name",
+        "payee_candidate_first_name"
     ],
     "fec_recommended": [
-        "DESIGNATING_COMMITTEE_NAME",
-        "PAYEE_STREET__1",
-        "PAYEE_CITY",
-        "PAYEE_STATE",
-        "PAYEE_ZIP",
-        "AGGREGATE_GENERAL_ELEC_EXPENDED",
-        "EXPENDITURE_PURPOSE_DESCRIP",
-        "PAYEE_CANDIDATE_OFFICE",
-        "PAYEE_CANDIDATE_STATE",
-        "PAYEE_CANDIDATE_DISTRICT"
+        "designating_committee_name",
+        "payee_street_1",
+        "payee_city",
+        "payee_state",
+        "payee_zip",
+        "aggregate_general_elec_expended",
+        "expenditure_purpose_descrip",
+        "payee_candidate_office",
+        "payee_candidate_state",
+        "payee_candidate_district"
     ],
     "properties": {
-        "FORM_TYPE": {
+        "form_type": {
             "title": "FORM TYPE",
             "description": "",
             "type": "string",
@@ -51,7 +51,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "FILER_COMMITTEE_ID_NUMBER": {
+        "filer_committee_id_number": {
             "title": "FILER COMMITTEE ID NUMBER",
             "description": "",
             "type": "string",
@@ -72,7 +72,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "TRANSACTION_ID_NUMBER": {
+        "transaction_id_number": {
             "title": "TRANSACTION ID NUMBER",
             "description": "",
             "type": "string",
@@ -93,7 +93,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "BACK_REFERENCE_TRAN_ID_NUMBER": {
+        "back_reference_tran_id_number": {
             "title": "BACK REFERENCE TRAN ID NUMBER",
             "description": "",
             "type": "string",
@@ -114,7 +114,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "BACK_REFERENCE_SCHED_NAME": {
+        "back_reference_sched_name": {
             "title": "BACK REFERENCE SCHED NAME",
             "description": "",
             "type": "string",
@@ -135,7 +135,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "YES/NO__Has_filer_been_designated_to_make_Coordinated_Expenditures?": {
+        "yes_no_has_filer_been_designated_to_make_coordinated_expenditures?": {
             "title": "YES/NO  (Has filer been designated to make Coordinated Expenditures?)",
             "description": "",
             "type": "string",
@@ -156,7 +156,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "DESIGNATING_COMMITTEE_ID_NUMBER": {
+        "designating_committee_id_number": {
             "title": "DESIGNATING COMMITTEE ID NUMBER",
             "description": "",
             "type": "string",
@@ -174,7 +174,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "DESIGNATING_COMMITTEE_NAME": {
+        "designating_committee_name": {
             "title": "DESIGNATING COMMITTEE NAME",
             "description": "",
             "type": "string",
@@ -192,7 +192,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "SUBORDINATE_COMMITTEE_ID_NUMBER": {
+        "subordinate_committee_id_number": {
             "title": "SUBORDINATE COMMITTEE ID NUMBER",
             "description": "",
             "type": "string",
@@ -210,7 +210,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "SUBORDINATE_COMMITTEE_NAME": {
+        "subordinate_committee_name": {
             "title": "SUBORDINATE COMMITTEE NAME",
             "description": "",
             "type": "string",
@@ -228,7 +228,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "SUBORDINATE_STREET__1": {
+        "subordinate_street_1": {
             "title": "SUBORDINATE STREET  1",
             "description": "",
             "type": "string",
@@ -246,7 +246,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "SUBORDINATE_STREET__2": {
+        "subordinate_street_2": {
             "title": "SUBORDINATE STREET  2",
             "description": "",
             "type": "string",
@@ -264,7 +264,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "SUBORDINATE_CITY": {
+        "subordinate_city": {
             "title": "SUBORDINATE CITY",
             "description": "",
             "type": "string",
@@ -282,7 +282,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "SUBORDINATE_STATE": {
+        "subordinate_state": {
             "title": "SUBORDINATE STATE",
             "description": "",
             "type": "string",
@@ -300,7 +300,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "SUBORDINATE_ZIP": {
+        "subordinate_zip": {
             "title": "SUBORDINATE ZIP",
             "description": "",
             "type": "string",
@@ -318,7 +318,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "ENTITY_TYPE": {
+        "entity_type": {
             "title": "ENTITY TYPE",
             "description": "",
             "type": "string",
@@ -336,7 +336,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "PAYEE_ORGANIZATION_NAME": {
+        "payee_organization_name": {
             "title": "PAYEE ORGANIZATION NAME",
             "description": "",
             "type": "string",
@@ -357,7 +357,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "PAYEE_LAST_NAME": {
+        "payee_last_name": {
             "title": "PAYEE LAST NAME",
             "description": "",
             "type": "string",
@@ -378,7 +378,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "PAYEE_FIRST_NAME": {
+        "payee_first_name": {
             "title": "PAYEE FIRST NAME",
             "description": "",
             "type": "string",
@@ -399,7 +399,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "PAYEE_MIDDLE_NAME": {
+        "payee_middle_name": {
             "title": "PAYEE MIDDLE NAME",
             "description": "",
             "type": "string",
@@ -420,7 +420,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "PAYEE_PREFIX": {
+        "payee_prefix": {
             "title": "PAYEE PREFIX",
             "description": "",
             "type": "string",
@@ -441,7 +441,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "PAYEE_SUFFIX": {
+        "payee_suffix": {
             "title": "PAYEE SUFFIX",
             "description": "",
             "type": "string",
@@ -462,7 +462,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "PAYEE_STREET__1": {
+        "payee_street_1": {
             "title": "PAYEE STREET  1",
             "description": "",
             "type": "string",
@@ -483,7 +483,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "PAYEE_STREET__2": {
+        "payee_street_2": {
             "title": "PAYEE STREET  2",
             "description": "",
             "type": "string",
@@ -504,7 +504,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "PAYEE_CITY": {
+        "payee_city": {
             "title": "PAYEE CITY",
             "description": "",
             "type": "string",
@@ -525,7 +525,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "PAYEE_STATE": {
+        "payee_state": {
             "title": "PAYEE STATE",
             "description": "",
             "type": "string",
@@ -546,7 +546,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "PAYEE_ZIP": {
+        "payee_zip": {
             "title": "PAYEE ZIP",
             "description": "",
             "type": "string",
@@ -567,7 +567,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "EXPENDITURE_DATE": {
+        "expenditure_date": {
             "title": "EXPENDITURE DATE",
             "description": "",
             "type": "integer",
@@ -587,7 +587,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "EXPENDITURE_AMOUNT": {
+        "expenditure_amount": {
             "title": "EXPENDITURE AMOUNT",
             "description": "",
             "type": "number",
@@ -607,7 +607,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "AGGREGATE_GENERAL_ELEC_EXPENDED": {
+        "aggregate_general_elec_expended": {
             "title": "AGGREGATE GENERAL ELEC EXPENDED",
             "description": "",
             "type": "number",
@@ -627,7 +627,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "EXPENDITURE_PURPOSE_DESCRIP": {
+        "expenditure_purpose_descrip": {
             "title": "EXPENDITURE PURPOSE DESCRIP",
             "description": "",
             "type": "string",
@@ -648,7 +648,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "CATEGORY_CODE": {
+        "category_code": {
             "title": "CATEGORY CODE",
             "description": "",
             "type": "string",
@@ -669,7 +669,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "PAYEE_COMMITTEE_ID_NUMBER": {
+        "payee_committee_id_number": {
             "title": "PAYEE COMMITTEE ID NUMBER",
             "description": "",
             "type": "string",
@@ -690,7 +690,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "PAYEE_CANDIDATE_ID_NUMBER": {
+        "payee_candidate_id_number": {
             "title": "PAYEE CANDIDATE ID NUMBER",
             "description": "",
             "type": "string",
@@ -711,7 +711,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "PAYEE_CANDIDATE_LAST_NAME": {
+        "payee_candidate_last_name": {
             "title": "PAYEE CANDIDATE LAST NAME",
             "description": "",
             "type": "string",
@@ -732,7 +732,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "PAYEE_CANDIDATE_FIRST_NAME": {
+        "payee_candidate_first_name": {
             "title": "PAYEE CANDIDATE FIRST NAME",
             "description": "",
             "type": "string",
@@ -753,7 +753,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "PAYEE_CANDIDATE_MIDDLE_NAME": {
+        "payee_candidate_middle_name": {
             "title": "PAYEE CANDIDATE MIDDLE NAME",
             "description": "",
             "type": "string",
@@ -774,7 +774,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "PAYEE_CANDIDATE_PREFIX": {
+        "payee_candidate_prefix": {
             "title": "PAYEE CANDIDATE PREFIX",
             "description": "",
             "type": "string",
@@ -795,7 +795,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "PAYEE_CANDIDATE_SUFFIX": {
+        "payee_candidate_suffix": {
             "title": "PAYEE CANDIDATE SUFFIX",
             "description": "",
             "type": "string",
@@ -816,7 +816,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "PAYEE_CANDIDATE_OFFICE": {
+        "payee_candidate_office": {
             "title": "PAYEE CANDIDATE OFFICE",
             "description": "",
             "type": "string",
@@ -837,7 +837,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "PAYEE_CANDIDATE_STATE": {
+        "payee_candidate_state": {
             "title": "PAYEE CANDIDATE STATE",
             "description": "",
             "type": "string",
@@ -858,7 +858,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "PAYEE_CANDIDATE_DISTRICT": {
+        "payee_candidate_district": {
             "title": "PAYEE CANDIDATE DISTRICT",
             "description": "",
             "type": "integer",
@@ -878,7 +878,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "MEMO_CODE": {
+        "memo_code": {
             "title": "MEMO CODE",
             "description": "",
             "type": "string",
@@ -896,7 +896,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "MEMO_TEXT/DESCRIPTION": {
+        "memo_text_description": {
             "title": "MEMO TEXT/DESCRIPTION",
             "description": "",
             "type": "string",

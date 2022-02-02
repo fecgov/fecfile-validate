@@ -6,30 +6,30 @@
     "description": "FORM 5 - REPORT OF INDEPENDENT EXPENDITURES MADE AND CONTRIBUTIONS RECEIVED",
     "type": "object",
     "required": [
-        "FORM_TYPE",
-        "FILER_COMMITTEE_ID_NUMBER",
-        "ORGANIZATION_NAME",
-        "INDIVIDUAL_LAST_NAME",
-        "INDIVIDUAL_FIRST_NAME",
-        "ORIGINAL_AMENDMENT_DATE",
-        "TOTAL_INDEPENDENT_EXPENDITURE",
-        "PERSON_COMPLETING_LAST_NAME",
-        "PERSON_COMPLETING_FIRST_NAME",
-        "DATE_SIGNED"
+        "form_type",
+        "filer_committee_id_number",
+        "organization_name",
+        "individual_last_name",
+        "individual_first_name",
+        "original_amendment_date",
+        "total_independent_expenditure",
+        "person_completing_last_name",
+        "person_completing_first_name",
+        "date_signed"
     ],
     "fec_recommended": [
-        "STREET__1",
-        "CITY",
-        "STATE",
-        "ZIP",
-        "REPORT_CODE",
-        "24HOUR_48HOUR_CODE",
-        "COVERAGE_FROM_DATE",
-        "COVERAGE_THROUGH_DATE",
-        "TOTAL_CONTRIBUTION"
+        "street_1",
+        "city",
+        "state",
+        "zip",
+        "report_code",
+        "L24hour_48hour_code",
+        "coverage_from_date",
+        "coverage_through_date",
+        "total_contribution"
     ],
     "properties": {
-        "FORM_TYPE": {
+        "form_type": {
             "title": "FORM TYPE",
             "description": "",
             "type": "string",
@@ -50,7 +50,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "FILER_COMMITTEE_ID_NUMBER": {
+        "filer_committee_id_number": {
             "title": "FILER COMMITTEE ID NUMBER",
             "description": "",
             "type": "string",
@@ -71,7 +71,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "ENTITY_TYPE": {
+        "entity_type": {
             "title": "ENTITY TYPE",
             "description": "",
             "type": "string",
@@ -92,7 +92,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "ORGANIZATION_NAME": {
+        "organization_name": {
             "title": "ORGANIZATION NAME",
             "description": "",
             "type": "string",
@@ -113,7 +113,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "INDIVIDUAL_LAST_NAME": {
+        "individual_last_name": {
             "title": "INDIVIDUAL LAST NAME",
             "description": "",
             "type": "string",
@@ -134,7 +134,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "INDIVIDUAL_FIRST_NAME": {
+        "individual_first_name": {
             "title": "INDIVIDUAL FIRST NAME",
             "description": "",
             "type": "string",
@@ -155,7 +155,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "INDIVIDUAL_MIDDLE_NAME": {
+        "individual_middle_name": {
             "title": "INDIVIDUAL MIDDLE NAME",
             "description": "",
             "type": "string",
@@ -176,7 +176,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "INDIVIDUAL_PREFIX": {
+        "individual_prefix": {
             "title": "INDIVIDUAL PREFIX",
             "description": "",
             "type": "string",
@@ -197,7 +197,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "INDIVIDUAL_SUFFIX": {
+        "individual_suffix": {
             "title": "INDIVIDUAL SUFFIX",
             "description": "",
             "type": "string",
@@ -218,7 +218,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "CHANGE_OF_ADDRESS": {
+        "change_of_address": {
             "title": "CHANGE OF ADDRESS",
             "description": "",
             "type": "string",
@@ -236,7 +236,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "STREET__1": {
+        "street_1": {
             "title": "STREET  1",
             "description": "",
             "type": "string",
@@ -257,7 +257,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "STREET__2": {
+        "street_2": {
             "title": "STREET  2",
             "description": "",
             "type": "string",
@@ -275,7 +275,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "CITY": {
+        "city": {
             "title": "CITY",
             "description": "",
             "type": "string",
@@ -296,7 +296,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "STATE": {
+        "state": {
             "title": "STATE",
             "description": "",
             "type": "string",
@@ -317,7 +317,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "ZIP": {
+        "zip": {
             "title": "ZIP",
             "description": "",
             "type": "string",
@@ -338,7 +338,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "INDIVIDUAL_OCCUPATION": {
+        "individual_occupation": {
             "title": "INDIVIDUAL OCCUPATION",
             "description": "",
             "type": "string",
@@ -356,7 +356,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "INDIVIDUAL_EMPLOYER": {
+        "individual_employer": {
             "title": "INDIVIDUAL EMPLOYER",
             "description": "",
             "type": "string",
@@ -374,7 +374,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "REPORT_CODE": {
+        "report_code": {
             "title": "REPORT CODE",
             "description": "",
             "type": "string",
@@ -395,7 +395,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "24HOUR_48HOUR_CODE": {
+        "L24hour_48hour_code": {
             "title": "24HOUR 48HOUR CODE",
             "description": "",
             "type": "integer",
@@ -415,7 +415,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "ORIGINAL_AMENDMENT_DATE": {
+        "original_amendment_date": {
             "title": "ORIGINAL AMENDMENT DATE",
             "description": "",
             "type": "integer",
@@ -435,7 +435,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "COVERAGE_FROM_DATE": {
+        "coverage_from_date": {
             "title": "COVERAGE FROM DATE",
             "description": "",
             "type": "integer",
@@ -455,7 +455,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "COVERAGE_THROUGH_DATE": {
+        "coverage_through_date": {
             "title": "COVERAGE THROUGH DATE",
             "description": "",
             "type": "integer",
@@ -475,7 +475,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "TOTAL_CONTRIBUTION": {
+        "total_contribution": {
             "title": "TOTAL CONTRIBUTION",
             "description": "",
             "type": "number",
@@ -492,7 +492,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "TOTAL_INDEPENDENT_EXPENDITURE": {
+        "total_independent_expenditure": {
             "title": "TOTAL INDEPENDENT EXPENDITURE",
             "description": "",
             "type": "number",
@@ -509,7 +509,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "PERSON_COMPLETING_LAST_NAME": {
+        "person_completing_last_name": {
             "title": "PERSON COMPLETING LAST NAME",
             "description": "",
             "type": "string",
@@ -530,7 +530,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "PERSON_COMPLETING_FIRST_NAME": {
+        "person_completing_first_name": {
             "title": "PERSON COMPLETING FIRST NAME",
             "description": "",
             "type": "string",
@@ -551,7 +551,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "PERSON_COMPLETING_MIDDLE_NAME": {
+        "person_completing_middle_name": {
             "title": "PERSON COMPLETING MIDDLE NAME",
             "description": "",
             "type": "string",
@@ -572,7 +572,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "PERSON_COMPLETING_PREFIX": {
+        "person_completing_prefix": {
             "title": "PERSON COMPLETING PREFIX",
             "description": "",
             "type": "string",
@@ -593,7 +593,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "PERSON_COMPLETING_SUFFIX": {
+        "person_completing_suffix": {
             "title": "PERSON COMPLETING SUFFIX",
             "description": "",
             "type": "string",
@@ -614,7 +614,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "DATE_SIGNED": {
+        "date_signed": {
             "title": "DATE SIGNED",
             "description": "",
             "type": "integer",

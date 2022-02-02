@@ -6,27 +6,27 @@
     "description": "FORM 7 - COMMUNICATION COSTS ",
     "type": "object",
     "required": [
-        "FORM_TYPE",
-        "FILER_COMMITTEE_ID_NUMBER",
-        "ORGANIZATION_NAME",
-        "PERSON_DESIGNATED_TO_SIGN_LAST_NAME",
-        "PERSON_DESIGNATED_TO_SIGN_FIRST_NAME",
-        "DATE_SIGNED"
+        "form_type",
+        "filer_committee_id_number",
+        "organization_name",
+        "person_designated_to_sign_last_name",
+        "person_designated_to_sign_first_name",
+        "date_signed"
     ],
     "fec_recommended": [
-        "ORGANIZATION_STREET__1",
-        "ORGANIZATION_CITY",
-        "ORGANIZATION_STATE",
-        "ORGANIZATION_ZIP",
-        "REPORT_CODE",
-        "DATE_OF_ELECTION",
-        "STATE_OF_ELECTION",
-        "COVERAGE_FROM_DATE",
-        "COVERAGE_THROUGH_DATE",
-        "PERSON_DESIGNATED_TO_SIGN_TITLE"
+        "organization_street_1",
+        "organization_city",
+        "organization_state",
+        "organization_zip",
+        "report_code",
+        "date_of_election",
+        "state_of_election",
+        "coverage_from_date",
+        "coverage_through_date",
+        "person_designated_to_sign_title"
     ],
     "properties": {
-        "FORM_TYPE": {
+        "form_type": {
             "title": "FORM TYPE",
             "description": "",
             "type": "string",
@@ -47,7 +47,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "FILER_COMMITTEE_ID_NUMBER": {
+        "filer_committee_id_number": {
             "title": "FILER COMMITTEE ID NUMBER",
             "description": "",
             "type": "string",
@@ -68,7 +68,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "ORGANIZATION_NAME": {
+        "organization_name": {
             "title": "ORGANIZATION NAME",
             "description": "",
             "type": "string",
@@ -89,7 +89,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "ORGANIZATION_STREET__1": {
+        "organization_street_1": {
             "title": "ORGANIZATION STREET  1",
             "description": "",
             "type": "string",
@@ -110,7 +110,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "ORGANIZATION_STREET__2": {
+        "organization_street_2": {
             "title": "ORGANIZATION STREET  2",
             "description": "",
             "type": "string",
@@ -128,7 +128,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "ORGANIZATION_CITY": {
+        "organization_city": {
             "title": "ORGANIZATION CITY",
             "description": "",
             "type": "string",
@@ -149,7 +149,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "ORGANIZATION_STATE": {
+        "organization_state": {
             "title": "ORGANIZATION STATE",
             "description": "",
             "type": "string",
@@ -170,7 +170,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "ORGANIZATION_ZIP": {
+        "organization_zip": {
             "title": "ORGANIZATION ZIP",
             "description": "",
             "type": "string",
@@ -191,7 +191,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "ORGANIZATION_TYPE": {
+        "organization_type": {
             "title": "ORGANIZATION TYPE",
             "description": "",
             "type": "string",
@@ -212,7 +212,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "REPORT_CODE": {
+        "report_code": {
             "title": "REPORT CODE",
             "description": "",
             "type": "string",
@@ -233,7 +233,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "DATE_OF_ELECTION": {
+        "date_of_election": {
             "title": "DATE OF ELECTION",
             "description": "",
             "type": "integer",
@@ -253,7 +253,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "STATE_OF_ELECTION": {
+        "state_of_election": {
             "title": "STATE OF ELECTION",
             "description": "",
             "type": "string",
@@ -274,7 +274,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "COVERAGE_FROM_DATE": {
+        "coverage_from_date": {
             "title": "COVERAGE FROM DATE",
             "description": "",
             "type": "integer",
@@ -291,7 +291,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "COVERAGE_THROUGH_DATE": {
+        "coverage_through_date": {
             "title": "COVERAGE THROUGH DATE",
             "description": "",
             "type": "integer",
@@ -308,7 +308,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "TOTAL_COSTS": {
+        "total_costs": {
             "title": "TOTAL COSTS",
             "description": "",
             "type": "number",
@@ -325,7 +325,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "PERSON_DESIGNATED_TO_SIGN_LAST_NAME": {
+        "person_designated_to_sign_last_name": {
             "title": "PERSON DESIGNATED TO SIGN LAST NAME",
             "description": "",
             "type": "string",
@@ -346,7 +346,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "PERSON_DESIGNATED_TO_SIGN_FIRST_NAME": {
+        "person_designated_to_sign_first_name": {
             "title": "PERSON DESIGNATED TO SIGN FIRST NAME",
             "description": "",
             "type": "string",
@@ -367,7 +367,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "PERSON_DESIGNATED_TO_SIGN_MIDDLE_NAME": {
+        "person_designated_to_sign_middle_name": {
             "title": "PERSON DESIGNATED TO SIGN MIDDLE NAME",
             "description": "",
             "type": "string",
@@ -388,7 +388,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "PERSON_DESIGNATED_TO_SIGN_PREFIX": {
+        "person_designated_to_sign_prefix": {
             "title": "PERSON DESIGNATED TO SIGN PREFIX",
             "description": "",
             "type": "string",
@@ -409,7 +409,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "PERSON_DESIGNATED_TO_SIGN_SUFFIX": {
+        "person_designated_to_sign_suffix": {
             "title": "PERSON DESIGNATED TO SIGN SUFFIX",
             "description": "",
             "type": "string",
@@ -430,7 +430,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "PERSON_DESIGNATED_TO_SIGN_TITLE": {
+        "person_designated_to_sign_title": {
             "title": "PERSON DESIGNATED TO SIGN TITLE",
             "description": "",
             "type": "string",
@@ -451,7 +451,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "DATE_SIGNED": {
+        "date_signed": {
             "title": "DATE SIGNED",
             "description": "",
             "type": "integer",

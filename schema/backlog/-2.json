@@ -6,32 +6,32 @@
     "description": "Earmark Receipt-Disbursement (23)",
     "type": "object",
     "required": [
-        "FORM_TYPE",
-        "FILER_COMMITTEE_ID_NUMBER",
-        "TRANSACTION_TYPE_IDENTIFIER",
-        "TRANSACTION_ID",
-        "ENTITY_TYPE",
-        "PAYEE_ORGANIZATION_NAME",
-        "PAYEE_STREET__1",
-        "PAYEE_CITY",
-        "PAYEE_STATE",
-        "PAYEE_ZIP",
-        "EXPENDITURE_DATE",
-        "EXPENDITURE_AMOUNT",
-        "PURPOSE_OF_DISBURSEMENT",
-        "BENEFICIARY_COMMITTEE_FEC_ID",
-        "BENEFICIARY_COMMITTEE_NAME",
-        "BENEFICIARY_CANDIDATE_FEC_ID",
-        "BENEFICIARY_CANDIDATE_LAST_NAME",
-        "BENEFICIARY_CANDIDATE_FIRST_NAME",
-        "BENEFICIARY_CANDIDATE_OFFICE",
-        "BENEFICIARY_CANDIDATE_STATE",
-        "BENEFICIARY_CANDIDATE_DISTRICT",
-        "MEMO_CODE"
+        "form_type",
+        "filer_committee_id_number",
+        "transaction_type_identifier",
+        "transaction_id",
+        "entity_type",
+        "payee_organization_name",
+        "payee_street_1",
+        "payee_city",
+        "payee_state",
+        "payee_zip",
+        "expenditure_date",
+        "expenditure_amount",
+        "purpose_of_disbursement",
+        "beneficiary_committee_fec_id",
+        "beneficiary_committee_name",
+        "beneficiary_candidate_fec_id",
+        "beneficiary_candidate_last_name",
+        "beneficiary_candidate_first_name",
+        "beneficiary_candidate_office",
+        "beneficiary_candidate_state",
+        "beneficiary_candidate_district",
+        "memo_code"
     ],
     "fec_recommended": [],
     "properties": {
-        "FORM_TYPE": {
+        "form_type": {
             "title": "FORM TYPE",
             "description": "",
             "type": "string",
@@ -52,7 +52,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "FILER_COMMITTEE_ID_NUMBER": {
+        "filer_committee_id_number": {
             "title": "FILER COMMITTEE ID NUMBER",
             "description": "",
             "type": "string",
@@ -73,7 +73,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "TRANSACTION_TYPE_IDENTIFIER": {
+        "transaction_type_identifier": {
             "title": "TRANSACTION TYPE IDENTIFIER",
             "description": "",
             "type": "string",
@@ -91,7 +91,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "TRANSACTION_ID": {
+        "transaction_id": {
             "title": "TRANSACTION ID",
             "description": "",
             "type": "string",
@@ -112,7 +112,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "BACK_REFERENCE_TRAN_ID_NUMBER": {
+        "back_reference_tran_id_number": {
             "title": "BACK REFERENCE TRAN ID NUMBER",
             "description": "",
             "type": "string",
@@ -133,7 +133,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "BACK_REFERENCE_SCHED_NAME": {
+        "back_reference_sched_name": {
             "title": "BACK REFERENCE SCHED NAME",
             "description": "",
             "type": "string",
@@ -154,7 +154,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "ENTITY_TYPE": {
+        "entity_type": {
             "title": "ENTITY TYPE",
             "description": "",
             "type": "string",
@@ -175,7 +175,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "PAYEE_ORGANIZATION_NAME": {
+        "payee_organization_name": {
             "title": "PAYEE ORGANIZATION NAME",
             "description": "",
             "type": "string",
@@ -196,7 +196,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "PAYEE_STREET__1": {
+        "payee_street_1": {
             "title": "PAYEE STREET  1",
             "description": "",
             "type": "string",
@@ -217,7 +217,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "PAYEE_STREET__2": {
+        "payee_street_2": {
             "title": "PAYEE STREET  2",
             "description": "",
             "type": "string",
@@ -238,7 +238,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "PAYEE_CITY": {
+        "payee_city": {
             "title": "PAYEE CITY",
             "description": "",
             "type": "string",
@@ -259,7 +259,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "PAYEE_STATE": {
+        "payee_state": {
             "title": "PAYEE STATE",
             "description": "",
             "type": "string",
@@ -280,7 +280,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "PAYEE_ZIP": {
+        "payee_zip": {
             "title": "PAYEE ZIP",
             "description": "",
             "type": "string",
@@ -301,7 +301,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "ELECTION_CODE": {
+        "election_code": {
             "title": "ELECTION CODE",
             "description": "",
             "type": "string",
@@ -322,7 +322,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "ELECTION_OTHER_DESCRIPTION": {
+        "election_other_description": {
             "title": "ELECTION OTHER DESCRIPTION",
             "description": "",
             "type": "string",
@@ -340,7 +340,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "EXPENDITURE_DATE": {
+        "expenditure_date": {
             "title": "EXPENDITURE DATE",
             "description": "",
             "type": "integer",
@@ -360,7 +360,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "EXPENDITURE_AMOUNT": {
+        "expenditure_amount": {
             "title": "EXPENDITURE AMOUNT",
             "description": "",
             "type": "number",
@@ -380,7 +380,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "PURPOSE_OF_DISBURSEMENT": {
+        "purpose_of_disbursement": {
             "title": "PURPOSE OF DISBURSEMENT",
             "description": "",
             "type": "string",
@@ -401,7 +401,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "CATEGORY_CODE": {
+        "category_code": {
             "title": "CATEGORY CODE",
             "description": "",
             "type": "string",
@@ -422,7 +422,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "BENEFICIARY_COMMITTEE_FEC_ID": {
+        "beneficiary_committee_fec_id": {
             "title": "BENEFICIARY COMMITTEE FEC ID",
             "description": "",
             "type": "string",
@@ -443,7 +443,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "BENEFICIARY_COMMITTEE_NAME": {
+        "beneficiary_committee_name": {
             "title": "BENEFICIARY COMMITTEE NAME",
             "description": "",
             "type": "string",
@@ -464,7 +464,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "BENEFICIARY_CANDIDATE_FEC_ID": {
+        "beneficiary_candidate_fec_id": {
             "title": "BENEFICIARY CANDIDATE FEC ID",
             "description": "",
             "type": "string",
@@ -485,7 +485,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "BENEFICIARY_CANDIDATE_LAST_NAME": {
+        "beneficiary_candidate_last_name": {
             "title": "BENEFICIARY CANDIDATE LAST NAME",
             "description": "",
             "type": "string",
@@ -503,7 +503,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "BENEFICIARY_CANDIDATE_FIRST_NAME": {
+        "beneficiary_candidate_first_name": {
             "title": "BENEFICIARY CANDIDATE FIRST NAME",
             "description": "",
             "type": "string",
@@ -521,7 +521,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "BENEFICIARY_CANDIDATE_MIDDLE_NAME": {
+        "beneficiary_candidate_middle_name": {
             "title": "BENEFICIARY CANDIDATE MIDDLE NAME",
             "description": "",
             "type": "string",
@@ -539,7 +539,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "BENEFICIARY_CANDIDATE_PREFIX": {
+        "beneficiary_candidate_prefix": {
             "title": "BENEFICIARY CANDIDATE PREFIX",
             "description": "",
             "type": "string",
@@ -557,7 +557,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "BENEFICIARY_CANDIDATE_SUFFIX": {
+        "beneficiary_candidate_suffix": {
             "title": "BENEFICIARY CANDIDATE SUFFIX",
             "description": "",
             "type": "string",
@@ -575,7 +575,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "BENEFICIARY_CANDIDATE_OFFICE": {
+        "beneficiary_candidate_office": {
             "title": "BENEFICIARY CANDIDATE OFFICE",
             "description": "",
             "type": "string",
@@ -596,7 +596,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "BENEFICIARY_CANDIDATE_STATE": {
+        "beneficiary_candidate_state": {
             "title": "BENEFICIARY CANDIDATE STATE",
             "description": "",
             "type": "string",
@@ -617,7 +617,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "BENEFICIARY_CANDIDATE_DISTRICT": {
+        "beneficiary_candidate_district": {
             "title": "BENEFICIARY CANDIDATE DISTRICT",
             "description": "",
             "type": "integer",
@@ -637,7 +637,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "MEMO_CODE": {
+        "memo_code": {
             "title": "MEMO CODE",
             "description": "",
             "type": "string",
@@ -655,7 +655,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "MEMO_TEXT/DESCRIPTION": {
+        "memo_text_description": {
             "title": "MEMO TEXT/DESCRIPTION",
             "description": "",
             "type": "string",

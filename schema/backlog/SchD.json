@@ -6,26 +6,26 @@
     "description": "SCHEDULE D - DEBTS AND OBLIGATIONS  (Itemized for each one)",
     "type": "object",
     "required": [
-        "FORM_TYPE",
-        "FILER_COMMITTEE_ID_NUMBER",
-        "TRANSACTION_ID_NUMBER",
-        "CREDITOR_ORGANIZATION_NAME",
-        "CREDITOR_LAST_NAME",
-        "CREDITOR_FIRST_NAME"
+        "form_type",
+        "filer_committee_id_number",
+        "transaction_id_number",
+        "creditor_organization_name",
+        "creditor_last_name",
+        "creditor_first_name"
     ],
     "fec_recommended": [
-        "CREDITOR_STREET__1",
-        "CREDITOR_CITY",
-        "CREDITOR_STATE",
-        "CREDITOR_ZIP",
-        "PURPOSE_OF_DEBT_OR_OBLIGATION",
-        "BEGINNING_BALANCE_This_Period",
-        "INCURRED_AMOUNT_This_Period",
-        "PAYMENT_AMOUNT_This_Period",
-        "BALANCE_AT_CLOSE__This_Period"
+        "creditor_street_1",
+        "creditor_city",
+        "creditor_state",
+        "creditor_zip",
+        "purpose_of_debt_or_obligation",
+        "beginning_balance_this_period",
+        "incurred_amount_this_period",
+        "payment_amount_this_period",
+        "balance_at_close_this_period"
     ],
     "properties": {
-        "FORM_TYPE": {
+        "form_type": {
             "title": "FORM TYPE",
             "description": "",
             "type": "string",
@@ -46,7 +46,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "FILER_COMMITTEE_ID_NUMBER": {
+        "filer_committee_id_number": {
             "title": "FILER COMMITTEE ID NUMBER",
             "description": "",
             "type": "string",
@@ -67,7 +67,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "TRANSACTION_ID_NUMBER": {
+        "transaction_id_number": {
             "title": "TRANSACTION ID NUMBER",
             "description": "",
             "type": "string",
@@ -88,7 +88,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "ENTITY_TYPE": {
+        "entity_type": {
             "title": "ENTITY TYPE",
             "description": "",
             "type": "string",
@@ -109,7 +109,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "CREDITOR_ORGANIZATION_NAME": {
+        "creditor_organization_name": {
             "title": "CREDITOR ORGANIZATION NAME",
             "description": "",
             "type": "string",
@@ -130,7 +130,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "CREDITOR_LAST_NAME": {
+        "creditor_last_name": {
             "title": "CREDITOR LAST NAME",
             "description": "",
             "type": "string",
@@ -151,7 +151,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "CREDITOR_FIRST_NAME": {
+        "creditor_first_name": {
             "title": "CREDITOR FIRST NAME",
             "description": "",
             "type": "string",
@@ -172,7 +172,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "CREDITOR_MIDDLE_NAME": {
+        "creditor_middle_name": {
             "title": "CREDITOR MIDDLE NAME",
             "description": "",
             "type": "string",
@@ -193,7 +193,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "CREDITOR_PREFIX": {
+        "creditor_prefix": {
             "title": "CREDITOR PREFIX",
             "description": "",
             "type": "string",
@@ -214,7 +214,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "CREDITOR_SUFFIX": {
+        "creditor_suffix": {
             "title": "CREDITOR SUFFIX",
             "description": "",
             "type": "string",
@@ -235,7 +235,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "CREDITOR_STREET__1": {
+        "creditor_street_1": {
             "title": "CREDITOR STREET  1",
             "description": "",
             "type": "string",
@@ -256,7 +256,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "CREDITOR_STREET__2": {
+        "creditor_street_2": {
             "title": "CREDITOR STREET  2",
             "description": "",
             "type": "string",
@@ -277,7 +277,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "CREDITOR_CITY": {
+        "creditor_city": {
             "title": "CREDITOR CITY",
             "description": "",
             "type": "string",
@@ -298,7 +298,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "CREDITOR_STATE": {
+        "creditor_state": {
             "title": "CREDITOR STATE",
             "description": "",
             "type": "string",
@@ -319,7 +319,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "CREDITOR_ZIP": {
+        "creditor_zip": {
             "title": "CREDITOR ZIP",
             "description": "",
             "type": "string",
@@ -340,7 +340,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "PURPOSE_OF_DEBT_OR_OBLIGATION": {
+        "purpose_of_debt_or_obligation": {
             "title": "PURPOSE OF DEBT OR OBLIGATION",
             "description": "",
             "type": "string",
@@ -358,7 +358,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "BEGINNING_BALANCE_This_Period": {
+        "beginning_balance_this_period": {
             "title": "BEGINNING BALANCE (This Period)",
             "description": "",
             "type": "number",
@@ -375,7 +375,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "INCURRED_AMOUNT_This_Period": {
+        "incurred_amount_this_period": {
             "title": "INCURRED AMOUNT (This Period)",
             "description": "",
             "type": "number",
@@ -392,7 +392,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "PAYMENT_AMOUNT_This_Period": {
+        "payment_amount_this_period": {
             "title": "PAYMENT AMOUNT (This Period)",
             "description": "",
             "type": "number",
@@ -409,7 +409,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "BALANCE_AT_CLOSE__This_Period": {
+        "balance_at_close_this_period": {
             "title": "BALANCE AT CLOSE  (This Period)",
             "description": "",
             "type": "number",

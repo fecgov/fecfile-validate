@@ -6,29 +6,29 @@
     "description": "FORM 9 / SCHED 9-B - FOR EACH DISBURSEMENT MADE",
     "type": "object",
     "required": [
-        "FORM_TYPE",
-        "FILER_COMMITTEE_ID_NUMBER",
-        "TRANSACTION_ID_NUMBER",
-        "ENTITY_TYPE",
-        "PAYEE_ORGANIZATION_NAME",
-        "PAYEE_LAST_NAME",
-        "PAYEE_FIRST_NAME",
-        "ELECTION_CODE",
-        "EXPENDITURE_DATE",
-        "EXPENDITURE_AMOUNT",
-        "COMMUNICATION_DATE"
+        "form_type",
+        "filer_committee_id_number",
+        "transaction_id_number",
+        "entity_type",
+        "payee_organization_name",
+        "payee_last_name",
+        "payee_first_name",
+        "election_code",
+        "expenditure_date",
+        "expenditure_amount",
+        "communication_date"
     ],
     "fec_recommended": [
-        "PAYEE_STREET__1",
-        "PAYEE_CITY",
-        "PAYEE_STATE",
-        "PAYEE_ZIP",
-        "EXPENDITURE_PURPOSE_DESCRIP",
-        "PAYEE_EMPLOYER",
-        "PAYEE_OCCUPATION"
+        "payee_street_1",
+        "payee_city",
+        "payee_state",
+        "payee_zip",
+        "expenditure_purpose_descrip",
+        "payee_employer",
+        "payee_occupation"
     ],
     "properties": {
-        "FORM_TYPE": {
+        "form_type": {
             "title": "FORM TYPE",
             "description": "",
             "type": "string",
@@ -49,7 +49,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "FILER_COMMITTEE_ID_NUMBER": {
+        "filer_committee_id_number": {
             "title": "FILER COMMITTEE ID NUMBER",
             "description": "",
             "type": "string",
@@ -70,7 +70,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "TRANSACTION_ID_NUMBER": {
+        "transaction_id_number": {
             "title": "TRANSACTION ID NUMBER",
             "description": "",
             "type": "string",
@@ -91,7 +91,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "BACK_REFERENCE_TRAN_ID_NUMBER": {
+        "back_reference_tran_id_number": {
             "title": "BACK REFERENCE TRAN ID NUMBER",
             "description": "",
             "type": "string",
@@ -112,7 +112,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "BACK_REFERENCE_SCHED_NAME": {
+        "back_reference_sched_name": {
             "title": "BACK REFERENCE SCHED NAME",
             "description": "",
             "type": "string",
@@ -133,7 +133,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "ENTITY_TYPE": {
+        "entity_type": {
             "title": "ENTITY TYPE",
             "description": "",
             "type": "string",
@@ -154,7 +154,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "PAYEE_ORGANIZATION_NAME": {
+        "payee_organization_name": {
             "title": "PAYEE ORGANIZATION NAME",
             "description": "",
             "type": "string",
@@ -175,7 +175,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "PAYEE_LAST_NAME": {
+        "payee_last_name": {
             "title": "PAYEE LAST NAME",
             "description": "",
             "type": "string",
@@ -196,7 +196,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "PAYEE_FIRST_NAME": {
+        "payee_first_name": {
             "title": "PAYEE FIRST NAME",
             "description": "",
             "type": "string",
@@ -217,7 +217,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "PAYEE_MIDDLE_NAME": {
+        "payee_middle_name": {
             "title": "PAYEE MIDDLE NAME",
             "description": "",
             "type": "string",
@@ -238,7 +238,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "PAYEE_PREFIX": {
+        "payee_prefix": {
             "title": "PAYEE PREFIX",
             "description": "",
             "type": "string",
@@ -259,7 +259,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "PAYEE_SUFFIX": {
+        "payee_suffix": {
             "title": "PAYEE SUFFIX",
             "description": "",
             "type": "string",
@@ -280,7 +280,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "PAYEE_STREET__1": {
+        "payee_street_1": {
             "title": "PAYEE STREET  1",
             "description": "",
             "type": "string",
@@ -301,7 +301,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "PAYEE_STREET__2": {
+        "payee_street_2": {
             "title": "PAYEE STREET  2",
             "description": "",
             "type": "string",
@@ -322,7 +322,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "PAYEE_CITY": {
+        "payee_city": {
             "title": "PAYEE CITY",
             "description": "",
             "type": "string",
@@ -343,7 +343,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "PAYEE_STATE": {
+        "payee_state": {
             "title": "PAYEE STATE",
             "description": "",
             "type": "string",
@@ -364,7 +364,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "PAYEE_ZIP": {
+        "payee_zip": {
             "title": "PAYEE ZIP",
             "description": "",
             "type": "string",
@@ -385,7 +385,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "ELECTION_CODE": {
+        "election_code": {
             "title": "ELECTION CODE",
             "description": "",
             "type": "string",
@@ -406,7 +406,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "ELECTION_OTHER_DESCRIPTION": {
+        "election_other_description": {
             "title": "ELECTION OTHER DESCRIPTION",
             "description": "",
             "type": "string",
@@ -424,7 +424,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "EXPENDITURE_DATE": {
+        "expenditure_date": {
             "title": "EXPENDITURE DATE",
             "description": "",
             "type": "integer",
@@ -444,7 +444,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "EXPENDITURE_AMOUNT": {
+        "expenditure_amount": {
             "title": "EXPENDITURE AMOUNT",
             "description": "",
             "type": "number",
@@ -464,7 +464,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "EXPENDITURE_PURPOSE_DESCRIP": {
+        "expenditure_purpose_descrip": {
             "title": "EXPENDITURE PURPOSE DESCRIP",
             "description": "",
             "type": "string",
@@ -485,7 +485,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "PAYEE_EMPLOYER": {
+        "payee_employer": {
             "title": "PAYEE EMPLOYER",
             "description": "",
             "type": "string",
@@ -506,7 +506,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "PAYEE_OCCUPATION": {
+        "payee_occupation": {
             "title": "PAYEE OCCUPATION",
             "description": "",
             "type": "string",
@@ -527,7 +527,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "COMMUNICATION_DATE": {
+        "communication_date": {
             "title": "COMMUNICATION DATE",
             "description": "",
             "type": "integer",
