@@ -6,20 +6,20 @@
     "description": "FORM 99 - MISCELLANEOUS TEXT ",
     "type": "object",
     "required": [
-        "FORM_TYPE",
-        "FILER_COMMITTEE_ID_NUMBER",
-        "TREASURER_LAST_NAME",
-        "TREASURER_FIRST_NAME"
+        "form_type",
+        "filer_committee_id_number",
+        "treasurer_last_name",
+        "treasurer_first_name"
     ],
     "fec_recommended": [
-        "COMMITTEE_NAME",
-        "STREET_1",
-        "CITY",
-        "STATE",
-        "ZIP"
+        "committee_name",
+        "street_1",
+        "city",
+        "state",
+        "zip"
     ],
     "properties": {
-        "FORM_TYPE": {
+        "form_type": {
             "title": "FORM TYPE",
             "description": "",
             "type": "string",
@@ -40,7 +40,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "FILER_COMMITTEE_ID_NUMBER": {
+        "filer_committee_id_number": {
             "title": "FILER COMMITTEE ID NUMBER",
             "description": "",
             "type": "string",
@@ -61,7 +61,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "COMMITTEE_NAME": {
+        "committee_name": {
             "title": "COMMITTEE NAME",
             "description": "",
             "type": "string",
@@ -79,7 +79,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "STREET_1": {
+        "street_1": {
             "title": "STREET 1",
             "description": "",
             "type": "string",
@@ -97,7 +97,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "STREET_2": {
+        "street_2": {
             "title": "STREET 2",
             "description": "",
             "type": "string",
@@ -115,7 +115,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "CITY": {
+        "city": {
             "title": "CITY",
             "description": "",
             "type": "string",
@@ -133,7 +133,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "STATE": {
+        "state": {
             "title": "STATE",
             "description": "",
             "type": "string",
@@ -151,7 +151,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "ZIP": {
+        "zip": {
             "title": "ZIP",
             "description": "",
             "type": "string",
@@ -169,7 +169,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "TREASURER_LAST_NAME": {
+        "treasurer_last_name": {
             "title": "TREASURER LAST NAME",
             "description": "",
             "type": "string",
@@ -190,7 +190,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "TREASURER_FIRST_NAME": {
+        "treasurer_first_name": {
             "title": "TREASURER FIRST NAME",
             "description": "",
             "type": "string",
@@ -211,7 +211,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "TREASURER_MIDDLE_NAME": {
+        "treasurer_middle_name": {
             "title": "TREASURER MIDDLE NAME",
             "description": "",
             "type": "string",
@@ -232,7 +232,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "TREASURER_PREFIX": {
+        "treasurer_prefix": {
             "title": "TREASURER PREFIX",
             "description": "",
             "type": "string",
@@ -253,7 +253,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "TREASURER_SUFFIX": {
+        "treasurer_suffix": {
             "title": "TREASURER SUFFIX",
             "description": "",
             "type": "string",
@@ -274,7 +274,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "DATE_SIGNED": {
+        "date_signed": {
             "title": "DATE SIGNED",
             "description": "",
             "type": "integer",
@@ -294,7 +294,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "TEXT_CODE": {
+        "text_code": {
             "title": "TEXT CODE",
             "description": "",
             "type": "string",

@@ -6,29 +6,29 @@
     "description": "FORM 3L - REPORT OF CONTRIBUTIONS BUNDLED BY LOBBYISTS/REGISTRANTS \n                     AND LOBBYIST/REGISTRANT PACs",
     "type": "object",
     "required": [
-        "FORM_TYPE",
-        "FILER_COMMITTEE_ID_NUMBER",
-        "SEMI-ANNUAL_PERIOD_-_Sect_5c_or_d",
-        "TREASURER_LAST_NAME",
-        "TREASURER_FIRST_NAME",
-        "DATE_SIGNED"
+        "form_type",
+        "filer_committee_id_number",
+        "semi-annual_period_-_sect_5c_or_d",
+        "treasurer_last_name",
+        "treasurer_first_name",
+        "date_signed"
     ],
     "fec_recommended": [
-        "COMMITTEE_NAME",
-        "STREET__1",
-        "CITY",
-        "STATE",
-        "ZIP",
-        "REPORT_CODE",
-        "DATE_OF_ELECTION",
-        "STATE_OF_ELECTION",
-        "COVERAGE_FROM_DATE",
-        "COVERAGE_THROUGH_DATE",
-        "SEMI-ANNUAL_JAN-JUN_-_Sect_6b",
-        "SEMI-ANNUAL_JUL-DEC_-_Sect_6b"
+        "committee_name",
+        "street_1",
+        "city",
+        "state",
+        "zip",
+        "report_code",
+        "date_of_election",
+        "state_of_election",
+        "coverage_from_date",
+        "coverage_through_date",
+        "semi-annual_jan-jun_-_sect_6b",
+        "semi-annual_jul-dec_-_sect_6b"
     ],
     "properties": {
-        "FORM_TYPE": {
+        "form_type": {
             "title": "FORM TYPE",
             "description": "",
             "type": "string",
@@ -49,7 +49,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "FILER_COMMITTEE_ID_NUMBER": {
+        "filer_committee_id_number": {
             "title": "FILER COMMITTEE ID NUMBER",
             "description": "",
             "type": "string",
@@ -70,7 +70,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "COMMITTEE_NAME": {
+        "committee_name": {
             "title": "COMMITTEE NAME",
             "description": "",
             "type": "string",
@@ -91,7 +91,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "CHANGE_OF_ADDRESS": {
+        "change_of_address": {
             "title": "CHANGE OF ADDRESS",
             "description": "",
             "type": "boolean",
@@ -109,7 +109,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "STREET__1": {
+        "street_1": {
             "title": "STREET  1",
             "description": "",
             "type": "string",
@@ -130,7 +130,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "STREET__2": {
+        "street_2": {
             "title": "STREET  2",
             "description": "",
             "type": "string",
@@ -148,7 +148,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "CITY": {
+        "city": {
             "title": "CITY",
             "description": "",
             "type": "string",
@@ -169,7 +169,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "STATE": {
+        "state": {
             "title": "STATE",
             "description": "",
             "type": "string",
@@ -190,7 +190,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "ZIP": {
+        "zip": {
             "title": "ZIP",
             "description": "",
             "type": "string",
@@ -211,7 +211,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "ELECTION_STATE": {
+        "election_state": {
             "title": "ELECTION STATE",
             "description": "",
             "type": "string",
@@ -232,7 +232,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "ELECTION_DISTRICT": {
+        "election_district": {
             "title": "ELECTION DISTRICT",
             "description": "",
             "type": "integer",
@@ -252,7 +252,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "REPORT_CODE": {
+        "report_code": {
             "title": "REPORT CODE",
             "description": "",
             "type": "string",
@@ -273,7 +273,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "DATE_OF_ELECTION": {
+        "date_of_election": {
             "title": "DATE OF ELECTION",
             "description": "",
             "type": "integer",
@@ -293,7 +293,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "STATE_OF_ELECTION": {
+        "state_of_election": {
             "title": "STATE OF ELECTION",
             "description": "",
             "type": "string",
@@ -314,7 +314,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "SEMI-ANNUAL_PERIOD_-_Sect_5c_or_d": {
+        "semi-annual_period_-_sect_5c_or_d": {
             "title": "SEMI-ANNUAL PERIOD - Sect 5(c) or (d)",
             "description": "",
             "type": "boolean",
@@ -332,7 +332,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "COVERAGE_FROM_DATE": {
+        "coverage_from_date": {
             "title": "COVERAGE FROM DATE",
             "description": "",
             "type": "integer",
@@ -352,7 +352,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "COVERAGE_THROUGH_DATE": {
+        "coverage_through_date": {
             "title": "COVERAGE THROUGH DATE",
             "description": "",
             "type": "integer",
@@ -372,7 +372,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "SEMI-ANNUAL_JAN-JUN_-_Sect_6b": {
+        "semi-annual_jan-jun_-_sect_6b": {
             "title": "SEMI-ANNUAL JAN-JUN - Sect 6(b)",
             "description": "",
             "type": "string",
@@ -393,7 +393,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "SEMI-ANNUAL_JUL-DEC_-_Sect_6b": {
+        "semi-annual_jul-dec_-_sect_6b": {
             "title": "SEMI-ANNUAL JUL-DEC - Sect 6(b)",
             "description": "",
             "type": "string",
@@ -414,7 +414,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "QTR/MON/POST_BUNDLED_CONTRIBUTIONS": {
+        "qtr_mon_post_bundled_contributions": {
             "title": "QTR/MON/POST BUNDLED CONTRIBUTIONS",
             "description": "",
             "type": "number",
@@ -434,7 +434,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "SEMI-ANNUAL_BUNDLED_CONTRIBS": {
+        "semi-annual_bundled_contribs": {
             "title": "SEMI-ANNUAL BUNDLED CONTRIBS",
             "description": "",
             "type": "number",
@@ -454,7 +454,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "TREASURER_LAST_NAME": {
+        "treasurer_last_name": {
             "title": "TREASURER LAST NAME",
             "description": "",
             "type": "string",
@@ -475,7 +475,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "TREASURER_FIRST_NAME": {
+        "treasurer_first_name": {
             "title": "TREASURER FIRST NAME",
             "description": "",
             "type": "string",
@@ -496,7 +496,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "TREASURER_MIDDLE_NAME": {
+        "treasurer_middle_name": {
             "title": "TREASURER MIDDLE NAME",
             "description": "",
             "type": "string",
@@ -517,7 +517,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "TREASURER_PREFIX": {
+        "treasurer_prefix": {
             "title": "TREASURER PREFIX",
             "description": "",
             "type": "string",
@@ -538,7 +538,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "TREASURER_SUFFIX": {
+        "treasurer_suffix": {
             "title": "TREASURER SUFFIX",
             "description": "",
             "type": "string",
@@ -559,7 +559,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "DATE_SIGNED": {
+        "date_signed": {
             "title": "DATE SIGNED",
             "description": "",
             "type": "integer",

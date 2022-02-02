@@ -6,21 +6,21 @@
     "description": "SCHEDULE H3 - TRANSFERS FROM NON-FEDERAL ACCOUNTS",
     "type": "object",
     "required": [
-        "FORM_TYPE",
-        "FILER_COMMITTEE_ID_NUMBER",
-        "TRANSACTION_ID_NUMBER",
-        "BACK_REFERENCE_TRAN_ID",
-        "ACCOUNT_NAME",
-        "EVENT_TYPE",
-        "RECEIPT_DATE",
-        "TOTAL_AMOUNT_TRANSFERRED",
-        "TRANSFERRED_AMOUNT"
+        "form_type",
+        "filer_committee_id_number",
+        "transaction_id_number",
+        "back_reference_tran_id",
+        "account_name",
+        "event_type",
+        "receipt_date",
+        "total_amount_transferred",
+        "transferred_amount"
     ],
     "fec_recommended": [
-        "EVENT/ACTIVITY_ID/NAME"
+        "event_activity_id_name"
     ],
     "properties": {
-        "FORM_TYPE": {
+        "form_type": {
             "title": "FORM TYPE",
             "description": "",
             "type": "string",
@@ -41,7 +41,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "FILER_COMMITTEE_ID_NUMBER": {
+        "filer_committee_id_number": {
             "title": "FILER COMMITTEE ID NUMBER",
             "description": "",
             "type": "string",
@@ -62,7 +62,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "TRANSACTION_ID_NUMBER": {
+        "transaction_id_number": {
             "title": "TRANSACTION ID NUMBER",
             "description": "",
             "type": "string",
@@ -83,7 +83,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "BACK_REFERENCE_TRAN_ID": {
+        "back_reference_tran_id": {
             "title": "BACK REFERENCE TRAN ID",
             "description": "",
             "type": "string",
@@ -104,7 +104,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "ACCOUNT_NAME": {
+        "account_name": {
             "title": "ACCOUNT NAME",
             "description": "",
             "type": "string",
@@ -122,7 +122,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "EVENT_TYPE": {
+        "event_type": {
             "title": "EVENT TYPE",
             "description": "",
             "type": "string",
@@ -143,7 +143,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "EVENT/ACTIVITY_ID/NAME": {
+        "event_activity_id_name": {
             "title": "EVENT/ACTIVITY ID/NAME",
             "description": "",
             "type": "string",
@@ -161,7 +161,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "RECEIPT_DATE": {
+        "receipt_date": {
             "title": "RECEIPT DATE",
             "description": "",
             "type": "integer",
@@ -181,7 +181,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "TOTAL_AMOUNT_TRANSFERRED": {
+        "total_amount_transferred": {
             "title": "TOTAL AMOUNT TRANSFERRED",
             "description": "",
             "type": "number",
@@ -198,7 +198,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "TRANSFERRED_AMOUNT": {
+        "transferred_amount": {
             "title": "TRANSFERRED AMOUNT",
             "description": "",
             "type": "number",

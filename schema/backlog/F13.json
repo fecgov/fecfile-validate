@@ -6,28 +6,28 @@
     "description": "FORM 13 - REPORT OF DONATIONS ACCEPTED FOR INAUGURAL COMMITTEE",
     "type": "object",
     "required": [
-        "FORM_TYPE",
-        "FILER_COMMITTEE_ID_NUMBER",
-        "COMMITTEE_NAME",
-        "AMENDMENT_DATE",
-        "DESIGNATED_LAST_NAME",
-        "DESIGNATED_FIRST_NAME",
-        "DATE_SIGNED"
+        "form_type",
+        "filer_committee_id_number",
+        "committee_name",
+        "amendment_date",
+        "designated_last_name",
+        "designated_first_name",
+        "date_signed"
     ],
     "fec_recommended": [
-        "STREET__1",
-        "CITY",
-        "STATE",
-        "ZIP",
-        "REPORT_CODE",
-        "COVERAGE_FROM_DATE",
-        "COVERAGE_THROUGH_DATE",
-        "5_TOTAL_DONATIONS_ACCEPTED",
-        "6_TOTAL_DONATIONS_REFUNDED",
-        "7_NET_DONATIONS"
+        "street_1",
+        "city",
+        "state",
+        "zip",
+        "report_code",
+        "coverage_from_date",
+        "coverage_through_date",
+        "L5_total_donations_accepted",
+        "L6_total_donations_refunded",
+        "L7_net_donations"
     ],
     "properties": {
-        "FORM_TYPE": {
+        "form_type": {
             "title": "FORM TYPE",
             "description": "",
             "type": "string",
@@ -48,7 +48,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "FILER_COMMITTEE_ID_NUMBER": {
+        "filer_committee_id_number": {
             "title": "FILER COMMITTEE ID NUMBER",
             "description": "",
             "type": "string",
@@ -69,7 +69,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "COMMITTEE_NAME": {
+        "committee_name": {
             "title": "COMMITTEE NAME",
             "description": "",
             "type": "string",
@@ -90,7 +90,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "CHANGE_OF_ADDRESS": {
+        "change_of_address": {
             "title": "CHANGE OF ADDRESS",
             "description": "",
             "type": "boolean",
@@ -108,7 +108,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "STREET__1": {
+        "street_1": {
             "title": "STREET  1",
             "description": "",
             "type": "string",
@@ -129,7 +129,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "STREET__2": {
+        "street_2": {
             "title": "STREET  2",
             "description": "",
             "type": "string",
@@ -147,7 +147,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "CITY": {
+        "city": {
             "title": "CITY",
             "description": "",
             "type": "string",
@@ -168,7 +168,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "STATE": {
+        "state": {
             "title": "STATE",
             "description": "",
             "type": "string",
@@ -189,7 +189,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "ZIP": {
+        "zip": {
             "title": "ZIP",
             "description": "",
             "type": "string",
@@ -210,7 +210,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "REPORT_CODE": {
+        "report_code": {
             "title": "REPORT CODE",
             "description": "",
             "type": "string",
@@ -231,7 +231,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "AMENDMENT_DATE": {
+        "amendment_date": {
             "title": "AMENDMENT DATE",
             "description": "",
             "type": "integer",
@@ -251,7 +251,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "COVERAGE_FROM_DATE": {
+        "coverage_from_date": {
             "title": "COVERAGE FROM DATE",
             "description": "",
             "type": "integer",
@@ -268,7 +268,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "COVERAGE_THROUGH_DATE": {
+        "coverage_through_date": {
             "title": "COVERAGE THROUGH DATE",
             "description": "",
             "type": "integer",
@@ -285,7 +285,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "5_TOTAL_DONATIONS_ACCEPTED": {
+        "L5_total_donations_accepted": {
             "title": "5 TOTAL DONATIONS ACCEPTED",
             "description": "",
             "type": "number",
@@ -305,7 +305,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "6_TOTAL_DONATIONS_REFUNDED": {
+        "L6_total_donations_refunded": {
             "title": "6 TOTAL DONATIONS REFUNDED",
             "description": "",
             "type": "number",
@@ -325,7 +325,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "7_NET_DONATIONS": {
+        "L7_net_donations": {
             "title": "7 NET DONATIONS",
             "description": "",
             "type": "number",
@@ -345,7 +345,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "DESIGNATED_LAST_NAME": {
+        "designated_last_name": {
             "title": "DESIGNATED LAST NAME",
             "description": "",
             "type": "string",
@@ -366,7 +366,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "DESIGNATED_FIRST_NAME": {
+        "designated_first_name": {
             "title": "DESIGNATED FIRST NAME",
             "description": "",
             "type": "string",
@@ -387,7 +387,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "DESIGNATED_MIDDLE_NAME": {
+        "designated_middle_name": {
             "title": "DESIGNATED MIDDLE NAME",
             "description": "",
             "type": "string",
@@ -408,7 +408,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "DESIGNATED_PREFIX": {
+        "designated_prefix": {
             "title": "DESIGNATED PREFIX",
             "description": "",
             "type": "string",
@@ -429,7 +429,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "DESIGNATED_SUFFIX": {
+        "designated_suffix": {
             "title": "DESIGNATED SUFFIX",
             "description": "",
             "type": "string",
@@ -450,7 +450,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "DATE_SIGNED": {
+        "date_signed": {
             "title": "DATE SIGNED",
             "description": "",
             "type": "integer",

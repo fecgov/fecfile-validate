@@ -6,18 +6,18 @@
     "description": "FORM 3PZ - (File with Form 3P) Part 1: CONSOLIDATION REPORT\n                    (To Be Used By A Principal Campaign Committee) ",
     "type": "object",
     "required": [
-        "FORM_TYPE",
-        "FILER_COMMITTEE_ID_NUMBER_PCC"
+        "form_type",
+        "filer_committee_id_number_pcc"
     ],
     "fec_recommended": [
-        "COMMITTEE_NAME_PCC",
-        "COVERAGE_FROM_DATE",
-        "COVERAGE_THROUGH_DATE",
-        "COMMITTEE_ID_NUMBER_Auth",
-        "COMMITTEE_NAME_Auth"
+        "committee_name_pcc",
+        "coverage_from_date",
+        "coverage_through_date",
+        "committee_id_number_auth",
+        "committee_name_auth"
     ],
     "properties": {
-        "FIELD_DESCRIPTION": {
+        "field_description": {
             "title": "FIELD\nDESCRIPTION",
             "description": "",
             "examples": [
@@ -34,7 +34,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "FORM_TYPE": {
+        "form_type": {
             "title": "FORM TYPE",
             "description": "",
             "type": "string",
@@ -55,7 +55,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "FILER_COMMITTEE_ID_NUMBER_PCC": {
+        "filer_committee_id_number_pcc": {
             "title": "FILER COMMITTEE ID NUMBER (PCC)",
             "description": "",
             "type": "string",
@@ -76,7 +76,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "COMMITTEE_NAME_PCC": {
+        "committee_name_pcc": {
             "title": "COMMITTEE NAME (PCC)",
             "description": "",
             "type": "string",
@@ -97,7 +97,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "COVERAGE_FROM_DATE": {
+        "coverage_from_date": {
             "title": "COVERAGE FROM DATE",
             "description": "",
             "type": "integer",
@@ -117,7 +117,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "COVERAGE_THROUGH_DATE": {
+        "coverage_through_date": {
             "title": "COVERAGE THROUGH DATE",
             "description": "",
             "type": "integer",
@@ -137,7 +137,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "COMMITTEE_ID_NUMBER_Auth": {
+        "committee_id_number_auth": {
             "title": "COMMITTEE ID NUMBER (Auth)",
             "description": "",
             "type": "string",
@@ -158,7 +158,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "COMMITTEE_NAME_Auth": {
+        "committee_name_auth": {
             "title": "COMMITTEE NAME (Auth)",
             "description": "",
             "type": "string",
@@ -176,7 +176,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "6_Cash_on_Hand_at_Beginning_of_Reporting_Period": {
+        "L6_cash_on_hand_at_beginning_of_reporting_period": {
             "title": "6 Cash on Hand at Beginning of Reporting Period",
             "description": "",
             "type": "number",
@@ -193,7 +193,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "10_Cash_on_Hand_at_Close_of_Reporting_Period": {
+        "L10_cash_on_hand_at_close_of_reporting_period": {
             "title": "10 Cash on Hand at Close of Reporting Period",
             "description": "",
             "type": "number",
@@ -210,7 +210,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "11_Debts_and_Obligations_Owed_TO_the_Committee": {
+        "L11_debts_and_obligations_owed_to_the_committee": {
             "title": "11 Debts and Obligations Owed TO the Committee",
             "description": "",
             "type": "number",
@@ -227,7 +227,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "12_Debts_and_Obligations_Owed_BY_the_Committee": {
+        "L12_debts_and_obligations_owed_by_the_committee": {
             "title": "12 Debts and Obligations Owed BY the Committee",
             "description": "",
             "type": "number",
@@ -244,7 +244,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "13_Expenditures_Subject_to_Limitation": {
+        "L13_expenditures_subject_to_limitation": {
             "title": "13 Expenditures Subject to Limitation",
             "description": "",
             "type": "number",
@@ -261,7 +261,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "14_Net_Contributions": {
+        "L14_net_contributions": {
             "title": "14 Net Contributions",
             "description": "",
             "type": "number",
@@ -278,7 +278,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "15_Net_Operating_Expenditures": {
+        "L15_net_operating_expenditures": {
             "title": "15 Net Operating Expenditures",
             "description": "",
             "type": "number",
@@ -295,7 +295,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "16_Federal_Funds": {
+        "L16_federal_funds": {
             "title": "16 Federal Funds",
             "description": "",
             "type": "number",
@@ -312,7 +312,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "17aiii_Contributions_from_Individuals/Persons_Other_Than_Political_Committees": {
+        "L17aiii_contributions_from_individuals_persons_other_than_political_committees": {
             "title": "17(a)(iii) Contributions from Individuals/Persons Other Than Political Committees",
             "description": "",
             "type": "number",
@@ -329,7 +329,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "17b_Contributions_from_Political_Party_Committees": {
+        "L17b_contributions_from_political_party_committees": {
             "title": "17(b) Contributions from Political Party Committees",
             "description": "",
             "type": "number",
@@ -346,7 +346,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "17c_Contributions_from_Other_Political_Committees": {
+        "L17c_contributions_from_other_political_committees": {
             "title": "17(c) Contributions from Other Political Committees",
             "description": "",
             "type": "number",
@@ -363,7 +363,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "17d_Contributions_from_the_Candidate": {
+        "L17d_contributions_from_the_candidate": {
             "title": "17(d) Contributions from the Candidate",
             "description": "",
             "type": "number",
@@ -380,7 +380,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "17e_Total_Contributions": {
+        "L17e_total_contributions": {
             "title": "17(e) Total Contributions",
             "description": "",
             "type": "number",
@@ -397,7 +397,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "18_Transfers_from_Other_Authorized_Committees": {
+        "L18_transfers_from_other_authorized_committees": {
             "title": "18 Transfers from Other Authorized Committees",
             "description": "",
             "type": "number",
@@ -414,7 +414,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "19a_Loans_Received_From_or_Guaranteed_by_the_Candidate": {
+        "L19a_loans_received_from_or_guaranteed_by_the_candidate": {
             "title": "19(a) Loans Received From or Guaranteed by the Candidate",
             "description": "",
             "type": "number",
@@ -431,7 +431,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "19b_Other_Loans": {
+        "L19b_other_loans": {
             "title": "19(b) Other Loans",
             "description": "",
             "type": "number",
@@ -448,7 +448,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "19c_Total_Loans": {
+        "L19c_total_loans": {
             "title": "19(c) Total Loans",
             "description": "",
             "type": "number",
@@ -465,7 +465,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "20a_Offsets_to_Operating_Expenditures": {
+        "L20a_offsets_to_operating_expenditures": {
             "title": "20(a) Offsets to Operating Expenditures",
             "description": "",
             "type": "number",
@@ -482,7 +482,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "20b_Offsets_to_Fundraising_Expenditures": {
+        "L20b_offsets_to_fundraising_expenditures": {
             "title": "20(b) Offsets to Fundraising Expenditures",
             "description": "",
             "type": "number",
@@ -499,7 +499,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "20c_Offsets_to_Legal_and_Accounting_Expenditures": {
+        "L20c_offsets_to_legal_and_accounting_expenditures": {
             "title": "20(c) Offsets to Legal and Accounting Expenditures",
             "description": "",
             "type": "number",
@@ -516,7 +516,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "20d_Total_Offsets_to_Expenditures": {
+        "L20d_total_offsets_to_expenditures": {
             "title": "20(d) Total Offsets to Expenditures",
             "description": "",
             "type": "number",
@@ -533,7 +533,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "21_Other_Receipts": {
+        "L21_other_receipts": {
             "title": "21 Other Receipts",
             "description": "",
             "type": "number",
@@ -550,7 +550,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "22_Total_Receipts": {
+        "L22_total_receipts": {
             "title": "22 Total Receipts",
             "description": "",
             "type": "number",
@@ -567,7 +567,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "23_Operating_Expenditures": {
+        "L23_operating_expenditures": {
             "title": "23 Operating Expenditures",
             "description": "",
             "type": "number",
@@ -584,7 +584,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "24_Transfers_to_Other_Authorized_Committees": {
+        "L24_transfers_to_other_authorized_committees": {
             "title": "24 Transfers to Other Authorized Committees",
             "description": "",
             "type": "number",
@@ -601,7 +601,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "25_Fundraising_Disbursements": {
+        "L25_fundraising_disbursements": {
             "title": "25 Fundraising Disbursements",
             "description": "",
             "type": "number",
@@ -618,7 +618,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "26_Exempt_Legal_and_Accounting_Disbursements": {
+        "L26_exempt_legal_and_accounting_disbursements": {
             "title": "26 Exempt Legal and Accounting Disbursements",
             "description": "",
             "type": "number",
@@ -635,7 +635,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "27a_Repayments_of_Loans_Made_or_Guaranteed_by_Candidate": {
+        "L27a_repayments_of_loans_made_or_guaranteed_by_candidate": {
             "title": "27(a) Repayments of Loans Made or Guaranteed by Candidate",
             "description": "",
             "type": "number",
@@ -652,7 +652,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "27b_Other_Loan_Repayments": {
+        "L27b_other_loan_repayments": {
             "title": "27(b) Other Loan Repayments",
             "description": "",
             "type": "number",
@@ -669,7 +669,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "27c_Total_Loan_Repayments_Made": {
+        "L27c_total_loan_repayments_made": {
             "title": "27(c) Total Loan Repayments Made",
             "description": "",
             "type": "number",
@@ -686,7 +686,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "28a_Refunds_of_Contributions_from_Individuals/Persons": {
+        "L28a_refunds_of_contributions_from_individuals_persons": {
             "title": "28(a) Refunds of Contributions from Individuals/Persons",
             "description": "",
             "type": "number",
@@ -703,7 +703,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "28b_Refunds_of_Contributions_from_Political_Party_Committees": {
+        "L28b_refunds_of_contributions_from_political_party_committees": {
             "title": "28(b) Refunds of Contributions from Political Party Committees",
             "description": "",
             "type": "number",
@@ -720,7 +720,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "28c_Refunds_of_Contributions_from_Other_Political_Committees": {
+        "L28c_refunds_of_contributions_from_other_political_committees": {
             "title": "28(c) Refunds of Contributions from Other Political Committees",
             "description": "",
             "type": "number",
@@ -737,7 +737,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "28d_Total_Contributions_Refunds": {
+        "L28d_total_contributions_refunds": {
             "title": "28(d) Total Contributions Refunds",
             "description": "",
             "type": "number",
@@ -754,7 +754,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "29_Other_Disbursements": {
+        "L29_other_disbursements": {
             "title": "29 Other Disbursements",
             "description": "",
             "type": "number",
@@ -771,7 +771,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "30_Total_Disbursements": {
+        "L30_total_disbursements": {
             "title": "30 Total Disbursements",
             "description": "",
             "type": "number",
@@ -788,7 +788,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "31_Items_on_Hand_to_be_Liquidated": {
+        "L31_items_on_hand_to_be_liquidated": {
             "title": "31 Items on Hand to be Liquidated",
             "description": "",
             "type": "number",

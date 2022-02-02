@@ -6,32 +6,32 @@
     "description": "FORM 2 - STATEMENT OF CANDIDACY",
     "type": "object",
     "required": [
-        "FORM_TYPE",
-        "FILER_CANDIDATE_ID_NUMBER",
-        "CANDIDATE_LAST_NAME",
-        "CANDIDATE_FIRST_NAME",
-        "CANDIDATE_STREET_1",
-        "CANDIDATE_CITY",
-        "CANDIDATE_STATE",
-        "CANDIDATE_ZIP",
-        "CANDIDATE_PARTY_CODE",
-        "CANDIDATE_OFFICE",
-        "YEAR_OF_ELECTION_1900-2999",
-        "CANDIDATE_SIGNATURE_LAST_NAME",
-        "CANDIDATE_SIGNATURE_FIRST_NAME",
-        "DATE_SIGNED"
+        "form_type",
+        "filer_candidate_id_number",
+        "candidate_last_name",
+        "candidate_first_name",
+        "candidate_street_1",
+        "candidate_city",
+        "candidate_state",
+        "candidate_zip",
+        "candidate_party_code",
+        "candidate_office",
+        "year_of_election_1900-2999",
+        "candidate_signature_last_name",
+        "candidate_signature_first_name",
+        "date_signed"
     ],
     "fec_recommended": [
-        "VICE_PRESIDENT_LAST_NAME",
-        "VICE_PRESIDENT_FIRST_NAME",
-        "PCC_COMMITTEE_NAME",
-        "PCC_STREET_1",
-        "PCC_CITY",
-        "PCC_STATE",
-        "PCC_ZIP"
+        "vice_president_last_name",
+        "vice_president_first_name",
+        "pcc_committee_name",
+        "pcc_street_1",
+        "pcc_city",
+        "pcc_state",
+        "pcc_zip"
     ],
     "properties": {
-        "FORM_TYPE": {
+        "form_type": {
             "title": "FORM TYPE",
             "description": "",
             "type": "string",
@@ -52,7 +52,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "FILER_CANDIDATE_ID_NUMBER": {
+        "filer_candidate_id_number": {
             "title": "FILER CANDIDATE ID NUMBER",
             "description": "",
             "type": "string",
@@ -73,7 +73,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "CANDIDATE_LAST_NAME": {
+        "candidate_last_name": {
             "title": "CANDIDATE LAST NAME",
             "description": "",
             "type": "string",
@@ -91,7 +91,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "CANDIDATE_FIRST_NAME": {
+        "candidate_first_name": {
             "title": "CANDIDATE FIRST NAME",
             "description": "",
             "type": "string",
@@ -109,7 +109,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "CANDIDATE_MIDDLE_NAME": {
+        "candidate_middle_name": {
             "title": "CANDIDATE MIDDLE NAME",
             "description": "",
             "type": "string",
@@ -127,7 +127,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "CANDIDATE_PREFIX": {
+        "candidate_prefix": {
             "title": "CANDIDATE PREFIX",
             "description": "",
             "type": "string",
@@ -145,7 +145,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "CANDIDATE_SUFFIX": {
+        "candidate_suffix": {
             "title": "CANDIDATE SUFFIX",
             "description": "",
             "type": "string",
@@ -163,7 +163,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "VICE_PRESIDENT_LAST_NAME": {
+        "vice_president_last_name": {
             "title": "VICE PRESIDENT LAST NAME",
             "description": "",
             "type": "string",
@@ -181,7 +181,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "VICE_PRESIDENT_FIRST_NAME": {
+        "vice_president_first_name": {
             "title": "VICE PRESIDENT FIRST NAME",
             "description": "",
             "type": "string",
@@ -199,7 +199,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "VICE_PRESIDENT_MIDDLE_NAME": {
+        "vice_president_middle_name": {
             "title": "VICE PRESIDENT MIDDLE NAME",
             "description": "",
             "type": "string",
@@ -217,7 +217,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "VICE_PRESIDENT_PREFIX": {
+        "vice_president_prefix": {
             "title": "VICE PRESIDENT PREFIX",
             "description": "",
             "type": "string",
@@ -235,7 +235,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "VICE_PRESIDENT_SUFFIX": {
+        "vice_president_suffix": {
             "title": "VICE PRESIDENT SUFFIX",
             "description": "",
             "type": "string",
@@ -253,7 +253,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "CHANGE_OF_ADDRESS": {
+        "change_of_address": {
             "title": "CHANGE OF ADDRESS",
             "description": "",
             "type": "boolean",
@@ -271,7 +271,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "CANDIDATE_STREET_1": {
+        "candidate_street_1": {
             "title": "CANDIDATE STREET 1",
             "description": "",
             "type": "string",
@@ -289,7 +289,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "CANDIDATE_STREET_2": {
+        "candidate_street_2": {
             "title": "CANDIDATE STREET 2",
             "description": "",
             "type": "string",
@@ -307,7 +307,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "CANDIDATE_CITY": {
+        "candidate_city": {
             "title": "CANDIDATE CITY",
             "description": "",
             "type": "string",
@@ -325,7 +325,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "CANDIDATE_STATE": {
+        "candidate_state": {
             "title": "CANDIDATE STATE",
             "description": "",
             "type": "string",
@@ -333,20 +333,20 @@
             "maxLength": 2,
             "pattern": "^[ A-z0-9]{0,2}$",
             "examples": [
-                "MA"
+                "FL"
             ],
             "fec_spec": {
-                "COL_SEQ": 21,
+                "COL_SEQ": 17,
                 "FIELD_DESCRIPTION": "CANDIDATE STATE",
                 "TYPE": "A-2",
-                "REQUIRED": "Depends on Office",
-                "SAMPLE_DATA": "MA",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "FL",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Edit: ST (if Office = Sen or House)",
+                "RULE_REFERENCE": "Edit: ST",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "CANDIDATE_ZIP": {
+        "candidate_zip": {
             "title": "CANDIDATE ZIP",
             "description": "",
             "type": "string",
@@ -367,7 +367,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "CANDIDATE_PARTY_CODE": {
+        "candidate_party_code": {
             "title": "CANDIDATE PARTY CODE",
             "description": "",
             "type": "string",
@@ -388,7 +388,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "CANDIDATE_OFFICE": {
+        "candidate_office": {
             "title": "CANDIDATE OFFICE",
             "description": "",
             "type": "string",
@@ -409,7 +409,28 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "CANDIDATE_DISTRICT": {
+        "candidate_state-DUPLICATE": {
+            "title": "CANDIDATE STATE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 2,
+            "pattern": "^[ A-z0-9]{0,2}$",
+            "examples": [
+                "MA"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 21,
+                "FIELD_DESCRIPTION": "CANDIDATE STATE",
+                "TYPE": "A-2",
+                "REQUIRED": "Depends on Office",
+                "SAMPLE_DATA": "MA",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "Edit: ST (if Office = Sen or House)",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "candidate_district": {
             "title": "CANDIDATE DISTRICT",
             "description": "",
             "type": "integer",
@@ -429,7 +450,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "YEAR_OF_ELECTION_1900-2999": {
+        "year_of_election_1900-2999": {
             "title": "YEAR OF ELECTION 1900-2999",
             "description": "",
             "type": "integer",
@@ -449,7 +470,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "PCC_COMMITTEE_ID_NUMBER": {
+        "pcc_committee_id_number": {
             "title": "PCC COMMITTEE ID NUMBER",
             "description": "",
             "type": "string",
@@ -467,7 +488,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "PCC_COMMITTEE_NAME": {
+        "pcc_committee_name": {
             "title": "PCC COMMITTEE NAME",
             "description": "",
             "type": "string",
@@ -485,7 +506,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "PCC_STREET_1": {
+        "pcc_street_1": {
             "title": "PCC STREET 1",
             "description": "",
             "type": "string",
@@ -503,7 +524,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "PCC_STREET_2": {
+        "pcc_street_2": {
             "title": "PCC STREET 2",
             "description": "",
             "type": "string",
@@ -521,7 +542,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "PCC_CITY": {
+        "pcc_city": {
             "title": "PCC CITY",
             "description": "",
             "type": "string",
@@ -539,7 +560,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "PCC_STATE": {
+        "pcc_state": {
             "title": "PCC STATE",
             "description": "",
             "type": "string",
@@ -557,7 +578,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "PCC_ZIP": {
+        "pcc_zip": {
             "title": "PCC ZIP",
             "description": "",
             "type": "string",
@@ -575,7 +596,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "AUTH_COMMITTEE_ID_NUMBER": {
+        "auth_committee_id_number": {
             "title": "AUTH COMMITTEE ID NUMBER",
             "description": "",
             "type": "string",
@@ -593,7 +614,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "AUTH_COMMITTEE_NAME": {
+        "auth_committee_name": {
             "title": "AUTH COMMITTEE NAME",
             "description": "",
             "type": "string",
@@ -611,7 +632,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "AUTH_STREET_1": {
+        "auth_street_1": {
             "title": "AUTH STREET 1",
             "description": "",
             "type": "string",
@@ -629,7 +650,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "AUTH_STREET_2": {
+        "auth_street_2": {
             "title": "AUTH STREET 2",
             "description": "",
             "type": "string",
@@ -647,7 +668,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "AUTH_CITY": {
+        "auth_city": {
             "title": "AUTH CITY",
             "description": "",
             "type": "string",
@@ -665,7 +686,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "AUTH_STATE": {
+        "auth_state": {
             "title": "AUTH STATE",
             "description": "",
             "type": "string",
@@ -683,7 +704,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "AUTH_ZIP": {
+        "auth_zip": {
             "title": "AUTH ZIP",
             "description": "",
             "type": "string",
@@ -701,7 +722,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "CANDIDATE_SIGNATURE_LAST_NAME": {
+        "candidate_signature_last_name": {
             "title": "CANDIDATE SIGNATURE LAST NAME",
             "description": "",
             "type": "string",
@@ -719,7 +740,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "CANDIDATE_SIGNATURE_FIRST_NAME": {
+        "candidate_signature_first_name": {
             "title": "CANDIDATE SIGNATURE FIRST NAME",
             "description": "",
             "type": "string",
@@ -737,7 +758,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "CANDIDATE_SIGNATURE_MIDDLE_NAME": {
+        "candidate_signature_middle_name": {
             "title": "CANDIDATE SIGNATURE MIDDLE NAME",
             "description": "",
             "type": "string",
@@ -755,7 +776,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "CANDIDATE_SIGNATURE_PREFIX": {
+        "candidate_signature_prefix": {
             "title": "CANDIDATE SIGNATURE PREFIX",
             "description": "",
             "type": "string",
@@ -773,7 +794,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "CANDIDATE_SIGNATURE_SUFFIX": {
+        "candidate_signature_suffix": {
             "title": "CANDIDATE SIGNATURE SUFFIX",
             "description": "",
             "type": "string",
@@ -791,7 +812,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "DATE_SIGNED": {
+        "date_signed": {
             "title": "DATE SIGNED",
             "description": "",
             "type": "integer",

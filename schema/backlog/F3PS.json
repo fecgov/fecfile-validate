@@ -6,14 +6,14 @@
     "description": "FORM 3PS - ADDITIONAL SUMMARY REPORT OF RECEIPTS AND DISBURSEMENTS BY AN\n                        AUTHORIZED COMMITTEE OF A CANDIDATE FOR THE OFFICE OF PRESIDENT\n                        OR VICE-PRESIDENT FOR REPORTS THAT CROSS ELECTION CYCLES  ",
     "type": "object",
     "required": [
-        "FORM_TYPE",
-        "FILER_COMMITTEE_ID_NUMBER",
-        "Date_-_General_Election",
-        "Date_-_Day_after_General_Election"
+        "form_type",
+        "filer_committee_id_number",
+        "date_-_general_election",
+        "date_-_day_after_general_election"
     ],
     "fec_recommended": [],
     "properties": {
-        "FORM_TYPE": {
+        "form_type": {
             "title": "FORM TYPE",
             "description": "",
             "type": "string",
@@ -34,7 +34,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "FILER_COMMITTEE_ID_NUMBER": {
+        "filer_committee_id_number": {
             "title": "FILER COMMITTEE ID NUMBER",
             "description": "",
             "type": "string",
@@ -55,7 +55,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "Date_-_General_Election": {
+        "date_-_general_election": {
             "title": "Date - General Election",
             "description": "",
             "type": "integer",
@@ -75,7 +75,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "Date_-_Day_after_General_Election": {
+        "date_-_day_after_general_election": {
             "title": "Date - Day after General Election",
             "description": "",
             "type": "integer",
@@ -95,7 +95,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "14_Net_Contributions": {
+        "L14_net_contributions": {
             "title": "14. Net Contributions",
             "description": "",
             "type": "number",
@@ -112,7 +112,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "15_Net_Expenditures": {
+        "L15_net_expenditures": {
             "title": "15. Net Expenditures",
             "description": "",
             "type": "number",
@@ -129,7 +129,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "16_Federal_Funds": {
+        "L16_federal_funds": {
             "title": "16. Federal Funds",
             "description": "",
             "type": "number",
@@ -146,7 +146,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "17ai_Individuals_Itemized": {
+        "L17ai_individuals_itemized": {
             "title": "17(a.i) Individuals Itemized",
             "description": "",
             "type": "number",
@@ -163,7 +163,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "17aii_Individuals_Unitemized": {
+        "L17aii_individuals_unitemized": {
             "title": "17(a.ii) Individuals Unitemized",
             "description": "",
             "type": "number",
@@ -180,7 +180,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "17aiii_Individual_Contribution_Total": {
+        "L17aiii_individual_contribution_total": {
             "title": "17(a.iii) Individual Contribution Total",
             "description": "",
             "type": "number",
@@ -197,7 +197,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "17b_Political_Party_Committees": {
+        "L17b_political_party_committees": {
             "title": "17(b) Political Party Committees",
             "description": "",
             "type": "number",
@@ -214,7 +214,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "17c_Other_Political_Committees_PACs": {
+        "L17c_other_political_committees_pacs": {
             "title": "17(c) Other Political Committees (PACs)",
             "description": "",
             "type": "number",
@@ -231,7 +231,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "17d_The_Candidate": {
+        "L17d_the_candidate": {
             "title": "17(d) The Candidate",
             "description": "",
             "type": "number",
@@ -248,7 +248,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "17e_Total_contributions__Other_than_Loans": {
+        "L17e_total_contributions_other_than_loans": {
             "title": "17(e) Total contributions  (Other than Loans)",
             "description": "",
             "type": "number",
@@ -265,7 +265,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "18_Transfers_From_Aff/Other_Party_Committees": {
+        "L18_transfers_from_aff_other_party_committees": {
             "title": "18. Transfers From Aff/Other Party Committees",
             "description": "",
             "type": "number",
@@ -282,7 +282,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "19a_Received_from_or_Guaranteed__by_Candidate": {
+        "L19a_received_from_or_guaranteed_by_candidate": {
             "title": "19(a) Received from or Guaranteed  by Candidate",
             "description": "",
             "type": "number",
@@ -299,7 +299,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "19b_Other_Loans": {
+        "L19b_other_loans": {
             "title": "19(b) Other Loans",
             "description": "",
             "type": "number",
@@ -316,7 +316,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "19c_Total_Loans": {
+        "L19c_total_loans": {
             "title": "19(c) Total Loans",
             "description": "",
             "type": "number",
@@ -333,7 +333,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "20a_Operating": {
+        "L20a_operating": {
             "title": "20(a) Operating",
             "description": "",
             "type": "number",
@@ -350,7 +350,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "20b_Fundraising": {
+        "L20b_fundraising": {
             "title": "20(b) Fundraising",
             "description": "",
             "type": "number",
@@ -367,7 +367,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "20c_Legal_and_Accounting": {
+        "L20c_legal_and_accounting": {
             "title": "20(c) Legal and Accounting",
             "description": "",
             "type": "number",
@@ -384,7 +384,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "20d_Total_Offsets_to_Operating_Expenditures": {
+        "L20d_total_offsets_to_operating_expenditures": {
             "title": "20(d) Total Offsets to Operating Expenditures",
             "description": "",
             "type": "number",
@@ -401,7 +401,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "21_Other_Receipts": {
+        "L21_other_receipts": {
             "title": "21. Other Receipts",
             "description": "",
             "type": "number",
@@ -418,7 +418,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "22_Total_Receipts": {
+        "L22_total_receipts": {
             "title": "22. Total Receipts",
             "description": "",
             "type": "number",
@@ -435,7 +435,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "23_Operating_Expenditures": {
+        "L23_operating_expenditures": {
             "title": "23. Operating Expenditures",
             "description": "",
             "type": "number",
@@ -452,7 +452,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "24_Transfers_to_Other_Authorized_Committees": {
+        "L24_transfers_to_other_authorized_committees": {
             "title": "24. Transfers to Other Authorized Committees",
             "description": "",
             "type": "number",
@@ -469,7 +469,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "25_Fundraising_Disbursements": {
+        "L25_fundraising_disbursements": {
             "title": "25. Fundraising Disbursements",
             "description": "",
             "type": "number",
@@ -486,7 +486,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "26_Exempt_Legal_and_Accounting_Disbursements": {
+        "L26_exempt_legal_and_accounting_disbursements": {
             "title": "26. Exempt Legal and Accounting Disbursements",
             "description": "",
             "type": "number",
@@ -503,7 +503,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "27a_Made_or_Guaranteed_by_the_Candidate": {
+        "L27a_made_or_guaranteed_by_the_candidate": {
             "title": "27(a) Made or Guaranteed by the Candidate",
             "description": "",
             "type": "number",
@@ -520,7 +520,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "27b_Other_Repayments": {
+        "L27b_other_repayments": {
             "title": "27(b) Other Repayments",
             "description": "",
             "type": "number",
@@ -537,7 +537,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "27c_Total_Loan_Repayments_Made": {
+        "L27c_total_loan_repayments_made": {
             "title": "27(c) Total Loan Repayments Made",
             "description": "",
             "type": "number",
@@ -554,7 +554,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "28a__Individuals": {
+        "L28a_individuals": {
             "title": "28(a)  Individuals",
             "description": "",
             "type": "number",
@@ -571,7 +571,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "28b_Political_Party_Committees": {
+        "L28b_political_party_committees": {
             "title": "28(b) Political Party Committees",
             "description": "",
             "type": "number",
@@ -588,7 +588,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "28c_Other_Political_Committees": {
+        "L28c_other_political_committees": {
             "title": "28(c) Other Political Committees",
             "description": "",
             "type": "number",
@@ -605,7 +605,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "28d_Total_Contributions_Refunds": {
+        "L28d_total_contributions_refunds": {
             "title": "28(d) Total Contributions Refunds",
             "description": "",
             "type": "number",
@@ -622,7 +622,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "29_Other_Disbursements": {
+        "L29_other_disbursements": {
             "title": "29. Other Disbursements",
             "description": "",
             "type": "number",
@@ -639,7 +639,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "30_Total_Disbursements": {
+        "L30_total_disbursements": {
             "title": "30. Total Disbursements",
             "description": "",
             "type": "number",
@@ -656,7 +656,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "ALABAMA": {
+        "alabama": {
             "title": "ALABAMA",
             "description": "",
             "type": "number",
@@ -673,7 +673,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "ALASKA": {
+        "alaska": {
             "title": "ALASKA",
             "description": "",
             "type": "number",
@@ -690,7 +690,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "ARIZONA": {
+        "arizona": {
             "title": "ARIZONA",
             "description": "",
             "type": "number",
@@ -707,7 +707,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "ARKANSAS": {
+        "arkansas": {
             "title": "ARKANSAS",
             "description": "",
             "type": "number",
@@ -724,7 +724,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "CALIFORNIA": {
+        "california": {
             "title": "CALIFORNIA",
             "description": "",
             "type": "number",
@@ -741,7 +741,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "COLORADO": {
+        "colorado": {
             "title": "COLORADO",
             "description": "",
             "type": "number",
@@ -758,7 +758,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "CONNECTICUT": {
+        "connecticut": {
             "title": "CONNECTICUT",
             "description": "",
             "type": "number",
@@ -775,7 +775,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "DELAWARE": {
+        "delaware": {
             "title": "DELAWARE",
             "description": "",
             "type": "number",
@@ -792,7 +792,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "DIST_OF_COLUMBIA": {
+        "dist_of_columbia": {
             "title": "DIST OF COLUMBIA",
             "description": "",
             "type": "number",
@@ -809,7 +809,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "FLORIDA": {
+        "florida": {
             "title": "FLORIDA",
             "description": "",
             "type": "number",
@@ -826,7 +826,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "GEORGIA": {
+        "georgia": {
             "title": "GEORGIA",
             "description": "",
             "type": "number",
@@ -843,7 +843,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "HAWAII": {
+        "hawaii": {
             "title": "HAWAII",
             "description": "",
             "type": "number",
@@ -860,7 +860,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "IDAHO": {
+        "idaho": {
             "title": "IDAHO",
             "description": "",
             "type": "number",
@@ -877,7 +877,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "ILLINOIS": {
+        "illinois": {
             "title": "ILLINOIS",
             "description": "",
             "type": "number",
@@ -894,7 +894,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "INDIANA": {
+        "indiana": {
             "title": "INDIANA",
             "description": "",
             "type": "number",
@@ -911,7 +911,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "IOWA": {
+        "iowa": {
             "title": "IOWA",
             "description": "",
             "type": "number",
@@ -928,7 +928,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "KANSAS": {
+        "kansas": {
             "title": "KANSAS",
             "description": "",
             "type": "number",
@@ -945,7 +945,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "KENTUCKY": {
+        "kentucky": {
             "title": "KENTUCKY",
             "description": "",
             "type": "number",
@@ -962,7 +962,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "LOUISIANA": {
+        "louisiana": {
             "title": "LOUISIANA",
             "description": "",
             "type": "number",
@@ -979,7 +979,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "MAINE": {
+        "maine": {
             "title": "MAINE",
             "description": "",
             "type": "number",
@@ -996,7 +996,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "MARYLAND": {
+        "maryland": {
             "title": "MARYLAND",
             "description": "",
             "type": "number",
@@ -1013,7 +1013,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "MASSACHUSETTS": {
+        "massachusetts": {
             "title": "MASSACHUSETTS",
             "description": "",
             "type": "number",
@@ -1030,7 +1030,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "MICHIGAN": {
+        "michigan": {
             "title": "MICHIGAN",
             "description": "",
             "type": "number",
@@ -1047,7 +1047,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "MINNESOTA": {
+        "minnesota": {
             "title": "MINNESOTA",
             "description": "",
             "type": "number",
@@ -1064,7 +1064,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "MISSISSIPPI": {
+        "mississippi": {
             "title": "MISSISSIPPI",
             "description": "",
             "type": "number",
@@ -1081,7 +1081,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "MISSOURI": {
+        "missouri": {
             "title": "MISSOURI",
             "description": "",
             "type": "number",
@@ -1098,7 +1098,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "MONTANA": {
+        "montana": {
             "title": "MONTANA",
             "description": "",
             "type": "number",
@@ -1115,7 +1115,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "NEBRASKA": {
+        "nebraska": {
             "title": "NEBRASKA",
             "description": "",
             "type": "number",
@@ -1132,7 +1132,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "NEVADA": {
+        "nevada": {
             "title": "NEVADA",
             "description": "",
             "type": "number",
@@ -1149,7 +1149,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "NEW_HAMPSHIRE": {
+        "new_hampshire": {
             "title": "NEW HAMPSHIRE",
             "description": "",
             "type": "number",
@@ -1166,7 +1166,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "NEW_JERSEY": {
+        "new_jersey": {
             "title": "NEW JERSEY",
             "description": "",
             "type": "number",
@@ -1183,7 +1183,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "NEW_MEXICO": {
+        "new_mexico": {
             "title": "NEW MEXICO",
             "description": "",
             "type": "number",
@@ -1200,7 +1200,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "NEW_YORK": {
+        "new_york": {
             "title": "NEW YORK",
             "description": "",
             "type": "number",
@@ -1217,7 +1217,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "NORTH_CAROLINA": {
+        "north_carolina": {
             "title": "NORTH CAROLINA",
             "description": "",
             "type": "number",
@@ -1234,7 +1234,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "NORTH_DAKOTA": {
+        "north_dakota": {
             "title": "NORTH DAKOTA",
             "description": "",
             "type": "number",
@@ -1251,7 +1251,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "OHIO": {
+        "ohio": {
             "title": "OHIO",
             "description": "",
             "type": "number",
@@ -1268,7 +1268,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "OKLAHOMA": {
+        "oklahoma": {
             "title": "OKLAHOMA",
             "description": "",
             "type": "number",
@@ -1285,7 +1285,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "OREGON": {
+        "oregon": {
             "title": "OREGON",
             "description": "",
             "type": "number",
@@ -1302,7 +1302,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "PENNSYLVANIA": {
+        "pennsylvania": {
             "title": "PENNSYLVANIA",
             "description": "",
             "type": "number",
@@ -1319,7 +1319,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "RHODE_ISLAND": {
+        "rhode_island": {
             "title": "RHODE ISLAND",
             "description": "",
             "type": "number",
@@ -1336,7 +1336,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "SOUTH_CAROLINA": {
+        "south_carolina": {
             "title": "SOUTH CAROLINA",
             "description": "",
             "type": "number",
@@ -1353,7 +1353,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "SOUTH_DAKOTA": {
+        "south_dakota": {
             "title": "SOUTH DAKOTA",
             "description": "",
             "type": "number",
@@ -1370,7 +1370,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "TENNESSEE": {
+        "tennessee": {
             "title": "TENNESSEE",
             "description": "",
             "type": "number",
@@ -1387,7 +1387,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "TEXAS": {
+        "texas": {
             "title": "TEXAS",
             "description": "",
             "type": "number",
@@ -1404,7 +1404,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "UTAH": {
+        "utah": {
             "title": "UTAH",
             "description": "",
             "type": "number",
@@ -1421,7 +1421,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "VERMONT": {
+        "vermont": {
             "title": "VERMONT",
             "description": "",
             "type": "number",
@@ -1438,7 +1438,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "VIRGINIA": {
+        "virginia": {
             "title": "VIRGINIA",
             "description": "",
             "type": "number",
@@ -1455,7 +1455,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "WASHINGTON": {
+        "washington": {
             "title": "WASHINGTON",
             "description": "",
             "type": "number",
@@ -1472,7 +1472,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "WEST_VIRGINIA": {
+        "west_virginia": {
             "title": "WEST VIRGINIA",
             "description": "",
             "type": "number",
@@ -1489,7 +1489,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "WISCONSIN": {
+        "wisconsin": {
             "title": "WISCONSIN",
             "description": "",
             "type": "number",
@@ -1506,7 +1506,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "WYOMING": {
+        "wyoming": {
             "title": "WYOMING",
             "description": "",
             "type": "number",
@@ -1523,7 +1523,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "PUERTO_RICO": {
+        "puerto_rico": {
             "title": "PUERTO RICO",
             "description": "",
             "type": "number",
@@ -1540,7 +1540,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "GUAM": {
+        "guam": {
             "title": "GUAM",
             "description": "",
             "type": "number",
@@ -1557,7 +1557,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "VIRGIN_ISLANDS": {
+        "virgin_islands": {
             "title": "VIRGIN ISLANDS",
             "description": "",
             "type": "number",
@@ -1574,7 +1574,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "TOTALS": {
+        "totals": {
             "title": "TOTALS",
             "description": "",
             "type": "number",

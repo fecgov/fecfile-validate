@@ -6,21 +6,21 @@
     "description": "SCHEDULE H5 - TRANSFERS FROM NON-FEDERAL ACCOUNT FOR SHARED FEDERAL ELECTION ACTIVITY (Line 18b)",
     "type": "object",
     "required": [
-        "FORM_TYPE",
-        "FILER_COMMITTEE_ID_NUMBER",
-        "TRANSACTION_TYPE_IDENTIFIER",
-        "TRANSACTION_ID_NUMBER",
-        "ACCOUNT_NAME",
-        "RECEIPT_DATE",
-        "TOTAL_AMOUNT_TRANSFERRED",
-        "VOTER_REGISTRATION_AMOUNT",
-        "VOTER_ID_AMOUNT",
-        "GOTV_AMOUNT",
-        "GENERIC_CAMPAIGN_AMOUNT"
+        "form_type",
+        "filer_committee_id_number",
+        "transaction_type_identifier",
+        "transaction_id_number",
+        "account_name",
+        "receipt_date",
+        "total_amount_transferred",
+        "voter_registration_amount",
+        "voter_id_amount",
+        "gotv_amount",
+        "generic_campaign_amount"
     ],
     "fec_recommended": [],
     "properties": {
-        "FORM_TYPE": {
+        "form_type": {
             "title": "FORM TYPE",
             "description": "",
             "type": "string",
@@ -41,7 +41,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "FILER_COMMITTEE_ID_NUMBER": {
+        "filer_committee_id_number": {
             "title": "FILER COMMITTEE ID NUMBER",
             "description": "",
             "type": "string",
@@ -62,7 +62,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "TRANSACTION_TYPE_IDENTIFIER": {
+        "transaction_type_identifier": {
             "title": "TRANSACTION TYPE IDENTIFIER",
             "description": "",
             "type": "string",
@@ -83,7 +83,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "TRANSACTION_ID_NUMBER": {
+        "transaction_id_number": {
             "title": "TRANSACTION ID NUMBER",
             "description": "",
             "type": "string",
@@ -104,7 +104,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "ACCOUNT_NAME": {
+        "account_name": {
             "title": "ACCOUNT NAME",
             "description": "",
             "type": "string",
@@ -122,7 +122,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "RECEIPT_DATE": {
+        "receipt_date": {
             "title": "RECEIPT DATE",
             "description": "",
             "type": "integer",
@@ -142,7 +142,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "TOTAL_AMOUNT_TRANSFERRED": {
+        "total_amount_transferred": {
             "title": "TOTAL AMOUNT TRANSFERRED",
             "description": "",
             "type": "number",
@@ -162,7 +162,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "VOTER_REGISTRATION_AMOUNT": {
+        "voter_registration_amount": {
             "title": "VOTER REGISTRATION AMOUNT",
             "description": "",
             "type": "number",
@@ -182,7 +182,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "VOTER_ID_AMOUNT": {
+        "voter_id_amount": {
             "title": "VOTER ID AMOUNT",
             "description": "",
             "type": "number",
@@ -202,7 +202,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "GOTV_AMOUNT": {
+        "gotv_amount": {
             "title": "GOTV AMOUNT",
             "description": "",
             "type": "number",
@@ -222,7 +222,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "GENERIC_CAMPAIGN_AMOUNT": {
+        "generic_campaign_amount": {
             "title": "GENERIC CAMPAIGN AMOUNT",
             "description": "",
             "type": "number",

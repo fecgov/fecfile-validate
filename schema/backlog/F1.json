@@ -6,53 +6,53 @@
     "description": "FORM 1 - STATEMENT OF ORGANIZATION",
     "type": "object",
     "required": [
-        "FORM_TYPE",
-        "FILER_COMMITTEE_ID_NUMBER",
-        "COMMITTEE_NAME",
-        "STREET_1",
-        "CITY",
-        "STATE",
-        "ZIP",
-        "COMMITTEE_EMAIL",
-        "SIGNATURE_LAST_NAME",
-        "SIGNATURE_FIRST_NAME",
-        "DATE_SIGNED",
-        "5_CANDIDATE_OFFICE",
-        "5_CANDIDATE_STATE",
-        "5_CANDIDATE_DISTRICT",
-        "5_PARTY_CODE",
-        "7_CUSTODIAN_LAST_NAME",
-        "7_CUSTODIAN_FIRST_NAME",
-        "7_CUSTODIAN_STREET_1",
-        "7_CUSTODIAN_CITY",
-        "7_CUSTODIAN_STATE",
-        "7_CUSTODIAN_ZIP",
-        "7_CUSTODIAN_TITLE",
-        "8_TREASURER_LAST_NAME",
-        "8_TREASURER_FIRST_NAME",
-        "8_TREASURER_STREET_1",
-        "8_TREASURER_CITY",
-        "8_TREASURER_STATE",
-        "8_TREASURER_ZIP",
-        "9_a_BANK_NAME"
+        "form_type",
+        "filer_committee_id_number",
+        "committee_name",
+        "street_1",
+        "city",
+        "state",
+        "zip",
+        "committee_email",
+        "signature_last_name",
+        "signature_first_name",
+        "date_signed",
+        "L5_candidate_office",
+        "L5_candidate_state",
+        "L5_candidate_district",
+        "L5_party_code",
+        "L7_custodian_last_name",
+        "L7_custodian_first_name",
+        "L7_custodian_street_1",
+        "L7_custodian_city",
+        "L7_custodian_state",
+        "L7_custodian_zip",
+        "L7_custodian_title",
+        "L8_treasurer_last_name",
+        "L8_treasurer_first_name",
+        "L8_treasurer_street_1",
+        "L8_treasurer_city",
+        "L8_treasurer_state",
+        "L8_treasurer_zip",
+        "L9_a_bank_name"
     ],
     "fec_recommended": [
-        "EFFECTIVE_DATE",
-        "5_COMMITTEE_TYPE",
-        "5_CANDIDATE_ID_NUMBER",
-        "5_CANDIDATE_LAST_NAME",
-        "5_CANDIDATE_FIRST_NAME",
-        "5_PARTY_TYPE",
-        "5_e_ORGANIZATION_TYPE",
-        "8_TREASURER_TITLE",
-        "8_TREASURER_TELEPHONE",
-        "9_a_BANK_STREET_1",
-        "9_a_BANK_CITY",
-        "9_a_BANK_STATE",
-        "9_a_BANK_ZIP"
+        "effective_date",
+        "L5_committee_type",
+        "L5_candidate_id_number",
+        "L5_candidate_last_name",
+        "L5_candidate_first_name",
+        "L5_party_type",
+        "L5_e_organization_type",
+        "L8_treasurer_title",
+        "L8_treasurer_telephone",
+        "L9_a_bank_street_1",
+        "L9_a_bank_city",
+        "L9_a_bank_state",
+        "L9_a_bank_zip"
     ],
     "properties": {
-        "FORM_TYPE": {
+        "form_type": {
             "title": "FORM TYPE",
             "description": "",
             "type": "string",
@@ -73,7 +73,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "FILER_COMMITTEE_ID_NUMBER": {
+        "filer_committee_id_number": {
             "title": "FILER COMMITTEE ID NUMBER",
             "description": "",
             "type": "string",
@@ -94,7 +94,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "CHANGE_OF_COMMITTEE_NAME": {
+        "change_of_committee_name": {
             "title": "CHANGE OF COMMITTEE NAME",
             "description": "",
             "type": "boolean",
@@ -112,7 +112,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "COMMITTEE_NAME": {
+        "committee_name": {
             "title": "COMMITTEE NAME",
             "description": "",
             "type": "string",
@@ -133,7 +133,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "CHANGE_OF_ADDRESS": {
+        "change_of_address": {
             "title": "CHANGE OF ADDRESS",
             "description": "",
             "type": "boolean",
@@ -151,7 +151,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "STREET_1": {
+        "street_1": {
             "title": "STREET 1",
             "description": "",
             "type": "string",
@@ -172,7 +172,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "STREET_2": {
+        "street_2": {
             "title": "STREET 2",
             "description": "",
             "type": "string",
@@ -190,7 +190,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "CITY": {
+        "city": {
             "title": "CITY",
             "description": "",
             "type": "string",
@@ -211,7 +211,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "STATE": {
+        "state": {
             "title": "STATE",
             "description": "",
             "type": "string",
@@ -232,7 +232,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "ZIP": {
+        "zip": {
             "title": "ZIP",
             "description": "",
             "type": "string",
@@ -253,7 +253,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "CHANGE_OF_COMMITTEE_EMAIL": {
+        "change_of_committee_email": {
             "title": "CHANGE OF COMMITTEE EMAIL",
             "description": "",
             "type": "boolean",
@@ -271,7 +271,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "COMMITTEE_EMAIL": {
+        "committee_email": {
             "title": "COMMITTEE EMAIL",
             "description": "",
             "type": "string",
@@ -292,7 +292,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "CHANGE_OF_COMMITTEE_WEB_URL": {
+        "change_of_committee_web_url": {
             "title": "CHANGE OF COMMITTEE WEB URL",
             "description": "",
             "type": "boolean",
@@ -310,7 +310,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "COMMITTEE_WEB_URL": {
+        "committee_web_url": {
             "title": "COMMITTEE WEB URL",
             "description": "",
             "type": "string",
@@ -331,7 +331,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "EFFECTIVE_DATE": {
+        "effective_date": {
             "title": "EFFECTIVE DATE",
             "description": "",
             "type": "integer",
@@ -351,7 +351,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "SIGNATURE_LAST_NAME": {
+        "signature_last_name": {
             "title": "SIGNATURE LAST NAME",
             "description": "",
             "type": "string",
@@ -372,7 +372,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "SIGNATURE_FIRST_NAME": {
+        "signature_first_name": {
             "title": "SIGNATURE FIRST NAME",
             "description": "",
             "type": "string",
@@ -393,7 +393,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "SIGNATURE_MIDDLE_NAME": {
+        "signature_middle_name": {
             "title": "SIGNATURE MIDDLE NAME",
             "description": "",
             "type": "string",
@@ -414,7 +414,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "SIGNATURE_PREFIX": {
+        "signature_prefix": {
             "title": "SIGNATURE PREFIX",
             "description": "",
             "type": "string",
@@ -435,7 +435,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "SIGNATURE_SUFFIX": {
+        "signature_suffix": {
             "title": "SIGNATURE SUFFIX",
             "description": "",
             "type": "string",
@@ -456,7 +456,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "DATE_SIGNED": {
+        "date_signed": {
             "title": "DATE SIGNED",
             "description": "",
             "type": "integer",
@@ -476,7 +476,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "5_COMMITTEE_TYPE": {
+        "L5_committee_type": {
             "title": "5. COMMITTEE TYPE",
             "description": "",
             "type": "string",
@@ -497,7 +497,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "5_CANDIDATE_ID_NUMBER": {
+        "L5_candidate_id_number": {
             "title": "5. CANDIDATE ID NUMBER",
             "description": "",
             "type": "string",
@@ -518,7 +518,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "5_CANDIDATE_LAST_NAME": {
+        "L5_candidate_last_name": {
             "title": "5. CANDIDATE LAST NAME",
             "description": "",
             "type": "string",
@@ -539,7 +539,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "5_CANDIDATE_FIRST_NAME": {
+        "L5_candidate_first_name": {
             "title": "5. CANDIDATE FIRST NAME",
             "description": "",
             "type": "string",
@@ -560,7 +560,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "5_CANDIDATE_MIDDLE_NAME": {
+        "L5_candidate_middle_name": {
             "title": "5. CANDIDATE MIDDLE NAME",
             "description": "",
             "type": "string",
@@ -581,7 +581,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "5_CANDIDATE_PREFIX": {
+        "L5_candidate_prefix": {
             "title": "5. CANDIDATE PREFIX",
             "description": "",
             "type": "string",
@@ -602,7 +602,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "5_CANDIDATE_SUFFIX": {
+        "L5_candidate_suffix": {
             "title": "5. CANDIDATE SUFFIX",
             "description": "",
             "type": "string",
@@ -623,7 +623,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "5_CANDIDATE_OFFICE": {
+        "L5_candidate_office": {
             "title": "5. CANDIDATE OFFICE",
             "description": "",
             "type": "string",
@@ -644,7 +644,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "5_CANDIDATE_STATE": {
+        "L5_candidate_state": {
             "title": "5. CANDIDATE STATE",
             "description": "",
             "type": "string",
@@ -665,7 +665,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "5_CANDIDATE_DISTRICT": {
+        "L5_candidate_district": {
             "title": "5. CANDIDATE DISTRICT",
             "description": "",
             "type": "integer",
@@ -685,7 +685,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "5_PARTY_CODE": {
+        "L5_party_code": {
             "title": "5. PARTY CODE",
             "description": "",
             "type": "string",
@@ -706,7 +706,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "5_PARTY_TYPE": {
+        "L5_party_type": {
             "title": "5. PARTY TYPE",
             "description": "",
             "type": "string",
@@ -727,7 +727,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "5_e_ORGANIZATION_TYPE": {
+        "L5_e_organization_type": {
             "title": "5 (e). ORGANIZATION TYPE",
             "description": "",
             "type": "string",
@@ -748,7 +748,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "5_e_LOBBYIST/REGISTRANT_PAC": {
+        "L5_e_lobbyist_registrant_pac": {
             "title": "5 (e). LOBBYIST/REGISTRANT PAC",
             "description": "",
             "type": "string",
@@ -769,7 +769,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "5_f_LOBBYIST/REGISTRANT_PAC": {
+        "L5_f_lobbyist_registrant_pac": {
             "title": "5 (f). LOBBYIST/REGISTRANT PAC",
             "description": "",
             "type": "string",
@@ -790,7 +790,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "5_f_LEADERSHIP_PAC": {
+        "L5_f_leadership_pac": {
             "title": "5 (f). LEADERSHIP PAC",
             "description": "",
             "type": "string",
@@ -811,7 +811,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "6_AFFILIATED_CMTTE_ID_NUM": {
+        "L6_affiliated_cmtte_id_num": {
             "title": "6. AFFILIATED CMTTE ID NUM",
             "description": "",
             "type": "string",
@@ -829,7 +829,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "6_AFFILIATED_CMTTE_NAME": {
+        "L6_affiliated_cmtte_name": {
             "title": "6. AFFILIATED CMTTE NAME",
             "description": "",
             "type": "string",
@@ -847,7 +847,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "6_AFFILIATED_CANDIDATE_ID_NUM": {
+        "L6_affiliated_candidate_id_num": {
             "title": "6. AFFILIATED CANDIDATE ID NUM",
             "description": "",
             "type": "string",
@@ -865,7 +865,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "6_AFFILIATED_LAST_NAME": {
+        "L6_affiliated_last_name": {
             "title": "6. AFFILIATED LAST NAME",
             "description": "",
             "type": "string",
@@ -886,7 +886,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "6_AFFILIATED_FIRST_NAME": {
+        "L6_affiliated_first_name": {
             "title": "6. AFFILIATED FIRST NAME",
             "description": "",
             "type": "string",
@@ -907,7 +907,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "6_AFFILIATED_MIDDLE_NAME": {
+        "L6_affiliated_middle_name": {
             "title": "6. AFFILIATED MIDDLE NAME",
             "description": "",
             "type": "string",
@@ -928,7 +928,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "6_AFFILIATED_PREFIX": {
+        "L6_affiliated_prefix": {
             "title": "6. AFFILIATED PREFIX",
             "description": "",
             "type": "string",
@@ -949,7 +949,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "6_AFFILIATED_SUFFIX": {
+        "L6_affiliated_suffix": {
             "title": "6. AFFILIATED SUFFIX",
             "description": "",
             "type": "string",
@@ -970,7 +970,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "6_AFFILIATED_STREET_1": {
+        "L6_affiliated_street_1": {
             "title": "6. AFFILIATED STREET 1",
             "description": "",
             "type": "string",
@@ -988,7 +988,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "6_AFFILIATED_STREET_2": {
+        "L6_affiliated_street_2": {
             "title": "6. AFFILIATED STREET 2",
             "description": "",
             "type": "string",
@@ -1006,7 +1006,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "6_AFFILIATED_CITY": {
+        "L6_affiliated_city": {
             "title": "6. AFFILIATED CITY",
             "description": "",
             "type": "string",
@@ -1024,7 +1024,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "6_AFFILIATED_STATE": {
+        "L6_affiliated_state": {
             "title": "6. AFFILIATED STATE",
             "description": "",
             "type": "string",
@@ -1042,7 +1042,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "6_AFFILIATED_ZIP": {
+        "L6_affiliated_zip": {
             "title": "6. AFFILIATED ZIP",
             "description": "",
             "type": "string",
@@ -1060,7 +1060,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "6_AFFILIATED_RELATIONSHIP_CODE___with_Filing_Committee_named_in_field_#4": {
+        "L6_affiliated_relationship_code__with_filing_committee_named_in_field_#4": {
             "title": "6. AFFILIATED RELATIONSHIP CODE\n  (with Filing Committee named in field #4)",
             "description": "",
             "type": "string",
@@ -1081,7 +1081,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "7_CUSTODIAN_LAST_NAME": {
+        "L7_custodian_last_name": {
             "title": "7. CUSTODIAN LAST NAME",
             "description": "",
             "type": "string",
@@ -1102,7 +1102,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "7_CUSTODIAN_FIRST_NAME": {
+        "L7_custodian_first_name": {
             "title": "7. CUSTODIAN FIRST NAME",
             "description": "",
             "type": "string",
@@ -1123,7 +1123,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "7_CUSTODIAN_MIDDLE_NAME": {
+        "L7_custodian_middle_name": {
             "title": "7. CUSTODIAN MIDDLE NAME",
             "description": "",
             "type": "string",
@@ -1144,7 +1144,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "7_CUSTODIAN_PREFIX": {
+        "L7_custodian_prefix": {
             "title": "7. CUSTODIAN PREFIX",
             "description": "",
             "type": "string",
@@ -1165,7 +1165,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "7_CUSTODIAN_SUFFIX": {
+        "L7_custodian_suffix": {
             "title": "7. CUSTODIAN SUFFIX",
             "description": "",
             "type": "string",
@@ -1186,7 +1186,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "7_CUSTODIAN_STREET_1": {
+        "L7_custodian_street_1": {
             "title": "7. CUSTODIAN STREET 1",
             "description": "",
             "type": "string",
@@ -1204,7 +1204,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "7_CUSTODIAN_STREET_2": {
+        "L7_custodian_street_2": {
             "title": "7. CUSTODIAN STREET 2",
             "description": "",
             "type": "string",
@@ -1222,7 +1222,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "7_CUSTODIAN_CITY": {
+        "L7_custodian_city": {
             "title": "7. CUSTODIAN CITY",
             "description": "",
             "type": "string",
@@ -1240,7 +1240,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "7_CUSTODIAN_STATE": {
+        "L7_custodian_state": {
             "title": "7. CUSTODIAN STATE",
             "description": "",
             "type": "string",
@@ -1258,7 +1258,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "7_CUSTODIAN_ZIP": {
+        "L7_custodian_zip": {
             "title": "7. CUSTODIAN ZIP",
             "description": "",
             "type": "string",
@@ -1276,7 +1276,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "7_CUSTODIAN_TITLE": {
+        "L7_custodian_title": {
             "title": "7. CUSTODIAN TITLE",
             "description": "",
             "type": "string",
@@ -1294,7 +1294,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "7_CUSTODIAN_TELEPHONE": {
+        "L7_custodian_telephone": {
             "title": "7. CUSTODIAN TELEPHONE",
             "description": "",
             "type": "integer",
@@ -1311,7 +1311,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "8_TREASURER_LAST_NAME": {
+        "L8_treasurer_last_name": {
             "title": "8. TREASURER LAST NAME",
             "description": "",
             "type": "string",
@@ -1332,7 +1332,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "8_TREASURER_FIRST_NAME": {
+        "L8_treasurer_first_name": {
             "title": "8. TREASURER FIRST NAME",
             "description": "",
             "type": "string",
@@ -1353,7 +1353,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "8_TREASURER_MIDDLE_NAME": {
+        "L8_treasurer_middle_name": {
             "title": "8. TREASURER MIDDLE NAME",
             "description": "",
             "type": "string",
@@ -1374,7 +1374,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "8_TREASURER_PREFIX": {
+        "L8_treasurer_prefix": {
             "title": "8. TREASURER PREFIX",
             "description": "",
             "type": "string",
@@ -1395,7 +1395,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "8_TREASURER_SUFFIX": {
+        "L8_treasurer_suffix": {
             "title": "8. TREASURER SUFFIX",
             "description": "",
             "type": "string",
@@ -1416,7 +1416,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "8_TREASURER_STREET_1": {
+        "L8_treasurer_street_1": {
             "title": "8. TREASURER STREET 1",
             "description": "",
             "type": "string",
@@ -1434,7 +1434,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "8_TREASURER_STREET_2": {
+        "L8_treasurer_street_2": {
             "title": "8. TREASURER STREET 2",
             "description": "",
             "type": "string",
@@ -1452,7 +1452,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "8_TREASURER_CITY": {
+        "L8_treasurer_city": {
             "title": "8. TREASURER CITY",
             "description": "",
             "type": "string",
@@ -1470,7 +1470,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "8_TREASURER_STATE": {
+        "L8_treasurer_state": {
             "title": "8. TREASURER STATE",
             "description": "",
             "type": "string",
@@ -1488,7 +1488,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "8_TREASURER_ZIP": {
+        "L8_treasurer_zip": {
             "title": "8. TREASURER ZIP",
             "description": "",
             "type": "string",
@@ -1506,7 +1506,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "8_TREASURER_TITLE": {
+        "L8_treasurer_title": {
             "title": "8. TREASURER TITLE",
             "description": "",
             "type": "string",
@@ -1524,7 +1524,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "8_TREASURER_TELEPHONE": {
+        "L8_treasurer_telephone": {
             "title": "8. TREASURER TELEPHONE",
             "description": "",
             "type": "integer",
@@ -1544,7 +1544,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "8_AGENT_LAST_NAME": {
+        "L8_agent_last_name": {
             "title": "8. AGENT LAST NAME",
             "description": "",
             "type": "string",
@@ -1565,7 +1565,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "8_AGENT_FIRST_NAME": {
+        "L8_agent_first_name": {
             "title": "8. AGENT FIRST NAME",
             "description": "",
             "type": "string",
@@ -1586,7 +1586,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "8_AGENT_MIDDLE_NAME": {
+        "L8_agent_middle_name": {
             "title": "8. AGENT MIDDLE NAME",
             "description": "",
             "type": "string",
@@ -1607,7 +1607,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "8_AGENT_PREFIX": {
+        "L8_agent_prefix": {
             "title": "8. AGENT PREFIX",
             "description": "",
             "type": "string",
@@ -1628,7 +1628,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "8_AGENT_SUFFIX": {
+        "L8_agent_suffix": {
             "title": "8. AGENT SUFFIX",
             "description": "",
             "type": "string",
@@ -1649,7 +1649,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "8_AGENT_STREET_1": {
+        "L8_agent_street_1": {
             "title": "8. AGENT STREET 1",
             "description": "",
             "type": "string",
@@ -1667,7 +1667,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "8_AGENT_STREET_2": {
+        "L8_agent_street_2": {
             "title": "8. AGENT STREET 2",
             "description": "",
             "type": "string",
@@ -1685,7 +1685,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "8_AGENT_CITY": {
+        "L8_agent_city": {
             "title": "8. AGENT CITY",
             "description": "",
             "type": "string",
@@ -1703,7 +1703,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "8_AGENT_STATE": {
+        "L8_agent_state": {
             "title": "8. AGENT STATE",
             "description": "",
             "type": "string",
@@ -1721,7 +1721,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "8_AGENT_ZIP": {
+        "L8_agent_zip": {
             "title": "8. AGENT ZIP",
             "description": "",
             "type": "integer",
@@ -1738,7 +1738,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "8_AGENT_TITLE": {
+        "L8_agent_title": {
             "title": "8. AGENT TITLE",
             "description": "",
             "type": "string",
@@ -1756,7 +1756,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "8_AGENT_TELEPHONE": {
+        "L8_agent_telephone": {
             "title": "8. AGENT TELEPHONE",
             "description": "",
             "type": "integer",
@@ -1773,7 +1773,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "9_a_BANK_NAME": {
+        "L9_a_bank_name": {
             "title": "9. a) BANK NAME",
             "description": "",
             "type": "string",
@@ -1791,7 +1791,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "9_a_BANK_STREET_1": {
+        "L9_a_bank_street_1": {
             "title": "9. a) BANK STREET 1",
             "description": "",
             "type": "string",
@@ -1809,7 +1809,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "9_a_BANK_STREET_2": {
+        "L9_a_bank_street_2": {
             "title": "9. a) BANK STREET 2",
             "description": "",
             "type": "string",
@@ -1827,7 +1827,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "9_a_BANK_CITY": {
+        "L9_a_bank_city": {
             "title": "9. a) BANK CITY",
             "description": "",
             "type": "string",
@@ -1845,7 +1845,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "9_a_BANK_STATE": {
+        "L9_a_bank_state": {
             "title": "9. a) BANK STATE",
             "description": "",
             "type": "string",
@@ -1863,7 +1863,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "9_a_BANK_ZIP": {
+        "L9_a_bank_zip": {
             "title": "9. a) BANK ZIP",
             "description": "",
             "type": "string",
@@ -1881,7 +1881,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "9_b_BANK_NAME": {
+        "L9_b_bank_name": {
             "title": "9. b) BANK NAME",
             "description": "",
             "type": "string",
@@ -1899,7 +1899,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "9_b_BANK_STREET_1": {
+        "L9_b_bank_street_1": {
             "title": "9. b) BANK STREET 1",
             "description": "",
             "type": "string",
@@ -1917,7 +1917,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "9_b_BANK_STREET_2": {
+        "L9_b_bank_street_2": {
             "title": "9. b) BANK STREET 2",
             "description": "",
             "type": "string",
@@ -1935,7 +1935,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "9_b_BANK_CITY": {
+        "L9_b_bank_city": {
             "title": "9. b) BANK CITY",
             "description": "",
             "type": "string",
@@ -1953,7 +1953,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "9_b_BANK_STATE": {
+        "L9_b_bank_state": {
             "title": "9. b) BANK STATE",
             "description": "",
             "type": "string",
@@ -1971,7 +1971,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "9_b_BANK_ZIP": {
+        "L9_b_bank_zip": {
             "title": "9. b) BANK ZIP",
             "description": "",
             "type": "string",

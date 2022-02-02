@@ -6,31 +6,31 @@
     "description": "Earmark Receipt-Memo (11a)",
     "type": "object",
     "required": [
-        "FORM_TYPE",
-        "FILER_COMMITTEE_ID_NUMBER",
-        "TRANSACTION_TYPE_IDENTIFIER",
-        "TRANSACTION_ID",
-        "ENTITY_TYPE",
-        "CONTRIBUTOR_ORGANIZATION",
-        "CONTRIBUTOR_LAST_NAME",
-        "CONTRIBUTOR_FIRST_NAME",
-        "CONTRIBUTOR_STREET__1",
-        "CONTRIBUTOR_CITY",
-        "CONTRIBUTOR_STATE",
-        "CONTRIBUTOR_ZIP",
-        "CONTRIBUTION_DATE",
-        "CONTRIBUTION_AMOUNT",
-        "RECEIPT_DESCRIPTION",
-        "DONOR_COMMITTEE_FEC_ID",
-        "DONOR_COMMITTEE_NAME",
-        "CONTRIBUTOR_EMPLOYER",
-        "CONTRIBUTOR_OCCUPATION",
-        "TRANSACTION_TYPE_IDENTIFIER",
-        "MEMO_CODE"
+        "form_type",
+        "filer_committee_id_number",
+        "transaction_type_identifier",
+        "transaction_id",
+        "entity_type",
+        "contributor_organization",
+        "contributor_last_name",
+        "contributor_first_name",
+        "contributor_street_1",
+        "contributor_city",
+        "contributor_state",
+        "contributor_zip",
+        "contribution_date",
+        "contribution_amount",
+        "receipt_description",
+        "donor_committee_fec_id",
+        "donor_committee_name",
+        "contributor_employer",
+        "contributor_occupation",
+        "transaction_type_identifier-DUPLICATE",
+        "memo_code-DUPLICATE"
     ],
     "fec_recommended": [],
     "properties": {
-        "FORM_TYPE": {
+        "form_type": {
             "title": "FORM TYPE",
             "description": "",
             "type": "string",
@@ -51,7 +51,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "FILER_COMMITTEE_ID_NUMBER": {
+        "filer_committee_id_number": {
             "title": "FILER COMMITTEE ID NUMBER",
             "description": "",
             "type": "string",
@@ -72,28 +72,28 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "TRANSACTION_TYPE_IDENTIFIER": {
+        "transaction_type_identifier": {
             "title": "TRANSACTION TYPE IDENTIFIER",
             "description": "",
             "type": "string",
             "minLength": 0,
-            "maxLength": 12,
-            "pattern": "^[ A-z0-9]{0,12}$",
+            "maxLength": 15,
+            "pattern": "^[ A-z0-9]{0,15}$",
             "examples": [
-                "EAR_MEM"
+                "EAR_MEM_23"
             ],
             "fec_spec": {
-                "COL_SEQ": 47,
+                "COL_SEQ": 3,
                 "FIELD_DESCRIPTION": "TRANSACTION TYPE IDENTIFIER",
-                "TYPE": "A/N-12",
+                "TYPE": "A/N-15",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "EAR_MEM",
+                "SAMPLE_DATA": "EAR_MEM_23",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "TRANSACTION_ID": {
+        "transaction_id": {
             "title": "TRANSACTION ID",
             "description": "",
             "type": "string",
@@ -114,7 +114,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "BACK_REFERENCE_TRAN_ID_NUMBER": {
+        "back_reference_tran_id_number": {
             "title": "BACK REFERENCE TRAN ID NUMBER",
             "description": "",
             "type": "string",
@@ -135,7 +135,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "BACK_REFERENCE_SCHED_NAME": {
+        "back_reference_sched_name": {
             "title": "BACK REFERENCE SCHED NAME",
             "description": "",
             "type": "string",
@@ -156,7 +156,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "ENTITY_TYPE": {
+        "entity_type": {
             "title": "ENTITY TYPE",
             "description": "",
             "type": "string",
@@ -177,7 +177,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "CONTRIBUTOR_ORGANIZATION": {
+        "contributor_organization": {
             "title": "CONTRIBUTOR ORGANIZATION",
             "description": "",
             "type": "string",
@@ -198,7 +198,7 @@
                 "FIELD_FORM_ASSOCIATION": 8
             }
         },
-        "CONTRIBUTOR_LAST_NAME": {
+        "contributor_last_name": {
             "title": "CONTRIBUTOR LAST NAME",
             "description": "",
             "type": "string",
@@ -219,7 +219,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "CONTRIBUTOR_FIRST_NAME": {
+        "contributor_first_name": {
             "title": "CONTRIBUTOR FIRST NAME",
             "description": "",
             "type": "string",
@@ -240,7 +240,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "CONTRIBUTOR_MIDDLE_NAME": {
+        "contributor_middle_name": {
             "title": "CONTRIBUTOR MIDDLE NAME",
             "description": "",
             "type": "string",
@@ -261,7 +261,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "CONTRIBUTOR_PREFIX": {
+        "contributor_prefix": {
             "title": "CONTRIBUTOR PREFIX",
             "description": "",
             "type": "string",
@@ -282,7 +282,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "CONTRIBUTOR_SUFFIX": {
+        "contributor_suffix": {
             "title": "CONTRIBUTOR SUFFIX",
             "description": "",
             "type": "string",
@@ -303,7 +303,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "CONTRIBUTOR_STREET__1": {
+        "contributor_street_1": {
             "title": "CONTRIBUTOR STREET  1",
             "description": "",
             "type": "string",
@@ -324,7 +324,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "CONTRIBUTOR_STREET__2": {
+        "contributor_street_2": {
             "title": "CONTRIBUTOR STREET  2",
             "description": "",
             "type": "string",
@@ -342,7 +342,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "CONTRIBUTOR_CITY": {
+        "contributor_city": {
             "title": "CONTRIBUTOR CITY",
             "description": "",
             "type": "string",
@@ -363,7 +363,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "CONTRIBUTOR_STATE": {
+        "contributor_state": {
             "title": "CONTRIBUTOR STATE",
             "description": "",
             "type": "string",
@@ -384,7 +384,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "CONTRIBUTOR_ZIP": {
+        "contributor_zip": {
             "title": "CONTRIBUTOR ZIP",
             "description": "",
             "type": "string",
@@ -405,7 +405,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "CONTRIBUTION_DATE": {
+        "contribution_date": {
             "title": "CONTRIBUTION DATE",
             "description": "",
             "type": "integer",
@@ -425,7 +425,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "CONTRIBUTION_AMOUNT": {
+        "contribution_amount": {
             "title": "CONTRIBUTION AMOUNT",
             "description": "",
             "type": "number",
@@ -445,7 +445,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "CONTRIBUTION_AGGREGATE": {
+        "contribution_aggregate": {
             "title": "CONTRIBUTION AGGREGATE",
             "description": "",
             "type": "number",
@@ -465,7 +465,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "RECEIPT_DESCRIPTION": {
+        "receipt_description": {
             "title": "RECEIPT DESCRIPTION",
             "description": "",
             "type": "string",
@@ -483,7 +483,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "DONOR_COMMITTEE_FEC_ID": {
+        "donor_committee_fec_id": {
             "title": "DONOR COMMITTEE FEC ID",
             "description": "",
             "type": "string",
@@ -501,7 +501,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "DONOR_COMMITTEE_NAME": {
+        "donor_committee_name": {
             "title": "DONOR COMMITTEE NAME",
             "description": "",
             "type": "string",
@@ -522,7 +522,7 @@
                 "FIELD_FORM_ASSOCIATION": 28
             }
         },
-        "CONTRIBUTOR_EMPLOYER": {
+        "contributor_employer": {
             "title": "CONTRIBUTOR EMPLOYER",
             "description": "",
             "type": "string",
@@ -543,7 +543,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "CONTRIBUTOR_OCCUPATION": {
+        "contributor_occupation": {
             "title": "CONTRIBUTOR OCCUPATION",
             "description": "",
             "type": "string",
@@ -564,7 +564,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "MEMO_CODE": {
+        "memo_code": {
             "title": "MEMO CODE",
             "description": "",
             "type": "string",
@@ -572,17 +572,17 @@
             "maxLength": 1,
             "pattern": "^[ A-z0-9]{0,1}$",
             "fec_spec": {
-                "COL_SEQ": 43,
+                "COL_SEQ": 44,
                 "FIELD_DESCRIPTION": "MEMO CODE",
                 "TYPE": "A/N-1",
-                "REQUIRED": "X (error)",
+                "REQUIRED": null,
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": "X",
                 "RULE_REFERENCE": "X = True",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "MEMO_TEXT/DESCRIPTION": {
+        "memo_text_description": {
             "title": "MEMO TEXT/DESCRIPTION",
             "description": "",
             "type": "string",
@@ -590,7 +590,7 @@
             "maxLength": 100,
             "pattern": "^[ A-z0-9]{0,100}$",
             "fec_spec": {
-                "COL_SEQ": 44,
+                "COL_SEQ": 45,
                 "FIELD_DESCRIPTION": "MEMO TEXT/DESCRIPTION",
                 "TYPE": "A/N-100",
                 "REQUIRED": null,
@@ -600,7 +600,28 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "BENEFICIARY_CANDIDATE_OFFICE": {
+        "transaction_type_identifier-DUPLICATE": {
+            "title": "TRANSACTION TYPE IDENTIFIER",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 12,
+            "pattern": "^[ A-z0-9]{0,12}$",
+            "examples": [
+                "EAR_MEM"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 47,
+                "FIELD_DESCRIPTION": "TRANSACTION TYPE IDENTIFIER",
+                "TYPE": "A/N-12",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "EAR_MEM",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "beneficiary_candidate_office": {
             "title": "BENEFICIARY CANDIDATE OFFICE",
             "description": "",
             "type": "string",
@@ -621,7 +642,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "BENEFICIARY_CANDIDATE_STATE": {
+        "beneficiary_candidate_state": {
             "title": "BENEFICIARY CANDIDATE STATE",
             "description": "",
             "type": "string",
@@ -642,7 +663,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "BENEFICIARY_CANDIDATE_DISTRICT": {
+        "beneficiary_candidate_district": {
             "title": "BENEFICIARY CANDIDATE DISTRICT",
             "description": "",
             "type": "integer",
@@ -658,6 +679,42 @@
                 "REQUIRED": null,
                 "SAMPLE_DATA": 35,
                 "VALUE_REFERENCE": "01 ... 99",
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "memo_code-DUPLICATE": {
+            "title": "MEMO CODE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 1,
+            "pattern": "^[ A-z0-9]{0,1}$",
+            "fec_spec": {
+                "COL_SEQ": 43,
+                "FIELD_DESCRIPTION": "MEMO CODE",
+                "TYPE": "A/N-1",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": "X",
+                "RULE_REFERENCE": "X = True",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "memo_text_description-DUPLICATE": {
+            "title": "MEMO TEXT/DESCRIPTION",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 100,
+            "pattern": "^[ A-z0-9]{0,100}$",
+            "fec_spec": {
+                "COL_SEQ": 44,
+                "FIELD_DESCRIPTION": "MEMO TEXT/DESCRIPTION",
+                "TYPE": "A/N-100",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }
