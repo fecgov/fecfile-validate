@@ -20,7 +20,7 @@
         "contributor_state",
         "contributor_zip",
         "contribution_date",
-        "contribution_amount_{f3l_bundled}"
+        "contribution_amount"
     ],
     "properties": {
         "form_type": {
@@ -436,7 +436,7 @@
                 "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P"
             }
         },
-        "contribution_amount_{f3l_bundled}": {
+        "contribution_amount": {
             "title": "CONTRIBUTION AMOUNT {F3L Bundled}",
             "description": "",
             "type": "number",
@@ -456,7 +456,7 @@
                 "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
             }
         },
-        "contribution_aggregate_{f3l_semi-annual_bundled}": {
+        "contribution_aggregate": {
             "title": "CONTRIBUTION AGGREGATE\n{F3L Semi-annual Bundled}",
             "description": "",
             "type": "number",
