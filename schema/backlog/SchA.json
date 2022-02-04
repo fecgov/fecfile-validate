@@ -436,7 +436,7 @@
                 "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P"
             }
         },
-        "contribution_amount": {
+        "contribution_amount_{f3l_bundled}": {
             "title": "CONTRIBUTION AMOUNT {F3L Bundled}",
             "description": "",
             "type": "number",
@@ -456,7 +456,7 @@
                 "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
             }
         },
-        "contribution_aggregate": {
+        "contribution_aggregate_{f3l_semi-annual_bundled}": {
             "title": "CONTRIBUTION AGGREGATE\n{F3L Semi-annual Bundled}",
             "description": "",
             "type": "number",
