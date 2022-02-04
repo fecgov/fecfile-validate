@@ -20,7 +20,7 @@
         "contributor_state",
         "contributor_zip",
         "contribution_date",
-        "contribution_amount_{f3l_bundled}"
+        "contribution_amount"
     ],
     "properties": {
         "form_type": {
