@@ -92,13 +92,17 @@ def convert_row_to_property(row, sheet_has_autopopulate):# noqa
 
     if field_type.startswith("AMT-"):
         prop["type"] = "number"
-
-    if field_type.startswith("NUM-"):
-        prop["type"] = "integer"
-
-    if field_type.startswith("AMT-") or field_type.startswith("NUM-"):
         prop["minimum"] = 0
         prop["maximum"] = int('9' * int(field_type.split('-')[1]))
+
+    if field_type.startswith("NUM-"):
+        length = field_type.split('-')[1].strip()
+        prop["type"] = "string"
+        prop["minLength"] = 0
+        prop["maxLength"] = int(length)
+        prop["pattern"] = f'^\d{{0,{length}}}$'
+
+        
 
     if field_type.startswith("A/N-") or field_type.startswith("A-"):
         if field_type == "A-1" and rule_ref == "Check-box":
