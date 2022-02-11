@@ -420,9 +420,9 @@
             "title": "CONTRIBUTION DATE",
             "description": "",
             "type": "string",
-            "minLength": 0,
+            "minLength": 8,
             "maxLength": 8,
-            "pattern": "^\\d{0,8}$",
+            "pattern": "^\\d{8}$",
             "examples": [
                 20120615
             ],
@@ -733,9 +733,9 @@
             "title": "DONOR CANDIDATE DISTRICT",
             "description": "",
             "type": "string",
-            "minLength": 0,
+            "minLength": 2,
             "maxLength": 2,
-            "pattern": "^\\d{0,2}$",
+            "pattern": "^\\d{2}$",
             "examples": [
                 35
             ],

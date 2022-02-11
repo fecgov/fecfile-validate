@@ -253,9 +253,9 @@
             "title": "DATE OF ELECTION",
             "description": "",
             "type": "string",
-            "minLength": 0,
+            "minLength": 8,
             "maxLength": 8,
-            "pattern": "^\\d{0,8}$",
+            "pattern": "^\\d{8}$",
             "examples": [
                 20120715
             ],
@@ -295,9 +295,9 @@
             "title": "COVERAGE FROM DATE",
             "description": "",
             "type": "string",
-            "minLength": 0,
+            "minLength": 8,
             "maxLength": 8,
-            "pattern": "^\\d{0,8}$",
+            "pattern": "^\\d{8}$",
             "fec_spec": {
                 "COL_SEQ": 14,
                 "FIELD_DESCRIPTION": "COVERAGE FROM DATE",
@@ -313,9 +313,9 @@
             "title": "COVERAGE THROUGH DATE",
             "description": "",
             "type": "string",
-            "minLength": 0,
+            "minLength": 8,
             "maxLength": 8,
-            "pattern": "^\\d{0,8}$",
+            "pattern": "^\\d{8}$",
             "fec_spec": {
                 "COL_SEQ": 15,
                 "FIELD_DESCRIPTION": "COVERAGE THROUGH DATE",
@@ -454,9 +454,9 @@
             "title": "DATE SIGNED",
             "description": "",
             "type": "string",
-            "minLength": 0,
+            "minLength": 8,
             "maxLength": 8,
-            "pattern": "^\\d{0,8}$",
+            "pattern": "^\\d{8}$",
             "examples": [
                 20040729
             ],
@@ -1365,9 +1365,9 @@
             "title": "Year for Above",
             "description": "",
             "type": "string",
-            "minLength": 0,
+            "minLength": 4,
             "maxLength": 4,
-            "pattern": "^\\d{0,4}$",
+            "pattern": "^\\d{4}$",
             "examples": [
                 2012
             ],
