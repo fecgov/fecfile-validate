@@ -209,9 +209,10 @@
         "affiliated_-_date_form_f1_filed": {
             "title": "AFFILIATED - DATE FORM F1 FILED",
             "description": "",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 99999999,
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 8,
+            "pattern": "^\\d{0,8}$",
             "examples": [
                 20060215
             ],
@@ -433,9 +434,10 @@
         "i_candidate_dist": {
             "title": "I CANDIDATE DIST",
             "description": "",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 99,
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 2,
+            "pattern": "^\\d{0,2}$",
             "examples": [
                 70
             ],
@@ -453,9 +455,10 @@
         "i_date_of_contribution": {
             "title": "I DATE OF CONTRIBUTION",
             "description": "",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 99999999,
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 8,
+            "pattern": "^\\d{0,8}$",
             "examples": [
                 20120729
             ],
@@ -641,9 +644,10 @@
         "ii_candidate_dist": {
             "title": "II CANDIDATE DIST",
             "description": "",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 99,
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 2,
+            "pattern": "^\\d{0,2}$",
             "examples": [
                 70
             ],
@@ -661,9 +665,10 @@
         "ii_date_of_contribution": {
             "title": "II DATE OF CONTRIBUTION",
             "description": "",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 99999999,
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 8,
+            "pattern": "^\\d{0,8}$",
             "examples": [
                 20120729
             ],
@@ -849,9 +854,10 @@
         "iii_candidate_dist": {
             "title": "III CANDIDATE DIST",
             "description": "",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 99,
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 2,
+            "pattern": "^\\d{0,2}$",
             "examples": [
                 70
             ],
@@ -869,9 +875,10 @@
         "iii_date_of_contribution": {
             "title": "III DATE OF CONTRIBUTION",
             "description": "",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 99999999,
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 8,
+            "pattern": "^\\d{0,8}$",
             "examples": [
                 20120729
             ],
@@ -1057,9 +1064,10 @@
         "iv_candidate_dist": {
             "title": "IV CANDIDATE DIST",
             "description": "",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 99,
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 2,
+            "pattern": "^\\d{0,2}$",
             "examples": [
                 70
             ],
@@ -1077,9 +1085,10 @@
         "iv_date_of_contribution": {
             "title": "IV DATE OF CONTRIBUTION",
             "description": "",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 99999999,
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 8,
+            "pattern": "^\\d{0,8}$",
             "examples": [
                 20120729
             ],
@@ -1265,9 +1274,10 @@
         "v_candidate_dist": {
             "title": "V CANDIDATE DIST",
             "description": "",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 99,
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 2,
+            "pattern": "^\\d{0,2}$",
             "examples": [
                 70
             ],
@@ -1285,9 +1295,10 @@
         "v_date_of_contribution": {
             "title": "V DATE OF CONTRIBUTION",
             "description": "",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 99999999,
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 8,
+            "pattern": "^\\d{0,8}$",
             "examples": [
                 20120729
             ],
@@ -1305,9 +1316,10 @@
         "date_of_51st_contributor": {
             "title": "DATE (Of 51st Contributor)",
             "description": "",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 99999999,
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 8,
+            "pattern": "^\\d{0,8}$",
             "fec_spec": {
                 "COL_SEQ": 63,
                 "FIELD_DESCRIPTION": "DATE (Of 51st Contributor)",
@@ -1322,9 +1334,10 @@
         "date_of_orig_registration": {
             "title": "DATE (Of Orig Registration)",
             "description": "",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 99999999,
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 8,
+            "pattern": "^\\d{0,8}$",
             "fec_spec": {
                 "COL_SEQ": 64,
                 "FIELD_DESCRIPTION": "DATE (Of Orig Registration)",
@@ -1339,9 +1352,10 @@
         "date_cmte_met_requirements": {
             "title": "DATE (Cmte Met Requirements)",
             "description": "",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 99999999,
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 8,
+            "pattern": "^\\d{0,8}$",
             "fec_spec": {
                 "COL_SEQ": 65,
                 "FIELD_DESCRIPTION": "DATE (Cmte Met Requirements)",
@@ -1461,9 +1475,10 @@
         "date_signed": {
             "title": "DATE SIGNED",
             "description": "",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 99999999,
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 8,
+            "pattern": "^\\d{0,8}$",
             "examples": [
                 20120729
             ],

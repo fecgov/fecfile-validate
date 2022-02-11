@@ -398,9 +398,10 @@
         "L24hour_48hour_code": {
             "title": "24HOUR 48HOUR CODE",
             "description": "",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 99,
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 2,
+            "pattern": "^\\d{0,2}$",
             "examples": [
                 24
             ],
@@ -418,9 +419,10 @@
         "original_amendment_date": {
             "title": "ORIGINAL AMENDMENT DATE",
             "description": "",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 99999999,
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 8,
+            "pattern": "^\\d{0,8}$",
             "examples": [
                 20130829
             ],
@@ -438,9 +440,10 @@
         "coverage_from_date": {
             "title": "COVERAGE FROM DATE",
             "description": "",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 99999999,
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 8,
+            "pattern": "^\\d{0,8}$",
             "examples": [
                 20120101
             ],
@@ -458,9 +461,10 @@
         "coverage_through_date": {
             "title": "COVERAGE THROUGH DATE",
             "description": "",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 99999999,
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 8,
+            "pattern": "^\\d{0,8}$",
             "examples": [
                 20121231
             ],
@@ -617,9 +621,10 @@
         "date_signed": {
             "title": "DATE SIGNED",
             "description": "",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 99999999,
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 8,
+            "pattern": "^\\d{0,8}$",
             "examples": [
                 20120820
             ],

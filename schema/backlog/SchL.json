@@ -122,9 +122,10 @@
         "coverage_from_date": {
             "title": "COVERAGE FROM DATE",
             "description": "",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 99999999,
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 8,
+            "pattern": "^\\d{0,8}$",
             "examples": [
                 20120911
             ],
@@ -142,9 +143,10 @@
         "coverage_through_date": {
             "title": "COVERAGE THROUGH DATE",
             "description": "",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 99999999,
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 8,
+            "pattern": "^\\d{0,8}$",
             "examples": [
                 20120911
             ],

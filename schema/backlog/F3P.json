@@ -290,9 +290,10 @@
         "date_of_election": {
             "title": "DATE OF ELECTION",
             "description": "",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 99999999,
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 8,
+            "pattern": "^\\d{0,8}$",
             "examples": [
                 20120715
             ],
@@ -331,9 +332,10 @@
         "coverage_from_date": {
             "title": "COVERAGE FROM DATE",
             "description": "",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 99999999,
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 8,
+            "pattern": "^\\d{0,8}$",
             "examples": [
                 20120501
             ],
@@ -351,9 +353,10 @@
         "coverage_through_date": {
             "title": "COVERAGE THROUGH DATE",
             "description": "",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 99999999,
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 8,
+            "pattern": "^\\d{0,8}$",
             "examples": [
                 20120531
             ],
@@ -476,9 +479,10 @@
         "date_signed": {
             "title": "DATE SIGNED",
             "description": "",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 99999999,
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 8,
+            "pattern": "^\\d{0,8}$",
             "examples": [
                 20120729
             ],

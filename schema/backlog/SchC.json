@@ -467,9 +467,10 @@
         "loan_incurred_date_terms": {
             "title": "LOAN INCURRED DATE (Terms)",
             "description": "",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 99999999,
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 8,
+            "pattern": "^\\d{0,8}$",
             "examples": [
                 20120101
             ],
@@ -745,9 +746,10 @@
         "lender_candidate_district": {
             "title": "LENDER CANDIDATE DISTRICT",
             "description": "",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 99,
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 2,
+            "pattern": "^\\d{0,2}$",
             "examples": [
                 35
             ],

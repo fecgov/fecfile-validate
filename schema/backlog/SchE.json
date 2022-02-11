@@ -434,9 +434,10 @@
         "dissemination_date": {
             "title": "DISSEMINATION DATE",
             "description": "",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 99999999,
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 8,
+            "pattern": "^\\d{0,8}$",
             "examples": [
                 20120720
             ],
@@ -474,9 +475,10 @@
         "disbursement_date": {
             "title": "DISBURSEMENT DATE",
             "description": "",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 99999999,
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 8,
+            "pattern": "^\\d{0,8}$",
             "examples": [
                 20130920
             ],
@@ -889,9 +891,10 @@
         "date_signed": {
             "title": "DATE SIGNED",
             "description": "",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 99999999,
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 8,
+            "pattern": "^\\d{0,8}$",
             "examples": [
                 20120820
             ],

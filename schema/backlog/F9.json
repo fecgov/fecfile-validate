@@ -375,9 +375,10 @@
         "original_amendment_date": {
             "title": "ORIGINAL AMENDMENT DATE",
             "description": "",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 99999999,
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 8,
+            "pattern": "^\\d{0,8}$",
             "examples": [
                 20180529
             ],
@@ -395,9 +396,10 @@
         "coverage_from_date": {
             "title": "COVERAGE FROM DATE",
             "description": "",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 99999999,
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 8,
+            "pattern": "^\\d{0,8}$",
             "examples": [
                 20120101
             ],
@@ -415,9 +417,10 @@
         "coverage_through_date": {
             "title": "COVERAGE THROUGH DATE",
             "description": "",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 99999999,
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 8,
+            "pattern": "^\\d{0,8}$",
             "examples": [
                 20121231
             ],
@@ -435,9 +438,10 @@
         "date_of_public_distribution": {
             "title": "DATE OF PUBLIC DISTRIBUTION",
             "description": "",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 99999999,
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 8,
+            "pattern": "^\\d{0,8}$",
             "examples": [
                 20120921
             ],
@@ -909,9 +913,10 @@
         "date_signed": {
             "title": "DATE SIGNED",
             "description": "",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 99999999,
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 8,
+            "pattern": "^\\d{0,8}$",
             "examples": [
                 20120820
             ],

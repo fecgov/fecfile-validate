@@ -58,9 +58,10 @@
         "date_-_general_election": {
             "title": "Date - General Election",
             "description": "",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 99999999,
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 8,
+            "pattern": "^\\d{0,8}$",
             "examples": [
                 20121107
             ],
@@ -78,9 +79,10 @@
         "date_-_day_after_general_election": {
             "title": "Date - Day after General Election",
             "description": "",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 99999999,
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 8,
+            "pattern": "^\\d{0,8}$",
             "examples": [
                 20121108
             ],
