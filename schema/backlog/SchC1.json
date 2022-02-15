@@ -284,9 +284,10 @@
         "loan_incurred_date": {
             "title": "LOAN INCURRED DATE",
             "description": "",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 99999999,
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 8,
+            "pattern": "^\\d{0,8}$",
             "examples": [
                 20120101
             ],
@@ -346,9 +347,10 @@
         "a2_date_of_original_loan": {
             "title": "A2. DATE (Of Original Loan)",
             "description": "",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 99999999,
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 8,
+            "pattern": "^\\d{0,8}$",
             "examples": [
                 20120101
             ],
@@ -566,9 +568,10 @@
         "e4_date_depository_account_established": {
             "title": "E.4 DATE (Depository account established)",
             "description": "",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 99999999,
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 8,
+            "pattern": "^\\d{0,8}$",
             "fec_spec": {
                 "COL_SEQ": 27,
                 "FIELD_DESCRIPTION": "E.4 DATE (Depository account established)",
@@ -691,9 +694,10 @@
         "e11_dep_acct_auth_date_presidential": {
             "title": "E.11 DEP ACCT AUTH DATE (Presidential)",
             "description": "",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 99999999,
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 8,
+            "pattern": "^\\d{0,8}$",
             "fec_spec": {
                 "COL_SEQ": 34,
                 "FIELD_DESCRIPTION": "E.11 DEP ACCT AUTH DATE (Presidential)",
@@ -834,9 +838,10 @@
         "g_date_signed": {
             "title": "G. DATE SIGNED",
             "description": "",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 99999999,
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 8,
+            "pattern": "^\\d{0,8}$",
             "examples": [
                 20120729
             ],
@@ -980,9 +985,10 @@
         "h_date_signed": {
             "title": "H. DATE SIGNED",
             "description": "",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 99999999,
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 8,
+            "pattern": "^\\d{0,8}$",
             "examples": [
                 20120820
             ],

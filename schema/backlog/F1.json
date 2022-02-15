@@ -334,9 +334,10 @@
         "effective_date": {
             "title": "EFFECTIVE DATE",
             "description": "",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 99999999,
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 8,
+            "pattern": "^\\d{0,8}$",
             "examples": [
                 20120607
             ],
@@ -459,9 +460,10 @@
         "date_signed": {
             "title": "DATE SIGNED",
             "description": "",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 99999999,
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 8,
+            "pattern": "^\\d{0,8}$",
             "examples": [
                 20120607
             ],
@@ -668,9 +670,10 @@
         "L5_candidate_district": {
             "title": "5. CANDIDATE DISTRICT",
             "description": "",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 99,
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 2,
+            "pattern": "^\\d{0,2}$",
             "examples": [
                 70
             ],
@@ -1297,9 +1300,10 @@
         "L7_custodian_telephone": {
             "title": "7. CUSTODIAN TELEPHONE",
             "description": "",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 9999999999,
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 10,
+            "pattern": "^\\d{0,10}$",
             "fec_spec": {
                 "COL_SEQ": 63,
                 "FIELD_DESCRIPTION": "7. CUSTODIAN TELEPHONE",
@@ -1527,9 +1531,10 @@
         "L8_treasurer_telephone": {
             "title": "8. TREASURER TELEPHONE",
             "description": "",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 9999999999,
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 10,
+            "pattern": "^\\d{0,10}$",
             "examples": [
                 5555555555
             ],
@@ -1724,9 +1729,10 @@
         "L8_agent_zip": {
             "title": "8. AGENT ZIP",
             "description": "",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 999999999,
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 9,
+            "pattern": "^\\d{0,9}$",
             "fec_spec": {
                 "COL_SEQ": 85,
                 "FIELD_DESCRIPTION": "8. AGENT ZIP",
@@ -1759,9 +1765,10 @@
         "L8_agent_telephone": {
             "title": "8. AGENT TELEPHONE",
             "description": "",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 9999999999,
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 10,
+            "pattern": "^\\d{0,10}$",
             "fec_spec": {
                 "COL_SEQ": 87,
                 "FIELD_DESCRIPTION": "8. AGENT TELEPHONE",

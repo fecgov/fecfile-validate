@@ -234,9 +234,10 @@
         "amendment_date": {
             "title": "AMENDMENT DATE",
             "description": "",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 99999999,
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 8,
+            "pattern": "^\\d{0,8}$",
             "examples": [
                 20120220
             ],
@@ -254,9 +255,10 @@
         "coverage_from_date": {
             "title": "COVERAGE FROM DATE",
             "description": "",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 99999999,
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 8,
+            "pattern": "^\\d{0,8}$",
             "fec_spec": {
                 "COL_SEQ": 12,
                 "FIELD_DESCRIPTION": "COVERAGE FROM DATE",
@@ -271,9 +273,10 @@
         "coverage_through_date": {
             "title": "COVERAGE THROUGH DATE",
             "description": "",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 99999999,
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 8,
+            "pattern": "^\\d{0,8}$",
             "fec_spec": {
                 "COL_SEQ": 13,
                 "FIELD_DESCRIPTION": "COVERAGE THROUGH DATE",
@@ -453,9 +456,10 @@
         "date_signed": {
             "title": "DATE SIGNED",
             "description": "",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 99999999,
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 8,
+            "pattern": "^\\d{0,8}$",
             "examples": [
                 20120820
             ],

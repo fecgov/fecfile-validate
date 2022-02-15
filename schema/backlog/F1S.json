@@ -539,9 +539,10 @@
         "L8_agent_zip": {
             "title": "8. AGENT ZIP",
             "description": "",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 999999999,
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 9,
+            "pattern": "^\\d{0,9}$",
             "fec_spec": {
                 "COL_SEQ": 28,
                 "FIELD_DESCRIPTION": "8. AGENT ZIP",
@@ -574,9 +575,10 @@
         "L8_agent_telephone": {
             "title": "8. AGENT TELEPHONE",
             "description": "",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 9999999999,
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 10,
+            "pattern": "^\\d{0,10}$",
             "fec_spec": {
                 "COL_SEQ": 30,
                 "FIELD_DESCRIPTION": "8. AGENT TELEPHONE",

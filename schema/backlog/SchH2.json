@@ -158,9 +158,10 @@
         "federal_percentage": {
             "title": "FEDERAL PERCENTAGE",
             "description": "",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 99999,
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 5,
+            "pattern": "^\\d{0,5}$",
             "examples": [
                 0.5
             ],
@@ -178,9 +179,10 @@
         "non-federal_percentage": {
             "title": "NON-FEDERAL PERCENTAGE",
             "description": "",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 99999,
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 5,
+            "pattern": "^\\d{0,5}$",
             "examples": [
                 0.5
             ],

@@ -294,9 +294,10 @@
         "candidate_dist": {
             "title": "CANDIDATE DIST",
             "description": "",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 99,
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 2,
+            "pattern": "^\\d{0,2}$",
             "examples": [
                 70
             ],

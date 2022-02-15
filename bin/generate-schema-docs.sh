@@ -4,5 +4,5 @@
 #
 # NOTE: Be sure to run from the fecfile-Validate/schema directory
 #
-
-generate-schema-doc . ../docs
+SCHEMAS=$(ls -m *.json | tr -d ' ')
+generate-schema-doc ${SCHEMAS} ../docs

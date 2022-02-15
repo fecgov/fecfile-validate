@@ -419,9 +419,10 @@
         "contribution_date": {
             "title": "CONTRIBUTION DATE",
             "description": "",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 99999999,
+            "type": "string",
+            "minLength": 8,
+            "maxLength": 8,
+            "pattern": "^\\d{8}$",
             "examples": [
                 20120615
             ],
@@ -731,9 +732,10 @@
         "donor_candidate_district": {
             "title": "DONOR CANDIDATE DISTRICT",
             "description": "",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 99,
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 2,
+            "pattern": "^\\d{2}$",
             "examples": [
                 35
             ],

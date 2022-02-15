@@ -252,9 +252,10 @@
         "coverage_from_date": {
             "title": "COVERAGE FROM DATE",
             "description": "",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 99999999,
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 8,
+            "pattern": "^\\d{0,8}$",
             "examples": [
                 20120101
             ],
@@ -272,9 +273,10 @@
         "coverage_through_date": {
             "title": "COVERAGE THROUGH DATE",
             "description": "",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 99999999,
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 8,
+            "pattern": "^\\d{0,8}$",
             "examples": [
                 20120330
             ],
@@ -397,9 +399,10 @@
         "date_signed": {
             "title": "DATE SIGNED",
             "description": "",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 99999999,
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 8,
+            "pattern": "^\\d{0,8}$",
             "examples": [
                 20120729
             ],
@@ -1114,9 +1117,10 @@
         "L6a_19_--_year": {
             "title": "6.(a) 19 -- (YEAR)",
             "description": "",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 9999,
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 4,
+            "pattern": "^\\d{0,4}$",
             "fec_spec": {
                 "COL_SEQ": 61,
                 "FIELD_DESCRIPTION": "6.(a) 19 -- (YEAR)",

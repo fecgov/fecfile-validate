@@ -150,9 +150,10 @@
         "federal_percent": {
             "title": "FEDERAL PERCENT",
             "description": "",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 99999,
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 5,
+            "pattern": "^\\d{0,5}$",
             "fec_spec": {
                 "COL_SEQ": 8,
                 "FIELD_DESCRIPTION": "FEDERAL PERCENT",
@@ -167,9 +168,10 @@
         "nonfederal_percent": {
             "title": "NONFEDERAL PERCENT",
             "description": "",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 99999,
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 5,
+            "pattern": "^\\d{0,5}$",
             "fec_spec": {
                 "COL_SEQ": 9,
                 "FIELD_DESCRIPTION": "NONFEDERAL PERCENT",
