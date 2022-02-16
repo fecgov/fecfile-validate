@@ -1,3 +1,5 @@
+Working on updates to improve the schema files? Find a wealth of information about features of the JSON Schema Standard here: [Understanding JSON Schema](http://json-schema.org/understanding-json-schema/)
+
 ### Schema Files
 
 This directory contains the canonical copies of the JSON Standard schema files
@@ -27,5 +29,5 @@ ported and into the JSON Schema Standard format.
 
 During the process of curating these original output files, each file is copied
 up to the ../schema directory where it is vetted and manually modified as
-needed. The original copy of each file is left in this directory for future
+needed. The original copy of each file is left in the backlog directory for future
 reference.
