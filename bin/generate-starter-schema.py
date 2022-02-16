@@ -19,6 +19,7 @@ import openpyxl
 import json
 import argparse
 import os
+import re
 
 parser = argparse.ArgumentParser(description='Convert the FEC validation Excel'
                                  ' spreadsheet into JSON schema documents.')
@@ -102,7 +103,11 @@ def convert_row_to_property(row, sheet_has_autopopulate):# noqa
         prop["maxLength"] = int(length)
         prop["pattern"] = f'^\d{{0,{length}}}$'
 
-        
+    if field_type == "Dropdown":
+        prop["type"] = "string"
+        if sample_data is not None:
+            prop["enum"] = re.split("\s+", sample_data)
+    
 
     if field_type.startswith("A/N-") or field_type.startswith("A-"):
         if field_type == "A-1" and rule_ref == "Check-box":

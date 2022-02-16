@@ -4,5 +4,5 @@
 #
 # NOTE: Be sure to run from the fecfile-Validate/schema directory
 #
-SCHEMAS=$(ls -m *.json | tr -d ' ')
+SCHEMAS=$(ls -m *.json | tr -d '[:space:]')
 generate-schema-doc ${SCHEMAS} ../docs
