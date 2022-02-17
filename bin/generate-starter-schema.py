@@ -96,18 +96,17 @@ def convert_row_to_property(row, sheet_has_autopopulate):# noqa
         prop["minimum"] = 0
         prop["maximum"] = int('9' * int(field_type.split('-')[1]))
 
-    if field_type.startswith("NUM-"):
+    if field_type.startswith("NUM-") or field_type.startswith("N-"):
         length = field_type.split('-')[1].strip()
         prop["type"] = "string"
         prop["minLength"] = 0
         prop["maxLength"] = int(length)
-        prop["pattern"] = f'^\d{{0,{length}}}$'
+        prop["pattern"] = rf'^\d{{0,{length}}}$'
 
     if field_type == "Dropdown":
         prop["type"] = "string"
         if sample_data is not None:
-            prop["enum"] = re.split("\s+", sample_data)
-    
+            prop["enum"] = re.split(r"\s+", sample_data)
 
     if field_type.startswith("A/N-") or field_type.startswith("A-"):
         if field_type == "A-1" and rule_ref == "Check-box":

@@ -12,7 +12,8 @@
         "street_1",
         "city",
         "state",
-        "zip"
+        "zip",
+        "country"
     ],
     "fec_recommended": [],
     "properties": {
@@ -261,6 +262,10 @@
         "telephone": {
             "title": "TELEPHONE",
             "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 10,
+            "pattern": "^\\d{10}$",
             "fec_spec": {
                 "COL_SEQ": 12,
                 "FIELD_DESCRIPTION": "TELEPHONE",
@@ -314,6 +319,22 @@
                 "SAMPLE_DATA": "QC Inspector",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": "Req if Donor aggregate >$200",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "country": {
+            "title": "COUNTRY",
+            "description": "",
+            "type": "string",
+            "fec_spec": {
+                "COL_SEQ": null,
+                "FIELD_DESCRIPTION": "COUNTRY",
+                "TYPE": "Dropdown",
+                "REQUIRED": "X (error)",
+                "AUTO_POPULATE": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "Should default to United States",
                 "FIELD_FORM_ASSOCIATION": null
             }
         }
