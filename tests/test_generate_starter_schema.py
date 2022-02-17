@@ -12,6 +12,6 @@ def test_generate_starter_schema():
     contacts_proc = subprocess.run(
         ['python3',
          'bin/generate-starter-schema.py',
-         'schema/backlog/Contacts_Specs\ -\ Revised.xlsx'
+         'schema/backlog/Contacts_Specs - Revised.xlsx'
          ], capture_output=True)
     assert contacts_proc.stderr.decode("utf-8") == ""
