@@ -195,6 +195,10 @@
         "telephone": {
             "title": "TELEPHONE",
             "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 10,
+            "pattern": "^\\d{0,10}$",
             "fec_spec": {
                 "COL_SEQ": 12,
                 "FIELD_DESCRIPTION": "TELEPHONE",
