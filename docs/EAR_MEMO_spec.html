@@ -1,0 +1,352 @@
+<!DOCTYPE html><html lang="en"><head><title>EAR_MEMO</title><link rel="stylesheet" href="spec_table.css"></head><body><table><caption>Specification for EAR_MEMO</caption><tr>
+<th>COL SEQ</th>
+<th>FIELD DESCRIPTION</th>
+<th>TYPE</th>
+<th>REQUIRED</th>
+<th>SAMPLE DATA</th>
+<th>VALUE REFERENCE</th>
+<th>RULE REFERENCE</th>
+<th>FIELD FORM ASSOCIATION</th>
+</tr>
+<tr>
+<td>1</td>
+<td>FORM TYPE</td>
+<td>A/N-8</td>
+<td>X (error)</td>
+<td>SA11AI</td>
+<td>SA[line# ref]</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>FILER COMMITTEE ID NUMBER</td>
+<td>A/N-9</td>
+<td>X (error)</td>
+<td>C00123456</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td>TRANSACTION TYPE IDENTIFIER</td>
+<td>A/N-15</td>
+<td>X (error)</td>
+<td>EAR_MEM_23</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td>TRANSACTION ID</td>
+<td>A/N-20</td>
+<td>X (error)</td>
+<td>A56123456789-1234</td>
+<td></td>
+<td>must be unique and UPPER CASE for the life of the report (original + all amendments)</td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td>BACK REFERENCE TRAN ID NUMBER</td>
+<td>A/N-20</td>
+<td></td>
+<td>A123456789-1234</td>
+<td></td>
+<td>Reference to the Tran ID of a Related Record</td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td>BACK REFERENCE SCHED NAME</td>
+<td>A/N-8</td>
+<td></td>
+<td>SA11AI</td>
+<td>SA[line# ref]</td>
+<td>Ref to the Schedule that has the Related Record.  SA3L must be used 
+with the F3L</td>
+<td></td>
+</tr>
+<tr>
+<td>7</td>
+<td>ENTITY TYPE</td>
+<td>A/N-3</td>
+<td>X (error)</td>
+<td>IND</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>8</td>
+<td>CONTRIBUTOR ORGANIZATION</td>
+<td>A/N-200</td>
+<td>X (error)</td>
+<td>John Smith & Co.</td>
+<td></td>
+<td></td>
+<td>8</td>
+</tr>
+<tr>
+<td>9</td>
+<td>CONTRIBUTOR LAST NAME</td>
+<td>A/N-30</td>
+<td>X (error)</td>
+<td>Smith</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>10</td>
+<td>CONTRIBUTOR FIRST NAME</td>
+<td>A/N-20</td>
+<td>X (error)</td>
+<td>John</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>11</td>
+<td>CONTRIBUTOR MIDDLE NAME</td>
+<td>A/N-20</td>
+<td></td>
+<td>W</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>12</td>
+<td>CONTRIBUTOR PREFIX</td>
+<td>A/N-10</td>
+<td></td>
+<td>Dr</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>13</td>
+<td>CONTRIBUTOR SUFFIX</td>
+<td>A/N-10</td>
+<td></td>
+<td>Jr</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>14</td>
+<td>CONTRIBUTOR STREET  1</td>
+<td>A/N-34</td>
+<td>X (error)</td>
+<td>123 Main Street</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>15</td>
+<td>CONTRIBUTOR STREET  2</td>
+<td>A/N-34</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>16</td>
+<td>CONTRIBUTOR CITY</td>
+<td>A/N-30</td>
+<td>X (error)</td>
+<td>Anytown</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>17</td>
+<td>CONTRIBUTOR STATE</td>
+<td>A/N-2</td>
+<td>X (error)</td>
+<td>WA</td>
+<td>AK,AL,...,ZZ</td>
+<td>Edit: ST</td>
+<td></td>
+</tr>
+<tr>
+<td>18</td>
+<td>CONTRIBUTOR ZIP</td>
+<td>A/N-9</td>
+<td>X (error)</td>
+<td>981110123</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>21</td>
+<td>CONTRIBUTION DATE</td>
+<td>NUM-8</td>
+<td>X (error)</td>
+<td>20120615</td>
+<td>YYYYMMDD</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>22</td>
+<td>CONTRIBUTION AMOUNT</td>
+<td>AMT-12</td>
+<td>X (error)</td>
+<td>250</td>
+<td></td>
+<td>Auto populate the same amount as the Earmark Receipt</td>
+<td></td>
+</tr>
+<tr>
+<td>23</td>
+<td>CONTRIBUTION AGGREGATE</td>
+<td>AMT-12</td>
+<td></td>
+<td>1000</td>
+<td></td>
+<td>YTD</td>
+<td></td>
+</tr>
+<tr>
+<td>24</td>
+<td>RECEIPT DESCRIPTION</td>
+<td>A/N-100</td>
+<td>X (error)</td>
+<td></td>
+<td></td>
+<td>Total earmarked through conduit.</td>
+<td></td>
+</tr>
+<tr>
+<td>27</td>
+<td>DONOR COMMITTEE FEC ID</td>
+<td>A/N-9</td>
+<td>X (error)</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>28</td>
+<td>DONOR COMMITTEE NAME</td>
+<td>A/N-200</td>
+<td>X (error)</td>
+<td>Action PAC</td>
+<td></td>
+<td></td>
+<td>28</td>
+</tr>
+<tr>
+<td>25</td>
+<td>CONTRIBUTOR EMPLOYER</td>
+<td>A/N-38</td>
+<td>X (error)</td>
+<td>XYZ Company</td>
+<td></td>
+<td>Req if Donor aggregate >$200</td>
+<td></td>
+</tr>
+<tr>
+<td>26</td>
+<td>CONTRIBUTOR OCCUPATION</td>
+<td>A/N-38</td>
+<td>X (error)</td>
+<td>QC Inspector</td>
+<td></td>
+<td>Req if Donor aggregate >$200</td>
+<td></td>
+</tr>
+<tr>
+<td>44</td>
+<td>MEMO CODE</td>
+<td>A/N-1</td>
+<td></td>
+<td></td>
+<td>X</td>
+<td>X = True</td>
+<td></td>
+</tr>
+<tr>
+<td>45</td>
+<td>MEMO TEXT/DESCRIPTION</td>
+<td>A/N-100</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>47</td>
+<td>TRANSACTION TYPE IDENTIFIER</td>
+<td>A/N-12</td>
+<td>X (error)</td>
+<td>EAR_MEM</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>34</td>
+<td>BENEFICIARY CANDIDATE OFFICE</td>
+<td>A/N-1</td>
+<td></td>
+<td>H</td>
+<td>H,S,P</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>35</td>
+<td>BENEFICIARY CANDIDATE STATE</td>
+<td>A/N-2</td>
+<td></td>
+<td>FL</td>
+<td>AK,AL,...</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>36</td>
+<td>BENEFICIARY CANDIDATE DISTRICT</td>
+<td>NUM-2</td>
+<td></td>
+<td>35</td>
+<td>01 ... 99</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>43</td>
+<td>MEMO CODE</td>
+<td>A/N-1</td>
+<td>X (error)</td>
+<td></td>
+<td>X</td>
+<td>X = True</td>
+<td></td>
+</tr>
+<tr>
+<td>44</td>
+<td>MEMO TEXT/DESCRIPTION</td>
+<td>A/N-100</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</table></body></html>
