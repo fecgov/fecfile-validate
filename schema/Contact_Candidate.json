@@ -45,7 +45,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 9,
-      "pattern": "^[ A-z0-9]{0,9}$",
+      "pattern": "^[ A-Za-z0-9]{0,9}$",
       "examples": ["H01234567"],
       "fec_spec": {
         "COL_SEQ": 2,
@@ -65,7 +65,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 30,
-      "pattern": "^[ A-z0-9]{0,30}$",
+      "pattern": "^[ A-Za-z0-9]{0,30}$",
       "examples": ["Smith"],
       "fec_spec": {
         "COL_SEQ": 3,
@@ -85,7 +85,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 20,
-      "pattern": "^[ A-z0-9]{0,20}$",
+      "pattern": "^[ A-Za-z0-9]{0,20}$",
       "examples": ["John"],
       "fec_spec": {
         "COL_SEQ": 4,
@@ -105,7 +105,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 20,
-      "pattern": "^[ A-z0-9]{0,20}$",
+      "pattern": "^[ A-Za-z0-9]{0,20}$",
       "examples": ["W"],
       "fec_spec": {
         "COL_SEQ": 5,
@@ -125,7 +125,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 10,
-      "pattern": "^[ A-z0-9]{0,10}$",
+      "pattern": "^[ A-Za-z0-9]{0,10}$",
       "examples": ["Dr"],
       "fec_spec": {
         "COL_SEQ": 6,
@@ -145,7 +145,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 10,
-      "pattern": "^[ A-z0-9]{0,10}$",
+      "pattern": "^[ A-Za-z0-9]{0,10}$",
       "examples": ["Jr"],
       "fec_spec": {
         "COL_SEQ": 7,
@@ -165,7 +165,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 34,
-      "pattern": "^[ A-z0-9]{0,34}$",
+      "pattern": "^[ A-Za-z0-9]{0,34}$",
       "examples": ["123 Main Street"],
       "fec_spec": {
         "COL_SEQ": 8,
@@ -185,7 +185,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 34,
-      "pattern": "^[ A-z0-9]{0,34}$",
+      "pattern": "^[ A-Za-z0-9]{0,34}$",
       "fec_spec": {
         "COL_SEQ": 9,
         "FIELD_DESCRIPTION": "STREET  2",
@@ -204,7 +204,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 30,
-      "pattern": "^[ A-z0-9]{0,30}$",
+      "pattern": "^[ A-Za-z0-9]{0,30}$",
       "examples": ["Anytown"],
       "fec_spec": {
         "COL_SEQ": 10,
@@ -224,7 +224,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 2,
-      "pattern": "^[ A-z0-9]{0,2}$",
+      "pattern": "^[ A-Za-z0-9]{0,2}$",
       "examples": ["WA"],
       "fec_spec": {
         "COL_SEQ": 11,
@@ -244,7 +244,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 9,
-      "pattern": "^[ A-z0-9]{0,9}$",
+      "pattern": "^[ A-Za-z0-9]{0,9}$",
       "examples": [981110123],
       "fec_spec": {
         "COL_SEQ": 12,
@@ -264,7 +264,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 38,
-      "pattern": "^[ A-z0-9]{0,38}$",
+      "pattern": "^[ A-Za-z0-9]{0,38}$",
       "examples": ["XYZ Company"],
       "fec_spec": {
         "COL_SEQ": 13,
@@ -284,7 +284,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 38,
-      "pattern": "^[ A-z0-9]{0,38}$",
+      "pattern": "^[ A-Za-z0-9]{0,38}$",
       "examples": ["QC Inspector"],
       "fec_spec": {
         "COL_SEQ": 14,
@@ -322,7 +322,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 2,
-      "pattern": "^[ A-z0-9]{0,2}$",
+      "pattern": "^[ A-Za-z0-9]{0,2}$",
       "examples": ["WA"],
       "fec_spec": {
         "COL_SEQ": 16,
@@ -342,7 +342,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 2,
-      "pattern": "^[ A-z0-9]{0,2}$",
+      "pattern": "^[ A-Za-z0-9]{0,2}$",
       "fec_spec": {
         "COL_SEQ": 17,
         "FIELD_DESCRIPTION": "CANDIDATE DISTRICT",

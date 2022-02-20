@@ -1,247 +1,227 @@
 {
-    "$schema": "https://json-schema.org/draft-07/schema#",
-    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/TRANF_FRM_LEV.json",
-    "version": "v0.0.0.0",
-    "title": "FEC Transfer from Levin",
-    "description": "SCHEDULE H5 - TRANSFERS FROM NON-FEDERAL ACCOUNT FOR SHARED FEDERAL ELECTION ACTIVITY (Line 18b)",
-    "type": "object",
-    "required": [
-        "form_type",
-        "filer_committee_id_number",
-        "transaction_type_identifier",
-        "transaction_id_number",
-        "account_name",
-        "receipt_date",
-        "total_amount_transferred",
-        "voter_registration_amount",
-        "voter_id_amount",
-        "gotv_amount",
-        "generic_campaign_amount"
-    ],
-    "fec_recommended": [],
-    "properties": {
-        "form_type": {
-            "title": "FORM TYPE",
-            "description": "",
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 8,
-            "pattern": "^[ A-z0-9]{0,8}$",
-            "examples": [
-                "H5"
-            ],
-            "fec_spec": {
-                "COL_SEQ": 1,
-                "FIELD_DESCRIPTION": "FORM TYPE",
-                "TYPE": "A/N-8",
-                "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "H5",
-                "VALUE_REFERENCE": "H5",
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "filer_committee_id_number": {
-            "title": "FILER COMMITTEE ID NUMBER",
-            "description": "",
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 9,
-            "pattern": "^[ A-z0-9]{0,9}$",
-            "examples": [
-                "C00123456"
-            ],
-            "fec_spec": {
-                "COL_SEQ": 2,
-                "FIELD_DESCRIPTION": "FILER COMMITTEE ID NUMBER",
-                "TYPE": "A/N-9",
-                "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "C00123456",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "transaction_type_identifier": {
-            "title": "TRANSACTION TYPE IDENTIFIER",
-            "description": "",
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 12,
-            "pattern": "^[ A-z0-9]{0,12}$",
-            "examples": [
-                "TRANF_FRM_LEV"
-            ],
-            "fec_spec": {
-                "COL_SEQ": 3,
-                "FIELD_DESCRIPTION": "TRANSACTION TYPE IDENTIFIER",
-                "TYPE": "A/N-12",
-                "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "TRANF_FRM_LEV",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "transaction_id_number": {
-            "title": "TRANSACTION ID NUMBER",
-            "description": "",
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 20,
-            "pattern": "^[ A-z0-9]{0,20}$",
-            "examples": [
-                "H3123789-1234"
-            ],
-            "fec_spec": {
-                "COL_SEQ": 4,
-                "FIELD_DESCRIPTION": "TRANSACTION ID NUMBER",
-                "TYPE": "A/N-20",
-                "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "H3123789-1234",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "must be unique and UPPER CASE for the life of the report (original + all amendments)",
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "account_name": {
-            "title": "ACCOUNT NAME",
-            "description": "",
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 90,
-            "pattern": "^[ A-z0-9]{0,90}$",
-            "fec_spec": {
-                "COL_SEQ": 5,
-                "FIELD_DESCRIPTION": "ACCOUNT NAME",
-                "TYPE": "A/N-90",
-                "REQUIRED": "X (error)",
-                "SAMPLE_DATA": null,
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "receipt_date": {
-            "title": "RECEIPT DATE",
-            "description": "",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 99999999,
-            "examples": [
-                20120228
-            ],
-            "fec_spec": {
-                "COL_SEQ": 6,
-                "FIELD_DESCRIPTION": "RECEIPT DATE",
-                "TYPE": "NUM-8",
-                "REQUIRED": "X (error)",
-                "SAMPLE_DATA": 20120228,
-                "VALUE_REFERENCE": "YYYYMMDD",
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "total_amount_transferred": {
-            "title": "TOTAL AMOUNT TRANSFERRED",
-            "description": "",
-            "type": "number",
-            "minimum": 0,
-            "maximum": 999999999999,
-            "examples": [
-                30000
-            ],
-            "fec_spec": {
-                "COL_SEQ": 7,
-                "FIELD_DESCRIPTION": "TOTAL AMOUNT TRANSFERRED",
-                "TYPE": "AMT-12",
-                "REQUIRED": "X (error)",
-                "SAMPLE_DATA": 30000,
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Total Amount Transferred",
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "voter_registration_amount": {
-            "title": "VOTER REGISTRATION AMOUNT",
-            "description": "",
-            "type": "number",
-            "minimum": 0,
-            "maximum": 999999999999,
-            "examples": [
-                7500
-            ],
-            "fec_spec": {
-                "COL_SEQ": 8,
-                "FIELD_DESCRIPTION": "VOTER REGISTRATION AMOUNT",
-                "TYPE": "AMT-12",
-                "REQUIRED": "X (error)",
-                "SAMPLE_DATA": 7500,
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Total Amount Transferred for Voter Registration",
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "voter_id_amount": {
-            "title": "VOTER ID AMOUNT",
-            "description": "",
-            "type": "number",
-            "minimum": 0,
-            "maximum": 999999999999,
-            "examples": [
-                7500
-            ],
-            "fec_spec": {
-                "COL_SEQ": 9,
-                "FIELD_DESCRIPTION": "VOTER ID AMOUNT",
-                "TYPE": "AMT-12",
-                "REQUIRED": "X (error)",
-                "SAMPLE_DATA": 7500,
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Total Amount Transferred for Voter ID",
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "gotv_amount": {
-            "title": "GOTV AMOUNT",
-            "description": "",
-            "type": "number",
-            "minimum": 0,
-            "maximum": 999999999999,
-            "examples": [
-                7500
-            ],
-            "fec_spec": {
-                "COL_SEQ": 10,
-                "FIELD_DESCRIPTION": "GOTV AMOUNT",
-                "TYPE": "AMT-12",
-                "REQUIRED": "X (error)",
-                "SAMPLE_DATA": 7500,
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Total Amount Transferred for GOTV",
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "generic_campaign_amount": {
-            "title": "GENERIC CAMPAIGN AMOUNT",
-            "description": "",
-            "type": "number",
-            "minimum": 0,
-            "maximum": 999999999999,
-            "examples": [
-                7500
-            ],
-            "fec_spec": {
-                "COL_SEQ": 11,
-                "FIELD_DESCRIPTION": "GENERIC CAMPAIGN AMOUNT",
-                "TYPE": "AMT-12",
-                "REQUIRED": "X (error)",
-                "SAMPLE_DATA": 7500,
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Total Amount Transferred for Generic Campaign Activity",
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        }
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/TRANF_FRM_LEV.json",
+  "version": "v0.0.0.0",
+  "title": "FEC Transfer from Levin",
+  "description": "SCHEDULE H5 - TRANSFERS FROM NON-FEDERAL ACCOUNT FOR SHARED FEDERAL ELECTION ACTIVITY (Line 18b)",
+  "type": "object",
+  "required": [
+    "form_type",
+    "filer_committee_id_number",
+    "transaction_type_identifier",
+    "transaction_id_number",
+    "account_name",
+    "receipt_date",
+    "total_amount_transferred",
+    "voter_registration_amount",
+    "voter_id_amount",
+    "gotv_amount",
+    "generic_campaign_amount"
+  ],
+  "fec_recommended": [],
+  "properties": {
+    "form_type": {
+      "title": "FORM TYPE",
+      "description": "",
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 8,
+      "pattern": "^[ A-Za-z0-9]{0,8}$",
+      "examples": ["H5"],
+      "fec_spec": {
+        "COL_SEQ": 1,
+        "FIELD_DESCRIPTION": "FORM TYPE",
+        "TYPE": "A/N-8",
+        "REQUIRED": "X (error)",
+        "SAMPLE_DATA": "H5",
+        "VALUE_REFERENCE": "H5",
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
     },
-    "additionalProperties": false
+    "filer_committee_id_number": {
+      "title": "FILER COMMITTEE ID NUMBER",
+      "description": "",
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 9,
+      "pattern": "^[ A-Za-z0-9]{0,9}$",
+      "examples": ["C00123456"],
+      "fec_spec": {
+        "COL_SEQ": 2,
+        "FIELD_DESCRIPTION": "FILER COMMITTEE ID NUMBER",
+        "TYPE": "A/N-9",
+        "REQUIRED": "X (error)",
+        "SAMPLE_DATA": "C00123456",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "transaction_type_identifier": {
+      "title": "TRANSACTION TYPE IDENTIFIER",
+      "description": "",
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 12,
+      "pattern": "^[ A-Za-z0-9]{0,12}$",
+      "examples": ["TRANF_FRM_LEV"],
+      "fec_spec": {
+        "COL_SEQ": 3,
+        "FIELD_DESCRIPTION": "TRANSACTION TYPE IDENTIFIER",
+        "TYPE": "A/N-12",
+        "REQUIRED": "X (error)",
+        "SAMPLE_DATA": "TRANF_FRM_LEV",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "transaction_id_number": {
+      "title": "TRANSACTION ID NUMBER",
+      "description": "",
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 20,
+      "pattern": "^[ A-Za-z0-9]{0,20}$",
+      "examples": ["H3123789-1234"],
+      "fec_spec": {
+        "COL_SEQ": 4,
+        "FIELD_DESCRIPTION": "TRANSACTION ID NUMBER",
+        "TYPE": "A/N-20",
+        "REQUIRED": "X (error)",
+        "SAMPLE_DATA": "H3123789-1234",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "must be unique and UPPER CASE for the life of the report (original + all amendments)",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "account_name": {
+      "title": "ACCOUNT NAME",
+      "description": "",
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 90,
+      "pattern": "^[ A-Za-z0-9]{0,90}$",
+      "fec_spec": {
+        "COL_SEQ": 5,
+        "FIELD_DESCRIPTION": "ACCOUNT NAME",
+        "TYPE": "A/N-90",
+        "REQUIRED": "X (error)",
+        "SAMPLE_DATA": null,
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "receipt_date": {
+      "title": "RECEIPT DATE",
+      "description": "",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 99999999,
+      "examples": [20120228],
+      "fec_spec": {
+        "COL_SEQ": 6,
+        "FIELD_DESCRIPTION": "RECEIPT DATE",
+        "TYPE": "NUM-8",
+        "REQUIRED": "X (error)",
+        "SAMPLE_DATA": 20120228,
+        "VALUE_REFERENCE": "YYYYMMDD",
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "total_amount_transferred": {
+      "title": "TOTAL AMOUNT TRANSFERRED",
+      "description": "",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 999999999999,
+      "examples": [30000],
+      "fec_spec": {
+        "COL_SEQ": 7,
+        "FIELD_DESCRIPTION": "TOTAL AMOUNT TRANSFERRED",
+        "TYPE": "AMT-12",
+        "REQUIRED": "X (error)",
+        "SAMPLE_DATA": 30000,
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "Total Amount Transferred",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "voter_registration_amount": {
+      "title": "VOTER REGISTRATION AMOUNT",
+      "description": "",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 999999999999,
+      "examples": [7500],
+      "fec_spec": {
+        "COL_SEQ": 8,
+        "FIELD_DESCRIPTION": "VOTER REGISTRATION AMOUNT",
+        "TYPE": "AMT-12",
+        "REQUIRED": "X (error)",
+        "SAMPLE_DATA": 7500,
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "Total Amount Transferred for Voter Registration",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "voter_id_amount": {
+      "title": "VOTER ID AMOUNT",
+      "description": "",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 999999999999,
+      "examples": [7500],
+      "fec_spec": {
+        "COL_SEQ": 9,
+        "FIELD_DESCRIPTION": "VOTER ID AMOUNT",
+        "TYPE": "AMT-12",
+        "REQUIRED": "X (error)",
+        "SAMPLE_DATA": 7500,
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "Total Amount Transferred for Voter ID",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "gotv_amount": {
+      "title": "GOTV AMOUNT",
+      "description": "",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 999999999999,
+      "examples": [7500],
+      "fec_spec": {
+        "COL_SEQ": 10,
+        "FIELD_DESCRIPTION": "GOTV AMOUNT",
+        "TYPE": "AMT-12",
+        "REQUIRED": "X (error)",
+        "SAMPLE_DATA": 7500,
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "Total Amount Transferred for GOTV",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "generic_campaign_amount": {
+      "title": "GENERIC CAMPAIGN AMOUNT",
+      "description": "",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 999999999999,
+      "examples": [7500],
+      "fec_spec": {
+        "COL_SEQ": 11,
+        "FIELD_DESCRIPTION": "GENERIC CAMPAIGN AMOUNT",
+        "TYPE": "AMT-12",
+        "REQUIRED": "X (error)",
+        "SAMPLE_DATA": 7500,
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "Total Amount Transferred for Generic Campaign Activity",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    }
+  },
+  "additionalProperties": false
 }
