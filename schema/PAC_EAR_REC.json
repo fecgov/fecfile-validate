@@ -11,7 +11,7 @@
     "transaction_type_identifier",
     "transaction_id",
     "entity_type",
-    "contributor_organization",
+    "contributor_organization_name",
     "contributor_street_1",
     "contributor_city",
     "contributor_state",
@@ -19,7 +19,7 @@
     "contribution_date",
     "contribution_amount",
     "contribution_aggregate",
-    "receipt_description",
+    "contribution_purpose_descrip",
     "donor_committee_fec_id",
     "donor_committee_name"
   ],
@@ -158,7 +158,7 @@
         "FIELD_FORM_ASSOCIATION": null
       }
     },
-    "contributor_organization": {
+    "contributor_organization_name": {
       "title": "CONTRIBUTOR ORGANIZATION",
       "description": "",
       "type": "string",
@@ -325,7 +325,7 @@
         "FIELD_FORM_ASSOCIATION": null
       }
     },
-    "receipt_description": {
+    "contribution_purpose_descrip": {
       "title": "RECEIPT DESCRIPTION",
       "description": "",
       "type": "string",

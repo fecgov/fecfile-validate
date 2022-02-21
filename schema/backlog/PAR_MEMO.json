@@ -22,7 +22,7 @@
     "contribution_date",
     "contribution_amount",
     "contribution_aggregate",
-    "receipt_description",
+    "contribution_purpose_descrip",
     "contributor_employer",
     "contributor_occupation",
     "memo_code"
@@ -405,7 +405,7 @@
         "FIELD_FORM_ASSOCIATION": null
       }
     },
-    "receipt_description": {
+    "contribution_purpose_descrip": {
       "title": "RECEIPT DESCRIPTION",
       "description": "",
       "type": "string",

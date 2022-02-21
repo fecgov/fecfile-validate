@@ -359,7 +359,7 @@
         "FIELD_FORM_ASSOCIATION": null
       }
     },
-    "receipt_description": {
+    "contribution_purpose_descrip": {
       "title": "RECEIPT DESCRIPTION",
       "description": "",
       "type": "string",

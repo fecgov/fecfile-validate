@@ -65,6 +65,26 @@
         "FIELD_FORM_ASSOCIATION": null
       }
     },
+    "transaction_type_identifier": {
+      "title": "TRANSACTION TYPE IDENTIFIER",
+      "description": "",
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 12,
+      "pattern": "^[ A-Za-z0-9]{0,12}$",
+      "examples": ["REATT_TO"],
+      "fec_spec": {
+        "COL_SEQ": 47,
+        "FIELD_DESCRIPTION": "TRANSACTION TYPE IDENTIFIER",
+        "TYPE": "A/N-12",
+        "REQUIRED": "X (error)",
+        "AUTO_POPULATE": null,
+        "SAMPLE_DATA": "REATT_TO",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
     "transaction_id": {
       "title": "TRANSACTION ID",
       "description": "",
@@ -493,26 +513,6 @@
         "REQUIRED": null,
         "AUTO_POPULATE": null,
         "SAMPLE_DATA": null,
-        "VALUE_REFERENCE": null,
-        "RULE_REFERENCE": null,
-        "FIELD_FORM_ASSOCIATION": null
-      }
-    },
-    "transaction_type_identifier": {
-      "title": "TRANSACTION TYPE IDENTIFIER",
-      "description": "",
-      "type": "string",
-      "minLength": 0,
-      "maxLength": 12,
-      "pattern": "^[ A-Za-z0-9]{0,12}$",
-      "examples": ["REATT_TO"],
-      "fec_spec": {
-        "COL_SEQ": 47,
-        "FIELD_DESCRIPTION": "TRANSACTION TYPE IDENTIFIER",
-        "TYPE": "A/N-12",
-        "REQUIRED": "X (error)",
-        "AUTO_POPULATE": null,
-        "SAMPLE_DATA": "REATT_TO",
         "VALUE_REFERENCE": null,
         "RULE_REFERENCE": null,
         "FIELD_FORM_ASSOCIATION": null

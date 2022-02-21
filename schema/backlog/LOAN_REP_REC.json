@@ -20,7 +20,7 @@
     "contributor_zip",
     "contribution_date",
     "contribution_amount",
-    "receipt_description"
+    "contribution_purpose_descrip"
   ],
   "fec_recommended": [],
   "properties": {
@@ -419,7 +419,7 @@
         "FIELD_FORM_ASSOCIATION": null
       }
     },
-    "receipt_description": {
+    "contribution_purpose_descrip": {
       "title": "RECEIPT DESCRIPTION",
       "description": "",
       "type": "string",

@@ -10,7 +10,7 @@
     "filer_committee_id_number",
     "transaction_id",
     "entity_type",
-    "contributor_organization",
+    "contributor_organization_name",
     "contributor_street_1",
     "contributor_city",
     "contributor_state",
@@ -144,7 +144,7 @@
         "FIELD_FORM_ASSOCIATION": null
       }
     },
-    "contributor_organization": {
+    "contributor_organization_name": {
       "title": "CONTRIBUTOR ORGANIZATION",
       "description": "",
       "type": "string",
