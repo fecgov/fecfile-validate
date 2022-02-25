@@ -30,7 +30,7 @@ def test_missing_required_field(sample_f3x):
 def test_invalid_string_character(sample_f3x):
     # Create error by adding a '$' to COMMITTEE_NAME
     sample_f3x['committee_name'] = "Foe$ of Pat"
-    message_match = "'Foe$ of Pat' does not match '^[ A-z0-9]{0,200}$'"
+    message_match = "'Foe$ of Pat' does not match '^[ A-Za-z0-9]{0,200}$'"
 
     errors = validate(sample_f3x)
     assert errors[0].schema_path[1] == 'committee_name'
