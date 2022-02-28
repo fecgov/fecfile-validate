@@ -8,9 +8,9 @@ with open("README.md", "r", encoding="utf-8") as fh:
 print(f"hello{setuptools.find_packages(where='src')}")
 
 print("moving schema files into package")
-Path("src/fecfile_validate_python/schema").mkdir(exist_ok=True)
+Path("src/fecfile_validate/schema").mkdir(exist_ok=True)
 for schema_file in Path("schema").glob("*.json"):
-    shutil.copy(schema_file, "src/fecfile_validate_python/schema/")
+    shutil.copy(schema_file, "src/fecfile_validate/schema/")
 
 setuptools.setup(
     name="fecfile-validate",
@@ -28,6 +28,6 @@ setuptools.setup(
     package_dir={"": "src"},
     packages=setuptools.find_packages(where='src'),
     python_requires=">=3.6",
-    package_data={"fecfile_validate_python": ['schema/*.json']},
+    package_data={"fecfile_validate": ['schema/*.json']},
     install_requires=["jsonschema"]
 )
