@@ -3,16 +3,24 @@
 import os
 import json
 from jsonschema import Draft7Validator
+import logging
 
+logger = logging.getLogger(__name__)
 
 def get_schema():
     """Return form schema as JSON object"""
     schema_file = os.path.join(os.path.dirname(__file__), "../schema/F3X.json")
     #: Handle case where we are not running from a pip package
     if not os.path.isfile(schema_file):
-        schema_file = os.path.join(os.path.dirname(__file__), "../../../../schema/F3X.json")
+        logger.warning(
+            f'Schema file ({schema_file}) not available where expected.'
+        )
+        schema_file = os.path.join(
+            os.path.dirname(__file__), "../../../../schema/F3X.json"
+        )
     with open(schema_file) as fp:
         form_schema = json.load(fp)
+
     return form_schema
 
 
