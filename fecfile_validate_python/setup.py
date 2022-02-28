@@ -5,11 +5,10 @@ from pathlib import Path
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
-print(f"hello{setuptools.find_packages(where='src')}")
 
-print("moving schema files into package")
+print("copying schema files into package")
 Path("src/fecfile_validate/schema").mkdir(exist_ok=True)
-for schema_file in Path("schema").glob("*.json"):
+for schema_file in Path("../schema").glob("*.json"):
     shutil.copy(schema_file, "src/fecfile_validate/schema/")
 
 setuptools.setup(
@@ -28,6 +27,7 @@ setuptools.setup(
     package_dir={"": "src"},
     packages=setuptools.find_packages(where='src'),
     python_requires=">=3.6",
+    include_package_data=True,
     package_data={"fecfile_validate": ['schema/*.json']},
     install_requires=["jsonschema"]
 )
