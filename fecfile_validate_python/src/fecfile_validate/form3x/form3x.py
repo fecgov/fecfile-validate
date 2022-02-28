@@ -10,7 +10,7 @@ def get_schema():
     schema_file = os.path.join(os.path.dirname(__file__), "../schema/F3X.json")
     #: Handle case where we are not running from a pip package
     if not os.path.isfile(schema_file):
-        schema_file = os.path.join(os.path.dirname(__file__), "../../../schema/F3X.json")
+        schema_file = os.path.join(os.path.dirname(__file__), "../../../../schema/F3X.json")
     with open(schema_file) as fp:
         form_schema = json.load(fp)
     return form_schema
