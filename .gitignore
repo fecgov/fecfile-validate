@@ -66,4 +66,5 @@ Thumbs.db
 
 # package build output
 fecfile_validate_python/schema/*
-fecfile_validate_python/src/fecfile_validate_python/schema/*
+fecfile_validate_python/src/fecfile_validate/schema/*
+
