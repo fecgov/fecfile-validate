@@ -1,7 +1,7 @@
 import pytest
 import json
 import os
-from src.form3x import validate
+from src.fecfile_validate_python.form3x import validate
 
 
 @pytest.fixture
