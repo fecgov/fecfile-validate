@@ -7,9 +7,11 @@ from jsonschema import Draft7Validator
 
 def get_schema():
     """Return form schema as JSON object"""
-    with open(
-        os.path.join(os.path.dirname(__file__), '../schema/F3X.json')
-    ) as fp:
+    schema_file = os.path.join(os.path.dirname(__file__), "../schema/F3X.json")
+    #: Handle case where we are not running from a pip package
+    if not os.path.isfile(schema_file):
+        schema_file = os.path.join(os.path.dirname(__file__), "../../schema/F3X.json")
+    with open(schema_file) as fp:
         form_schema = json.load(fp)
     return form_schema
 
