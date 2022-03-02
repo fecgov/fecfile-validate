@@ -1,11 +1,17 @@
 """Validate instances of FEC form data against validation schema"""
 
 import os
+import re
 import json
 from jsonschema import Draft7Validator
 import logging
 
 logger = logging.getLogger(__name__)
+
+class ValidationError:
+    def __init__(self, message, path):
+        self.message = message
+        self.path = path
 
 
 def get_schema(schema_name):
@@ -32,6 +38,25 @@ def get_schema(schema_name):
     return form_schema
 
 
+def parse_schema_error(error):
+    """Parses jsonschema's ValidationError down to a simpler error
+
+    Args:
+        error jsonschema.ValidationError: error to be parsed
+
+    Returns:
+        ValidationError: a simpler error object
+    """
+    path = ".".join(error.path or [])
+    if error.validator == 'required':
+        """Required fields are handled at the parent level
+        To get what field failed we must parse the message
+        """
+        field = re.search("^'([^']*)", error.message).group(1)
+        path = ".".join(filter(None,[path,field]))
+    return ValidationError(error.message, path)
+
+
 def validate(schema_name, form_data):
     """Wrapper function around jsonschema validator
 
@@ -45,4 +70,7 @@ def validate(schema_name, form_data):
         list of ValidationError: A list of all errors found in form_data"""
     form_schema = get_schema(schema_name)
     validator = Draft7Validator(form_schema)
-    return sorted(validator.iter_errors(form_data), key=lambda e: e.path)
+    return list(map(
+        parse_schema_error,
+        validator.iter_errors(form_data)
+    ))
