@@ -15,6 +15,12 @@ class ValidationError:
         self.path = path
 
 
+class ValidationResult:
+    def __init__(self, errors=[], warnings=[]):
+        self.errors = errors
+        self.warnings = warnings
+
+
 def get_schema(schema_name):
     """Return form schema as JSON object
 
@@ -69,4 +75,5 @@ def validate(schema_name, form_data):
         list of ValidationError: A list of all errors found in form_data"""
     form_schema = get_schema(schema_name)
     validator = Draft7Validator(form_schema)
-    return list(map(parse_schema_error, validator.iter_errors(form_data)))
+    errors = list(map(parse_schema_error, validator.iter_errors(form_data)))
+    return ValidationResult(errors, [])
