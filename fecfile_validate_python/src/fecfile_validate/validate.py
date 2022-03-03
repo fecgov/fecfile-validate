@@ -8,6 +8,7 @@ import logging
 
 logger = logging.getLogger(__name__)
 
+
 class ValidationError:
     def __init__(self, message, path):
         self.message = message
@@ -23,9 +24,7 @@ def get_schema(schema_name):
     Returns:
         dict: JSON schema that matches the schema_name"""
     schema_file = f"{schema_name}.json"
-    schema_path = os.path.join(
-        os.path.dirname(__file__), "schema/", schema_file
-    )
+    schema_path = os.path.join(os.path.dirname(__file__), "schema/", schema_file)
     #: Handle case where we are not running from a pip package
     if not os.path.isfile(schema_path):
         logger.warning(f"Schema file ({schema_path}) not found in package.")
@@ -48,12 +47,12 @@ def parse_schema_error(error):
         ValidationError: a simpler error object
     """
     path = ".".join(error.path or [])
-    if error.validator == 'required':
+    if error.validator == "required":
         """Required fields are handled at the parent level
         To get what field failed we must parse the message
         """
         field = re.search("^'([^']*)", error.message).group(1)
-        path = ".".join(filter(None,[path,field]))
+        path = ".".join(filter(None, [path, field]))
     return ValidationError(error.message, path)
 
 
@@ -70,7 +69,4 @@ def validate(schema_name, form_data):
         list of ValidationError: A list of all errors found in form_data"""
     form_schema = get_schema(schema_name)
     validator = Draft7Validator(form_schema)
-    return list(map(
-        parse_schema_error,
-        validator.iter_errors(form_data)
-    ))
+    return list(map(parse_schema_error, validator.iter_errors(form_data)))
