@@ -1,0 +1,19 @@
+{
+    "$schema": "https://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "required": [
+        "top_level_field"
+    ],
+    "properties": {
+        "top_level_field": {
+            "type": "object",
+            "required": ["nested_field"],
+            "properties": {
+                "nested_field": {
+                    "type": "number",
+                    "exclusiveMinimum": 0
+                }
+            }
+        }
+    }
+}
