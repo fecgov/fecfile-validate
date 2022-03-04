@@ -19,6 +19,7 @@ import openpyxl
 import json
 import argparse
 import os
+import re
 
 parser = argparse.ArgumentParser(description='Convert the FEC validation Excel'
                                  ' spreadsheet into JSON schema documents.')
@@ -92,13 +93,20 @@ def convert_row_to_property(row, sheet_has_autopopulate):# noqa
 
     if field_type.startswith("AMT-"):
         prop["type"] = "number"
-
-    if field_type.startswith("NUM-"):
-        prop["type"] = "integer"
-
-    if field_type.startswith("AMT-") or field_type.startswith("NUM-"):
         prop["minimum"] = 0
         prop["maximum"] = int('9' * int(field_type.split('-')[1]))
+
+    if field_type.startswith("NUM-") or field_type.startswith("N-"):
+        length = field_type.split('-')[1].strip()
+        prop["type"] = "string"
+        prop["minLength"] = 0
+        prop["maxLength"] = int(length)
+        prop["pattern"] = rf'^\d{{0,{length}}}$'
+
+    if field_type == "Dropdown":
+        prop["type"] = "string"
+        if sample_data is not None:
+            prop["enum"] = re.split(r"\s+", sample_data)
 
     if field_type.startswith("A/N-") or field_type.startswith("A-"):
         if field_type == "A-1" and rule_ref == "Check-box":
@@ -108,7 +116,7 @@ def convert_row_to_property(row, sheet_has_autopopulate):# noqa
             prop["type"] = "string"
             prop["minLength"] = 0
             prop["maxLength"] = int(length)
-            prop["pattern"] = f'^[ A-z0-9]{{0,{length}}}$'
+            prop["pattern"] = f'^[ A-Za-z0-9]{{0,{length}}}$'
 
     if sample_data:
         prop["examples"] = [sample_data]

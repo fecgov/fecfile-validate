@@ -1,0 +1,297 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/Individual.json",
+  "version": "v0.0.0.0",
+  "title": "FEC Individual",
+  "description": "Individual Contact",
+  "type": "object",
+  "required": [
+    "type",
+    "last_name",
+    "first_name",
+    "street_1",
+    "city",
+    "state",
+    "zip"
+  ],
+  "fec_recommended": [],
+  "properties": {
+    "type": {
+      "title": "TYPE",
+      "description": "",
+      "type": "string",
+      "enum": ["Individual", "Committee", "Organization", "Candidate"],
+      "examples": ["Individual Committee Organization Candidate"],
+      "fec_spec": {
+        "COL_SEQ": 1,
+        "FIELD_DESCRIPTION": "TYPE",
+        "TYPE": "Dropdown",
+        "REQUIRED": "X (error)",
+        "AUTO_POPULATE": null,
+        "SAMPLE_DATA": "Individual Committee Organization Candidate",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "last_name": {
+      "title": "LAST NAME",
+      "description": "",
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 30,
+      "pattern": "^[ A-Za-z0-9]{0,30}$",
+      "examples": ["Smith"],
+      "fec_spec": {
+        "COL_SEQ": 2,
+        "FIELD_DESCRIPTION": "LAST NAME",
+        "TYPE": "A/N-30",
+        "REQUIRED": "X (error)",
+        "AUTO_POPULATE": null,
+        "SAMPLE_DATA": "Smith",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "first_name": {
+      "title": "FIRST NAME",
+      "description": "",
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 20,
+      "pattern": "^[ A-Za-z0-9]{0,20}$",
+      "examples": ["John"],
+      "fec_spec": {
+        "COL_SEQ": 3,
+        "FIELD_DESCRIPTION": "FIRST NAME",
+        "TYPE": "A/N-20",
+        "REQUIRED": "X (error)",
+        "AUTO_POPULATE": null,
+        "SAMPLE_DATA": "John",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "middle_name": {
+      "title": "MIDDLE NAME",
+      "description": "",
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 20,
+      "pattern": "^[ A-Za-z0-9]{0,20}$",
+      "examples": ["W"],
+      "fec_spec": {
+        "COL_SEQ": 4,
+        "FIELD_DESCRIPTION": "MIDDLE NAME",
+        "TYPE": "A/N-20",
+        "REQUIRED": null,
+        "AUTO_POPULATE": null,
+        "SAMPLE_DATA": "W",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "prefix": {
+      "title": "PREFIX",
+      "description": "",
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 10,
+      "pattern": "^[ A-Za-z0-9]{0,10}$",
+      "examples": ["Dr"],
+      "fec_spec": {
+        "COL_SEQ": 5,
+        "FIELD_DESCRIPTION": "PREFIX",
+        "TYPE": "A/N-10",
+        "REQUIRED": null,
+        "AUTO_POPULATE": null,
+        "SAMPLE_DATA": "Dr",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "suffix": {
+      "title": "SUFFIX",
+      "description": "",
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 10,
+      "pattern": "^[ A-Za-z0-9]{0,10}$",
+      "examples": ["Jr"],
+      "fec_spec": {
+        "COL_SEQ": 6,
+        "FIELD_DESCRIPTION": "SUFFIX",
+        "TYPE": "A/N-10",
+        "REQUIRED": null,
+        "AUTO_POPULATE": null,
+        "SAMPLE_DATA": "Jr",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "street_1": {
+      "title": "STREET  1",
+      "description": "",
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 34,
+      "pattern": "^[ A-Za-z0-9]{0,34}$",
+      "examples": ["123 Main Street"],
+      "fec_spec": {
+        "COL_SEQ": 7,
+        "FIELD_DESCRIPTION": "STREET  1",
+        "TYPE": "A/N-34",
+        "REQUIRED": "X (error)",
+        "AUTO_POPULATE": null,
+        "SAMPLE_DATA": "123 Main Street",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "street_2": {
+      "title": "STREET  2",
+      "description": "",
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 34,
+      "pattern": "^[ A-Za-z0-9]{0,34}$",
+      "fec_spec": {
+        "COL_SEQ": 8,
+        "FIELD_DESCRIPTION": "STREET  2",
+        "TYPE": "A/N-34",
+        "REQUIRED": null,
+        "AUTO_POPULATE": null,
+        "SAMPLE_DATA": null,
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "city": {
+      "title": "CITY",
+      "description": "",
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 30,
+      "pattern": "^[ A-Za-z0-9]{0,30}$",
+      "examples": ["Anytown"],
+      "fec_spec": {
+        "COL_SEQ": 9,
+        "FIELD_DESCRIPTION": "CITY",
+        "TYPE": "A/N-30",
+        "REQUIRED": "X (error)",
+        "AUTO_POPULATE": null,
+        "SAMPLE_DATA": "Anytown",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "state": {
+      "title": "STATE",
+      "description": "",
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 2,
+      "pattern": "^[ A-Za-z0-9]{0,2}$",
+      "examples": ["WA"],
+      "fec_spec": {
+        "COL_SEQ": 10,
+        "FIELD_DESCRIPTION": "STATE",
+        "TYPE": "A/N-2",
+        "REQUIRED": "X (error)",
+        "AUTO_POPULATE": null,
+        "SAMPLE_DATA": "WA",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "Edit: ST. Default to ZZ if Country DNE US",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "zip": {
+      "title": "ZIP",
+      "description": "",
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 9,
+      "pattern": "^[ A-Za-z0-9]{0,9}$",
+      "examples": [981110123],
+      "fec_spec": {
+        "COL_SEQ": 11,
+        "FIELD_DESCRIPTION": "ZIP",
+        "TYPE": "A/N-9",
+        "REQUIRED": "X (error)",
+        "AUTO_POPULATE": null,
+        "SAMPLE_DATA": 981110123,
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "telephone": {
+      "title": "TELEPHONE",
+      "description": "",
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 10,
+      "pattern": "^\\d{0,10}$",
+      "fec_spec": {
+        "COL_SEQ": 12,
+        "FIELD_DESCRIPTION": "TELEPHONE",
+        "TYPE": "N-10",
+        "REQUIRED": null,
+        "AUTO_POPULATE": null,
+        "SAMPLE_DATA": null,
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "employer": {
+      "title": "EMPLOYER",
+      "description": "",
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 38,
+      "pattern": "^[ A-Za-z0-9]{0,38}$",
+      "examples": ["XYZ Company"],
+      "fec_spec": {
+        "COL_SEQ": 13,
+        "FIELD_DESCRIPTION": "EMPLOYER",
+        "TYPE": "A/N-38",
+        "REQUIRED": null,
+        "AUTO_POPULATE": null,
+        "SAMPLE_DATA": "XYZ Company",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "Req if Donor aggregate >$200",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "occupation": {
+      "title": "OCCUPATION",
+      "description": "",
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 38,
+      "pattern": "^[ A-Za-z0-9]{0,38}$",
+      "examples": ["QC Inspector"],
+      "fec_spec": {
+        "COL_SEQ": 14,
+        "FIELD_DESCRIPTION": "OCCUPATION",
+        "TYPE": "A/N-38",
+        "REQUIRED": null,
+        "AUTO_POPULATE": null,
+        "SAMPLE_DATA": "QC Inspector",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "Req if Donor aggregate >$200",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,584 +1,537 @@
 {
-    "$schema": "https://json-schema.org/draft-07/schema#",
-    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/F3L.json",
-    "version": "8.3.0.1",
-    "title": "FEC F3L",
-    "description": "FORM 3L - REPORT OF CONTRIBUTIONS BUNDLED BY LOBBYISTS/REGISTRANTS \n                     AND LOBBYIST/REGISTRANT PACs",
-    "type": "object",
-    "required": [
-        "form_type",
-        "filer_committee_id_number",
-        "semi-annual_period_-_sect_5c_or_d",
-        "treasurer_last_name",
-        "treasurer_first_name",
-        "date_signed"
-    ],
-    "fec_recommended": [
-        "committee_name",
-        "street_1",
-        "city",
-        "state",
-        "zip",
-        "report_code",
-        "date_of_election",
-        "state_of_election",
-        "coverage_from_date",
-        "coverage_through_date",
-        "semi-annual_jan-jun_-_sect_6b",
-        "semi-annual_jul-dec_-_sect_6b"
-    ],
-    "properties": {
-        "form_type": {
-            "title": "FORM TYPE",
-            "description": "",
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 4,
-            "pattern": "^[ A-z0-9]{0,4}$",
-            "examples": [
-                "F3LN"
-            ],
-            "fec_spec": {
-                "COL_SEQ": 1,
-                "FIELD_DESCRIPTION": "FORM TYPE",
-                "TYPE": "A/N-4",
-                "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "F3LN",
-                "VALUE_REFERENCE": "F3L+[N|A]",
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "filer_committee_id_number": {
-            "title": "FILER COMMITTEE ID NUMBER",
-            "description": "",
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 9,
-            "pattern": "^[ A-z0-9]{0,9}$",
-            "examples": [
-                "C00123456"
-            ],
-            "fec_spec": {
-                "COL_SEQ": 2,
-                "FIELD_DESCRIPTION": "FILER COMMITTEE ID NUMBER",
-                "TYPE": "A/N-9",
-                "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "C00123456",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "committee_name": {
-            "title": "COMMITTEE NAME",
-            "description": "",
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 200,
-            "pattern": "^[ A-z0-9]{0,200}$",
-            "examples": [
-                "Friends of Pat"
-            ],
-            "fec_spec": {
-                "COL_SEQ": 3,
-                "FIELD_DESCRIPTION": "COMMITTEE NAME",
-                "TYPE": "A/N-200",
-                "REQUIRED": "X (warning)",
-                "SAMPLE_DATA": "Friends of Pat",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "change_of_address": {
-            "title": "CHANGE OF ADDRESS",
-            "description": "",
-            "type": "boolean",
-            "examples": [
-                "X"
-            ],
-            "fec_spec": {
-                "COL_SEQ": 4,
-                "FIELD_DESCRIPTION": "CHANGE OF ADDRESS",
-                "TYPE": "A-1",
-                "REQUIRED": null,
-                "SAMPLE_DATA": "X",
-                "VALUE_REFERENCE": "X = Yes",
-                "RULE_REFERENCE": "Check-box",
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "street_1": {
-            "title": "STREET  1",
-            "description": "",
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 34,
-            "pattern": "^[ A-z0-9]{0,34}$",
-            "examples": [
-                "123 Sycamore St"
-            ],
-            "fec_spec": {
-                "COL_SEQ": 5,
-                "FIELD_DESCRIPTION": "STREET  1",
-                "TYPE": "A/N-34",
-                "REQUIRED": "X (warning)",
-                "SAMPLE_DATA": "123 Sycamore St",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "street_2": {
-            "title": "STREET  2",
-            "description": "",
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 34,
-            "pattern": "^[ A-z0-9]{0,34}$",
-            "fec_spec": {
-                "COL_SEQ": 6,
-                "FIELD_DESCRIPTION": "STREET  2",
-                "TYPE": "A/N-34",
-                "REQUIRED": null,
-                "SAMPLE_DATA": null,
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "city": {
-            "title": "CITY",
-            "description": "",
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 30,
-            "pattern": "^[ A-z0-9]{0,30}$",
-            "examples": [
-                "Anytown"
-            ],
-            "fec_spec": {
-                "COL_SEQ": 7,
-                "FIELD_DESCRIPTION": "CITY",
-                "TYPE": "A/N-30",
-                "REQUIRED": "X (warning)",
-                "SAMPLE_DATA": "Anytown",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "state": {
-            "title": "STATE",
-            "description": "",
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 2,
-            "pattern": "^[ A-z0-9]{0,2}$",
-            "examples": [
-                "FL"
-            ],
-            "fec_spec": {
-                "COL_SEQ": 8,
-                "FIELD_DESCRIPTION": "STATE",
-                "TYPE": "A-2",
-                "REQUIRED": "X (warning)",
-                "SAMPLE_DATA": "FL",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Edit: ST",
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "zip": {
-            "title": "ZIP",
-            "description": "",
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 9,
-            "pattern": "^[ A-z0-9]{0,9}$",
-            "examples": [
-                33034
-            ],
-            "fec_spec": {
-                "COL_SEQ": 9,
-                "FIELD_DESCRIPTION": "ZIP",
-                "TYPE": "A/N-9",
-                "REQUIRED": "X (warning)",
-                "SAMPLE_DATA": 33034,
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "election_state": {
-            "title": "ELECTION STATE",
-            "description": "",
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 2,
-            "pattern": "^[ A-z0-9]{0,2}$",
-            "examples": [
-                "FL"
-            ],
-            "fec_spec": {
-                "COL_SEQ": 10,
-                "FIELD_DESCRIPTION": "ELECTION STATE",
-                "TYPE": "A-2",
-                "REQUIRED": null,
-                "SAMPLE_DATA": "FL",
-                "VALUE_REFERENCE": "AK,AL, ..., ZZ",
-                "RULE_REFERENCE": "Edit: ST  {Candidates only}",
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "election_district": {
-            "title": "ELECTION DISTRICT",
-            "description": "",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 99,
-            "examples": [
-                45
-            ],
-            "fec_spec": {
-                "COL_SEQ": 11,
-                "FIELD_DESCRIPTION": "ELECTION DISTRICT",
-                "TYPE": "NUM-2",
-                "REQUIRED": null,
-                "SAMPLE_DATA": 45,
-                "VALUE_REFERENCE": "01, ..., 99",
-                "RULE_REFERENCE": "{Candidates only}",
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "report_code": {
-            "title": "REPORT CODE",
-            "description": "",
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 3,
-            "pattern": "^[ A-z0-9]{0,3}$",
-            "examples": [
-                "12P"
-            ],
-            "fec_spec": {
-                "COL_SEQ": 12,
-                "FIELD_DESCRIPTION": "REPORT CODE",
-                "TYPE": "A-3",
-                "REQUIRED": "X (warning)",
-                "SAMPLE_DATA": "12P",
-                "VALUE_REFERENCE": "12C,..., M2",
-                "RULE_REFERENCE": "Warning if Code is missing;\nError if Coded incorrectly. Refer to list of valid report codes in Version 6.4 Part I document - Appendix A.",
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "date_of_election": {
-            "title": "DATE OF ELECTION",
-            "description": "",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 99999999,
-            "examples": [
-                20120715
-            ],
-            "fec_spec": {
-                "COL_SEQ": 13,
-                "FIELD_DESCRIPTION": "DATE OF ELECTION",
-                "TYPE": "NUM-8",
-                "REQUIRED": "X (warn if REPORT CODE=[12?|30?])",
-                "SAMPLE_DATA": 20120715,
-                "VALUE_REFERENCE": "YYYYMMDD",
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "state_of_election": {
-            "title": "STATE OF ELECTION",
-            "description": "",
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 2,
-            "pattern": "^[ A-z0-9]{0,2}$",
-            "examples": [
-                "FL"
-            ],
-            "fec_spec": {
-                "COL_SEQ": 14,
-                "FIELD_DESCRIPTION": "STATE OF ELECTION",
-                "TYPE": "A-2",
-                "REQUIRED": "X (warn if REPORT CODE=[12?|30?])",
-                "SAMPLE_DATA": "FL",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Edit: St",
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "semi-annual_period_-_sect_5c_or_d": {
-            "title": "SEMI-ANNUAL PERIOD - Sect 5(c) or (d)",
-            "description": "",
-            "type": "boolean",
-            "examples": [
-                "X"
-            ],
-            "fec_spec": {
-                "COL_SEQ": 15,
-                "FIELD_DESCRIPTION": "SEMI-ANNUAL PERIOD - Sect 5(c) or (d)",
-                "TYPE": "A-1",
-                "REQUIRED": "X (error if coded and  REPORT CODE is [12?|30?])",
-                "SAMPLE_DATA": "X",
-                "VALUE_REFERENCE": "X=YES",
-                "RULE_REFERENCE": "Check-box",
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "coverage_from_date": {
-            "title": "COVERAGE FROM DATE",
-            "description": "",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 99999999,
-            "examples": [
-                20120501
-            ],
-            "fec_spec": {
-                "COL_SEQ": 16,
-                "FIELD_DESCRIPTION": "COVERAGE FROM DATE",
-                "TYPE": "NUM-8",
-                "REQUIRED": "X (warning)",
-                "SAMPLE_DATA": 20120501,
-                "VALUE_REFERENCE": "YYYYMMDD",
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "coverage_through_date": {
-            "title": "COVERAGE THROUGH DATE",
-            "description": "",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 99999999,
-            "examples": [
-                20120531
-            ],
-            "fec_spec": {
-                "COL_SEQ": 17,
-                "FIELD_DESCRIPTION": "COVERAGE THROUGH DATE",
-                "TYPE": "NUM-8",
-                "REQUIRED": "X (warning)",
-                "SAMPLE_DATA": 20120531,
-                "VALUE_REFERENCE": "YYYYMMDD",
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "semi-annual_jan-jun_-_sect_6b": {
-            "title": "SEMI-ANNUAL JAN-JUN - Sect 6(b)",
-            "description": "",
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 1,
-            "pattern": "^[ A-z0-9]{0,1}$",
-            "examples": [
-                "X"
-            ],
-            "fec_spec": {
-                "COL_SEQ": 18,
-                "FIELD_DESCRIPTION": "SEMI-ANNUAL JAN-JUN - Sect 6(b)",
-                "TYPE": "A-1",
-                "REQUIRED": "X (warn if coded and SEMI-ANNUAL PERIOD  Sect 5(c) or (d) has no value",
-                "SAMPLE_DATA": "X",
-                "VALUE_REFERENCE": "X=YES",
-                "RULE_REFERENCE": "Check-box - Mutually exclusive with Field# 19 and required if \"SEMI-ANNUAL PERIOD - Sect 5(c) or (d)\" had value.",
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "semi-annual_jul-dec_-_sect_6b": {
-            "title": "SEMI-ANNUAL JUL-DEC - Sect 6(b)",
-            "description": "",
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 1,
-            "pattern": "^[ A-z0-9]{0,1}$",
-            "examples": [
-                "X"
-            ],
-            "fec_spec": {
-                "COL_SEQ": 19,
-                "FIELD_DESCRIPTION": "SEMI-ANNUAL JUL-DEC - Sect 6(b)",
-                "TYPE": "A-1",
-                "REQUIRED": "X (warn if coded and SEMI-ANNUAL PERIOD  Sect 5(c) or (d) has no value OR\nX (warn if coded and SEMI-ANNUAL JAN-JUN (preceding) field is also marked 'X'",
-                "SAMPLE_DATA": "X",
-                "VALUE_REFERENCE": "X=YES",
-                "RULE_REFERENCE": "Check-box - Mutually exclusive with Field# 18 and required if \"SEMI-ANNUAL PERIOD - Sect 5(c) or (d)\" had value.",
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "qtr_mon_post_bundled_contributions": {
-            "title": "QTR/MON/POST BUNDLED CONTRIBUTIONS",
-            "description": "",
-            "type": "number",
-            "minimum": 0,
-            "maximum": 999999999999,
-            "examples": [
-                1234.56
-            ],
-            "fec_spec": {
-                "COL_SEQ": 20,
-                "FIELD_DESCRIPTION": "QTR/MON/POST BUNDLED CONTRIBUTIONS",
-                "TYPE": "AMT-12",
-                "REQUIRED": null,
-                "SAMPLE_DATA": 1234.56,
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "semi-annual_bundled_contribs": {
-            "title": "SEMI-ANNUAL BUNDLED CONTRIBS",
-            "description": "",
-            "type": "number",
-            "minimum": 0,
-            "maximum": 999999999999,
-            "examples": [
-                1234.56
-            ],
-            "fec_spec": {
-                "COL_SEQ": 21,
-                "FIELD_DESCRIPTION": "SEMI-ANNUAL BUNDLED CONTRIBS",
-                "TYPE": "AMT-12",
-                "REQUIRED": null,
-                "SAMPLE_DATA": 1234.56,
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "treasurer_last_name": {
-            "title": "TREASURER LAST NAME",
-            "description": "",
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 30,
-            "pattern": "^[ A-z0-9]{0,30}$",
-            "examples": [
-                "Smith"
-            ],
-            "fec_spec": {
-                "COL_SEQ": 22,
-                "FIELD_DESCRIPTION": "TREASURER LAST NAME",
-                "TYPE": "A/N-30",
-                "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "Smith",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "treasurer_first_name": {
-            "title": "TREASURER FIRST NAME",
-            "description": "",
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 20,
-            "pattern": "^[ A-z0-9]{0,20}$",
-            "examples": [
-                "Patrick"
-            ],
-            "fec_spec": {
-                "COL_SEQ": 23,
-                "FIELD_DESCRIPTION": "TREASURER FIRST NAME",
-                "TYPE": "A/N-20",
-                "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "Patrick",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "treasurer_middle_name": {
-            "title": "TREASURER MIDDLE NAME",
-            "description": "",
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 20,
-            "pattern": "^[ A-z0-9]{0,20}$",
-            "examples": [
-                "Thomas"
-            ],
-            "fec_spec": {
-                "COL_SEQ": 24,
-                "FIELD_DESCRIPTION": "TREASURER MIDDLE NAME",
-                "TYPE": "A/N-20",
-                "REQUIRED": null,
-                "SAMPLE_DATA": "Thomas",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "treasurer_prefix": {
-            "title": "TREASURER PREFIX",
-            "description": "",
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 10,
-            "pattern": "^[ A-z0-9]{0,10}$",
-            "examples": [
-                "Mr."
-            ],
-            "fec_spec": {
-                "COL_SEQ": 25,
-                "FIELD_DESCRIPTION": "TREASURER PREFIX",
-                "TYPE": "A/N-10",
-                "REQUIRED": null,
-                "SAMPLE_DATA": "Mr.",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "treasurer_suffix": {
-            "title": "TREASURER SUFFIX",
-            "description": "",
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 10,
-            "pattern": "^[ A-z0-9]{0,10}$",
-            "examples": [
-                "Jr."
-            ],
-            "fec_spec": {
-                "COL_SEQ": 26,
-                "FIELD_DESCRIPTION": "TREASURER SUFFIX",
-                "TYPE": "A/N-10",
-                "REQUIRED": null,
-                "SAMPLE_DATA": "Jr.",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "date_signed": {
-            "title": "DATE SIGNED",
-            "description": "",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 99999999,
-            "examples": [
-                20120729
-            ],
-            "fec_spec": {
-                "COL_SEQ": 27,
-                "FIELD_DESCRIPTION": "DATE SIGNED",
-                "TYPE": "NUM-8",
-                "REQUIRED": "X (error)",
-                "SAMPLE_DATA": 20120729,
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        }
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/F3L.json",
+  "version": "8.3.0.1",
+  "title": "FEC F3L",
+  "description": "FORM 3L - REPORT OF CONTRIBUTIONS BUNDLED BY LOBBYISTS/REGISTRANTS \n                     AND LOBBYIST/REGISTRANT PACs",
+  "type": "object",
+  "required": [
+    "form_type",
+    "filer_committee_id_number",
+    "semi-annual_period_-_sect_5c_or_d",
+    "treasurer_last_name",
+    "treasurer_first_name",
+    "date_signed"
+  ],
+  "fec_recommended": [
+    "committee_name",
+    "street_1",
+    "city",
+    "state",
+    "zip",
+    "report_code",
+    "date_of_election",
+    "state_of_election",
+    "coverage_from_date",
+    "coverage_through_date",
+    "semi-annual_jan-jun_-_sect_6b",
+    "semi-annual_jul-dec_-_sect_6b"
+  ],
+  "properties": {
+    "form_type": {
+      "title": "FORM TYPE",
+      "description": "",
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 4,
+      "pattern": "^[ A-Za-z0-9]{0,4}$",
+      "examples": ["F3LN"],
+      "fec_spec": {
+        "COL_SEQ": 1,
+        "FIELD_DESCRIPTION": "FORM TYPE",
+        "TYPE": "A/N-4",
+        "REQUIRED": "X (error)",
+        "SAMPLE_DATA": "F3LN",
+        "VALUE_REFERENCE": "F3L+[N|A]",
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
     },
-    "additionalProperties": false
+    "filer_committee_id_number": {
+      "title": "FILER COMMITTEE ID NUMBER",
+      "description": "",
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 9,
+      "pattern": "^[ A-Za-z0-9]{0,9}$",
+      "examples": ["C00123456"],
+      "fec_spec": {
+        "COL_SEQ": 2,
+        "FIELD_DESCRIPTION": "FILER COMMITTEE ID NUMBER",
+        "TYPE": "A/N-9",
+        "REQUIRED": "X (error)",
+        "SAMPLE_DATA": "C00123456",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "committee_name": {
+      "title": "COMMITTEE NAME",
+      "description": "",
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 200,
+      "pattern": "^[ A-Za-z0-9]{0,200}$",
+      "examples": ["Friends of Pat"],
+      "fec_spec": {
+        "COL_SEQ": 3,
+        "FIELD_DESCRIPTION": "COMMITTEE NAME",
+        "TYPE": "A/N-200",
+        "REQUIRED": "X (warning)",
+        "SAMPLE_DATA": "Friends of Pat",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "change_of_address": {
+      "title": "CHANGE OF ADDRESS",
+      "description": "",
+      "type": "boolean",
+      "examples": ["X"],
+      "fec_spec": {
+        "COL_SEQ": 4,
+        "FIELD_DESCRIPTION": "CHANGE OF ADDRESS",
+        "TYPE": "A-1",
+        "REQUIRED": null,
+        "SAMPLE_DATA": "X",
+        "VALUE_REFERENCE": "X = Yes",
+        "RULE_REFERENCE": "Check-box",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "street_1": {
+      "title": "STREET  1",
+      "description": "",
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 34,
+      "pattern": "^[ A-Za-z0-9]{0,34}$",
+      "examples": ["123 Sycamore St"],
+      "fec_spec": {
+        "COL_SEQ": 5,
+        "FIELD_DESCRIPTION": "STREET  1",
+        "TYPE": "A/N-34",
+        "REQUIRED": "X (warning)",
+        "SAMPLE_DATA": "123 Sycamore St",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "street_2": {
+      "title": "STREET  2",
+      "description": "",
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 34,
+      "pattern": "^[ A-Za-z0-9]{0,34}$",
+      "fec_spec": {
+        "COL_SEQ": 6,
+        "FIELD_DESCRIPTION": "STREET  2",
+        "TYPE": "A/N-34",
+        "REQUIRED": null,
+        "SAMPLE_DATA": null,
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "city": {
+      "title": "CITY",
+      "description": "",
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 30,
+      "pattern": "^[ A-Za-z0-9]{0,30}$",
+      "examples": ["Anytown"],
+      "fec_spec": {
+        "COL_SEQ": 7,
+        "FIELD_DESCRIPTION": "CITY",
+        "TYPE": "A/N-30",
+        "REQUIRED": "X (warning)",
+        "SAMPLE_DATA": "Anytown",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "state": {
+      "title": "STATE",
+      "description": "",
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 2,
+      "pattern": "^[ A-Za-z0-9]{0,2}$",
+      "examples": ["FL"],
+      "fec_spec": {
+        "COL_SEQ": 8,
+        "FIELD_DESCRIPTION": "STATE",
+        "TYPE": "A-2",
+        "REQUIRED": "X (warning)",
+        "SAMPLE_DATA": "FL",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "Edit: ST",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "zip": {
+      "title": "ZIP",
+      "description": "",
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 9,
+      "pattern": "^[ A-Za-z0-9]{0,9}$",
+      "examples": [33034],
+      "fec_spec": {
+        "COL_SEQ": 9,
+        "FIELD_DESCRIPTION": "ZIP",
+        "TYPE": "A/N-9",
+        "REQUIRED": "X (warning)",
+        "SAMPLE_DATA": 33034,
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "election_state": {
+      "title": "ELECTION STATE",
+      "description": "",
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 2,
+      "pattern": "^[ A-Za-z0-9]{0,2}$",
+      "examples": ["FL"],
+      "fec_spec": {
+        "COL_SEQ": 10,
+        "FIELD_DESCRIPTION": "ELECTION STATE",
+        "TYPE": "A-2",
+        "REQUIRED": null,
+        "SAMPLE_DATA": "FL",
+        "VALUE_REFERENCE": "AK,AL, ..., ZZ",
+        "RULE_REFERENCE": "Edit: ST  {Candidates only}",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "election_district": {
+      "title": "ELECTION DISTRICT",
+      "description": "",
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 2,
+      "pattern": "^\\d{0,2}$",
+      "examples": [45],
+      "fec_spec": {
+        "COL_SEQ": 11,
+        "FIELD_DESCRIPTION": "ELECTION DISTRICT",
+        "TYPE": "NUM-2",
+        "REQUIRED": null,
+        "SAMPLE_DATA": 45,
+        "VALUE_REFERENCE": "01, ..., 99",
+        "RULE_REFERENCE": "{Candidates only}",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "report_code": {
+      "title": "REPORT CODE",
+      "description": "",
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 3,
+      "pattern": "^[ A-Za-z0-9]{0,3}$",
+      "examples": ["12P"],
+      "fec_spec": {
+        "COL_SEQ": 12,
+        "FIELD_DESCRIPTION": "REPORT CODE",
+        "TYPE": "A-3",
+        "REQUIRED": "X (warning)",
+        "SAMPLE_DATA": "12P",
+        "VALUE_REFERENCE": "12C,..., M2",
+        "RULE_REFERENCE": "Warning if Code is missing;\nError if Coded incorrectly. Refer to list of valid report codes in Version 6.4 Part I document - Appendix A.",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "date_of_election": {
+      "title": "DATE OF ELECTION",
+      "description": "",
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 8,
+      "pattern": "^\\d{0,8}$",
+      "examples": [20120715],
+      "fec_spec": {
+        "COL_SEQ": 13,
+        "FIELD_DESCRIPTION": "DATE OF ELECTION",
+        "TYPE": "NUM-8",
+        "REQUIRED": "X (warn if REPORT CODE=[12?|30?])",
+        "SAMPLE_DATA": 20120715,
+        "VALUE_REFERENCE": "YYYYMMDD",
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "state_of_election": {
+      "title": "STATE OF ELECTION",
+      "description": "",
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 2,
+      "pattern": "^[ A-Za-z0-9]{0,2}$",
+      "examples": ["FL"],
+      "fec_spec": {
+        "COL_SEQ": 14,
+        "FIELD_DESCRIPTION": "STATE OF ELECTION",
+        "TYPE": "A-2",
+        "REQUIRED": "X (warn if REPORT CODE=[12?|30?])",
+        "SAMPLE_DATA": "FL",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "Edit: St",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "semi-annual_period_-_sect_5c_or_d": {
+      "title": "SEMI-ANNUAL PERIOD - Sect 5(c) or (d)",
+      "description": "",
+      "type": "boolean",
+      "examples": ["X"],
+      "fec_spec": {
+        "COL_SEQ": 15,
+        "FIELD_DESCRIPTION": "SEMI-ANNUAL PERIOD - Sect 5(c) or (d)",
+        "TYPE": "A-1",
+        "REQUIRED": "X (error if coded and  REPORT CODE is [12?|30?])",
+        "SAMPLE_DATA": "X",
+        "VALUE_REFERENCE": "X=YES",
+        "RULE_REFERENCE": "Check-box",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "coverage_from_date": {
+      "title": "COVERAGE FROM DATE",
+      "description": "",
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 8,
+      "pattern": "^\\d{0,8}$",
+      "examples": [20120501],
+      "fec_spec": {
+        "COL_SEQ": 16,
+        "FIELD_DESCRIPTION": "COVERAGE FROM DATE",
+        "TYPE": "NUM-8",
+        "REQUIRED": "X (warning)",
+        "SAMPLE_DATA": 20120501,
+        "VALUE_REFERENCE": "YYYYMMDD",
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "coverage_through_date": {
+      "title": "COVERAGE THROUGH DATE",
+      "description": "",
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 8,
+      "pattern": "^\\d{0,8}$",
+      "examples": [20120531],
+      "fec_spec": {
+        "COL_SEQ": 17,
+        "FIELD_DESCRIPTION": "COVERAGE THROUGH DATE",
+        "TYPE": "NUM-8",
+        "REQUIRED": "X (warning)",
+        "SAMPLE_DATA": 20120531,
+        "VALUE_REFERENCE": "YYYYMMDD",
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "semi-annual_jan-jun_-_sect_6b": {
+      "title": "SEMI-ANNUAL JAN-JUN - Sect 6(b)",
+      "description": "",
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 1,
+      "pattern": "^[ A-Za-z0-9]{0,1}$",
+      "examples": ["X"],
+      "fec_spec": {
+        "COL_SEQ": 18,
+        "FIELD_DESCRIPTION": "SEMI-ANNUAL JAN-JUN - Sect 6(b)",
+        "TYPE": "A-1",
+        "REQUIRED": "X (warn if coded and SEMI-ANNUAL PERIOD  Sect 5(c) or (d) has no value",
+        "SAMPLE_DATA": "X",
+        "VALUE_REFERENCE": "X=YES",
+        "RULE_REFERENCE": "Check-box - Mutually exclusive with Field# 19 and required if \"SEMI-ANNUAL PERIOD - Sect 5(c) or (d)\" had value.",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "semi-annual_jul-dec_-_sect_6b": {
+      "title": "SEMI-ANNUAL JUL-DEC - Sect 6(b)",
+      "description": "",
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 1,
+      "pattern": "^[ A-Za-z0-9]{0,1}$",
+      "examples": ["X"],
+      "fec_spec": {
+        "COL_SEQ": 19,
+        "FIELD_DESCRIPTION": "SEMI-ANNUAL JUL-DEC - Sect 6(b)",
+        "TYPE": "A-1",
+        "REQUIRED": "X (warn if coded and SEMI-ANNUAL PERIOD  Sect 5(c) or (d) has no value OR\nX (warn if coded and SEMI-ANNUAL JAN-JUN (preceding) field is also marked 'X'",
+        "SAMPLE_DATA": "X",
+        "VALUE_REFERENCE": "X=YES",
+        "RULE_REFERENCE": "Check-box - Mutually exclusive with Field# 18 and required if \"SEMI-ANNUAL PERIOD - Sect 5(c) or (d)\" had value.",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "qtr_mon_post_bundled_contributions": {
+      "title": "QTR/MON/POST BUNDLED CONTRIBUTIONS",
+      "description": "",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 999999999999,
+      "examples": [1234.56],
+      "fec_spec": {
+        "COL_SEQ": 20,
+        "FIELD_DESCRIPTION": "QTR/MON/POST BUNDLED CONTRIBUTIONS",
+        "TYPE": "AMT-12",
+        "REQUIRED": null,
+        "SAMPLE_DATA": 1234.56,
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "semi-annual_bundled_contribs": {
+      "title": "SEMI-ANNUAL BUNDLED CONTRIBS",
+      "description": "",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 999999999999,
+      "examples": [1234.56],
+      "fec_spec": {
+        "COL_SEQ": 21,
+        "FIELD_DESCRIPTION": "SEMI-ANNUAL BUNDLED CONTRIBS",
+        "TYPE": "AMT-12",
+        "REQUIRED": null,
+        "SAMPLE_DATA": 1234.56,
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "treasurer_last_name": {
+      "title": "TREASURER LAST NAME",
+      "description": "",
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 30,
+      "pattern": "^[ A-Za-z0-9]{0,30}$",
+      "examples": ["Smith"],
+      "fec_spec": {
+        "COL_SEQ": 22,
+        "FIELD_DESCRIPTION": "TREASURER LAST NAME",
+        "TYPE": "A/N-30",
+        "REQUIRED": "X (error)",
+        "SAMPLE_DATA": "Smith",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "treasurer_first_name": {
+      "title": "TREASURER FIRST NAME",
+      "description": "",
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 20,
+      "pattern": "^[ A-Za-z0-9]{0,20}$",
+      "examples": ["Patrick"],
+      "fec_spec": {
+        "COL_SEQ": 23,
+        "FIELD_DESCRIPTION": "TREASURER FIRST NAME",
+        "TYPE": "A/N-20",
+        "REQUIRED": "X (error)",
+        "SAMPLE_DATA": "Patrick",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "treasurer_middle_name": {
+      "title": "TREASURER MIDDLE NAME",
+      "description": "",
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 20,
+      "pattern": "^[ A-Za-z0-9]{0,20}$",
+      "examples": ["Thomas"],
+      "fec_spec": {
+        "COL_SEQ": 24,
+        "FIELD_DESCRIPTION": "TREASURER MIDDLE NAME",
+        "TYPE": "A/N-20",
+        "REQUIRED": null,
+        "SAMPLE_DATA": "Thomas",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "treasurer_prefix": {
+      "title": "TREASURER PREFIX",
+      "description": "",
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 10,
+      "pattern": "^[ A-Za-z0-9]{0,10}$",
+      "examples": ["Mr."],
+      "fec_spec": {
+        "COL_SEQ": 25,
+        "FIELD_DESCRIPTION": "TREASURER PREFIX",
+        "TYPE": "A/N-10",
+        "REQUIRED": null,
+        "SAMPLE_DATA": "Mr.",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "treasurer_suffix": {
+      "title": "TREASURER SUFFIX",
+      "description": "",
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 10,
+      "pattern": "^[ A-Za-z0-9]{0,10}$",
+      "examples": ["Jr."],
+      "fec_spec": {
+        "COL_SEQ": 26,
+        "FIELD_DESCRIPTION": "TREASURER SUFFIX",
+        "TYPE": "A/N-10",
+        "REQUIRED": null,
+        "SAMPLE_DATA": "Jr.",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "date_signed": {
+      "title": "DATE SIGNED",
+      "description": "",
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 8,
+      "pattern": "^\\d{0,8}$",
+      "examples": [20120729],
+      "fec_spec": {
+        "COL_SEQ": 27,
+        "FIELD_DESCRIPTION": "DATE SIGNED",
+        "TYPE": "NUM-8",
+        "REQUIRED": "X (error)",
+        "SAMPLE_DATA": 20120729,
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    }
+  },
+  "additionalProperties": false
 }
