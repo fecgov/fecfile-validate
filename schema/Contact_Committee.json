@@ -21,8 +21,15 @@
       "title": "TYPE",
       "description": "",
       "type": "string",
-      "enum": ["Individual", "Committee", "Organization", "Candidate"],
-      "examples": ["Individual Committee Organization Candidate"],
+      "enum": [
+        "Individual",
+        "Committee",
+        "Organization",
+        "Candidate"
+      ],
+      "examples": [
+        "Individual Committee Organization Candidate"
+      ],
       "fec_spec": {
         "COL_SEQ": 1,
         "FIELD_DESCRIPTION": "TYPE",
@@ -42,7 +49,9 @@
       "minLength": 0,
       "maxLength": 9,
       "pattern": "^[ A-Za-z0-9]{0,9}$",
-      "examples": ["c01234567"],
+      "examples": [
+        "c01234567"
+      ],
       "fec_spec": {
         "COL_SEQ": 2,
         "FIELD_DESCRIPTION": "COMMITTEE ID",
@@ -84,7 +93,9 @@
       "minLength": 0,
       "maxLength": 34,
       "pattern": "^[ A-Za-z0-9]{0,34}$",
-      "examples": ["123 Main Street"],
+      "examples": [
+        "123 Main Street"
+      ],
       "fec_spec": {
         "COL_SEQ": 4,
         "FIELD_DESCRIPTION": "STREET  1",
@@ -100,7 +111,10 @@
     "street_2": {
       "title": "STREET  2",
       "description": "",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "minLength": 0,
       "maxLength": 34,
       "pattern": "^[ A-Za-z0-9]{0,34}$",
@@ -123,7 +137,9 @@
       "minLength": 0,
       "maxLength": 30,
       "pattern": "^[ A-Za-z0-9]{0,30}$",
-      "examples": ["Anytown"],
+      "examples": [
+        "Anytown"
+      ],
       "fec_spec": {
         "COL_SEQ": 6,
         "FIELD_DESCRIPTION": "CITY",
@@ -143,7 +159,9 @@
       "minLength": 0,
       "maxLength": 2,
       "pattern": "^[ A-Za-z0-9]{0,2}$",
-      "examples": ["WA"],
+      "examples": [
+        "WA"
+      ],
       "fec_spec": {
         "COL_SEQ": 7,
         "FIELD_DESCRIPTION": "STATE",
@@ -163,7 +181,9 @@
       "minLength": 0,
       "maxLength": 9,
       "pattern": "^[ A-Za-z0-9]{0,9}$",
-      "examples": [981110123],
+      "examples": [
+        981110123
+      ],
       "fec_spec": {
         "COL_SEQ": 8,
         "FIELD_DESCRIPTION": "ZIP",
@@ -179,7 +199,10 @@
     "telephone": {
       "title": "TELEPHONE",
       "description": "",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "minLength": 0,
       "maxLength": 10,
       "pattern": "^\\d{10}$",

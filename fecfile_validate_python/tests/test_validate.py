@@ -46,6 +46,12 @@ def test_invalid_string_character(sample_f3x):
     assert validation_result.errors[0].message == message_match
 
 
+def test_non_required_field(sample_f3x):
+    sample_f3x["treasurer_middle_name"] = None
+    validation_result = validate.validate("F3X", sample_f3x)
+    assert validation_result.errors == []
+
+
 def check_error(validation_error, message, path):
     expected_error = validate.ValidationError(message, path)
     assert validation_error.path == expected_error.path
