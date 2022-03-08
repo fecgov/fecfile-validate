@@ -469,6 +469,5 @@
         "FIELD_FORM_ASSOCIATION": null
       }
     }
-  },
-  "additionalProperties": false
+  }
 }
