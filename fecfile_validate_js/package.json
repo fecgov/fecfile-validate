@@ -1,0 +1,34 @@
+{
+  "name": "fecfile-validate",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint --quiet ./fec/fec/static/js/**/*.js",
+    "test": "npm run lint && karma start --single-run --browsers ChromeHeadless",
+    "try": "tsc && npm run-script ./dist/index.js validate"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fecgov/fecfile-validate.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "CC0-1.0",
+  "bugs": {
+    "url": "https://github.com/fecgov/fecfile-validate.git"
+  },
+  "homepage": "https://github.com/fecgov/fecfile-validate.git",
+  "devDependencies": {
+    "@types/node": "^17.0.21",
+    "ajv": "^8.10.0",
+    "ajv-cli": "^5.0.0",
+    "ajv-keywords": "^5.1.0",
+    "eslint": "^8.10.0",
+    "karma": "^6.3.17",
+    "tslint": "^6.1.3",
+    "typescript": "^4.6.2"
+  }
+}
