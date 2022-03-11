@@ -1044,6 +1044,5 @@
         "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P"
       }
     }
-  },
-  "additionalProperties": false
+  }
 }
