@@ -1,14 +1,12 @@
-import Ajv from 'ajv';
-const ajv = new Ajv({allErrors: true, $data: true});
+import Ajv, { DefinedError } from 'ajv/dist/ajv';
+// import addFormats from 'ajv-formats';
+const ajv = new Ajv({allErrors: true});
 
-import * as draft7MetaSchema from "ajv/dist/refs/json-schema-draft-07.json"
+// import * as draft7MetaSchema from 'ajv/dist/refs/json-schema-draft-07.json'
 
-import * as schema_F3X from './../../schema/F3X.json';
-// import { readdir, readFileSync } from 'fs';
-// import { extname, parse as parsePath } from 'path';
+// declare const pathToSchemaFiles = './../../../schema/';
 
-// const pathToSchemaFiles = './../../../schema/';
-
+// ajv.compileAsync(pathToSchemaFiles)
 
 // ajv.addSchema(schema_F3X, 'F3X');
 
@@ -38,13 +36,15 @@ import * as schema_F3X from './../../schema/F3X.json';
 //   'L6b_cash_on_hand_beginning_period': number
 // }
 
-
-
 const testData = {
-  "form_type": "F3XA",
-  "filer_committee_id_number": "C00123456",
-  "committee_name": "Foes of Pat"
+  'form_type': 'F3XA',
+  'filer_committee_id_number': 'C00123456',
+  'committee_name': 'Foes of Chris',
+  'treasurer_last_name': 'Doe',
+  'treasurer_first_name': 'J',
+  'date_signed': '20040729'
 }
+
 const testSchema = {
   type: "object",
   required: [
@@ -957,55 +957,17 @@ const testSchema = {
   "additionalProperties": false
 }
 
-let schemas: {[k: string]: any} = {};
-
-
-
-// readdir(pathToSchemaFiles, (err, files) => {
-//   files.forEach(file => {
-//     const filePathStr = `${pathToSchemaFiles}${file}`;
-//     const filePath = parsePath(filePathStr);
-
-//     console.log('extname: ', extname(file));
-
-//     if (filePath.ext == '.json') {
-//       // It's a json file so let's add it to schemas
-//       readFile(filePathStr, (err, data) => {
-//         if (err) throw err;
-//         else {
-//           console.log('err, data: ', err, data);
-//         }
-//       });
-//     };
-//   });
-// });
-
 /**
  * Return form schema as JSON object
  * @param {string} schemaID
  * @returns 
  */
-async function getSchema(schemaID: string = 'F3X') {
-  console.log('getSchema(schemaID): ', schemaID);
-  
-  // let rawData = require(schemaPath);
-  // // readFileSync(schemaPath);
-  // let json = JSON.parse(rawData);
-  // schemas[schemaID] = json;
-  // console.log('schemas: ', schemas);
-  
-  // console.log('schemaFile: ', schemaFile);
+// function getSchema(schemaID: string) {
+//   console.log('getSchema(schemaID): ', schemaID);
+// }
 
-  // readdir(pathToSchemaFiles, (err, files) => {
-  //   files.forEach(file => {
-  //     console.log(file);
-  //   });
-  // });
-  // with open(
-  //     os.path.join(os.path.dirname(__file__), '../schema/F3X.json')
-  // ) as fp:
-  //   formSchema = json.load(fp)
-  // return form_schema
+export function validate() : string {
+  return validateInternal();
 }
 
 /**
@@ -1015,41 +977,33 @@ async function getSchema(schemaID: string = 'F3X') {
  * @returns {object} ajv output of error and warnings ex: 
  * {'errors': [{ 'path': 'property_name', 'message': 'message to user describing error' }, …], 'warnings': [] }
  */
- function validate(schemaId: string = 'F3X', data: object = testData) {
+ function validateInternal() : string {
   console.log('validate()');
-  // getSchema('f3x');
-
-  // const serialize = compileSerializer(testSchema);
   
-  // ajv.addMetaSchema(draft7MetaSchema);
-
-  const compiledFunc = ajv.compile(testSchema);
+  const ajvValidate = ajv.compile(testSchema);
   
-  console.log('hasBeenCompiled: ');
-
-  const validated = compiledFunc(testData);
-  if (!validated) console.log('ERRORS: ', validated);
-  else console.log('VALID!');
-
+  const ajvValid = ajvValidate(testData);
   
-  // if (valid) {
-  //   console.log('woo hoo!!');
-  // } else {
-  //   console.log('NOT VALID:');
-  //   console.log(ajv.errors);
-  // }
+  console.log('ajvValidate: ', ajvValidate);
+  console.log('ajvValid: ', ajvValid);
+  
+  if (ajvValid) console.log('NO ERRORS—YAY!');
+  else {
+    const errorMessages = [];
+    errorMessages.push('Feedback:');
+    for (const err of ajvValidate.errors as DefinedError[]) {
+      switch (err.keyword) {
+        case 'type':
+          errorMessages.push(`${err.instancePath.substring(1)} ${err.message}`);
+          break;
+        default:
+          errorMessages.push(err.message as string);
+      }
+    }
+    console.log(errorMessages.join('\n'));
+  }
 
-  // let formSchema = getSchema();
-  // let validator = ajv(formSchema);
-  // let errors = validator.iter_errors(formData);
-  // let toReturn = errors.sort((val1, val2) => {
-  //   const a = val1.toUpperCase();
-  //   const b = val2.toUpperCase();
-  //   if (a < b) return -1;
-  //   else if (a > b) return 1;
-  //   else return 0;
-  // })
-  // return toReturn;
+  return 'VALIDATED!';
  }
 
  /**
@@ -1059,24 +1013,6 @@ async function getSchema(schemaID: string = 'F3X') {
  * @param {string|number} value
  * @returns {string|null} error message string, else null if valid
  */
-function validateItem(schemaId: string, key: string, value: (string|number)) {
-  console.log('validateItem()');
-  // getSchema('f3x');
-  // let formSchema = getSchema();
-  // let validator = ajv(formSchema);
-  // let errors = validator.iter_errors(formData);
-  // let toReturn = errors.sort((val1, val2) => {
-  //   const a = val1.toUpperCase();
-  //   const b = val2.toUpperCase();
-  //   if (a < b) return -1;
-  //   else if (a > b) return 1;
-  //   else return 0;
-  // })
-  // return toReturn;
-}
-
-export {
-  getSchema,
-  validate,
-  validateItem
-}
+// function validateItem(schemaId: string, key: string, value: (string|number)) {
+//   console.log('validateItem()');
+// }
