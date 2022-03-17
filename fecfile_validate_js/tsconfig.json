@@ -15,7 +15,8 @@
     "noImplicitAny": true,
     "lib": ["ES2018"],
     "resolveJsonModule": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    // "allowSyntheticDefaultImports": true
     // "noImplicitOverride": true,
     // "noPropertyAccessFromIndexSignature": true,
     // "noImplicitReturns": true,

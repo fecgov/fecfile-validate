@@ -966,10 +966,6 @@ const testSchema = {
 //   console.log('getSchema(schemaID): ', schemaID);
 // }
 
-export function validate() : string {
-  return validateInternal();
-}
-
 /**
  * Wrapper function around jsonschema validator
  * @param {string} schemaId
@@ -977,34 +973,43 @@ export function validate() : string {
  * @returns {object} ajv output of error and warnings ex: 
  * {'errors': [{ 'path': 'property_name', 'message': 'message to user describing error' }, …], 'warnings': [] }
  */
- function validateInternal() : string {
-  console.log('validate()');
-  
-  const ajvValidate = ajv.compile(testSchema);
-  
-  const ajvValid = ajvValidate(testData);
-  
-  console.log('ajvValidate: ', ajvValidate);
-  console.log('ajvValid: ', ajvValid);
-  
-  if (ajvValid) console.log('NO ERRORS—YAY!');
-  else {
-    const errorMessages = [];
-    errorMessages.push('Feedback:');
-    for (const err of ajvValidate.errors as DefinedError[]) {
-      switch (err.keyword) {
-        case 'type':
-          errorMessages.push(`${err.instancePath.substring(1)} ${err.message}`);
-          break;
-        default:
-          errorMessages.push(err.message as string);
-      }
-    }
-    console.log(errorMessages.join('\n'));
+// export class FecValidator {
+// function validate() : string {
+  export default function() {
+    //
   }
 
-  return 'VALIDATED!';
- }
+  export function validate() : string {
+    return 'yay';
+  }
+  // console.log('validate()');
+    
+    // const ajvValidate = ajv.compile(testSchema);
+    
+    // const ajvValid = ajvValidate(testData);
+    
+    // console.log('ajvValidate: ', ajvValidate);
+    // console.log('ajvValid: ', ajvValid);
+    
+    // if (ajvValid) console.log('NO ERRORS—YAY!');
+    // else {
+    //   const errorMessages = [];
+    //   errorMessages.push('Feedback:');
+    //   for (const err of ajvValidate.errors as DefinedError[]) {
+    //     switch (err.keyword) {
+    //       case 'type':
+    //         errorMessages.push(`${err.instancePath.substring(1)} ${err.message}`);
+    //         break;
+    //       default:
+    //         errorMessages.push(err.message as string);
+    //     }
+    //   }
+    //   console.log(errorMessages.join('\n'));
+    // }
+
+    // return 'VALIDATED!';
+  // }
+// }
 
  /**
  * Wrapper function around jsonschema validator

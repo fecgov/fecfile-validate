@@ -3,13 +3,13 @@
   "version": "0.0.0",
   "description": "",
   "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
   "scripts": {
     "build": "rm -rf dist && webpack --mode=development",
     "build-production": "webpack --mode=production",
     "lint": "eslint --quiet ./src/**/*.*",
-    "test": "cd tests && karma start",
-    "test-single": "karma start --single-run --log-level debug --browsers ChromeHeadless && npm run lint"
+    "test": "karma start",
+    "test-single": "karma start --single-run --log-level debug --browsers ChromeHeadless && npm run lint",
+    "tsc": "tsc"
   },
   "repository": {
     "type": "git",
@@ -44,6 +44,7 @@
     "karma-typescript": "^5.5.3",
     "karma-webpack": "^5.0.0",
     "puppeteer": "^13.5.1",
+    "source-map-loader": "^3.0.1",
     "terser-webpack-plugin": "^5.3.1",
     "ts-loader": "^9.2.8",
     "ts-node": "^10.7.0",

@@ -2,23 +2,31 @@ const path = require('path');
 const terser = require('terser-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 
-// const __filename = fileURLToPath(import.meta.url);
-// const __dirname = path.dirname(__filename);
-
 module.exports = {
   entry: './src/index.ts',
-  devtool: 'inline-source-map',
+  devtool: 'source-map',
   module: {
     rules: [
       {
         test: /\.tsx?$/,
         loader: 'ts-loader',
-        exclude: /node_modules/,
+        include: [
+          path.resolve(__dirname, 'src')
+        ],
+        exclude: [
+          path.resolve(__dirname, 'node_modules/'),
+          // path.resolve(__dirname, 'test.ts')
+        ],
       },
-    ],
+      {
+        test: /\.js$/,
+        enforce: 'pre',
+        use: ["source-map-loader"]
+      }
+    ]
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js'],
+    extensions: ['.tsx', '.ts', '.js'],
   },
   plugins: [
     new CopyPlugin({

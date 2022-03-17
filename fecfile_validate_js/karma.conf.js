@@ -14,9 +14,8 @@ module.exports = function(config) {
   
   config.set({
     logLevel: 'debug',
-    basePath: '',
+    basePath: './',
     frameworks: ['webpack', 'jasmine'],
-    // exclude: [],
     plugins: [
       'karma-typescript',
       'karma-webpack',
@@ -24,34 +23,23 @@ module.exports = function(config) {
       'karma-chrome-launcher',
       // 'karma-coverage',
     ],
-    // client: {
-    //   jasmine: {
-    //     //
-    //   }
-    // },
     files: [
-      { pattern: './tests/**/*.js', type: 'module' },
-      { pattern: './tests/**/*.ts', type: 'module' }
+      { pattern: './test.ts', type: 'module' }
     ],
-    // karmaTypescriptConfig: {
-    //   compilerOptions: {
-    //     module: 'node'
-    //   },
-    //   tsconfig: './tsconfig.json'
-    // },
+    karmaTypescriptConfig: {
+      compilerOptions: {
+        module: 'node'
+      },
+      tsconfig: './tsconfig.json'
+    },
     preprocessors: {
-      // './dist/index.js': ['webpack'],
-      // './tests/**/*.ts': 'karma-typescript',
-      // 'tests/**/*.js': ['webpack'],
-      './tests/**/*.js': ['webpack'],
-      // 'tests/**/*.ts': ['webpack'],
+      './test.ts': ['webpack'],
     },
     webpack: webpackConfig,
-    // reporters: [
-    //   'progress',
-    //   'coverage'
-    // ],
-    browsers: ['ChromeHeadless'],
-    // browserify: browserify,
+    reporters: [
+      'progress'
+    ],
+    color: true,
+    browsers: ['ChromeHeadless']
   });
 }
