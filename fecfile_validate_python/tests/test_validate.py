@@ -12,7 +12,7 @@ def sample_f3x():
     return form_data
 
 @pytest.fixture
-def sample_IND_contact():
+def sample_ind_contact():
     with open(os.path.join(os.path.dirname(__file__), "sample_IND_contact.json")) as f:
         form_data = json.load(f)
     return form_data
@@ -94,7 +94,7 @@ def test_parse_required_error(test_schema):
     )
 
 
-def test_invalid_const_value(sample_IND_contact):
+def test_invalid_const_value(sample_ind_contact):
     # Make sure our Individual Contact schema is valid
     validation_result = validate.validate("Contact_Individual", sample_IND_contact)
     assert validation_result.errors == []
