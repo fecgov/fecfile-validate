@@ -1,6 +1,6 @@
-import Ajv, { DefinedError } from 'ajv/dist/ajv';
+// import Ajv, { DefinedError } from 'ajv/dist/ajv';
 // import addFormats from 'ajv-formats';
-const ajv = new Ajv({allErrors: true});
+// const ajv = new Ajv({allErrors: true});
 
 // import * as draft7MetaSchema from 'ajv/dist/refs/json-schema-draft-07.json'
 
@@ -975,11 +975,7 @@ const testSchema = {
  */
 // export class FecValidator {
 // function validate() : string {
-  export default function() {
-    //
-  }
-
-  export function validate() : string {
+  export function validate() : string|null {
     return 'yay';
   }
   // console.log('validate()');

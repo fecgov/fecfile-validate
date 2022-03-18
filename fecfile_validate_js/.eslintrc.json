@@ -10,10 +10,11 @@
   "overrides": [
     {
       "files": [
-        "./src/*.ts"
+        "src/*.ts",
+        "src/*.js"
       ],
       "parserOptions": {
-        "project": "fecfile_validate_js/tsconfig.json",
+        "project": ["**/tsconfig.json"],
         "createDefaultProgram": true
       },
       "extends": [

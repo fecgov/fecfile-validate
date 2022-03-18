@@ -1,0 +1,13 @@
+{
+  "spec_dir": "src",
+  "spec_files": [
+    "**/*-test.ts"
+  ],
+  "// COMMENT helpers": [
+    "helpers/**/*.?(m)js"
+  ],
+  "env": {
+    "stopSpecOnExpectationFailure": false,
+    "random": true
+  }
+}
