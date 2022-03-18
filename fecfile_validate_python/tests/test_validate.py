@@ -96,11 +96,11 @@ def test_parse_required_error(test_schema):
 
 def test_invalid_const_value(sample_ind_contact):
     # Make sure our Individual Contact schema is valid
-    validation_result = validate.validate("Contact_Individual", sample_IND_contact)
+    validation_result = validate.validate("Contact_Individual", sample_ind_contact)
     assert validation_result.errors == []
 
     # Check the const type property works by setting an invalid "type" property
-    sample_IND_contact["type"] = "Individual"
-    validation_result = validate.validate("Contact_Individual", sample_IND_contact)
+    sample_ind_contact["type"] = "Individual"
+    validation_result = validate.validate("Contact_Individual", sample_ind_contact)
     assert validation_result.errors[0].path == "type"
     assert validation_result.errors[0].message == "'IND' was expected"
