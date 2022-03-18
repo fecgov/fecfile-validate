@@ -1,6 +1,6 @@
-// import Ajv, { DefinedError } from 'ajv/dist/ajv';
+import Ajv, { DefinedError } from 'ajv/dist/ajv.js';
 // import addFormats from 'ajv-formats';
-// const ajv = new Ajv({allErrors: true});
+const ajv = new Ajv({allErrors: true});
 
 // import * as draft7MetaSchema from 'ajv/dist/refs/json-schema-draft-07.json'
 
@@ -975,37 +975,31 @@ const testSchema = {
  */
 // export class FecValidator {
 // function validate() : string {
-  export function validate() : string|null {
-    return 'yay';
-  }
-  // console.log('validate()');
-    
-    // const ajvValidate = ajv.compile(testSchema);
-    
-    // const ajvValid = ajvValidate(testData);
-    
-    // console.log('ajvValidate: ', ajvValidate);
-    // console.log('ajvValid: ', ajvValid);
-    
-    // if (ajvValid) console.log('NO ERRORS—YAY!');
-    // else {
-    //   const errorMessages = [];
-    //   errorMessages.push('Feedback:');
-    //   for (const err of ajvValidate.errors as DefinedError[]) {
-    //     switch (err.keyword) {
-    //       case 'type':
-    //         errorMessages.push(`${err.instancePath.substring(1)} ${err.message}`);
-    //         break;
-    //       default:
-    //         errorMessages.push(err.message as string);
-    //     }
-    //   }
-    //   console.log(errorMessages.join('\n'));
-    // }
+export function validate(schemaId = '', data : object = {}) : Array<string>|boolean {
+  console.log('validate()');
 
-    // return 'VALIDATED!';
-  // }
-// }
+  //
+  if (schemaId == '' || data == {}) return false;
+  
+  const ajvValidate = ajv.compile(testSchema);
+  const ajvValid = ajvValidate(testData);
+
+  if (ajvValid) return true;
+  else {
+    const errorMessages = [];
+    errorMessages.push('Feedback:');
+    for (const err of ajvValidate.errors as DefinedError[]) {
+      switch (err.keyword) {
+        case 'type':
+          errorMessages.push(`${err.instancePath.substring(1)} ${err.message}`);
+          break;
+        default:
+          errorMessages.push(err.message as string);
+      }
+    }
+    return errorMessages;
+  }
+}
 
  /**
  * Wrapper function around jsonschema validator
