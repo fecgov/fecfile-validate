@@ -1,10 +1,12 @@
 /**
  * Tests for index.ts
  */
-// Test src:
-// const validate = require('../src/index.js').validate;
-// Test dist:
-const validate = require('../dist/index.js').validate;
+
+const isProduction = process.env.BUILD === 'production';
+
+// Do we want to test dist or src?
+const toTest = isProduction ? '../src/index.js' : '../dist/index.js';
+const validate = require(toTest).validate;
 
 const perfectResponse = {errors: [],warnings: []};
 
@@ -33,8 +35,11 @@ const perfectForm_F3X = {
   'date_signed': '20040729',
   'L6b_cash_on_hand_beginning_period': 1
 };
-
-describe('validate(\'F3X\')', () => {
+beforeAll(() => {
+  process.stdout.write(`isProduction: ${isProduction}\n`);
+  process.stdout.write(`testing ${toTest}\n`);
+});
+describe(`validate('F3X')`, () => {
   it('should return false or an empty object', () => {
     expect(validate('')).toBe(false);
   });
