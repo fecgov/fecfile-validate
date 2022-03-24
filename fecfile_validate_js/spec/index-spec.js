@@ -45,7 +45,7 @@ describe(`validate('F3X')`, () => {
   });
 
   it('should pass with perfect data', () => {
-    const expectedResult = validate('F3X', perfectForm_F3X) == true || perfectResponse;
+    const expectedResult = validate('F3X', perfectForm_F3X) === true || perfectResponse;
     expect(expectedResult).toEqual(true);
   });
   it('should fail without form_type', () => {

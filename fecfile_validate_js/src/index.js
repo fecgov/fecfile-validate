@@ -51,17 +51,6 @@ function validate(schemaId = '', data = {}) {
   }
 }
 
- /**
- * Will be used to validate individual fields
- * @param {string} schemaId
- * @param {string} key
- * @param {string|number} value
- * @returns {string|null} error message string, else null if valid
- */
-// function validateItem(schemaId: string, key: string, value: (string|number)) {
-//   console.log('validateItem()');
-// }
-
 module.exports = {
   validate
 };
