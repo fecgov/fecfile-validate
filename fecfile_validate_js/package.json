@@ -4,16 +4,13 @@
   "description": "",
   "main": "./dist/index.js",
   "scripts": {
-    "build-validators": "node --experimental-json-modules src/buildValidate_F3X.cjs",
+    "build-validators": "cd src && node --experimental-json-modules buildValidate_F3X.cjs",
     "build": "rm -rf dist && rollup -c",
-    "build-webpack": "rm -rf dist && webpack --mode=development",
-    "build-production-webpack": "webpack --mode=production",
+    "build-production": "rm -rf dist && rollup -c --environment INCLUDE_DEPS,BUILD:production",
     "lint": "eslint ./src/**/*.*",
     "lint-quiet": "eslint --quiet ./src/**/*.*",
     "test": "jasmine && npm run lint",
-    "test-TODO": "remove the cross-env NODE_OPTIONS when tests are working",
-    "test-karma": "karma start",
-    "test-single-karma": "karma start --single-run --log-level debug --browsers ChromeHeadless && npm run lint"
+    "test-TODO": "remove the cross-env NODE_OPTIONS when tests are working"
   },
   "repository": {
     "type": "git",
@@ -40,7 +37,8 @@
     "eslint": "^8.10.0",
     "jasmine": "^4.0.2",
     "jasmine-spec-reporter": "^7.0.0",
-    "rollup": "^2.70.1"
+    "rollup": "^2.70.1",
+    "rollup-plugin-terser": "^7.0.2"
   },
   "engines": {
     "node": ">=v16.14.0",
