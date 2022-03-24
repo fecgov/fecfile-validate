@@ -1,26 +1,22 @@
-const ValidateF3X = require('./validate-F3X');
-
 /**
- * Return form schema as JSON object
- * @param {string} schemaID
- * @returns 
+ * Builds the main validator function
+ * Compiled into dist/index.js
+ * Tested with spec/index-spec.js
  */
-// function getSchema(schemaID: string) {
-//   console.log('getSchema(schemaID): ', schemaID);
-// }
+const ValidateF3X = require('./validate-F3X');
 
 /**
  * Takes a form id (schemaId) and data object to be validated and returns either false (if there's an error),
  * or an object with errors and warnings arrays
  * @param {string} schemaId
  * @param {object} data
- * @returns {false|object} ajv output of error and warnings ex: 
+ * @returns {false|object} ajv output of error and warnings ex:
  * {errors: ['field is too long', 'field does not match pattern'], warnings: ['field is recommended']}
  */
 function validate(schemaId = '', data = {}) {
   // return false if empty
   if (schemaId != 'F3X' || data == {}) return false;
-  
+
   // create the function that will return error messages to us
   const ajvValidate = ValidateF3X;
   // test whether the data is valid
@@ -68,4 +64,4 @@ function validate(schemaId = '', data = {}) {
 
 module.exports = {
   validate
-}
+};

@@ -17,7 +17,17 @@
       },
       "extends": [
         "eslint:recommended"
-      ]
+      ],
+      "rules": {
+        "no-multi-spaces": "error",
+        "no-multiple-empty-lines": ["error", { "max": 1, "maxEOF": 1 }],
+        "no-tabs": "error",
+        "no-trailing-spaces": "error",
+        "object-curly-spacing": ["error", "always", { "arraysInObjects": true, "objectsInObjects": true } ],
+        "quote-props": ["error", "as-needed", { "numbers": true }],
+        "quotes": ["error", "single", { "allowTemplateLiterals": true }],
+        "semi": [ "error", "always" ]
+      }
     }
   ],
   "env": {

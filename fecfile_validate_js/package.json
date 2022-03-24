@@ -9,8 +9,7 @@
     "build-production": "npm run build-validators && rm -rf dist && rollup -c --environment INCLUDE_DEPS,BUILD:production",
     "lint": "eslint ./src/**/*.*",
     "lint-quiet": "eslint --quiet ./src/**/*.*",
-    "test": "jasmine && npm run lint",
-    "test-TODO": "remove the cross-env NODE_OPTIONS when tests are working"
+    "test": "jasmine && npm run lint"
   },
   "repository": {
     "type": "git",
