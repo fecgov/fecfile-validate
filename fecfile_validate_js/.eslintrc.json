@@ -1,25 +1,22 @@
 {
   "root": true,
   "ignorePatterns": [
-    "projects/**/*"
-  ],
-  "parser": "@typescript-eslint/parser",
-  "plugins": [
-    "@typescript-eslint"
+    "projects/**/*",
+    "src/validate-*.js"
   ],
   "overrides": [
     {
       "files": [
         "src/*.ts",
-        "src/*.js"
+        "./**/*.js",
+        "./**/*.cjs"
       ],
+      "parser": "@babel/eslint-parser",
       "parserOptions": {
-        "project": ["**/tsconfig.json"],
-        "createDefaultProgram": true
+        "requireConfigFile": false
       },
       "extends": [
-        "eslint:recommended",
-        "plugin:@typescript-eslint/recommended"
+        "eslint:recommended"
       ]
     }
   ],

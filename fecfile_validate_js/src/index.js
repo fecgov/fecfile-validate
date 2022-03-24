@@ -1,6 +1,7 @@
-import Ajv, { DefinedError } from 'ajv/dist/ajv.js';
+// import Ajv from 'ajv';
 // import addFormats from 'ajv-formats';
-const ajv = new Ajv({allErrors: true});
+const ValidateF3X = require('./validate-F3X');
+// const ajv = new Ajv({allErrors: true});
 
 // import * as draft7MetaSchema from 'ajv/dist/refs/json-schema-draft-07.json'
 
@@ -36,6 +37,7 @@ const ajv = new Ajv({allErrors: true});
 //   'L6b_cash_on_hand_beginning_period': number
 // }
 
+/*
 const testData = {
   'form_type': 'F3XA',
   'filer_committee_id_number': 'C00123456',
@@ -44,7 +46,9 @@ const testData = {
   'treasurer_first_name': 'J',
   'date_signed': '20040729'
 }
+*/
 
+/*
 const testSchema = {
   type: "object",
   required: [
@@ -956,6 +960,7 @@ const testSchema = {
   },
   "additionalProperties": false
 }
+*/
 
 /**
  * Return form schema as JSON object
@@ -975,29 +980,38 @@ const testSchema = {
  */
 // export class FecValidator {
 // function validate() : string {
-export function validate(schemaId = '', data : object = {}) : Array<string>|boolean {
-  console.log('validate()');
-
-  //
+function validate(schemaId = '', data = {}) {
+  // return false if empty
   if (schemaId == '' || data == {}) return false;
   
-  const ajvValidate = ajv.compile(testSchema);
-  const ajvValid = ajvValidate(testData);
+  const ajvValidate = ValidateF3X;
+  const ajvValid = ajvValidate(data);
 
   if (ajvValid) return true;
   else {
-    const errorMessages = [];
-    errorMessages.push('Feedback:');
-    for (const err of ajvValidate.errors as DefinedError[]) {
+    let toReturn = {
+      errors: [],
+      warnings: []
+    };
+    for (const err of ajvValidate.errors) {
+      console.log('err: ', err);
       switch (err.keyword) {
+        case 'maxLength':
+        case 'minLength':
         case 'type':
-          errorMessages.push(`${err.instancePath.substring(1)} ${err.message}`);
+          toReturn.errors.push(`${err.instancePath.substring(1)} ${err.message}`);
+          break;
+        case 'enum':
+          toReturn.errors.push(`${err.instancePath.substring(1)} ${err.message}: [${err.params.allowedValues.join(', ')}]`);
+          break;
+        case 'required':
+          toReturn.errors.push(err.message);
           break;
         default:
-          errorMessages.push(err.message as string);
+          toReturn.errors.push(err.message);
       }
     }
-    return errorMessages;
+    return toReturn;
   }
 }
 
@@ -1011,3 +1025,7 @@ export function validate(schemaId = '', data : object = {}) : Array<string>|bool
 // function validateItem(schemaId: string, key: string, value: (string|number)) {
 //   console.log('validateItem()');
 // }
+
+module.exports = {
+  validate
+}
