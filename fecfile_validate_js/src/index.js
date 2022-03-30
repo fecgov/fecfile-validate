@@ -28,7 +28,7 @@ function validate(schemaId = '', data = {}) {
   else {
     let toReturn = {
       errors: [],
-      warnings: []
+      warnings: [],
     };
     // console.log('ajvValidate.errors: ', ajvValidate.errors);
     // For every error returned, add their error statements to the list of errors for this function to return
@@ -38,7 +38,9 @@ function validate(schemaId = '', data = {}) {
           toReturn.errors.push(err.message);
           break;
         case 'enum':
-          toReturn.errors.push(`${err.instancePath.substring(1)} ${err.message}: [${err.params.allowedValues.join(', ')}]`);
+          toReturn.errors.push(
+            `${err.instancePath.substring(1)} ${err.message}: [${err.params.allowedValues.join(', ')}]`
+          );
           break;
         case 'pattern':
           toReturn.errors.push(`${err.instancePath.substring(1)} must match its pattern`);
@@ -52,5 +54,5 @@ function validate(schemaId = '', data = {}) {
 }
 
 module.exports = {
-  validate
+  validate,
 };
