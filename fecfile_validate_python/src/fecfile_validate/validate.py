@@ -30,7 +30,8 @@ def get_schema(schema_name):
     Returns:
         dict: JSON schema that matches the schema_name"""
     schema_file = f"{schema_name}.json"
-    schema_path = os.path.join(os.path.dirname(__file__), "schema/", schema_file)
+    schema_path = os.path.join(os.path.dirname(__file__), "schema/",
+                               schema_file)
     #: Handle case where we are not running from a pip package
     if not os.path.isfile(schema_path):
         logger.warning(f"Schema file ({schema_path}) not found in package.")
