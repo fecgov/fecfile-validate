@@ -54,7 +54,3 @@ export function validate(schema: any, data: any): ValidationError[] {
 
   return errors;
 }
-
-// TODO: Validate just one property, will be done in ticket app#189
-// ajv.addSchema(schema, schema_name)
-// const valid = ajv.validate(`${schema_name}#/properties/${property_name}`, value);

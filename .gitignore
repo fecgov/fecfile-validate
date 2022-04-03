@@ -6,7 +6,7 @@
 *.pyc
 *.pyo
 build/
-#dist/
+dist/
 helloworld.db
 local_settings.py
 *.swp
