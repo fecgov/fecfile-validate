@@ -1,37 +1,16 @@
 {
   "root": true,
-  "ignorePatterns": [
-    "projects/**/*",
-    "src/validate-*.js"
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "@typescript-eslint"
   ],
-  "overrides": [
-    {
-      "files": [
-        "src/*.ts",
-        "./**/*.js",
-        "./**/*.cjs"
-      ],
-      "parser": "@babel/eslint-parser",
-      "parserOptions": {
-        "requireConfigFile": false
-      },
-      "extends": [
-        "eslint:recommended"
-      ],
-      "rules": {
-        "no-multi-spaces": "error",
-        "no-multiple-empty-lines": ["error", { "max": 1, "maxEOF": 1 }],
-        "no-tabs": "error",
-        "no-trailing-spaces": "error",
-        "object-curly-spacing": ["error", "always", { "arraysInObjects": true, "objectsInObjects": true } ],
-        "quote-props": ["error", "as-needed", { "numbers": true }],
-        "quotes": ["error", "single", { "allowTemplateLiterals": true }],
-        "semi": [ "error", "always" ]
-      }
-    }
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended"
   ],
-  "env": {
-    "jasmine": true,
-    "node": true
+  "rules": {
+    "@typescript-eslint/no-explicit-any": "off",
+    "no-extra-boolean-cast": "off"
   }
 }
