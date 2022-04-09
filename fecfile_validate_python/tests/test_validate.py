@@ -13,14 +13,6 @@ def sample_f3x():
 
 
 @pytest.fixture
-def sample_ind_contact():
-    with open(os.path.join(os.path.dirname(__file__),
-              "sample_IND_contact.json")) as f:
-        form_data = json.load(f)
-    return form_data
-
-
-@pytest.fixture
 def test_schema():
     with open(os.path.join(os.path.dirname(__file__),
               "test_schema.json")) as f:
@@ -95,17 +87,3 @@ def test_parse_required_error(test_schema):
         "'nested_field' is a required property",
         "top_level_field.nested_field",
     )
-
-
-def test_invalid_const_value(sample_ind_contact):
-    # Make sure our Individual Contact schema is valid
-    validation_result = validate.validate("Contact_Individual",
-                                          sample_ind_contact)
-    assert validation_result.errors == []
-
-    # Check the const type property works by setting an invalid "type" property
-    sample_ind_contact["type"] = "Individual"
-    validation_result = validate.validate("Contact_Individual",
-                                          sample_ind_contact)
-    assert validation_result.errors[0].path == "type"
-    assert validation_result.errors[0].message == "'IND' was expected"

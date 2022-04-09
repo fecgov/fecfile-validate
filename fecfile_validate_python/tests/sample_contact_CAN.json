@@ -1,0 +1,23 @@
+{
+    "type": "CAN",
+    "candidate_id": "H01234567",
+    "committee_id": "C00601211",
+    "name": "Gilbert Smith",
+    "last_name": "Smith",
+    "first_name": "Gilbert",
+    "middle_name": null,
+    "prefix": null,
+    "suffix": null,
+    "street_1": "602 Tlumacki St",
+    "street_2": null,
+    "city": "Mclean City",
+    "state": "VA",
+    "zip": "22204",
+    "employer": null,
+    "occupation": null,
+    "candidate_office": "P",
+    "candidate_state": null,
+    "candidate_district": null,
+    "telephone": "3043892120",
+    "country": "US"
+}
