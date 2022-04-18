@@ -1,4 +1,4 @@
-import { assertEquals } from 'https://deno.land/std@0.133.0/testing/asserts.ts';
+import { assertEquals } from 'https://deno.land/std/testing/asserts.ts';
 import { validate } from '../dist/index.js';
 import { schema as f3xSchema } from '../dist/F3X.js';
 
