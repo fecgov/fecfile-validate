@@ -46,13 +46,13 @@ def test_missing_required_field(sample_f3x):
 
 
 def test_invalid_string_character(sample_f3x):
-    # Create error by adding a '$' to COMMITTEE_NAME
-    sample_f3x["committee_name"] = "Foe$ of Pat"
-    message_match = "'Foe$ of Pat' does not match '^[ A-Za-z0-9]{0,200}$'"
+    # Create error by setting COMMITTEE_NAME to a 201 char string
+    sample_f3x["committee_name"] = "a" * 201
+    message_end = "is too long"
 
     validation_result = validate.validate("F3X", sample_f3x)
     assert validation_result.errors[0].path == "committee_name"
-    assert validation_result.errors[0].message == message_match
+    assert validation_result.errors[0].message.endswith(message_end)
 
 
 def test_non_required_field(sample_f3x):
