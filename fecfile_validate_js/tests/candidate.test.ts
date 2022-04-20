@@ -69,6 +69,18 @@ Deno.test({
 });
 
 Deno.test({
+  name: 'it should fail with for candidate office S with an invalid candidate state format',
+  fn: () => {
+    const testData = { ...data };
+    testData.candidate_office = 'S';
+    testData.candidate_state = 'M1';
+    const result = validate(candidateContactSchema, testData);
+    assertEquals(result[0].path, 'candidate_state');
+    assertEquals(result[0].message, 'must match pattern "^[A-Z]{2}$"');
+  },
+});
+
+Deno.test({
   name: 'it should pass with for candidate office S with a candidate state',
   fn: () => {
     const testData = { ...data };
