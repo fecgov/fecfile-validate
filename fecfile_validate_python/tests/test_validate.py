@@ -14,8 +14,7 @@ def sample_f3x():
 
 @pytest.fixture
 def test_schema():
-    with open(os.path.join(os.path.dirname(__file__),
-              "test_schema.json")) as f:
+    with open(os.path.join(os.path.dirname(__file__), "test_schema.json")) as f:
         schema = json.load(f)
     return schema
 
@@ -27,14 +26,11 @@ def test_is_correct(sample_f3x):
 
 def test_missing_required_field(sample_f3x):
     # Create error by removing FORM_TYPE
-    sample_f3x["form_type"] = ""
+    sample_f3x.pop("form_type", None)
 
     validation_result = validate.validate("F3X", sample_f3x)
     assert validation_result.errors[0].path == "form_type"
-    assert (
-        validation_result.errors[0].message
-        == "'' is not one of ['F3XN', 'F3XA', 'F3XT']"
-    )
+    assert validation_result.errors[0].message == "'form_type' is a required property"
 
 
 def test_invalid_string_character(sample_f3x):
@@ -48,9 +44,15 @@ def test_invalid_string_character(sample_f3x):
 
 
 def test_non_required_field(sample_f3x):
-    sample_f3x["treasurer_middle_name"] = None
+    sample_f3x.pop("treasurer_middle_name", None)
     validation_result = validate.validate("F3X", sample_f3x)
     assert validation_result.errors == []
+
+
+"""Test parse_schema_error
+parse_schema_error needs to parse jsonschema errors and 
+turn them into ValidationErrors
+"""
 
 
 def check_error(validation_error, message, path):
@@ -87,3 +89,26 @@ def test_parse_required_error(test_schema):
         "'nested_field' is a required property",
         "top_level_field.nested_field",
     )
+
+
+"""Test partial validation
+Calling validate with fields_to_validate contrstructs a temporary
+schema from the passed schema.  This temporary schema must be a subschema
+of the passed schema"""
+
+
+def test_partial_validate_is_correct(sample_f3x):
+    fields_to_validate = ["form_type"]
+    """Even though we remove date_signed, the validation should pass"""
+    sample_f3x.pop("date_signed", None)
+    validation_result = validate.validate("F3X", sample_f3x, fields_to_validate)
+    assert validation_result.errors == []
+
+
+def test_partial_missing_required_field(sample_f3x):
+    fields_to_validate = ["form_type"]
+    # Create error by removing FORM_TYPE
+    sample_f3x.pop("form_type", None)
+    validation_result = validate.validate("F3X", sample_f3x, fields_to_validate)
+    assert validation_result.errors[0].path == "form_type"
+    assert validation_result.errors[0].message == "'form_type' is a required property"
