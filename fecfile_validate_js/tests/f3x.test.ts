@@ -43,6 +43,7 @@ Deno.test({
     delete thisData.form_type;
     const result = validate(f3xSchema, thisData);
     assertEquals(result[0].keyword, 'required');
+    assertEquals(result[0].path, 'form_type');
     assertEquals(result[0].params.missingProperty, 'form_type');
   },
 });
@@ -109,6 +110,7 @@ Deno.test({
     delete thisData.filer_committee_id_number;
     const result = validate(f3xSchema, thisData);
     assertEquals(result[0].keyword, 'required');
+    assertEquals(result[0].path, 'filer_committee_id_number');
     assertEquals(result[0].params.missingProperty, 'filer_committee_id_number');
   },
 });
@@ -151,6 +153,7 @@ Deno.test({
     delete thisData.treasurer_first_name;
     const result = validate(f3xSchema, thisData);
     assertEquals(result[0].keyword, 'required');
+    assertEquals(result[0].path, 'treasurer_first_name');
     assertEquals(result[0].params.missingProperty, 'treasurer_first_name');
   },
 });
@@ -173,6 +176,7 @@ Deno.test({
     delete thisData.treasurer_last_name;
     const result = validate(f3xSchema, thisData);
     assertEquals(result[0].keyword, 'required');
+    assertEquals(result[0].path, 'treasurer_last_name');
     assertEquals(result[0].params.missingProperty, 'treasurer_last_name');
   },
 });
@@ -195,6 +199,7 @@ Deno.test({
     delete thisData.date_signed;
     const result = validate(f3xSchema, thisData);
     assertEquals(result[0].keyword, 'required');
+    assertEquals(result[0].path, 'date_signed');
     assertEquals(result[0].params.missingProperty, 'date_signed');
   },
 });
@@ -220,6 +225,7 @@ Deno.test({
     delete thisData.form_type;
     const result = validate(f3xSchema, thisData, fieldsToValidate);
     assertEquals(result[0].keyword, 'required');
+    assertEquals(result[0].path, 'form_type');
     assertEquals(result[0].params.missingProperty, 'form_type');
   },
 });

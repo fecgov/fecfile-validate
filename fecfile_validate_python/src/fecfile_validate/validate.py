@@ -77,23 +77,10 @@ def validate(schema_name, form_data, fields_to_validate=None):
     Returns:
         list of ValidationError: A list of all errors found in form_data"""
     form_schema = get_schema(schema_name)
-    if fields_to_validate:
-        form_schema = {
-            "type": "object",
-            "required": list(
-                filter(
-                    lambda required_field: required_field in fields_to_validate,
-                    form_schema.get("required", []),
-                )
-            ),
-            "properties": dict(
-                filter(
-                    lambda field: field in fields_to_validate,
-                    form_schema.get("properties").items(),
-                )
-            ),
-        }
 
     validator = Draft7Validator(form_schema)
     errors = list(map(parse_schema_error, validator.iter_errors(form_data)))
+    if fields_to_validate:
+        in_fields_to_validate = lambda field: field.path in fields_to_validate
+        errors = list(filter(in_fields_to_validate, errors))
     return ValidationResult(errors, [])
