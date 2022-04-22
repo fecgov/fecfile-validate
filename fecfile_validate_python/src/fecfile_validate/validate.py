@@ -83,7 +83,7 @@ def validate(schema_name, form_data, fields_to_validate=None):
     if fields_to_validate:
 
         def in_fields_to_validate(field):
-            field.path in fields_to_validate
+            return field.path in fields_to_validate
 
         errors = list(filter(in_fields_to_validate, errors))
     return ValidationResult(errors, [])
