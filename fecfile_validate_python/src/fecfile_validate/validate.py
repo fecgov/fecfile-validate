@@ -81,6 +81,9 @@ def validate(schema_name, form_data, fields_to_validate=None):
     validator = Draft7Validator(form_schema)
     errors = list(map(parse_schema_error, validator.iter_errors(form_data)))
     if fields_to_validate:
-        in_fields_to_validate = lambda field: field.path in fields_to_validate
+
+        def in_fields_to_validate(field):
+            field.path in fields_to_validate
+
         errors = list(filter(in_fields_to_validate, errors))
     return ValidationResult(errors, [])

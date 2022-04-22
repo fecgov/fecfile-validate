@@ -50,7 +50,7 @@ def test_non_required_field(sample_f3x):
 
 
 """Test parse_schema_error
-parse_schema_error needs to parse jsonschema errors and 
+parse_schema_error needs to parse jsonschema errors and
 turn them into ValidationErrors
 """
 
