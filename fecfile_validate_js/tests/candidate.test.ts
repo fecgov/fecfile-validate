@@ -41,6 +41,7 @@ Deno.test({
     delete testData.candidate_office;
     const result = validate(candidateContactSchema, testData);
     assertEquals(result[0].keyword, 'required');
+    assertEquals(result[0].path, 'candidate_office');
     assertEquals(result[0].message, "must have required property 'candidate_office'");
   },
 });
@@ -64,6 +65,7 @@ Deno.test({
     delete testData.candidate_state;
     const result = validate(candidateContactSchema, testData);
     assertEquals(result[0].keyword, 'required');
+    assertEquals(result[0].path, 'candidate_state');
     assertEquals(result[0].message, "must have required property 'candidate_state'");
   },
 });
@@ -98,6 +100,7 @@ Deno.test({
     delete testData.candidate_state;
     const result = validate(candidateContactSchema, testData);
     assertEquals(result[0].keyword, 'required');
+    assertEquals(result[0].path, 'candidate_state');
     assertEquals(result[0].message, "must have required property 'candidate_state'");
   },
 });
@@ -123,6 +126,7 @@ Deno.test({
     delete testData.candidate_district;
     const result = validate(candidateContactSchema, testData);
     assertEquals(result[0].keyword, 'required');
+    assertEquals(result[0].path, 'candidate_district');
     assertEquals(result[0].message, "must have required property 'candidate_district'");
   },
 });

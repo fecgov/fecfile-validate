@@ -30,8 +30,7 @@ def get_schema(schema_name):
     Returns:
         dict: JSON schema that matches the schema_name"""
     schema_file = f"{schema_name}.json"
-    schema_path = os.path.join(os.path.dirname(__file__), "schema/",
-                               schema_file)
+    schema_path = os.path.join(os.path.dirname(__file__), "schema/", schema_file)
     #: Handle case where we are not running from a pip package
     if not os.path.isfile(schema_path):
         logger.warning(f"Schema file ({schema_path}) not found in package.")
@@ -63,7 +62,7 @@ def parse_schema_error(error):
     return ValidationError(error.message, path)
 
 
-def validate(schema_name, form_data):
+def validate(schema_name, form_data, fields_to_validate=None):
     """Wrapper function around jsonschema validator
 
     Args:
@@ -71,10 +70,20 @@ def validate(schema_name, form_data):
             JSON schema definition file
         data (dict): key-value pairs of data to be validated.
             Keys match the properties of the JSON schema file
+        fields_to_validate (list): list of property names to validate.
+            Properties from the schema not in this list will not be
+            validated on, even if they are required.
 
     Returns:
         list of ValidationError: A list of all errors found in form_data"""
     form_schema = get_schema(schema_name)
+
     validator = Draft7Validator(form_schema)
     errors = list(map(parse_schema_error, validator.iter_errors(form_data)))
+    if fields_to_validate:
+
+        def in_fields_to_validate(field):
+            return field.path in fields_to_validate
+
+        errors = list(filter(in_fields_to_validate, errors))
     return ValidationResult(errors, [])

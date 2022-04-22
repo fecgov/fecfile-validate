@@ -6,7 +6,7 @@
  * Tested with spec/index-spec.js
  */
 
-import Ajv, { ValidateFunction } from 'ajv';
+import Ajv, { ErrorObject, ValidateFunction } from 'ajv';
 
 /**
  * Validation error information for a single schema property
@@ -31,9 +31,10 @@ const ajv = new Ajv({ allErrors: true, strictSchema: false });
  *
  * @param {object} schema
  * @param {object} data
+ * @param {string[]} fieldsToValidate
  * @returns {ValidationError[]} Modified version of Ajv output, empty array if no errors found
  */
-export function validate(schema: any, data: any): ValidationError[] {
+export function validate(schema: any, data: any, fieldsToValidate: string[] = []): ValidationError[] {
   const theSchemaUrl = schema['$schema'];
   schema['$schema'] = theSchemaUrl.replace('https', 'http');
 
@@ -42,15 +43,27 @@ export function validate(schema: any, data: any): ValidationError[] {
   const errors: ValidationError[] = [];
 
   if (!isValid && !!validator.errors) {
-    validator.errors.forEach((err) => {
-      errors.push({
-        path: err.instancePath.substring(1),
-        keyword: err.keyword,
-        params: err.params,
-        message: !!err.message ? err.message : null,
-      });
+    validator.errors.forEach((error) => {
+      const parsedError = parseError(error)
+      if (!fieldsToValidate.length || fieldsToValidate.includes(parsedError.path)){
+        errors.push(parsedError);
+      }
     });
   }
 
   return errors;
 }
+
+function parseError(error: ErrorObject): ValidationError {
+  let path = error.instancePath.substring(1)
+  if (error.keyword == "required") {
+    path = error.params.missingProperty;
+  }
+  return {
+    path: path,
+    keyword: error.keyword,
+    params: error.params,
+    message: !!error.message ? error.message : null,
+  }
+}
+

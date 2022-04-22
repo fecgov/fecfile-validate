@@ -14,6 +14,7 @@ local_settings.py
 */CACHE
 */package-lock.json
 *.editorconfig
+cov_profile/*
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # compiled output
@@ -22,7 +23,8 @@ local_settings.py
 /out-tsc
 
 # dependencies
-*/node_modules
+fecfile_validate_js/node_modules/*
+node_modules/*
 
 # IDEs and editors
 *.idea
