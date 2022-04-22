@@ -31,9 +31,10 @@ const ajv = new Ajv({ allErrors: true, strictSchema: false });
  *
  * @param {object} schema
  * @param {object} data
+ * @param {string[]} fieldsToValidate
  * @returns {ValidationError[]} Modified version of Ajv output, empty array if no errors found
  */
-export function validate(schema: any, data: any): ValidationError[] {
+export function validate(schema: any, data: any, fieldsToValidate: string[] = []): ValidationError[] {
   const theSchemaUrl = schema['$schema'];
   schema['$schema'] = theSchemaUrl.replace('https', 'http');
 
@@ -54,3 +55,4 @@ export function validate(schema: any, data: any): ValidationError[] {
 
   return errors;
 }
+

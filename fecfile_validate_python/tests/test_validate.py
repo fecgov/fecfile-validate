@@ -99,7 +99,7 @@ of the passed schema"""
 
 def test_partial_validate_is_correct(sample_f3x):
     fields_to_validate = ["form_type"]
-    """Even though we remove date_signed, the validation should pass"""
+    # Even though we remove date_signed, the validation should pass
     sample_f3x.pop("date_signed", None)
     validation_result = validate.validate("F3X", sample_f3x, fields_to_validate)
     assert validation_result.errors == []

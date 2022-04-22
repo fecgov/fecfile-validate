@@ -70,13 +70,15 @@ def validate(schema_name, form_data, fields_to_validate=None):
             JSON schema definition file
         data (dict): key-value pairs of data to be validated.
             Keys match the properties of the JSON schema file
-        fields_to_validate (array):
+        fields_to_validate (list): list of property names to validate.
+            Properties from the schema not in this list will not be
+            validated on, even if they are required.
 
     Returns:
         list of ValidationError: A list of all errors found in form_data"""
     form_schema = get_schema(schema_name)
     if fields_to_validate:
-        schema_of_fields = {
+        form_schema = {
             "type": "object",
             "required": list(
                 filter(
@@ -91,12 +93,7 @@ def validate(schema_name, form_data, fields_to_validate=None):
                 )
             ),
         }
-        errors = __validate_with_schema(schema_of_fields, form_data)
-    else:
-        errors = __validate_with_schema(form_schema, form_data)
+
+    validator = Draft7Validator(form_schema)
+    errors = list(map(parse_schema_error, validator.iter_errors(form_data)))
     return ValidationResult(errors, [])
-
-
-def __validate_with_schema(schema, form_data):
-    validator = Draft7Validator(schema)
-    return list(map(parse_schema_error, validator.iter_errors(form_data)))
