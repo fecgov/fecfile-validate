@@ -35,6 +35,8 @@ is missing a value, the validation passes but with a warning issued about the mi
 
 # Deployment (FEC team only)
 
+*Special Note:* The requirements.txt field in the fecfile-web-api repo must be updated with the most recent commit hash for the commit changes to be pulled into the api build by CircleCI.
+
 ### Create a feature branch
 
 Using git-flow extensions:
