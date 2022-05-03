@@ -29,7 +29,6 @@
         "form_type": {
             "title": "FORM TYPE",
             "description": "",
-            "type": "string",
             "enum": ["F3XN", "F3XA", "F3XT"],
             "examples": ["F3XN"],
             "fec_spec": {
@@ -84,7 +83,7 @@
         "change_of_address": {
             "title": "CHANGE OF ADDRESS",
             "description": "",
-            "type": ["boolean", "null"],
+            "enum": ["X"],
             "examples": ["X"],
             "fec_spec": {
                 "COL_SEQ": 4,
@@ -306,7 +305,7 @@
         "qualified_committee": {
             "title": "QUALIFIED COMMITTEE",
             "description": "",
-            "type": ["boolean", "null"],
+            "enum": ["X"],
             "examples": ["X"],
             "fec_spec": {
                 "COL_SEQ": 16,
