@@ -177,7 +177,7 @@
             "type": ["string", "null"],
             "minLength": 5,
             "maxLength": 9,
-            "pattern": "^[ -~]{4})?$",
+            "pattern": "^[ -~]{0,9}$",
             "examples": [33034],
             "fec_spec": {
                 "COL_SEQ": 9,
