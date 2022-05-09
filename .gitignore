@@ -68,3 +68,4 @@ Thumbs.db
 fecfile_validate_python/schema/*
 fecfile_validate_python/src/fecfile_validate/schema/*
 
+node_modules
