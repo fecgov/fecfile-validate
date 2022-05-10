@@ -1,4 +1,4 @@
-import { assertEquals } from 'https://deno.land/std@0.133.0/testing/asserts.ts';
+import { assertEquals } from 'https://deno.land/std/testing/asserts.ts';
 import { validate } from '../dist/index.js';
 import { schema as f3xSchema } from '../dist/F3X.js';
 
@@ -43,6 +43,7 @@ Deno.test({
     delete thisData.form_type;
     const result = validate(f3xSchema, thisData);
     assertEquals(result[0].keyword, 'required');
+    assertEquals(result[0].path, 'form_type');
     assertEquals(result[0].params.missingProperty, 'form_type');
   },
 });
@@ -109,6 +110,7 @@ Deno.test({
     delete thisData.filer_committee_id_number;
     const result = validate(f3xSchema, thisData);
     assertEquals(result[0].keyword, 'required');
+    assertEquals(result[0].path, 'filer_committee_id_number');
     assertEquals(result[0].params.missingProperty, 'filer_committee_id_number');
   },
 });
@@ -151,6 +153,7 @@ Deno.test({
     delete thisData.treasurer_first_name;
     const result = validate(f3xSchema, thisData);
     assertEquals(result[0].keyword, 'required');
+    assertEquals(result[0].path, 'treasurer_first_name');
     assertEquals(result[0].params.missingProperty, 'treasurer_first_name');
   },
 });
@@ -173,6 +176,7 @@ Deno.test({
     delete thisData.treasurer_last_name;
     const result = validate(f3xSchema, thisData);
     assertEquals(result[0].keyword, 'required');
+    assertEquals(result[0].path, 'treasurer_last_name');
     assertEquals(result[0].params.missingProperty, 'treasurer_last_name');
   },
 });
@@ -195,6 +199,33 @@ Deno.test({
     delete thisData.date_signed;
     const result = validate(f3xSchema, thisData);
     assertEquals(result[0].keyword, 'required');
+    assertEquals(result[0].path, 'date_signed');
     assertEquals(result[0].params.missingProperty, 'date_signed');
+  },
+});
+
+
+Deno.test({
+  name: 'it should pass with perfect partial data',
+  fn: () => {
+    const thisData = { ...perfectForm_F3X};
+    const fieldsToValidate = ['form_type'];
+    // Should still succeed without date_signed because we are only testing form_type
+    delete thisData.date_signed;
+    const result = validate(f3xSchema, perfectForm_F3X, fieldsToValidate);
+    assertEquals(result, []);
+  },
+});
+
+Deno.test({
+  name: 'it should fail without form_type',
+  fn: () => {
+    const thisData = { ...perfectForm_F3X };
+    const fieldsToValidate = ['form_type'];
+    delete thisData.form_type;
+    const result = validate(f3xSchema, thisData, fieldsToValidate);
+    assertEquals(result[0].keyword, 'required');
+    assertEquals(result[0].path, 'form_type');
+    assertEquals(result[0].params.missingProperty, 'form_type');
   },
 });
