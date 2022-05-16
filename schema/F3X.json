@@ -83,7 +83,7 @@
         "change_of_address": {
             "title": "CHANGE OF ADDRESS",
             "description": "",
-            "enum": ["X", null],
+            "type": ["boolean", "null"],
             "examples": ["X"],
             "fec_spec": {
                 "COL_SEQ": 4,
@@ -305,7 +305,7 @@
         "qualified_committee": {
             "title": "QUALIFIED COMMITTEE",
             "description": "",
-            "enum": ["X", null],
+            "type": ["boolean", "null"],
             "examples": ["X"],
             "fec_spec": {
                 "COL_SEQ": 16,
