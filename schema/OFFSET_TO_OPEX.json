@@ -64,8 +64,8 @@
             "description": "",
             "type": "string",
             "minLength": 0,
-            "maxLength": 12,
-            "pattern": "^[ A-Za-z0-9]{0,12}$",
+            "maxLength": 20,
+            "pattern": "^[_A-Za-z0-9]{0,20}$",
             "examples": ["OFFSET"],
             "fec_spec": {
                 "COL_SEQ": 3,
@@ -365,9 +365,10 @@
         "contribution_date": {
             "title": "CONTRIBUTION DATE",
             "description": "",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 99999999,
+            "type": ["string", "null"],
+            "minLength": 8,
+            "maxLength": 8,
+            "pattern": "^\\d{8}$",
             "examples": [20120615],
             "fec_spec": {
                 "COL_SEQ": 21,
