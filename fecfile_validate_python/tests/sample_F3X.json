@@ -5,5 +5,5 @@
     "treasurer_last_name": "Smith",
     "treasurer_first_name": "Patrick",
     "date_signed": "20040729",
-    "change_of_address": "X"
+    "change_of_address": true
 }

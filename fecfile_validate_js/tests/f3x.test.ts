@@ -204,11 +204,10 @@ Deno.test({
   },
 });
 
-
 Deno.test({
   name: 'it should pass with perfect partial data',
   fn: () => {
-    const thisData = { ...perfectForm_F3X};
+    const thisData = { ...perfectForm_F3X };
     const fieldsToValidate = ['form_type'];
     // Should still succeed without date_signed because we are only testing form_type
     delete thisData.date_signed;
@@ -227,5 +226,17 @@ Deno.test({
     assertEquals(result[0].keyword, 'required');
     assertEquals(result[0].path, 'form_type');
     assertEquals(result[0].params.missingProperty, 'form_type');
+  },
+});
+
+Deno.test({
+  name: 'it should fail with bad change_of_address',
+  fn: () => {
+    const thisData = { ...perfectForm_F3X, ...{ change_of_address: 'A' } };
+    const fieldsToValidate = ['change_of_address'];
+    const result = validate(f3xSchema, thisData, fieldsToValidate);
+    assertEquals(result[0].keyword, 'type');
+    assertEquals(result[0].path, 'change_of_address');
+    assertEquals(result[0].message, 'must be boolean,null');
   },
 });
