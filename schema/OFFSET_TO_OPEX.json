@@ -365,7 +365,7 @@
         "contribution_date": {
             "title": "CONTRIBUTION DATE",
             "description": "",
-            "type": ["string", "null"],
+            "type": "string",
             "minLength": 8,
             "maxLength": 8,
             "pattern": "^\\d{8}$",
