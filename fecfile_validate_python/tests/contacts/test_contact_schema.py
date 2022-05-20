@@ -99,3 +99,37 @@ def test_committee_id_format(sample_com_contact):
         validation_result.errors[0].message
         == "'123ABCDEF' does not match '^C[0-9]{8}$'"
     )
+
+
+def test_candidate_id_format(sample_can_contact):
+    # Make sure our committee contact schema is valid
+    validation_result = validate.validate("Contact_Candidate", sample_can_contact)
+    assert validation_result.errors == []
+
+    # Presidential format
+    sample_can_contact["candidate_id"] = "P12345678"
+    validation_result = validate.validate("Contact_Candidate", sample_can_contact)
+    assert validation_result.errors == []
+
+    # Senate format
+    sample_can_contact["candidate_id"] = "S0VA12345"
+    validation_result = validate.validate("Contact_Candidate", sample_can_contact)
+    assert validation_result.errors == []
+
+    # Too short
+    sample_can_contact["candidate_id"] = "P123"
+    validation_result = validate.validate("Contact_Candidate", sample_can_contact)
+    assert validation_result.errors[0].path == "candidate_id"
+    assert (
+        validation_result.errors[0].message
+        == "'P123' does not match '^P[0-9]{8}$|^[H|S][0-9]{1}[A-Z]{2}[0-9]{5}$'"
+    )
+
+    # Wrong characters
+    sample_can_contact["candidate_id"] = "12345AB1"
+    validation_result = validate.validate("Contact_Candidate", sample_can_contact)
+    assert validation_result.errors[0].path == "candidate_id"
+    assert (
+        validation_result.errors[0].message
+        == "'12345AB1' does not match '^P[0-9]{8}$|^[H|S][0-9]{1}[A-Z]{2}[0-9]{5}$'"
+    )
