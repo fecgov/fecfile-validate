@@ -4,7 +4,7 @@ import { schema as candidateContactSchema } from '../dist/Contact_Candidate.js';
 
 const data: any = {
   type: 'CAN',
-  candidate_id: 'H01234567',
+  candidate_id: 'H0AZ12345',
   committee_id: 'C00601211',
   name: 'Gilbert Smith',
   last_name: 'Smith',
