@@ -386,10 +386,8 @@
             "title": "CONTRIBUTION DATE",
             "description": "",
             "type": ["string", "null"],
-            "minLength": 8,
-            "maxLength": 8,
-            "pattern": "^\\d{8}$",
-            "examples": [20120615],
+            "format": "date-time",
+            "examples": ["2018-11-13T20:20:39+00:00"],
             "fec_spec": {
                 "COL_SEQ": 20,
                 "FIELD_DESCRIPTION": "CONTRIBUTION DATE",

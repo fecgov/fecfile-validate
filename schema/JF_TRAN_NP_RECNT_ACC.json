@@ -305,12 +305,9 @@
     "contribution_date": {
       "title": "CONTRIBUTION DATE",
       "description": "",
-      "type": "integer",
-      "minimum": 0,
-      "maximum": 99999999,
-      "examples": [
-        20120615
-      ],
+      "type": "string",
+      "format": "date-time",
+      "examples": ["2018-11-13T20:20:39+00:00"],
       "fec_spec": {
         "COL_SEQ": 21,
         "FIELD_DESCRIPTION": "CONTRIBUTION DATE",
