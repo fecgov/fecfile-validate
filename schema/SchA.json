@@ -387,6 +387,7 @@
             "description": "",
             "type": ["string", "null"],
             "format": "date-time",
+            "minLength": 20,
             "examples": ["2018-11-13T20:20:39+00:00"],
             "fec_spec": {
                 "COL_SEQ": 20,

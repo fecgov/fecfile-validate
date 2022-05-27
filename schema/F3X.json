@@ -232,6 +232,7 @@
             "description": "",
             "type": ["string", "null"],
             "format": "date-time",
+            "minLength": 20,
             "examples": ["2018-11-13T20:20:39+00:00"],
             "fec_spec": {
                 "COL_SEQ": 12,
@@ -268,6 +269,7 @@
             "description": "",
             "type": ["string", "null"],
             "format": "date-time",
+            "minLength": 20,
             "examples": ["2018-11-13T20:20:39+00:00"],
             "fec_spec": {
                 "COL_SEQ": 14,
@@ -285,6 +287,7 @@
             "description": "",
             "type": ["string", "null"],
             "format": "date-time",
+            "minLength": 20,
             "examples": ["2018-11-13T20:20:39+00:00"],
             "fec_spec": {
                 "COL_SEQ": 15,
@@ -412,6 +415,7 @@
             "description": "",
             "type": "string",
             "format": "date-time",
+            "minLength": 20,
             "examples": ["2018-11-13T20:20:39+00:00"],
             "fec_spec": {
                 "COL_SEQ": 22,
