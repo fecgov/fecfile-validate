@@ -25,19 +25,16 @@
     "form_type": {
       "title": "FORM TYPE",
       "description": "",
-      "type": "string",
-      "minLength": 0,
-      "maxLength": 8,
-      "pattern": "^[ A-Za-z0-9]{0,8}$",
+      "const": "SA12",
       "examples": [
-        "SA11AI"
+        "SA12"
       ],
       "fec_spec": {
         "COL_SEQ": 1,
         "FIELD_DESCRIPTION": "FORM TYPE",
         "TYPE": "A/N-8",
         "REQUIRED": "X (error)",
-        "SAMPLE_DATA": "SA11AI",
+        "SAMPLE_DATA": "SA12",
         "VALUE_REFERENCE": "SA[line# ref]",
         "RULE_REFERENCE": null,
         "FIELD_FORM_ASSOCIATION": null
@@ -60,17 +57,14 @@
         "REQUIRED": "X (error)",
         "SAMPLE_DATA": "C00123456",
         "VALUE_REFERENCE": null,
-        "RULE_REFERENCE": null,
+        "RULE_REFERENCE": "this is the ID of the Committee Account the report/transaction is associated with",
         "FIELD_FORM_ASSOCIATION": null
       }
     },
     "transaction_type_identifier": {
       "title": "TRANSACTION TYPE IDENTIFIER",
       "description": "",
-      "type": "string",
-      "minLength": 0,
-      "maxLength": 12,
-      "pattern": "^[ A-Za-z0-9]{0,12}$",
+      "const": "JF_TRAN",
       "examples": [
         "JF_TRAN"
       ],
@@ -102,7 +96,7 @@
         "REQUIRED": "X (error)",
         "SAMPLE_DATA": "A56123456789-1234",
         "VALUE_REFERENCE": null,
-        "RULE_REFERENCE": "must be unique and UPPER CASE for the life of the report (original + all amendments)",
+        "RULE_REFERENCE": "Must be unique for the life of a report (original + amendments) within each committee account. Letters, if included, must be uppercase.",
         "FIELD_FORM_ASSOCIATION": null
       }
     },
@@ -157,21 +151,18 @@
     "entity_type": {
       "title": "ENTITY TYPE",
       "description": "",
-      "type": "string",
-      "minLength": 0,
-      "maxLength": 3,
-      "pattern": "^[ A-Za-z0-9]{0,3}$",
+      "const": "COM",
       "examples": [
-        "IND"
+        "COM"
       ],
       "fec_spec": {
         "COL_SEQ": 7,
         "FIELD_DESCRIPTION": "ENTITY TYPE",
         "TYPE": "A/N-3",
         "REQUIRED": "X (error)",
-        "SAMPLE_DATA": "IND",
-        "VALUE_REFERENCE": null,
-        "RULE_REFERENCE": null,
+        "SAMPLE_DATA": "COM",
+        "VALUE_REFERENCE": "COM only",
+        "RULE_REFERENCE": "[COM]",
         "FIELD_FORM_ASSOCIATION": null
       }
     },
@@ -362,23 +353,17 @@
       }
     },
     "contribution_purpose_descrip": {
-      "title": "RECEIPT DESCRIPTION",
+      "title": "CONTRIBUTION PURPOSE DESCRIPTION",
       "description": "",
-      "type": [
-        "string",
-        "null"
-      ],
-      "minLength": 0,
-      "maxLength": 100,
-      "pattern": "^[ A-Za-z0-9]{0,100}$",
+      "const": "Transfer of JF Proceeds",
       "fec_spec": {
         "COL_SEQ": 24,
-        "FIELD_DESCRIPTION": "RECEIPT DESCRIPTION",
+        "FIELD_DESCRIPTION": "CONTRIBUTION PURPOSE DESCRIPTION",
         "TYPE": "A/N-100",
         "REQUIRED": null,
-        "SAMPLE_DATA": null,
-        "VALUE_REFERENCE": null,
-        "RULE_REFERENCE": "JF Transfer",
+        "SAMPLE_DATA": "Transfer of JF Proceeds",
+        "VALUE_REFERENCE": "Transfer of JF Proceeds",
+        "RULE_REFERENCE": "Transfer of JF Proceeds",
         "FIELD_FORM_ASSOCIATION": null
       }
     },
@@ -399,7 +384,7 @@
         "REQUIRED": "Conditional Warning",
         "SAMPLE_DATA": null,
         "VALUE_REFERENCE": null,
-        "RULE_REFERENCE": null,
+        "RULE_REFERENCE": "Should populate with information from FEC database",
         "FIELD_FORM_ASSOCIATION": null
       }
     },
@@ -423,7 +408,7 @@
         "REQUIRED": "Conditional Warning",
         "SAMPLE_DATA": "Action PAC",
         "VALUE_REFERENCE": null,
-        "RULE_REFERENCE": null,
+        "RULE_REFERENCE": "Should populate with information from FEC database",
         "FIELD_FORM_ASSOCIATION": null
       }
     },

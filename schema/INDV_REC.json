@@ -63,17 +63,14 @@
         "REQUIRED": "X (error)",
         "SAMPLE_DATA": "C00123456",
         "VALUE_REFERENCE": null,
-        "RULE_REFERENCE": null,
+        "RULE_REFERENCE": "this is the ID of the Committee Account the report/transaction is associated with",
         "FIELD_FORM_ASSOCIATION": null
       }
     },
     "transaction_type_identifier": {
       "title": "TRANSACTION TYPE IDENTIFIER",
       "description": "",
-      "type": "string",
-      "minLength": 0,
-      "maxLength": 12,
-      "pattern": "^[ A-Za-z0-9]{0,12}$",
+      "const": "INV_REC",
       "examples": [
         "INDV_REC"
       ],
@@ -105,7 +102,7 @@
         "REQUIRED": "X (error)",
         "SAMPLE_DATA": "A56123456789-1234",
         "VALUE_REFERENCE": null,
-        "RULE_REFERENCE": "must be unique and UPPER CASE for the life of the report (original + all amendments)",
+        "RULE_REFERENCE": "Must be unique for the life of a report (original + amendments) within each committee account. Letters, if included, must be uppercase.",
         "FIELD_FORM_ASSOCIATION": null
       }
     },
@@ -160,10 +157,7 @@
     "entity_type": {
       "title": "ENTITY TYPE",
       "description": "",
-      "type": "string",
-      "minLength": 0,
-      "maxLength": 3,
-      "pattern": "^[ A-Za-z0-9]{0,3}$",
+      "const": "IND",
       "examples": [
         "IND"
       ],
@@ -173,7 +167,7 @@
         "TYPE": "A/N-3",
         "REQUIRED": "X (error)",
         "SAMPLE_DATA": "IND",
-        "VALUE_REFERENCE": "CAN - Candidate, CCM - Candidate Committee,  COM - Committee, IND - Individual (a person), ORG - Organization (not a committee and not a person), PAC - Political Action Committee, PTY - Party Organization",
+        "VALUE_REFERENCE": "IND only",
         "RULE_REFERENCE": null,
         "FIELD_FORM_ASSOCIATION": null
       }
@@ -458,7 +452,7 @@
       }
     },
     "contribution_purpose_descrip": {
-      "title": "RECEIPT DESCRIPTION",
+      "title": "CONTRIBUTION PURPOSE DESCRIPTION",
       "description": "",
       "type": [
         "string",
@@ -469,7 +463,7 @@
       "pattern": "^[ A-Za-z0-9]{0,100}$",
       "fec_spec": {
         "COL_SEQ": 24,
-        "FIELD_DESCRIPTION": "RECEIPT DESCRIPTION",
+        "FIELD_DESCRIPTION": "CONTRIBUTION PURPOSE DESCRIPTION",
         "TYPE": "A/N-100",
         "REQUIRED": null,
         "SAMPLE_DATA": null,

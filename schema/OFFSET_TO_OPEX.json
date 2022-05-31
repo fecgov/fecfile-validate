@@ -28,13 +28,13 @@
             "minLength": 0,
             "maxLength": 8,
             "pattern": "^[ A-Za-z0-9]{0,8}$",
-            "examples": ["SA11AI"],
+            "examples": ["SA15"],
             "fec_spec": {
                 "COL_SEQ": 1,
                 "FIELD_DESCRIPTION": "FORM TYPE",
                 "TYPE": "A/N-8",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "SA11AI",
+                "SAMPLE_DATA": "SA15",
                 "VALUE_REFERENCE": "SA[line# ref]",
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
@@ -62,17 +62,14 @@
         "transaction_type_identifier": {
             "title": "TRANSACTION TYPE IDENTIFIER",
             "description": "",
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 20,
-            "pattern": "^[_A-Za-z0-9]{0,20}$",
-            "examples": ["OFFSET"],
+            "const": "OFFSET_TO_OPEX",
+            "examples": ["OFFSET_TO_OPEX"],
             "fec_spec": {
                 "COL_SEQ": 3,
                 "FIELD_DESCRIPTION": "TRANSACTION TYPE IDENTIFIER",
                 "TYPE": "A/N-12",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "OFFSET",
+                "SAMPLE_DATA": "OFFSET_TO_OPEX",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
@@ -93,7 +90,7 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "A56123456789-1234",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "must be unique and UPPER CASE for the life of the report (original + all amendments)",
+                "RULE_REFERENCE": "Must be unique for the life of a report (original + amendments) within each committee account. Letters, if included, must be uppercase.",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -138,19 +135,16 @@
         "entity_type": {
             "title": "ENTITY TYPE",
             "description": "",
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 3,
-            "pattern": "^[ A-Za-z0-9]{0,3}$",
-            "examples": ["IND"],
+            "enum": ["IND","ORG","COM"],
+            "examples": ["IND","ORG","COM"],
             "fec_spec": {
                 "COL_SEQ": 7,
                 "FIELD_DESCRIPTION": "ENTITY TYPE",
                 "TYPE": "A/N-3",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "IND",
-                "VALUE_REFERENCE": "CAN,CCM,...",
-                "RULE_REFERENCE": "[CAN|CCM|COM|IND|ORG|PAC|PTY]",
+                "VALUE_REFERENCE": "IND, ORG, COM",
+                "RULE_REFERENCE": "[IND|ORG|COM]",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -169,7 +163,7 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "John Smith & Co.",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Required if NOT [IND|CAN]",
+                "RULE_REFERENCE": "Required if [ORG|COM]",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -188,7 +182,7 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "Smith",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Required if [IND|CAN]",
+                "RULE_REFERENCE": "Required if [IND]",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -207,7 +201,7 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "John",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Required if [IND|CAN]",
+                "RULE_REFERENCE": "Required if [IND]",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -226,7 +220,7 @@
                 "REQUIRED": null,
                 "SAMPLE_DATA": "W",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Optional if [IND|CAN]",
+                "RULE_REFERENCE": "Optional if [IND]",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -245,7 +239,7 @@
                 "REQUIRED": null,
                 "SAMPLE_DATA": "Dr",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Optional if [IND|CAN]",
+                "RULE_REFERENCE": "Optional if [IND]",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -264,7 +258,7 @@
                 "REQUIRED": null,
                 "SAMPLE_DATA": "Jr",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Optional if [IND|CAN]",
+                "RULE_REFERENCE": "Optional if [IND]",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -418,7 +412,7 @@
             }
         },
         "contribution_purpose_descrip": {
-            "title": "RECEIPT DESCRIPTION",
+            "title": "CONTRIBUTION PURPOSE DESCRIPTION",
             "description": "",
             "type": ["string", "null"],
             "minLength": 0,
@@ -426,12 +420,12 @@
             "pattern": "^[ A-Za-z0-9]{0,100}$",
             "fec_spec": {
                 "COL_SEQ": 24,
-                "FIELD_DESCRIPTION": "RECEIPT DESCRIPTION",
+                "FIELD_DESCRIPTION": "CONTRIBUTION PURPOSE DESCRIPTION",
                 "TYPE": "A/N-100",
                 "REQUIRED": null,
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
+                "RULE_REFERENCE": "Must remain editable to end user, but no auto-population",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
