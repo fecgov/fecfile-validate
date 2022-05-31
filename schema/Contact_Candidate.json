@@ -43,8 +43,12 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 9,
-            "pattern": "^[ A-Za-z0-9]{0,9}$",
-            "examples": ["H01234567"],
+            "pattern": "^P[0-9]{8}$|^[H|S][0-9]{1}[A-Z]{2}[0-9]{5}$",
+            "examples": [
+                "P01234567",
+                "H0MD12345",
+                "S0MD12345"
+            ],
             "fec_spec": {
                 "COL_SEQ": 2,
                 "FIELD_DESCRIPTION": "CANDIDATE ID",
