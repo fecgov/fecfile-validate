@@ -473,7 +473,10 @@
         {
             "if": {
                 "properties": {
-                    "entity_type": { "pattern": "^(ORG|COM)$" }
+                    "entity_type": {
+                        "type": "string",
+                        "pattern": "^(ORG|COM)$"
+                    }
                 },
                 "required": ["entity_type"]
             },
@@ -485,7 +488,10 @@
         {
             "if": {
                 "properties": {
-                    "entity_type": { "pattern": "^(IND|CAN)$" }
+                    "entity_type": {
+                        "type": "string",
+                        "pattern": "^(IND|CAN)$"
+                    }
                 },
                 "required": ["entity_type"]
             },
