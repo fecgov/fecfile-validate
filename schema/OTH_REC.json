@@ -166,7 +166,7 @@
         "REQUIRED": "X (error)",
         "SAMPLE_DATA": "IND",
         "VALUE_REFERENCE": "IND, ORG",
-        "RULE_REFERENCE": "[IND|ORG|COM]",
+        "RULE_REFERENCE": "[IND|ORG]",
         "FIELD_FORM_ASSOCIATION": null
       }
     },
@@ -187,7 +187,7 @@
         "REQUIRED": "X (error)",
         "SAMPLE_DATA": "John Smith & Co.",
         "VALUE_REFERENCE": null,
-        "RULE_REFERENCE": "Required if [ORG|COM]",
+        "RULE_REFERENCE": "Required if [ORG]",
         "FIELD_FORM_ASSOCIATION": null
       }
     },
