@@ -155,7 +155,7 @@
     "entity_type": {
       "title": "ENTITY TYPE",
       "description": "",
-      "enum": ["IND","ORG","COM"],
+      "enum": ["IND","ORG"],
       "examples": [
         "IND"
       ],
