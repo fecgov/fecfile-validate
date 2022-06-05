@@ -11,9 +11,6 @@
     "transaction_type_identifier",
     "transaction_id",
     "entity_type",
-    "contributor_organization_name",
-    "contributor_last_name",
-    "contributor_first_name",
     "contributor_street_1",
     "contributor_city",
     "contributor_state",
@@ -151,7 +148,7 @@
     "contributor_organization_name": {
       "title": "CONTRIBUTOR ORGANIZATION NAME",
       "description": "",
-      "type": "string",
+      "type": ["string", "null"],
       "minLength": 0,
       "maxLength": 200,
       "pattern": "^[ A-Za-z0-9]{0,200}$",
@@ -170,7 +167,7 @@
     "contributor_last_name": {
       "title": "CONTRIBUTOR LAST NAME",
       "description": "",
-      "type": "string",
+      "type": ["string", "null"],
       "minLength": 0,
       "maxLength": 30,
       "pattern": "^[ A-Za-z0-9]{0,30}$",
@@ -189,7 +186,7 @@
     "contributor_first_name": {
       "title": "CONTRIBUTOR FIRST NAME",
       "description": "",
-      "type": "string",
+      "type": ["string", "null"],
       "minLength": 0,
       "maxLength": 20,
       "pattern": "^[ A-Za-z0-9]{0,20}$",
@@ -505,18 +502,52 @@
     {
       "if": {
         "properties": {
+          "entity_type": {
+            "const": "IND"
+          },
           "contribution_aggregate": {
             "type": "number",
             "minimum": 200.01
           }
         },
-        "required": ["contribution_aggregate"]
+        "required": ["entity_type", "contribution_aggregate"]
       },
       "then": {
         "required": ["contributor_employer", "contributor_occupation"],
         "properties": {
           "contributor_employer": { "type": "string" },
           "contributor_occupation": { "type": "string" }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "entity_type": {
+            "enum": ["ORG", "COM"]
+          }
+        },
+        "required": ["entity_type"]
+      },
+      "then": {
+        "required": ["contributor_organization_name"],
+        "properties": { "contributor_organization_name": { "type": "string" } }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "entity_type": {
+            "const": "IND"
+          }
+        },
+        "required": ["entity_type"]
+      },
+      "then": {
+        "required": ["contributor_first_name", "contributor_last_name"],
+        "properties": {
+          "contributor_first_name": { "type": "string" },
+          "contributor_last_name": { "type": "string" }
         }
       }
     }
