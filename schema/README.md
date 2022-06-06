@@ -12,13 +12,21 @@ can not be captured using the standard, legacy spec information, and descriptive
 meta-data.
 
 **Custom Property Attributes**
+
 - fec_spec: Contains the property spec information captured in the original spec FEC spreadsheets
 - fec_recommended: Fields that are not required and will prohibit submission of a form but are recommended, raising a warning if missing
+
+### Data Dictionary
+
+To generate the data dictionary located in the /docs directory:
+
+1. cd into the /schema directory
+2. run the command: ../bin/generate_schema_docs.sh
 
 ### Schema Backlog
 
 This directory contains the original output of the bin/generate-starter-schema.py
-script. The output *.json files in this directory are parsed from the following
+script. The output \*.json files in this directory are parsed from the following
 files also contained in this directory:
 
 - FEC_Format_v8.3.0.1.xlsx
