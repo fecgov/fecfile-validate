@@ -50,16 +50,22 @@ for p in data['properties']:
     validation_rules = '<ul>'
 
     if 'allOf' in data:
-        for allOf in data['allOf']:
-            if p in allOf['then']['required']:
+        for all_of in data['allOf']:
+            if p in all_of['then']['required']:
                 conditions = []
-                for q in allOf['if']['properties']:
-                    if 'const' in allOf['if']['properties'][q]:
-                        conditions.append(f"{q.upper()} equals {allOf['if']['properties'][q]['const']}")
-                    if 'enum' in allOf['if']['properties'][q]:
-                        conditions.append(f"{q.upper()} one of {allOf['if']['properties'][q]['enum']}")
-                    if 'minimum' in allOf['if']['properties'][q]:
-                        conditions.append(f"{q.upper()} >= {allOf['if']['properties'][q]['minimum']}")
+                for q in all_of['if']['properties']:
+                    if 'const' in all_of['if']['properties'][q]:
+                        conditions.append(
+                            f"{q.upper()} equals "
+                            f"{all_of['if']['properties'][q]['const']}")
+                    if 'enum' in all_of['if']['properties'][q]:
+                        conditions.append(
+                            f"{q.upper()} one of "
+                            f"{all_of['if']['properties'][q]['enum']}")
+                    if 'minimum' in all_of['if']['properties'][q]:
+                        conditions.append(
+                            f"{q.upper()} >= "
+                            f"{all_of['if']['properties'][q]['minimum']}")
                 validation_rules += f"<li>REQUIRED if {' & '.join(conditions)}</li>"
 
     if p in data['required']:
