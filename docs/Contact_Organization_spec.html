@@ -1,114 +1,111 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Contact_Organization</title>
-    <link rel="stylesheet" href="spec_table.css" />
-  </head>
-  <body>
-    <table>
-      <caption>
-        Specification for Contact_Organization
-      </caption>
-      <tr>
-        <th>COL SEQ</th>
-        <th>FIELD DESCRIPTION</th>
-        <th>TYPE</th>
-        <th>REQUIRED</th>
-        <th>SAMPLE DATA</th>
-        <th>VALUE REFERENCE</th>
-        <th>RULE REFERENCE</th>
-        <th>FIELD FORM ASSOCIATION</th>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td>TYPE</td>
-        <td>Dropdown</td>
-        <td>X (error)</td>
-        <td>Individual Committee Organization Candidate</td>
-        <td></td>
-        <td>Required if NOT [IND|CAN]</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>8</td>
-        <td>NAME</td>
-        <td>A/N-200</td>
-        <td>X (error)</td>
-        <td>John Smith & Co.</td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>14</td>
-        <td>STREET 1</td>
-        <td>A/N-34</td>
-        <td>X (error)</td>
-        <td>123 Main Street</td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>15</td>
-        <td>STREET 2</td>
-        <td>A/N-34</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>16</td>
-        <td>CITY</td>
-        <td>A/N-30</td>
-        <td>X (error)</td>
-        <td>Anytown</td>
-        <td>AK,AL,...,ZZ</td>
-        <td>Edit: ST. Default to ZZ if Country DNE US</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>17</td>
-        <td>STATE</td>
-        <td>A/N-2</td>
-        <td>X (error)</td>
-        <td>WA</td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>18</td>
-        <td>ZIP</td>
-        <td>A/N-9</td>
-        <td>X (error)</td>
-        <td>981110123</td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>12</td>
-        <td>TELEPHONE</td>
-        <td>N-10</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td>COUNTRY</td>
-        <td>Dropdown</td>
-        <td>X (error)</td>
-        <td></td>
-        <td></td>
-        <td>Should default to United States</td>
-        <td></td>
-      </tr>
-    </table>
-  </body>
-</html>
+<!DOCTYPE html><html lang="en"><head><title>Contact_Organization</title><link rel="stylesheet" href="spec_table.css"></head><body><table><caption>Specification for Contact_Organization</caption><tr>
+<th>COL SEQ</th>
+<th>FIELD DESCRIPTION</th>
+<th>TYPE</th>
+<th>REQUIRED</th>
+<th>SAMPLE DATA</th>
+<th>VALUE REFERENCE</th>
+<th>RULE REFERENCE</th>
+<th>FIELD FORM ASSOCIATION</th>
+<th>VALIDATION RULES</th>
+</tr>
+<tr>
+<td>1</td>
+<td>TYPE</td>
+<td>Dropdown</td>
+<td>X (error)</td>
+<td>Individual Committee Organization Candidate</td>
+<td></td>
+<td>Required if NOT [IND|CAN]</td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>must equal: ORG</li></td>
+</tr>
+<tr>
+<td>8</td>
+<td>NAME</td>
+<td>A/N-200</td>
+<td>X (error)</td>
+<td>John Smith & Co.</td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 200</li><li>regex: ^[ A-Za-z0-9]{0,200}$</li></td>
+</tr>
+<tr>
+<td>14</td>
+<td>STREET  1</td>
+<td>A/N-34</td>
+<td>X (error)</td>
+<td>123 Main Street</td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 34</li><li>regex: ^[ A-Za-z0-9]{0,34}$</li></td>
+</tr>
+<tr>
+<td>15</td>
+<td>STREET  2</td>
+<td>A/N-34</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 34</li><li>regex: ^[ A-Za-z0-9]{0,34}$</li></td>
+</tr>
+<tr>
+<td>16</td>
+<td>CITY</td>
+<td>A/N-30</td>
+<td>X (error)</td>
+<td>Anytown</td>
+<td>AK,AL,...,ZZ</td>
+<td>Edit: ST. Default to ZZ if Country DNE US</td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 30</li><li>regex: ^[ A-Za-z0-9]{0,30}$</li></td>
+</tr>
+<tr>
+<td>17</td>
+<td>STATE</td>
+<td>A/N-2</td>
+<td>X (error)</td>
+<td>WA</td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 2</li><li>regex: ^[ A-Za-z0-9]{0,2}$</li></td>
+</tr>
+<tr>
+<td>18</td>
+<td>ZIP</td>
+<td>A/N-9</td>
+<td>X (error)</td>
+<td>981110123</td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 9</li><li>regex: ^[ A-Za-z0-9]{0,9}$</li></td>
+</tr>
+<tr>
+<td>12</td>
+<td>TELEPHONE</td>
+<td>N-10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 10</li><li>regex: ^\d{10}$</li></td>
+</tr>
+<tr>
+<td></td>
+<td>COUNTRY</td>
+<td>Dropdown</td>
+<td>X (error)</td>
+<td></td>
+<td></td>
+<td>Should default to United States</td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: string</li></td>
+</tr>
+</table></body></html>

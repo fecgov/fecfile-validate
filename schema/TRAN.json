@@ -18,26 +18,23 @@
     "contributor_zip",
     "contribution_date",
     "contribution_amount",
-    "contribution_aggregate"
+    "contribution_aggregate",
+    "donor_committee_fec_id",
+    "donor_committee_name"
   ],
   "fec_recommended": [],
   "properties": {
     "form_type": {
       "title": "FORM TYPE",
       "description": "",
-      "type": "string",
-      "minLength": 0,
-      "maxLength": 8,
-      "pattern": "^[ A-Za-z0-9]{0,8}$",
-      "examples": [
-        "SA11AI"
-      ],
+      "const": "SA12",
+      "examples": ["SA12"],
       "fec_spec": {
         "COL_SEQ": 1,
         "FIELD_DESCRIPTION": "FORM TYPE",
         "TYPE": "A/N-8",
         "REQUIRED": "X (error)",
-        "SAMPLE_DATA": "SA11AI",
+        "SAMPLE_DATA": "SA12",
         "VALUE_REFERENCE": "SA[line# ref]",
         "RULE_REFERENCE": null,
         "FIELD_FORM_ASSOCIATION": null
@@ -50,9 +47,7 @@
       "minLength": 0,
       "maxLength": 9,
       "pattern": "^[ A-Za-z0-9]{0,9}$",
-      "examples": [
-        "C00123456"
-      ],
+      "examples": ["C00123456"],
       "fec_spec": {
         "COL_SEQ": 2,
         "FIELD_DESCRIPTION": "FILER COMMITTEE ID NUMBER",
@@ -60,20 +55,15 @@
         "REQUIRED": "X (error)",
         "SAMPLE_DATA": "C00123456",
         "VALUE_REFERENCE": null,
-        "RULE_REFERENCE": null,
+        "RULE_REFERENCE": "this is the ID of the Committee Account the report/transaction is associated with",
         "FIELD_FORM_ASSOCIATION": null
       }
     },
     "transaction_type_identifier": {
       "title": "TRANSACTION TYPE IDENTIFIER",
       "description": "",
-      "type": "string",
-      "minLength": 0,
-      "maxLength": 12,
-      "pattern": "^[ A-Za-z0-9]{0,12}$",
-      "examples": [
-        "TRAN"
-      ],
+      "const": "TRAN",
+      "examples": ["TRAN"],
       "fec_spec": {
         "COL_SEQ": 3,
         "FIELD_DESCRIPTION": "TRANSACTION TYPE IDENTIFIER",
@@ -92,9 +82,7 @@
       "minLength": 0,
       "maxLength": 20,
       "pattern": "^[ A-Za-z0-9]{0,20}$",
-      "examples": [
-        "A56123456789-1234"
-      ],
+      "examples": ["A56123456789-1234"],
       "fec_spec": {
         "COL_SEQ": 4,
         "FIELD_DESCRIPTION": "TRANSACTION ID",
@@ -102,23 +90,18 @@
         "REQUIRED": "X (error)",
         "SAMPLE_DATA": "A56123456789-1234",
         "VALUE_REFERENCE": null,
-        "RULE_REFERENCE": "must be unique and UPPER CASE for the life of the report (original + all amendments)",
+        "RULE_REFERENCE": "Must be unique for the life of a report (original + amendments) within each committee account. Letters, if included, must be uppercase.",
         "FIELD_FORM_ASSOCIATION": null
       }
     },
     "back_reference_tran_id_number": {
       "title": "BACK REFERENCE TRAN ID NUMBER",
       "description": "",
-      "type": [
-        "string",
-        "null"
-      ],
+      "type": ["string", "null"],
       "minLength": 0,
       "maxLength": 20,
       "pattern": "^[ A-Za-z0-9]{0,20}$",
-      "examples": [
-        "A123456789-1234"
-      ],
+      "examples": ["A123456789-1234"],
       "fec_spec": {
         "COL_SEQ": 5,
         "FIELD_DESCRIPTION": "BACK REFERENCE TRAN ID NUMBER",
@@ -133,16 +116,11 @@
     "back_reference_sched_name": {
       "title": "BACK REFERENCE SCHED NAME",
       "description": "",
-      "type": [
-        "string",
-        "null"
-      ],
+      "type": ["string", "null"],
       "minLength": 0,
       "maxLength": 8,
       "pattern": "^[ A-Za-z0-9]{0,8}$",
-      "examples": [
-        "SA11AI"
-      ],
+      "examples": ["SA11AI"],
       "fec_spec": {
         "COL_SEQ": 6,
         "FIELD_DESCRIPTION": "BACK REFERENCE SCHED NAME",
@@ -157,21 +135,16 @@
     "entity_type": {
       "title": "ENTITY TYPE",
       "description": "",
-      "type": "string",
-      "minLength": 0,
-      "maxLength": 3,
-      "pattern": "^[ A-Za-z0-9]{0,3}$",
-      "examples": [
-        "IND"
-      ],
+      "const": "COM",
+      "examples": ["COM"],
       "fec_spec": {
         "COL_SEQ": 7,
         "FIELD_DESCRIPTION": "ENTITY TYPE",
         "TYPE": "A/N-3",
         "REQUIRED": "X (error)",
-        "SAMPLE_DATA": "IND",
-        "VALUE_REFERENCE": null,
-        "RULE_REFERENCE": null,
+        "SAMPLE_DATA": "COM",
+        "VALUE_REFERENCE": "COM only",
+        "RULE_REFERENCE": "[COM]",
         "FIELD_FORM_ASSOCIATION": null
       }
     },
@@ -182,9 +155,7 @@
       "minLength": 0,
       "maxLength": 200,
       "pattern": "^[ A-Za-z0-9]{0,200}$",
-      "examples": [
-        "John Smith & Co."
-      ],
+      "examples": ["John Smith & Co."],
       "fec_spec": {
         "COL_SEQ": 8,
         "FIELD_DESCRIPTION": "CONTRIBUTOR ORGANIZATION",
@@ -203,9 +174,7 @@
       "minLength": 0,
       "maxLength": 34,
       "pattern": "^[ A-Za-z0-9]{0,34}$",
-      "examples": [
-        "123 Main Street"
-      ],
+      "examples": ["123 Main Street"],
       "fec_spec": {
         "COL_SEQ": 14,
         "FIELD_DESCRIPTION": "CONTRIBUTOR STREET  1",
@@ -220,10 +189,7 @@
     "contributor_street_2": {
       "title": "CONTRIBUTOR STREET  2",
       "description": "",
-      "type": [
-        "string",
-        "null"
-      ],
+      "type": ["string", "null"],
       "minLength": 0,
       "maxLength": 34,
       "pattern": "^[ A-Za-z0-9]{0,34}$",
@@ -245,9 +211,7 @@
       "minLength": 0,
       "maxLength": 30,
       "pattern": "^[ A-Za-z0-9]{0,30}$",
-      "examples": [
-        "Anytown"
-      ],
+      "examples": ["Anytown"],
       "fec_spec": {
         "COL_SEQ": 16,
         "FIELD_DESCRIPTION": "CONTRIBUTOR CITY",
@@ -266,9 +230,7 @@
       "minLength": 0,
       "maxLength": 2,
       "pattern": "^[ A-Za-z0-9]{0,2}$",
-      "examples": [
-        "WA"
-      ],
+      "examples": ["WA"],
       "fec_spec": {
         "COL_SEQ": 17,
         "FIELD_DESCRIPTION": "CONTRIBUTOR STATE",
@@ -287,9 +249,7 @@
       "minLength": 0,
       "maxLength": 9,
       "pattern": "^[ A-Za-z0-9]{0,9}$",
-      "examples": [
-        981110123
-      ],
+      "examples": [981110123],
       "fec_spec": {
         "COL_SEQ": 18,
         "FIELD_DESCRIPTION": "CONTRIBUTOR ZIP",
@@ -324,9 +284,7 @@
       "type": "number",
       "minimum": 0,
       "maximum": 999999999999,
-      "examples": [
-        250
-      ],
+      "examples": [250],
       "fec_spec": {
         "COL_SEQ": 22,
         "FIELD_DESCRIPTION": "CONTRIBUTION AMOUNT",
@@ -344,9 +302,7 @@
       "type": "number",
       "minimum": 0,
       "maximum": 999999999999,
-      "examples": [
-        1000
-      ],
+      "examples": [1000],
       "fec_spec": {
         "COL_SEQ": 23,
         "FIELD_DESCRIPTION": "CONTRIBUTION AGGREGATE",
@@ -359,18 +315,15 @@
       }
     },
     "contribution_purpose_descrip": {
-      "title": "RECEIPT DESCRIPTION",
+      "title": "CONTRIBUTION PURPOSE DESCRIPTION",
       "description": "",
-      "type": [
-        "string",
-        "null"
-      ],
+      "type": ["string", "null"],
       "minLength": 0,
       "maxLength": 100,
       "pattern": "^[ A-Za-z0-9]{0,100}$",
       "fec_spec": {
         "COL_SEQ": 24,
-        "FIELD_DESCRIPTION": "RECEIPT DESCRIPTION",
+        "FIELD_DESCRIPTION": "CONTRIBUTION PURPOSE DESCRIPTION",
         "TYPE": "A/N-100",
         "REQUIRED": null,
         "SAMPLE_DATA": null,
@@ -382,10 +335,7 @@
     "donor_committee_fec_id": {
       "title": "DONOR COMMITTEE FEC ID",
       "description": "",
-      "type": [
-        "string",
-        "null"
-      ],
+      "type": ["string", "null"],
       "minLength": 0,
       "maxLength": 9,
       "pattern": "^[ A-Za-z0-9]{0,9}$",
@@ -393,34 +343,29 @@
         "COL_SEQ": 27,
         "FIELD_DESCRIPTION": "DONOR COMMITTEE FEC ID",
         "TYPE": "A/N-9",
-        "REQUIRED": "Conditional Warning",
+        "REQUIRED": "X (error)",
         "SAMPLE_DATA": null,
         "VALUE_REFERENCE": null,
-        "RULE_REFERENCE": null,
+        "RULE_REFERENCE": "Should populate with information from FEC database",
         "FIELD_FORM_ASSOCIATION": null
       }
     },
     "donor_committee_name": {
       "title": "DONOR COMMITTEE NAME",
       "description": "",
-      "type": [
-        "string",
-        "null"
-      ],
+      "type": ["string", "null"],
       "minLength": 0,
       "maxLength": 200,
       "pattern": "^[ A-Za-z0-9]{0,200}$",
-      "examples": [
-        "Action PAC"
-      ],
+      "examples": ["Action PAC"],
       "fec_spec": {
         "COL_SEQ": 28,
         "FIELD_DESCRIPTION": "DONOR COMMITTEE NAME",
         "TYPE": "A/N-200",
-        "REQUIRED": "Conditional Warning",
+        "REQUIRED": "X (error)",
         "SAMPLE_DATA": "Action PAC",
         "VALUE_REFERENCE": null,
-        "RULE_REFERENCE": null,
+        "RULE_REFERENCE": "Should populate with information from FEC database",
         "FIELD_FORM_ASSOCIATION": null
       }
     },
@@ -442,10 +387,7 @@
     "memo_text_description": {
       "title": "MEMO TEXT/DESCRIPTION",
       "description": "",
-      "type": [
-        "string",
-        "null"
-      ],
+      "type": ["string", "null"],
       "minLength": 0,
       "maxLength": 100,
       "pattern": "^[ A-Za-z0-9]{0,100}$",

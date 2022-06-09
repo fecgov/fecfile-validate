@@ -22,7 +22,6 @@
         "type": {
             "title": "TYPE",
             "description": "",
-            "type": "string",
             "const": "CAN",
             "examples": ["CAN"],
             "fec_spec": {
