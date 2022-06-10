@@ -29,7 +29,7 @@ jobs:
           pip-dependency-file: requirements-all.txt
 
       - run:
-          name: Run tests, save a coverage report, and save coverage percentage
+          name: Run python tests, save a coverage report, and save coverage percentage
           command: |
             pytest --cov=.  --cov-report=xml --cov-report=html --cov-report=term | tee pytest.out
             export NEW_PERCENT=$(cat pytest.out | grep TOTAL | awk '{print $4}' | grep -oE "[0-9]+" )
@@ -38,6 +38,15 @@ jobs:
 
       - store_artifacts:
           path: htmlcov
+
+      - run:
+          name: Run deno tests, save a coverage report, and save coverage percentage
+          command: |
+            npm test
+            deno coverage --include="^file:" --exclude="test\\.(ts|js)|node_modules" cov_profile --lcov > cov_profile.lcov
+
+      - store_artifacts:
+          path: cov_profile.lcov
 
       - run:
           name: Compare the actual code coverage to the minimum target coverage
