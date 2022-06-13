@@ -6,7 +6,8 @@
  * Tested with spec/index-spec.js
  */
 
-import Ajv, { ErrorObject, ValidateFunction } from 'ajv';
+import Ajv, { ErrorObject, ValidateFunction } from "ajv";
+import addFormats from "ajv-formats";
 
 /**
  * Validation error information for a single schema property
@@ -24,6 +25,7 @@ export type ValidationError = {
 };
 
 const ajv = new Ajv({ allErrors: true, strictSchema: false });
+addFormats(ajv);
 
 /**
  * Takes a schema in JSON format and data object to be validated and returns an
@@ -34,7 +36,11 @@ const ajv = new Ajv({ allErrors: true, strictSchema: false });
  * @param {string[]} fieldsToValidate
  * @returns {ValidationError[]} Modified version of Ajv output, empty array if no errors found
  */
-export function validate(schema: any, data: any, fieldsToValidate: string[] = []): ValidationError[] {
+export function validate(
+  schema: any,
+  data: any,
+  fieldsToValidate: string[] = []
+): ValidationError[] {
   const validator: ValidateFunction = ajv.compile(schema);
   const isValid: boolean = validator(data);
   const errors: ValidationError[] = [];
@@ -42,7 +48,10 @@ export function validate(schema: any, data: any, fieldsToValidate: string[] = []
   if (!isValid && !!validator.errors?.length) {
     validator.errors.forEach((error) => {
       const parsedError = parseError(error);
-      if (!fieldsToValidate.length || fieldsToValidate.includes(parsedError.path)) {
+      if (
+        !fieldsToValidate.length ||
+        fieldsToValidate.includes(parsedError.path)
+      ) {
         errors.push(parsedError);
       }
     });
@@ -58,7 +67,7 @@ export function validate(schema: any, data: any, fieldsToValidate: string[] = []
  */
 function parseError(error: ErrorObject): ValidationError {
   let path = error.instancePath.substring(1);
-  if (error.keyword == 'required') {
+  if (error.keyword == "required") {
     path = error.params.missingProperty;
   }
   return {

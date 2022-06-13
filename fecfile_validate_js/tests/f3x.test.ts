@@ -14,17 +14,17 @@ const perfectForm_F3X: any = {
   zip: "20000",
   report_code: "",
   election_code: "",
-  date_of_election: "2001-07-29T20:20:39.805Z",
+  date_of_election: "2001-07-29",
   state_of_election: "DC",
-  coverage_from_date: "2001-07-29T20:20:39.805Z",
-  coverage_through_date: "2001-07-29T20:20:39.805Z",
+  coverage_from_date: "2001-07-29",
+  coverage_through_date: "2001-07-29",
   qualified_committee: true,
   treasurer_last_name: "Doe",
   treasurer_first_name: "J",
   treasurer_middle_name: "X",
   treasurer_prefix: "Dr",
   treasurer_suffix: "PhD",
-  date_signed: "2004-07-29T20:20:39.805Z",
+  date_signed: "2004-07-29",
   L6b_cash_on_hand_beginning_period: 1,
 };
 
@@ -63,7 +63,10 @@ Deno.test({
 Deno.test({
   name: "filer_committee_id_number should not be ''",
   fn: () => {
-    const thisData = { ...perfectForm_F3X, ...{ filer_committee_id_number: "" } };
+    const thisData = {
+      ...perfectForm_F3X,
+      ...{ filer_committee_id_number: "" },
+    };
     // TODO: the next line is the goal. Ajv sees '' as a value and we want it to be evaluated as null
     // expect(validate(f3xSchema, thisData).errors).toEqual([ 'filer_committee_id_number should not be empty' ]);
     const result = validate(f3xSchema, thisData);
@@ -76,7 +79,10 @@ Deno.test({
 Deno.test({
   name: "filer_committee_id_number is too short",
   fn: () => {
-    const thisData = { ...perfectForm_F3X, ...{ filer_committee_id_number: "12345678" } };
+    const thisData = {
+      ...perfectForm_F3X,
+      ...{ filer_committee_id_number: "12345678" },
+    };
     const result = validate(f3xSchema, thisData);
     assertEquals(result[0].path, "filer_committee_id_number");
     assertEquals(result[0].keyword, "minLength");
@@ -200,7 +206,7 @@ Deno.test({
     const result = validate(f3xSchema, thisData);
     assertEquals(result[0].path, "date_signed");
     assertEquals(result[0].keyword, "minLength");
-    assertEquals(result[0].message, "must NOT have fewer than 8 characters");
+    assertEquals(result[0].message, "must NOT have fewer than 10 characters");
   },
 });
 

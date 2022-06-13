@@ -28,7 +28,8 @@
     },
     "homepage": "https://github.com/fecgov/fecfile-validate#readme",
     "dependencies": {
-        "ajv": "^8.11.0"
+        "ajv": "^8.11.0",
+        "ajv-formats": "^2.1.1"
     },
     "devDependencies": {
         "@typescript-eslint/eslint-plugin": "^5.17.0",

@@ -1,9 +1,9 @@
 {
-    "form_type": "F3XN",
-    "filer_committee_id_number": "C00000012",
-    "committee_name": "Foes of Pat",
-    "treasurer_last_name": "Smith",
-    "treasurer_first_name": "Patrick",
-    "date_signed": "2004-07-29T20:20:39.805Z",
-    "change_of_address": true
+  "form_type": "F3XN",
+  "filer_committee_id_number": "C00000012",
+  "committee_name": "Foes of Pat",
+  "treasurer_last_name": "Smith",
+  "treasurer_first_name": "Patrick",
+  "date_signed": "2004-07-29",
+  "change_of_address": true
 }

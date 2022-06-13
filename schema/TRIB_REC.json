@@ -267,8 +267,9 @@
       "title": "CONTRIBUTION DATE",
       "description": "",
       "type": "string",
-      "format": "date-time",
-      "examples": ["2018-11-13T20:20:39+00:00"],
+      "format": "date",
+      "minLength": 10,
+      "examples": ["2018-11-13"],
       "fec_spec": {
         "COL_SEQ": 21,
         "FIELD_DESCRIPTION": "CONTRIBUTION DATE",
