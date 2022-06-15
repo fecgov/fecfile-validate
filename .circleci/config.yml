@@ -36,7 +36,7 @@ jobs:
             export NEW_PYTHON_LINES=$(cat pytest.out | grep TOTAL | awk '{print $2}' | grep -oE "[0-9]+" )
             export NEW_PYTHON_HITS=$(($NEW_PYTHON_LINES - $(cat pytest.out | grep TOTAL | awk '{print $3}' | grep -oE "[0-9]+" )))
             export NEW_PYTHON_PERCENT=$(cat pytest.out | grep TOTAL | awk '{print $4}' | grep -oE "[0-9]+" )
-            echo ${NEW_PYTHON_LINES},${NEW_PYTHON_HITS},${NEW_PYTHON_PERCENT} > htmlcov_py/total_percent.txt
+            echo ${NEW_PYTHON_LINES} ${NEW_PYTHON_HITS} ${NEW_PYTHON_PERCENT} > htmlcov_py/total_percent.txt
             echo Total python code coverage percentage is ${NEW_PYTHON_PERCENT}%
 
       - store_artifacts:
@@ -52,17 +52,27 @@ jobs:
       - run:
           name: Run deno tests, save a coverage report, and save coverage percentage
           command: |
+
             curl -fsSL https://deno.land/x/install/install.sh | sh
             export DENO_INSTALL="/home/circleci/.deno"
             export PATH="$DENO_INSTALL/bin:$PATH"
+
+            LCOV_DIRECTORY=/tmp/cache/lcov
+            mkdir -p $LCOV_DIRECTORY
+            if [[ ! -x "$LCOV_DIRECTORY/lcov" ]]; then
+              curl -OlL https://github.com/linux-test-project/lcov/releases/download/v1.16/lcov-1.16.tar.gz
+              tar -xvzf lcov-1.16.tar.gz -C $LCOV_DIRECTORY
+              ls $LCOV_DIRECTORY
+            fi
+
             npm test
             mkdir htmlcov_js
             deno coverage --include="^file:" --exclude="test\\.(ts|js)|node_modules" cov_profile --lcov > htmlcov_js/cov_profile.lcov
-            genhtml htmlcov_js/cov_profile.lcov --no-function-coverage --output-directory=htmlcov_js > deno_cov.txt
-            export NEW_JAVASCRIPT_LINES=$(cat pytest.out | grep TOTAL | awk '{print $5}' | grep -oE "[0-9]+" )
-            export NEW_JAVASCRIPT_HITS=$(cat pytest.out | grep TOTAL | awk '{print $3}' | grep -oE "[0-9]+" )
-            export NEW_JAVASCRIPT_PERCENT=${cat deno_cov.txt| grep "lines)" | awk '{print $2}' | grep -oE "[0-9\.]+"}
-            echo ${NEW_JAVASCRIPT_LINES},${NEW_JAVASCRIPT_HITS},${NEW_JAVASCRIPT_PERCENT} > htmlcov_js/total_percent.txt
+            $LCOV_DIRECTORY/lcov-1.16/bin/genhtml htmlcov_js/cov_profile.lcov --no-function-coverage --output-directory=htmlcov_js > deno_cov.txt
+            export NEW_JAVASCRIPT_LINES=$(cat deno_cov.txt | grep "lines)" | awk '{print $5}' | grep -oE "[0-9]+" )
+            export NEW_JAVASCRIPT_HITS=$(cat deno_cov.txt | grep "lines)" | awk '{print $3}' | grep -oE "[0-9]+" )
+            export NEW_JAVASCRIPT_PERCENT=$(cat deno_cov.txt| grep "lines)" | awk '{print $2}' | grep -oE "[0-9\.]+")
+            echo ${NEW_JAVASCRIPT_LINES} ${NEW_JAVASCRIPT_HITS} ${NEW_JAVASCRIPT_PERCENT} > htmlcov_js/total_percent.txt
             echo Total javascript code coverage percentage is ${NEW_JAVASCRIPT_PERCENT}%
 
       - store_artifacts:
@@ -71,8 +81,15 @@ jobs:
       - run:
           name: Compare the actual code coverage to the minimum target coverage
           command: |
-            export NEW_PYTHON_PERCENT=$(cat htmlcov_py/total_percent.txt)
-            export NEW_JAVASCRIPT_PERCENT=$(cat htmlcov_js/total_percent.txt)
+            export NEW_PYTHON_LINES=$(cat htmlcov_js/total_percent.txt | awk '{print $1}' )
+            export NEW_PYTHON_HITS=$(cat htmlcov_js/total_percent.txt | awk '{print $2}' )
+            export NEW_PYTHON_PERCENT=$(cat htmlcov_js/total_percent.txt | awk '{print $3}' )
+
+            export NEW_JAVASCRIPT_LINES=$(cat htmlcov_py/total_percent.txt| awk '{print $1}' )
+            export NEW_JAVASCRIPT_HITS=$(cat htmlcov_py/total_percent.txt| awk '{print $2}' )
+            export NEW_JAVASCRIPT_PERCENT=$(cat htmlcov_py/total_percent.txt| awk '{print $3}' )
+
+            export NEW_PERCENT = $(((($NEW_PYTHON_HITS + $NEW_JAVASCRIPT_HITS) / ($NEW_PYTHON_LINES + $NEW_JAVASCRIPT_LINES) * 100)))
             echo Comparing the current code coverage percentage of ${NEW_PERCENT}% to the target of ${MIN_COVERAGE_PERCENT-85}%
             if [ "${NEW_PERCENT}" -lt ${MIN_COVERAGE_PERCENT-85} ]; then
               echo The total code coverage percentage of ${NEW_PERCENT}% is below the minimum of ${MIN_COVERAGE_PERCENT-85}%
