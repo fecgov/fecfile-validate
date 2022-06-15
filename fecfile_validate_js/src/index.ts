@@ -25,7 +25,7 @@ export type ValidationError = {
 };
 
 const ajv = new Ajv({ allErrors: true, strictSchema: false });
-addFormats(ajv);
+addFormats(ajv, ["date"]);
 
 /**
  * Takes a schema in JSON format and data object to be validated and returns an
