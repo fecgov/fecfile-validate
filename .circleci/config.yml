@@ -84,10 +84,12 @@ jobs:
             export NEW_PYTHON_LINES=$(cat htmlcov_js/total_percent.txt | awk '{print $1}' )
             export NEW_PYTHON_HITS=$(cat htmlcov_js/total_percent.txt | awk '{print $2}' )
             export NEW_PYTHON_PERCENT=$(cat htmlcov_js/total_percent.txt | awk '{print $3}' )
+            echo python coverage is ${NEW_PYTHON_PERCENT}% (${NEW_PYTHON_HITS}/${NEW_PYTHON_LINES} lines)
 
             export NEW_JAVASCRIPT_LINES=$(cat htmlcov_py/total_percent.txt| awk '{print $1}' )
             export NEW_JAVASCRIPT_HITS=$(cat htmlcov_py/total_percent.txt| awk '{print $2}' )
             export NEW_JAVASCRIPT_PERCENT=$(cat htmlcov_py/total_percent.txt| awk '{print $3}' )
+            echo javascript coverage is ${NEW_JAVASCRIPT_PERCENT}% (${NEW_JAVASCRIPT_HITS}/${NEW_JAVASCRIPT_LINES} lines)
 
             export NEW_PERCENT=$(((($NEW_PYTHON_HITS + $NEW_JAVASCRIPT_HITS) / ($NEW_PYTHON_LINES + $NEW_JAVASCRIPT_LINES) * 100)))
             echo Comparing the current code coverage percentage of ${NEW_PERCENT}% to the target of ${MIN_COVERAGE_PERCENT-85}%
