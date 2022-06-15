@@ -91,7 +91,7 @@ jobs:
             export JAVASCRIPT_PERCENT=$(cat htmlcov_py/total_percent.txt| awk '{print $3}' )
             echo javascript coverage is ${JAVASCRIPT_PERCENT}% ${JAVASCRIPT_HITS}/${JAVASCRIPT_LINES} lines
 
-            export NEW_PERCENT=$(echo "${PYTHON_HITS} ${JAVASCRIPT_HITS} ${PYTHON_LINES} ${JAVASCRIPT_LINES}" | awk '{printf  "%.2f", (($1+$2)/($3+$4))*100}')
+            export NEW_PERCENT=$(echo "${PYTHON_HITS} ${JAVASCRIPT_HITS} ${PYTHON_LINES} ${JAVASCRIPT_LINES}" | awk '{printf  "%.0f", (($1+$2)/($3+$4))*100}')
             echo Comparing the current code coverage percentage of ${NEW_PERCENT}% to the target of ${MIN_COVERAGE_PERCENT-85}%
             if [ "${NEW_PERCENT}" -lt ${MIN_COVERAGE_PERCENT-85} ]; then
               echo The total code coverage percentage of ${NEW_PERCENT}% is below the minimum of ${MIN_COVERAGE_PERCENT-85}%
