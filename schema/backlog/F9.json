@@ -42,7 +42,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 3,
-      "pattern": "^[ A-Za-z0-9]{0,3}$",
+      "pattern": "^[ -~]{0,3}$",
       "examples": ["F9N"],
       "fec_spec": {
         "COL_SEQ": 1,
@@ -61,7 +61,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 9,
-      "pattern": "^[ A-Za-z0-9]{0,9}$",
+      "pattern": "^[ -~]{0,9}$",
       "examples": ["C30065431"],
       "fec_spec": {
         "COL_SEQ": 2,
@@ -80,7 +80,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 3,
-      "pattern": "^[ A-Za-z0-9]{0,3}$",
+      "pattern": "^[ -~]{0,3}$",
       "examples": ["IND"],
       "fec_spec": {
         "COL_SEQ": 3,
@@ -99,7 +99,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 200,
-      "pattern": "^[ A-Za-z0-9]{0,200}$",
+      "pattern": "^[ -~]{0,200}$",
       "examples": ["John Smith & Co."],
       "fec_spec": {
         "COL_SEQ": 4,
@@ -118,7 +118,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 30,
-      "pattern": "^[ A-Za-z0-9]{0,30}$",
+      "pattern": "^[ -~]{0,30}$",
       "examples": ["Smith"],
       "fec_spec": {
         "COL_SEQ": 5,
@@ -137,7 +137,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 20,
-      "pattern": "^[ A-Za-z0-9]{0,20}$",
+      "pattern": "^[ -~]{0,20}$",
       "examples": ["Patrick"],
       "fec_spec": {
         "COL_SEQ": 6,
@@ -156,7 +156,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 20,
-      "pattern": "^[ A-Za-z0-9]{0,20}$",
+      "pattern": "^[ -~]{0,20}$",
       "examples": ["Thomas"],
       "fec_spec": {
         "COL_SEQ": 7,
@@ -175,7 +175,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 10,
-      "pattern": "^[ A-Za-z0-9]{0,10}$",
+      "pattern": "^[ -~]{0,10}$",
       "examples": ["Mr."],
       "fec_spec": {
         "COL_SEQ": 8,
@@ -194,7 +194,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 10,
-      "pattern": "^[ A-Za-z0-9]{0,10}$",
+      "pattern": "^[ -~]{0,10}$",
       "examples": ["Jr."],
       "fec_spec": {
         "COL_SEQ": 9,
@@ -229,7 +229,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 34,
-      "pattern": "^[ A-Za-z0-9]{0,34}$",
+      "pattern": "^[ -~]{0,34}$",
       "fec_spec": {
         "COL_SEQ": 11,
         "FIELD_DESCRIPTION": "STREET 1",
@@ -247,7 +247,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 34,
-      "pattern": "^[ A-Za-z0-9]{0,34}$",
+      "pattern": "^[ -~]{0,34}$",
       "fec_spec": {
         "COL_SEQ": 12,
         "FIELD_DESCRIPTION": "STREET 2",
@@ -265,7 +265,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 30,
-      "pattern": "^[ A-Za-z0-9]{0,30}$",
+      "pattern": "^[ -~]{0,30}$",
       "fec_spec": {
         "COL_SEQ": 13,
         "FIELD_DESCRIPTION": "CITY",
@@ -283,7 +283,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 2,
-      "pattern": "^[ A-Za-z0-9]{0,2}$",
+      "pattern": "^[ -~]{0,2}$",
       "fec_spec": {
         "COL_SEQ": 14,
         "FIELD_DESCRIPTION": "STATE",
@@ -301,7 +301,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 9,
-      "pattern": "^[ A-Za-z0-9]{0,9}$",
+      "pattern": "^[ -~]{0,9}$",
       "examples": ["20643[1234]"],
       "fec_spec": {
         "COL_SEQ": 15,
@@ -320,7 +320,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 38,
-      "pattern": "^[ A-Za-z0-9]{0,38}$",
+      "pattern": "^[ -~]{0,38}$",
       "fec_spec": {
         "COL_SEQ": 16,
         "FIELD_DESCRIPTION": "INDIVIDUAL EMPLOYER",
@@ -338,7 +338,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 38,
-      "pattern": "^[ A-Za-z0-9]{0,38}$",
+      "pattern": "^[ -~]{0,38}$",
       "fec_spec": {
         "COL_SEQ": 17,
         "FIELD_DESCRIPTION": "INDIVIDUAL OCCUPATION",
@@ -432,7 +432,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 40,
-      "pattern": "^[ A-Za-z0-9]{0,40}$",
+      "pattern": "^[ -~]{0,40}$",
       "fec_spec": {
         "COL_SEQ": 22,
         "FIELD_DESCRIPTION": "COMMUNICATION TITLE",
@@ -450,7 +450,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 3,
-      "pattern": "^[ A-Za-z0-9]{0,3}$",
+      "pattern": "^[ -~]{0,3}$",
       "examples": ["QNC"],
       "fec_spec": {
         "COL_SEQ": 23,
@@ -469,7 +469,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 20,
-      "pattern": "^[ A-Za-z0-9]{0,20}$",
+      "pattern": "^[ -~]{0,20}$",
       "fec_spec": {
         "COL_SEQ": 24,
         "FIELD_DESCRIPTION": "FILER CODE DESCRIPTION",
@@ -487,7 +487,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 1,
-      "pattern": "^[ A-Za-z0-9]{0,1}$",
+      "pattern": "^[ -~]{0,1}$",
       "examples": ["Y"],
       "fec_spec": {
         "COL_SEQ": 25,
@@ -506,7 +506,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 30,
-      "pattern": "^[ A-Za-z0-9]{0,30}$",
+      "pattern": "^[ -~]{0,30}$",
       "examples": ["Smith"],
       "fec_spec": {
         "COL_SEQ": 26,
@@ -525,7 +525,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 20,
-      "pattern": "^[ A-Za-z0-9]{0,20}$",
+      "pattern": "^[ -~]{0,20}$",
       "examples": ["Patrick"],
       "fec_spec": {
         "COL_SEQ": 27,
@@ -544,7 +544,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 20,
-      "pattern": "^[ A-Za-z0-9]{0,20}$",
+      "pattern": "^[ -~]{0,20}$",
       "examples": ["Thomas"],
       "fec_spec": {
         "COL_SEQ": 28,
@@ -563,7 +563,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 10,
-      "pattern": "^[ A-Za-z0-9]{0,10}$",
+      "pattern": "^[ -~]{0,10}$",
       "examples": ["Mr."],
       "fec_spec": {
         "COL_SEQ": 29,
@@ -582,7 +582,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 10,
-      "pattern": "^[ A-Za-z0-9]{0,10}$",
+      "pattern": "^[ -~]{0,10}$",
       "examples": ["Jr."],
       "fec_spec": {
         "COL_SEQ": 30,
@@ -601,7 +601,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 34,
-      "pattern": "^[ A-Za-z0-9]{0,34}$",
+      "pattern": "^[ -~]{0,34}$",
       "fec_spec": {
         "COL_SEQ": 31,
         "FIELD_DESCRIPTION": "CUSTODIAN STREET 1",
@@ -619,7 +619,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 34,
-      "pattern": "^[ A-Za-z0-9]{0,34}$",
+      "pattern": "^[ -~]{0,34}$",
       "fec_spec": {
         "COL_SEQ": 32,
         "FIELD_DESCRIPTION": "CUSTODIAN STREET 2",
@@ -637,7 +637,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 30,
-      "pattern": "^[ A-Za-z0-9]{0,30}$",
+      "pattern": "^[ -~]{0,30}$",
       "fec_spec": {
         "COL_SEQ": 33,
         "FIELD_DESCRIPTION": "CUSTODIAN CITY",
@@ -655,7 +655,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 2,
-      "pattern": "^[ A-Za-z0-9]{0,2}$",
+      "pattern": "^[ -~]{0,2}$",
       "fec_spec": {
         "COL_SEQ": 34,
         "FIELD_DESCRIPTION": "CUSTODIAN STATE",
@@ -673,7 +673,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 9,
-      "pattern": "^[ A-Za-z0-9]{0,9}$",
+      "pattern": "^[ -~]{0,9}$",
       "fec_spec": {
         "COL_SEQ": 35,
         "FIELD_DESCRIPTION": "CUSTODIAN ZIP",
@@ -691,7 +691,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 38,
-      "pattern": "^[ A-Za-z0-9]{0,38}$",
+      "pattern": "^[ -~]{0,38}$",
       "fec_spec": {
         "COL_SEQ": 36,
         "FIELD_DESCRIPTION": "CUSTODIAN EMPLOYER",
@@ -709,7 +709,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 38,
-      "pattern": "^[ A-Za-z0-9]{0,38}$",
+      "pattern": "^[ -~]{0,38}$",
       "fec_spec": {
         "COL_SEQ": 37,
         "FIELD_DESCRIPTION": "CUSTODIAN OCCUPATION",
@@ -763,7 +763,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 30,
-      "pattern": "^[ A-Za-z0-9]{0,30}$",
+      "pattern": "^[ -~]{0,30}$",
       "examples": ["Smith"],
       "fec_spec": {
         "COL_SEQ": 40,
@@ -782,7 +782,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 20,
-      "pattern": "^[ A-Za-z0-9]{0,20}$",
+      "pattern": "^[ -~]{0,20}$",
       "examples": ["Patrick"],
       "fec_spec": {
         "COL_SEQ": 41,
@@ -801,7 +801,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 20,
-      "pattern": "^[ A-Za-z0-9]{0,20}$",
+      "pattern": "^[ -~]{0,20}$",
       "examples": ["Thomas"],
       "fec_spec": {
         "COL_SEQ": 42,
@@ -820,7 +820,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 10,
-      "pattern": "^[ A-Za-z0-9]{0,10}$",
+      "pattern": "^[ -~]{0,10}$",
       "examples": ["Mr."],
       "fec_spec": {
         "COL_SEQ": 43,
@@ -839,7 +839,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 10,
-      "pattern": "^[ A-Za-z0-9]{0,10}$",
+      "pattern": "^[ -~]{0,10}$",
       "examples": ["Jr."],
       "fec_spec": {
         "COL_SEQ": 44,

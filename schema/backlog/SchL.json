@@ -23,7 +23,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 8,
-      "pattern": "^[ A-Za-z0-9]{0,8}$",
+      "pattern": "^[ -~]{0,8}$",
       "examples": ["SL"],
       "fec_spec": {
         "COL_SEQ": 1,
@@ -42,7 +42,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 9,
-      "pattern": "^[ A-Za-z0-9]{0,9}$",
+      "pattern": "^[ -~]{0,9}$",
       "examples": ["C00123456"],
       "fec_spec": {
         "COL_SEQ": 2,
@@ -61,7 +61,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 20,
-      "pattern": "^[ A-Za-z0-9]{0,20}$",
+      "pattern": "^[ -~]{0,20}$",
       "examples": ["L123456789-3456"],
       "fec_spec": {
         "COL_SEQ": 3,
@@ -80,7 +80,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 9,
-      "pattern": "^[ A-Za-z0-9]{0,9}$",
+      "pattern": "^[ -~]{0,9}$",
       "examples": ["123xyzABC"],
       "fec_spec": {
         "COL_SEQ": 4,
@@ -99,7 +99,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 90,
-      "pattern": "^[ A-Za-z0-9]{0,90}$",
+      "pattern": "^[ -~]{0,90}$",
       "fec_spec": {
         "COL_SEQ": 5,
         "FIELD_DESCRIPTION": "ACCOUNT NAME",

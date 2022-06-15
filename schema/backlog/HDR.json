@@ -14,7 +14,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 3,
-      "pattern": "^[ A-Za-z0-9]{0,3}$",
+      "pattern": "^[ -~]{0,3}$",
       "examples": ["HDR"],
       "fec_spec": {
         "COL_SEQ": 1,
@@ -33,7 +33,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 3,
-      "pattern": "^[ A-Za-z0-9]{0,3}$",
+      "pattern": "^[ -~]{0,3}$",
       "examples": ["FEC"],
       "fec_spec": {
         "COL_SEQ": 2,
@@ -52,7 +52,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 4,
-      "pattern": "^[ A-Za-z0-9]{0,4}$",
+      "pattern": "^[ -~]{0,4}$",
       "examples": ["8.3"],
       "fec_spec": {
         "COL_SEQ": 3,
@@ -71,7 +71,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 90,
-      "pattern": "^[ A-Za-z0-9]{0,90}$",
+      "pattern": "^[ -~]{0,90}$",
       "examples": ["SUPERFILER"],
       "fec_spec": {
         "COL_SEQ": 4,
@@ -90,7 +90,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 16,
-      "pattern": "^[ A-Za-z0-9]{0,16}$",
+      "pattern": "^[ -~]{0,16}$",
       "examples": ["1.0"],
       "fec_spec": {
         "COL_SEQ": 5,
@@ -109,7 +109,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 16,
-      "pattern": "^[ A-Za-z0-9]{0,16}$",
+      "pattern": "^[ -~]{0,16}$",
       "examples": ["FEC-123467"],
       "fec_spec": {
         "COL_SEQ": 6,
@@ -143,7 +143,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 200,
-      "pattern": "^[ A-Za-z0-9]{0,200}$",
+      "pattern": "^[ -~]{0,200}$",
       "fec_spec": {
         "COL_SEQ": 8,
         "FIELD_DESCRIPTION": "HDRcomment",
