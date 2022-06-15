@@ -81,17 +81,17 @@ jobs:
       - run:
           name: Compare the actual code coverage to the minimum target coverage
           command: |
-            export NEW_PYTHON_LINES=$(cat htmlcov_js/total_percent.txt | awk '{print $1}' )
-            export NEW_PYTHON_HITS=$(cat htmlcov_js/total_percent.txt | awk '{print $2}' )
-            export NEW_PYTHON_PERCENT=$(cat htmlcov_js/total_percent.txt | awk '{print $3}' )
-            echo python coverage is ${NEW_PYTHON_PERCENT}% ${NEW_PYTHON_HITS}/${NEW_PYTHON_LINES} lines
+            export PYTHON_LINES=$(cat htmlcov_js/total_percent.txt | awk '{print $1}' )
+            export PYTHON_HITS=$(cat htmlcov_js/total_percent.txt | awk '{print $2}' )
+            export PYTHON_PERCENT=$(cat htmlcov_js/total_percent.txt | awk '{print $3}' )
+            echo python coverage is ${PYTHON_PERCENT}% ${PYTHON_HITS}/${PYTHON_LINES} lines
 
-            export NEW_JAVASCRIPT_LINES=$(cat htmlcov_py/total_percent.txt| awk '{print $1}' )
-            export NEW_JAVASCRIPT_HITS=$(cat htmlcov_py/total_percent.txt| awk '{print $2}' )
-            export NEW_JAVASCRIPT_PERCENT=$(cat htmlcov_py/total_percent.txt| awk '{print $3}' )
-            echo javascript coverage is ${NEW_JAVASCRIPT_PERCENT}% ${NEW_JAVASCRIPT_HITS}/${NEW_JAVASCRIPT_LINES} lines
+            export JAVASCRIPT_LINES=$(cat htmlcov_py/total_percent.txt| awk '{print $1}' )
+            export JAVASCRIPT_HITS=$(cat htmlcov_py/total_percent.txt| awk '{print $2}' )
+            export JAVASCRIPT_PERCENT=$(cat htmlcov_py/total_percent.txt| awk '{print $3}' )
+            echo javascript coverage is ${JAVASCRIPT_PERCENT}% ${JAVASCRIPT_HITS}/${JAVASCRIPT_LINES} lines
 
-            export NEW_PERCENT="scale=2 ; (($NEW_PYTHON_HITS + $NEW_JAVASCRIPT_HITS) / ($NEW_PYTHON_LINES + $NEW_JAVASCRIPT_LINES)) * 100" | bc
+            export NEW_PERCENT=${PYTHON_HITS} ${JAVASCRIPT_HITS} ${PYTHON_LINES} ${JAVASCRIPT_LINES}" | awk '{printf  "%.2f", (($1+$2)/($3+$4))*100}'
             echo Comparing the current code coverage percentage of ${NEW_PERCENT}% to the target of ${MIN_COVERAGE_PERCENT-85}%
             if [ "${NEW_PERCENT}" -lt ${MIN_COVERAGE_PERCENT-85} ]; then
               echo The total code coverage percentage of ${NEW_PERCENT}% is below the minimum of ${MIN_COVERAGE_PERCENT-85}%
