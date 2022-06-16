@@ -43,9 +43,6 @@ export function validate(
   const isValid: boolean = validator(data);
   const errors: ValidationError[] = [];
 
-  if (isValid) {
-    console.log("adding test code to cover");
-  }
   if (!isValid && !!validator.errors?.length) {
     validator.errors.forEach((error) => {
       const parsedError = parseError(error);
