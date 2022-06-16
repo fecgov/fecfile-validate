@@ -196,7 +196,7 @@
             "type": ["string", "null"],
             "minLength": 0,
             "maxLength": 3,
-            "pattern": "^[ A-Za-z0-9]{0,3}$",
+            "pattern": "^[ -~]{0,3}$",
             "examples": ["12P"],
             "fec_spec": {
                 "COL_SEQ": 10,
@@ -215,7 +215,7 @@
             "type": ["string", "null"],
             "minLength": 0,
             "maxLength": 5,
-            "pattern": "^[ A-Za-z0-9]{0,5}$",
+            "pattern": "^[ -~]{0,5}$",
             "examples": ["P2012"],
             "fec_spec": {
                 "COL_SEQ": 11,
