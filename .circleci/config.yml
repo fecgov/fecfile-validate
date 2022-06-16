@@ -5,6 +5,7 @@ version: 2.1
 orbs:
   # See the orb documentation here: https://circleci.com/developer/orbs/orb/circleci/python
   python: circleci/python@1.2
+  node: circleci/node@5.0.2
 
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
@@ -29,20 +30,68 @@ jobs:
           pip-dependency-file: requirements-all.txt
 
       - run:
-          name: Run tests, save a coverage report, and save coverage percentage
+          name: Run python tests, save a coverage report, and save coverage percentage
           command: |
-            pytest --cov=.  --cov-report=xml --cov-report=html --cov-report=term | tee pytest.out
-            export NEW_PERCENT=$(cat pytest.out | grep TOTAL | awk '{print $4}' | grep -oE "[0-9]+" )
-            echo ${NEW_PERCENT} > htmlcov/total_percent.txt
-            echo Total code coverage percentage is ${NEW_PERCENT}%
+            pytest --cov=.  --cov-report=xml --cov-report=html:htmlcov_py --cov-report=term | tee pytest.out
+            export NEW_PYTHON_LINES=$(cat pytest.out | grep TOTAL | awk '{print $2}' | grep -oE "[0-9]+" )
+            export NEW_PYTHON_HITS=$(($NEW_PYTHON_LINES - $(cat pytest.out | grep TOTAL | awk '{print $3}' | grep -oE "[0-9]+" )))
+            export NEW_PYTHON_PERCENT=$(cat pytest.out | grep TOTAL | awk '{print $4}' | grep -oE "[0-9]+" )
+            echo ${NEW_PYTHON_LINES} ${NEW_PYTHON_HITS} ${NEW_PYTHON_PERCENT} > htmlcov_py/total_percent.txt
+            echo Total python code coverage percentage is ${NEW_PYTHON_PERCENT}%
 
       - store_artifacts:
-          path: htmlcov
+          path: htmlcov_py
+
+      - node/install:
+          install-yarn: false
+          node-version: "16.13"
+
+      - node/install-packages:
+          pkg-manager: npm
+
+      - run:
+          name: Run deno tests, save a coverage report, and save coverage percentage
+          command: |
+
+            curl -fsSL https://deno.land/x/install/install.sh | sh
+            export DENO_INSTALL="/home/circleci/.deno"
+            export PATH="$DENO_INSTALL/bin:$PATH"
+
+            LCOV_DIRECTORY=/tmp/cache/lcov
+            mkdir -p $LCOV_DIRECTORY
+            if [[ ! -x "$LCOV_DIRECTORY/lcov" ]]; then
+              curl -OlL https://github.com/linux-test-project/lcov/releases/download/v1.16/lcov-1.16.tar.gz
+              tar -xvzf lcov-1.16.tar.gz -C $LCOV_DIRECTORY
+              ls $LCOV_DIRECTORY
+            fi
+
+            npm test
+            mkdir htmlcov_js
+            deno coverage --include="^file:" --exclude="test\\.(ts|js)|node_modules" cov_profile --lcov > htmlcov_js/cov_profile.lcov
+            $LCOV_DIRECTORY/lcov-1.16/bin/genhtml htmlcov_js/cov_profile.lcov --no-function-coverage --output-directory=htmlcov_js > deno_cov.txt
+            export NEW_JAVASCRIPT_LINES=$(cat deno_cov.txt | grep "lines)" | awk '{print $5}' | grep -oE "[0-9]+" )
+            export NEW_JAVASCRIPT_HITS=$(cat deno_cov.txt | grep "lines)" | awk '{print $3}' | grep -oE "[0-9]+" )
+            export NEW_JAVASCRIPT_PERCENT=$(cat deno_cov.txt| grep "lines)" | awk '{print $2}' | grep -oE "[0-9\.]+")
+            echo ${NEW_JAVASCRIPT_LINES} ${NEW_JAVASCRIPT_HITS} ${NEW_JAVASCRIPT_PERCENT} > htmlcov_js/total_percent.txt
+            echo Total javascript code coverage percentage is ${NEW_JAVASCRIPT_PERCENT}%
+
+      - store_artifacts:
+          path: htmlcov_js
 
       - run:
           name: Compare the actual code coverage to the minimum target coverage
           command: |
-            export NEW_PERCENT=$(cat htmlcov/total_percent.txt)
+            export PYTHON_LINES=$(cat htmlcov_js/total_percent.txt | awk '{print $1}' )
+            export PYTHON_HITS=$(cat htmlcov_js/total_percent.txt | awk '{print $2}' )
+            export PYTHON_PERCENT=$(cat htmlcov_js/total_percent.txt | awk '{print $3}' )
+            echo python coverage is ${PYTHON_PERCENT}% ${PYTHON_HITS}/${PYTHON_LINES} lines
+
+            export JAVASCRIPT_LINES=$(cat htmlcov_py/total_percent.txt| awk '{print $1}' )
+            export JAVASCRIPT_HITS=$(cat htmlcov_py/total_percent.txt| awk '{print $2}' )
+            export JAVASCRIPT_PERCENT=$(cat htmlcov_py/total_percent.txt| awk '{print $3}' )
+            echo javascript coverage is ${JAVASCRIPT_PERCENT}% ${JAVASCRIPT_HITS}/${JAVASCRIPT_LINES} lines
+
+            export NEW_PERCENT=$(echo "${PYTHON_HITS} ${JAVASCRIPT_HITS} ${PYTHON_LINES} ${JAVASCRIPT_LINES}" | awk '{printf  "%.0f", (($1+$2)/($3+$4))*100}')
             echo Comparing the current code coverage percentage of ${NEW_PERCENT}% to the target of ${MIN_COVERAGE_PERCENT-85}%
             if [ "${NEW_PERCENT}" -lt ${MIN_COVERAGE_PERCENT-85} ]; then
               echo The total code coverage percentage of ${NEW_PERCENT}% is below the minimum of ${MIN_COVERAGE_PERCENT-85}%
