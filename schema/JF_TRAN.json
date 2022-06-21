@@ -12,6 +12,7 @@
     "transaction_id",
     "entity_type",
     "contributor_organization_name",
+    "contributor_fec_id",
     "contributor_street_1",
     "contributor_city",
     "contributor_state",
@@ -376,7 +377,7 @@
       ],
       "minLength": 0,
       "maxLength": 9,
-      "pattern": "^[ -~]{0,9}$",
+      "pattern": "^C[0-9]{0,9}$",
       "fec_spec": {
         "COL_SEQ": 27,
         "FIELD_DESCRIPTION": "DONOR COMMITTEE FEC ID",
@@ -409,6 +410,21 @@
         "SAMPLE_DATA": "Action PAC",
         "VALUE_REFERENCE": null,
         "RULE_REFERENCE": "Should populate with information from FEC database",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "memo_code": {
+      "title": "MEMO CODE",
+      "description": "",
+      "type": ["boolean", "null"],
+      "fec_spec": {
+        "COL_SEQ": 43,
+        "FIELD_DESCRIPTION": "MEMO CODE",
+        "TYPE": "A/N-1",
+        "REQUIRED": null,
+        "SAMPLE_DATA": null,
+        "VALUE_REFERENCE": "X",
+        "RULE_REFERENCE": "X = True",
         "FIELD_FORM_ASSOCIATION": null
       }
     },
