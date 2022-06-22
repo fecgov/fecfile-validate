@@ -36,8 +36,10 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 8,
-      "pattern": "^[ A-Za-z0-9]{0,8}$",
-      "examples": ["SA11AI"],
+      "pattern": "^[ -~]{0,8}$",
+      "examples": [
+        "SA11AI"
+      ],
       "fec_spec": {
         "COL_SEQ": 1,
         "FIELD_DESCRIPTION": "FORM TYPE",
@@ -55,8 +57,10 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 9,
-      "pattern": "^[ A-Za-z0-9]{0,9}$",
-      "examples": ["C00123456"],
+      "pattern": "^[ -~]{0,9}$",
+      "examples": [
+        "C00123456"
+      ],
       "fec_spec": {
         "COL_SEQ": 2,
         "FIELD_DESCRIPTION": "FILER COMMITTEE ID NUMBER",
@@ -74,8 +78,10 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 15,
-      "pattern": "^[ A-Za-z0-9]{0,15}$",
-      "examples": ["EAR_MEM_23"],
+      "pattern": "^[ -~]{0,15}$",
+      "examples": [
+        "EAR_MEM_23"
+      ],
       "fec_spec": {
         "COL_SEQ": 3,
         "FIELD_DESCRIPTION": "TRANSACTION TYPE IDENTIFIER",
@@ -93,8 +99,15 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 20,
+<<<<<<< HEAD
       "pattern": "^[ A-Za-z0-9]{0,20}$",
       "examples": ["A56123456789-1234"],
+=======
+      "pattern": "^[ -~]{0,20}$",
+      "examples": [
+        "A56123456789-1234"
+      ],
+>>>>>>> develop
       "fec_spec": {
         "COL_SEQ": 4,
         "FIELD_DESCRIPTION": "TRANSACTION ID",
@@ -112,8 +125,15 @@
       "type": ["string", "null"],
       "minLength": 0,
       "maxLength": 20,
+<<<<<<< HEAD
       "pattern": "^[ A-Za-z0-9]{0,20}$",
       "examples": ["A123456789-1234"],
+=======
+      "pattern": "^[ -~]{0,20}$",
+      "examples": [
+        "A123456789-1234"
+      ],
+>>>>>>> develop
       "fec_spec": {
         "COL_SEQ": 5,
         "FIELD_DESCRIPTION": "BACK REFERENCE TRAN ID NUMBER",
@@ -131,8 +151,15 @@
       "type": ["string", "null"],
       "minLength": 0,
       "maxLength": 8,
+<<<<<<< HEAD
       "pattern": "^[ A-Za-z0-9]{0,8}$",
       "examples": ["SA11AI"],
+=======
+      "pattern": "^[ -~]{0,8}$",
+      "examples": [
+        "SA11AI"
+      ],
+>>>>>>> develop
       "fec_spec": {
         "COL_SEQ": 6,
         "FIELD_DESCRIPTION": "BACK REFERENCE SCHED NAME",
@@ -150,8 +177,15 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 3,
+<<<<<<< HEAD
       "pattern": "^[ A-Za-z0-9]{0,3}$",
       "examples": ["IND"],
+=======
+      "pattern": "^[ -~]{0,3}$",
+      "examples": [
+        "IND"
+      ],
+>>>>>>> develop
       "fec_spec": {
         "COL_SEQ": 7,
         "FIELD_DESCRIPTION": "ENTITY TYPE",
@@ -169,8 +203,15 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 200,
+<<<<<<< HEAD
       "pattern": "^[ A-Za-z0-9]{0,200}$",
       "examples": ["John Smith & Co."],
+=======
+      "pattern": "^[ -~]{0,200}$",
+      "examples": [
+        "John Smith & Co."
+      ],
+>>>>>>> develop
       "fec_spec": {
         "COL_SEQ": 8,
         "FIELD_DESCRIPTION": "CONTRIBUTOR ORGANIZATION",
@@ -188,8 +229,15 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 30,
+<<<<<<< HEAD
       "pattern": "^[ A-Za-z0-9]{0,30}$",
       "examples": ["Smith"],
+=======
+      "pattern": "^[ -~]{0,30}$",
+      "examples": [
+        "Smith"
+      ],
+>>>>>>> develop
       "fec_spec": {
         "COL_SEQ": 9,
         "FIELD_DESCRIPTION": "CONTRIBUTOR LAST NAME",
@@ -207,8 +255,15 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 20,
+<<<<<<< HEAD
       "pattern": "^[ A-Za-z0-9]{0,20}$",
       "examples": ["John"],
+=======
+      "pattern": "^[ -~]{0,20}$",
+      "examples": [
+        "John"
+      ],
+>>>>>>> develop
       "fec_spec": {
         "COL_SEQ": 10,
         "FIELD_DESCRIPTION": "CONTRIBUTOR FIRST NAME",
@@ -226,8 +281,15 @@
       "type": ["string", "null"],
       "minLength": 0,
       "maxLength": 20,
+<<<<<<< HEAD
       "pattern": "^[ A-Za-z0-9]{0,20}$",
       "examples": ["W"],
+=======
+      "pattern": "^[ -~]{0,20}$",
+      "examples": [
+        "W"
+      ],
+>>>>>>> develop
       "fec_spec": {
         "COL_SEQ": 11,
         "FIELD_DESCRIPTION": "CONTRIBUTOR MIDDLE NAME",
@@ -245,8 +307,10 @@
       "type": ["string", "null"],
       "minLength": 0,
       "maxLength": 10,
-      "pattern": "^[ A-Za-z0-9]{0,10}$",
-      "examples": ["Dr"],
+      "pattern": "^[ -~]{0,10}$",
+      "examples": [
+        "Dr"
+      ],
       "fec_spec": {
         "COL_SEQ": 12,
         "FIELD_DESCRIPTION": "CONTRIBUTOR PREFIX",
@@ -264,8 +328,10 @@
       "type": ["string", "null"],
       "minLength": 0,
       "maxLength": 10,
-      "pattern": "^[ A-Za-z0-9]{0,10}$",
-      "examples": ["Jr"],
+      "pattern": "^[ -~]{0,10}$",
+      "examples": [
+        "Jr"
+      ],
       "fec_spec": {
         "COL_SEQ": 13,
         "FIELD_DESCRIPTION": "CONTRIBUTOR SUFFIX",
@@ -283,8 +349,10 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 34,
-      "pattern": "^[ A-Za-z0-9]{0,34}$",
-      "examples": ["123 Main Street"],
+      "pattern": "^[ -~]{0,34}$",
+      "examples": [
+        "123 Main Street"
+      ],
       "fec_spec": {
         "COL_SEQ": 14,
         "FIELD_DESCRIPTION": "CONTRIBUTOR STREET  1",
@@ -302,7 +370,7 @@
       "type": ["string", "null"],
       "minLength": 0,
       "maxLength": 34,
-      "pattern": "^[ A-Za-z0-9]{0,34}$",
+      "pattern": "^[ -~]{0,34}$",
       "fec_spec": {
         "COL_SEQ": 15,
         "FIELD_DESCRIPTION": "CONTRIBUTOR STREET  2",
@@ -320,8 +388,10 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 30,
-      "pattern": "^[ A-Za-z0-9]{0,30}$",
-      "examples": ["Anytown"],
+      "pattern": "^[ -~]{0,30}$",
+      "examples": [
+        "Anytown"
+      ],
       "fec_spec": {
         "COL_SEQ": 16,
         "FIELD_DESCRIPTION": "CONTRIBUTOR CITY",
@@ -339,8 +409,10 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 2,
-      "pattern": "^[ A-Za-z0-9]{0,2}$",
-      "examples": ["WA"],
+      "pattern": "^[ -~]{0,2}$",
+      "examples": [
+        "WA"
+      ],
       "fec_spec": {
         "COL_SEQ": 17,
         "FIELD_DESCRIPTION": "CONTRIBUTOR STATE",
@@ -358,8 +430,10 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 9,
-      "pattern": "^[ A-Za-z0-9]{0,9}$",
-      "examples": [981110123],
+      "pattern": "^[ -~]{0,9}$",
+      "examples": [
+        981110123
+      ],
       "fec_spec": {
         "COL_SEQ": 18,
         "FIELD_DESCRIPTION": "CONTRIBUTOR ZIP",
@@ -431,7 +505,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 100,
-      "pattern": "^[ A-Za-z0-9]{0,100}$",
+      "pattern": "^[ -~]{0,100}$",
       "fec_spec": {
         "COL_SEQ": 24,
         "FIELD_DESCRIPTION": "CONTRIBUTION PURPOSE DESCRIPTION",
@@ -449,7 +523,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 9,
-      "pattern": "^[ A-Za-z0-9]{0,9}$",
+      "pattern": "^[ -~]{0,9}$",
       "fec_spec": {
         "COL_SEQ": 27,
         "FIELD_DESCRIPTION": "DONOR COMMITTEE FEC ID",
@@ -467,8 +541,10 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 200,
-      "pattern": "^[ A-Za-z0-9]{0,200}$",
-      "examples": ["Action PAC"],
+      "pattern": "^[ -~]{0,200}$",
+      "examples": [
+        "Action PAC"
+      ],
       "fec_spec": {
         "COL_SEQ": 28,
         "FIELD_DESCRIPTION": "DONOR COMMITTEE NAME",
@@ -486,8 +562,10 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 38,
-      "pattern": "^[ A-Za-z0-9]{0,38}$",
-      "examples": ["XYZ Company"],
+      "pattern": "^[ -~]{0,38}$",
+      "examples": [
+        "XYZ Company"
+      ],
       "fec_spec": {
         "COL_SEQ": 25,
         "FIELD_DESCRIPTION": "CONTRIBUTOR EMPLOYER",
@@ -505,8 +583,10 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 38,
-      "pattern": "^[ A-Za-z0-9]{0,38}$",
-      "examples": ["QC Inspector"],
+      "pattern": "^[ -~]{0,38}$",
+      "examples": [
+        "QC Inspector"
+      ],
       "fec_spec": {
         "COL_SEQ": 26,
         "FIELD_DESCRIPTION": "CONTRIBUTOR OCCUPATION",
@@ -539,7 +619,7 @@
       "type": ["string", "null"],
       "minLength": 0,
       "maxLength": 100,
-      "pattern": "^[ A-Za-z0-9]{0,100}$",
+      "pattern": "^[ -~]{0,100}$",
       "fec_spec": {
         "COL_SEQ": 45,
         "FIELD_DESCRIPTION": "MEMO TEXT/DESCRIPTION",
@@ -557,8 +637,10 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 12,
-      "pattern": "^[ A-Za-z0-9]{0,12}$",
-      "examples": ["EAR_MEM"],
+      "pattern": "^[ -~]{0,12}$",
+      "examples": [
+        "EAR_MEM"
+      ],
       "fec_spec": {
         "COL_SEQ": 47,
         "FIELD_DESCRIPTION": "TRANSACTION TYPE IDENTIFIER",
@@ -573,8 +655,16 @@
     "beneficiary_candidate_office": {
       "title": "BENEFICIARY CANDIDATE OFFICE",
       "description": "",
-      "type": ["boolean", "null"],
-      "examples": ["H"],
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 0,
+      "maxLength": 1,
+      "pattern": "^[ -~]{0,1}$",
+      "examples": [
+        "H"
+      ],
       "fec_spec": {
         "COL_SEQ": 34,
         "FIELD_DESCRIPTION": "BENEFICIARY CANDIDATE OFFICE",
@@ -592,8 +682,10 @@
       "type": ["string", "null"],
       "minLength": 0,
       "maxLength": 2,
-      "pattern": "^[ A-Za-z0-9]{0,2}$",
-      "examples": ["FL"],
+      "pattern": "^[ -~]{0,2}$",
+      "examples": [
+        "FL"
+      ],
       "fec_spec": {
         "COL_SEQ": 35,
         "FIELD_DESCRIPTION": "BENEFICIARY CANDIDATE STATE",
@@ -629,7 +721,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 1,
-      "pattern": "^[ A-Za-z0-9]{0,1}$",
+      "pattern": "^[ -~]{0,1}$",
       "fec_spec": {
         "COL_SEQ": 43,
         "FIELD_DESCRIPTION": "MEMO CODE",
@@ -647,7 +739,7 @@
       "type": ["string", "null"],
       "minLength": 0,
       "maxLength": 100,
-      "pattern": "^[ A-Za-z0-9]{0,100}$",
+      "pattern": "^[ -~]{0,100}$",
       "fec_spec": {
         "COL_SEQ": 44,
         "FIELD_DESCRIPTION": "MEMO TEXT/DESCRIPTION",

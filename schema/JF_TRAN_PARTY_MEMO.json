@@ -46,7 +46,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 9,
-      "pattern": "^[ A-Za-z0-9]{0,9}$",
+      "pattern": "^[ -~]{0,9}$",
       "examples": ["C00123456"],
       "fec_spec": {
         "COL_SEQ": 2,
@@ -81,7 +81,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 20,
-      "pattern": "^[ A-Za-z0-9]{0,20}$",
+      "pattern": "^[ -~]{0,20}$",
       "examples": ["A56123456789-1234"],
       "fec_spec": {
         "COL_SEQ": 4,
@@ -100,7 +100,7 @@
       "type": ["string", "null"],
       "minLength": 0,
       "maxLength": 20,
-      "pattern": "^[ A-Za-z0-9]{0,20}$",
+      "pattern": "^[ -~]{0,20}$",
       "examples": ["A123456789-1234"],
       "fec_spec": {
         "COL_SEQ": 5,
@@ -151,7 +151,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 200,
-      "pattern": "^[ A-Za-z0-9]{0,200}$",
+      "pattern": "^[ -~]{0,200}$",
       "examples": ["John Smith & Co."],
       "fec_spec": {
         "COL_SEQ": 8,
@@ -170,7 +170,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 34,
-      "pattern": "^[ A-Za-z0-9]{0,34}$",
+      "pattern": "^[ -~]{0,34}$",
       "examples": ["123 Main Street"],
       "fec_spec": {
         "COL_SEQ": 14,
@@ -189,7 +189,7 @@
       "type": ["string", "null"],
       "minLength": 0,
       "maxLength": 34,
-      "pattern": "^[ A-Za-z0-9]{0,34}$",
+      "pattern": "^[ -~]{0,34}$",
       "fec_spec": {
         "COL_SEQ": 15,
         "FIELD_DESCRIPTION": "CONTRIBUTOR STREET  2",
@@ -207,7 +207,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 30,
-      "pattern": "^[ A-Za-z0-9]{0,30}$",
+      "pattern": "^[ -~]{0,30}$",
       "examples": ["Anytown"],
       "fec_spec": {
         "COL_SEQ": 16,
@@ -226,7 +226,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 2,
-      "pattern": "^[ A-Za-z0-9]{0,2}$",
+      "pattern": "^[ -~]{0,2}$",
       "examples": ["WA"],
       "fec_spec": {
         "COL_SEQ": 17,
@@ -245,7 +245,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 9,
-      "pattern": "^[ A-Za-z0-9]{0,9}$",
+      "pattern": "^[ -~]{0,9}$",
       "examples": [981110123],
       "fec_spec": {
         "COL_SEQ": 18,
@@ -318,7 +318,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 100,
-      "pattern": "^[ A-Za-z0-9]{0,100}$",
+      "pattern": "^[ -~]{0,100}$",
       "fec_spec": {
         "COL_SEQ": 24,
         "FIELD_DESCRIPTION": "CONTRIBUTION PURPOSE DESCRIPTION",
@@ -336,7 +336,7 @@
       "type": ["string", "null"],
       "minLength": 0,
       "maxLength": 9,
-      "pattern": "^[ A-Za-z0-9]{0,9}$",
+      "pattern": "^[ -~]{0,9}$",
       "fec_spec": {
         "COL_SEQ": 25,
         "FIELD_DESCRIPTION": "DONOR COMMITTEE FEC ID",
@@ -354,7 +354,7 @@
       "type": ["string", "null"],
       "minLength": 0,
       "maxLength": 200,
-      "pattern": "^[ A-Za-z0-9]{0,200}$",
+      "pattern": "^[ -~]{0,200}$",
       "examples": ["Action PAC"],
       "fec_spec": {
         "COL_SEQ": 26,
@@ -388,7 +388,7 @@
       "type": ["string", "null"],
       "minLength": 0,
       "maxLength": 100,
-      "pattern": "^[ A-Za-z0-9]{0,100}$",
+      "pattern": "^[ -~]{0,100}$",
       "fec_spec": {
         "COL_SEQ": 45,
         "FIELD_DESCRIPTION": "MEMO TEXT/DESCRIPTION",

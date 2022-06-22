@@ -14,7 +14,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 3,
-      "pattern": "^[ A-Za-z0-9]{0,3}$",
+      "pattern": "^[ -~]{0,3}$",
       "examples": ["F2S"],
       "fec_spec": {
         "COL_SEQ": 1,
@@ -33,7 +33,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 9,
-      "pattern": "^[ A-Za-z0-9]{0,9}$",
+      "pattern": "^[ -~]{0,9}$",
       "examples": ["S04MA3210"],
       "fec_spec": {
         "COL_SEQ": 2,
@@ -52,7 +52,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 9,
-      "pattern": "^[ A-Za-z0-9]{0,9}$",
+      "pattern": "^[ -~]{0,9}$",
       "fec_spec": {
         "COL_SEQ": 3,
         "FIELD_DESCRIPTION": "AUTH COMMITTEE ID NUMBER",
@@ -70,7 +70,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 200,
-      "pattern": "^[ A-Za-z0-9]{0,200}$",
+      "pattern": "^[ -~]{0,200}$",
       "fec_spec": {
         "COL_SEQ": 4,
         "FIELD_DESCRIPTION": "AUTH COMMITTEE NAME",
@@ -88,7 +88,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 34,
-      "pattern": "^[ A-Za-z0-9]{0,34}$",
+      "pattern": "^[ -~]{0,34}$",
       "fec_spec": {
         "COL_SEQ": 5,
         "FIELD_DESCRIPTION": "AUTH STREET 1",
@@ -106,7 +106,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 34,
-      "pattern": "^[ A-Za-z0-9]{0,34}$",
+      "pattern": "^[ -~]{0,34}$",
       "fec_spec": {
         "COL_SEQ": 6,
         "FIELD_DESCRIPTION": "AUTH STREET 2",
@@ -124,7 +124,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 30,
-      "pattern": "^[ A-Za-z0-9]{0,30}$",
+      "pattern": "^[ -~]{0,30}$",
       "fec_spec": {
         "COL_SEQ": 7,
         "FIELD_DESCRIPTION": "AUTH CITY",
@@ -142,7 +142,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 2,
-      "pattern": "^[ A-Za-z0-9]{0,2}$",
+      "pattern": "^[ -~]{0,2}$",
       "fec_spec": {
         "COL_SEQ": 8,
         "FIELD_DESCRIPTION": "AUTH STATE",
@@ -160,7 +160,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 9,
-      "pattern": "^[ A-Za-z0-9]{0,9}$",
+      "pattern": "^[ -~]{0,9}$",
       "fec_spec": {
         "COL_SEQ": 9,
         "FIELD_DESCRIPTION": "AUTH ZIP",
