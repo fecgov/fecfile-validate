@@ -264,9 +264,10 @@
     "contribution_date": {
       "title": "CONTRIBUTION DATE",
       "description": "",
-      "type": "string",
+      "type": ["string", "null"],
       "format": "date",
       "minLength": 10,
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
       "examples": ["2018-11-13"],
       "fec_spec": {
         "COL_SEQ": 21,
