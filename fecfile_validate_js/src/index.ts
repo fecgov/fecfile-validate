@@ -7,7 +7,6 @@
  */
 
 import Ajv, { ErrorObject, ValidateFunction } from "ajv";
-import addFormats from "ajv-formats";
 
 /**
  * Validation error information for a single schema property
@@ -25,7 +24,6 @@ export type ValidationError = {
 };
 
 const ajv = new Ajv({ allErrors: true, strictSchema: false });
-addFormats(ajv, ["date"]);
 
 /**
  * Takes a schema in JSON format and data object to be validated and returns an
