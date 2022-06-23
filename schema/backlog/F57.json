@@ -84,7 +84,7 @@
         "REQUIRED": "X (error)",
         "SAMPLE_DATA": "B56123456789-1234",
         "VALUE_REFERENCE": null,
-        "RULE_REFERENCE": "must be unique and UPPER CASE for the life of the report (original + all amendments)",
+        "RULE_REFERENCE": "Must be unique for the life of a report (original + amendments) within each committee account. Letters, if included, must be uppercase.",
         "FIELD_FORM_ASSOCIATION": null
       }
     },

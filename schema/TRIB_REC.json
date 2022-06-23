@@ -30,9 +30,7 @@
       "minLength": 0,
       "maxLength": 8,
       "pattern": "^[ A-Za-z0-9]{0,8}$",
-      "examples": [
-        "SA11AI"
-      ],
+      "examples": ["SA11AI"],
       "fec_spec": {
         "COL_SEQ": 1,
         "FIELD_DESCRIPTION": "FORM TYPE",
@@ -51,9 +49,7 @@
       "minLength": 0,
       "maxLength": 9,
       "pattern": "^[ A-Za-z0-9]{0,9}$",
-      "examples": [
-        "C00123456"
-      ],
+      "examples": ["C00123456"],
       "fec_spec": {
         "COL_SEQ": 2,
         "FIELD_DESCRIPTION": "FILER COMMITTEE ID NUMBER",
@@ -61,20 +57,15 @@
         "REQUIRED": "X (error)",
         "SAMPLE_DATA": "C00123456",
         "VALUE_REFERENCE": null,
-        "RULE_REFERENCE": null,
+        "RULE_REFERENCE": "this is the ID of the Committee Account the report/transaction is associated with",
         "FIELD_FORM_ASSOCIATION": null
       }
     },
     "transaction_type_identifier": {
       "title": "TRANSACTION TYPE IDENTIFIER",
       "description": "",
-      "type": "string",
-      "minLength": 0,
-      "maxLength": 12,
-      "pattern": "^[ A-Za-z0-9]{0,12}$",
-      "examples": [
-        "TRIB_REC"
-      ],
+      "const": "TRIB_REC",
+      "examples": ["TRIB_REC"],
       "fec_spec": {
         "COL_SEQ": 3,
         "FIELD_DESCRIPTION": "TRANSACTION TYPE IDENTIFIER",
@@ -93,9 +84,7 @@
       "minLength": 0,
       "maxLength": 20,
       "pattern": "^[ A-Za-z0-9]{0,20}$",
-      "examples": [
-        "A56123456789-1234"
-      ],
+      "examples": ["A56123456789-1234"],
       "fec_spec": {
         "COL_SEQ": 4,
         "FIELD_DESCRIPTION": "TRANSACTION ID",
@@ -103,23 +92,18 @@
         "REQUIRED": "X (error)",
         "SAMPLE_DATA": "A56123456789-1234",
         "VALUE_REFERENCE": null,
-        "RULE_REFERENCE": "must be unique and UPPER CASE for the life of the report (original + all amendments)",
+        "RULE_REFERENCE": "Must be unique for the life of a report (original + amendments) within each committee account. Letters, if included, must be uppercase.",
         "FIELD_FORM_ASSOCIATION": null
       }
     },
     "back_reference_tran_id_number": {
       "title": "BACK REFERENCE TRAN ID NUMBER",
       "description": "",
-      "type": [
-        "string",
-        "null"
-      ],
+      "type": ["string", "null"],
       "minLength": 0,
       "maxLength": 20,
       "pattern": "^[ A-Za-z0-9]{0,20}$",
-      "examples": [
-        "A123456789-1234"
-      ],
+      "examples": ["A123456789-1234"],
       "fec_spec": {
         "COL_SEQ": 5,
         "FIELD_DESCRIPTION": "BACK REFERENCE TRAN ID NUMBER",
@@ -134,16 +118,11 @@
     "back_reference_sched_name": {
       "title": "BACK REFERENCE SCHED NAME",
       "description": "",
-      "type": [
-        "string",
-        "null"
-      ],
+      "type": ["string", "null"],
       "minLength": 0,
       "maxLength": 8,
       "pattern": "^[ A-Za-z0-9]{0,8}$",
-      "examples": [
-        "SA11AI"
-      ],
+      "examples": ["SA11AI"],
       "fec_spec": {
         "COL_SEQ": 6,
         "FIELD_DESCRIPTION": "BACK REFERENCE SCHED NAME",
@@ -158,20 +137,15 @@
     "entity_type": {
       "title": "ENTITY TYPE",
       "description": "",
-      "type": "string",
-      "minLength": 0,
-      "maxLength": 3,
-      "pattern": "^[ A-Za-z0-9]{0,3}$",
-      "examples": [
-        "IND"
-      ],
+      "const": "ORG",
+      "examples": ["ORG"],
       "fec_spec": {
         "COL_SEQ": 7,
         "FIELD_DESCRIPTION": "ENTITY TYPE",
         "TYPE": "A/N-3",
         "REQUIRED": "X (error)",
-        "SAMPLE_DATA": "IND",
-        "VALUE_REFERENCE": null,
+        "SAMPLE_DATA": "ORG",
+        "VALUE_REFERENCE": "ORG only",
         "RULE_REFERENCE": null,
         "FIELD_FORM_ASSOCIATION": null
       }
@@ -183,9 +157,7 @@
       "minLength": 0,
       "maxLength": 200,
       "pattern": "^[ A-Za-z0-9]{0,200}$",
-      "examples": [
-        "Jo Smith & Co."
-      ],
+      "examples": ["Jo Smith & Co."],
       "fec_spec": {
         "COL_SEQ": 8,
         "FIELD_DESCRIPTION": "CONTRIBUTOR ORGANIZATION NAME",
@@ -204,9 +176,7 @@
       "minLength": 0,
       "maxLength": 34,
       "pattern": "^[ A-Za-z0-9]{0,34}$",
-      "examples": [
-        "123 Main Street"
-      ],
+      "examples": ["123 Main Street"],
       "fec_spec": {
         "COL_SEQ": 14,
         "FIELD_DESCRIPTION": "CONTRIBUTOR STREET  1",
@@ -221,10 +191,7 @@
     "contributor_street_2": {
       "title": "CONTRIBUTOR STREET  2",
       "description": "",
-      "type": [
-        "string",
-        "null"
-      ],
+      "type": ["string", "null"],
       "minLength": 0,
       "maxLength": 34,
       "pattern": "^[ A-Za-z0-9]{0,34}$",
@@ -246,9 +213,7 @@
       "minLength": 0,
       "maxLength": 30,
       "pattern": "^[ A-Za-z0-9]{0,30}$",
-      "examples": [
-        "Anytown"
-      ],
+      "examples": ["Anytown"],
       "fec_spec": {
         "COL_SEQ": 16,
         "FIELD_DESCRIPTION": "CONTRIBUTOR CITY",
@@ -267,9 +232,7 @@
       "minLength": 0,
       "maxLength": 2,
       "pattern": "^[ A-Za-z0-9]{0,2}$",
-      "examples": [
-        "WA"
-      ],
+      "examples": ["WA"],
       "fec_spec": {
         "COL_SEQ": 17,
         "FIELD_DESCRIPTION": "CONTRIBUTOR STATE",
@@ -288,9 +251,7 @@
       "minLength": 0,
       "maxLength": 9,
       "pattern": "^[ A-Za-z0-9]{0,9}$",
-      "examples": [
-        981110123
-      ],
+      "examples": [981110123],
       "fec_spec": {
         "COL_SEQ": 18,
         "FIELD_DESCRIPTION": "CONTRIBUTOR ZIP",
@@ -305,19 +266,18 @@
     "contribution_date": {
       "title": "CONTRIBUTION DATE",
       "description": "",
-      "type": "integer",
-      "minimum": 0,
-      "maximum": 99999999,
-      "examples": [
-        20120615
-      ],
+      "type": "string",
+      "minLength": 8,
+      "maxLength": 8,
+      "pattern": "^\\d{8}$",
+      "examples": [20120615],
       "fec_spec": {
         "COL_SEQ": 21,
         "FIELD_DESCRIPTION": "CONTRIBUTION DATE",
         "TYPE": "NUM-8",
         "REQUIRED": "X (error)",
         "SAMPLE_DATA": 20120615,
-        "VALUE_REFERENCE": "YYYYMMDD",
+        "VALUE_REFERENCE": null,
         "RULE_REFERENCE": null,
         "FIELD_FORM_ASSOCIATION": null
       }
@@ -328,9 +288,7 @@
       "type": "number",
       "minimum": 0,
       "maximum": 999999999999,
-      "examples": [
-        250
-      ],
+      "examples": [250],
       "fec_spec": {
         "COL_SEQ": 22,
         "FIELD_DESCRIPTION": "CONTRIBUTION AMOUNT",
@@ -348,9 +306,7 @@
       "type": "number",
       "minimum": 0,
       "maximum": 999999999999,
-      "examples": [
-        1000
-      ],
+      "examples": [1000],
       "fec_spec": {
         "COL_SEQ": 23,
         "FIELD_DESCRIPTION": "CONTRIBUTION AGGREGATE",
@@ -363,35 +319,27 @@
       }
     },
     "contribution_purpose_descrip": {
-      "title": "RECEIPT DESCRIPTION",
+      "title": "CONTRIBUTION PURPOSE DESCRIPTION",
       "description": "",
-      "type": "string",
-      "minLength": 0,
-      "maxLength": 100,
-      "pattern": "^[ A-Za-z0-9]{0,100}$",
+      "const": "Tribal Receipt",
+      "examples": ["Tribal Receipt"],
       "fec_spec": {
         "COL_SEQ": 24,
-        "FIELD_DESCRIPTION": "RECEIPT DESCRIPTION",
+        "FIELD_DESCRIPTION": "CONTRIBUTION PURPOSE DESCRIPTION",
         "TYPE": "A/N-100",
         "REQUIRED": "X (error)",
-        "SAMPLE_DATA": null,
+        "SAMPLE_DATA": "Tribal Receipt",
         "VALUE_REFERENCE": null,
-        "RULE_REFERENCE": "Description: Tribal Receipt",
+        "RULE_REFERENCE": "auto-populate the text \"Tribal Receipt\", field should be read-only",
         "FIELD_FORM_ASSOCIATION": null
       }
     },
     "memo_code": {
       "title": "MEMO CODE",
       "description": "",
-      "type": [
-        "string",
-        "null"
-      ],
-      "minLength": 0,
-      "maxLength": 1,
-      "pattern": "^[ A-Za-z0-9]{0,1}$",
+      "type": ["boolean", "null"],
       "fec_spec": {
-        "COL_SEQ": 44,
+        "COL_SEQ": 43,
         "FIELD_DESCRIPTION": "MEMO CODE",
         "TYPE": "A/N-1",
         "REQUIRED": null,
@@ -404,10 +352,7 @@
     "memo_text_description": {
       "title": "MEMO TEXT/DESCRIPTION",
       "description": "",
-      "type": [
-        "string",
-        "null"
-      ],
+      "type": ["string", "null"],
       "minLength": 0,
       "maxLength": 100,
       "pattern": "^[ A-Za-z0-9]{0,100}$",

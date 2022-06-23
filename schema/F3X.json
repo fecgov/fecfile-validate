@@ -57,7 +57,7 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "C00123456",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
+                "RULE_REFERENCE": "this is the ID of the Committee Account the report/transaction is associated with",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
