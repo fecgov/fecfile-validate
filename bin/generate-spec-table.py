@@ -86,8 +86,6 @@ for p in data['properties']:
         validation_rules += f"<li>minimum: {data['properties'][p]['minimum']}</li>"
     if 'maximum' in data['properties'][p]:
         validation_rules += f"<li>maximum: {data['properties'][p]['maximum']}</li>"
-    if 'format' in data['properties'][p]:
-        validation_rules += f"<li>format: {data['properties'][p]['format']}</li>"
 
     print(f'<td>{validation_rules}</td>')
     print('</tr>')
