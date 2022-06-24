@@ -205,8 +205,8 @@ Deno.test({
     const thisData = { ...perfectForm_F3X, ...{ date_signed: "" } };
     const result = validate(f3xSchema, thisData);
     assertEquals(result[0].path, "date_signed");
-    assertEquals(result[0].keyword, "minLength");
-    assertEquals(result[0].message, "must NOT have fewer than 10 characters");
+    assertEquals(result[0].keyword, "format");
+    assertEquals(result[0].message, 'must match format "date"');
   },
 });
 
@@ -218,6 +218,12 @@ Deno.test({
     assertEquals(result[0].path, "date_signed");
     assertEquals(result[0].keyword, "format");
     assertEquals(result[0].message, 'must match format "date"');
+
+    const thatData = { ...perfectForm_F3X, ...{ date_signed: "1234" } };
+    const incompleteResult = validate(f3xSchema, thatData);
+    assertEquals(incompleteResult[0].path, "date_signed");
+    assertEquals(incompleteResult[0].keyword, "format");
+    assertEquals(incompleteResult[0].message, 'must match format "date"');
   },
 });
 

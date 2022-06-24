@@ -232,7 +232,6 @@
       "title": "DATE OF ELECTION",
       "description": "",
       "type": ["string", "null"],
-      "minLength": 10,
       "format": "date",
       "examples": ["2018-11-13"],
       "fec_spec": {
@@ -269,7 +268,6 @@
       "title": "COVERAGE FROM DATE",
       "description": "",
       "type": ["string", "null"],
-      "minLength": 10,
       "format": "date",
       "examples": ["2018-11-13"],
       "fec_spec": {
@@ -287,7 +285,6 @@
       "title": "COVERAGE THROUGH DATE",
       "description": "",
       "type": ["string", "null"],
-      "minLength": 10,
       "format": "date",
       "examples": ["2018-11-13"],
       "fec_spec": {
@@ -416,7 +413,6 @@
       "title": "DATE SIGNED",
       "description": "",
       "type": "string",
-      "minLength": 10,
       "format": "date",
       "examples": ["2018-11-13"],
       "fec_spec": {

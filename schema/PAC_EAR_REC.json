@@ -275,7 +275,6 @@
       "title": "CONTRIBUTION DATE",
       "description": "",
       "type": ["string", "null"],
-      "minLength": 10,
       "format": "date",
       "examples": ["2018-11-13"],
       "fec_spec": {
