@@ -211,6 +211,17 @@ Deno.test({
 });
 
 Deno.test({
+  name: "date_signed should be a date",
+  fn: () => {
+    const thisData = { ...perfectForm_F3X, ...{ date_signed: "this is not a date" } };
+    const result = validate(f3xSchema, thisData);
+    assertEquals(result[0].path, "date_signed");
+    assertEquals(result[0].keyword, "format");
+    assertEquals(result[0].message, 'must match format "date"');
+  },
+});
+
+Deno.test({
   name: "date_signed is required",
   fn: () => {
     const thisData = { ...perfectForm_F3X };
