@@ -72,7 +72,7 @@
       "description": "",
       "type": "string",
       "minLength": 0,
-      "maxLength": 12,
+      "maxLength": 16,
       "pattern": "^[ -~]{0,16}$",
       "examples": [
         "JF_TRAN_PAC_MEMO"
