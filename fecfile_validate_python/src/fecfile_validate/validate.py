@@ -3,7 +3,7 @@
 import os
 import re
 import json
-from jsonschema import Draft7Validator
+from jsonschema import Draft7Validator, draft7_format_checker
 import logging
 
 logger = logging.getLogger(__name__)
@@ -78,7 +78,7 @@ def validate(schema_name, form_data, fields_to_validate=None):
         list of ValidationError: A list of all errors found in form_data"""
     form_schema = get_schema(schema_name)
 
-    validator = Draft7Validator(form_schema)
+    validator = Draft7Validator(form_schema, format_checker=draft7_format_checker)
     errors = list(map(parse_schema_error, validator.iter_errors(form_data)))
     if fields_to_validate:
 

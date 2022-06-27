@@ -21,7 +21,7 @@ const perfectForm: any = {
   contributor_city: "Best Town",
   contributor_state: "DC",
   contributor_zip: "20000",
-  contribution_date: "20220915",
+  contribution_date: "2022-09-15",
   contribution_amount: 500,
   contribution_aggregate: 0,
   contribution_purpose_descrip: "a description",
