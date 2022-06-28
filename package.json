@@ -1,40 +1,40 @@
 {
-    "name": "fecfile-validate",
-    "version": "0.0.1",
-    "description": "Validation package for FECFile Online forms and data.",
-    "type": "module",
-    "main": "fecfile_validate_js/dist/index.js",
-    "files": [
-        "fecfile_validate_js/src/index.ts",
-        "fecfile_validate_js/tsconfig.json",
-        "fecfile_validate_js/scripts/buildSchemaModules.js",
-        "schema/*.json"
-    ],
-    "scripts": {
-        "build": "rm -rf fecfile_validate_js/dist && tsc --project fecfile_validate_js/tsconfig.json && node fecfile_validate_js/scripts/buildSchemaModules",
-        "postinstall": "npm run build",
-        "lint": "eslint ./fecfile_validate_js/src --ext .ts",
-        "test": "npm run build && deno test --coverage=cov_profile --compat --unstable --allow-read --allow-run fecfile_validate_js/tests/*.test.ts"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/fecgov/fecfile-validate.git"
-    },
-    "keywords": [],
-    "author": "",
-    "license": "CC0-1.0",
-    "bugs": {
-        "url": "https://github.com/fecgov/fecfile-validate/issues"
-    },
-    "homepage": "https://github.com/fecgov/fecfile-validate#readme",
-    "dependencies": {
-        "ajv": "^8.11.0"
-    },
-    "devDependencies": {
-        "@typescript-eslint/eslint-plugin": "^5.17.0",
-        "@typescript-eslint/parser": "^5.17.0",
-        "eslint": "^8.12.0",
-        "glob": "^7.2.0",
-        "typescript": "^4.6.3"
-    }
+  "name": "fecfile-validate",
+  "version": "0.0.1",
+  "description": "Validation package for FECFile Online forms and data.",
+  "type": "module",
+  "main": "fecfile_validate_js/dist/index.js",
+  "files": [
+    "fecfile_validate_js/src/index.ts",
+    "fecfile_validate_js/tsconfig.json",
+    "fecfile_validate_js/scripts/buildSchemaModules.js",
+    "schema/*.json"
+  ],
+  "scripts": {
+    "build": "rm -rf fecfile_validate_js/dist && tsc --project fecfile_validate_js/tsconfig.json && node fecfile_validate_js/scripts/buildSchemaModules",
+    "postinstall": "npm run build",
+    "lint": "eslint ./fecfile_validate_js/src --ext .ts",
+    "test": "npm run build && deno test --coverage=cov_profile --compat --unstable --allow-read --allow-run fecfile_validate_js/tests/*.test.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fecgov/fecfile-validate.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "CC0-1.0",
+  "bugs": {
+    "url": "https://github.com/fecgov/fecfile-validate/issues"
+  },
+  "homepage": "https://github.com/fecgov/fecfile-validate#readme",
+  "dependencies": {
+    "ajv": "^8.11.0"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.17.0",
+    "@typescript-eslint/parser": "^5.17.0",
+    "eslint": "^8.12.0",
+    "glob": "^7.2.0",
+    "typescript": "^4.6.3"
+  }
 }
