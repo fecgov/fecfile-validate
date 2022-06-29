@@ -32,9 +32,7 @@
       "minLength": 0,
       "maxLength": 8,
       "pattern": "^[ -~]{0,8}$",
-      "examples": [
-        "SA11AI"
-      ],
+      "examples": ["SA11AI"],
       "fec_spec": {
         "COL_SEQ": 1,
         "FIELD_DESCRIPTION": "FORM TYPE",
@@ -53,9 +51,7 @@
       "minLength": 0,
       "maxLength": 9,
       "pattern": "^[ -~]{0,9}$",
-      "examples": [
-        "C00123456"
-      ],
+      "examples": ["C00123456"],
       "fec_spec": {
         "COL_SEQ": 2,
         "FIELD_DESCRIPTION": "FILER COMMITTEE ID NUMBER",
@@ -95,9 +91,7 @@
       "minLength": 0,
       "maxLength": 20,
       "pattern": "^[ -~]{0,20}$",
-      "examples": [
-        "A56123456789-1234"
-      ],
+      "examples": ["A56123456789-1234"],
       "fec_spec": {
         "COL_SEQ": 4,
         "FIELD_DESCRIPTION": "TRANSACTION ID",
@@ -112,16 +106,11 @@
     "back_reference_tran_id_number": {
       "title": "BACK REFERENCE TRAN ID NUMBER",
       "description": "",
-      "type": [
-        "string",
-        "null"
-      ],
+      "type": ["string", "null"],
       "minLength": 0,
       "maxLength": 20,
       "pattern": "^[ -~]{0,20}$",
-      "examples": [
-        "A123456789-1234"
-      ],
+      "examples": ["A123456789-1234"],
       "fec_spec": {
         "COL_SEQ": 5,
         "FIELD_DESCRIPTION": "BACK REFERENCE TRAN ID NUMBER",
@@ -136,16 +125,11 @@
     "back_reference_sched_name": {
       "title": "BACK REFERENCE SCHED NAME",
       "description": "",
-      "type": [
-        "string",
-        "null"
-      ],
+      "type": ["string", "null"],
       "minLength": 0,
       "maxLength": 8,
       "pattern": "^[ -~]{0,8}$",
-      "examples": [
-        "SA11AI"
-      ],
+      "examples": ["SA11AI"],
       "fec_spec": {
         "COL_SEQ": 6,
         "FIELD_DESCRIPTION": "BACK REFERENCE SCHED NAME",
@@ -164,9 +148,7 @@
       "minLength": 0,
       "maxLength": 3,
       "pattern": "^[ -~]{0,3}$",
-      "examples": [
-        "IND"
-      ],
+      "examples": ["IND"],
       "fec_spec": {
         "COL_SEQ": 7,
         "FIELD_DESCRIPTION": "ENTITY TYPE",
@@ -185,9 +167,7 @@
       "minLength": 0,
       "maxLength": 200,
       "pattern": "^[ -~]{0,200}$",
-      "examples": [
-        "John Smith & Co."
-      ],
+      "examples": ["John Smith & Co."],
       "fec_spec": {
         "COL_SEQ": 8,
         "FIELD_DESCRIPTION": "CONTRIBUTOR ORGANIZATION",
@@ -206,9 +186,7 @@
       "minLength": 0,
       "maxLength": 34,
       "pattern": "^[ -~]{0,34}$",
-      "examples": [
-        "123 Main Street"
-      ],
+      "examples": ["123 Main Street"],
       "fec_spec": {
         "COL_SEQ": 14,
         "FIELD_DESCRIPTION": "CONTRIBUTOR STREET  1",
@@ -223,10 +201,7 @@
     "contributor_street_2": {
       "title": "CONTRIBUTOR STREET  2",
       "description": "",
-      "type": [
-        "string",
-        "null"
-      ],
+      "type": ["string", "null"],
       "minLength": 0,
       "maxLength": 34,
       "pattern": "^[ -~]{0,34}$",
@@ -248,9 +223,7 @@
       "minLength": 0,
       "maxLength": 30,
       "pattern": "^[ -~]{0,30}$",
-      "examples": [
-        "Anytown"
-      ],
+      "examples": ["Anytown"],
       "fec_spec": {
         "COL_SEQ": 16,
         "FIELD_DESCRIPTION": "CONTRIBUTOR CITY",
@@ -269,9 +242,7 @@
       "minLength": 0,
       "maxLength": 2,
       "pattern": "^[ -~]{0,2}$",
-      "examples": [
-        "WA"
-      ],
+      "examples": ["WA"],
       "fec_spec": {
         "COL_SEQ": 17,
         "FIELD_DESCRIPTION": "CONTRIBUTOR STATE",
@@ -290,9 +261,7 @@
       "minLength": 0,
       "maxLength": 9,
       "pattern": "^[ -~]{0,9}$",
-      "examples": [
-        981110123
-      ],
+      "examples": [981110123],
       "fec_spec": {
         "COL_SEQ": 18,
         "FIELD_DESCRIPTION": "CONTRIBUTOR ZIP",
@@ -307,6 +276,7 @@
     "contribution_date": {
       "title": "CONTRIBUTION DATE",
       "description": "",
+<<<<<<< HEAD
       "type": "string",
       "minLength": 8,
       "maxLength": 8,
@@ -314,6 +284,12 @@
       "examples": [
         20120615
       ],
+=======
+      "type": ["string", "null"],
+      "minLength": 10,
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+      "examples": ["2018-11-13"],
+>>>>>>> develop
       "fec_spec": {
         "COL_SEQ": 21,
         "FIELD_DESCRIPTION": "CONTRIBUTION DATE",
@@ -331,9 +307,7 @@
       "type": "number",
       "minimum": 0,
       "maximum": 999999999999,
-      "examples": [
-        250
-      ],
+      "examples": [250],
       "fec_spec": {
         "COL_SEQ": 22,
         "FIELD_DESCRIPTION": "CONTRIBUTION AMOUNT",
@@ -351,9 +325,7 @@
       "type": "number",
       "minimum": 0,
       "maximum": 999999999999,
-      "examples": [
-        1000
-      ],
+      "examples": [1000],
       "fec_spec": {
         "COL_SEQ": 23,
         "FIELD_DESCRIPTION": "CONTRIBUTION AGGREGATE",
@@ -386,10 +358,7 @@
     "donor_committee_fec_id": {
       "title": "DONOR COMMITTEE FEC ID",
       "description": "",
-      "type": [
-        "string",
-        "null"
-      ],
+      "type": ["string", "null"],
       "minLength": 0,
       "maxLength": 9,
       "pattern": "^C[0123456789]{0,9}$",
@@ -407,16 +376,11 @@
     "donor_committee_name": {
       "title": "DONOR COMMITTEE NAME",
       "description": "",
-      "type": [
-        "string",
-        "null"
-      ],
+      "type": ["string", "null"],
       "minLength": 0,
       "maxLength": 200,
       "pattern": "^[ -~]{0,200}$",
-      "examples": [
-        "Action PAC"
-      ],
+      "examples": ["Action PAC"],
       "fec_spec": {
         "COL_SEQ": 28,
         "FIELD_DESCRIPTION": "DONOR COMMITTEE NAME",
@@ -431,10 +395,7 @@
     "memo_code": {
       "title": "MEMO CODE",
       "description": "",
-      "type": "string",
-      "minLength": 0,
-      "maxLength": 1,
-      "pattern": "^[ -~]{0,1}$",
+      "type": ["boolean", "null"],
       "fec_spec": {
         "COL_SEQ": 44,
         "FIELD_DESCRIPTION": "MEMO CODE",
@@ -449,10 +410,7 @@
     "memo_text_description": {
       "title": "MEMO TEXT/DESCRIPTION",
       "description": "",
-      "type": [
-        "string",
-        "null"
-      ],
+      "type": ["string", "null"],
       "minLength": 0,
       "maxLength": 100,
       "pattern": "^[ -~]{0,100}$",

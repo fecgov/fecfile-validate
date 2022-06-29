@@ -120,7 +120,7 @@ Error if Coded incorrectly.
 Note: Monthly Year-End reports should be coded with 'MYE'.
 Quarterly Year-End reports will continue to be coded with 'YE'.</td>
 <td></td>
-<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 3</li><li>regex: ^[ A-Za-z0-9]{0,3}$</li></td>
+<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 3</li><li>regex: ^[ -~]{0,3}$</li></td>
 </tr>
 <tr>
 <td>11</td>
@@ -131,7 +131,7 @@ Quarterly Year-End reports will continue to be coded with 'YE'.</td>
 <td>C,G,P,R,S,E[YYYY]</td>
 <td>Edit: PGI</td>
 <td></td>
-<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 5</li><li>regex: ^[ A-Za-z0-9]{0,5}$</li></td>
+<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 5</li><li>regex: ^[ -~]{0,5}$</li></td>
 </tr>
 <tr>
 <td>12</td>
@@ -142,7 +142,7 @@ Quarterly Year-End reports will continue to be coded with 'YE'.</td>
 <td>YYYYMMDD</td>
 <td></td>
 <td></td>
-<td><ul><li>type: ['string', 'null']</li><li>min length: 8</li><li>max length: 8</li><li>regex: ^[0-9]{8}$</li></td>
+<td><ul><li>type: ['string', 'null']</li><li>min length: 10</li><li>regex: ^[0-9]{4}-[0-9]{2}-[0-9]{2}$</li></td>
 </tr>
 <tr>
 <td>13</td>
@@ -164,7 +164,7 @@ Quarterly Year-End reports will continue to be coded with 'YE'.</td>
 <td></td>
 <td></td>
 <td></td>
-<td><ul><li>type: ['string', 'null']</li><li>min length: 8</li><li>max length: 8</li><li>regex: ^[0-9]{8}$</li></td>
+<td><ul><li>type: ['string', 'null']</li><li>min length: 10</li><li>regex: ^[0-9]{4}-[0-9]{2}-[0-9]{2}$</li></td>
 </tr>
 <tr>
 <td>15</td>
@@ -175,7 +175,7 @@ Quarterly Year-End reports will continue to be coded with 'YE'.</td>
 <td></td>
 <td></td>
 <td></td>
-<td><ul><li>type: ['string', 'null']</li><li>min length: 8</li><li>max length: 8</li><li>regex: ^[0-9]{8}$</li></td>
+<td><ul><li>type: ['string', 'null']</li><li>min length: 10</li><li>regex: ^[0-9]{4}-[0-9]{2}-[0-9]{2}$</li></td>
 </tr>
 <tr>
 <td>16</td>
@@ -252,7 +252,7 @@ Quarterly Year-End reports will continue to be coded with 'YE'.</td>
 <td></td>
 <td></td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 8</li><li>max length: 8</li><li>regex: ^[0-9]{8}$</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 10</li><li>regex: ^[0-9]{4}-[0-9]{2}-[0-9]{2}$</li></td>
 </tr>
 <tr>
 <td>23</td>

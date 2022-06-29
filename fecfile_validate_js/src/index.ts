@@ -46,7 +46,10 @@ export function validate(
   if (!isValid && !!validator.errors?.length) {
     validator.errors.forEach((error) => {
       const parsedError = parseError(error);
-      if (!fieldsToValidate.length || fieldsToValidate.includes(parsedError.path)) {
+      if (
+        !fieldsToValidate.length ||
+        fieldsToValidate.includes(parsedError.path)
+      ) {
         errors.push(parsedError);
       }
     });
