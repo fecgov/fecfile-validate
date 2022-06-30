@@ -65,16 +65,16 @@
     "transaction_type_identifier": {
       "title": "TRANSACTION TYPE IDENTIFIER",
       "description": "",
-      "const":"JF_TRANS_PAC_MEMO",
+      "const":"JF_TRAN_PAC_MEMO",
       "examples": [
-        "JF_TRANS_PAC_MEMO"
+        "JF_TRAN_PAC_MEMO"
       ],
       "fec_spec": {
         "COL_SEQ": 3,
         "FIELD_DESCRIPTION": "TRANSACTION TYPE IDENTIFIER",
         "TYPE": "A/N-17",
         "REQUIRED": "X (error)",
-        "SAMPLE_DATA": "JF_TRANS_PAC_MEMO",
+        "SAMPLE_DATA": "JF_TRAN_PAC_MEMO",
         "VALUE_REFERENCE": null,
         "RULE_REFERENCE": null,
         "FIELD_FORM_ASSOCIATION": null
