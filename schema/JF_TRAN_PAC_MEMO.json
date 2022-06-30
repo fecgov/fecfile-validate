@@ -12,7 +12,6 @@
     "transaction_id",
     "entity_type",
     "contributor_organization_name",
-    "contributor_fec_id",
     "contributor_street_1",
     "contributor_city",
     "contributor_state",
@@ -50,7 +49,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 9,
-      "pattern": "^[ -~]{0,9}$",
+      "pattern": "^C[0-9]{0,9}$",
       "examples": ["C00123456"],
       "fec_spec": {
         "COL_SEQ": 2,
@@ -66,19 +65,16 @@
     "transaction_type_identifier": {
       "title": "TRANSACTION TYPE IDENTIFIER",
       "description": "",
-      "type": "string",
-      "minLength": 0,
-      "maxLength": 32,
-      "pattern": "^[ -~]{0,32}$",
+      "const":"JF_TRANS_PAC_MEMO",
       "examples": [
-        "JF_TRANSFER_PAC_MEMOS"
+        "JF_TRANS_PAC_MEMO"
       ],
       "fec_spec": {
         "COL_SEQ": 3,
         "FIELD_DESCRIPTION": "TRANSACTION TYPE IDENTIFIER",
-        "TYPE": "A/N-32",
+        "TYPE": "A/N-17",
         "REQUIRED": "X (error)",
-        "SAMPLE_DATA": "JF_TRANSFER_PAC_MEMOS",
+        "SAMPLE_DATA": "JF_TRANS_PAC_MEMO",
         "VALUE_REFERENCE": null,
         "RULE_REFERENCE": null,
         "FIELD_FORM_ASSOCIATION": null
@@ -286,7 +282,7 @@
         "TYPE": "NUM-8",
         "REQUIRED": "X (error)",
         "SAMPLE_DATA": 20120615,
-        "VALUE_REFERENCE": null,
+        "VALUE_REFERENCE": "YYYYMMDD",
         "RULE_REFERENCE": null,
         "FIELD_FORM_ASSOCIATION": null
       }
@@ -351,7 +347,7 @@
       "type": ["string", "null"],
       "minLength": 0,
       "maxLength": 9,
-      "pattern": "^C[0123456789]{0,9}$",
+      "pattern": "^C[0-9]{0,9}$",
       "fec_spec": {
         "COL_SEQ": 27,
         "FIELD_DESCRIPTION": "DONOR COMMITTEE FEC ID",
