@@ -37,7 +37,7 @@
                 "TYPE": "A/N-8",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "SA12",
-                "VALUE_REFERENCE": "SA[line# ref]",
+                "VALUE_REFERENCE": "SA12 Only",
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }
@@ -381,10 +381,7 @@
         "donor_committee_fec_id": {
             "title": "DONOR COMMITTEE FEC ID",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
+            "type": "string",
             "minLength": 0,
             "maxLength": 9,
             "pattern": "^[ -~]{0,9}$",
@@ -402,10 +399,7 @@
         "donor_committee_name": {
             "title": "DONOR COMMITTEE NAME",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
+            "type": "string",
             "minLength": 0,
             "maxLength": 200,
             "pattern": "^[ -~]{0,200}$",

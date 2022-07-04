@@ -27,20 +27,17 @@
         "form_type": {
             "title": "FORM TYPE",
             "description": "",
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 8,
-            "pattern": "^[ -~]{0,8}$",
+            "const": "SA12",
             "examples": [
-                "SA11AI"
+                "SA12"
             ],
             "fec_spec": {
                 "COL_SEQ": 1,
                 "FIELD_DESCRIPTION": "FORM TYPE",
                 "TYPE": "A/N-8",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "SA11AI",
-                "VALUE_REFERENCE": "SA[line# ref]",
+                "SAMPLE_DATA": "SA12",
+                "VALUE_REFERENCE": "SA12 only",
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }
@@ -69,20 +66,17 @@
         "transaction_type_identifier": {
             "title": "TRANSACTION TYPE IDENTIFIER",
             "description": "",
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 12,
-            "pattern": "^[ -~]{0,12}$",
+            "const": "JF_TRAN_TRIB_MEMO",
             "examples": [
-                "PAC_JF_MEM"
+                "JF_TRAN_TRIB_MEMO"
             ],
             "fec_spec": {
                 "COL_SEQ": 3,
                 "FIELD_DESCRIPTION": "TRANSACTION TYPE IDENTIFIER",
                 "TYPE": "A/N-12",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "PAC_JF_MEM",
-                "VALUE_REFERENCE": null,
+                "SAMPLE_DATA": "JF_TRAN_TRIB_MEMO",
+                "VALUE_REFERENCE": "JF_TRAN_TRIB_MEMO",
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }
@@ -140,8 +134,8 @@
                 "null"
             ],
             "minLength": 0,
-            "maxLength": 8,
-            "pattern": "^[ -~]{0,8}$",
+            "maxLength": 4,
+            "pattern": "^SA12$",
             "examples": [
                 "SA11AI"
             ],
@@ -150,8 +144,8 @@
                 "FIELD_DESCRIPTION": "BACK REFERENCE SCHED NAME",
                 "TYPE": "A/N-8",
                 "REQUIRED": null,
-                "SAMPLE_DATA": "SA11AI",
-                "VALUE_REFERENCE": "SA[line# ref]",
+                "SAMPLE_DATA": "SA12",
+                "VALUE_REFERENCE": "SA12 Only",
                 "RULE_REFERENCE": "Ref to the Schedule that has the Related Record.  SA3L must be used \nwith the F3L",
                 "FIELD_FORM_ASSOCIATION": null
             }
@@ -159,21 +153,18 @@
         "entity_type": {
             "title": "ENTITY TYPE",
             "description": "",
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 3,
-            "pattern": "^[ -~]{0,3}$",
+            "const": "ORG",
             "examples": [
-                "IND"
+                "ORG"
             ],
             "fec_spec": {
                 "COL_SEQ": 7,
                 "FIELD_DESCRIPTION": "ENTITY TYPE",
                 "TYPE": "A/N-3",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "IND",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
+                "SAMPLE_DATA": "ORG",
+                "VALUE_REFERENCE": "ORG Only",
+                "RULE_REFERENCE": "[ORG]",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -372,15 +363,15 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 100,
-            "pattern": "^[ -~]{0,100}$",
+            "pattern": "^JF Memo: [ -~]{0,91}$",
             "fec_spec": {
                 "COL_SEQ": 24,
                 "FIELD_DESCRIPTION": "CONTRIBUTION PURPOSE DESCRIPTION",
                 "TYPE": "A/N-100",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": null,
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Description: JF Memo for #",
+                "SAMPLE_DATA": "JF Memo: XX",
+                "VALUE_REFERENCE": "JF Memo: XX",
+                "RULE_REFERENCE": "JF Memo: XX, where XX is auto-populated with name of committee entered in parent transaction JF_TRAN COL SEQ 8",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },

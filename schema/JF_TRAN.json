@@ -19,7 +19,9 @@
         "contributor_zip",
         "contribution_date",
         "contribution_amount",
-        "contribution_aggregate"
+        "contribution_aggregate",
+        "donor_committee_fec_id",
+        "donor_committee_name"
     ],
     "fec_recommended": [],
     "properties": {
@@ -36,7 +38,7 @@
                 "TYPE": "A/N-8",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "SA12",
-                "VALUE_REFERENCE": "SA[line# ref]",
+                "VALUE_REFERENCE": "SA12 Only",
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }
@@ -364,7 +366,7 @@
                 "COL_SEQ": 24,
                 "FIELD_DESCRIPTION": "CONTRIBUTION PURPOSE DESCRIPTION",
                 "TYPE": "A/N-100",
-                "REQUIRED": null,
+                "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "Transfer of JF Proceeds",
                 "VALUE_REFERENCE": "Transfer of JF Proceeds",
                 "RULE_REFERENCE": "Transfer of JF Proceeds",
@@ -374,10 +376,7 @@
         "donor_committee_fec_id": {
             "title": "DONOR COMMITTEE FEC ID",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
+            "type": "string",
             "minLength": 0,
             "maxLength": 9,
             "pattern": "^C[0-9]{0,9}$",
@@ -385,7 +384,7 @@
                 "COL_SEQ": 27,
                 "FIELD_DESCRIPTION": "DONOR COMMITTEE FEC ID",
                 "TYPE": "A/N-9",
-                "REQUIRED": "Conditional Warning",
+                "REQUIRED": "X (error)",
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": "Should populate with information from FEC database",
@@ -395,10 +394,7 @@
         "donor_committee_name": {
             "title": "DONOR COMMITTEE NAME",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
+            "type": "string",
             "minLength": 0,
             "maxLength": 200,
             "pattern": "^[ -~]{0,200}$",
@@ -409,7 +405,7 @@
                 "COL_SEQ": 28,
                 "FIELD_DESCRIPTION": "DONOR COMMITTEE NAME",
                 "TYPE": "A/N-200",
-                "REQUIRED": "Conditional Warning",
+                "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "Action PAC",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": "Should populate with information from FEC database",

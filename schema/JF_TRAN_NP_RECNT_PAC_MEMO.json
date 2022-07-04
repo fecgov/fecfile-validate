@@ -20,6 +20,8 @@
         "contribution_amount",
         "contribution_aggregate",
         "contribution_purpose_descrip",
+        "donor_committee_fec_id",
+        "donor_committee_name",
         "memo_code"
     ],
     "fec_recommended": [],
@@ -27,20 +29,17 @@
         "form_type": {
             "title": "FORM TYPE",
             "description": "",
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 8,
-            "pattern": "^[ -~]{0,8}$",
+            "const": "SA17",
             "examples": [
-                "SA11AI"
+                "SA17"
             ],
             "fec_spec": {
                 "COL_SEQ": 1,
                 "FIELD_DESCRIPTION": "FORM TYPE",
                 "TYPE": "A/N-8",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "SA11AI",
-                "VALUE_REFERENCE": "SA[line# ref]",
+                "SAMPLE_DATA": "SA17",
+                "VALUE_REFERENCE": "SA17 Only",
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }
@@ -69,19 +68,16 @@
         "transaction_type_identifier": {
             "title": "TRANSACTION TYPE IDENTIFIER",
             "description": "",
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 12,
-            "pattern": "^[ -~]{0,12}$",
+            "const": "JF_TRAN_NP_RECNT_PAC_MEMO",
             "examples": [
-                "EAR_PAC_REC"
+                "JF_TRAN_NP_RECNT_PAC_MEMO"
             ],
             "fec_spec": {
                 "COL_SEQ": 3,
                 "FIELD_DESCRIPTION": "TRANSACTION TYPE IDENTIFIER",
                 "TYPE": "A/N-12",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "EAR_PAC_REC",
+                "SAMPLE_DATA": "JF_TRAN_NP_RECNT_PAC_MEMO",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
@@ -140,18 +136,18 @@
                 "null"
             ],
             "minLength": 0,
-            "maxLength": 8,
-            "pattern": "^[ -~]{0,8}$",
+            "maxLength": 4,
+            "pattern": "^SA17$",
             "examples": [
-                "SA11AI"
+                "SA17"
             ],
             "fec_spec": {
                 "COL_SEQ": 6,
                 "FIELD_DESCRIPTION": "BACK REFERENCE SCHED NAME",
                 "TYPE": "A/N-8",
                 "REQUIRED": null,
-                "SAMPLE_DATA": "SA11AI",
-                "VALUE_REFERENCE": "SA[line# ref]",
+                "SAMPLE_DATA": "SA17",
+                "VALUE_REFERENCE": "SA17 Only",
                 "RULE_REFERENCE": "Ref to the Schedule that has the Related Record.  SA3L must be used \nwith the F3L",
                 "FIELD_FORM_ASSOCIATION": null
             }
@@ -159,21 +155,18 @@
         "entity_type": {
             "title": "ENTITY TYPE",
             "description": "",
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 3,
-            "pattern": "^[ -~]{0,3}$",
+            "const": "COM",
             "examples": [
-                "IND"
+                "COM"
             ],
             "fec_spec": {
                 "COL_SEQ": 7,
                 "FIELD_DESCRIPTION": "ENTITY TYPE",
                 "TYPE": "A/N-3",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "IND",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
+                "SAMPLE_DATA": "COM",
+                "VALUE_REFERENCE": "COM only",
+                "RULE_REFERENCE": "[COM]",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -372,25 +365,22 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 100,
-            "pattern": "^[ -~]{0,100}$",
+            "pattern": "^Recount Account JF Memo: [ -~]{0,75}$",
             "fec_spec": {
                 "COL_SEQ": 24,
                 "FIELD_DESCRIPTION": "CONTRIBUTION PURPOSE DESCRIPTION",
                 "TYPE": "A/N-100",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": null,
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Recount Account Earmarked Through",
+                "SAMPLE_DATA": "Recount Account JF Memo: XX",
+                "VALUE_REFERENCE": "Recount Account JF Memo: XX",
+                "RULE_REFERENCE": "Recount Account JF Memo: XX, where XX is organization name from parent transaction COL SEQ 8",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
         "donor_committee_fec_id": {
             "title": "DONOR COMMITTEE FEC ID",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
+            "type": "string",
             "minLength": 0,
             "maxLength": 9,
             "pattern": "^[ -~]{0,9}$",
@@ -398,7 +388,7 @@
                 "COL_SEQ": 27,
                 "FIELD_DESCRIPTION": "DONOR COMMITTEE FEC ID",
                 "TYPE": "A/N-9",
-                "REQUIRED": "Conditional Warning",
+                "REQUIRED": "X (error)",
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
@@ -408,10 +398,7 @@
         "donor_committee_name": {
             "title": "DONOR COMMITTEE NAME",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
+            "type": "string",
             "minLength": 0,
             "maxLength": 200,
             "pattern": "^[ -~]{0,200}$",
@@ -422,7 +409,7 @@
                 "COL_SEQ": 28,
                 "FIELD_DESCRIPTION": "DONOR COMMITTEE NAME",
                 "TYPE": "A/N-200",
-                "REQUIRED": "Conditional Warning",
+                "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "Action PAC",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,

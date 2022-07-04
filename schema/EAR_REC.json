@@ -76,14 +76,14 @@
             "maxLength": 12,
             "pattern": "^[ -~]{0,12}$",
             "examples": [
-                "EARMARK_REC"
+                "EAR_REC"
             ],
             "fec_spec": {
                 "COL_SEQ": 3,
                 "FIELD_DESCRIPTION": "TRANSACTION TYPE IDENTIFIER",
                 "TYPE": "A/N-12",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "EARMARK_REC",
+                "SAMPLE_DATA": "EAR_REC",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
@@ -467,15 +467,15 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 100,
-            "pattern": "^[ -~]{0,100}$",
+            "pattern": "^Earmarked through [ -~]{0,70} (Committee)$",
             "fec_spec": {
                 "COL_SEQ": 24,
                 "FIELD_DESCRIPTION": "CONTRIBUTION PURPOSE DESCRIPTION",
                 "TYPE": "A/N-100",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": null,
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Earmarked for XX (Candidate)",
+                "SAMPLE_DATA": "Earmarked through XX (Committee)",
+                "VALUE_REFERENCE": "Earmarked through XX (Committee)",
+                "RULE_REFERENCE": "Earmarked through XX (Committee), where XX is the conduit from EAR_MEMO associated",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
