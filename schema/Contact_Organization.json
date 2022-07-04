@@ -5,14 +5,24 @@
     "title": "FEC Organization",
     "description": "Organization Contact",
     "type": "object",
-    "required": ["type", "name", "street_1", "city", "state", "zip", "country"],
+    "required": [
+        "type",
+        "name",
+        "street_1",
+        "city",
+        "state",
+        "zip",
+        "country"
+    ],
     "fec_recommended": [],
     "properties": {
         "type": {
             "title": "TYPE",
             "description": "",
             "const": "ORG",
-            "examples": ["ORG"],
+            "examples": [
+                "ORG"
+            ],
             "fec_spec": {
                 "COL_SEQ": 1,
                 "FIELD_DESCRIPTION": "TYPE",
@@ -32,7 +42,9 @@
             "minLength": 0,
             "maxLength": 200,
             "pattern": "^[ -~]{0,200}$",
-            "examples": ["John Smith & Co."],
+            "examples": [
+                "John Smith & Co."
+            ],
             "fec_spec": {
                 "COL_SEQ": 8,
                 "FIELD_DESCRIPTION": "NAME",
@@ -52,7 +64,9 @@
             "minLength": 0,
             "maxLength": 34,
             "pattern": "^[ -~]{0,34}$",
-            "examples": ["123 Main Street"],
+            "examples": [
+                "123 Main Street"
+            ],
             "fec_spec": {
                 "COL_SEQ": 14,
                 "FIELD_DESCRIPTION": "STREET  1",
@@ -68,7 +82,10 @@
         "street_2": {
             "title": "STREET  2",
             "description": "",
-            "type": ["string", "null"],
+            "type": [
+                "string",
+                "null"
+            ],
             "minLength": 0,
             "maxLength": 34,
             "pattern": "^[ -~]{0,34}$",
@@ -91,7 +108,9 @@
             "minLength": 0,
             "maxLength": 30,
             "pattern": "^[ -~]{0,30}$",
-            "examples": ["Anytown"],
+            "examples": [
+                "Anytown"
+            ],
             "fec_spec": {
                 "COL_SEQ": 16,
                 "FIELD_DESCRIPTION": "CITY",
@@ -111,7 +130,9 @@
             "minLength": 0,
             "maxLength": 2,
             "pattern": "^[ -~]{0,2}$",
-            "examples": ["WA"],
+            "examples": [
+                "WA"
+            ],
             "fec_spec": {
                 "COL_SEQ": 17,
                 "FIELD_DESCRIPTION": "STATE",
@@ -131,7 +152,9 @@
             "minLength": 0,
             "maxLength": 9,
             "pattern": "^[ -~]{0,9}$",
-            "examples": [981110123],
+            "examples": [
+                981110123
+            ],
             "fec_spec": {
                 "COL_SEQ": 18,
                 "FIELD_DESCRIPTION": "ZIP",
@@ -147,7 +170,10 @@
         "telephone": {
             "title": "TELEPHONE",
             "description": "",
-            "type": ["string", "null"],
+            "type": [
+                "string",
+                "null"
+            ],
             "minLength": 0,
             "maxLength": 10,
             "pattern": "^\\d{10}$",
