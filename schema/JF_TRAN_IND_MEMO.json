@@ -167,7 +167,9 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "IND",
                 "VALUE_REFERENCE": "IND only",
-                "RULE_REFERENCE": ["IND"],
+                "RULE_REFERENCE": [
+                    "IND"
+                ],
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -393,10 +395,7 @@
         "contribution_date": {
             "title": "CONTRIBUTION DATE",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
+            "type": "string",
             "minLength": 10,
             "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
             "examples": [
