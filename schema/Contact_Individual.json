@@ -5,25 +5,14 @@
     "title": "FEC Individual",
     "description": "Individual Contact",
     "type": "object",
-    "required": [
-        "type",
-        "last_name",
-        "first_name",
-        "street_1",
-        "city",
-        "state",
-        "zip",
-        "country"
-    ],
+    "required": ["type", "last_name", "first_name", "street_1", "city", "state", "zip", "country"],
     "fec_recommended": [],
     "properties": {
         "type": {
             "title": "TYPE",
             "description": "",
             "const": "IND",
-            "examples": [
-                "IND"
-            ],
+            "examples": ["IND"],
             "fec_spec": {
                 "COL_SEQ": 1,
                 "FIELD_DESCRIPTION": "TYPE",
@@ -43,9 +32,7 @@
             "minLength": 0,
             "maxLength": 30,
             "pattern": "^[ -~]{0,30}$",
-            "examples": [
-                "Smith"
-            ],
+            "examples": ["Smith"],
             "fec_spec": {
                 "COL_SEQ": 2,
                 "FIELD_DESCRIPTION": "LAST NAME",
@@ -65,9 +52,7 @@
             "minLength": 0,
             "maxLength": 20,
             "pattern": "^[ -~]{0,20}$",
-            "examples": [
-                "John"
-            ],
+            "examples": ["John"],
             "fec_spec": {
                 "COL_SEQ": 3,
                 "FIELD_DESCRIPTION": "FIRST NAME",
@@ -83,16 +68,11 @@
         "middle_name": {
             "title": "MIDDLE NAME",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
+            "type": ["string", "null"],
             "minLength": 0,
             "maxLength": 20,
             "pattern": "^[ -~]{0,20}$",
-            "examples": [
-                "W"
-            ],
+            "examples": ["W"],
             "fec_spec": {
                 "COL_SEQ": 4,
                 "FIELD_DESCRIPTION": "MIDDLE NAME",
@@ -108,16 +88,11 @@
         "prefix": {
             "title": "PREFIX",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
+            "type": ["string", "null"],
             "minLength": 0,
             "maxLength": 10,
             "pattern": "^[ -~]{0,10}$",
-            "examples": [
-                "Dr"
-            ],
+            "examples": ["Dr"],
             "fec_spec": {
                 "COL_SEQ": 5,
                 "FIELD_DESCRIPTION": "PREFIX",
@@ -133,16 +108,11 @@
         "suffix": {
             "title": "SUFFIX",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
+            "type": ["string", "null"],
             "minLength": 0,
             "maxLength": 10,
             "pattern": "^[ -~]{0,10}$",
-            "examples": [
-                "Jr"
-            ],
+            "examples": ["Jr"],
             "fec_spec": {
                 "COL_SEQ": 6,
                 "FIELD_DESCRIPTION": "SUFFIX",
@@ -162,9 +132,7 @@
             "minLength": 0,
             "maxLength": 34,
             "pattern": "^[ -~]{0,34}$",
-            "examples": [
-                "123 Main Street"
-            ],
+            "examples": ["123 Main Street"],
             "fec_spec": {
                 "COL_SEQ": 7,
                 "FIELD_DESCRIPTION": "STREET  1",
@@ -180,10 +148,7 @@
         "street_2": {
             "title": "STREET  2",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
+            "type": ["string", "null"],
             "minLength": 0,
             "maxLength": 34,
             "pattern": "^[ -~]{0,34}$",
@@ -206,9 +171,7 @@
             "minLength": 0,
             "maxLength": 30,
             "pattern": "^[ -~]{0,30}$",
-            "examples": [
-                "Anytown"
-            ],
+            "examples": ["Anytown"],
             "fec_spec": {
                 "COL_SEQ": 9,
                 "FIELD_DESCRIPTION": "CITY",
@@ -228,9 +191,7 @@
             "minLength": 0,
             "maxLength": 2,
             "pattern": "^[ -~]{0,2}$",
-            "examples": [
-                "WA"
-            ],
+            "examples": ["WA"],
             "fec_spec": {
                 "COL_SEQ": 10,
                 "FIELD_DESCRIPTION": "STATE",
@@ -250,9 +211,7 @@
             "minLength": 0,
             "maxLength": 9,
             "pattern": "^[ -~]{0,9}$",
-            "examples": [
-                981110123
-            ],
+            "examples": [981110123],
             "fec_spec": {
                 "COL_SEQ": 11,
                 "FIELD_DESCRIPTION": "ZIP",
@@ -268,10 +227,7 @@
         "telephone": {
             "title": "TELEPHONE",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
+            "type": ["string", "null"],
             "minLength": 0,
             "maxLength": 10,
             "pattern": "^\\d{10}$",
@@ -290,16 +246,11 @@
         "employer": {
             "title": "EMPLOYER",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
+            "type": ["string", "null"],
             "minLength": 0,
             "maxLength": 38,
             "pattern": "^[ -~]{0,38}$",
-            "examples": [
-                "XYZ Company"
-            ],
+            "examples": ["XYZ Company"],
             "fec_spec": {
                 "COL_SEQ": 13,
                 "FIELD_DESCRIPTION": "EMPLOYER",
@@ -315,16 +266,11 @@
         "occupation": {
             "title": "OCCUPATION",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
+            "type": ["string", "null"],
             "minLength": 0,
             "maxLength": 38,
             "pattern": "^[ -~]{0,38}$",
-            "examples": [
-                "QC Inspector"
-            ],
+            "examples": ["QC Inspector"],
             "fec_spec": {
                 "COL_SEQ": 14,
                 "FIELD_DESCRIPTION": "OCCUPATION",

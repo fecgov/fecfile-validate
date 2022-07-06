@@ -1,242 +1,236 @@
 {
-    "$schema": "https://json-schema.org/draft-07/schema#",
-    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/SchH1.json",
-    "version": "8.3.0.1",
-    "title": "FEC Sch H1",
-    "description": "SCHEDULE H1 - METHOD OF ALLOCATION FOR:                                                                                                                            \n                    \u2022  ALLOCATED FEDERAL AND NONFEDERAL ADMINISTRATIVE, GENERIC VOTER DRIVE AND EXEMPT\n                       ACTIVITY COSTS\n                    \u2022  ALLOCATED FEDERAL AND LEVIN FINDS FEDERAL ELECTION ACTIVITY EXPENSES\n                    \u2022  ALLOCATED PUBLIC COMMUNICATIONS THAT REFER TO ANY POLITICAL PARTY (BUT NOT A  CANDIDATE)",
-    "type": "object",
-    "required": [
-        "form_type",
-        "filer_committee_id_number",
-        "transaction_id_number"
-    ],
-    "fec_recommended": [],
-    "properties": {
-        "form_type": {
-            "title": "FORM TYPE",
-            "description": "",
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 8,
-            "pattern": "^[ -~]{0,8}$",
-            "examples": [
-                "H1"
-            ],
-            "fec_spec": {
-                "COL_SEQ": 1,
-                "FIELD_DESCRIPTION": "FORM TYPE",
-                "TYPE": "A/N-8",
-                "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "H1",
-                "VALUE_REFERENCE": "H1",
-                "RULE_REFERENCE": "Appendix C",
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "filer_committee_id_number": {
-            "title": "FILER COMMITTEE ID NUMBER",
-            "description": "",
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 9,
-            "pattern": "^[C|P][0-9]{8}$|^[H|S][0-9]{1}[A-Z]{2}[0-9]{5}$",
-            "examples": [
-                "C00123456"
-            ],
-            "fec_spec": {
-                "COL_SEQ": 2,
-                "FIELD_DESCRIPTION": "FILER COMMITTEE ID NUMBER",
-                "TYPE": "A/N-9",
-                "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "C00123456",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "this is the ID of the Committee Account the report/transaction is associated with",
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "transaction_id_number": {
-            "title": "TRANSACTION ID NUMBER",
-            "description": "",
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 20,
-            "pattern": "^[ -~]{0,20}$",
-            "examples": [
-                "H11234-3456"
-            ],
-            "fec_spec": {
-                "COL_SEQ": 3,
-                "FIELD_DESCRIPTION": "TRANSACTION ID NUMBER",
-                "TYPE": "A/N-20",
-                "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "H11234-3456",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Must be unique for the life of a report (original + amendments) within each committee account. Letters, if included, must be uppercase.",
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "state_and_local_party_committee_presidential-only_election_year_28%_federal": {
-            "title": "State and Local Party Committee Presidential-Only Election Year (28% Federal)",
-            "description": "",
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 1,
-            "pattern": "^[ -~]{0,1}$",
-            "fec_spec": {
-                "COL_SEQ": 4,
-                "FIELD_DESCRIPTION": "State and Local Party Committee Presidential-Only Election Year (28% Federal)",
-                "TYPE": "A/N-1",
-                "REQUIRED": null,
-                "SAMPLE_DATA": null,
-                "VALUE_REFERENCE": "X",
-                "RULE_REFERENCE": "Only 1 Part A check-box allowed",
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "state_and_local_party_committee_presidential_and_senate_election_year_36%_federal": {
-            "title": "State and Local Party Committee Presidential and Senate Election Year (36% Federal)",
-            "description": "",
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 1,
-            "pattern": "^[ -~]{0,1}$",
-            "fec_spec": {
-                "COL_SEQ": 5,
-                "FIELD_DESCRIPTION": "State and Local Party Committee Presidential and Senate Election Year (36% Federal)",
-                "TYPE": "A/N-1",
-                "REQUIRED": null,
-                "SAMPLE_DATA": null,
-                "VALUE_REFERENCE": "X",
-                "RULE_REFERENCE": "Only 1 Part A check-box allowed",
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "state_and_local_party_committee_senate-only_election_year_21%_federal": {
-            "title": "State and Local Party Committee Senate-Only Election Year (21% Federal)",
-            "description": "",
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 1,
-            "pattern": "^[ -~]{0,1}$",
-            "fec_spec": {
-                "COL_SEQ": 6,
-                "FIELD_DESCRIPTION": "State and Local Party Committee Senate-Only Election Year (21% Federal)",
-                "TYPE": "A/N-1",
-                "REQUIRED": null,
-                "SAMPLE_DATA": null,
-                "VALUE_REFERENCE": "X",
-                "RULE_REFERENCE": "Only 1 Part A check-box allowed",
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "state_and_local_party_committee_non-presidential_and_non-senate_election_year_15%_federal": {
-            "title": "State and Local Party Committee Non-Presidential and Non-Senate Election Year (15% Federal)",
-            "description": "",
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 1,
-            "pattern": "^[ -~]{0,1}$",
-            "fec_spec": {
-                "COL_SEQ": 7,
-                "FIELD_DESCRIPTION": "State and Local Party Committee Non-Presidential and Non-Senate Election Year (15% Federal)",
-                "TYPE": "A/N-1",
-                "REQUIRED": null,
-                "SAMPLE_DATA": null,
-                "VALUE_REFERENCE": "X",
-                "RULE_REFERENCE": "Only 1 Part A check-box allowed",
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "federal_percent": {
-            "title": "FEDERAL PERCENT",
-            "description": "",
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 5,
-            "pattern": "^\\d{0,5}$",
-            "fec_spec": {
-                "COL_SEQ": 8,
-                "FIELD_DESCRIPTION": "FEDERAL PERCENT",
-                "TYPE": "NUM-5",
-                "REQUIRED": null,
-                "SAMPLE_DATA": null,
-                "VALUE_REFERENCE": 0.49,
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "nonfederal_percent": {
-            "title": "NONFEDERAL PERCENT",
-            "description": "",
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 5,
-            "pattern": "^\\d{0,5}$",
-            "fec_spec": {
-                "COL_SEQ": 9,
-                "FIELD_DESCRIPTION": "NONFEDERAL PERCENT",
-                "TYPE": "NUM-5",
-                "REQUIRED": null,
-                "SAMPLE_DATA": null,
-                "VALUE_REFERENCE": 0.51,
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "administrative_ratio_applies": {
-            "title": "ADMINISTRATIVE RATIO APPLIES",
-            "description": "",
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 1,
-            "pattern": "^[ -~]{0,1}$",
-            "fec_spec": {
-                "COL_SEQ": 10,
-                "FIELD_DESCRIPTION": "ADMINISTRATIVE RATIO APPLIES",
-                "TYPE": "A/N-1",
-                "REQUIRED": null,
-                "SAMPLE_DATA": null,
-                "VALUE_REFERENCE": "X",
-                "RULE_REFERENCE": "One or more \"ratio applies\" fields (#11, #12 or #13) must contain an 'X' value",
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "generic_voter_drive_ratio_applies": {
-            "title": "GENERIC VOTER DRIVE RATIO APPLIES",
-            "description": "",
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 1,
-            "pattern": "^[ -~]{0,1}$",
-            "fec_spec": {
-                "COL_SEQ": 11,
-                "FIELD_DESCRIPTION": "GENERIC VOTER DRIVE RATIO APPLIES",
-                "TYPE": "A/N-1",
-                "REQUIRED": null,
-                "SAMPLE_DATA": null,
-                "VALUE_REFERENCE": "X",
-                "RULE_REFERENCE": "One or more \"ratio applies\" fields (#11, #12 or #13) must contain an 'X' value",
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "public_communications_referencing_party_only_ratio_applies": {
-            "title": "PUBLIC COMMUNICATIONS REFERENCING PARTY ONLY RATIO APPLIES",
-            "description": "",
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 1,
-            "pattern": "^[ -~]{0,1}$",
-            "fec_spec": {
-                "COL_SEQ": 12,
-                "FIELD_DESCRIPTION": "PUBLIC COMMUNICATIONS REFERENCING PARTY ONLY RATIO APPLIES",
-                "TYPE": "A/N-1",
-                "REQUIRED": null,
-                "SAMPLE_DATA": null,
-                "VALUE_REFERENCE": "X",
-                "RULE_REFERENCE": "One or more \"ratio applies\" fields (#11, #12 or #13) must contain an 'X' value",
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        }
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/SchH1.json",
+  "version": "8.3.0.1",
+  "title": "FEC Sch H1",
+  "description": "SCHEDULE H1 - METHOD OF ALLOCATION FOR:                                                                                                                            \n                    \u2022  ALLOCATED FEDERAL AND NONFEDERAL ADMINISTRATIVE, GENERIC VOTER DRIVE AND EXEMPT\n                       ACTIVITY COSTS\n                    \u2022  ALLOCATED FEDERAL AND LEVIN FINDS FEDERAL ELECTION ACTIVITY EXPENSES\n                    \u2022  ALLOCATED PUBLIC COMMUNICATIONS THAT REFER TO ANY POLITICAL PARTY (BUT NOT A  CANDIDATE)",
+  "type": "object",
+  "required": [
+    "form_type",
+    "filer_committee_id_number",
+    "transaction_id_number"
+  ],
+  "fec_recommended": [],
+  "properties": {
+    "form_type": {
+      "title": "FORM TYPE",
+      "description": "",
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 8,
+      "pattern": "^[ -~]{0,8}$",
+      "examples": ["H1"],
+      "fec_spec": {
+        "COL_SEQ": 1,
+        "FIELD_DESCRIPTION": "FORM TYPE",
+        "TYPE": "A/N-8",
+        "REQUIRED": "X (error)",
+        "SAMPLE_DATA": "H1",
+        "VALUE_REFERENCE": "H1",
+        "RULE_REFERENCE": "Appendix C",
+        "FIELD_FORM_ASSOCIATION": null
+      }
     },
-    "additionalProperties": false
+    "filer_committee_id_number": {
+      "title": "FILER COMMITTEE ID NUMBER",
+      "description": "",
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 9,
+      "pattern": "^[ -~]{0,9}$",
+      "examples": ["C00123456"],
+      "fec_spec": {
+        "COL_SEQ": 2,
+        "FIELD_DESCRIPTION": "FILER COMMITTEE ID NUMBER",
+        "TYPE": "A/N-9",
+        "REQUIRED": "X (error)",
+        "SAMPLE_DATA": "C00123456",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "this is the ID of the Committee Account the report/transaction is associated with",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "transaction_id_number": {
+      "title": "TRANSACTION ID NUMBER",
+      "description": "",
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 20,
+      "pattern": "^[ -~]{0,20}$",
+      "examples": ["H11234-3456"],
+      "fec_spec": {
+        "COL_SEQ": 3,
+        "FIELD_DESCRIPTION": "TRANSACTION ID NUMBER",
+        "TYPE": "A/N-20",
+        "REQUIRED": "X (error)",
+        "SAMPLE_DATA": "H11234-3456",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "Must be unique for the life of a report (original + amendments) within each committee account. Letters, if included, must be uppercase.",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "state_and_local_party_committee_presidential-only_election_year_28%_federal": {
+      "title": "State and Local Party Committee Presidential-Only Election Year (28% Federal)",
+      "description": "",
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 1,
+      "pattern": "^[ -~]{0,1}$",
+      "fec_spec": {
+        "COL_SEQ": 4,
+        "FIELD_DESCRIPTION": "State and Local Party Committee Presidential-Only Election Year (28% Federal)",
+        "TYPE": "A/N-1",
+        "REQUIRED": null,
+        "SAMPLE_DATA": null,
+        "VALUE_REFERENCE": "X",
+        "RULE_REFERENCE": "Only 1 Part A check-box allowed",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "state_and_local_party_committee_presidential_and_senate_election_year_36%_federal": {
+      "title": "State and Local Party Committee Presidential and Senate Election Year (36% Federal)",
+      "description": "",
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 1,
+      "pattern": "^[ -~]{0,1}$",
+      "fec_spec": {
+        "COL_SEQ": 5,
+        "FIELD_DESCRIPTION": "State and Local Party Committee Presidential and Senate Election Year (36% Federal)",
+        "TYPE": "A/N-1",
+        "REQUIRED": null,
+        "SAMPLE_DATA": null,
+        "VALUE_REFERENCE": "X",
+        "RULE_REFERENCE": "Only 1 Part A check-box allowed",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "state_and_local_party_committee_senate-only_election_year_21%_federal": {
+      "title": "State and Local Party Committee Senate-Only Election Year (21% Federal)",
+      "description": "",
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 1,
+      "pattern": "^[ -~]{0,1}$",
+      "fec_spec": {
+        "COL_SEQ": 6,
+        "FIELD_DESCRIPTION": "State and Local Party Committee Senate-Only Election Year (21% Federal)",
+        "TYPE": "A/N-1",
+        "REQUIRED": null,
+        "SAMPLE_DATA": null,
+        "VALUE_REFERENCE": "X",
+        "RULE_REFERENCE": "Only 1 Part A check-box allowed",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "state_and_local_party_committee_non-presidential_and_non-senate_election_year_15%_federal": {
+      "title": "State and Local Party Committee Non-Presidential and Non-Senate Election Year (15% Federal)",
+      "description": "",
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 1,
+      "pattern": "^[ -~]{0,1}$",
+      "fec_spec": {
+        "COL_SEQ": 7,
+        "FIELD_DESCRIPTION": "State and Local Party Committee Non-Presidential and Non-Senate Election Year (15% Federal)",
+        "TYPE": "A/N-1",
+        "REQUIRED": null,
+        "SAMPLE_DATA": null,
+        "VALUE_REFERENCE": "X",
+        "RULE_REFERENCE": "Only 1 Part A check-box allowed",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "federal_percent": {
+      "title": "FEDERAL PERCENT",
+      "description": "",
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 5,
+      "pattern": "^\\d{0,5}$",
+      "fec_spec": {
+        "COL_SEQ": 8,
+        "FIELD_DESCRIPTION": "FEDERAL PERCENT",
+        "TYPE": "NUM-5",
+        "REQUIRED": null,
+        "SAMPLE_DATA": null,
+        "VALUE_REFERENCE": 0.49,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "nonfederal_percent": {
+      "title": "NONFEDERAL PERCENT",
+      "description": "",
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 5,
+      "pattern": "^\\d{0,5}$",
+      "fec_spec": {
+        "COL_SEQ": 9,
+        "FIELD_DESCRIPTION": "NONFEDERAL PERCENT",
+        "TYPE": "NUM-5",
+        "REQUIRED": null,
+        "SAMPLE_DATA": null,
+        "VALUE_REFERENCE": 0.51,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "administrative_ratio_applies": {
+      "title": "ADMINISTRATIVE RATIO APPLIES",
+      "description": "",
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 1,
+      "pattern": "^[ -~]{0,1}$",
+      "fec_spec": {
+        "COL_SEQ": 10,
+        "FIELD_DESCRIPTION": "ADMINISTRATIVE RATIO APPLIES",
+        "TYPE": "A/N-1",
+        "REQUIRED": null,
+        "SAMPLE_DATA": null,
+        "VALUE_REFERENCE": "X",
+        "RULE_REFERENCE": "One or more \"ratio applies\" fields (#11, #12 or #13) must contain an 'X' value",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "generic_voter_drive_ratio_applies": {
+      "title": "GENERIC VOTER DRIVE RATIO APPLIES",
+      "description": "",
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 1,
+      "pattern": "^[ -~]{0,1}$",
+      "fec_spec": {
+        "COL_SEQ": 11,
+        "FIELD_DESCRIPTION": "GENERIC VOTER DRIVE RATIO APPLIES",
+        "TYPE": "A/N-1",
+        "REQUIRED": null,
+        "SAMPLE_DATA": null,
+        "VALUE_REFERENCE": "X",
+        "RULE_REFERENCE": "One or more \"ratio applies\" fields (#11, #12 or #13) must contain an 'X' value",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "public_communications_referencing_party_only_ratio_applies": {
+      "title": "PUBLIC COMMUNICATIONS REFERENCING PARTY ONLY RATIO APPLIES",
+      "description": "",
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 1,
+      "pattern": "^[ -~]{0,1}$",
+      "fec_spec": {
+        "COL_SEQ": 12,
+        "FIELD_DESCRIPTION": "PUBLIC COMMUNICATIONS REFERENCING PARTY ONLY RATIO APPLIES",
+        "TYPE": "A/N-1",
+        "REQUIRED": null,
+        "SAMPLE_DATA": null,
+        "VALUE_REFERENCE": "X",
+        "RULE_REFERENCE": "One or more \"ratio applies\" fields (#11, #12 or #13) must contain an 'X' value",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    }
+  },
+  "additionalProperties": false
 }
