@@ -19,7 +19,8 @@
     "contributor_zip",
     "contribution_date",
     "contribution_amount",
-    "contribution_aggregate"
+    "contribution_aggregate",
+    "donor_committee_fec_id"
   ],
   "fec_recommended": [],
   "properties": {
@@ -332,7 +333,7 @@
     "donor_committee_fec_id": {
       "title": "DONOR COMMITTEE FEC ID",
       "description": "",
-      "type": ["string", "null"],
+      "type": "string",
       "minLength": 0,
       "maxLength": 9,
       "pattern": "^C[0-9]{0,9}$",
