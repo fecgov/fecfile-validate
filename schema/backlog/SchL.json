@@ -1,747 +1,733 @@
 {
-    "$schema": "https://json-schema.org/draft-07/schema#",
-    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/SchL.json",
-    "version": "8.3.0.1",
-    "title": "FEC Sch L",
-    "description": "SCHEDULE L - ADDITIONAL SUMMARY REPORT OF RECEIPTS AND DISBURSEMENTS FOR AN\n                         UNAUTHORIZED COMMITTEE REPORTING A NON-FEDERAL ACCOUNT FOR SHARED\n                         FEDERAL ELECTION ACTIVITY  ",
-    "type": "object",
-    "required": [
-        "form_type",
-        "filer_committee_id",
-        "transaction_id_number",
-        "record_id_number_for_account_name"
-    ],
-    "fec_recommended": [
-        "account_name",
-        "coverage_from_date",
-        "coverage_through_date"
-    ],
-    "properties": {
-        "form_type": {
-            "title": "FORM TYPE",
-            "description": "",
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 8,
-            "pattern": "^[ -~]{0,8}$",
-            "examples": [
-                "SL"
-            ],
-            "fec_spec": {
-                "COL_SEQ": 1,
-                "FIELD_DESCRIPTION": "FORM TYPE",
-                "TYPE": "A/N-8",
-                "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "SL",
-                "VALUE_REFERENCE": "SL",
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "filer_committee_id": {
-            "title": "FILER COMMITTEE ID",
-            "description": "",
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 9,
-            "pattern": "^[ -~]{0,9}$",
-            "examples": [
-                "C00123456"
-            ],
-            "fec_spec": {
-                "COL_SEQ": 2,
-                "FIELD_DESCRIPTION": "FILER COMMITTEE ID",
-                "TYPE": "A/N-9",
-                "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "C00123456",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "transaction_id_number": {
-            "title": "TRANSACTION ID NUMBER",
-            "description": "",
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 20,
-            "pattern": "^[ -~]{0,20}$",
-            "examples": [
-                "L123456789-3456"
-            ],
-            "fec_spec": {
-                "COL_SEQ": 3,
-                "FIELD_DESCRIPTION": "TRANSACTION ID NUMBER",
-                "TYPE": "A/N-20",
-                "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "L123456789-3456",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Must be unique for the life of a report (original + amendments) within each committee account. Letters, if included, must be uppercase.",
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "record_id_number_for_account_name": {
-            "title": "RECORD ID NUMBER (for account name)",
-            "description": "",
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 9,
-            "pattern": "^[ -~]{0,9}$",
-            "examples": [
-                "123xyzABC"
-            ],
-            "fec_spec": {
-                "COL_SEQ": 4,
-                "FIELD_DESCRIPTION": "RECORD ID NUMBER (for account name)",
-                "TYPE": "A/N-9",
-                "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "123xyzABC",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "must be unique for the life of the report",
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "account_name": {
-            "title": "ACCOUNT NAME",
-            "description": "",
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 90,
-            "pattern": "^[ -~]{0,90}$",
-            "fec_spec": {
-                "COL_SEQ": 5,
-                "FIELD_DESCRIPTION": "ACCOUNT NAME",
-                "TYPE": "A/N-90",
-                "REQUIRED": "X (warning)",
-                "SAMPLE_DATA": null,
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "coverage_from_date": {
-            "title": "COVERAGE FROM DATE",
-            "description": "",
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 8,
-            "pattern": "^\\d{0,8}$",
-            "examples": [
-                20120911
-            ],
-            "fec_spec": {
-                "COL_SEQ": 6,
-                "FIELD_DESCRIPTION": "COVERAGE FROM DATE",
-                "TYPE": "NUM-8",
-                "REQUIRED": "X (warning)",
-                "SAMPLE_DATA": 20120911,
-                "VALUE_REFERENCE": "YYYYMMDD",
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "coverage_through_date": {
-            "title": "COVERAGE THROUGH DATE",
-            "description": "",
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 8,
-            "pattern": "^\\d{0,8}$",
-            "examples": [
-                20120911
-            ],
-            "fec_spec": {
-                "COL_SEQ": 7,
-                "FIELD_DESCRIPTION": "COVERAGE THROUGH DATE",
-                "TYPE": "NUM-8",
-                "REQUIRED": "X (warning)",
-                "SAMPLE_DATA": 20120911,
-                "VALUE_REFERENCE": "YYYYMMDD",
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "L1a_itemized_receipts_from_persons": {
-            "title": "1a. Itemized Receipts From Persons",
-            "description": "",
-            "type": "number",
-            "minimum": 0,
-            "maximum": 999999999999,
-            "examples": [
-                1123123.45
-            ],
-            "fec_spec": {
-                "COL_SEQ": 8,
-                "FIELD_DESCRIPTION": "1a. Itemized Receipts From Persons",
-                "TYPE": "AMT-12",
-                "REQUIRED": null,
-                "SAMPLE_DATA": 1123123.45,
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "= Total on Sch AL1A",
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "L1b_unitemized_receipts_from_persons": {
-            "title": "1b. Unitemized Receipts From Persons",
-            "description": "",
-            "type": "number",
-            "minimum": 0,
-            "maximum": 999999999999,
-            "fec_spec": {
-                "COL_SEQ": 9,
-                "FIELD_DESCRIPTION": "1b. Unitemized Receipts From Persons",
-                "TYPE": "AMT-12",
-                "REQUIRED": null,
-                "SAMPLE_DATA": null,
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "L1c_total_receipts_from_persons": {
-            "title": "1c. Total Receipts From Persons",
-            "description": "",
-            "type": "number",
-            "minimum": 0,
-            "maximum": 999999999999,
-            "fec_spec": {
-                "COL_SEQ": 10,
-                "FIELD_DESCRIPTION": "1c. Total Receipts From Persons",
-                "TYPE": "AMT-12",
-                "REQUIRED": null,
-                "SAMPLE_DATA": null,
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "= 1a + 1b",
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "L2_other_receipts": {
-            "title": "2. OTHER RECEIPTS",
-            "description": "",
-            "type": "number",
-            "minimum": 0,
-            "maximum": 999999999999,
-            "fec_spec": {
-                "COL_SEQ": 11,
-                "FIELD_DESCRIPTION": "2. OTHER RECEIPTS",
-                "TYPE": "AMT-12",
-                "REQUIRED": null,
-                "SAMPLE_DATA": null,
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "= Total of Sch AL2",
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "L3_total_receipts": {
-            "title": "3. TOTAL RECEIPTS",
-            "description": "",
-            "type": "number",
-            "minimum": 0,
-            "maximum": 999999999999,
-            "fec_spec": {
-                "COL_SEQ": 12,
-                "FIELD_DESCRIPTION": "3. TOTAL RECEIPTS",
-                "TYPE": "AMT-12",
-                "REQUIRED": null,
-                "SAMPLE_DATA": null,
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "= 1c + 2",
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "L4a_voter_registration_disbursements": {
-            "title": "4(a). Voter Registration DISBURSEMENTS",
-            "description": "",
-            "type": "number",
-            "minimum": 0,
-            "maximum": 999999999999,
-            "fec_spec": {
-                "COL_SEQ": 13,
-                "FIELD_DESCRIPTION": "4(a). Voter Registration DISBURSEMENTS",
-                "TYPE": "AMT-12",
-                "REQUIRED": null,
-                "SAMPLE_DATA": null,
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "L4b_voter_id_disbursements": {
-            "title": "4(b). Voter ID DISBURSEMENTS",
-            "description": "",
-            "type": "number",
-            "minimum": 0,
-            "maximum": 999999999999,
-            "fec_spec": {
-                "COL_SEQ": 14,
-                "FIELD_DESCRIPTION": "4(b). Voter ID DISBURSEMENTS",
-                "TYPE": "AMT-12",
-                "REQUIRED": null,
-                "SAMPLE_DATA": null,
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "L4c_gotv_disbursements": {
-            "title": "4(c). GOTV DISBURSEMENTS",
-            "description": "",
-            "type": "number",
-            "minimum": 0,
-            "maximum": 999999999999,
-            "fec_spec": {
-                "COL_SEQ": 15,
-                "FIELD_DESCRIPTION": "4(c). GOTV DISBURSEMENTS",
-                "TYPE": "AMT-12",
-                "REQUIRED": null,
-                "SAMPLE_DATA": null,
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "L4d_generic_campaign_disbursements": {
-            "title": "4(d). Generic Campaign DISBURSEMENTS",
-            "description": "",
-            "type": "number",
-            "minimum": 0,
-            "maximum": 999999999999,
-            "fec_spec": {
-                "COL_SEQ": 16,
-                "FIELD_DESCRIPTION": "4(d). Generic Campaign DISBURSEMENTS",
-                "TYPE": "AMT-12",
-                "REQUIRED": null,
-                "SAMPLE_DATA": null,
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "= 4a + 4b + 4c + 4d",
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "L4e_line_4_total": {
-            "title": "4(e) Line 4 Total",
-            "description": "",
-            "type": "number",
-            "minimum": 0,
-            "maximum": 999999999999,
-            "fec_spec": {
-                "COL_SEQ": 17,
-                "FIELD_DESCRIPTION": "4(e) Line 4 Total",
-                "TYPE": "AMT-12",
-                "REQUIRED": null,
-                "SAMPLE_DATA": null,
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "L5_other_disbursements": {
-            "title": "5. OTHER DISBURSEMENTS",
-            "description": "",
-            "type": "number",
-            "minimum": 0,
-            "maximum": 999999999999,
-            "fec_spec": {
-                "COL_SEQ": 18,
-                "FIELD_DESCRIPTION": "5. OTHER DISBURSEMENTS",
-                "TYPE": "AMT-12",
-                "REQUIRED": null,
-                "SAMPLE_DATA": null,
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "L6_total_disbursements": {
-            "title": "6. TOTAL DISBURSEMENTS",
-            "description": "",
-            "type": "number",
-            "minimum": 0,
-            "maximum": 999999999999,
-            "fec_spec": {
-                "COL_SEQ": 19,
-                "FIELD_DESCRIPTION": "6. TOTAL DISBURSEMENTS",
-                "TYPE": "AMT-12",
-                "REQUIRED": null,
-                "SAMPLE_DATA": null,
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "= 4e + 5",
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "L7_cash_on_hand_beginning": {
-            "title": "7. CASH ON HAND (Beginning)",
-            "description": "",
-            "type": "number",
-            "minimum": 0,
-            "maximum": 999999999999,
-            "fec_spec": {
-                "COL_SEQ": 20,
-                "FIELD_DESCRIPTION": "7. CASH ON HAND (Beginning)",
-                "TYPE": "AMT-12",
-                "REQUIRED": null,
-                "SAMPLE_DATA": null,
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "L8_receipts": {
-            "title": "8. RECEIPTS",
-            "description": "",
-            "type": "number",
-            "minimum": 0,
-            "maximum": 999999999999,
-            "fec_spec": {
-                "COL_SEQ": 21,
-                "FIELD_DESCRIPTION": "8. RECEIPTS",
-                "TYPE": "AMT-12",
-                "REQUIRED": null,
-                "SAMPLE_DATA": null,
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "= 3",
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "L9_subtotal": {
-            "title": "9. SUBTOTAL",
-            "description": "",
-            "type": "number",
-            "minimum": 0,
-            "maximum": 999999999999,
-            "fec_spec": {
-                "COL_SEQ": 22,
-                "FIELD_DESCRIPTION": "9. SUBTOTAL",
-                "TYPE": "AMT-12",
-                "REQUIRED": null,
-                "SAMPLE_DATA": null,
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "= 7 + 8",
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "L10_disbursements": {
-            "title": "10. DISBURSEMENTS",
-            "description": "",
-            "type": "number",
-            "minimum": 0,
-            "maximum": 999999999999,
-            "fec_spec": {
-                "COL_SEQ": 23,
-                "FIELD_DESCRIPTION": "10. DISBURSEMENTS",
-                "TYPE": "AMT-12",
-                "REQUIRED": null,
-                "SAMPLE_DATA": null,
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "= 6",
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "L11_ending_cash_on_hand": {
-            "title": "11. ENDING CASH ON HAND",
-            "description": "",
-            "type": "number",
-            "minimum": 0,
-            "maximum": 999999999999,
-            "fec_spec": {
-                "COL_SEQ": 24,
-                "FIELD_DESCRIPTION": "11. ENDING CASH ON HAND",
-                "TYPE": "AMT-12",
-                "REQUIRED": null,
-                "SAMPLE_DATA": null,
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "= 9 - 10;",
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "L1a_itemized_receipts_from_persons-DUPLICATE": {
-            "title": "1a. Itemized Receipts From Persons",
-            "description": "",
-            "type": "number",
-            "minimum": 0,
-            "maximum": 999999999999,
-            "fec_spec": {
-                "COL_SEQ": 25,
-                "FIELD_DESCRIPTION": "1a. Itemized Receipts From Persons",
-                "TYPE": "AMT-12",
-                "REQUIRED": null,
-                "SAMPLE_DATA": null,
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "L1b_unitemized_receipts_from_persons-DUPLICATE": {
-            "title": "1b. Unitemized Receipts From Persons",
-            "description": "",
-            "type": "number",
-            "minimum": 0,
-            "maximum": 999999999999,
-            "fec_spec": {
-                "COL_SEQ": 26,
-                "FIELD_DESCRIPTION": "1b. Unitemized Receipts From Persons",
-                "TYPE": "AMT-12",
-                "REQUIRED": null,
-                "SAMPLE_DATA": null,
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "L1c_total_receipts_from_persons-DUPLICATE": {
-            "title": "1c. Total Receipts From Persons",
-            "description": "",
-            "type": "number",
-            "minimum": 0,
-            "maximum": 999999999999,
-            "fec_spec": {
-                "COL_SEQ": 27,
-                "FIELD_DESCRIPTION": "1c. Total Receipts From Persons",
-                "TYPE": "AMT-12",
-                "REQUIRED": null,
-                "SAMPLE_DATA": null,
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "= 1a + 1b",
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "L2_other_receipts-DUPLICATE": {
-            "title": "2. OTHER RECEIPTS",
-            "description": "",
-            "type": "number",
-            "minimum": 0,
-            "maximum": 999999999999,
-            "fec_spec": {
-                "COL_SEQ": 28,
-                "FIELD_DESCRIPTION": "2. OTHER RECEIPTS",
-                "TYPE": "AMT-12",
-                "REQUIRED": null,
-                "SAMPLE_DATA": null,
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "L3_total_receipts-DUPLICATE": {
-            "title": "3. TOTAL RECEIPTS",
-            "description": "",
-            "type": "number",
-            "minimum": 0,
-            "maximum": 999999999999,
-            "fec_spec": {
-                "COL_SEQ": 29,
-                "FIELD_DESCRIPTION": "3. TOTAL RECEIPTS",
-                "TYPE": "AMT-12",
-                "REQUIRED": null,
-                "SAMPLE_DATA": null,
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "= 1c + 2",
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "L4a_voter_registration_disbursements-DUPLICATE": {
-            "title": "4(a). Voter Registration DISBURSEMENTS",
-            "description": "",
-            "type": "number",
-            "minimum": 0,
-            "maximum": 999999999999,
-            "fec_spec": {
-                "COL_SEQ": 30,
-                "FIELD_DESCRIPTION": "4(a). Voter Registration DISBURSEMENTS",
-                "TYPE": "AMT-12",
-                "REQUIRED": null,
-                "SAMPLE_DATA": null,
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "L4b_voter_id_disbursements-DUPLICATE": {
-            "title": "4(b). Voter ID DISBURSEMENTS",
-            "description": "",
-            "type": "number",
-            "minimum": 0,
-            "maximum": 999999999999,
-            "fec_spec": {
-                "COL_SEQ": 31,
-                "FIELD_DESCRIPTION": "4(b). Voter ID DISBURSEMENTS",
-                "TYPE": "AMT-12",
-                "REQUIRED": null,
-                "SAMPLE_DATA": null,
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "L4c_gotv_disbursements-DUPLICATE": {
-            "title": "4(c). GOTV DISBURSEMENTS",
-            "description": "",
-            "type": "number",
-            "minimum": 0,
-            "maximum": 999999999999,
-            "fec_spec": {
-                "COL_SEQ": 32,
-                "FIELD_DESCRIPTION": "4(c). GOTV DISBURSEMENTS",
-                "TYPE": "AMT-12",
-                "REQUIRED": null,
-                "SAMPLE_DATA": null,
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "L4d_generic_campaign_disbursements-DUPLICATE": {
-            "title": "4(d). Generic Campaign DISBURSEMENTS",
-            "description": "",
-            "type": "number",
-            "minimum": 0,
-            "maximum": 999999999999,
-            "fec_spec": {
-                "COL_SEQ": 33,
-                "FIELD_DESCRIPTION": "4(d). Generic Campaign DISBURSEMENTS",
-                "TYPE": "AMT-12",
-                "REQUIRED": null,
-                "SAMPLE_DATA": null,
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "= 4a + 4b + 4c",
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "L4e_line_4_total-DUPLICATE": {
-            "title": "4(e) Line 4 Total",
-            "description": "",
-            "type": "number",
-            "minimum": 0,
-            "maximum": 999999999999,
-            "fec_spec": {
-                "COL_SEQ": 34,
-                "FIELD_DESCRIPTION": "4(e) Line 4 Total",
-                "TYPE": "AMT-12",
-                "REQUIRED": null,
-                "SAMPLE_DATA": null,
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "L5_other_disbursements-DUPLICATE": {
-            "title": "5. OTHER DISBURSEMENTS",
-            "description": "",
-            "type": "number",
-            "minimum": 0,
-            "maximum": 999999999999,
-            "fec_spec": {
-                "COL_SEQ": 35,
-                "FIELD_DESCRIPTION": "5. OTHER DISBURSEMENTS",
-                "TYPE": "AMT-12",
-                "REQUIRED": null,
-                "SAMPLE_DATA": null,
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "L6_total_disbursements-DUPLICATE": {
-            "title": "6. TOTAL DISBURSEMENTS",
-            "description": "",
-            "type": "number",
-            "minimum": 0,
-            "maximum": 999999999999,
-            "fec_spec": {
-                "COL_SEQ": 36,
-                "FIELD_DESCRIPTION": "6. TOTAL DISBURSEMENTS",
-                "TYPE": "AMT-12",
-                "REQUIRED": null,
-                "SAMPLE_DATA": null,
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "= 4d + 5",
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "L7_cash_on_hand_as_of_jan_1": {
-            "title": "7. CASH ON HAND as of Jan 1",
-            "description": "",
-            "type": "number",
-            "minimum": 0,
-            "maximum": 999999999999,
-            "fec_spec": {
-                "COL_SEQ": 37,
-                "FIELD_DESCRIPTION": "7. CASH ON HAND as of Jan 1",
-                "TYPE": "AMT-12",
-                "REQUIRED": null,
-                "SAMPLE_DATA": null,
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "L8_receipts-DUPLICATE": {
-            "title": "8. RECEIPTS",
-            "description": "",
-            "type": "number",
-            "minimum": 0,
-            "maximum": 999999999999,
-            "fec_spec": {
-                "COL_SEQ": 38,
-                "FIELD_DESCRIPTION": "8. RECEIPTS",
-                "TYPE": "AMT-12",
-                "REQUIRED": null,
-                "SAMPLE_DATA": null,
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "= 3",
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "L9_subtotal-DUPLICATE": {
-            "title": "9. SUBTOTAL",
-            "description": "",
-            "type": "number",
-            "minimum": 0,
-            "maximum": 999999999999,
-            "fec_spec": {
-                "COL_SEQ": 39,
-                "FIELD_DESCRIPTION": "9. SUBTOTAL",
-                "TYPE": "AMT-12",
-                "REQUIRED": null,
-                "SAMPLE_DATA": null,
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "= 7 + 8",
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "L10_disbursements-DUPLICATE": {
-            "title": "10. DISBURSEMENTS",
-            "description": "",
-            "type": "number",
-            "minimum": 0,
-            "maximum": 999999999999,
-            "fec_spec": {
-                "COL_SEQ": 40,
-                "FIELD_DESCRIPTION": "10. DISBURSEMENTS",
-                "TYPE": "AMT-12",
-                "REQUIRED": null,
-                "SAMPLE_DATA": null,
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "= 6",
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "L11_ending_cash_on_hand-DUPLICATE": {
-            "title": "11. ENDING CASH ON HAND",
-            "description": "",
-            "type": "number",
-            "minimum": 0,
-            "maximum": 999999999999,
-            "fec_spec": {
-                "COL_SEQ": 41,
-                "FIELD_DESCRIPTION": "11. ENDING CASH ON HAND",
-                "TYPE": "AMT-12",
-                "REQUIRED": null,
-                "SAMPLE_DATA": null,
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "= 9 - 10",
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        }
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/SchL.json",
+  "version": "8.3.0.1",
+  "title": "FEC Sch L",
+  "description": "SCHEDULE L - ADDITIONAL SUMMARY REPORT OF RECEIPTS AND DISBURSEMENTS FOR AN\n                         UNAUTHORIZED COMMITTEE REPORTING A NON-FEDERAL ACCOUNT FOR SHARED\n                         FEDERAL ELECTION ACTIVITY  ",
+  "type": "object",
+  "required": [
+    "form_type",
+    "filer_committee_id",
+    "transaction_id_number",
+    "record_id_number_for_account_name"
+  ],
+  "fec_recommended": [
+    "account_name",
+    "coverage_from_date",
+    "coverage_through_date"
+  ],
+  "properties": {
+    "form_type": {
+      "title": "FORM TYPE",
+      "description": "",
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 8,
+      "pattern": "^[ -~]{0,8}$",
+      "examples": ["SL"],
+      "fec_spec": {
+        "COL_SEQ": 1,
+        "FIELD_DESCRIPTION": "FORM TYPE",
+        "TYPE": "A/N-8",
+        "REQUIRED": "X (error)",
+        "SAMPLE_DATA": "SL",
+        "VALUE_REFERENCE": "SL",
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
     },
-    "additionalProperties": false
+    "filer_committee_id": {
+      "title": "FILER COMMITTEE ID",
+      "description": "",
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 9,
+      "pattern": "^[ -~]{0,9}$",
+      "examples": ["C00123456"],
+      "fec_spec": {
+        "COL_SEQ": 2,
+        "FIELD_DESCRIPTION": "FILER COMMITTEE ID",
+        "TYPE": "A/N-9",
+        "REQUIRED": "X (error)",
+        "SAMPLE_DATA": "C00123456",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "transaction_id_number": {
+      "title": "TRANSACTION ID NUMBER",
+      "description": "",
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 20,
+      "pattern": "^[ -~]{0,20}$",
+      "examples": ["L123456789-3456"],
+      "fec_spec": {
+        "COL_SEQ": 3,
+        "FIELD_DESCRIPTION": "TRANSACTION ID NUMBER",
+        "TYPE": "A/N-20",
+        "REQUIRED": "X (error)",
+        "SAMPLE_DATA": "L123456789-3456",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "Must be unique for the life of a report (original + amendments) within each committee account. Letters, if included, must be uppercase.",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "record_id_number_for_account_name": {
+      "title": "RECORD ID NUMBER (for account name)",
+      "description": "",
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 9,
+      "pattern": "^[ -~]{0,9}$",
+      "examples": ["123xyzABC"],
+      "fec_spec": {
+        "COL_SEQ": 4,
+        "FIELD_DESCRIPTION": "RECORD ID NUMBER (for account name)",
+        "TYPE": "A/N-9",
+        "REQUIRED": "X (error)",
+        "SAMPLE_DATA": "123xyzABC",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "must be unique for the life of the report",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "account_name": {
+      "title": "ACCOUNT NAME",
+      "description": "",
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 90,
+      "pattern": "^[ -~]{0,90}$",
+      "fec_spec": {
+        "COL_SEQ": 5,
+        "FIELD_DESCRIPTION": "ACCOUNT NAME",
+        "TYPE": "A/N-90",
+        "REQUIRED": "X (warning)",
+        "SAMPLE_DATA": null,
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "coverage_from_date": {
+      "title": "COVERAGE FROM DATE",
+      "description": "",
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 8,
+      "pattern": "^\\d{0,8}$",
+      "examples": [20120911],
+      "fec_spec": {
+        "COL_SEQ": 6,
+        "FIELD_DESCRIPTION": "COVERAGE FROM DATE",
+        "TYPE": "NUM-8",
+        "REQUIRED": "X (warning)",
+        "SAMPLE_DATA": 20120911,
+        "VALUE_REFERENCE": "YYYYMMDD",
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "coverage_through_date": {
+      "title": "COVERAGE THROUGH DATE",
+      "description": "",
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 8,
+      "pattern": "^\\d{0,8}$",
+      "examples": [20120911],
+      "fec_spec": {
+        "COL_SEQ": 7,
+        "FIELD_DESCRIPTION": "COVERAGE THROUGH DATE",
+        "TYPE": "NUM-8",
+        "REQUIRED": "X (warning)",
+        "SAMPLE_DATA": 20120911,
+        "VALUE_REFERENCE": "YYYYMMDD",
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "L1a_itemized_receipts_from_persons": {
+      "title": "1a. Itemized Receipts From Persons",
+      "description": "",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 999999999999,
+      "examples": [1123123.45],
+      "fec_spec": {
+        "COL_SEQ": 8,
+        "FIELD_DESCRIPTION": "1a. Itemized Receipts From Persons",
+        "TYPE": "AMT-12",
+        "REQUIRED": null,
+        "SAMPLE_DATA": 1123123.45,
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "= Total on Sch AL1A",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "L1b_unitemized_receipts_from_persons": {
+      "title": "1b. Unitemized Receipts From Persons",
+      "description": "",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 999999999999,
+      "fec_spec": {
+        "COL_SEQ": 9,
+        "FIELD_DESCRIPTION": "1b. Unitemized Receipts From Persons",
+        "TYPE": "AMT-12",
+        "REQUIRED": null,
+        "SAMPLE_DATA": null,
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "L1c_total_receipts_from_persons": {
+      "title": "1c. Total Receipts From Persons",
+      "description": "",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 999999999999,
+      "fec_spec": {
+        "COL_SEQ": 10,
+        "FIELD_DESCRIPTION": "1c. Total Receipts From Persons",
+        "TYPE": "AMT-12",
+        "REQUIRED": null,
+        "SAMPLE_DATA": null,
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "= 1a + 1b",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "L2_other_receipts": {
+      "title": "2. OTHER RECEIPTS",
+      "description": "",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 999999999999,
+      "fec_spec": {
+        "COL_SEQ": 11,
+        "FIELD_DESCRIPTION": "2. OTHER RECEIPTS",
+        "TYPE": "AMT-12",
+        "REQUIRED": null,
+        "SAMPLE_DATA": null,
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "= Total of Sch AL2",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "L3_total_receipts": {
+      "title": "3. TOTAL RECEIPTS",
+      "description": "",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 999999999999,
+      "fec_spec": {
+        "COL_SEQ": 12,
+        "FIELD_DESCRIPTION": "3. TOTAL RECEIPTS",
+        "TYPE": "AMT-12",
+        "REQUIRED": null,
+        "SAMPLE_DATA": null,
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "= 1c + 2",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "L4a_voter_registration_disbursements": {
+      "title": "4(a). Voter Registration DISBURSEMENTS",
+      "description": "",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 999999999999,
+      "fec_spec": {
+        "COL_SEQ": 13,
+        "FIELD_DESCRIPTION": "4(a). Voter Registration DISBURSEMENTS",
+        "TYPE": "AMT-12",
+        "REQUIRED": null,
+        "SAMPLE_DATA": null,
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "L4b_voter_id_disbursements": {
+      "title": "4(b). Voter ID DISBURSEMENTS",
+      "description": "",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 999999999999,
+      "fec_spec": {
+        "COL_SEQ": 14,
+        "FIELD_DESCRIPTION": "4(b). Voter ID DISBURSEMENTS",
+        "TYPE": "AMT-12",
+        "REQUIRED": null,
+        "SAMPLE_DATA": null,
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "L4c_gotv_disbursements": {
+      "title": "4(c). GOTV DISBURSEMENTS",
+      "description": "",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 999999999999,
+      "fec_spec": {
+        "COL_SEQ": 15,
+        "FIELD_DESCRIPTION": "4(c). GOTV DISBURSEMENTS",
+        "TYPE": "AMT-12",
+        "REQUIRED": null,
+        "SAMPLE_DATA": null,
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "L4d_generic_campaign_disbursements": {
+      "title": "4(d). Generic Campaign DISBURSEMENTS",
+      "description": "",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 999999999999,
+      "fec_spec": {
+        "COL_SEQ": 16,
+        "FIELD_DESCRIPTION": "4(d). Generic Campaign DISBURSEMENTS",
+        "TYPE": "AMT-12",
+        "REQUIRED": null,
+        "SAMPLE_DATA": null,
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "= 4a + 4b + 4c + 4d",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "L4e_line_4_total": {
+      "title": "4(e) Line 4 Total",
+      "description": "",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 999999999999,
+      "fec_spec": {
+        "COL_SEQ": 17,
+        "FIELD_DESCRIPTION": "4(e) Line 4 Total",
+        "TYPE": "AMT-12",
+        "REQUIRED": null,
+        "SAMPLE_DATA": null,
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "L5_other_disbursements": {
+      "title": "5. OTHER DISBURSEMENTS",
+      "description": "",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 999999999999,
+      "fec_spec": {
+        "COL_SEQ": 18,
+        "FIELD_DESCRIPTION": "5. OTHER DISBURSEMENTS",
+        "TYPE": "AMT-12",
+        "REQUIRED": null,
+        "SAMPLE_DATA": null,
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "L6_total_disbursements": {
+      "title": "6. TOTAL DISBURSEMENTS",
+      "description": "",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 999999999999,
+      "fec_spec": {
+        "COL_SEQ": 19,
+        "FIELD_DESCRIPTION": "6. TOTAL DISBURSEMENTS",
+        "TYPE": "AMT-12",
+        "REQUIRED": null,
+        "SAMPLE_DATA": null,
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "= 4e + 5",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "L7_cash_on_hand_beginning": {
+      "title": "7. CASH ON HAND (Beginning)",
+      "description": "",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 999999999999,
+      "fec_spec": {
+        "COL_SEQ": 20,
+        "FIELD_DESCRIPTION": "7. CASH ON HAND (Beginning)",
+        "TYPE": "AMT-12",
+        "REQUIRED": null,
+        "SAMPLE_DATA": null,
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "L8_receipts": {
+      "title": "8. RECEIPTS",
+      "description": "",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 999999999999,
+      "fec_spec": {
+        "COL_SEQ": 21,
+        "FIELD_DESCRIPTION": "8. RECEIPTS",
+        "TYPE": "AMT-12",
+        "REQUIRED": null,
+        "SAMPLE_DATA": null,
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "= 3",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "L9_subtotal": {
+      "title": "9. SUBTOTAL",
+      "description": "",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 999999999999,
+      "fec_spec": {
+        "COL_SEQ": 22,
+        "FIELD_DESCRIPTION": "9. SUBTOTAL",
+        "TYPE": "AMT-12",
+        "REQUIRED": null,
+        "SAMPLE_DATA": null,
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "= 7 + 8",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "L10_disbursements": {
+      "title": "10. DISBURSEMENTS",
+      "description": "",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 999999999999,
+      "fec_spec": {
+        "COL_SEQ": 23,
+        "FIELD_DESCRIPTION": "10. DISBURSEMENTS",
+        "TYPE": "AMT-12",
+        "REQUIRED": null,
+        "SAMPLE_DATA": null,
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "= 6",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "L11_ending_cash_on_hand": {
+      "title": "11. ENDING CASH ON HAND",
+      "description": "",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 999999999999,
+      "fec_spec": {
+        "COL_SEQ": 24,
+        "FIELD_DESCRIPTION": "11. ENDING CASH ON HAND",
+        "TYPE": "AMT-12",
+        "REQUIRED": null,
+        "SAMPLE_DATA": null,
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "= 9 - 10;",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "L1a_itemized_receipts_from_persons-DUPLICATE": {
+      "title": "1a. Itemized Receipts From Persons",
+      "description": "",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 999999999999,
+      "fec_spec": {
+        "COL_SEQ": 25,
+        "FIELD_DESCRIPTION": "1a. Itemized Receipts From Persons",
+        "TYPE": "AMT-12",
+        "REQUIRED": null,
+        "SAMPLE_DATA": null,
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "L1b_unitemized_receipts_from_persons-DUPLICATE": {
+      "title": "1b. Unitemized Receipts From Persons",
+      "description": "",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 999999999999,
+      "fec_spec": {
+        "COL_SEQ": 26,
+        "FIELD_DESCRIPTION": "1b. Unitemized Receipts From Persons",
+        "TYPE": "AMT-12",
+        "REQUIRED": null,
+        "SAMPLE_DATA": null,
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "L1c_total_receipts_from_persons-DUPLICATE": {
+      "title": "1c. Total Receipts From Persons",
+      "description": "",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 999999999999,
+      "fec_spec": {
+        "COL_SEQ": 27,
+        "FIELD_DESCRIPTION": "1c. Total Receipts From Persons",
+        "TYPE": "AMT-12",
+        "REQUIRED": null,
+        "SAMPLE_DATA": null,
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "= 1a + 1b",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "L2_other_receipts-DUPLICATE": {
+      "title": "2. OTHER RECEIPTS",
+      "description": "",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 999999999999,
+      "fec_spec": {
+        "COL_SEQ": 28,
+        "FIELD_DESCRIPTION": "2. OTHER RECEIPTS",
+        "TYPE": "AMT-12",
+        "REQUIRED": null,
+        "SAMPLE_DATA": null,
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "L3_total_receipts-DUPLICATE": {
+      "title": "3. TOTAL RECEIPTS",
+      "description": "",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 999999999999,
+      "fec_spec": {
+        "COL_SEQ": 29,
+        "FIELD_DESCRIPTION": "3. TOTAL RECEIPTS",
+        "TYPE": "AMT-12",
+        "REQUIRED": null,
+        "SAMPLE_DATA": null,
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "= 1c + 2",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "L4a_voter_registration_disbursements-DUPLICATE": {
+      "title": "4(a). Voter Registration DISBURSEMENTS",
+      "description": "",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 999999999999,
+      "fec_spec": {
+        "COL_SEQ": 30,
+        "FIELD_DESCRIPTION": "4(a). Voter Registration DISBURSEMENTS",
+        "TYPE": "AMT-12",
+        "REQUIRED": null,
+        "SAMPLE_DATA": null,
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "L4b_voter_id_disbursements-DUPLICATE": {
+      "title": "4(b). Voter ID DISBURSEMENTS",
+      "description": "",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 999999999999,
+      "fec_spec": {
+        "COL_SEQ": 31,
+        "FIELD_DESCRIPTION": "4(b). Voter ID DISBURSEMENTS",
+        "TYPE": "AMT-12",
+        "REQUIRED": null,
+        "SAMPLE_DATA": null,
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "L4c_gotv_disbursements-DUPLICATE": {
+      "title": "4(c). GOTV DISBURSEMENTS",
+      "description": "",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 999999999999,
+      "fec_spec": {
+        "COL_SEQ": 32,
+        "FIELD_DESCRIPTION": "4(c). GOTV DISBURSEMENTS",
+        "TYPE": "AMT-12",
+        "REQUIRED": null,
+        "SAMPLE_DATA": null,
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "L4d_generic_campaign_disbursements-DUPLICATE": {
+      "title": "4(d). Generic Campaign DISBURSEMENTS",
+      "description": "",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 999999999999,
+      "fec_spec": {
+        "COL_SEQ": 33,
+        "FIELD_DESCRIPTION": "4(d). Generic Campaign DISBURSEMENTS",
+        "TYPE": "AMT-12",
+        "REQUIRED": null,
+        "SAMPLE_DATA": null,
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "= 4a + 4b + 4c",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "L4e_line_4_total-DUPLICATE": {
+      "title": "4(e) Line 4 Total",
+      "description": "",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 999999999999,
+      "fec_spec": {
+        "COL_SEQ": 34,
+        "FIELD_DESCRIPTION": "4(e) Line 4 Total",
+        "TYPE": "AMT-12",
+        "REQUIRED": null,
+        "SAMPLE_DATA": null,
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "L5_other_disbursements-DUPLICATE": {
+      "title": "5. OTHER DISBURSEMENTS",
+      "description": "",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 999999999999,
+      "fec_spec": {
+        "COL_SEQ": 35,
+        "FIELD_DESCRIPTION": "5. OTHER DISBURSEMENTS",
+        "TYPE": "AMT-12",
+        "REQUIRED": null,
+        "SAMPLE_DATA": null,
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "L6_total_disbursements-DUPLICATE": {
+      "title": "6. TOTAL DISBURSEMENTS",
+      "description": "",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 999999999999,
+      "fec_spec": {
+        "COL_SEQ": 36,
+        "FIELD_DESCRIPTION": "6. TOTAL DISBURSEMENTS",
+        "TYPE": "AMT-12",
+        "REQUIRED": null,
+        "SAMPLE_DATA": null,
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "= 4d + 5",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "L7_cash_on_hand_as_of_jan_1": {
+      "title": "7. CASH ON HAND as of Jan 1",
+      "description": "",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 999999999999,
+      "fec_spec": {
+        "COL_SEQ": 37,
+        "FIELD_DESCRIPTION": "7. CASH ON HAND as of Jan 1",
+        "TYPE": "AMT-12",
+        "REQUIRED": null,
+        "SAMPLE_DATA": null,
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "L8_receipts-DUPLICATE": {
+      "title": "8. RECEIPTS",
+      "description": "",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 999999999999,
+      "fec_spec": {
+        "COL_SEQ": 38,
+        "FIELD_DESCRIPTION": "8. RECEIPTS",
+        "TYPE": "AMT-12",
+        "REQUIRED": null,
+        "SAMPLE_DATA": null,
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "= 3",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "L9_subtotal-DUPLICATE": {
+      "title": "9. SUBTOTAL",
+      "description": "",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 999999999999,
+      "fec_spec": {
+        "COL_SEQ": 39,
+        "FIELD_DESCRIPTION": "9. SUBTOTAL",
+        "TYPE": "AMT-12",
+        "REQUIRED": null,
+        "SAMPLE_DATA": null,
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "= 7 + 8",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "L10_disbursements-DUPLICATE": {
+      "title": "10. DISBURSEMENTS",
+      "description": "",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 999999999999,
+      "fec_spec": {
+        "COL_SEQ": 40,
+        "FIELD_DESCRIPTION": "10. DISBURSEMENTS",
+        "TYPE": "AMT-12",
+        "REQUIRED": null,
+        "SAMPLE_DATA": null,
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "= 6",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "L11_ending_cash_on_hand-DUPLICATE": {
+      "title": "11. ENDING CASH ON HAND",
+      "description": "",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 999999999999,
+      "fec_spec": {
+        "COL_SEQ": 41,
+        "FIELD_DESCRIPTION": "11. ENDING CASH ON HAND",
+        "TYPE": "AMT-12",
+        "REQUIRED": null,
+        "SAMPLE_DATA": null,
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "= 9 - 10",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    }
+  },
+  "additionalProperties": false
 }
