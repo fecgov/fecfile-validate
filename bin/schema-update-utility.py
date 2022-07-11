@@ -14,7 +14,7 @@ def process(file, schema):
             '^[C|P][0-9]{8}$|^[H|S][0-9]{1}[A-Z]{2}[0-9]{5}$'
         (schema['properties']['filer_committee_id_number']['fec_spec']
          ['RULE_REFERENCE']) = ('this is the ID of the Committee Account the'
-                                 ' report/transaction is associated with')
+                                ' report/transaction is associated with')
     if 'transaction_id' in schema['properties']:
         (schema['properties']['transaction_id']['fec_spec']
          ['RULE_REFERENCE']) = ('Must be unique for the life of a report '
