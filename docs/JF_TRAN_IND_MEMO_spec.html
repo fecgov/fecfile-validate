@@ -14,11 +14,11 @@
 <td>FORM TYPE</td>
 <td>A/N-8</td>
 <td>X (error)</td>
-<td>SA11AI</td>
-<td>SA[line# ref]</td>
+<td>SA12</td>
+<td>SA12 Only</td>
 <td></td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 8</li><li>regex: ^[ -~]{0,8}$</li></td>
+<td><ul><li>REQUIRED</li><li>must equal: SA12</li></td>
 </tr>
 <tr>
 <td>2</td>
@@ -29,18 +29,18 @@
 <td></td>
 <td>this is the ID of the Committee Account the report/transaction is associated with</td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 9</li><li>regex: ^[ -~]{0,9}$</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 9</li><li>regex: ^[C|P][0-9]{8}$|^[H|S][0-9]{1}[A-Z]{2}[0-9]{5}$</li></td>
 </tr>
 <tr>
 <td>3</td>
 <td>TRANSACTION TYPE IDENTIFIER</td>
 <td>A/N-12</td>
 <td>X (error)</td>
-<td>IND_JF_MEM</td>
+<td>JF_TRAN_IND_MEMO</td>
 <td></td>
 <td></td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 12</li><li>regex: ^[ -~]{0,12}$</li></td>
+<td><ul><li>REQUIRED</li><li>must equal: JF_TRAN_IND_MEMO</li></td>
 </tr>
 <tr>
 <td>4</td>
@@ -69,12 +69,12 @@
 <td>BACK REFERENCE SCHED NAME</td>
 <td>A/N-8</td>
 <td></td>
-<td>SA11AI</td>
-<td>SA[line# ref]</td>
+<td>SA12</td>
+<td>SA12 Only</td>
 <td>Ref to the Schedule that has the Related Record.  SA3L must be used 
 with the F3L</td>
 <td></td>
-<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 8</li><li>regex: ^[ -~]{0,8}$</li></td>
+<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 4</li><li>regex: ^SA12$</li></td>
 </tr>
 <tr>
 <td>7</td>
@@ -82,10 +82,10 @@ with the F3L</td>
 <td>A/N-3</td>
 <td>X (error)</td>
 <td>IND</td>
+<td>IND only</td>
+<td>['IND']</td>
 <td></td>
-<td></td>
-<td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 3</li><li>regex: ^[ -~]{0,3}$</li></td>
+<td><ul><li>REQUIRED</li><li>must equal: IND</li></td>
 </tr>
 <tr>
 <td>9</td>
@@ -206,7 +206,7 @@ with the F3L</td>
 <td>YYYYMMDD</td>
 <td></td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: ['string', 'null']</li><li>min length: 10</li><li>regex: ^[0-9]{4}-[0-9]{2}-[0-9]{2}$</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 10</li><li>regex: ^[0-9]{4}-[0-9]{2}-[0-9]{2}$</li></td>
 </tr>
 <tr>
 <td>22</td>
@@ -235,11 +235,11 @@ with the F3L</td>
 <td>CONTRIBUTION PURPOSE DESCRIPTION</td>
 <td>A/N-100</td>
 <td>X (error)</td>
+<td>JF Memo: XX</td>
+<td>JF Memo: XX</td>
+<td>JF Memo: XX, where XX is auto-populated with name of committee entered in parent transaction JF_TRAN COL SEQ 8</td>
 <td></td>
-<td></td>
-<td>Description: JF Memo for #</td>
-<td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 100</li><li>regex: ^[ -~]{0,100}$</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 100</li><li>regex: ^JF Memo: [ -~]{0,91}$</li></td>
 </tr>
 <tr>
 <td>25</td>
