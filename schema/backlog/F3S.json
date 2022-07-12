@@ -19,7 +19,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 4,
-      "pattern": "^[ A-Za-z0-9]{0,4}$",
+      "pattern": "^[ -~]{0,4}$",
       "examples": ["F3S"],
       "fec_spec": {
         "COL_SEQ": 1,
@@ -38,7 +38,7 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 9,
-      "pattern": "^[ A-Za-z0-9]{0,9}$",
+      "pattern": "^[ -~]{0,9}$",
       "examples": ["C00123456"],
       "fec_spec": {
         "COL_SEQ": 2,
