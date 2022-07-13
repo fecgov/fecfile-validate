@@ -11,6 +11,11 @@ def sample_f3x():
         form_data = json.load(f)
     return form_data
 
+@pytest.fixture
+def sample_indv_rec():
+    with open(os.path.join(os.path.dirname(__file__), "sample_INDV_REC.json")) as f:
+        form_data = json.load(f)
+    return form_data
 
 @pytest.fixture
 def test_schema():
@@ -112,3 +117,18 @@ def test_partial_missing_required_field(sample_f3x):
     validation_result = validate.validate("F3X", sample_f3x, fields_to_validate)
     assert validation_result.errors[0].path == "form_type"
     assert validation_result.errors[0].message == "'form_type' is a required property"
+
+def test_contribution_amount_accepts_decimals(sample_indv_rec):
+    validation_result = validate.validate("INDV_REC", sample_indv_rec)
+    assert validation_result.errors == []
+
+def test_contribution_amount_max_length(sample_indv_rec):
+    sample_indv_rec["contribution_amount"] = 999999999.99
+    validation_result = validate.validate("INDV_REC", sample_indv_rec)
+    print(validation_result)
+    assert validation_result.errors == []
+
+def test_contribution_amount_fails_with_over_max_length(sample_indv_rec):
+    sample_indv_rec["contribution_amount"] = 9999999999.99
+    validation_result = validate.validate("INDV_REC", sample_indv_rec)
+    assert len(validation_result.errors) > 0
