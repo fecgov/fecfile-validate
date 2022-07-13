@@ -159,7 +159,7 @@ with the F3L</td>
 <td>NUM-8</td>
 <td>X (error)</td>
 <td>20120615</td>
-<td>YYYYMMDD</td>
+<td></td>
 <td></td>
 <td></td>
 <td><ul><li>REQUIRED</li><li>type: ['string', 'null']</li><li>min length: 10</li><li>regex: ^[0-9]{4}-[0-9]{2}-[0-9]{2}$</li></td>
@@ -173,7 +173,7 @@ with the F3L</td>
 <td></td>
 <td></td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: number</li><li>minimum: 0</li><li>maximum: 999999999999</li></td>
+<td><ul><li>REQUIRED</li><li>type: number</li><li>regex: ^[0-9]{1,9}(?:[.][0-9]{2}?)?$</li><li>minimum: 0</li><li>maximum: 999999999.99</li></td>
 </tr>
 <tr>
 <td>23</td>
@@ -184,7 +184,7 @@ with the F3L</td>
 <td></td>
 <td>YTD</td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: number</li><li>minimum: 0</li><li>maximum: 999999999999</li></td>
+<td><ul><li>REQUIRED</li><li>type: number</li><li>minimum: 0</li><li>maximum: 999999999.99</li></td>
 </tr>
 <tr>
 <td>24</td>
@@ -206,7 +206,7 @@ with the F3L</td>
 <td></td>
 <td>Should populate with information from FEC database</td>
 <td></td>
-<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 9</li><li>regex: ^[ -~]{0,9}$</li></td>
+<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 9</li><li>regex: ^C[0-9]{0,9}$</li></td>
 </tr>
 <tr>
 <td>28</td>
@@ -218,6 +218,17 @@ with the F3L</td>
 <td>Should populate with information from FEC database</td>
 <td></td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 200</li><li>regex: ^[ -~]{0,200}$</li></td>
+</tr>
+<tr>
+<td>43</td>
+<td>MEMO CODE</td>
+<td>A/N-1</td>
+<td></td>
+<td></td>
+<td>X</td>
+<td>X = True</td>
+<td></td>
+<td><ul><li>type: ['boolean', 'null']</li></td>
 </tr>
 <tr>
 <td>45</td>
