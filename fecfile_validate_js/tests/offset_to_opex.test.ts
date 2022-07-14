@@ -62,3 +62,24 @@ Deno.test({
     assertEquals(result[1].keyword, "if");
   },
 });
+
+Deno.test({
+  name: "it should pass if contribution_amount == 999999999.99",
+  fn: ()=>{
+    const thisData = {...perfectForm};
+    thisData.contribution_amount = 999999999.99;
+    const result = validate(schema, thisData);
+    assertEquals(result, []);
+  },
+});
+
+Deno.test({
+  name: "it should fail if contribution_amount > 999999999.99",
+  fn: ()=>{
+    const thisData = {...perfectForm};
+    thisData.contribution_amount = 1000000000;
+    const result = validate(schema, thisData);
+    const failure = (result.length > 0);
+    assertEquals(failure, true);
+  },
+});

@@ -292,7 +292,7 @@
       "description": "",
       "type": "number",
       "minimum": 0,
-      "maximum": 999999999999,
+      "maximum": 999999999.99,
       "examples": [250],
       "fec_spec": {
         "COL_SEQ": 22,
@@ -310,7 +310,7 @@
       "description": "",
       "type": "number",
       "minimum": 0,
-      "maximum": 999999999999,
+      "maximum": 999999999.99,
       "examples": [1000],
       "fec_spec": {
         "COL_SEQ": 23,
