@@ -73,7 +73,7 @@
     "back_reference_tran_id_number": {
       "title": "BACK REFERENCE TRAN ID NUMBER",
       "description": "",
-      "type": "string",
+      "type": ["string", "null"],
       "minLength": 0,
       "maxLength": 20,
       "pattern": "^[ -~]{0,20}$",
@@ -111,7 +111,7 @@
     "text4000": {
       "title": "TEXT4000",
       "description": "",
-      "type": "string",
+      "type": ["string", "null"],
       "minLength": 0,
       "maxLength": 4000,
       "pattern": "^[ -~]{0,4000}$",
