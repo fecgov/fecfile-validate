@@ -9,8 +9,7 @@
     "rec_type",
     "filer_committee_id_number",
     "transaction_id_number",
-    "back_reference_tran_id_number",
-    "back_reference_sched__form_name"
+    "back_reference_sched_form_name"
   ],
   "fec_recommended": [],
   "properties": {
@@ -90,7 +89,7 @@
         "FIELD_FORM_ASSOCIATION": null
       }
     },
-    "back_reference_sched__form_name": {
+    "back_reference_sched_form_name": {
       "title": "BACK REFERENCE SCHED / FORM NAME",
       "description": "",
       "type": "string",
