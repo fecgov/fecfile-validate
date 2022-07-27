@@ -66,7 +66,7 @@
         "REQUIRED": "X (error)",
         "SAMPLE_DATA": "T123456789-3456",
         "VALUE_REFERENCE": null,
-        "RULE_REFERENCE": "Must be unique for the life of a report (original + amendments) within each committee account. Letters, if included, must be uppercase.",
+        "RULE_REFERENCE": "must be unique and UPPER CASE for the life of the report (original + all amendments).\nIf a Report level memo, will be \"REPORT_MEMO_TEXT1\", where 1 increases as you add report level memos (potential future functionality)",
         "FIELD_FORM_ASSOCIATION": null
       }
     },
@@ -104,7 +104,7 @@
         "REQUIRED": "X (error)",
         "SAMPLE_DATA": "SA11AI",
         "VALUE_REFERENCE": "F3XN,SB21B,\nSC/10, \u2026",
-        "RULE_REFERENCE": "Should be a valid, coded value equal to the REC TYPE of the form or schedule to which this text record is related.",
+        "RULE_REFERENCE": "If a transaction-level memo: Should be a valid, coded value equal to the REC TYPE of the schedule to which this text record is related. If report-level memo: Should be a valid, coded value equal to the REC TYPE of the form to which this text record is related.",
         "FIELD_FORM_ASSOCIATION": null
       }
     },
