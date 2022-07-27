@@ -1,0 +1,82 @@
+<!DOCTYPE html><html lang="en"><head><title>Text</title><link rel="stylesheet" href="spec_table.css"></head><body><table><caption>Specification for Text</caption><tr>
+<th>COL SEQ</th>
+<th>FIELD DESCRIPTION</th>
+<th>TYPE</th>
+<th>REQUIRED</th>
+<th>SAMPLE DATA</th>
+<th>VALUE REFERENCE</th>
+<th>RULE REFERENCE</th>
+<th>FIELD FORM ASSOCIATION</th>
+<th>VALIDATION RULES</th>
+</tr>
+<tr>
+<td>1</td>
+<td>REC TYPE</td>
+<td>A/N-4</td>
+<td>X (error)</td>
+<td>TEXT</td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 4</li><li>regex: ^[ -~]{0,4}$</li></td>
+</tr>
+<tr>
+<td>2</td>
+<td>FILER COMMITTEE ID NUMBER</td>
+<td>A/N-9</td>
+<td>X (error)</td>
+<td>C00123456</td>
+<td></td>
+<td>this is the ID of the Committee Account the report/transaction is associated with</td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 9</li><li>regex: ^[ -~]{0,9}$</li></td>
+</tr>
+<tr>
+<td>3</td>
+<td>TRANSACTION ID NUMBER</td>
+<td>A/N-20</td>
+<td>X (error)</td>
+<td>T123456789-3456</td>
+<td></td>
+<td>must be unique and UPPER CASE for the life of the report (original + all amendments).
+If a Report level memo, will be "REPORT_MEMO_TEXT1", where 1 increases as you add report level memos (potential future functionality)</td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
+</tr>
+<tr>
+<td>4</td>
+<td>BACK REFERENCE TRAN ID NUMBER</td>
+<td>A/N-20</td>
+<td>X (error if supplied incorrectly or supplied with Form Name in Field# 5)</td>
+<td>A123456789-6543</td>
+<td></td>
+<td>If Back-Reference TranID is supplied, it must exist within file along with corresponding Schedule Name (Field# 5).
+  
+If Sched/Form Name (Field# 5) references the Form (F3XN,F3N..etc), this field must be blank</td>
+<td></td>
+<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
+</tr>
+<tr>
+<td>5</td>
+<td>BACK REFERENCE SCHED / FORM NAME</td>
+<td>A/N-8</td>
+<td>X (error)</td>
+<td>SA11AI</td>
+<td>F3XN,SB21B,
+SC/10, …</td>
+<td>If a transaction-level memo: Should be a valid, coded value equal to the REC TYPE of the schedule to which this text record is related. If report-level memo: Should be a valid, coded value equal to the REC TYPE of the form to which this text record is related.</td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 8</li><li>regex: ^[ -~]{0,8}$</li></td>
+</tr>
+<tr>
+<td>6</td>
+<td>TEXT4000</td>
+<td>A/N-4000</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Unformatted Text  {text may not contain formatting characters such as tabs and line-feeds}</td>
+<td></td>
+<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 4000</li><li>regex: ^[ -~]{0,4000}$</li></td>
+</tr>
+</table></body></html>
