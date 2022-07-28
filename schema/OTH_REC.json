@@ -32,7 +32,7 @@
         "TYPE": "A/N-8",
         "REQUIRED": "X (error)",
         "SAMPLE_DATA": "SA17",
-        "VALUE_REFERENCE": "SA[line# ref]",
+        "VALUE_REFERENCE": "SA17 Only",
         "RULE_REFERENCE": null,
         "FIELD_FORM_ASSOCIATION": null
       }

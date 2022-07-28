@@ -329,7 +329,7 @@
         "REQUIRED": "X (error)",
         "SAMPLE_DATA": "Tribal Receipt",
         "VALUE_REFERENCE": null,
-        "RULE_REFERENCE": "auto-populate the text \"Tribal Receipt\", field should be read-only",
+        "RULE_REFERENCE": "Tribal Receipt",
         "FIELD_FORM_ASSOCIATION": null
       }
     },

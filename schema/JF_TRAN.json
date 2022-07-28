@@ -35,7 +35,7 @@
         "TYPE": "A/N-8",
         "REQUIRED": "X (error)",
         "SAMPLE_DATA": "SA12",
-        "VALUE_REFERENCE": "SA[line# ref]",
+        "VALUE_REFERENCE": "SA12 Only",
         "RULE_REFERENCE": null,
         "FIELD_FORM_ASSOCIATION": null
       }
@@ -341,7 +341,7 @@
         "COL_SEQ": 27,
         "FIELD_DESCRIPTION": "DONOR COMMITTEE FEC ID",
         "TYPE": "A/N-9",
-        "REQUIRED": "Conditional Warning",
+        "REQUIRED": "X (error)",
         "SAMPLE_DATA": null,
         "VALUE_REFERENCE": null,
         "RULE_REFERENCE": "Should populate with information from FEC database",
@@ -360,7 +360,7 @@
         "COL_SEQ": 28,
         "FIELD_DESCRIPTION": "DONOR COMMITTEE NAME",
         "TYPE": "A/N-200",
-        "REQUIRED": "Conditional Warning",
+        "REQUIRED": "X (error)",
         "SAMPLE_DATA": "Action PAC",
         "VALUE_REFERENCE": null,
         "RULE_REFERENCE": "Should populate with information from FEC database",

@@ -67,7 +67,7 @@
       "type": ["string", "null"],
       "minLength": 0,
       "maxLength": 200,
-      "pattern": "^[ A-zÀ-ü0-9!@#$%&*()/\\-=+{}|;:<>,.?]{0,200}$",
+      "pattern": "^[ -~]{0,200}$",
       "examples": ["Foes of Pat"],
       "fec_spec": {
         "COL_SEQ": 3,
@@ -323,7 +323,7 @@
       "type": "string",
       "minLength": 1,
       "maxLength": 30,
-      "pattern": "^[ A-Za-z0-9.-]{0,30}$",
+      "pattern": "^[ -~]{0,30}$",
       "examples": ["Smith"],
       "fec_spec": {
         "COL_SEQ": 17,
@@ -342,7 +342,7 @@
       "type": "string",
       "minLength": 1,
       "maxLength": 20,
-      "pattern": "^[ A-Za-zÀ-ü0-9-,.]{0,20}$",
+      "pattern": "^[ -~]{0,20}$",
       "examples": ["Pat"],
       "fec_spec": {
         "COL_SEQ": 18,
@@ -361,7 +361,7 @@
       "type": ["string", "null"],
       "minLength": 0,
       "maxLength": 20,
-      "pattern": "^[ A-Za-zÀ-ü0-9-,.]{0,20}$",
+      "pattern": "^[ -~]{0,20}$",
       "examples": ["Dale"],
       "fec_spec": {
         "COL_SEQ": 19,
@@ -380,7 +380,7 @@
       "type": ["string", "null"],
       "minLength": 0,
       "maxLength": 10,
-      "pattern": "^[ A-Za-z0-9-,.]{0,10}$",
+      "pattern": "^[ -~]{0,10}$",
       "examples": ["Dr."],
       "fec_spec": {
         "COL_SEQ": 20,
@@ -399,7 +399,7 @@
       "type": ["string", "null"],
       "minLength": 0,
       "maxLength": 10,
-      "pattern": "^[ A-Za-z0-9-,.]{0,10}$",
+      "pattern": "^[ -~]{0,10}$",
       "examples": ["PhD"],
       "fec_spec": {
         "COL_SEQ": 21,

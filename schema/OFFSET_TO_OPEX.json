@@ -24,10 +24,7 @@
     "form_type": {
       "title": "FORM TYPE",
       "description": "",
-      "type": "string",
-      "minLength": 0,
-      "maxLength": 8,
-      "pattern": "^[ -~]{0,8}$",
+      "const": "SA15",
       "examples": ["SA15"],
       "fec_spec": {
         "COL_SEQ": 1,
@@ -35,7 +32,7 @@
         "TYPE": "A/N-8",
         "REQUIRED": "X (error)",
         "SAMPLE_DATA": "SA15",
-        "VALUE_REFERENCE": "SA[line# ref]",
+        "VALUE_REFERENCE": "SA15 Only",
         "RULE_REFERENCE": null,
         "FIELD_FORM_ASSOCIATION": null
       }
