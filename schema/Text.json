@@ -1,130 +1,146 @@
 {
-  "$schema": "https://json-schema.org/draft-07/schema#",
-  "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/Text.json",
-  "version": "8.3.0.1",
-  "title": "FEC Text",
-  "description": "TEXT - MISC. TEXT RELATED TO A REPORT, SCHEDULE OR ITEMIZATION",
-  "type": "object",
-  "required": [
-    "rec_type",
-    "filer_committee_id_number",
-    "transaction_id_number",
-    "back_reference_sched_form_name"
-  ],
-  "fec_recommended": [],
-  "properties": {
-    "rec_type": {
-      "title": "REC TYPE",
-      "description": "",
-      "type": "string",
-      "minLength": 0,
-      "maxLength": 4,
-      "pattern": "^[ -~]{0,4}$",
-      "examples": ["TEXT"],
-      "fec_spec": {
-        "COL_SEQ": 1,
-        "FIELD_DESCRIPTION": "REC TYPE",
-        "TYPE": "A/N-4",
-        "REQUIRED": "X (error)",
-        "SAMPLE_DATA": "TEXT",
-        "VALUE_REFERENCE": null,
-        "RULE_REFERENCE": null,
-        "FIELD_FORM_ASSOCIATION": null
-      }
-    },
-    "filer_committee_id_number": {
-      "title": "FILER COMMITTEE ID NUMBER",
-      "description": "",
-      "type": "string",
-      "minLength": 0,
-      "maxLength": 9,
-      "pattern": "^[ -~]{0,9}$",
-      "examples": ["C00123456"],
-      "fec_spec": {
-        "COL_SEQ": 2,
-        "FIELD_DESCRIPTION": "FILER COMMITTEE ID NUMBER",
-        "TYPE": "A/N-9",
-        "REQUIRED": "X (error)",
-        "SAMPLE_DATA": "C00123456",
-        "VALUE_REFERENCE": null,
-        "RULE_REFERENCE": "this is the ID of the Committee Account the report/transaction is associated with",
-        "FIELD_FORM_ASSOCIATION": null
-      }
-    },
-    "transaction_id_number": {
-      "title": "TRANSACTION ID NUMBER",
-      "description": "",
-      "type": "string",
-      "minLength": 0,
-      "maxLength": 20,
-      "pattern": "^[ -~]{0,20}$",
-      "examples": ["T123456789-3456"],
-      "fec_spec": {
-        "COL_SEQ": 3,
-        "FIELD_DESCRIPTION": "TRANSACTION ID NUMBER",
-        "TYPE": "A/N-20",
-        "REQUIRED": "X (error)",
-        "SAMPLE_DATA": "T123456789-3456",
-        "VALUE_REFERENCE": null,
-        "RULE_REFERENCE": "must be unique and UPPER CASE for the life of the report (original + all amendments).\nIf a Report level memo, will be \"REPORT_MEMO_TEXT1\", where 1 increases as you add report level memos (potential future functionality)",
-        "FIELD_FORM_ASSOCIATION": null
-      }
-    },
-    "back_reference_tran_id_number": {
-      "title": "BACK REFERENCE TRAN ID NUMBER",
-      "description": "",
-      "type": ["string", "null"],
-      "minLength": 0,
-      "maxLength": 20,
-      "pattern": "^[ -~]{0,20}$",
-      "examples": ["A123456789-6543"],
-      "fec_spec": {
-        "COL_SEQ": 4,
-        "FIELD_DESCRIPTION": "BACK REFERENCE TRAN ID NUMBER",
-        "TYPE": "A/N-20",
-        "REQUIRED": "X (error if supplied incorrectly or supplied with Form Name in Field# 5)",
-        "SAMPLE_DATA": "A123456789-6543",
-        "VALUE_REFERENCE": null,
-        "RULE_REFERENCE": "If Back-Reference TranID is supplied, it must exist within file along with corresponding Schedule Name (Field# 5).\n  \nIf Sched/Form Name (Field# 5) references the Form (F3XN,F3N..etc), this field must be blank",
-        "FIELD_FORM_ASSOCIATION": null
-      }
-    },
-    "back_reference_sched_form_name": {
-      "title": "BACK REFERENCE SCHED / FORM NAME",
-      "description": "",
-      "type": "string",
-      "minLength": 0,
-      "maxLength": 8,
-      "pattern": "^[ -~]{0,8}$",
-      "examples": ["SA11AI"],
-      "fec_spec": {
-        "COL_SEQ": 5,
-        "FIELD_DESCRIPTION": "BACK REFERENCE SCHED / FORM NAME",
-        "TYPE": "A/N-8",
-        "REQUIRED": "X (error)",
-        "SAMPLE_DATA": "SA11AI",
-        "VALUE_REFERENCE": "F3XN,SB21B,\nSC/10, \u2026",
-        "RULE_REFERENCE": "If a transaction-level memo: Should be a valid, coded value equal to the REC TYPE of the schedule to which this text record is related. If report-level memo: Should be a valid, coded value equal to the REC TYPE of the form to which this text record is related.",
-        "FIELD_FORM_ASSOCIATION": null
-      }
-    },
-    "text4000": {
-      "title": "TEXT4000",
-      "description": "",
-      "type": ["string", "null"],
-      "minLength": 0,
-      "maxLength": 4000,
-      "pattern": "^[ -~]{0,4000}$",
-      "fec_spec": {
-        "COL_SEQ": 6,
-        "FIELD_DESCRIPTION": "TEXT4000",
-        "TYPE": "A/N-4000",
-        "REQUIRED": null,
-        "SAMPLE_DATA": null,
-        "VALUE_REFERENCE": null,
-        "RULE_REFERENCE": "Unformatted Text  {text may not contain formatting characters such as tabs and line-feeds}",
-        "FIELD_FORM_ASSOCIATION": null
-      }
+    "$schema": "https://json-schema.org/draft-07/schema#",
+    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/Text.json",
+    "version": "8.3.0.1",
+    "title": "FEC Text",
+    "description": "TEXT - MISC. TEXT RELATED TO A REPORT, SCHEDULE OR ITEMIZATION",
+    "type": "object",
+    "required": [
+        "rec_type",
+        "filer_committee_id_number",
+        "transaction_id_number",
+        "back_reference_sched_form_name"
+    ],
+    "fec_recommended": [],
+    "properties": {
+        "rec_type": {
+            "title": "REC TYPE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 4,
+            "pattern": "^[ -~]{0,4}$",
+            "examples": [
+                "TEXT"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 1,
+                "FIELD_DESCRIPTION": "REC TYPE",
+                "TYPE": "A/N-4",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "TEXT",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "filer_committee_id_number": {
+            "title": "FILER COMMITTEE ID NUMBER",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 9,
+            "pattern": "^[ -~]{0,9}$",
+            "examples": [
+                "C00123456"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 2,
+                "FIELD_DESCRIPTION": "FILER COMMITTEE ID NUMBER",
+                "TYPE": "A/N-9",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "C00123456",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "this is the ID of the Committee Account the report/transaction is associated with",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "transaction_id_number": {
+            "title": "TRANSACTION ID NUMBER",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 20,
+            "pattern": "^[ -~]{0,20}$",
+            "examples": [
+                "T123456789-3456"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 3,
+                "FIELD_DESCRIPTION": "TRANSACTION ID NUMBER",
+                "TYPE": "A/N-20",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "T123456789-3456",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "must be unique and UPPER CASE for the life of the report (original + all amendments).\nIf a Report level memo, will be \"REPORT_MEMO_TEXT1\", where 1 increases as you add report level memos (potential future functionality)",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "back_reference_tran_id_number": {
+            "title": "BACK REFERENCE TRAN ID NUMBER",
+            "description": "",
+            "type": [
+                "string",
+                "null"
+            ],
+            "minLength": 0,
+            "maxLength": 20,
+            "pattern": "^[ -~]{0,20}$",
+            "examples": [
+                "A123456789-6543"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 4,
+                "FIELD_DESCRIPTION": "BACK REFERENCE TRAN ID NUMBER",
+                "TYPE": "A/N-20",
+                "REQUIRED": "X (error if supplied incorrectly or supplied with Form Name in Field# 5)",
+                "SAMPLE_DATA": "A123456789-6543",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "If Back-Reference TranID is supplied, it must exist within file along with corresponding Schedule Name (Field# 5).\n  \nIf Sched/Form Name (Field# 5) references the Form (F3XN,F3N..etc), this field must be blank",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "back_reference_sched_form_name": {
+            "title": "BACK REFERENCE SCHED / FORM NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 8,
+            "pattern": "^[ -~]{0,8}$",
+            "examples": [
+                "SA11AI"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 5,
+                "FIELD_DESCRIPTION": "BACK REFERENCE SCHED / FORM NAME",
+                "TYPE": "A/N-8",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "SA11AI",
+                "VALUE_REFERENCE": "F3XN,SB21B,\nSC/10, \u2026",
+                "RULE_REFERENCE": "If a transaction-level memo: Should be a valid, coded value equal to the REC TYPE of the schedule to which this text record is related. If report-level memo: Should be a valid, coded value equal to the REC TYPE of the form to which this text record is related.",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "text4000": {
+            "title": "TEXT4000",
+            "description": "",
+            "type": [
+                "string",
+                "null"
+            ],
+            "minLength": 0,
+            "maxLength": 4000,
+            "pattern": "^[ -~]{0,4000}$",
+            "fec_spec": {
+                "COL_SEQ": 6,
+                "FIELD_DESCRIPTION": "TEXT4000",
+                "TYPE": "A/N-4000",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "Unformatted Text  {text may not contain formatting characters such as tabs and line-feeds}",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        }
     }
-  }
 }
