@@ -30,6 +30,9 @@ COLUMNS = [
     "VALIDATION RULES"
 ]
 
+if 'transaction_type_identifier' in data['properties']:
+    COLUMNS = COLUMNS[1:]
+
 print(f'<!DOCTYPE html><html lang="en"><head><title>{title}</title>'
       '<link rel="stylesheet" href="spec_table.css"></head><body><table>'
       f'<caption>Specification for {title}</caption><tr>')
