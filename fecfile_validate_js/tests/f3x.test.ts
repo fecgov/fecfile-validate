@@ -49,11 +49,14 @@ Deno.test({
 });
 
 Deno.test({
-  name: "committee_name should allow accents",
+  name: "committee_name should allow special characters",
   fn: () => {
     const thisData = {
       ...perfectForm_F3X,
-      ...{ committee_name: "Éàñ!@#$%^&*()_+-=[]\\{}|;,./<>?" },
+      ...{
+        committee_name:
+          " , !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_abcdefghijklmnopqrstuvwxyz{|}~",
+      },
     };
     const result = validate(f3xSchema, thisData);
     assertEquals(result, []);
