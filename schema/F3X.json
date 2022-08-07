@@ -535,7 +535,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "examples": [
                 1123123.45
             ],
@@ -558,7 +558,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 24,
                 "FIELD_DESCRIPTION": "6(c) Total Receipts",
@@ -578,7 +578,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 25,
                 "FIELD_DESCRIPTION": "6(d) Subtotal",
@@ -598,7 +598,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 26,
                 "FIELD_DESCRIPTION": "7. Total Disbursements",
@@ -618,7 +618,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 27,
                 "FIELD_DESCRIPTION": "8. Cash on Hand at Close",
@@ -638,7 +638,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 28,
                 "FIELD_DESCRIPTION": "9. Debts to",
@@ -658,7 +658,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 29,
                 "FIELD_DESCRIPTION": "10. Debts by",
@@ -678,7 +678,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 30,
                 "FIELD_DESCRIPTION": "11(a)i  Itemized",
@@ -698,7 +698,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 31,
                 "FIELD_DESCRIPTION": "11(a)ii  Unitemized",
@@ -718,7 +718,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 32,
                 "FIELD_DESCRIPTION": "11(a)iii Total",
@@ -738,7 +738,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 33,
                 "FIELD_DESCRIPTION": "11(b) Political Party Committees",
@@ -758,7 +758,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 34,
                 "FIELD_DESCRIPTION": "11(c) Other Political Committees (PACs)",
@@ -778,7 +778,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 35,
                 "FIELD_DESCRIPTION": "11(d) Total Contributions",
@@ -798,7 +798,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 36,
                 "FIELD_DESCRIPTION": "12. Transfers from Affiliated/Other Party Cmtes",
@@ -818,7 +818,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 37,
                 "FIELD_DESCRIPTION": "13. All Loans Received",
@@ -838,7 +838,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 38,
                 "FIELD_DESCRIPTION": "14. Loan Repayments Received",
@@ -858,7 +858,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 39,
                 "FIELD_DESCRIPTION": "15. Offsets to Operating Expenditures (refunds)",
@@ -878,7 +878,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 40,
                 "FIELD_DESCRIPTION": "16. Refunds of Federal Contributions",
@@ -898,7 +898,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 41,
                 "FIELD_DESCRIPTION": "17. Other Federal Receipts (dividends)",
@@ -918,7 +918,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 42,
                 "FIELD_DESCRIPTION": "18(a) Transfers from Nonfederal Account (H3)",
@@ -938,7 +938,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 43,
                 "FIELD_DESCRIPTION": "18(b) Transfers from Non-Federal (Levin - H5)",
@@ -958,7 +958,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 44,
                 "FIELD_DESCRIPTION": "18(c) Total Non-Federal Transfers (18a+18b)",
@@ -978,7 +978,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 45,
                 "FIELD_DESCRIPTION": "19. Total Receipts",
@@ -998,7 +998,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 46,
                 "FIELD_DESCRIPTION": "20. Total Federal Receipts",
@@ -1018,7 +1018,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 47,
                 "FIELD_DESCRIPTION": "21(a)i  Federal Share",
@@ -1038,7 +1038,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 48,
                 "FIELD_DESCRIPTION": "21(a)ii  Non-Federal Share",
@@ -1058,7 +1058,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 49,
                 "FIELD_DESCRIPTION": "21(b)  Other Federal Operating Expenditures",
@@ -1078,7 +1078,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 50,
                 "FIELD_DESCRIPTION": "21(c)  Total Operating Expenditures",
@@ -1098,7 +1098,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 51,
                 "FIELD_DESCRIPTION": "22. Transfers to Affiliated/Other Party Cmtes",
@@ -1118,7 +1118,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 52,
                 "FIELD_DESCRIPTION": "23. Contributions to Federal Candidates/Cmtes",
@@ -1138,7 +1138,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 53,
                 "FIELD_DESCRIPTION": "24. Independent Expenditures",
@@ -1158,7 +1158,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 54,
                 "FIELD_DESCRIPTION": "25. Coordinated Expend made by Party Cmtes",
@@ -1178,7 +1178,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 55,
                 "FIELD_DESCRIPTION": "26. Loan Repayments",
@@ -1198,7 +1198,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 56,
                 "FIELD_DESCRIPTION": "27. Loans Made",
@@ -1218,7 +1218,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 57,
                 "FIELD_DESCRIPTION": "28(a) Individuals/Persons",
@@ -1238,7 +1238,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 58,
                 "FIELD_DESCRIPTION": "28(b) Political Party Committees",
@@ -1258,7 +1258,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 59,
                 "FIELD_DESCRIPTION": "28(c) Other Political Committees",
@@ -1278,7 +1278,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 60,
                 "FIELD_DESCRIPTION": "28(d) Total Contributions Refunds",
@@ -1298,7 +1298,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 61,
                 "FIELD_DESCRIPTION": "29. Other Disbursements",
@@ -1318,7 +1318,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 62,
                 "FIELD_DESCRIPTION": "30(a)i  Shared Federal Activity (H6) Fed Share",
@@ -1338,7 +1338,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 63,
                 "FIELD_DESCRIPTION": "30(a)ii Shared Federal Activity (H6) Non-Fed",
@@ -1358,7 +1358,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 64,
                 "FIELD_DESCRIPTION": "30(b) Non-Allocable 100% Fed Election Activity",
@@ -1378,7 +1378,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 65,
                 "FIELD_DESCRIPTION": "30(c) Total Federal Election Activity",
@@ -1398,7 +1398,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 66,
                 "FIELD_DESCRIPTION": "31. Total Disbursements",
@@ -1418,7 +1418,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 67,
                 "FIELD_DESCRIPTION": "32. Total Federal Disbursements",
@@ -1438,7 +1438,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 68,
                 "FIELD_DESCRIPTION": "33. Total Contributions",
@@ -1458,7 +1458,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 69,
                 "FIELD_DESCRIPTION": "34. Total Contribution Refunds",
@@ -1478,7 +1478,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 70,
                 "FIELD_DESCRIPTION": "35. Net Contributions",
@@ -1498,7 +1498,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 71,
                 "FIELD_DESCRIPTION": "36. Total Federal Operating Expenditures",
@@ -1518,7 +1518,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 72,
                 "FIELD_DESCRIPTION": "37. Offsets to Operating Expenditures",
@@ -1538,7 +1538,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 73,
                 "FIELD_DESCRIPTION": "38. Net Operating Expenditures",
@@ -1558,7 +1558,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "examples": [
                 3123123.45
             ],
@@ -1605,7 +1605,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 76,
                 "FIELD_DESCRIPTION": "6(c) Total Receipts",
@@ -1625,7 +1625,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 77,
                 "FIELD_DESCRIPTION": "6(d) Subtotal",
@@ -1645,7 +1645,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 78,
                 "FIELD_DESCRIPTION": "7. Total disbursements",
@@ -1665,7 +1665,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 79,
                 "FIELD_DESCRIPTION": "8. Cash on Hand Close",
@@ -1685,7 +1685,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 80,
                 "FIELD_DESCRIPTION": "11(a)i  Itemized",
@@ -1705,7 +1705,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 81,
                 "FIELD_DESCRIPTION": "11(a)ii  Unitemized",
@@ -1725,7 +1725,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 82,
                 "FIELD_DESCRIPTION": "11(a)iii Total",
@@ -1745,7 +1745,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 83,
                 "FIELD_DESCRIPTION": "11(b) Political Party committees",
@@ -1765,7 +1765,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 84,
                 "FIELD_DESCRIPTION": "11(c) Other Political Committees  (PACs)",
@@ -1785,7 +1785,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 85,
                 "FIELD_DESCRIPTION": "11(d) Total Contributions",
@@ -1805,7 +1805,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 86,
                 "FIELD_DESCRIPTION": "12. Transfers from Affiliated/Other Party Cmtes",
@@ -1825,7 +1825,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 87,
                 "FIELD_DESCRIPTION": "13. All Loans Received",
@@ -1845,7 +1845,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 88,
                 "FIELD_DESCRIPTION": "14. Loan Repayments Received",
@@ -1865,7 +1865,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 89,
                 "FIELD_DESCRIPTION": "15. Offsets to Operating Expenditures (refunds)",
@@ -1885,7 +1885,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 90,
                 "FIELD_DESCRIPTION": "16. Refunds of Federal Contributions",
@@ -1905,7 +1905,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 91,
                 "FIELD_DESCRIPTION": "17. Other Federal Receipts (dividends)",
@@ -1925,7 +1925,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 92,
                 "FIELD_DESCRIPTION": "18(a) Transfers from Nonfederal Account (H3)",
@@ -1945,7 +1945,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 93,
                 "FIELD_DESCRIPTION": "18(b) Transfers from Non-Federal (Levin - H5)",
@@ -1965,7 +1965,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 94,
                 "FIELD_DESCRIPTION": "18(c) Total Non-Federal Transfers (18a+18b)",
@@ -1985,7 +1985,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 95,
                 "FIELD_DESCRIPTION": "19. Total Receipts",
@@ -2005,7 +2005,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 96,
                 "FIELD_DESCRIPTION": "20. Total Federal Receipts",
@@ -2025,7 +2025,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 97,
                 "FIELD_DESCRIPTION": "21(a)i Federal Share",
@@ -2045,7 +2045,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 98,
                 "FIELD_DESCRIPTION": "21(a)ii Non-Federal Share",
@@ -2065,7 +2065,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 99,
                 "FIELD_DESCRIPTION": "21(b) Other Federal Operating Expenditures",
@@ -2085,7 +2085,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 100,
                 "FIELD_DESCRIPTION": "21(c) Total operating Expenditures",
@@ -2105,7 +2105,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 101,
                 "FIELD_DESCRIPTION": "22. Transfers to Affiliated/Other Party Cmtes",
@@ -2125,7 +2125,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 102,
                 "FIELD_DESCRIPTION": "23. Contributions to Federal Candidates/Cmtes",
@@ -2145,7 +2145,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 103,
                 "FIELD_DESCRIPTION": "24. Independent Expenditures",
@@ -2165,7 +2165,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 104,
                 "FIELD_DESCRIPTION": "25. Coordinated Expend made by Party Cmtes",
@@ -2185,7 +2185,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 105,
                 "FIELD_DESCRIPTION": "26. Loan Repayments Made",
@@ -2205,7 +2205,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 106,
                 "FIELD_DESCRIPTION": "27. Loans Made",
@@ -2225,7 +2225,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 107,
                 "FIELD_DESCRIPTION": "28(a) Individuals/Persons",
@@ -2245,7 +2245,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 108,
                 "FIELD_DESCRIPTION": "28(b) Political Party Committees",
@@ -2265,7 +2265,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 109,
                 "FIELD_DESCRIPTION": "28(c) Other Political  Committees",
@@ -2285,7 +2285,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 110,
                 "FIELD_DESCRIPTION": "28(d) Total contributions Refunds",
@@ -2305,7 +2305,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 111,
                 "FIELD_DESCRIPTION": "29. Other Disbursements",
@@ -2325,7 +2325,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 112,
                 "FIELD_DESCRIPTION": "30(a)i  Shared Federal Activity (H6) Fed Share",
@@ -2345,7 +2345,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 113,
                 "FIELD_DESCRIPTION": "30(a)ii Shared Federal Activity (H6) Non-Fed",
@@ -2365,7 +2365,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 114,
                 "FIELD_DESCRIPTION": "30(b) Non-Allocable 100% Fed Election Activity",
@@ -2385,7 +2385,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 115,
                 "FIELD_DESCRIPTION": "30(c) Total Federal Election Activity",
@@ -2405,7 +2405,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 116,
                 "FIELD_DESCRIPTION": "31. Total Disbursements",
@@ -2425,7 +2425,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 117,
                 "FIELD_DESCRIPTION": "32. Total Federal Disbursements",
@@ -2445,7 +2445,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 118,
                 "FIELD_DESCRIPTION": "33. Total Contributions",
@@ -2465,7 +2465,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 119,
                 "FIELD_DESCRIPTION": "34. Total Contribution Refunds",
@@ -2485,7 +2485,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 120,
                 "FIELD_DESCRIPTION": "35. Net contributions",
@@ -2505,7 +2505,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 121,
                 "FIELD_DESCRIPTION": "36. Total Federal Operating Expenditures",
@@ -2525,7 +2525,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 122,
                 "FIELD_DESCRIPTION": "37. Offsets to Operating Expenditures",
@@ -2545,7 +2545,7 @@
                 "null"
             ],
             "minimum": 0,
-            "maximum": 9999999999.99,
+            "maximum": 999999999.99,
             "fec_spec": {
                 "COL_SEQ": 123,
                 "FIELD_DESCRIPTION": "38. Net Operating Expenditures",
