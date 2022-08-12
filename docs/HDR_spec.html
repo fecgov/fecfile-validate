@@ -1,0 +1,100 @@
+<!DOCTYPE html><html lang="en"><head><title>HDR</title><link rel="stylesheet" href="spec_table.css"></head><body><table><caption>Specification for HDR</caption><tr>
+<th>COL SEQ</th>
+<th>FIELD DESCRIPTION</th>
+<th>TYPE</th>
+<th>REQUIRED</th>
+<th>SAMPLE DATA</th>
+<th>VALUE REFERENCE</th>
+<th>RULE REFERENCE</th>
+<th>FIELD FORM ASSOCIATION</th>
+<th>VALIDATION RULES</th>
+</tr>
+<tr>
+<td>1</td>
+<td>Record Type</td>
+<td>A/N-3</td>
+<td>X (error)</td>
+<td>HDR</td>
+<td>HDR</td>
+<td></td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 3</li><li>regex: ^[ -~]{0,3}$</li></td>
+</tr>
+<tr>
+<td>2</td>
+<td>EF Type</td>
+<td>A/N-3</td>
+<td>X (error)</td>
+<td>FEC</td>
+<td>FEC</td>
+<td></td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 3</li><li>regex: ^[ -~]{0,3}$</li></td>
+</tr>
+<tr>
+<td>3</td>
+<td>FEC Version #</td>
+<td>A/N-4</td>
+<td>X (error)</td>
+<td>8.3</td>
+<td>8.3</td>
+<td></td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 4</li><li>regex: ^[ -~]{0,4}$</li></td>
+</tr>
+<tr>
+<td>4</td>
+<td>Soft Name</td>
+<td>A/N-90</td>
+<td></td>
+<td>SUPERFILER</td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>type: string</li><li>min length: 0</li><li>max length: 90</li><li>regex: ^[ -~]{0,90}$</li></td>
+</tr>
+<tr>
+<td>5</td>
+<td>Soft Ver</td>
+<td>A/N-16</td>
+<td></td>
+<td>1.0</td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>type: string</li><li>min length: 0</li><li>max length: 16</li><li>regex: ^[ -~]{0,16}$</li></td>
+</tr>
+<tr>
+<td>6</td>
+<td>Rpt ID</td>
+<td>A/N-16</td>
+<td></td>
+<td>FEC-123467</td>
+<td></td>
+<td>FEC report ID of original report (Amendment only)</td>
+<td></td>
+<td><ul><li>type: string</li><li>min length: 0</li><li>max length: 16</li><li>regex: ^[ -~]{0,16}$</li></td>
+</tr>
+<tr>
+<td>7</td>
+<td>Rpt Number</td>
+<td>N-3</td>
+<td></td>
+<td>1</td>
+<td>1,2,3,4…</td>
+<td>Sequential number of amendments</td>
+<td></td>
+<td><ul></td>
+</tr>
+<tr>
+<td>8</td>
+<td>HDRcomment</td>
+<td>A/N-200</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Use as needed  {no tabs, line-feeds, etc. allowed}</td>
+<td></td>
+<td><ul><li>type: string</li><li>min length: 0</li><li>max length: 200</li><li>regex: ^[ -~]{0,200}$</li></td>
+</tr>
+</table></body></html>
