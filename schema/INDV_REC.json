@@ -27,11 +27,13 @@
             "title": "FORM TYPE",
             "description": "",
             "type": "string",
-            "minLength": 0,
-            "maxLength": 8,
-            "pattern": "^[ -~]{0,8}$",
+            "enum": [
+                "SA11AI",
+                "SA11AII"
+            ],
             "examples": [
-                "SA11AI"
+                "SA11AI",
+                "SA11AII"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "FORM TYPE",
