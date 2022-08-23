@@ -56,7 +56,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 4,
-            "pattern": "^[0-9]+(?:.[0-9]+)?$",
+            "pattern": "^[0-9]+(?:[.][0-9]+)?$",
             "examples": [
                 "8.3"
             ],
