@@ -420,8 +420,8 @@
                 "null"
             ],
             "minLength": 0,
-            "maxLength": 10,
-            "pattern": "^\\d{10}$",
+            "maxLength": 15,
+            "pattern": "^\\+\\d{1,3} \\d{10}$",
             "fec_spec": {
                 "COL_SEQ": null,
                 "FIELD_DESCRIPTION": "TELEPHONE",
