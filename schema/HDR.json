@@ -16,7 +16,7 @@
             "title": "Record Type",
             "description": "",
             "type": "string",
-            "enum": ["HDR"],
+            "const": "HDR",
             "examples": [
                 "HDR"
             ],
@@ -35,7 +35,7 @@
             "title": "EF Type",
             "description": "",
             "type": "string",
-            "enum": ["FEC"],
+            "const": "FEC",
             "examples": [
                 "FEC"
             ],

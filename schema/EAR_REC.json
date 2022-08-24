@@ -30,7 +30,7 @@
             "title": "FORM TYPE",
             "description": "",
             "type": "string",
-            "enum": ["SA11AI"],
+            "const": "SA11AI",
             "examples": [
                 "SA11AI"
             ],
@@ -68,7 +68,7 @@
             "title": "TRANSACTION TYPE IDENTIFIER",
             "description": "",
             "type": "string",
-            "enum": ["EAR_REC"],
+            "const": "EAR_REC",
             "examples": [
                 "EAR_REC"
             ],
@@ -152,7 +152,7 @@
             "title": "ENTITY TYPE",
             "description": "",
             "type": "string",
-            "enum": ["IND"],
+            "const": "IND",
             "examples": [
                 "IND"
             ],
