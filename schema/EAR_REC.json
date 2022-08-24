@@ -446,8 +446,8 @@
                 "FIELD_DESCRIPTION": "CONTRIBUTION PURPOSE DESCRIPTION",
                 "TYPE": "A/N-100",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": null,
-                "VALUE_REFERENCE": null,
+                "SAMPLE_DATA": "Earmarked for XX (Candidate)",
+                "VALUE_REFERENCE": "Earmarked for XX (Candidate)",
                 "RULE_REFERENCE": "Earmarked for XX (Candidate)",
                 "FIELD_FORM_ASSOCIATION": null
             }
