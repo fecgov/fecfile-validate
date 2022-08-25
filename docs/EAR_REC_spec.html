@@ -13,10 +13,10 @@
 <td>A/N-8</td>
 <td>X (error)</td>
 <td>SA11AI</td>
-<td>SA[line# ref]</td>
+<td>SA11AI</td>
 <td></td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 8</li><li>regex: ^[ -~]{0,8}$</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>must equal: SA11AI</li></td>
 </tr>
 <tr>
 <td>FILER COMMITTEE ID NUMBER</td>
@@ -26,17 +26,17 @@
 <td></td>
 <td>this is the ID of the Committee Account the report/transaction is associated with</td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 9</li><li>regex: ^[ -~]{0,9}$</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 9</li><li>max length: 9</li><li>regex: ^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$</li></td>
 </tr>
 <tr>
 <td>TRANSACTION TYPE IDENTIFIER</td>
 <td>A/N-12</td>
 <td>X (error)</td>
-<td>EARMARK_REC</td>
+<td>EAR_REC</td>
 <td></td>
 <td></td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 12</li><li>regex: ^[ -~]{0,12}$</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>must equal: EAR_REC</li></td>
 </tr>
 <tr>
 <td>TRANSACTION ID</td>
@@ -74,10 +74,10 @@ with the F3L</td>
 <td>A/N-3</td>
 <td>X (error)</td>
 <td>IND</td>
+<td>IND</td>
+<td>IND</td>
 <td></td>
-<td></td>
-<td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 3</li><li>regex: ^[ -~]{0,3}$</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>must equal: IND</li></td>
 </tr>
 <tr>
 <td>CONTRIBUTOR LAST NAME</td>
@@ -213,9 +213,9 @@ with the F3L</td>
 <td>CONTRIBUTION PURPOSE DESCRIPTION</td>
 <td>A/N-100</td>
 <td>X (error)</td>
-<td></td>
-<td></td>
-<td>Earmarked for XX (Candidate)</td>
+<td>Earmarked through XX (Committee)</td>
+<td>Earmarked through XX (Committee)</td>
+<td>Earmarked through XX (Committee), where XX is the conduit from EAR_MEMO associated</td>
 <td></td>
 <td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 100</li><li>regex: ^[ -~]{0,100}$</li></td>
 </tr>
