@@ -147,7 +147,7 @@
                 "REQUIRED": null,
                 "SAMPLE_DATA": "1",
                 "VALUE_REFERENCE": "1,2,3,4\u2026",
-                "RULE_REFERENCE": "Sequential number of amendments",
+                "RULE_REFERENCE": "Sequential number of amendments. For an Original Report, this field is blank.",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },

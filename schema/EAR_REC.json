@@ -446,9 +446,9 @@
                 "FIELD_DESCRIPTION": "CONTRIBUTION PURPOSE DESCRIPTION",
                 "TYPE": "A/N-100",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "Earmarked for XX (Candidate)",
-                "VALUE_REFERENCE": "Earmarked for XX (Candidate)",
-                "RULE_REFERENCE": "Earmarked for XX (Candidate)",
+                "SAMPLE_DATA": "Earmarked through XX (Committee)",
+                "VALUE_REFERENCE": "Earmarked through XX (Committee)",
+                "RULE_REFERENCE": "Earmarked through XX (Committee), where XX is the conduit from EAR_MEMO associated",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },

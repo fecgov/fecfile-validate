@@ -43,7 +43,7 @@
                 "TYPE": "A/N-8",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "SA11AI",
-                "VALUE_REFERENCE": "SA[line# ref]",
+                "VALUE_REFERENCE": "SA11AI",
                 "RULE_REFERENCE": "SA11AI",
                 "FIELD_FORM_ASSOCIATION": null
             }
