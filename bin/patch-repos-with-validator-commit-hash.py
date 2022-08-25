@@ -155,13 +155,11 @@ def help():
             -y or --yes |    auto-confirm all options
     """
     print(help_string)
-    return
 
 
 def main():
     if "-h" in sys.argv or "--help" in sys.argv:
-        help()
-        return
+        return help()
     if "-y" in sys.argv or "--yes" in sys.argv:
         global YES_TO_ALL
         YES_TO_ALL = True
