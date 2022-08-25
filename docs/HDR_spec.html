@@ -18,7 +18,7 @@
 <td>HDR</td>
 <td></td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 3</li><li>regex: ^[ -~]{0,3}$</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>must equal: HDR</li></td>
 </tr>
 <tr>
 <td>2</td>
@@ -29,7 +29,7 @@
 <td>FEC</td>
 <td></td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 3</li><li>regex: ^[ -~]{0,3}$</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>must equal: FEC</li></td>
 </tr>
 <tr>
 <td>3</td>
@@ -40,14 +40,14 @@
 <td>8.3</td>
 <td></td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 4</li><li>regex: ^[ -~]{0,4}$</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 4</li><li>regex: ^[0-9]+(?:[.][0-9]+)?$</li></td>
 </tr>
 <tr>
 <td>4</td>
 <td>Soft Name</td>
 <td>A/N-90</td>
 <td></td>
-<td>SUPERFILER</td>
+<td>FECFile Online</td>
 <td></td>
 <td></td>
 <td></td>
@@ -82,7 +82,7 @@
 <td></td>
 <td>1</td>
 <td>1,2,3,4…</td>
-<td>Sequential number of amendments</td>
+<td>Sequential number of amendments. For an Original Report, this field is blank.</td>
 <td></td>
 <td><ul></td>
 </tr>

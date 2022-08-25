@@ -30,9 +30,7 @@
             "title": "FORM TYPE",
             "description": "",
             "type": "string",
-            "minLength": 0,
-            "maxLength": 8,
-            "pattern": "^[ -~]{0,8}$",
+            "const": "SA11AI",
             "examples": [
                 "SA11AI"
             ],
@@ -41,7 +39,7 @@
                 "TYPE": "A/N-8",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "SA11AI",
-                "VALUE_REFERENCE": "SA[line# ref]",
+                "VALUE_REFERENCE": "SA11AI",
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }
@@ -50,9 +48,9 @@
             "title": "FILER COMMITTEE ID NUMBER",
             "description": "",
             "type": "string",
-            "minLength": 0,
+            "minLength": 9,
             "maxLength": 9,
-            "pattern": "^[ -~]{0,9}$",
+            "pattern": "^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$",
             "examples": [
                 "C00123456"
             ],
@@ -70,17 +68,15 @@
             "title": "TRANSACTION TYPE IDENTIFIER",
             "description": "",
             "type": "string",
-            "minLength": 0,
-            "maxLength": 12,
-            "pattern": "^[ -~]{0,12}$",
+            "const": "EAR_REC",
             "examples": [
-                "EARMARK_REC"
+                "EAR_REC"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "TRANSACTION TYPE IDENTIFIER",
                 "TYPE": "A/N-12",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "EARMARK_REC",
+                "SAMPLE_DATA": "EAR_REC",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
@@ -156,9 +152,7 @@
             "title": "ENTITY TYPE",
             "description": "",
             "type": "string",
-            "minLength": 0,
-            "maxLength": 3,
-            "pattern": "^[ -~]{0,3}$",
+            "const": "IND",
             "examples": [
                 "IND"
             ],
@@ -167,8 +161,8 @@
                 "TYPE": "A/N-3",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "IND",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
+                "VALUE_REFERENCE": "IND",
+                "RULE_REFERENCE": "IND",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -452,9 +446,9 @@
                 "FIELD_DESCRIPTION": "CONTRIBUTION PURPOSE DESCRIPTION",
                 "TYPE": "A/N-100",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": null,
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Earmarked for XX (Candidate)",
+                "SAMPLE_DATA": "Earmarked through XX (Committee)",
+                "VALUE_REFERENCE": "Earmarked through XX (Committee)",
+                "RULE_REFERENCE": "Earmarked through XX (Committee), where XX is the conduit from EAR_MEMO associated",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },

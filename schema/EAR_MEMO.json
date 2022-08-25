@@ -34,9 +34,7 @@
             "title": "FORM TYPE",
             "description": "",
             "type": "string",
-            "minLength": 0,
-            "maxLength": 8,
-            "pattern": "^[ -~]{0,8}$",
+            "const": "SA11AI",
             "examples": [
                 "SA11AI"
             ],
@@ -45,8 +43,8 @@
                 "TYPE": "A/N-8",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "SA11AI",
-                "VALUE_REFERENCE": "SA[line# ref]",
-                "RULE_REFERENCE": null,
+                "VALUE_REFERENCE": "SA11AI",
+                "RULE_REFERENCE": "SA11AI",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -54,9 +52,9 @@
             "title": "FILER COMMITTEE ID NUMBER",
             "description": "",
             "type": "string",
-            "minLength": 0,
+            "minLength": 9,
             "maxLength": 9,
-            "pattern": "^[ -~]{0,9}$",
+            "pattern": "^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$",
             "examples": [
                 "C00123456"
             ],
@@ -84,7 +82,7 @@
                 "FIELD_DESCRIPTION": "TRANSACTION TYPE IDENTIFIER",
                 "TYPE": "A/N-15",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "EAR_MEM_23",
+                "SAMPLE_DATA": "EAR_MEMO",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
@@ -126,7 +124,7 @@
             "fec_spec": {
                 "FIELD_DESCRIPTION": "BACK REFERENCE TRAN ID NUMBER",
                 "TYPE": "A/N-20",
-                "REQUIRED": null,
+                "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "A123456789-1234",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": "Reference to the Tran ID of a Related Record",
@@ -149,7 +147,7 @@
             "fec_spec": {
                 "FIELD_DESCRIPTION": "BACK REFERENCE SCHED NAME",
                 "TYPE": "A/N-8",
-                "REQUIRED": null,
+                "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "SA11AI",
                 "VALUE_REFERENCE": "SA[line# ref]",
                 "RULE_REFERENCE": "Ref to the Schedule that has the Related Record.  SA3L must be used \nwith the F3L",
@@ -160,9 +158,7 @@
             "title": "ENTITY TYPE",
             "description": "",
             "type": "string",
-            "minLength": 0,
-            "maxLength": 3,
-            "pattern": "^[ -~]{0,3}$",
+            "enum":["IND", "COM"],
             "examples": [
                 "IND"
             ],
@@ -171,8 +167,8 @@
                 "TYPE": "A/N-3",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "IND",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
+                "VALUE_REFERENCE": "IND, COM",
+                "RULE_REFERENCE": ["IND | COM"],
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -192,7 +188,7 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "John Smith & Co.",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
+                "RULE_REFERENCE": "Required if NOT [IND]",
                 "FIELD_FORM_ASSOCIATION": 8
             }
         },
@@ -212,7 +208,7 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "Smith",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
+                "RULE_REFERENCE": "Required if [IND]",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -232,7 +228,7 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "John",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
+                "RULE_REFERENCE": "Required if [IND]",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -255,7 +251,7 @@
                 "REQUIRED": null,
                 "SAMPLE_DATA": "W",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
+                "RULE_REFERENCE": "Optional if [IND]",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -278,7 +274,7 @@
                 "REQUIRED": null,
                 "SAMPLE_DATA": "Dr",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
+                "RULE_REFERENCE": "Optional if [IND]",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -301,7 +297,7 @@
                 "REQUIRED": null,
                 "SAMPLE_DATA": "Jr",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
+                "RULE_REFERENCE": "Optional if [IND]",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -321,7 +317,7 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "123 Main Street",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
+                "RULE_REFERENCE": "Optional if [IND]",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -461,7 +457,7 @@
             "fec_spec": {
                 "FIELD_DESCRIPTION": "CONTRIBUTION AGGREGATE",
                 "TYPE": "AMT-12",
-                "REQUIRED": null,
+                "REQUIRED": "X (error)",
                 "SAMPLE_DATA": 1000,
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": "YTD",
@@ -498,7 +494,7 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
+                "RULE_REFERENCE": "Required if NOT [IND]",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -518,7 +514,7 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "Action PAC",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
+                "RULE_REFERENCE": "Required if NOT [IND]",
                 "FIELD_FORM_ASSOCIATION": 28
             }
         },
@@ -538,7 +534,7 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "XYZ Company",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Req if Donor aggregate >$200",
+                "RULE_REFERENCE": "Required if [IND], regardless of aggregate amount",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -558,7 +554,7 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "QC Inspector",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Req if Donor aggregate >$200",
+                "RULE_REFERENCE": "Required if [IND], regardless of aggregate amount",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -572,7 +568,7 @@
             "fec_spec": {
                 "FIELD_DESCRIPTION": "MEMO CODE",
                 "TYPE": "A/N-1",
-                "REQUIRED": null,
+                "REQUIRED": "X (error)",
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": "X",
                 "RULE_REFERENCE": "X = True",
