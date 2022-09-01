@@ -13,7 +13,6 @@
         "street_1",
         "city",
         "state",
-        "zip",
         "candidate_office",
         "country"
     ],
@@ -452,6 +451,18 @@
         }
     },
     "allOf": [
+        {
+            "if": {
+                "properties": {
+                    "country": {
+                        "const": "United States of America"
+                    }
+                },
+                "required": [
+                    "zip"
+                ]
+            }
+        },
         {
             "if": {
                 "properties": {

@@ -12,7 +12,6 @@
         "street_1",
         "city",
         "state",
-        "zip",
         "country"
     ],
     "fec_recommended": [],
@@ -228,5 +227,19 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         }
-    }
+    },
+    "allOf": [
+        {
+            "if": {
+                "properties": {
+                    "country": {
+                        "const": "United States of America"
+                    }
+                },
+                "required": [
+                    "zip"
+                ]
+            }
+        }
+    ]
 }
