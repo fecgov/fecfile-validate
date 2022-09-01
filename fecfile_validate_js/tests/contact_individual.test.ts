@@ -14,7 +14,7 @@ const perfectForm: any = {
   city: "Anytown",
   state: "WA",
   zip: "981110123",
-  telephone: "5555555555",
+  telephone: "+1 5555555555",
   employer: "XYZ Company",
   occupation: "QC Inspector",
   country: "United States",
@@ -32,15 +32,18 @@ Deno.test({
   name: "it should pass containing every allowed character",
   fn: () => {
     const thisData = { ...perfectForm };
-    const specialChars = " !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~";
+    const specialChars =
+      " !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~";
     thisData.last_name = specialChars.substring(0, 29);
     thisData.first_name = specialChars.substring(29, 48);
     thisData.middle_name = specialChars.substring(48, 67);
     thisData.street_1 = specialChars.substring(67);
     const result = validate(schema, thisData);
-    
-    assertEquals(thisData.last_name + thisData.first_name + 
-      thisData.middle_name + thisData.street_1, specialChars);    
+
+    assertEquals(
+      thisData.last_name + thisData.first_name + thisData.middle_name + thisData.street_1,
+      specialChars
+    );
     assertEquals(result, []);
   },
 });
@@ -50,17 +53,21 @@ Deno.test({
   fn: () => {
     const thisData = { ...perfectForm };
     const disallowedChar = "\t";
-    const specialChars = disallowedChar + " !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~";
+    const specialChars =
+      disallowedChar +
+      " !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~";
     thisData.last_name = specialChars.substring(0, 29);
     thisData.first_name = specialChars.substring(29, 48);
     thisData.middle_name = specialChars.substring(48, 67);
     thisData.street_1 = specialChars.substring(67);
-    assertEquals(thisData.last_name + thisData.first_name + 
-      thisData.middle_name + thisData.street_1, specialChars);    
+    assertEquals(
+      thisData.last_name + thisData.first_name + thisData.middle_name + thisData.street_1,
+      specialChars
+    );
     const result = validate(schema, thisData);
 
     assertEquals(result[0].keyword, "pattern");
-    assertEquals(result[0].message, "must match pattern \"^[ -~]{0,30}$\"");
+    assertEquals(result[0].message, 'must match pattern "^[ -~]{0,30}$"');
     assertEquals(result[0].params.pattern, "^[ -~]{0,30}$");
     assertEquals(result[0].path, "last_name");
   },

@@ -13,7 +13,6 @@
         "street_1",
         "city",
         "state",
-        "zip",
         "candidate_office",
         "country"
     ],
@@ -272,7 +271,10 @@
         "zip": {
             "title": "ZIP",
             "description": "",
-            "type": "string",
+            "type": [
+                "string",
+                "null"
+            ],
             "minLength": 0,
             "maxLength": 9,
             "pattern": "^[ -~]{0,9}$",
@@ -420,8 +422,8 @@
                 "null"
             ],
             "minLength": 0,
-            "maxLength": 10,
-            "pattern": "^\\d{10}$",
+            "maxLength": 15,
+            "pattern": "^\\+\\d{1,3} \\d{10}$",
             "fec_spec": {
                 "COL_SEQ": null,
                 "FIELD_DESCRIPTION": "TELEPHONE",
@@ -452,6 +454,29 @@
         }
     },
     "allOf": [
+        {
+            "if": {
+                "properties": {
+                    "country": {
+                        "const": "USA"
+                    }
+                },
+                "required": [
+                    "country"
+                ]
+            },
+            "then": {
+                "required": [
+                    "zip"
+                ],
+                "properties": {
+                    "zip": {
+                        "type": "string"
+                    }
+                }
+            }
+            
+        },
         {
             "if": {
                 "properties": {
