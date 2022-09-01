@@ -235,7 +235,10 @@
                     "country": {
                         "const": "USA"
                     }
-                }
+                },
+                "required": [
+                    "country"
+                ]
             },
             "then": {
                 "required": [
