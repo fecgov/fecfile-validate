@@ -457,11 +457,19 @@
                     "country": {
                         "const": "United States of America"
                     }
-                },
+                }
+            },
+            "then": {
                 "required": [
                     "zip"
-                ]
+                ],
+                "properties": {
+                    "zip": {
+                        "type": "string"
+                    }
+                }
             }
+            
         },
         {
             "if": {
