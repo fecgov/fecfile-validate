@@ -358,7 +358,7 @@
             "if": {
                 "properties": {
                     "country": {
-                        "const": "United States of America"
+                        "const": "USA"
                     }
                 }
             },
