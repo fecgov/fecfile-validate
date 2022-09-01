@@ -147,7 +147,10 @@
         "zip": {
             "title": "ZIP",
             "description": "",
-            "type": "string",
+            "type": [
+                "string",
+                "null"
+            ],
             "minLength": 0,
             "maxLength": 9,
             "pattern": "^[ -~]{0,9}$",
