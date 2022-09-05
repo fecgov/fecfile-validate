@@ -393,10 +393,7 @@
         "memo_code": {
             "title": "MEMO CODE",
             "description": "",
-            "type": [
-                "boolean",
-                "null"
-            ],
+	    "const": true,
             "fec_spec": {
                 "FIELD_DESCRIPTION": "MEMO CODE",
                 "TYPE": "A/N-1",
