@@ -13,10 +13,10 @@
 <td>A/N-8</td>
 <td>X (error)</td>
 <td>SA11AI</td>
-<td>SA[line# ref]</td>
+<td>SA11AI</td>
+<td>SA11AI</td>
 <td></td>
-<td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 8</li><li>regex: ^[ -~]{0,8}$</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>must equal: SA11AI</li></td>
 </tr>
 <tr>
 <td>FILER COMMITTEE ID NUMBER</td>
@@ -26,13 +26,13 @@
 <td></td>
 <td>this is the ID of the Committee Account the report/transaction is associated with</td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 9</li><li>regex: ^[ -~]{0,9}$</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 9</li><li>max length: 9</li><li>regex: ^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$</li></td>
 </tr>
 <tr>
 <td>TRANSACTION TYPE IDENTIFIER</td>
 <td>A/N-15</td>
 <td>X (error)</td>
-<td>EAR_MEM_23</td>
+<td>EAR_MEMO</td>
 <td></td>
 <td></td>
 <td></td>
@@ -51,7 +51,7 @@
 <tr>
 <td>BACK REFERENCE TRAN ID NUMBER</td>
 <td>A/N-20</td>
-<td></td>
+<td>X (error)</td>
 <td>A123456789-1234</td>
 <td></td>
 <td>Reference to the Tran ID of a Related Record</td>
@@ -61,7 +61,7 @@
 <tr>
 <td>BACK REFERENCE SCHED NAME</td>
 <td>A/N-8</td>
-<td></td>
+<td>X (error)</td>
 <td>SA11AI</td>
 <td>SA[line# ref]</td>
 <td>Ref to the Schedule that has the Related Record.  SA3L must be used 
@@ -74,10 +74,10 @@ with the F3L</td>
 <td>A/N-3</td>
 <td>X (error)</td>
 <td>IND</td>
+<td>IND, COM</td>
+<td>['IND | COM']</td>
 <td></td>
-<td></td>
-<td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 3</li><li>regex: ^[ -~]{0,3}$</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>must be one of: ['IND', 'COM']</li></td>
 </tr>
 <tr>
 <td>CONTRIBUTOR ORGANIZATION</td>
@@ -85,7 +85,7 @@ with the F3L</td>
 <td>X (error)</td>
 <td>John Smith & Co.</td>
 <td></td>
-<td></td>
+<td>Required if NOT [IND]</td>
 <td>8</td>
 <td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 200</li><li>regex: ^[ -~]{0,200}$</li></td>
 </tr>
@@ -95,7 +95,7 @@ with the F3L</td>
 <td>X (error)</td>
 <td>Smith</td>
 <td></td>
-<td></td>
+<td>Required if [IND]</td>
 <td></td>
 <td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 30</li><li>regex: ^[ -~]{0,30}$</li></td>
 </tr>
@@ -105,7 +105,7 @@ with the F3L</td>
 <td>X (error)</td>
 <td>John</td>
 <td></td>
-<td></td>
+<td>Required if [IND]</td>
 <td></td>
 <td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
 </tr>
@@ -115,7 +115,7 @@ with the F3L</td>
 <td></td>
 <td>W</td>
 <td></td>
-<td></td>
+<td>Optional if [IND]</td>
 <td></td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
 </tr>
@@ -125,7 +125,7 @@ with the F3L</td>
 <td></td>
 <td>Dr</td>
 <td></td>
-<td></td>
+<td>Optional if [IND]</td>
 <td></td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 10</li><li>regex: ^[ -~]{0,10}$</li></td>
 </tr>
@@ -135,7 +135,7 @@ with the F3L</td>
 <td></td>
 <td>Jr</td>
 <td></td>
-<td></td>
+<td>Optional if [IND]</td>
 <td></td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 10</li><li>regex: ^[ -~]{0,10}$</li></td>
 </tr>
@@ -145,7 +145,7 @@ with the F3L</td>
 <td>X (error)</td>
 <td>123 Main Street</td>
 <td></td>
-<td></td>
+<td>Optional if [IND]</td>
 <td></td>
 <td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 34</li><li>regex: ^[ -~]{0,34}$</li></td>
 </tr>
@@ -212,7 +212,7 @@ with the F3L</td>
 <tr>
 <td>CONTRIBUTION AGGREGATE</td>
 <td>AMT-12</td>
-<td></td>
+<td>X (error)</td>
 <td>1000</td>
 <td></td>
 <td>YTD</td>
@@ -235,7 +235,7 @@ with the F3L</td>
 <td>X (error)</td>
 <td></td>
 <td></td>
-<td></td>
+<td>Required if NOT [IND]</td>
 <td></td>
 <td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 9</li><li>regex: ^[ -~]{0,9}$</li></td>
 </tr>
@@ -245,7 +245,7 @@ with the F3L</td>
 <td>X (error)</td>
 <td>Action PAC</td>
 <td></td>
-<td></td>
+<td>Required if NOT [IND]</td>
 <td>28</td>
 <td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 200</li><li>regex: ^[ -~]{0,200}$</li></td>
 </tr>
@@ -255,7 +255,7 @@ with the F3L</td>
 <td>X (error)</td>
 <td>XYZ Company</td>
 <td></td>
-<td>Req if Donor aggregate >$200</td>
+<td>Required if [IND], regardless of aggregate amount</td>
 <td></td>
 <td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 38</li><li>regex: ^[ -~]{0,38}$</li></td>
 </tr>
@@ -265,14 +265,14 @@ with the F3L</td>
 <td>X (error)</td>
 <td>QC Inspector</td>
 <td></td>
-<td>Req if Donor aggregate >$200</td>
+<td>Required if [IND], regardless of aggregate amount</td>
 <td></td>
 <td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 38</li><li>regex: ^[ -~]{0,38}$</li></td>
 </tr>
 <tr>
 <td>MEMO CODE</td>
 <td>A/N-1</td>
-<td></td>
+<td>X (error)</td>
 <td></td>
 <td>X</td>
 <td>X = True</td>

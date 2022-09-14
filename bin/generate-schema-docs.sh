@@ -2,7 +2,7 @@
 #
 # Utility script to create the data dictionary *.html files
 #
-# NOTE: Be sure to run from the fecfile-Validate/schema directory
+# NOTE: Be sure to run from the fecfile-validate/schema directory
 #
 SCHEMAS=$(ls -m *.json | tr -d '[:space:]')
 generate-schema-doc ${SCHEMAS} ../docs

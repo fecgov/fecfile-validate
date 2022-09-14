@@ -51,9 +51,9 @@
             "title": "FILER COMMITTEE ID NUMBER",
             "description": "",
             "type": "string",
-            "minLength": 0,
+            "minLength": 9,
             "maxLength": 9,
-            "pattern": "^[ -~]{0,9}$",
+            "pattern": "^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$",
             "examples": [
                 "C00123456"
             ],

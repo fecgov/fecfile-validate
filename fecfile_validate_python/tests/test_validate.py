@@ -122,6 +122,13 @@ def test_partial_missing_required_field(sample_f3x):
 
 
 def test_contribution_amount_accepts_decimals(sample_indv_rec):
+    sample_indv_rec["contribution_amount"] = 99.99
+    validation_result = validate.validate("INDV_REC", sample_indv_rec)
+    assert validation_result.errors == []
+
+
+def test_contribution_amount_accepts_negative_values(sample_indv_rec):
+    sample_indv_rec["contribution_amount"] = -100
     validation_result = validate.validate("INDV_REC", sample_indv_rec)
     assert validation_result.errors == []
 

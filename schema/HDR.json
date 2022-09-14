@@ -16,9 +16,7 @@
             "title": "Record Type",
             "description": "",
             "type": "string",
-            "minLength": 0,
-            "maxLength": 3,
-            "pattern": "^[ -~]{0,3}$",
+            "const": "HDR",
             "examples": [
                 "HDR"
             ],
@@ -37,9 +35,7 @@
             "title": "EF Type",
             "description": "",
             "type": "string",
-            "minLength": 0,
-            "maxLength": 3,
-            "pattern": "^[ -~]{0,3}$",
+            "const": "FEC",
             "examples": [
                 "FEC"
             ],
@@ -60,7 +56,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 4,
-            "pattern": "^[ -~]{0,4}$",
+            "pattern": "^[0-9]+(?:[.][0-9]+)?$",
             "examples": [
                 "8.3"
             ],
@@ -83,14 +79,14 @@
             "maxLength": 90,
             "pattern": "^[ -~]{0,90}$",
             "examples": [
-                "SUPERFILER"
+                "FECFile Online"
             ],
             "fec_spec": {
                 "COL_SEQ": 4,
                 "FIELD_DESCRIPTION": "Soft Name",
                 "TYPE": "A/N-90",
                 "REQUIRED": null,
-                "SAMPLE_DATA": "SUPERFILER",
+                "SAMPLE_DATA": "FECFile Online",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
@@ -151,7 +147,7 @@
                 "REQUIRED": null,
                 "SAMPLE_DATA": "1",
                 "VALUE_REFERENCE": "1,2,3,4\u2026",
-                "RULE_REFERENCE": "Sequential number of amendments",
+                "RULE_REFERENCE": "Sequential number of amendments. For an Original Report, this field is blank.",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
