@@ -58,7 +58,7 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "C00123456",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "this is the ID of the Committee Account the report/transaction is associated with",
+                "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -135,7 +135,7 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "SA11AI",
                 "VALUE_REFERENCE": "SA[line# ref]",
-                "RULE_REFERENCE": null,
+                "RULE_REFERENCE": "Ref to the Schedule that has the Related Record. SA3L must be used with the F3L",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -411,7 +411,7 @@
                 "TYPE": "NUM-8",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": 20120615,
-                "VALUE_REFERENCE": null,
+                "VALUE_REFERENCE": "YYYYMMDD",
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }
@@ -450,7 +450,7 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": 1000,
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
+                "RULE_REFERENCE": "YTD",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
