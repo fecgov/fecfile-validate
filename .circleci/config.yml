@@ -54,6 +54,7 @@ jobs:
           command: |
 
             curl -fsSL https://deno.land/x/install/install.sh | sh
+            deno upgrade --version 1.22.0
             export DENO_INSTALL="/home/circleci/.deno"
             export PATH="$DENO_INSTALL/bin:$PATH"
 
