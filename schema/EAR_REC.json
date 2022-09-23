@@ -20,9 +20,7 @@
         "contribution_date",
         "contribution_amount",
         "contribution_aggregate",
-        "contribution_purpose_descrip",
-        "contributor_employer",
-        "contributor_occupation"
+        "contribution_purpose_descrip"
     ],
     "fec_recommended": [],
     "properties": {
@@ -455,7 +453,10 @@
         "contributor_employer": {
             "title": "CONTRIBUTOR EMPLOYER",
             "description": "",
-            "type": "string",
+            "type": [
+                "string",
+                "null"
+            ],
             "minLength": 0,
             "maxLength": 38,
             "pattern": "^[ -~]{0,38}$",
@@ -475,7 +476,10 @@
         "contributor_occupation": {
             "title": "CONTRIBUTOR OCCUPATION",
             "description": "",
-            "type": "string",
+            "type": [
+                "string",
+                "null"
+            ],
             "minLength": 0,
             "maxLength": 38,
             "pattern": "^[ -~]{0,38}$",
