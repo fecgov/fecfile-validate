@@ -401,7 +401,7 @@
             "title": "CONTRIBUTION AMOUNT",
             "description": "",
             "type": "number",
-            "minimum": 0,
+            "minimum": -99999999.99,
             "maximum": 999999999.99,
             "examples": [
                 250
@@ -420,7 +420,7 @@
             "title": "CONTRIBUTION AGGREGATE",
             "description": "",
             "type": "number",
-            "minimum": 0,
+            "minimum": -99999999.99,
             "maximum": 999999999.99,
             "examples": [
                 1000
@@ -529,5 +529,34 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         }
-    }
+    },
+    "allOf": [
+        {
+            "if": {
+                "properties": {
+                    "contribution_aggregate": {
+                        "type": "number",
+                        "minimum": 200.01
+                    }
+                },
+                "required": [
+                    "contribution_aggregate"
+                ]
+            },
+            "then": {
+                "required": [
+                    "contributor_employer",
+                    "contributor_occupation"
+                ],
+                "properties": {
+                    "contributor_employer": {
+                        "type": "string"
+                    },
+                    "contributor_occupation": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    ]
 }
