@@ -112,7 +112,7 @@
             "fec_spec": {
                 "FIELD_DESCRIPTION": "BACK REFERENCE TRAN ID NUMBER",
                 "TYPE": "A/N-20",
-                "REQUIRED": null,
+                "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "A123456789-1234",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": "Reference to the Tran ID of a Related Record",
@@ -132,7 +132,7 @@
             "fec_spec": {
                 "FIELD_DESCRIPTION": "BACK REFERENCE SCHED NAME",
                 "TYPE": "A/N-8",
-                "REQUIRED": null,
+                "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "SA11AI",
                 "VALUE_REFERENCE": "SA[line# ref]",
                 "RULE_REFERENCE": null,
@@ -464,7 +464,7 @@
             "fec_spec": {
                 "FIELD_DESCRIPTION": "CONTRIBUTION PURPOSE DESCRIPTION",
                 "TYPE": "A/N-100",
-                "REQUIRED": null,
+                "REQUIRED": "X (error)",
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": "Total earmarked through conduit.",
@@ -568,7 +568,7 @@
             "fec_spec": {
                 "FIELD_DESCRIPTION": "MEMO CODE",
                 "TYPE": "A/N-1",
-                "REQUIRED": null,
+                "REQUIRED": "X (error)",
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": "X",
                 "RULE_REFERENCE": "X = True",
