@@ -158,7 +158,10 @@
             "title": "ENTITY TYPE",
             "description": "",
             "type": "string",
-            "enum":["IND", "COM"],
+            "enum": [
+                "IND",
+                "COM"
+            ],
             "examples": [
                 "IND"
             ],
@@ -168,7 +171,9 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "IND",
                 "VALUE_REFERENCE": "IND, COM",
-                "RULE_REFERENCE": ["IND | COM"],
+                "RULE_REFERENCE": [
+                    "IND | COM"
+                ],
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -404,10 +409,7 @@
         "contribution_date": {
             "title": "CONTRIBUTION DATE",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
+            "type": "string",
             "minLength": 10,
             "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
             "examples": [
