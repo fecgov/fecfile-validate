@@ -1,6 +1,6 @@
 {
     "$schema": "https://json-schema.org/draft-07/schema#",
-    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/EAR_REC.json",
+    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/EARMARK_RECEIPT.json",
     "version": "v0.0.0.0",
     "title": "FEC Conduit Earmark (Deposited)",
     "description": "Earmark Receipt (11a)",
@@ -68,15 +68,15 @@
             "title": "TRANSACTION TYPE IDENTIFIER",
             "description": "",
             "type": "string",
-            "const": "EAR_REC",
+            "const": "EARMARK_RECEIPT",
             "examples": [
-                "EAR_REC"
+                "EARMARK_RECEIPT"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "TRANSACTION TYPE IDENTIFIER",
                 "TYPE": "A/N-12",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "EAR_REC",
+                "SAMPLE_DATA": "EARMARK_RECEIPT",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
