@@ -1,6 +1,6 @@
 {
     "$schema": "https://json-schema.org/draft-07/schema#",
-    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/OTH_REC.json",
+    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/OTHER_RECEIPT.json",
     "version": "v0.0.0.0",
     "title": "FEC Other Receipts",
     "description": "SCHEDULE A - ITEMIZED RECEIPTS-Line 17 Other Receipts",
@@ -61,15 +61,15 @@
         "transaction_type_identifier": {
             "title": "TRANSACTION TYPE IDENTIFIER",
             "description": "",
-            "const": "OTH_REC",
+            "const": "OTHER_RECEIPT",
             "examples": [
-                "OTH_REC"
+                "OTHER_RECEIPT"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "TRANSACTION TYPE IDENTIFIER",
                 "TYPE": "A/N-12",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "OTH_REC",
+                "SAMPLE_DATA": "OTHER_RECEIPT",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
