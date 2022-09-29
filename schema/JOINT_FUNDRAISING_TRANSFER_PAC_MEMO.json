@@ -1,6 +1,6 @@
 {
     "$schema": "https://json-schema.org/draft-07/schema#",
-    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/JF_TRAN_PAC_MEMO.json",
+    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/JOINT_FUNDRAISING_TRANSFER_PAC_MEMO.json",
     "version": "v0.0.0.0",
     "title": "FEC PAC JF Memo",
     "description": "PAC JF Memo (12)",
@@ -65,15 +65,15 @@
         "transaction_type_identifier": {
             "title": "TRANSACTION TYPE IDENTIFIER",
             "description": "",
-            "const": "JF_TRAN_PAC_MEMO",
+            "const": "JOINT_FUNDRAISING_TRANSFER_PAC_MEMO",
             "examples": [
-                "JF_TRAN_PAC_MEMO"
+                "JOINT_FUNDRAISING_TRANSFER_PAC_MEMO"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "TRANSACTION TYPE IDENTIFIER",
                 "TYPE": "A/N-17",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "JF_TRAN_PAC_MEMO",
+                "SAMPLE_DATA": "JOINT_FUNDRAISING_TRANSFER_PAC_MEMO",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
@@ -346,7 +346,7 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "JF Memo: XX",
                 "VALUE_REFERENCE": "JF Memo: XX",
-                "RULE_REFERENCE": "JF Memo: XX, where XX is auto-populated with name of committee entered in parent transaction JF_TRAN COL SEQ 8",
+                "RULE_REFERENCE": "JF Memo: XX, where XX is auto-populated with name of committee entered in parent transaction JOINT_FUNDRAISING_TRANSFER COL SEQ 8",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
