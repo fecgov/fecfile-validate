@@ -1,6 +1,6 @@
 {
     "$schema": "https://json-schema.org/draft-07/schema#",
-    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/OFFSET_TO_OPEX.json",
+    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/OFFSET_TO_OPERATING_EXPENDITURES.json",
     "version": "v0.0.0.0",
     "title": "FEC Offsets to Operating Exp",
     "description": "SCHEDULE A - ITEMIZED RECEIPTS-Line 15 Offset",
@@ -61,15 +61,15 @@
         "transaction_type_identifier": {
             "title": "TRANSACTION TYPE IDENTIFIER",
             "description": "",
-            "const": "OFFSET_TO_OPEX",
+            "const": "OFFSET_TO_OPERATING_EXPENDITURES",
             "examples": [
-                "OFFSET_TO_OPEX"
+                "OFFSET_TO_OPERATING_EXPENDITURES"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "TRANSACTION TYPE IDENTIFIER",
                 "TYPE": "A/N-12",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "OFFSET_TO_OPEX",
+                "SAMPLE_DATA": "OFFSET_TO_OPERATING_EXPENDITURES",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
