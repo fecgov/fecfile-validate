@@ -341,14 +341,14 @@
         "contribution_purpose_descrip": {
             "title": "CONTRIBUTION PURPOSE DESCRIPTION",
             "description": "",
-            "const": "Transfer of JF Proceeds",
+            "const": "Transfer of Joint Fundraising Proceeds",
             "fec_spec": {
                 "FIELD_DESCRIPTION": "CONTRIBUTION PURPOSE DESCRIPTION",
                 "TYPE": "A/N-100",
                 "REQUIRED": null,
-                "SAMPLE_DATA": "Transfer of JF Proceeds",
-                "VALUE_REFERENCE": "Transfer of JF Proceeds",
-                "RULE_REFERENCE": "Transfer of JF Proceeds",
+                "SAMPLE_DATA": "Transfer of Joint Fundraising Proceeds",
+                "VALUE_REFERENCE": "Transfer of Joint Fundraising Proceeds",
+                "RULE_REFERENCE": "Transfer of Joint Fundraising Proceeds",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },

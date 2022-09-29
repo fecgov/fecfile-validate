@@ -2,8 +2,8 @@
     "$schema": "https://json-schema.org/draft-07/schema#",
     "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/JOINT_FUNDRAISING_TRANSFER_PAC_MEMO.json",
     "version": "v0.0.0.0",
-    "title": "FEC PAC JF Memo",
-    "description": "PAC JF Memo (12)",
+    "title": "FEC PAC Joint Fundraising Memo",
+    "description": "PAC Joint Fundraising Memo (12)",
     "type": "object",
     "required": [
         "form_type",
@@ -339,14 +339,14 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 100,
-            "pattern": "^JF Memo: [ -~]{0,91}$",
+            "pattern": "^Joint Fundraising Memo: [ -~]{0,91}$",
             "fec_spec": {
                 "FIELD_DESCRIPTION": "CONTRIBUTION PURPOSE DESCRIPTION",
                 "TYPE": "A/N-100",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "JF Memo: XX",
-                "VALUE_REFERENCE": "JF Memo: XX",
-                "RULE_REFERENCE": "JF Memo: XX, where XX is auto-populated with name of committee entered in parent transaction JOINT_FUNDRAISING_TRANSFER COL SEQ 8",
+                "SAMPLE_DATA": "Joint Fundraising Memo: XX",
+                "VALUE_REFERENCE": "Joint Fundraising Memo: XX",
+                "RULE_REFERENCE": "Joint Fundraising Memo: XX, where XX is auto-populated with name of committee entered in parent transaction JOINT_FUNDRAISING_TRANSFER COL SEQ 8",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
