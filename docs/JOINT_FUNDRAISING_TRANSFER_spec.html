@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><title>TRIB_REC</title><link rel="stylesheet" href="spec_table.css"></head><body><table><caption>Specification for TRIB_REC</caption><tr>
+<!DOCTYPE html><html lang="en"><head><title>JOINT_FUNDRAISING_TRANSFER</title><link rel="stylesheet" href="spec_table.css"></head><body><table><caption>Specification for JOINT_FUNDRAISING_TRANSFER</caption><tr>
 <th>FIELD DESCRIPTION</th>
 <th>TYPE</th>
 <th>REQUIRED</th>
@@ -12,11 +12,11 @@
 <td>FORM TYPE</td>
 <td>A/N-8</td>
 <td>X (error)</td>
-<td>SA11AI</td>
-<td>SA[line# ref]</td>
+<td>SA12</td>
+<td>SA12 Only</td>
 <td></td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>must be one of: ['SA11AI', 'SA11AII']</li></td>
+<td><ul><li>REQUIRED</li><li>must equal: SA12</li></td>
 </tr>
 <tr>
 <td>FILER COMMITTEE ID NUMBER</td>
@@ -32,11 +32,11 @@
 <td>TRANSACTION TYPE IDENTIFIER</td>
 <td>A/N-12</td>
 <td>X (error)</td>
-<td>TRIB_REC</td>
+<td>JOINT_FUNDRAISING_TRANSFER</td>
 <td></td>
 <td></td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>must equal: TRIB_REC</li></td>
+<td><ul><li>REQUIRED</li><li>must equal: JOINT_FUNDRAISING_TRANSFER</li></td>
 </tr>
 <tr>
 <td>TRANSACTION ID</td>
@@ -73,17 +73,17 @@ with the F3L</td>
 <td>ENTITY TYPE</td>
 <td>A/N-3</td>
 <td>X (error)</td>
-<td>ORG</td>
-<td>ORG only</td>
+<td>COM</td>
+<td>COM only</td>
+<td>[COM]</td>
 <td></td>
-<td></td>
-<td><ul><li>REQUIRED</li><li>must equal: ORG</li></td>
+<td><ul><li>REQUIRED</li><li>must equal: COM</li></td>
 </tr>
 <tr>
-<td>CONTRIBUTOR ORGANIZATION NAME</td>
+<td>CONTRIBUTOR ORGANIZATION</td>
 <td>A/N-200</td>
 <td>X (error)</td>
-<td>Jo Smith & Co.</td>
+<td>John Smith & Co.</td>
 <td></td>
 <td></td>
 <td></td>
@@ -172,12 +172,32 @@ with the F3L</td>
 <tr>
 <td>CONTRIBUTION PURPOSE DESCRIPTION</td>
 <td>A/N-100</td>
+<td></td>
+<td>Transfer of JF Proceeds</td>
+<td>Transfer of JF Proceeds</td>
+<td>Transfer of JF Proceeds</td>
+<td></td>
+<td><ul><li>must equal: Transfer of JF Proceeds</li></td>
+</tr>
+<tr>
+<td>DONOR COMMITTEE FEC ID</td>
+<td>A/N-9</td>
 <td>X (error)</td>
-<td>Tribal Receipt</td>
 <td></td>
-<td>Tribal Receipt</td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>must equal: Tribal Receipt</li></td>
+<td>Should populate with information from FEC database</td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 9</li><li>regex: ^C[0-9]{0,9}$</li></td>
+</tr>
+<tr>
+<td>DONOR COMMITTEE NAME</td>
+<td>A/N-200</td>
+<td>X (error)</td>
+<td>Action PAC</td>
+<td></td>
+<td>Should populate with information from FEC database</td>
+<td></td>
+<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 200</li><li>regex: ^[ -~]{0,200}$</li></td>
 </tr>
 <tr>
 <td>MEMO CODE</td>
