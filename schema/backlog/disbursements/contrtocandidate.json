@@ -1,0 +1,392 @@
+{
+    "$schema": "https://json-schema.org/draft-07/schema#",
+    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/contrtocandidate.json",
+    "version": "v0.0.0.0",
+    "title": "FEC contr to candidate",
+    "description": "SCHEDULE B - ITEMIZED DISBURSEMENTS {v6.4 revised layout}-Line 23 candidate contribution",
+    "type": "object",
+    "required": [],
+    "fec_recommended": [],
+    "properties": {
+        "L1": {
+            "title": "1",
+            "description": "",
+            "examples": [
+                "X (error)"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 8,
+                "FIELD_DESCRIPTION": 1,
+                "TYPE": "PAYEE ORGANIZATION NAME",
+                "REQUIRED": "A/N-200",
+                "SAMPLE_DATA": "X (error)",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "John Smith & Co.",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "L3": {
+            "title": "3",
+            "description": "",
+            "examples": [
+                "X (error)"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 14,
+                "FIELD_DESCRIPTION": 3,
+                "TYPE": "PAYEE STREET  1",
+                "REQUIRED": "A/N-34",
+                "SAMPLE_DATA": "X (error)",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "Suite 16",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "L4": {
+            "title": "4",
+            "description": "",
+            "fec_spec": {
+                "COL_SEQ": 15,
+                "FIELD_DESCRIPTION": 4,
+                "TYPE": "PAYEE STREET  2",
+                "REQUIRED": "A/N-34",
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "30 Oak Street",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "L5": {
+            "title": "5",
+            "description": "",
+            "examples": [
+                "X (error)"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 16,
+                "FIELD_DESCRIPTION": 5,
+                "TYPE": "PAYEE CITY",
+                "REQUIRED": "A/N-30",
+                "SAMPLE_DATA": "X (error)",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "Springfield",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "L6": {
+            "title": "6",
+            "description": "",
+            "examples": [
+                "X (error)"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 17,
+                "FIELD_DESCRIPTION": 6,
+                "TYPE": "PAYEE STATE",
+                "REQUIRED": "A/N-2",
+                "SAMPLE_DATA": "X (error)",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "MA",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "L7": {
+            "title": "7",
+            "description": "",
+            "examples": [
+                "X (error)"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 18,
+                "FIELD_DESCRIPTION": 7,
+                "TYPE": "PAYEE ZIP",
+                "REQUIRED": "A/N-9",
+                "SAMPLE_DATA": "X (error)",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": 1012,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "L8,9": {
+            "title": "8,9",
+            "description": "",
+            "examples": [
+                "X (warning)"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 19,
+                "FIELD_DESCRIPTION": "8,9",
+                "TYPE": "ELECTION CODE",
+                "REQUIRED": "A/N-5",
+                "SAMPLE_DATA": "X (warning)",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "P2012",
+                "FIELD_FORM_ASSOCIATION": "G,P,O[YYYY]"
+            }
+        },
+        "L10": {
+            "title": "10",
+            "description": "",
+            "examples": [
+                "X (warning)"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 20,
+                "FIELD_DESCRIPTION": 10,
+                "TYPE": "ELECTION OTHER DESCRIPTION",
+                "REQUIRED": "A/N-20",
+                "SAMPLE_DATA": "X (warning)",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "L11": {
+            "title": "11",
+            "description": "",
+            "examples": [
+                "X (error)"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 21,
+                "FIELD_DESCRIPTION": 11,
+                "TYPE": "EXPENDITURE DATE",
+                "REQUIRED": "NUM-8",
+                "SAMPLE_DATA": "X (error)",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": 20120720,
+                "FIELD_FORM_ASSOCIATION": "YYYYMMDD"
+            }
+        },
+        "L12": {
+            "title": "12",
+            "description": "",
+            "examples": [
+                "X (error)"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 22,
+                "FIELD_DESCRIPTION": 12,
+                "TYPE": "EXPENDITURE AMOUNT {F3L Bundled}",
+                "REQUIRED": "AMT-12",
+                "SAMPLE_DATA": "X (error)",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": 1500,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "L23": {
+            "title": "23",
+            "description": "",
+            "fec_spec": {
+                "COL_SEQ": 24,
+                "FIELD_DESCRIPTION": 23,
+                "TYPE": "EXPENDITURE PURPOSE DESCRIP",
+                "REQUIRED": "A/N-100",
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "Repay Loan",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "L2": {
+            "title": "2",
+            "description": "",
+            "examples": [
+                "X (error)"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 26,
+                "FIELD_DESCRIPTION": 2,
+                "TYPE": "BENEFICIARY COMMITTEE FEC ID",
+                "REQUIRED": "A/N-9",
+                "SAMPLE_DATA": "X (error)",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "C00654323",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "L14": {
+            "title": "14",
+            "description": "",
+            "examples": [
+                "X (error)"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 28,
+                "FIELD_DESCRIPTION": 14,
+                "TYPE": "BENEFICIARY CANDIDATE FEC ID",
+                "REQUIRED": "A/N-9",
+                "SAMPLE_DATA": "X (error)",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "H98765431",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "L15": {
+            "title": "15",
+            "description": "",
+            "examples": [
+                "X (error)"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 29,
+                "FIELD_DESCRIPTION": 15,
+                "TYPE": "BENEFICIARY CANDIDATE LAST NAME",
+                "REQUIRED": "A/N-30",
+                "SAMPLE_DATA": "X (error)",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "L16": {
+            "title": "16",
+            "description": "",
+            "examples": [
+                "X (error)"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 30,
+                "FIELD_DESCRIPTION": 16,
+                "TYPE": "BENEFICIARY CANDIDATE FIRST NAME",
+                "REQUIRED": "A/N-20",
+                "SAMPLE_DATA": "X (error)",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "L17": {
+            "title": "17",
+            "description": "",
+            "examples": [
+                "X (warning)"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 31,
+                "FIELD_DESCRIPTION": 17,
+                "TYPE": "BENEFICIARY CANDIDATE MIDDLE NAME",
+                "REQUIRED": "A/N-20",
+                "SAMPLE_DATA": "X (warning)",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "L18": {
+            "title": "18",
+            "description": "",
+            "examples": [
+                "X (warning)"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 32,
+                "FIELD_DESCRIPTION": 18,
+                "TYPE": "BENEFICIARY CANDIDATE PREFIX",
+                "REQUIRED": "A/N-10",
+                "SAMPLE_DATA": "X (warning)",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "L19": {
+            "title": "19",
+            "description": "",
+            "examples": [
+                "X (warning)"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 33,
+                "FIELD_DESCRIPTION": 19,
+                "TYPE": "BENEFICIARY CANDIDATE SUFFIX",
+                "REQUIRED": "A/N-10",
+                "SAMPLE_DATA": "X (warning)",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "L20": {
+            "title": "20",
+            "description": "",
+            "examples": [
+                "X (warning)"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 34,
+                "FIELD_DESCRIPTION": 20,
+                "TYPE": "BENEFICIARY CANDIDATE OFFICE",
+                "REQUIRED": "A/N-1",
+                "SAMPLE_DATA": "X (warning)",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "H",
+                "FIELD_FORM_ASSOCIATION": "H,S,P"
+            }
+        },
+        "L21": {
+            "title": "21",
+            "description": "",
+            "examples": [
+                "X (warning)"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 35,
+                "FIELD_DESCRIPTION": 21,
+                "TYPE": "BENEFICIARY CANDIDATE STATE",
+                "REQUIRED": "A/N-2",
+                "SAMPLE_DATA": "X (warning)",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "FL",
+                "FIELD_FORM_ASSOCIATION": "AK,AL,..."
+            }
+        },
+        "L22": {
+            "title": "22",
+            "description": "",
+            "examples": [
+                "X (warning)"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 36,
+                "FIELD_DESCRIPTION": 22,
+                "TYPE": "BENEFICIARY CANDIDATE DISTRICT",
+                "REQUIRED": "NUM-2",
+                "SAMPLE_DATA": "X (warning)",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": 35,
+                "FIELD_FORM_ASSOCIATION": "01 ... 99"
+            }
+        },
+        "L13": {
+            "title": "13",
+            "description": "",
+            "fec_spec": {
+                "COL_SEQ": 43,
+                "FIELD_DESCRIPTION": 13,
+                "TYPE": "MEMO CODE",
+                "REQUIRED": "A/N-1",
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": "X"
+            }
+        },
+        "L24": {
+            "title": "24",
+            "description": "",
+            "fec_spec": {
+                "COL_SEQ": 44,
+                "FIELD_DESCRIPTION": 24,
+                "TYPE": "MEMO TEXT/DESCRIPTION",
+                "REQUIRED": "A/N-100",
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        }
+    },
+    "additionalProperties": false
+}
