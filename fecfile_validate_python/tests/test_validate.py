@@ -14,7 +14,7 @@ def sample_f3x():
 
 @pytest.fixture
 def sample_indv_rec():
-    with open(os.path.join(os.path.dirname(__file__), "sample_INDIVIDUAL_RECEIPT.json")) as f:
+    with open(os.path.join(os.path.dirname(__file__), "sample_individual_receipt.json")) as f:
         form_data = json.load(f)
     return form_data
 
