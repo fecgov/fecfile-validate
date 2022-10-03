@@ -3,7 +3,7 @@ import subprocess
 
 def test_generates_table():
     proc = subprocess.run(
-        ['python3', 'bin/generate-spec-table.py', 'schema/OTH_REC.json'],
+        ['python3', 'bin/generate-spec-table.py', 'schema/OTHER_RECEIPT.json'],
         capture_output=True)
     output = proc.stdout.decode("utf-8")
     assert proc.stderr.decode("utf-8") == ""
