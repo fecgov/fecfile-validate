@@ -1,6 +1,6 @@
 {
     "$schema": "https://json-schema.org/draft-07/schema#",
-    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/JF_TRANSFER_PAC_MEMO.json",
+    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/PAC_JF_TRANSFER_MEMO.json",
     "version": "v0.0.0.0",
     "title": "FEC PAC Joint Fundraising Memo",
     "description": "PAC Joint Fundraising Memo (12)",
@@ -65,15 +65,15 @@
         "transaction_type_identifier": {
             "title": "TRANSACTION TYPE IDENTIFIER",
             "description": "",
-            "const": "JF_TRANSFER_PAC_MEMO",
+            "const": "PAC_JF_TRANSFER_MEMO",
             "examples": [
-                "JF_TRANSFER_PAC_MEMO"
+                "PAC_JF_TRANSFER_MEMO"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "TRANSACTION TYPE IDENTIFIER",
                 "TYPE": "A/N-17",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "JF_TRANSFER_PAC_MEMO",
+                "SAMPLE_DATA": "PAC_JF_TRANSFER_MEMO",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
