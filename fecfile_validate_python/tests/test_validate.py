@@ -16,7 +16,7 @@ def sample_f3x():
 def sample_indv_rec():
     with open(
         os.path.join(os.path.dirname(__file__),
-        "sample_individual_receipt.json")
+            "sample_individual_receipt.json")
     ) as f:
         form_data = json.load(f)
     return form_data
