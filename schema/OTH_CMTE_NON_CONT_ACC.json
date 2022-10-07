@@ -19,6 +19,7 @@
         "contribution_date",
         "contribution_amount",
         "contribution_aggregate",
+        "aggregation_group",
         "contribution_purpose_descrip"
     ],
     "fec_recommended": [],
@@ -348,6 +349,14 @@
                 "RULE_REFERENCE": "YTD",
                 "FIELD_FORM_ASSOCIATION": null
             }
+        },
+        "aggregation_group": {
+            "title": "AGGREGATION GROUP",
+            "description": "",
+            "const": "Non-Contribution Account",
+            "examples": [
+                "Non-Contribution Account"
+            ]
         },
         "contribution_purpose_descrip": {
             "title": "CONTRIBUTION PURPOSE DESCRIPTION",

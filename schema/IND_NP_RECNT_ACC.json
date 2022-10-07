@@ -20,6 +20,7 @@
         "contribution_date",
         "contribution_amount",
         "contribution_aggregate",
+        "aggregation_group",
         "contribution_purpose_descrip",
         "contributor_employer",
         "contributor_occupation"
@@ -440,6 +441,14 @@
                 "RULE_REFERENCE": "YTD",
                 "FIELD_FORM_ASSOCIATION": null
             }
+        },
+        "aggregation_group": {
+            "title": "AGGREGATION GROUP",
+            "description": "",
+            "const": "National Party Recount Account",
+            "examples": [
+                "National Party Recount Account"
+            ]
         },
         "contribution_purpose_descrip": {
             "title": "CONTRIBUTION PURPOSE DESCRIPTION",

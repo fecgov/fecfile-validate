@@ -19,6 +19,7 @@
         "contribution_date",
         "contribution_amount",
         "contribution_aggregate",
+        "aggregation_group",
         "donor_committee_fec_id",
         "donor_committee_name"
     ],
@@ -349,6 +350,14 @@
                 "RULE_REFERENCE": "YTD",
                 "FIELD_FORM_ASSOCIATION": null
             }
+        },
+        "aggregation_group": {
+            "title": "AGGREGATION GROUP",
+            "description": "",
+            "const": "General",
+            "examples": [
+                "General"
+            ]
         },
         "contribution_purpose_descrip": {
             "title": "CONTRIBUTION PURPOSE DESCRIPTION",

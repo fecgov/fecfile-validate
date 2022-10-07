@@ -19,6 +19,7 @@
         "contribution_date",
         "contribution_amount",
         "contribution_aggregate",
+        "aggregation_group",
         "contribution_purpose_descrip",
         "memo_code"
     ],
@@ -349,6 +350,14 @@
                 "RULE_REFERENCE": "YTD",
                 "FIELD_FORM_ASSOCIATION": null
             }
+        },
+        "aggregation_group": {
+            "title": "AGGREGATION GROUP",
+            "description": "",
+            "const": "National Party Headquarters Account",
+            "examples": [
+                "National Party Headquarters Account"
+            ]
         },
         "contribution_purpose_descrip": {
             "title": "CONTRIBUTION PURPOSE DESCRIPTION",

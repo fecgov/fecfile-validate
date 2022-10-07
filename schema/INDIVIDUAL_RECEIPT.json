@@ -19,7 +19,8 @@
         "contributor_zip",
         "contribution_date",
         "contribution_amount",
-        "contribution_aggregate"
+        "contribution_aggregate",
+        "aggregation_group"
     ],
     "fec_recommended": [],
     "properties": {
@@ -430,6 +431,14 @@
                 "RULE_REFERENCE": "YTD",
                 "FIELD_FORM_ASSOCIATION": null
             }
+        },
+        "aggregation_group": {
+            "title": "AGGREGATION GROUP",
+            "description": "",
+            "const": "General",
+            "examples": [
+                "General"
+            ]
         },
         "contribution_purpose_descrip": {
             "title": "CONTRIBUTION PURPOSE DESCRIPTION",

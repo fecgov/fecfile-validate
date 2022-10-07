@@ -17,7 +17,8 @@
         "contributor_zip",
         "contribution_date",
         "contribution_amount",
-        "contribution_aggregate"
+        "contribution_aggregate",
+        "aggregation_group"
     ],
     "fec_recommended": [],
     "properties": {
@@ -458,6 +459,14 @@
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }
+        },
+        "aggregation_group": {
+            "title": "AGGREGATION GROUP",
+            "description": "",
+            "const": "Line 15",
+            "examples": [
+                "Line 15"
+            ]
         },
         "contribution_purpose_descrip": {
             "title": "CONTRIBUTION PURPOSE DESCRIPTION",
