@@ -42,7 +42,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 8,
-            "pattern": "^[ A-Za-z0-9]{0,8}$",
+            "pattern": "^[ -~](0, 9)$",
             "examples": [
                 "SE"
             ],
@@ -64,7 +64,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 9,
-            "pattern": "^[ A-Za-z0-9]{0,9}$",
+            "pattern": "^[ -~](0, 9)$",
             "examples": [
                 "C00123456"
             ],
@@ -86,7 +86,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 20,
-            "pattern": "^[ A-Za-z0-9]{0,20}$",
+            "pattern": "^[ -~](0, 9)$",
             "examples": [
                 "E123456789-3456"
             ],
@@ -108,7 +108,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 20,
-            "pattern": "^[ A-Za-z0-9]{0,20}$",
+            "pattern": "^[ -~](0, 9)$",
             "examples": [
                 "A123456789-1234"
             ],
@@ -130,7 +130,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 8,
-            "pattern": "^[ A-Za-z0-9]{0,8}$",
+            "pattern": "^[ -~](0, 9)$",
             "examples": [
                 "SA11AI"
             ],
@@ -152,7 +152,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 3,
-            "pattern": "^[ A-Za-z0-9]{0,3}$",
+            "pattern": "^[ -~](0, 9)$",
             "examples": [
                 "IND"
             ],
@@ -174,7 +174,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 200,
-            "pattern": "^[ A-Za-z0-9]{0,200}$",
+            "pattern": "^[ -~](0, 9)$",
             "examples": [
                 "John Smith & Co."
             ],
@@ -196,7 +196,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 30,
-            "pattern": "^[ A-Za-z0-9]{0,30}$",
+            "pattern": "^[ -~](0, 9)$",
             "examples": [
                 "Smith"
             ],
@@ -218,7 +218,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 20,
-            "pattern": "^[ A-Za-z0-9]{0,20}$",
+            "pattern": "^[ -~](0, 9)$",
             "examples": [
                 "John"
             ],
@@ -240,7 +240,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 20,
-            "pattern": "^[ A-Za-z0-9]{0,20}$",
+            "pattern": "^[ -~](0, 9)$",
             "examples": [
                 "W"
             ],
@@ -262,7 +262,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 10,
-            "pattern": "^[ A-Za-z0-9]{0,10}$",
+            "pattern": "^[ -~](0, 9)$",
             "examples": [
                 "Dr"
             ],
@@ -284,7 +284,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 10,
-            "pattern": "^[ A-Za-z0-9]{0,10}$",
+            "pattern": "^[ -~](0, 9)$",
             "examples": [
                 "Jr"
             ],
@@ -306,7 +306,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 34,
-            "pattern": "^[ A-Za-z0-9]{0,34}$",
+            "pattern": "^[ -~](0, 9)$",
             "examples": [
                 "Suite 16"
             ],
@@ -328,7 +328,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 34,
-            "pattern": "^[ A-Za-z0-9]{0,34}$",
+            "pattern": "^[ -~](0, 9)$",
             "examples": [
                 "30 Oak Street"
             ],
@@ -350,7 +350,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 30,
-            "pattern": "^[ A-Za-z0-9]{0,30}$",
+            "pattern": "^[ -~](0, 9)$",
             "examples": [
                 "Springfield"
             ],
@@ -372,7 +372,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 2,
-            "pattern": "^[ A-Za-z0-9]{0,2}$",
+            "pattern": "^[ -~](0, 9)$",
             "examples": [
                 "MA"
             ],
@@ -394,7 +394,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 9,
-            "pattern": "^[ A-Za-z0-9]{0,9}$",
+            "pattern": "^[ -~](0, 9)$",
             "examples": [
                 1012
             ],
@@ -416,7 +416,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 5,
-            "pattern": "^[ A-Za-z0-9]{0,5}$",
+            "pattern": "^[ -~](0, 9)$",
             "examples": [
                 "P2012"
             ],
@@ -438,7 +438,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 20,
-            "pattern": "^[ A-Za-z0-9]{0,20}$",
+            "pattern": "^[ -~](0, 9)$",
             "fec_spec": {
                 "COL_SEQ": 20,
                 "FIELD_DESCRIPTION": "ELECTION OTHER DESCRIPTION",
@@ -543,7 +543,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 100,
-            "pattern": "^[ A-Za-z0-9]{0,100}$",
+            "pattern": "^[ -~](0, 9)$",
             "examples": [
                 "Repay Loan"
             ],
@@ -565,7 +565,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 3,
-            "pattern": "^[ A-Za-z0-9]{0,3}$",
+            "pattern": "^[ -~](0, 9)$",
             "examples": [
                 1
             ],
@@ -587,7 +587,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 9,
-            "pattern": "^[ A-Za-z0-9]{0,9}$",
+            "pattern": "^[ -~](0, 9)$",
             "fec_spec": {
                 "COL_SEQ": 27,
                 "FIELD_DESCRIPTION": "PAYEE CMTTE FEC ID NUMBER",
@@ -606,7 +606,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 1,
-            "pattern": "^[ A-Za-z0-9]{0,1}$",
+            "pattern": "^[ -~](0, 9)$",
             "examples": [
                 "S"
             ],
@@ -628,7 +628,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 9,
-            "pattern": "^[ A-Za-z0-9]{0,9}$",
+            "pattern": "^[ -~](0, 9)$",
             "examples": [
                 "H04MA3210"
             ],
@@ -650,7 +650,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 30,
-            "pattern": "^[ A-Za-z0-9]{0,30}$",
+            "pattern": "^[ -~](0, 9)$",
             "examples": [
                 "Smith"
             ],
@@ -672,7 +672,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 20,
-            "pattern": "^[ A-Za-z0-9]{0,20}$",
+            "pattern": "^[ -~](0, 9)$",
             "examples": [
                 "Patrick"
             ],
@@ -694,7 +694,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 20,
-            "pattern": "^[ A-Za-z0-9]{0,20}$",
+            "pattern": "^[ -~](0, 9)$",
             "examples": [
                 "Thomas"
             ],
@@ -716,7 +716,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 10,
-            "pattern": "^[ A-Za-z0-9]{0,10}$",
+            "pattern": "^[ -~](0, 9)$",
             "examples": [
                 "Mr."
             ],
@@ -738,7 +738,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 10,
-            "pattern": "^[ A-Za-z0-9]{0,10}$",
+            "pattern": "^[ -~](0, 9)$",
             "examples": [
                 "Jr."
             ],
@@ -760,7 +760,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 1,
-            "pattern": "^[ A-Za-z0-9]{0,1}$",
+            "pattern": "^[ -~](0, 9)$",
             "examples": [
                 "H"
             ],
@@ -782,7 +782,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 2,
-            "pattern": "^[ A-Za-z0-9]{0,2}$",
+            "pattern": "^[ -~](0, 9)$",
             "examples": [
                 35
             ],
@@ -804,7 +804,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 2,
-            "pattern": "^[ A-Za-z0-9]{0,2}$",
+            "pattern": "^[ -~](0, 9)$",
             "examples": [
                 "FL"
             ],
@@ -826,7 +826,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 30,
-            "pattern": "^[ A-Za-z0-9]{0,30}$",
+            "pattern": "^[ -~](0, 9)$",
             "examples": [
                 "Smith"
             ],
@@ -848,7 +848,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 20,
-            "pattern": "^[ A-Za-z0-9]{0,20}$",
+            "pattern": "^[ -~](0, 9)$",
             "examples": [
                 "Patrick"
             ],
@@ -870,7 +870,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 20,
-            "pattern": "^[ A-Za-z0-9]{0,20}$",
+            "pattern": "^[ -~](0, 9)$",
             "examples": [
                 "Thomas"
             ],
@@ -892,7 +892,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 10,
-            "pattern": "^[ A-Za-z0-9]{0,10}$",
+            "pattern": "^[ -~](0, 9)$",
             "examples": [
                 "Mr."
             ],
@@ -914,7 +914,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 10,
-            "pattern": "^[ A-Za-z0-9]{0,10}$",
+            "pattern": "^[ -~](0, 9)$",
             "examples": [
                 "Jr."
             ],
@@ -958,7 +958,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 1,
-            "pattern": "^[ A-Za-z0-9]{0,1}$",
+            "pattern": "^[ -~](0, 9)$",
             "fec_spec": {
                 "COL_SEQ": 44,
                 "FIELD_DESCRIPTION": "MEMO CODE",
@@ -977,7 +977,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 100,
-            "pattern": "^[ A-Za-z0-9]{0,100}$",
+            "pattern": "^[ -~](0, 9)$",
             "fec_spec": {
                 "COL_SEQ": 45,
                 "FIELD_DESCRIPTION": "MEMO TEXT/DESCRIPTION",

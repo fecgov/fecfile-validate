@@ -28,7 +28,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 8,
-            "pattern": "^[ A-Za-z0-9]{0,8}$",
+            "pattern": "^[ -~](0, 9)$",
             "examples": [
                 "SC/10"
             ],
@@ -50,7 +50,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 9,
-            "pattern": "^[ A-Za-z0-9]{0,9}$",
+            "pattern": "^[ -~](0, 9)$",
             "examples": [
                 "C00123456"
             ],
@@ -72,7 +72,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 20,
-            "pattern": "^[ A-Za-z0-9]{0,20}$",
+            "pattern": "^[ -~](0, 9)$",
             "examples": [
                 "C123456789-3456"
             ],
@@ -94,7 +94,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 8,
-            "pattern": "^[ A-Za-z0-9]{0,8}$",
+            "pattern": "^[ -~](0, 9)$",
             "examples": [
                 "13A"
             ],
@@ -116,7 +116,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 3,
-            "pattern": "^[ A-Za-z0-9]{0,3}$",
+            "pattern": "^[ -~](0, 9)$",
             "examples": [
                 "ORG"
             ],
@@ -223,7 +223,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 15,
-            "pattern": "^[ A-Za-z0-9]{0,15}$",
+            "pattern": "^[ -~](0, 9)$",
             "examples": [
                 "Whenever"
             ],
@@ -245,7 +245,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 15,
-            "pattern": "^[ A-Za-z0-9]{0,15}$",
+            "pattern": "^[ -~](0, 9)$",
             "examples": [
                 0.0565
             ],
@@ -267,7 +267,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 1,
-            "pattern": "^[ A-Za-z0-9]{0,1}$",
+            "pattern": "^[ -~](0, 9)$",
             "examples": [
                 "Y"
             ],
@@ -289,7 +289,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 9,
-            "pattern": "^[ A-Za-z0-9]{0,9}$",
+            "pattern": "^[ -~](0, 9)$",
             "examples": [
                 "C00654323"
             ],
@@ -311,7 +311,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 9,
-            "pattern": "^[ A-Za-z0-9]{0,9}$",
+            "pattern": "^[ -~](0, 9)$",
             "examples": [
                 "H98765431"
             ],
@@ -333,7 +333,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 30,
-            "pattern": "^[ A-Za-z0-9]{0,30}$",
+            "pattern": "^[ -~](0, 9)$",
             "fec_spec": {
                 "COL_SEQ": 29,
                 "FIELD_DESCRIPTION": "LENDER CANDIDATE LAST NAME",
@@ -352,7 +352,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 20,
-            "pattern": "^[ A-Za-z0-9]{0,20}$",
+            "pattern": "^[ -~](0, 9)$",
             "fec_spec": {
                 "COL_SEQ": 30,
                 "FIELD_DESCRIPTION": "LENDER CANDIDATE FIRST NAME",
@@ -371,7 +371,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 20,
-            "pattern": "^[ A-Za-z0-9]{0,20}$",
+            "pattern": "^[ -~](0, 9)$",
             "fec_spec": {
                 "COL_SEQ": 31,
                 "FIELD_DESCRIPTION": "LENDER CANDIDATE MIDDLE NM",
@@ -390,7 +390,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 10,
-            "pattern": "^[ A-Za-z0-9]{0,10}$",
+            "pattern": "^[ -~](0, 9)$",
             "fec_spec": {
                 "COL_SEQ": 32,
                 "FIELD_DESCRIPTION": "LENDER CANDIDATE PREFIX",
@@ -409,7 +409,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 10,
-            "pattern": "^[ A-Za-z0-9]{0,10}$",
+            "pattern": "^[ -~](0, 9)$",
             "fec_spec": {
                 "COL_SEQ": 33,
                 "FIELD_DESCRIPTION": "LENDER CANDIDATE SUFFIX",
@@ -428,7 +428,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 1,
-            "pattern": "^[ A-Za-z0-9]{0,1}$",
+            "pattern": "^[ -~](0, 9)$",
             "examples": [
                 "H"
             ],
@@ -450,7 +450,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 2,
-            "pattern": "^[ A-Za-z0-9]{0,2}$",
+            "pattern": "^[ -~](0, 9)$",
             "examples": [
                 "FL"
             ],
@@ -494,7 +494,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 1,
-            "pattern": "^[ A-Za-z0-9]{0,1}$",
+            "pattern": "^[ -~](0, 9)$",
             "fec_spec": {
                 "COL_SEQ": 37,
                 "FIELD_DESCRIPTION": "MEMO CODE",
@@ -513,7 +513,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 100,
-            "pattern": "^[ A-Za-z0-9]{0,100}$",
+            "pattern": "^[ -~](0, 9)$",
             "fec_spec": {
                 "COL_SEQ": 38,
                 "FIELD_DESCRIPTION": "MEMO TEXT/DESCRIPTION",

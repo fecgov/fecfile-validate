@@ -30,7 +30,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 8,
-            "pattern": "^[ A-Za-z0-9]{0,8}$",
+            "pattern": "^[ -~](0, 9)$",
             "examples": [
                 "SD10"
             ],
@@ -52,7 +52,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 9,
-            "pattern": "^[ A-Za-z0-9]{0,9}$",
+            "pattern": "^[ -~](0, 9)$",
             "examples": [
                 "C00123456"
             ],
@@ -74,7 +74,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 20,
-            "pattern": "^[ A-Za-z0-9]{0,20}$",
+            "pattern": "^[ -~](0, 9)$",
             "examples": [
                 "D123456789-3456"
             ],
@@ -96,7 +96,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 3,
-            "pattern": "^[ A-Za-z0-9]{0,3}$",
+            "pattern": "^[ -~](0, 9)$",
             "examples": [
                 "IND"
             ],
@@ -118,7 +118,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 200,
-            "pattern": "^[ A-Za-z0-9]{0,200}$",
+            "pattern": "^[ -~](0, 9)$",
             "examples": [
                 "The Bank of Banks"
             ],
@@ -140,7 +140,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 30,
-            "pattern": "^[ A-Za-z0-9]{0,30}$",
+            "pattern": "^[ -~](0, 9)$",
             "examples": [
                 "Smith"
             ],
@@ -162,7 +162,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 20,
-            "pattern": "^[ A-Za-z0-9]{0,20}$",
+            "pattern": "^[ -~](0, 9)$",
             "examples": [
                 "John"
             ],
@@ -184,7 +184,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 20,
-            "pattern": "^[ A-Za-z0-9]{0,20}$",
+            "pattern": "^[ -~](0, 9)$",
             "examples": [
                 "W"
             ],
@@ -206,7 +206,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 10,
-            "pattern": "^[ A-Za-z0-9]{0,10}$",
+            "pattern": "^[ -~](0, 9)$",
             "examples": [
                 "Dr"
             ],
@@ -228,7 +228,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 10,
-            "pattern": "^[ A-Za-z0-9]{0,10}$",
+            "pattern": "^[ -~](0, 9)$",
             "examples": [
                 "Jr"
             ],
@@ -250,7 +250,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 34,
-            "pattern": "^[ A-Za-z0-9]{0,34}$",
+            "pattern": "^[ -~](0, 9)$",
             "examples": [
                 "The Bank Tower"
             ],
@@ -272,7 +272,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 34,
-            "pattern": "^[ A-Za-z0-9]{0,34}$",
+            "pattern": "^[ -~](0, 9)$",
             "examples": [
                 "100 Broadway"
             ],
@@ -294,7 +294,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 30,
-            "pattern": "^[ A-Za-z0-9]{0,30}$",
+            "pattern": "^[ -~](0, 9)$",
             "examples": [
                 "New York"
             ],
@@ -316,7 +316,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 2,
-            "pattern": "^[ A-Za-z0-9]{0,2}$",
+            "pattern": "^[ -~](0, 9)$",
             "examples": [
                 "NY"
             ],
@@ -338,7 +338,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 9,
-            "pattern": "^[ A-Za-z0-9]{0,9}$",
+            "pattern": "^[ -~](0, 9)$",
             "examples": [
                 10011
             ],
@@ -360,7 +360,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 100,
-            "pattern": "^[ A-Za-z0-9]{0,100}$",
+            "pattern": "^[ -~](0, 9)$",
             "fec_spec": {
                 "COL_SEQ": 17,
                 "FIELD_DESCRIPTION": "PURPOSE OF DEBT OR OBLIGATION",
