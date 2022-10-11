@@ -353,15 +353,15 @@
         "aggregation_group": {
             "title": "AGGREGATION GROUP",
             "description": "",
-            "const": "Non-Contribution Account",
+            "const": "NON-CONTRIBUTION_ACCOUNT",
             "examples": [
-                "Non-Contribution Account"
+                "NON-CONTRIBUTION_ACCOUNT"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "AGGREGATION GROUP",
                 "TYPE": "A/N-100",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "Non-Contribution Account",
+                "SAMPLE_DATA": "NON-CONTRIBUTION_ACCOUNT",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null

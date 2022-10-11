@@ -435,15 +435,15 @@
         "aggregation_group": {
             "title": "AGGREGATION GROUP",
             "description": "",
-            "const": "General",
+            "const": "GENERAL",
             "examples": [
-                "General"
+                "GENERAL"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "AGGREGATION GROUP",
                 "TYPE": "A/N-100",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "General",
+                "SAMPLE_DATA": "GENERAL",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null

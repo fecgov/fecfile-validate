@@ -354,15 +354,15 @@
         "aggregation_group": {
             "title": "AGGREGATION GROUP",
             "description": "",
-            "const": "National Party Convention Account",
+            "const": "NATIONAL_PARTY_CONVENTION_ACCOUNT",
             "examples": [
-                "National Party Convention Account"
+                "NATIONAL_PARTY_CONVENTION_ACCOUNT"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "AGGREGATION GROUP",
                 "TYPE": "A/N-100",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "National Party Convention Account",
+                "SAMPLE_DATA": "NATIONAL_PARTY_CONVENTION_ACCOUNT",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
