@@ -1,9 +1,9 @@
 {
     "$schema": "https://json-schema.org/draft-07/schema#",
-    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/EAR_REC.json",
+    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/OTHER_RECEIPT.json",
     "version": "v0.0.0.0",
-    "title": "FEC Conduit Earmark (Deposited)",
-    "description": "Earmark Receipt (11a)",
+    "title": "FEC Other Receipts",
+    "description": "SCHEDULE A - ITEMIZED RECEIPTS-Line 17 Other Receipts",
     "type": "object",
     "required": [
         "form_type",
@@ -11,33 +11,29 @@
         "transaction_type_identifier",
         "transaction_id",
         "entity_type",
-        "contributor_last_name",
-        "contributor_first_name",
         "contributor_street_1",
         "contributor_city",
         "contributor_state",
         "contributor_zip",
         "contribution_date",
         "contribution_amount",
-        "contribution_aggregate",
-        "contribution_purpose_descrip"
+        "contribution_aggregate"
     ],
     "fec_recommended": [],
     "properties": {
         "form_type": {
             "title": "FORM TYPE",
             "description": "",
-            "type": "string",
-            "const": "SA11AI",
+            "const": "SA17",
             "examples": [
-                "SA11AI"
+                "SA17"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "FORM TYPE",
                 "TYPE": "A/N-8",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "SA11AI",
-                "VALUE_REFERENCE": "SA11AI",
+                "SAMPLE_DATA": "SA17",
+                "VALUE_REFERENCE": "SA17 Only",
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }
@@ -65,16 +61,15 @@
         "transaction_type_identifier": {
             "title": "TRANSACTION TYPE IDENTIFIER",
             "description": "",
-            "type": "string",
-            "const": "EAR_REC",
+            "const": "OTHER_RECEIPT",
             "examples": [
-                "EAR_REC"
+                "OTHER_RECEIPT"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "TRANSACTION TYPE IDENTIFIER",
                 "TYPE": "A/N-12",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "EAR_REC",
+                "SAMPLE_DATA": "OTHER_RECEIPT",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
@@ -119,7 +114,7 @@
                 "REQUIRED": null,
                 "SAMPLE_DATA": "A123456789-1234",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Reference to the Tran ID of a Related Record",
+                "RULE_REFERENCE": "Ref to the Schedule that has the Related Record.  SA3L must be used \nwith the F3L",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -142,15 +137,18 @@
                 "REQUIRED": null,
                 "SAMPLE_DATA": "SA11AI",
                 "VALUE_REFERENCE": "SA[line# ref]",
-                "RULE_REFERENCE": "Ref to the Schedule that has the Related Record.  SA3L must be used \nwith the F3L",
+                "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
         "entity_type": {
             "title": "ENTITY TYPE",
             "description": "",
-            "type": "string",
-            "const": "IND",
+            "enum": [
+                "IND",
+                "ORG",
+                "COM"
+            ],
             "examples": [
                 "IND"
             ],
@@ -159,15 +157,41 @@
                 "TYPE": "A/N-3",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "IND",
-                "VALUE_REFERENCE": "IND",
-                "RULE_REFERENCE": "IND",
+                "VALUE_REFERENCE": "IND, ORG, COM",
+                "RULE_REFERENCE": "[IND|ORG|COM]",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "contributor_organization_name": {
+            "title": "CONTRIBUTOR ORGANIZATION NAME",
+            "description": "",
+            "type": [
+                "string",
+                "null"
+            ],
+            "minLength": 0,
+            "maxLength": 200,
+            "pattern": "^[ -~]{0,200}$",
+            "examples": [
+                "John Smith & Co."
+            ],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "CONTRIBUTOR ORGANIZATION NAME",
+                "TYPE": "A/N-200",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "John Smith & Co.",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "Required if [ORG]",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
         "contributor_last_name": {
             "title": "CONTRIBUTOR LAST NAME",
             "description": "",
-            "type": "string",
+            "type": [
+                "string",
+                "null"
+            ],
             "minLength": 0,
             "maxLength": 30,
             "pattern": "^[ -~]{0,30}$",
@@ -180,14 +204,17 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "Smith",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
+                "RULE_REFERENCE": "Required if [IND]",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
         "contributor_first_name": {
             "title": "CONTRIBUTOR FIRST NAME",
             "description": "",
-            "type": "string",
+            "type": [
+                "string",
+                "null"
+            ],
             "minLength": 0,
             "maxLength": 20,
             "pattern": "^[ -~]{0,20}$",
@@ -200,7 +227,7 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "John",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
+                "RULE_REFERENCE": "Required if [IND]",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -223,7 +250,7 @@
                 "REQUIRED": null,
                 "SAMPLE_DATA": "W",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
+                "RULE_REFERENCE": "Optional if [IND]",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -246,7 +273,7 @@
                 "REQUIRED": null,
                 "SAMPLE_DATA": "Dr",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
+                "RULE_REFERENCE": "Optional if [IND]",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -269,7 +296,7 @@
                 "REQUIRED": null,
                 "SAMPLE_DATA": "Jr",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
+                "RULE_REFERENCE": "Optional if [IND]",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -387,7 +414,7 @@
                 "TYPE": "NUM-8",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": 20120615,
-                "VALUE_REFERENCE": "YYYYMMDD",
+                "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }
@@ -426,24 +453,27 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": 1000,
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "YTD",
+                "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
         "contribution_purpose_descrip": {
             "title": "CONTRIBUTION PURPOSE DESCRIPTION",
             "description": "",
-            "type": "string",
+            "type": [
+                "string",
+                "null"
+            ],
             "minLength": 0,
             "maxLength": 100,
             "pattern": "^[ -~]{0,100}$",
             "fec_spec": {
                 "FIELD_DESCRIPTION": "CONTRIBUTION PURPOSE DESCRIPTION",
                 "TYPE": "A/N-100",
-                "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "Earmarked through XX (Committee)",
-                "VALUE_REFERENCE": "Earmarked through XX (Committee)",
-                "RULE_REFERENCE": "Earmarked through XX (Committee), where XX is the conduit from EAR_MEMO associated",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "Must remain editable to end user, but no auto-population",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -466,7 +496,7 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "XYZ Company",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Req if Donor aggregate >$200",
+                "RULE_REFERENCE": "If ENTITY = IND; Req if Donor aggregate >$200",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -489,7 +519,7 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "QC Inspector",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Req if Donor aggregate >$200",
+                "RULE_REFERENCE": "If ENTITY = IND; Req if Donor aggregate >$200",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -535,12 +565,16 @@
         {
             "if": {
                 "properties": {
+                    "entity_type": {
+                        "const": "IND"
+                    },
                     "contribution_aggregate": {
                         "type": "number",
                         "minimum": 200.01
                     }
                 },
                 "required": [
+                    "entity_type",
                     "contribution_aggregate"
                 ]
             },
@@ -554,6 +588,57 @@
                         "type": "string"
                     },
                     "contributor_occupation": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "entity_type": {
+                        "enum": [
+                            "ORG",
+                            "COM"
+                        ]
+                    }
+                },
+                "required": [
+                    "entity_type"
+                ]
+            },
+            "then": {
+                "required": [
+                    "contributor_organization_name"
+                ],
+                "properties": {
+                    "contributor_organization_name": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "entity_type": {
+                        "const": "IND"
+                    }
+                },
+                "required": [
+                    "entity_type"
+                ]
+            },
+            "then": {
+                "required": [
+                    "contributor_first_name",
+                    "contributor_last_name"
+                ],
+                "properties": {
+                    "contributor_first_name": {
+                        "type": "string"
+                    },
+                    "contributor_last_name": {
                         "type": "string"
                     }
                 }

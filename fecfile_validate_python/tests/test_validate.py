@@ -14,7 +14,9 @@ def sample_f3x():
 
 @pytest.fixture
 def sample_indv_rec():
-    with open(os.path.join(os.path.dirname(__file__), "sample_INDV_REC.json")) as f:
+    with open(
+        os.path.join(os.path.dirname(__file__), "sample_individual_receipt.json")
+    ) as f:
         form_data = json.load(f)
     return form_data
 
@@ -123,24 +125,24 @@ def test_partial_missing_required_field(sample_f3x):
 
 def test_contribution_amount_accepts_decimals(sample_indv_rec):
     sample_indv_rec["contribution_amount"] = 99.99
-    validation_result = validate.validate("INDV_REC", sample_indv_rec)
+    validation_result = validate.validate("INDIVIDUAL_RECEIPT", sample_indv_rec)
     assert validation_result.errors == []
 
 
 def test_contribution_amount_accepts_negative_values(sample_indv_rec):
     sample_indv_rec["contribution_amount"] = -100
-    validation_result = validate.validate("INDV_REC", sample_indv_rec)
+    validation_result = validate.validate("INDIVIDUAL_RECEIPT", sample_indv_rec)
     assert validation_result.errors == []
 
 
 def test_contribution_amount_max_length(sample_indv_rec):
     sample_indv_rec["contribution_amount"] = 999999999.99
-    validation_result = validate.validate("INDV_REC", sample_indv_rec)
+    validation_result = validate.validate("INDIVIDUAL_RECEIPT", sample_indv_rec)
     print(validation_result)
     assert validation_result.errors == []
 
 
 def test_contribution_amount_fails_with_over_max_length(sample_indv_rec):
     sample_indv_rec["contribution_amount"] = 9999999999.99
-    validation_result = validate.validate("INDV_REC", sample_indv_rec)
+    validation_result = validate.validate("INDIVIDUAL_RECEIPT", sample_indv_rec)
     assert len(validation_result.errors) > 0

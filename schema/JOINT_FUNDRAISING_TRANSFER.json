@@ -1,9 +1,9 @@
 {
     "$schema": "https://json-schema.org/draft-07/schema#",
-    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/TRIB_REC.json",
+    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/JOINT_FUNDRAISING_TRANSFER.json",
     "version": "v0.0.0.0",
-    "title": "FEC Tribal Receipt",
-    "description": "Tribal Receipt (11a)",
+    "title": "FEC Joint Fundraising Transfer",
+    "description": "Transfer (12)",
     "type": "object",
     "required": [
         "form_type",
@@ -12,6 +12,7 @@
         "transaction_id",
         "entity_type",
         "contributor_organization_name",
+        "contributor_fec_id",
         "contributor_street_1",
         "contributor_city",
         "contributor_state",
@@ -19,27 +20,23 @@
         "contribution_date",
         "contribution_amount",
         "contribution_aggregate",
-        "contribution_purpose_descrip"
+        "donor_committee_fec_id"
     ],
     "fec_recommended": [],
     "properties": {
         "form_type": {
             "title": "FORM TYPE",
             "description": "",
-            "type": "string",
-            "enum": [
-                "SA11AI",
-                "SA11AII"
-            ],
+            "const": "SA12",
             "examples": [
-                "SA11AI"
+                "SA12"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "FORM TYPE",
                 "TYPE": "A/N-8",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "SA11AI",
-                "VALUE_REFERENCE": "SA[line# ref]",
+                "SAMPLE_DATA": "SA12",
+                "VALUE_REFERENCE": "SA12 Only",
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }
@@ -67,15 +64,15 @@
         "transaction_type_identifier": {
             "title": "TRANSACTION TYPE IDENTIFIER",
             "description": "",
-            "const": "TRIB_REC",
+            "const": "JOINT_FUNDRAISING_TRANSFER",
             "examples": [
-                "TRIB_REC"
+                "JOINT_FUNDRAISING_TRANSFER"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "TRANSACTION TYPE IDENTIFIER",
                 "TYPE": "A/N-12",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "TRIB_REC",
+                "SAMPLE_DATA": "JOINT_FUNDRAISING_TRANSFER",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
@@ -150,35 +147,35 @@
         "entity_type": {
             "title": "ENTITY TYPE",
             "description": "",
-            "const": "ORG",
+            "const": "COM",
             "examples": [
-                "ORG"
+                "COM"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "ENTITY TYPE",
                 "TYPE": "A/N-3",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "ORG",
-                "VALUE_REFERENCE": "ORG only",
-                "RULE_REFERENCE": null,
+                "SAMPLE_DATA": "COM",
+                "VALUE_REFERENCE": "COM only",
+                "RULE_REFERENCE": "[COM]",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
         "contributor_organization_name": {
-            "title": "CONTRIBUTOR ORGANIZATION NAME",
+            "title": "CONTRIBUTOR ORGANIZATION",
             "description": "",
             "type": "string",
             "minLength": 0,
             "maxLength": 200,
             "pattern": "^[ -~]{0,200}$",
             "examples": [
-                "Jo Smith & Co."
+                "John Smith & Co."
             ],
             "fec_spec": {
-                "FIELD_DESCRIPTION": "CONTRIBUTOR ORGANIZATION NAME",
+                "FIELD_DESCRIPTION": "CONTRIBUTOR ORGANIZATION",
                 "TYPE": "A/N-200",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "Jo Smith & Co.",
+                "SAMPLE_DATA": "John Smith & Co.",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
@@ -344,17 +341,54 @@
         "contribution_purpose_descrip": {
             "title": "CONTRIBUTION PURPOSE DESCRIPTION",
             "description": "",
-            "const": "Tribal Receipt",
-            "examples": [
-                "Tribal Receipt"
-            ],
+            "const": "Transfer of Joint Fundraising Proceeds",
             "fec_spec": {
                 "FIELD_DESCRIPTION": "CONTRIBUTION PURPOSE DESCRIPTION",
                 "TYPE": "A/N-100",
+                "REQUIRED": null,
+                "SAMPLE_DATA": "Transfer of Joint Fundraising Proceeds",
+                "VALUE_REFERENCE": "Transfer of Joint Fundraising Proceeds",
+                "RULE_REFERENCE": "Transfer of Joint Fundraising Proceeds",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "donor_committee_fec_id": {
+            "title": "DONOR COMMITTEE FEC ID",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 9,
+            "pattern": "^C[0-9]{0,9}$",
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "DONOR COMMITTEE FEC ID",
+                "TYPE": "A/N-9",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "Tribal Receipt",
+                "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Tribal Receipt",
+                "RULE_REFERENCE": "Should populate with information from FEC database",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "donor_committee_name": {
+            "title": "DONOR COMMITTEE NAME",
+            "description": "",
+            "type": [
+                "string",
+                "null"
+            ],
+            "minLength": 0,
+            "maxLength": 200,
+            "pattern": "^[ -~]{0,200}$",
+            "examples": [
+                "Action PAC"
+            ],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "DONOR COMMITTEE NAME",
+                "TYPE": "A/N-200",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "Action PAC",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "Should populate with information from FEC database",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
