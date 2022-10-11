@@ -24,7 +24,7 @@ const perfectForm: any = {
   contribution_date: "2022-09-15",
   contribution_amount: 500,
   contribution_aggregate: 0,
-  aggregation_group: "Line 15",
+  aggregation_group: "LINE_15",
   contribution_purpose_descrip: "a description",
   memo_code: false,
   memo_text_description: "memo text description",
