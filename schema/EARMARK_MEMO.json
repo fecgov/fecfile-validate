@@ -2,8 +2,8 @@
     "$schema": "https://json-schema.org/draft-07/schema#",
     "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/EARMARK_MEMO.json",
     "version": "v0.0.0.0",
-    "title": "FEC Other Receipts",
-    "description": "SCHEDULE A - ITEMIZED RECEIPTS-Line 17 Other Receipts",
+    "title": "FEC Earmark Receipt (11a - Memo)",
+    "description": "Earmark Receipt-Memo (11a)",
     "type": "object",
     "required": [
         "form_type",
