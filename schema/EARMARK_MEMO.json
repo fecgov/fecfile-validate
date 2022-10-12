@@ -1,6 +1,6 @@
 {
     "$schema": "https://json-schema.org/draft-07/schema#",
-    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/EAR_MEMO.json",
+    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/EARMARK_MEMO.json",
     "version": "v0.0.0.0",
     "title": "FEC Other Receipts",
     "description": "SCHEDULE A - ITEMIZED RECEIPTS-Line 17 Other Receipts",
@@ -65,15 +65,15 @@
         "transaction_type_identifier": {
             "title": "TRANSACTION TYPE IDENTIFIER",
             "description": "",
-            "const": "EAR_MEMO",
+            "const": "EARMARK_MEMO",
             "examples": [
-                "EAR_MEMO"
+                "EARMARK_MEMO"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "TRANSACTION TYPE IDENTIFIER",
                 "TYPE": "A/N-12",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "EAR_MEMO",
+                "SAMPLE_DATA": "EARMARK_MEMO",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
