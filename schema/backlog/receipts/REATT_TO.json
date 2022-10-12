@@ -50,9 +50,9 @@
             "title": "FILER COMMITTEE ID NUMBER",
             "description": "",
             "type": "string",
-            "minLength": 0,
+            "minLength": 9,
             "maxLength": 9,
-            "pattern": "^[ -~]{0,9}$",
+            "pattern": "^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$",
             "examples": [
                 "C00123456"
             ],
@@ -62,6 +62,27 @@
                 "REQUIRED": "X (error)",
                 "AUTO_POPULATE": null,
                 "SAMPLE_DATA": "C00123456",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "this is the ID of the Committee Account the report/transaction is associated with",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "transaction_type_identifier": {
+            "title": "TRANSACTION TYPE IDENTIFIER",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 12,
+            "pattern": "^[ -~]{0,12}$",
+            "examples": [
+                "REATT_TO"
+            ],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "TRANSACTION TYPE IDENTIFIER",
+                "TYPE": "A/N-12",
+                "REQUIRED": "X (error)",
+                "AUTO_POPULATE": null,
+                "SAMPLE_DATA": "REATT_TO",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
@@ -91,7 +112,10 @@
         "back_reference_tran_id_number": {
             "title": "BACK REFERENCE TRAN ID NUMBER",
             "description": "",
-            "type": "string",
+            "type": [
+                "string",
+                "null"
+            ],
             "minLength": 0,
             "maxLength": 20,
             "pattern": "^[ -~]{0,20}$",
@@ -112,7 +136,10 @@
         "back_reference_sched_name": {
             "title": "BACK REFERENCE SCHED NAME",
             "description": "",
-            "type": "string",
+            "type": [
+                "string",
+                "null"
+            ],
             "minLength": 0,
             "maxLength": 8,
             "pattern": "^[ -~]{0,8}$",
@@ -196,7 +223,10 @@
         "contributor_middle_name": {
             "title": "CONTRIBUTOR MIDDLE NAME",
             "description": "",
-            "type": "string",
+            "type": [
+                "string",
+                "null"
+            ],
             "minLength": 0,
             "maxLength": 20,
             "pattern": "^[ -~]{0,20}$",
@@ -217,7 +247,10 @@
         "contributor_prefix": {
             "title": "CONTRIBUTOR PREFIX",
             "description": "",
-            "type": "string",
+            "type": [
+                "string",
+                "null"
+            ],
             "minLength": 0,
             "maxLength": 10,
             "pattern": "^[ -~]{0,10}$",
@@ -238,7 +271,10 @@
         "contributor_suffix": {
             "title": "CONTRIBUTOR SUFFIX",
             "description": "",
-            "type": "string",
+            "type": [
+                "string",
+                "null"
+            ],
             "minLength": 0,
             "maxLength": 10,
             "pattern": "^[ -~]{0,10}$",
@@ -280,7 +316,10 @@
         "contributor_street_2": {
             "title": "CONTRIBUTOR STREET  2",
             "description": "",
-            "type": "string",
+            "type": [
+                "string",
+                "null"
+            ],
             "minLength": 0,
             "maxLength": 34,
             "pattern": "^[ -~]{0,34}$",
@@ -386,7 +425,7 @@
             "description": "",
             "type": "number",
             "minimum": 0,
-            "maximum": 999999999999,
+            "maximum": 999999999.99,
             "examples": [
                 250
             ],
@@ -404,9 +443,12 @@
         "contribution_aggregate": {
             "title": "CONTRIBUTION AGGREGATE",
             "description": "",
-            "type": "number",
+            "type": [
+                "number",
+                "null"
+            ],
             "minimum": 0,
-            "maximum": 999999999999,
+            "maximum": 999999999.99,
             "examples": [
                 1000
             ],
@@ -502,7 +544,10 @@
         "memo_text_description": {
             "title": "MEMO TEXT/DESCRIPTION",
             "description": "",
-            "type": "string",
+            "type": [
+                "string",
+                "null"
+            ],
             "minLength": 0,
             "maxLength": 100,
             "pattern": "^[ -~]{0,100}$",
@@ -516,28 +561,6 @@
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }
-        },
-        "transaction_type_identifier": {
-            "title": "TRANSACTION TYPE IDENTIFIER",
-            "description": "",
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 12,
-            "pattern": "^[ -~]{0,12}$",
-            "examples": [
-                "REATT_TO"
-            ],
-            "fec_spec": {
-                "FIELD_DESCRIPTION": "TRANSACTION TYPE IDENTIFIER",
-                "TYPE": "A/N-12",
-                "REQUIRED": "X (error)",
-                "AUTO_POPULATE": null,
-                "SAMPLE_DATA": "REATT_TO",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": null
-            }
         }
-    },
-    "additionalProperties": false
+    }
 }
