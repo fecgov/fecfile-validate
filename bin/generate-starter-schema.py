@@ -21,13 +21,15 @@ import argparse
 import os
 import re
 
+JSON_EXT = ".json"
+
 parser = argparse.ArgumentParser(
     description="Convert the FEC validation Excel"
     " spreadsheet into JSON schema documents."
 )
 parser.add_argument(
     "excel_filename",
-    help="an excel filename that will be" " parsed to generate JSON schema docs",
+    help="an excel filename that will be parsed to generate JSON schema docs",
 )
 parser.add_argument(
     "--sheets-to-generate",
@@ -37,7 +39,7 @@ parser.add_argument(
 parser.add_argument("--version")
 args = parser.parse_args()
 EXCEL_FILENAME = args.excel_filename or "Form_3X_Receipts_Vendor_10.20.2020.xlsx"
-SCHEMA_ID_PREFIX = "https://github.com/fecgov/fecfile-validate/blob/" "main/schema"
+SCHEMA_ID_PREFIX = "https://github.com/fecgov/fecfile-validate/blob/main/schema"
 VERSION = args.version or "v0.0.0.0"
 SHEETS_TO_SKIP = [
     "All receipts",
@@ -164,7 +166,7 @@ for ws in wb.worksheets:
     print(ws.title)
 
     title = ws.title.replace(" ", "")
-    output_file = title + ".json"
+    output_file = title + JSON_EXT
 
     print(f"Parsing {output_file}...")
 
@@ -196,10 +198,10 @@ for ws in wb.worksheets:
             ) + 1
             if trans_type_hits[trans_type_id] > 1 or trans_type_id == "":
                 output_file = (
-                    trans_type_id + "-" + str(trans_type_hits[trans_type_id]) + ".json"
+                    trans_type_id + "-" + str(trans_type_hits[trans_type_id]) + JSON_EXT
                 )
             else:
-                output_file = trans_type_id + ".json"
+                output_file = trans_type_id + JSON_EXT
         # Catch and mark token (i.e. spec property) clashes for manual fixing.
         if token in schema_properties:
             token = token + "-DUPLICATE"
