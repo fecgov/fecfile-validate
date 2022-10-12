@@ -20,6 +20,7 @@
         "contribution_date",
         "contribution_amount",
         "contribution_aggregate",
+        "aggregation_group",
         "contribution_purpose_descrip",
         "contributor_employer",
         "contributor_occupation",
@@ -436,6 +437,23 @@
                 "SAMPLE_DATA": 1000,
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": "YTD",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "aggregation_group": {
+            "title": "AGGREGATION GROUP",
+            "description": "",
+            "const": "NATIONAL_PARTY_HEADQUARTERS_ACCOUNT",
+            "examples": [
+                "NATIONAL_PARTY_HEADQUARTERS_ACCOUNT"
+            ],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "AGGREGATION GROUP",
+                "TYPE": "A/N-100",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "NATIONAL_PARTY_HEADQUARTERS_ACCOUNT",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
