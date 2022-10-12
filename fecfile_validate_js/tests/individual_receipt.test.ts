@@ -24,6 +24,7 @@ const perfectForm: any = {
   contribution_date: "2022-09-15",
   contribution_amount: 500,
   contribution_aggregate: 0,
+  aggregation_group: "GENERAL",
   contribution_purpose_descrip: "a description",
   contributor_employer: "employer",
   contributor_occupation: "occupation",

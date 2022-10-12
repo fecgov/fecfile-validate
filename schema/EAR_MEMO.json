@@ -20,6 +20,7 @@
         "contributor_zip",
         "contribution_date",
         "contribution_amount",
+        "aggregation_group",
         "contribution_purpose_descrip",
         "donor_committee_fec_id",
         "donor_committee_name",
@@ -461,6 +462,23 @@
                 "SAMPLE_DATA": 1000,
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": "YTD",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "aggregation_group": {
+            "title": "AGGREGATION GROUP",
+            "description": "",
+            "const": "GENERAL",
+            "examples": [
+                "GENERAL"
+            ],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "AGGREGATION GROUP",
+                "TYPE": "A/N-100",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "GENERAL",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }
         },

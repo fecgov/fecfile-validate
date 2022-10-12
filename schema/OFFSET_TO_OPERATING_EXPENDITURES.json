@@ -17,7 +17,8 @@
         "contributor_zip",
         "contribution_date",
         "contribution_amount",
-        "contribution_aggregate"
+        "contribution_aggregate",
+        "aggregation_group"
     ],
     "fec_recommended": [],
     "properties": {
@@ -454,6 +455,23 @@
                 "TYPE": "AMT-12",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": 1000,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "aggregation_group": {
+            "title": "AGGREGATION GROUP",
+            "description": "",
+            "const": "LINE_15",
+            "examples": [
+                "LINE_15"
+            ],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "AGGREGATION GROUP",
+                "TYPE": "A/N-100",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "LINE_15",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
