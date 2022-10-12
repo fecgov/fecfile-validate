@@ -1,9 +1,9 @@
 {
     "$schema": "https://json-schema.org/draft-07/schema#",
-    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/INDV_REC.json",
+    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/EARMARK_RECEIPT.json",
     "version": "v0.0.0.0",
-    "title": "FEC Individual Receipt",
-    "description": "Individual Receipt (11a)",
+    "title": "FEC Conduit Earmark (Deposited)",
+    "description": "Earmark Receipt (11a)",
     "type": "object",
     "required": [
         "form_type",
@@ -19,7 +19,11 @@
         "contributor_zip",
         "contribution_date",
         "contribution_amount",
-        "contribution_aggregate"
+        "contribution_aggregate",
+        "aggregation_group",
+        "contribution_purpose_descrip",
+        "contributor_employer",
+        "contributor_occupation"
     ],
     "fec_recommended": [],
     "properties": {
@@ -27,20 +31,16 @@
             "title": "FORM TYPE",
             "description": "",
             "type": "string",
-            "enum": [
-                "SA11AI",
-                "SA11AII"
-            ],
+            "const": "SA11AI",
             "examples": [
-                "SA11AI",
-                "SA11AII"
+                "SA11AI"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "FORM TYPE",
                 "TYPE": "A/N-8",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "SA11AI",
-                "VALUE_REFERENCE": "SA[line# ref]",
+                "VALUE_REFERENCE": "SA11AI",
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }
@@ -68,15 +68,16 @@
         "transaction_type_identifier": {
             "title": "TRANSACTION TYPE IDENTIFIER",
             "description": "",
-            "const": "INDV_REC",
+            "type": "string",
+            "const": "EARMARK_RECEIPT",
             "examples": [
-                "INDV_REC"
+                "EARMARK_RECEIPT"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "TRANSACTION TYPE IDENTIFIER",
                 "TYPE": "A/N-12",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "INDV_REC",
+                "SAMPLE_DATA": "EARMARK_RECEIPT",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
@@ -151,6 +152,7 @@
         "entity_type": {
             "title": "ENTITY TYPE",
             "description": "",
+            "type": "string",
             "const": "IND",
             "examples": [
                 "IND"
@@ -160,8 +162,8 @@
                 "TYPE": "A/N-3",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "IND",
-                "VALUE_REFERENCE": "IND only",
-                "RULE_REFERENCE": null,
+                "VALUE_REFERENCE": "IND",
+                "RULE_REFERENCE": "IND",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -349,7 +351,7 @@
                 "TYPE": "A/N-2",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "WA",
-                "VALUE_REFERENCE": null,
+                "VALUE_REFERENCE": "AK,AL,...,ZZ",
                 "RULE_REFERENCE": "Edit: ST",
                 "FIELD_FORM_ASSOCIATION": null
             }
@@ -377,7 +379,10 @@
         "contribution_date": {
             "title": "CONTRIBUTION DATE",
             "description": "",
-            "type": "string",
+            "type": [
+                "string",
+                "null"
+            ],
             "minLength": 10,
             "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
             "examples": [
@@ -388,7 +393,7 @@
                 "TYPE": "NUM-8",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": 20120615,
-                "VALUE_REFERENCE": null,
+                "VALUE_REFERENCE": "YYYYMMDD",
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }
@@ -397,7 +402,7 @@
             "title": "CONTRIBUTION AMOUNT",
             "description": "",
             "type": "number",
-            "minimum": -99999999.99,
+            "minimum": 0,
             "maximum": 999999999.99,
             "examples": [
                 250
@@ -416,7 +421,7 @@
             "title": "CONTRIBUTION AGGREGATE",
             "description": "",
             "type": "number",
-            "minimum": -99999999.99,
+            "minimum": 0,
             "maximum": 999999999.99,
             "examples": [
                 1000
@@ -431,33 +436,44 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
+        "aggregation_group": {
+            "title": "AGGREGATION GROUP",
+            "description": "",
+            "const": "GENERAL",
+            "examples": [
+                "GENERAL"
+            ],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "AGGREGATION GROUP",
+                "TYPE": "A/N-100",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "GENERAL",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
         "contribution_purpose_descrip": {
             "title": "CONTRIBUTION PURPOSE DESCRIPTION",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
+            "type": "string",
             "minLength": 0,
             "maxLength": 100,
             "pattern": "^[ -~]{0,100}$",
             "fec_spec": {
                 "FIELD_DESCRIPTION": "CONTRIBUTION PURPOSE DESCRIPTION",
                 "TYPE": "A/N-100",
-                "REQUIRED": null,
-                "SAMPLE_DATA": null,
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "Earmarked through XX (Committee)",
+                "VALUE_REFERENCE": "Earmarked through XX (Committee)",
+                "RULE_REFERENCE": "Earmarked through XX (Committee), where XX is the conduit from EAR_MEMO associated",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
         "contributor_employer": {
             "title": "CONTRIBUTOR EMPLOYER",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
+            "type": "string",
             "minLength": 0,
             "maxLength": 38,
             "pattern": "^[ -~]{0,38}$",
@@ -477,10 +493,7 @@
         "contributor_occupation": {
             "title": "CONTRIBUTOR OCCUPATION",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
+            "type": "string",
             "minLength": 0,
             "maxLength": 38,
             "pattern": "^[ -~]{0,38}$",
@@ -534,34 +547,5 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         }
-    },
-    "allOf": [
-        {
-            "if": {
-                "properties": {
-                    "contribution_aggregate": {
-                        "type": "number",
-                        "minimum": 200.01
-                    }
-                },
-                "required": [
-                    "contribution_aggregate"
-                ]
-            },
-            "then": {
-                "required": [
-                    "contributor_employer",
-                    "contributor_occupation"
-                ],
-                "properties": {
-                    "contributor_employer": {
-                        "type": "string"
-                    },
-                    "contributor_occupation": {
-                        "type": "string"
-                    }
-                }
-            }
-        }
-    ]
+    }
 }

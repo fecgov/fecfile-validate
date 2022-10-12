@@ -1,9 +1,9 @@
 {
     "$schema": "https://json-schema.org/draft-07/schema#",
-    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/OFFSET_TO_OPEX.json",
+    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/OTHER_RECEIPT.json",
     "version": "v0.0.0.0",
-    "title": "FEC Offsets to Operating Exp",
-    "description": "SCHEDULE A - ITEMIZED RECEIPTS-Line 15 Offset",
+    "title": "FEC Other Receipts",
+    "description": "SCHEDULE A - ITEMIZED RECEIPTS-Line 17 Other Receipts",
     "type": "object",
     "required": [
         "form_type",
@@ -17,23 +17,24 @@
         "contributor_zip",
         "contribution_date",
         "contribution_amount",
-        "contribution_aggregate"
+        "contribution_aggregate",
+        "aggregation_group"
     ],
     "fec_recommended": [],
     "properties": {
         "form_type": {
             "title": "FORM TYPE",
             "description": "",
-            "const": "SA15",
+            "const": "SA17",
             "examples": [
-                "SA15"
+                "SA17"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "FORM TYPE",
                 "TYPE": "A/N-8",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "SA15",
-                "VALUE_REFERENCE": "SA15 Only",
+                "SAMPLE_DATA": "SA17",
+                "VALUE_REFERENCE": "SA17 Only",
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }
@@ -61,15 +62,15 @@
         "transaction_type_identifier": {
             "title": "TRANSACTION TYPE IDENTIFIER",
             "description": "",
-            "const": "OFFSET_TO_OPEX",
+            "const": "OTHER_RECEIPT",
             "examples": [
-                "OFFSET_TO_OPEX"
+                "OTHER_RECEIPT"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "TRANSACTION TYPE IDENTIFIER",
                 "TYPE": "A/N-12",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "OFFSET_TO_OPEX",
+                "SAMPLE_DATA": "OTHER_RECEIPT",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
@@ -114,7 +115,7 @@
                 "REQUIRED": null,
                 "SAMPLE_DATA": "A123456789-1234",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Reference to the Tran ID of a Related Record",
+                "RULE_REFERENCE": "Ref to the Schedule that has the Related Record.  SA3L must be used \nwith the F3L",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -137,7 +138,7 @@
                 "REQUIRED": null,
                 "SAMPLE_DATA": "SA11AI",
                 "VALUE_REFERENCE": "SA[line# ref]",
-                "RULE_REFERENCE": "Ref to the Schedule that has the Related Record.  SA3L must be used \nwith the F3L",
+                "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -150,9 +151,7 @@
                 "COM"
             ],
             "examples": [
-                "IND",
-                "ORG",
-                "COM"
+                "IND"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "ENTITY TYPE",
@@ -183,7 +182,7 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "John Smith & Co.",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Required if [ORG|COM]",
+                "RULE_REFERENCE": "Required if [ORG]",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -416,7 +415,7 @@
                 "TYPE": "NUM-8",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": 20120615,
-                "VALUE_REFERENCE": "YYYYMMDD",
+                "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }
@@ -459,6 +458,23 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
+        "aggregation_group": {
+            "title": "AGGREGATION GROUP",
+            "description": "",
+            "const": "OTHER_RECEIPTS",
+            "examples": [
+                "OTHER_RECEIPTS"
+            ],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "AGGREGATION GROUP",
+                "TYPE": "A/N-100",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "OTHER_RECEIPTS",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
         "contribution_purpose_descrip": {
             "title": "CONTRIBUTION PURPOSE DESCRIPTION",
             "description": "",
@@ -476,6 +492,52 @@
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": "Must remain editable to end user, but no auto-population",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "contributor_employer": {
+            "title": "CONTRIBUTOR EMPLOYER",
+            "description": "",
+            "type": [
+                "string",
+                "null"
+            ],
+            "minLength": 0,
+            "maxLength": 38,
+            "pattern": "^[ -~]{0,38}$",
+            "examples": [
+                "XYZ Company"
+            ],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "CONTRIBUTOR EMPLOYER",
+                "TYPE": "A/N-38",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "XYZ Company",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "If ENTITY = IND; Req if Donor aggregate >$200",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "contributor_occupation": {
+            "title": "CONTRIBUTOR OCCUPATION",
+            "description": "",
+            "type": [
+                "string",
+                "null"
+            ],
+            "minLength": 0,
+            "maxLength": 38,
+            "pattern": "^[ -~]{0,38}$",
+            "examples": [
+                "QC Inspector"
+            ],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "CONTRIBUTOR OCCUPATION",
+                "TYPE": "A/N-38",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "QC Inspector",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "If ENTITY = IND; Req if Donor aggregate >$200",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -518,6 +580,37 @@
         }
     },
     "allOf": [
+        {
+            "if": {
+                "properties": {
+                    "entity_type": {
+                        "const": "IND"
+                    },
+                    "contribution_aggregate": {
+                        "type": "number",
+                        "minimum": 200.01
+                    }
+                },
+                "required": [
+                    "entity_type",
+                    "contribution_aggregate"
+                ]
+            },
+            "then": {
+                "required": [
+                    "contributor_employer",
+                    "contributor_occupation"
+                ],
+                "properties": {
+                    "contributor_employer": {
+                        "type": "string"
+                    },
+                    "contributor_occupation": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
         {
             "if": {
                 "properties": {

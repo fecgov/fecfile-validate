@@ -1,0 +1,19 @@
+{
+  "form_type": "SA11AI",
+  "filer_committee_id_number": "C00000012",
+  "transaction_type_identifier": "INDIVIDUAL_RECEIPT",
+  "transaction_id": "2",
+  "entity_type": "IND",
+  "contributor_last_name": "Test",
+  "contributor_first_name": "Testerson",
+  "contributor_street_1": "123 Test Ln",
+  "contributor_city": "Testville",
+  "contributor_state": "AL",
+  "contributor_zip": "12345",
+  "contributor_employer": "",
+  "contributor_occupation": "",
+  "contribution_date": "2022-12-22",
+  "contribution_amount": 100,
+  "contribution_aggregate": 550,
+  "aggregation_group": "GENERAL"
+}
