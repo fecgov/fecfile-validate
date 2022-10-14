@@ -1,6 +1,6 @@
 {
     "$schema": "https://json-schema.org/draft-07/schema#",
-    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/EAR_MEMO.json",
+    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/EARMARK_MEMO.json",
     "version": "v0.0.0.0",
     "title": "FEC Earmark Receipt (11a - Memo)",
     "description": "Earmark Receipt-Memo (11a)",
@@ -10,31 +10,25 @@
         "filer_committee_id_number",
         "transaction_type_identifier",
         "transaction_id",
+        "back_reference_tran_id_number",
+        "back_reference_sched_name",
         "entity_type",
-        "contributor_organization_name",
-        "contributor_last_name",
-        "contributor_first_name",
         "contributor_street_1",
         "contributor_city",
         "contributor_state",
         "contributor_zip",
         "contribution_date",
         "contribution_amount",
+        "contribution_aggregate",
         "aggregation_group",
         "contribution_purpose_descrip",
-        "donor_committee_fec_id",
-        "donor_committee_name",
-        "contributor_employer",
-        "contributor_occupation",
-        "transaction_type_identifier-DUPLICATE",
-        "memo_code-DUPLICATE"
+        "memo_code"
     ],
     "fec_recommended": [],
     "properties": {
         "form_type": {
             "title": "FORM TYPE",
             "description": "",
-            "type": "string",
             "const": "SA11AI",
             "examples": [
                 "SA11AI"
@@ -44,8 +38,8 @@
                 "TYPE": "A/N-8",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "SA11AI",
-                "VALUE_REFERENCE": "SA11AI",
-                "RULE_REFERENCE": "SA11AI",
+                "VALUE_REFERENCE": "SA11AI Only",
+                "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -65,25 +59,22 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "C00123456",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "this is the ID of the Committee Account the report/transaction is associated with",
+                "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
         "transaction_type_identifier": {
             "title": "TRANSACTION TYPE IDENTIFIER",
             "description": "",
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 15,
-            "pattern": "^[ -~]{0,15}$",
+            "const": "EARMARK_MEMO",
             "examples": [
-                "EAR_MEM_23"
+                "EARMARK_MEMO"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "TRANSACTION TYPE IDENTIFIER",
-                "TYPE": "A/N-15",
+                "TYPE": "A/N-12",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "EAR_MEMO",
+                "SAMPLE_DATA": "EARMARK_MEMO",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
@@ -112,10 +103,7 @@
         "back_reference_tran_id_number": {
             "title": "BACK REFERENCE TRAN ID NUMBER",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
+            "type": "string",
             "minLength": 0,
             "maxLength": 20,
             "pattern": "^[ -~]{0,20}$",
@@ -135,10 +123,7 @@
         "back_reference_sched_name": {
             "title": "BACK REFERENCE SCHED NAME",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
+            "type": "string",
             "minLength": 0,
             "maxLength": 8,
             "pattern": "^[ -~]{0,8}$",
@@ -151,15 +136,17 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "SA11AI",
                 "VALUE_REFERENCE": "SA[line# ref]",
-                "RULE_REFERENCE": "Ref to the Schedule that has the Related Record.  SA3L must be used \nwith the F3L",
+                "RULE_REFERENCE": "Ref to the Schedule that has the Related Record. SA3L must be used with the F3L",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
         "entity_type": {
             "title": "ENTITY TYPE",
             "description": "",
-            "type": "string",
-            "enum":["IND", "COM"],
+            "enum": [
+                "IND",
+                "COM"
+            ],
             "examples": [
                 "IND"
             ],
@@ -169,14 +156,17 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "IND",
                 "VALUE_REFERENCE": "IND, COM",
-                "RULE_REFERENCE": ["IND | COM"],
+                "RULE_REFERENCE": "[IND|COM]",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
         "contributor_organization_name": {
-            "title": "CONTRIBUTOR ORGANIZATION",
+            "title": "CONTRIBUTOR ORGANIZATION NAME",
             "description": "",
-            "type": "string",
+            "type": [
+                "string",
+                "null"
+            ],
             "minLength": 0,
             "maxLength": 200,
             "pattern": "^[ -~]{0,200}$",
@@ -184,19 +174,22 @@
                 "John Smith & Co."
             ],
             "fec_spec": {
-                "FIELD_DESCRIPTION": "CONTRIBUTOR ORGANIZATION",
+                "FIELD_DESCRIPTION": "CONTRIBUTOR ORGANIZATION NAME",
                 "TYPE": "A/N-200",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "John Smith & Co.",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": "Required if NOT [IND]",
-                "FIELD_FORM_ASSOCIATION": 8
+                "FIELD_FORM_ASSOCIATION": null
             }
         },
         "contributor_last_name": {
             "title": "CONTRIBUTOR LAST NAME",
             "description": "",
-            "type": "string",
+            "type": [
+                "string",
+                "null"
+            ],
             "minLength": 0,
             "maxLength": 30,
             "pattern": "^[ -~]{0,30}$",
@@ -216,7 +209,10 @@
         "contributor_first_name": {
             "title": "CONTRIBUTOR FIRST NAME",
             "description": "",
-            "type": "string",
+            "type": [
+                "string",
+                "null"
+            ],
             "minLength": 0,
             "maxLength": 20,
             "pattern": "^[ -~]{0,20}$",
@@ -318,7 +314,7 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "123 Main Street",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Optional if [IND]",
+                "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -405,10 +401,7 @@
         "contribution_date": {
             "title": "CONTRIBUTION DATE",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
+            "type": "string",
             "minLength": 10,
             "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
             "examples": [
@@ -428,7 +421,7 @@
             "title": "CONTRIBUTION AMOUNT",
             "description": "",
             "type": "number",
-            "minimum": 0,
+            "minimum": -99999999.99,
             "maximum": 999999999.99,
             "examples": [
                 250
@@ -439,18 +432,15 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": 250,
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Auto populate the same amount as the Earmark Receipt",
+                "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
         "contribution_aggregate": {
             "title": "CONTRIBUTION AGGREGATE",
             "description": "",
-            "type": [
-                "number",
-                "null"
-            ],
-            "minimum": 0,
+            "type": "number",
+            "minimum": -99999999.99,
             "maximum": 999999999.99,
             "examples": [
                 1000
@@ -502,10 +492,13 @@
         "donor_committee_fec_id": {
             "title": "DONOR COMMITTEE FEC ID",
             "description": "",
-            "type": "string",
+            "type": [
+                "string",
+                "null"
+            ],
             "minLength": 0,
             "maxLength": 9,
-            "pattern": "^[ -~]{0,9}$",
+            "pattern": "^C[0-9]{0,9}$",
             "fec_spec": {
                 "FIELD_DESCRIPTION": "DONOR COMMITTEE FEC ID",
                 "TYPE": "A/N-9",
@@ -519,7 +512,10 @@
         "donor_committee_name": {
             "title": "DONOR COMMITTEE NAME",
             "description": "",
-            "type": "string",
+            "type": [
+                "string",
+                "null"
+            ],
             "minLength": 0,
             "maxLength": 200,
             "pattern": "^[ -~]{0,200}$",
@@ -533,13 +529,16 @@
                 "SAMPLE_DATA": "Action PAC",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": "Required if NOT [IND]",
-                "FIELD_FORM_ASSOCIATION": 28
+                "FIELD_FORM_ASSOCIATION": null
             }
         },
         "contributor_employer": {
             "title": "CONTRIBUTOR EMPLOYER",
             "description": "",
-            "type": "string",
+            "type": [
+                "string",
+                "null"
+            ],
             "minLength": 0,
             "maxLength": 38,
             "pattern": "^[ -~]{0,38}$",
@@ -559,7 +558,10 @@
         "contributor_occupation": {
             "title": "CONTRIBUTOR OCCUPATION",
             "description": "",
-            "type": "string",
+            "type": [
+                "string",
+                "null"
+            ],
             "minLength": 0,
             "maxLength": 38,
             "pattern": "^[ -~]{0,38}$",
@@ -579,10 +581,8 @@
         "memo_code": {
             "title": "MEMO CODE",
             "description": "",
-            "type": [
-                "boolean",
-                "null"
-            ],
+            "type": "boolean",
+            "const": true,
             "fec_spec": {
                 "FIELD_DESCRIPTION": "MEMO CODE",
                 "TYPE": "A/N-1",
@@ -612,131 +612,72 @@
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }
-        },
-        "transaction_type_identifier-DUPLICATE": {
-            "title": "TRANSACTION TYPE IDENTIFIER",
-            "description": "",
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 12,
-            "pattern": "^[ -~]{0,12}$",
-            "examples": [
-                "EAR_MEM"
-            ],
-            "fec_spec": {
-                "FIELD_DESCRIPTION": "TRANSACTION TYPE IDENTIFIER",
-                "TYPE": "A/N-12",
-                "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "EAR_MEM",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": null
+        }
+    },
+    "allOf": [
+        {
+            "if": {
+                "properties": {
+                    "entity_type": {
+                        "const": "COM"
+                    }
+                },
+                "required": [
+                    "entity_type"
+                ]
+            },
+            "then": {
+                "required": [
+                    "contributor_organization_name",
+                    "donor_committee_fec_id",
+                    "donor_committee_name"
+                ],
+                "properties": {
+                    "contributor_organization_name": {
+                        "type": "string"
+                    },
+                    "donor_committee_fec_id": {
+                        "type": "string"
+                    },
+                    "donor_committee_name": {
+                        "type": "string"
+                    }
+                }
             }
         },
-        "beneficiary_candidate_office": {
-            "title": "BENEFICIARY CANDIDATE OFFICE",
-            "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
-            "minLength": 0,
-            "maxLength": 1,
-            "pattern": "^[ -~]{0,1}$",
-            "examples": [
-                "H"
-            ],
-            "fec_spec": {
-                "FIELD_DESCRIPTION": "BENEFICIARY CANDIDATE OFFICE",
-                "TYPE": "A/N-1",
-                "REQUIRED": null,
-                "SAMPLE_DATA": "H",
-                "VALUE_REFERENCE": "H,S,P",
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "beneficiary_candidate_state": {
-            "title": "BENEFICIARY CANDIDATE STATE",
-            "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
-            "minLength": 0,
-            "maxLength": 2,
-            "pattern": "^[ -~]{0,2}$",
-            "examples": [
-                "FL"
-            ],
-            "fec_spec": {
-                "FIELD_DESCRIPTION": "BENEFICIARY CANDIDATE STATE",
-                "TYPE": "A/N-2",
-                "REQUIRED": null,
-                "SAMPLE_DATA": "FL",
-                "VALUE_REFERENCE": "AK,AL,...",
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "beneficiary_candidate_district": {
-            "title": "BENEFICIARY CANDIDATE DISTRICT",
-            "description": "",
-            "type": [
-                "integer",
-                "null"
-            ],
-            "minimum": 0,
-            "maximum": 99,
-            "examples": [
-                35
-            ],
-            "fec_spec": {
-                "FIELD_DESCRIPTION": "BENEFICIARY CANDIDATE DISTRICT",
-                "TYPE": "NUM-2",
-                "REQUIRED": null,
-                "SAMPLE_DATA": 35,
-                "VALUE_REFERENCE": "01 ... 99",
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "memo_code-DUPLICATE": {
-            "title": "MEMO CODE",
-            "description": "",
-            "type": [
-                "boolean",
-                "null"
-            ],
-            "fec_spec": {
-                "FIELD_DESCRIPTION": "MEMO CODE",
-                "TYPE": "A/N-1",
-                "REQUIRED": "X (error)",
-                "SAMPLE_DATA": null,
-                "VALUE_REFERENCE": "X",
-                "RULE_REFERENCE": "X = True",
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "memo_text_description-DUPLICATE": {
-            "title": "MEMO TEXT/DESCRIPTION",
-            "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
-            "minLength": 0,
-            "maxLength": 100,
-            "pattern": "^[ -~]{0,100}$",
-            "fec_spec": {
-                "FIELD_DESCRIPTION": "MEMO TEXT/DESCRIPTION",
-                "TYPE": "A/N-100",
-                "REQUIRED": null,
-                "SAMPLE_DATA": null,
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": null
+        {
+            "if": {
+                "properties": {
+                    "entity_type": {
+                        "const": "IND"
+                    }
+                },
+                "required": [
+                    "entity_type"
+                ]
+            },
+            "then": {
+                "required": [
+                    "contributor_first_name",
+                    "contributor_last_name",
+                    "contributor_employer",
+                    "contributor_occupation"
+                ],
+                "properties": {
+                    "contributor_first_name": {
+                        "type": "string"
+                    },
+                    "contributor_last_name": {
+                        "type": "string"
+                    },
+                    "contributor_employer": {
+                        "type": "string"
+                    },
+                    "contributor_occupation": {
+                        "type": "string"
+                    }
+                }
             }
         }
-    }
+    ]
 }
