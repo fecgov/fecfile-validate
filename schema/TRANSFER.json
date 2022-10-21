@@ -199,7 +199,10 @@
         "contributor_street_2": {
             "title": "CONTRIBUTOR STREET  2",
             "description": "",
-            "type": "string",
+            "type": [
+                "string",
+                "null"
+            ],
             "minLength": 0,
             "maxLength": 34,
             "pattern": "^[ -~]{0,34}$",
@@ -350,7 +353,10 @@
         "contribution_purpose_descrip": {
             "title": "CONTRIBUTION PURPOSE DESCRIPTION",
             "description": "",
-            "type": "string",
+            "type": [
+                "string",
+                "null"
+            ],
             "minLength": 0,
             "maxLength": 100,
             "pattern": "^[ -~]{0,100}$",
@@ -421,7 +427,10 @@
         "memo_text_description": {
             "title": "MEMO TEXT/DESCRIPTION",
             "description": "",
-            "type": "string",
+            "type": [
+                "string",
+                "null"
+            ],
             "minLength": 0,
             "maxLength": 100,
             "pattern": "^[ -~]{0,100}$",
