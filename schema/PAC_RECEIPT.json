@@ -29,9 +29,9 @@
         "form_type": {
             "title": "FORM TYPE",
             "description": "",
-            "const": "SA11B",
+            "const": "SA11C",
             "examples": [
-                "SA11B"
+                "SA11C"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "FORM TYPE",
@@ -66,15 +66,15 @@
         "transaction_type_identifier": {
             "title": "TRANSACTION TYPE IDENTIFIER",
             "description": "",
-            "const": "PARTY_RECEIPT",
+            "const": "PAC_RECEIPT",
             "examples": [
-                "PARTY_RECEIPT"
+                "PAC_RECEIPT"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "TRANSACTION TYPE IDENTIFIER",
                 "TYPE": "A/N-12",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "PARTY_RECEIPT",
+                "SAMPLE_DATA": "PAC_RECEIPT",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
