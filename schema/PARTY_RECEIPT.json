@@ -3,7 +3,7 @@
     "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/PARTY_RECEIPT.json",
     "version": "v0.0.0.0",
     "title": "PARTY RECEIPT",
-    "description": "Transfer (12)",
+    "description": "Party Receipt (11b)",
     "type": "object",
     "required": [
         "form_type",
@@ -21,7 +21,8 @@
         "contribution_amount",
         "contribution_aggregate",
         "aggregation_group",
-        "donor_committee_fec_id"
+        "donor_committee_fec_id",
+        "donor_committee_name"
     ],
     "fec_recommended": [],
     "properties": {
@@ -396,10 +397,7 @@
         "donor_committee_name": {
             "title": "DONOR COMMITTEE NAME",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
+            "type": "string",
             "minLength": 0,
             "maxLength": 200,
             "pattern": "^[ -~]{0,200}$",
