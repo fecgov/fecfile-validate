@@ -373,7 +373,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 9,
-            "pattern": "^[C|P][0-9]{8}$|^[H|S][0-9]{1}[A-Z]{2}[0-9]{5}$",
+            "pattern": "^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$",
             "fec_spec": {
                 "FIELD_DESCRIPTION": "DONOR COMMITTEE FEC ID",
                 "TYPE": "A/N-9",
