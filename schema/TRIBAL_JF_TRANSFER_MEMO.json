@@ -65,10 +65,7 @@
         "transaction_type_identifier": {
             "title": "TRANSACTION TYPE IDENTIFIER",
             "description": "",
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 12,
-            "pattern": "^[ -~]{0,12}$",
+            "const": "TRIBAL_JF_TRANSFER_MEMO",
             "examples": [
                 "TRIBAL_JF_TRANSFER_MEMO"
             ],
@@ -128,13 +125,7 @@
         "back_reference_sched_name": {
             "title": "BACK REFERENCE SCHED NAME",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
-            "minLength": 0,
-            "maxLength": 8,
-            "pattern": "^[ -~]{0,8}$",
+            "const": "SA12",
             "examples": [
                 "SA12"
             ],
@@ -151,10 +142,7 @@
         "entity_type": {
             "title": "ENTITY TYPE",
             "description": "",
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 3,
-            "pattern": "^[ -~]{0,3}$",
+            "const": "ORG",
             "examples": [
                 "ORG"
             ],
@@ -368,7 +356,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 100,
-            "pattern": "^[ -~]{0,100}$",
+            "pattern": "^JF Memo: [ -~]{0,91}$",
             "fec_spec": {
                 "FIELD_DESCRIPTION": "CONTRIBUTION PURPOSE DESCRIPTION",
                 "TYPE": "A/N-100",

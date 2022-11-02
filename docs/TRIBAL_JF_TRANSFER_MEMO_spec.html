@@ -36,7 +36,7 @@
 <td></td>
 <td></td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 12</li><li>regex: ^[ -~]{0,12}$</li></td>
+<td><ul><li>REQUIRED</li><li>must equal: TRIBAL_JF_TRANSFER_MEMO</li></td>
 </tr>
 <tr>
 <td>TRANSACTION ID</td>
@@ -67,7 +67,7 @@
 <td>Ref to the Schedule that has the Related Record.  SA3L must be used 
 with the F3L</td>
 <td></td>
-<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 8</li><li>regex: ^[ -~]{0,8}$</li></td>
+<td><ul><li>must equal: SA12</li></td>
 </tr>
 <tr>
 <td>ENTITY TYPE</td>
@@ -77,7 +77,7 @@ with the F3L</td>
 <td>ORG Only</td>
 <td>[ORG]</td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 3</li><li>regex: ^[ -~]{0,3}$</li></td>
+<td><ul><li>REQUIRED</li><li>must equal: ORG</li></td>
 </tr>
 <tr>
 <td>CONTRIBUTOR ORGANIZATION</td>
@@ -187,7 +187,7 @@ with the F3L</td>
 <td>JF Memo: XX</td>
 <td>JF Memo: XX, where XX is auto-populated with name of committee entered in parent transaction JF_TRAN COL SEQ 8</td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 100</li><li>regex: ^[ -~]{0,100}$</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 100</li><li>regex: ^JF Memo: [ -~]{0,91}$</li></td>
 </tr>
 <tr>
 <td>MEMO CODE</td>
