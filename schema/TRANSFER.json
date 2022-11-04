@@ -306,7 +306,7 @@
             "description": "",
             "type": "number",
             "minimum": 0,
-            "maximum": 999999999999,
+            "maximum": 999999999,
             "examples": [
                 250
             ],
@@ -325,7 +325,7 @@
             "description": "",
             "type": "number",
             "minimum": 0,
-            "maximum": 999999999999,
+            "maximum": 999999999,
             "examples": [
                 1000
             ],
