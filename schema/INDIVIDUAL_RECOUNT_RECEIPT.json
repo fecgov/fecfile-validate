@@ -125,7 +125,13 @@
         "back_reference_sched_name": {
             "title": "BACK REFERENCE SCHED NAME",
             "description": "",
-            "const": "SA17",
+            "type": [
+                "string",
+                "null"
+            ],
+            "minLength": 0,
+            "maxLength": 8,
+            "pattern": "^[ -~]{0,8}$",
             "examples": [
                 "SA17"
             ],
