@@ -456,7 +456,10 @@
         "contributor_employer": {
             "title": "CONTRIBUTOR EMPLOYER",
             "description": "",
-            "type": "string",
+            "type": [
+                "string",
+                "null"
+            ],
             "minLength": 0,
             "maxLength": 38,
             "pattern": "^[ -~]{0,38}$",
@@ -476,7 +479,10 @@
         "contributor_occupation": {
             "title": "CONTRIBUTOR OCCUPATION",
             "description": "",
-            "type": "string",
+            "type": [
+                "string",
+                "null"
+            ],
             "minLength": 0,
             "maxLength": 38,
             "pattern": "^[ -~]{0,38}$",
@@ -503,7 +509,7 @@
             "fec_spec": {
                 "FIELD_DESCRIPTION": "MEMO CODE",
                 "TYPE": "A/N-1",
-                "REQUIRED": "X (error)",
+                "REQUIRED": null,
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": "X",
                 "RULE_REFERENCE": "X = True",
