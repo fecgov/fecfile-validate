@@ -67,7 +67,7 @@
 <td>Ref to the Schedule that has the Related Record.  SA3L must be used 
 with the F3L</td>
 <td></td>
-<td><ul><li>must equal: SA17</li></td>
+<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 8</li><li>regex: ^[ -~]{0,8}$</li></td>
 </tr>
 <tr>
 <td>ENTITY TYPE</td>
@@ -227,7 +227,7 @@ with the F3L</td>
 <td></td>
 <td>Recount Account</td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 100</li><li>regex: ^[ -~]{0,100}$</li></td>
+<td><ul><li>REQUIRED</li><li>must equal: Recount Account</li></td>
 </tr>
 <tr>
 <td>CONTRIBUTOR EMPLOYER</td>
@@ -237,7 +237,7 @@ with the F3L</td>
 <td></td>
 <td>Req if Donor aggregate >$200</td>
 <td></td>
-<td><ul><li>REQUIRED if CONTRIBUTION_AGGREGATE >= 200.01</li><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 38</li><li>regex: ^[ -~]{0,38}$</li></td>
+<td><ul><li>REQUIRED if CONTRIBUTION_AGGREGATE >= 200.01</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 38</li><li>regex: ^[ -~]{0,38}$</li></td>
 </tr>
 <tr>
 <td>CONTRIBUTOR OCCUPATION</td>
@@ -247,12 +247,12 @@ with the F3L</td>
 <td></td>
 <td>Req if Donor aggregate >$200</td>
 <td></td>
-<td><ul><li>REQUIRED if CONTRIBUTION_AGGREGATE >= 200.01</li><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 38</li><li>regex: ^[ -~]{0,38}$</li></td>
+<td><ul><li>REQUIRED if CONTRIBUTION_AGGREGATE >= 200.01</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 38</li><li>regex: ^[ -~]{0,38}$</li></td>
 </tr>
 <tr>
 <td>MEMO CODE</td>
 <td>A/N-1</td>
-<td>X (error)</td>
+<td></td>
 <td></td>
 <td>X</td>
 <td>X = True</td>
