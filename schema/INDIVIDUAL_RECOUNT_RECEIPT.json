@@ -21,9 +21,7 @@
         "contribution_amount",
         "contribution_aggregate",
         "aggregation_group",
-        "contribution_purpose_descrip",
-        "contributor_employer",
-        "contributor_occupation"
+        "contribution_purpose_descrip"
     ],
     "fec_recommended": [],
     "properties": {
