@@ -1,9 +1,9 @@
 {
     "$schema": "https://json-schema.org/draft-07/schema#",
-    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/PAC_RECOUNT_RECEIPT.json",
+    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/PARTY_RECOUNT_RECEIPT.json",
     "version": "v0.0.0.0",
-    "title": "FEC PAC Recount Receipt",
-    "description": "PAC Recount Receipt (17)",
+    "title": "FEC PartyRecount ",
+    "description": "Party Recount Receipt (17)",
     "type": "object",
     "required": [
         "form_type",
@@ -66,15 +66,15 @@
         "transaction_type_identifier": {
             "title": "TRANSACTION TYPE IDENTIFIER",
             "description": "",
-            "const": "PAC_RECOUNT_RECEIPT",
+            "const": "PARTY_RECOUNT_RECEIPT",
             "examples": [
-                "PAC_RECOUNT_RECEIPT"
+                "PARTY_RECOUNT_RECEIPT"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "TRANSACTION TYPE IDENTIFIER",
                 "TYPE": "A/N-12",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "PAC_RECOUNT_RECEIPT",
+                "SAMPLE_DATA": "PARTY_RECOUNT_RECEIPT",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
@@ -349,11 +349,11 @@
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "AGGREGATION GROUP",
-                "TYPE": "A/N-100",
+                "TYPE": null,
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "RECOUNT_ACCOUNT",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": "Recount Account",
+                "RULE_REFERENCE": "Recount Account",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -361,14 +361,11 @@
             "title": "CONTRIBUTION PURPOSE DESCRIPTION",
             "description": "",
             "const": "Recount Account",
-            "examples": [
-                "Recount Account"
-            ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "CONTRIBUTION PURPOSE DESCRIPTION",
                 "TYPE": "A/N-100",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "Recount Account",
+                "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": "Recount Account",
                 "FIELD_FORM_ASSOCIATION": null
