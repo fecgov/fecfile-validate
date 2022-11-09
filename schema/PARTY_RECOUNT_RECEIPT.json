@@ -374,13 +374,10 @@
         "donor_committee_fec_id": {
             "title": "DONOR COMMITTEE FEC ID",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
-            "minLength": 0,
+            "type": "string",
+            "minLength": 9,
             "maxLength": 9,
-            "pattern": "^[ -~]{0,9}$",
+            "pattern": "^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$",
             "fec_spec": {
                 "FIELD_DESCRIPTION": "DONOR COMMITTEE FEC ID",
                 "TYPE": "A/N-9",
@@ -394,10 +391,7 @@
         "donor_committee_name": {
             "title": "DONOR COMMITTEE NAME",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
+            "type": "string",
             "minLength": 0,
             "maxLength": 200,
             "pattern": "^[ -~]{0,200}$",
