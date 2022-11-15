@@ -1,9 +1,9 @@
 {
     "$schema": "https://json-schema.org/draft-07/schema#",
-    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/JOINT_FUNDRAISING_TRANSFER.json",
+    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/PARTY_RECEIPT.json",
     "version": "v0.0.0.0",
-    "title": "FEC Joint Fundraising Transfer",
-    "description": "Transfer (12)",
+    "title": "PARTY RECEIPT",
+    "description": "Party Receipt (11b)",
     "type": "object",
     "required": [
         "form_type",
@@ -21,23 +21,24 @@
         "contribution_amount",
         "contribution_aggregate",
         "aggregation_group",
-        "donor_committee_fec_id"
+        "donor_committee_fec_id",
+        "donor_committee_name"
     ],
     "fec_recommended": [],
     "properties": {
         "form_type": {
             "title": "FORM TYPE",
             "description": "",
-            "const": "SA12",
+            "const": "SA11B",
             "examples": [
-                "SA12"
+                "SA11B"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "FORM TYPE",
                 "TYPE": "A/N-8",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "SA12",
-                "VALUE_REFERENCE": "SA12 Only",
+                "SAMPLE_DATA": "SA11B",
+                "VALUE_REFERENCE": "SA11B Only",
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }
@@ -65,15 +66,15 @@
         "transaction_type_identifier": {
             "title": "TRANSACTION TYPE IDENTIFIER",
             "description": "",
-            "const": "JOINT_FUNDRAISING_TRANSFER",
+            "const": "PARTY_RECEIPT",
             "examples": [
-                "JOINT_FUNDRAISING_TRANSFER"
+                "PARTY_RECEIPT"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "TRANSACTION TYPE IDENTIFIER",
                 "TYPE": "A/N-12",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "JOINT_FUNDRAISING_TRANSFER",
+                "SAMPLE_DATA": "PARTY_RECEIPT",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
@@ -359,14 +360,20 @@
         "contribution_purpose_descrip": {
             "title": "CONTRIBUTION PURPOSE DESCRIPTION",
             "description": "",
-            "const": "Transfer of Joint Fundraising Proceeds",
+            "type": [
+                "string",
+                "null"
+            ],
+            "minLength": 0,
+            "maxLength": 100,
+            "pattern": "^[ -~]{0,100}$",
             "fec_spec": {
                 "FIELD_DESCRIPTION": "CONTRIBUTION PURPOSE DESCRIPTION",
                 "TYPE": "A/N-100",
                 "REQUIRED": null,
-                "SAMPLE_DATA": "Transfer of Joint Fundraising Proceeds",
-                "VALUE_REFERENCE": "Transfer of Joint Fundraising Proceeds",
-                "RULE_REFERENCE": "Transfer of Joint Fundraising Proceeds",
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -390,10 +397,7 @@
         "donor_committee_name": {
             "title": "DONOR COMMITTEE NAME",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
+            "type": "string",
             "minLength": 0,
             "maxLength": 200,
             "pattern": "^[ -~]{0,200}$",

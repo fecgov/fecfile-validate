@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><title>PAC_JF_TRANSFER_MEMO</title><link rel="stylesheet" href="spec_table.css"></head><body><table><caption>Specification for PAC_JF_TRANSFER_MEMO</caption><tr>
+<!DOCTYPE html><html lang="en"><head><title>PARTY_RECEIPT</title><link rel="stylesheet" href="spec_table.css"></head><body><table><caption>Specification for PARTY_RECEIPT</caption><tr>
 <th>FIELD DESCRIPTION</th>
 <th>TYPE</th>
 <th>REQUIRED</th>
@@ -12,11 +12,11 @@
 <td>FORM TYPE</td>
 <td>A/N-8</td>
 <td>X (error)</td>
-<td>SA12</td>
-<td>SA12 Only</td>
+<td>SA11B</td>
+<td>SA11B Only</td>
 <td></td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>must equal: SA12</li></td>
+<td><ul><li>REQUIRED</li><li>must equal: SA11B</li></td>
 </tr>
 <tr>
 <td>FILER COMMITTEE ID NUMBER</td>
@@ -30,13 +30,13 @@
 </tr>
 <tr>
 <td>TRANSACTION TYPE IDENTIFIER</td>
-<td>A/N-17</td>
+<td>A/N-12</td>
 <td>X (error)</td>
-<td>PAC_JF_TRANSFER_MEMO</td>
+<td>PARTY_RECEIPT</td>
 <td></td>
 <td></td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>must equal: PAC_JF_TRANSFER_MEMO</li></td>
+<td><ul><li>REQUIRED</li><li>must equal: PARTY_RECEIPT</li></td>
 </tr>
 <tr>
 <td>TRANSACTION ID</td>
@@ -51,30 +51,30 @@
 <tr>
 <td>BACK REFERENCE TRAN ID NUMBER</td>
 <td>A/N-20</td>
-<td>X (error)</td>
+<td></td>
 <td>A123456789-1234</td>
 <td></td>
 <td>Reference to the Tran ID of a Related Record</td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
+<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
 </tr>
 <tr>
 <td>BACK REFERENCE SCHED NAME</td>
 <td>A/N-8</td>
-<td>X (error)</td>
-<td>SA12</td>
-<td>SA12 Only</td>
+<td></td>
+<td>SA11AI</td>
+<td>SA[line# ref]</td>
 <td>Ref to the Schedule that has the Related Record.  SA3L must be used 
 with the F3L</td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>must equal: SA12</li></td>
+<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 8</li><li>regex: ^[ -~]{0,8}$</li></td>
 </tr>
 <tr>
 <td>ENTITY TYPE</td>
 <td>A/N-3</td>
 <td>X (error)</td>
 <td>COM</td>
-<td>COM Only</td>
+<td>COM only</td>
 <td>[COM]</td>
 <td></td>
 <td><ul><li>REQUIRED</li><li>must equal: COM</li></td>
@@ -144,7 +144,7 @@ with the F3L</td>
 <td>NUM-8</td>
 <td>X (error)</td>
 <td>20120615</td>
-<td>YYYYMMDD</td>
+<td></td>
 <td></td>
 <td></td>
 <td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 10</li><li>regex: ^[0-9]{4}-[0-9]{2}-[0-9]{2}$</li></td>
@@ -173,21 +173,21 @@ with the F3L</td>
 <td>AGGREGATION GROUP</td>
 <td>A/N-100</td>
 <td>X (error)</td>
+<td>GENERAL</td>
 <td></td>
-<td>GENERAL</td>
-<td>GENERAL</td>
+<td></td>
 <td></td>
 <td><ul><li>REQUIRED</li><li>must equal: GENERAL</li></td>
 </tr>
 <tr>
 <td>CONTRIBUTION PURPOSE DESCRIPTION</td>
 <td>A/N-100</td>
-<td>X (error)</td>
-<td>Joint Fundraising Memo: XX</td>
-<td>Joint Fundraising Memo: XX</td>
-<td>Joint Fundraising Memo: XX, where XX is auto-populated with name of committee entered in parent transaction JOINT_FUNDRAISING_TRANSFER COL SEQ 8</td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 100</li><li>regex: ^Joint Fundraising Memo: [ -~]{0,91}$</li></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 100</li><li>regex: ^[ -~]{0,100}$</li></td>
 </tr>
 <tr>
 <td>DONOR COMMITTEE FEC ID</td>
@@ -195,7 +195,7 @@ with the F3L</td>
 <td>X (error)</td>
 <td></td>
 <td></td>
-<td></td>
+<td>Should populate with information from FEC database</td>
 <td></td>
 <td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 9</li><li>regex: ^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$</li></td>
 </tr>
@@ -205,19 +205,19 @@ with the F3L</td>
 <td>X (error)</td>
 <td>Action PAC</td>
 <td></td>
+<td>Should populate with information from FEC database</td>
 <td></td>
-<td></td>
-<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 200</li><li>regex: ^[ -~]{0,200}$</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 200</li><li>regex: ^[ -~]{0,200}$</li></td>
 </tr>
 <tr>
 <td>MEMO CODE</td>
 <td>A/N-1</td>
-<td>X (error)</td>
+<td></td>
 <td></td>
 <td>X</td>
 <td>X = True</td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>must equal: True</li></td>
+<td><ul><li>type: ['boolean', 'null']</li></td>
 </tr>
 <tr>
 <td>MEMO TEXT/DESCRIPTION</td>

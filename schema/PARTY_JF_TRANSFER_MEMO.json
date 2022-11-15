@@ -1,18 +1,19 @@
 {
     "$schema": "https://json-schema.org/draft-07/schema#",
-    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/JOINT_FUNDRAISING_TRANSFER.json",
+    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/PARTY_JF_TRANSFER_MEMO.json",
     "version": "v0.0.0.0",
-    "title": "FEC Joint Fundraising Transfer",
-    "description": "Transfer (12)",
+    "title": "FEC Party JF Memo",
+    "description": "Party JF Memo (12)",
     "type": "object",
     "required": [
         "form_type",
         "filer_committee_id_number",
         "transaction_type_identifier",
         "transaction_id",
+        "back_reference_tran_id_number",
+        "back_reference_sched_name",
         "entity_type",
         "contributor_organization_name",
-        "contributor_fec_id",
         "contributor_street_1",
         "contributor_city",
         "contributor_state",
@@ -21,7 +22,10 @@
         "contribution_amount",
         "contribution_aggregate",
         "aggregation_group",
-        "donor_committee_fec_id"
+        "contribution_purpose_descrip",
+        "donor_committee_fec_id",
+        "donor_committee_name",
+        "memo_code"
     ],
     "fec_recommended": [],
     "properties": {
@@ -58,22 +62,22 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "C00123456",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "this is the ID of the Committee Account the report/transaction is associated with",
+                "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
         "transaction_type_identifier": {
             "title": "TRANSACTION TYPE IDENTIFIER",
             "description": "",
-            "const": "JOINT_FUNDRAISING_TRANSFER",
+            "const": "PARTY_JF_TRANSFER_MEMO",
             "examples": [
-                "JOINT_FUNDRAISING_TRANSFER"
+                "PARTY_JF_TRANSFER_MEMO"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "TRANSACTION TYPE IDENTIFIER",
                 "TYPE": "A/N-12",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "JOINT_FUNDRAISING_TRANSFER",
+                "SAMPLE_DATA": "PARTY_JF_TRANSFER_MEMO",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
@@ -115,7 +119,7 @@
             "fec_spec": {
                 "FIELD_DESCRIPTION": "BACK REFERENCE TRAN ID NUMBER",
                 "TYPE": "A/N-20",
-                "REQUIRED": null,
+                "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "A123456789-1234",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": "Reference to the Tran ID of a Related Record",
@@ -125,22 +129,16 @@
         "back_reference_sched_name": {
             "title": "BACK REFERENCE SCHED NAME",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
-            "minLength": 0,
-            "maxLength": 8,
-            "pattern": "^[ -~]{0,8}$",
+            "const": "SA12",
             "examples": [
-                "SA11AI"
+                "SA12"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "BACK REFERENCE SCHED NAME",
                 "TYPE": "A/N-8",
-                "REQUIRED": null,
-                "SAMPLE_DATA": "SA11AI",
-                "VALUE_REFERENCE": "SA[line# ref]",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "SA12",
+                "VALUE_REFERENCE": "SA12 Only",
                 "RULE_REFERENCE": "Ref to the Schedule that has the Related Record.  SA3L must be used \nwith the F3L",
                 "FIELD_FORM_ASSOCIATION": null
             }
@@ -296,7 +294,7 @@
                 "TYPE": "NUM-8",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": 20120615,
-                "VALUE_REFERENCE": null,
+                "VALUE_REFERENCE": "YYYYMMDD",
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }
@@ -348,25 +346,28 @@
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "AGGREGATION GROUP",
-                "TYPE": "A/N-100",
+                "TYPE": null,
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "GENERAL",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": "General",
+                "RULE_REFERENCE": "General",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
         "contribution_purpose_descrip": {
             "title": "CONTRIBUTION PURPOSE DESCRIPTION",
             "description": "",
-            "const": "Transfer of Joint Fundraising Proceeds",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 100,
+            "pattern": "^JF Memo: [ -~]{0,91}$",
             "fec_spec": {
                 "FIELD_DESCRIPTION": "CONTRIBUTION PURPOSE DESCRIPTION",
                 "TYPE": "A/N-100",
-                "REQUIRED": null,
-                "SAMPLE_DATA": "Transfer of Joint Fundraising Proceeds",
-                "VALUE_REFERENCE": "Transfer of Joint Fundraising Proceeds",
-                "RULE_REFERENCE": "Transfer of Joint Fundraising Proceeds",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "JF Memo: XX",
+                "VALUE_REFERENCE": "JF Memo: XX",
+                "RULE_REFERENCE": "JF Memo: XX, where XX is auto-populated with name of committee entered in parent transaction JF_TRAN COL SEQ 8",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -383,7 +384,7 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Should populate with information from FEC database",
+                "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -406,21 +407,18 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "Action PAC",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Should populate with information from FEC database",
+                "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
         "memo_code": {
             "title": "MEMO CODE",
             "description": "",
-            "type": [
-                "boolean",
-                "null"
-            ],
+            "const": true,
             "fec_spec": {
                 "FIELD_DESCRIPTION": "MEMO CODE",
                 "TYPE": "A/N-1",
-                "REQUIRED": null,
+                "REQUIRED": "X (error)",
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": "X",
                 "RULE_REFERENCE": "X = True",

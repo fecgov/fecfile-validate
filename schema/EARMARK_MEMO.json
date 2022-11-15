@@ -2,8 +2,8 @@
     "$schema": "https://json-schema.org/draft-07/schema#",
     "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/EARMARK_MEMO.json",
     "version": "v0.0.0.0",
-    "title": "FEC Earmark Receipt (11a - Memo)",
-    "description": "Earmark Receipt-Memo (11a)",
+    "title": "FEC Earmark Memo",
+    "description": "Earmark Memo",
     "type": "object",
     "required": [
         "form_type",
@@ -498,7 +498,7 @@
             ],
             "minLength": 0,
             "maxLength": 9,
-            "pattern": "^C[0-9]{0,9}$",
+            "pattern": "^C[0-9]{8}$",
             "fec_spec": {
                 "FIELD_DESCRIPTION": "DONOR COMMITTEE FEC ID",
                 "TYPE": "A/N-9",
