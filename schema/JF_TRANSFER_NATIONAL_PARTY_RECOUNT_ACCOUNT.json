@@ -3,7 +3,7 @@
     "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/JF_TRANSFER_NATIONAL_PARTY_RECOUNT_ACCOUNT.json",
     "version": "v0.0.0.0",
     "title": "FEC Joint Fundraising Transfer - National Party Recount/Legal Proceedings Account",
-    "description": "Transfer (12)",
+    "description": "Transfer (17)",
     "type": "object",
     "required": [
         "form_type",
@@ -21,7 +21,9 @@
         "contribution_amount",
         "contribution_aggregate",
         "aggregation_group",
-        "donor_committee_fec_id"
+        "contribution_purpose_descrip",
+        "donor_committee_fec_id",
+        "donor_committee_name"
     ],
     "fec_recommended": [],
     "properties": {
@@ -125,22 +127,16 @@
         "back_reference_sched_name": {
             "title": "BACK REFERENCE SCHED NAME",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
-            "minLength": 0,
-            "maxLength": 8,
-            "pattern": "^[ -~]{0,8}$",
+            "const": "SA17",
             "examples": [
-                "SA11AI"
+                "SA17"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "BACK REFERENCE SCHED NAME",
                 "TYPE": "A/N-8",
                 "REQUIRED": null,
-                "SAMPLE_DATA": "SA11AI",
-                "VALUE_REFERENCE": "SA[line# ref]",
+                "SAMPLE_DATA": "SA17",
+                "VALUE_REFERENCE": "SA17 only",
                 "RULE_REFERENCE": "Ref to the Schedule that has the Related Record.  SA3L must be used \nwith the F3L",
                 "FIELD_FORM_ASSOCIATION": null
             }
@@ -363,7 +359,7 @@
             "fec_spec": {
                 "FIELD_DESCRIPTION": "CONTRIBUTION PURPOSE DESCRIPTION",
                 "TYPE": "A/N-100",
-                "REQUIRED": null,
+                "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "Recount/Legal Proceedings Account Transfer of JF Proceeds",
                 "VALUE_REFERENCE": "Recount/Legal Proceedings Account Transfer of JF Proceeds",
                 "RULE_REFERENCE": "Recount/Legal Proceedings Account Transfer of JF Proceeds",
@@ -390,10 +386,7 @@
         "donor_committee_name": {
             "title": "DONOR COMMITTEE NAME",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
+            "type": "string",
             "minLength": 0,
             "maxLength": 200,
             "pattern": "^[ -~]{0,200}$",

@@ -62,12 +62,12 @@
 <td>BACK REFERENCE SCHED NAME</td>
 <td>A/N-8</td>
 <td></td>
-<td>SA11AI</td>
-<td>SA[line# ref]</td>
+<td>SA17</td>
+<td>SA17 only</td>
 <td>Ref to the Schedule that has the Related Record.  SA3L must be used 
 with the F3L</td>
 <td></td>
-<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 8</li><li>regex: ^[ -~]{0,8}$</li></td>
+<td><ul><li>must equal: SA17</li></td>
 </tr>
 <tr>
 <td>ENTITY TYPE</td>
@@ -182,12 +182,12 @@ with the F3L</td>
 <tr>
 <td>CONTRIBUTION PURPOSE DESCRIPTION</td>
 <td>A/N-100</td>
-<td></td>
+<td>X (error)</td>
 <td>Recount/Legal Proceedings Account Transfer of JF Proceeds</td>
 <td>Recount/Legal Proceedings Account Transfer of JF Proceeds</td>
 <td>Recount/Legal Proceedings Account Transfer of JF Proceeds</td>
 <td></td>
-<td><ul><li>must equal: Recount/Legal Proceedings Account Transfer of JF Proceeds</li></td>
+<td><ul><li>REQUIRED</li><li>must equal: Recount/Legal Proceedings Account Transfer of JF Proceeds</li></td>
 </tr>
 <tr>
 <td>DONOR COMMITTEE FEC ID</td>
@@ -207,7 +207,7 @@ with the F3L</td>
 <td></td>
 <td>Should populate with information from FEC database</td>
 <td></td>
-<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 200</li><li>regex: ^[ -~]{0,200}$</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 200</li><li>regex: ^[ -~]{0,200}$</li></td>
 </tr>
 <tr>
 <td>MEMO CODE</td>
