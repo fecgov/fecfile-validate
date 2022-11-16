@@ -342,15 +342,15 @@
         "aggregation_group": {
             "title": "AGGREGATION GROUP",
             "description": "",
-            "const": "National Party Recount Account",
+            "const": "NATIONAL_PARTY_RECOUNT_ACCOUNT",
             "examples": [
-                "National Party Recount Account"
+                "NATIONAL_PARTY_RECOUNT_ACCOUNT"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "AGGREGATION GROUP",
                 "TYPE": "A/N-100",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "National Party Recount Account",
+                "SAMPLE_DATA": "NATIONAL_PARTY_RECOUNT_ACCOUNT",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
