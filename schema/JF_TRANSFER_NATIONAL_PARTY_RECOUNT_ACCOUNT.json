@@ -28,16 +28,16 @@
         "form_type": {
             "title": "FORM TYPE",
             "description": "",
-            "const": "SA12",
+            "const": "SA17",
             "examples": [
-                "SA12"
+                "SA17"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "FORM TYPE",
                 "TYPE": "A/N-8",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "SA12",
-                "VALUE_REFERENCE": "SA12 Only",
+                "SAMPLE_DATA": "SA17",
+                "VALUE_REFERENCE": "SA17 Only",
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }
@@ -65,15 +65,15 @@
         "transaction_type_identifier": {
             "title": "TRANSACTION TYPE IDENTIFIER",
             "description": "",
-            "const": "JOINT_FUNDRAISING_TRANSFER",
+            "const": "JF_TRANSFER_NATIONAL_PARTY_RECOUNT_ACCOUNT",
             "examples": [
-                "JOINT_FUNDRAISING_TRANSFER"
+                "JF_TRANSFER_NATIONAL_PARTY_RECOUNT_ACCOUNT"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "TRANSACTION TYPE IDENTIFIER",
                 "TYPE": "A/N-12",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "JOINT_FUNDRAISING_TRANSFER",
+                "SAMPLE_DATA": "JF_TRANSFER_NATIONAL_PARTY_RECOUNT_ACCOUNT",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
@@ -342,15 +342,15 @@
         "aggregation_group": {
             "title": "AGGREGATION GROUP",
             "description": "",
-            "const": "GENERAL",
+            "const": "National Party Recount Account",
             "examples": [
-                "GENERAL"
+                "National Party Recount Account"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "AGGREGATION GROUP",
                 "TYPE": "A/N-100",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "GENERAL",
+                "SAMPLE_DATA": "National Party Recount Account",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
@@ -359,14 +359,14 @@
         "contribution_purpose_descrip": {
             "title": "CONTRIBUTION PURPOSE DESCRIPTION",
             "description": "",
-            "const": "Transfer of Joint Fundraising Proceeds",
+            "const": "Recount/Legal Proceedings Account Transfer of JF Proceeds",
             "fec_spec": {
                 "FIELD_DESCRIPTION": "CONTRIBUTION PURPOSE DESCRIPTION",
                 "TYPE": "A/N-100",
                 "REQUIRED": null,
-                "SAMPLE_DATA": "Transfer of Joint Fundraising Proceeds",
-                "VALUE_REFERENCE": "Transfer of Joint Fundraising Proceeds",
-                "RULE_REFERENCE": "Transfer of Joint Fundraising Proceeds",
+                "SAMPLE_DATA": "Recount/Legal Proceedings Account Transfer of JF Proceeds",
+                "VALUE_REFERENCE": "Recount/Legal Proceedings Account Transfer of JF Proceeds",
+                "RULE_REFERENCE": "Recount/Legal Proceedings Account Transfer of JF Proceeds",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
