@@ -335,7 +335,7 @@
         "aggregation_group": {
             "title": "AGGREGATION GROUP",
             "description": "",
-            "const": "NATIONAL PARTY RECOUNT ACCOUNT",
+            "const": "NATIONAL_PARTY_RECOUNT_ACCOUNT",
             "examples": [
                 "NATIONAL_PARTY_RECOUNT_ACCOUNT"
             ],

@@ -430,17 +430,17 @@
         "aggregation_group": {
             "title": "AGGREGATION GROUP",
             "description": "",
-            "const": "NATIONAL PARTY RECOUNT ACCOUNT",
+            "const": "NATIONAL_PARTY_RECOUNT_ACCOUNT",
             "examples": [
-                "NATIONAL PARTY RECOUNT ACCOUNT"
+                "NATIONAL_PARTY_RECOUNT_ACCOUNT"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "AGGREGATION GROUP",
                 "TYPE": null,
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": null,
-                "VALUE_REFERENCE": "NATIONAL PARTY RECOUNT ACCOUNT",
-                "RULE_REFERENCE": "NATIONAL PARTY RECOUNT ACCOUNT",
+                "VALUE_REFERENCE": "NATIONAL_PARTY_RECOUNT_ACCOUNT",
+                "RULE_REFERENCE": "NATIONAL_PARTY_RECOUNT_ACCOUNT",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
