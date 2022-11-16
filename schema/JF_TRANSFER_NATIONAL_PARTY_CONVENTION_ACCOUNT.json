@@ -116,7 +116,7 @@
             "fec_spec": {
                 "FIELD_DESCRIPTION": "BACK REFERENCE TRAN ID NUMBER",
                 "TYPE": "A/N-20",
-                "REQUIRED": "X (error)",
+                "REQUIRED": null,
                 "SAMPLE_DATA": "A123456789-1234",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": "Reference to the Tran ID of a Related Record",
@@ -140,7 +140,7 @@
                 "FIELD_DESCRIPTION": "BACK REFERENCE SCHED NAME",
                 "TYPE": "A/N-8",
                 "REQUIRED": null,
-                "SAMPLE_DATA": null,
+                "SAMPLE_DATA": "SA17",
                 "VALUE_REFERENCE": "SA[line# ref]",
                 "RULE_REFERENCE": "Ref to the Schedule that has the Related Record.  SA3L must be used \nwith the F3L",
                 "FIELD_FORM_ASSOCIATION": null
@@ -158,7 +158,7 @@
                 "TYPE": "A/N-3",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "COM",
-                "VALUE_REFERENCE": "COM Only",
+                "VALUE_REFERENCE": "COM only",
                 "RULE_REFERENCE": "[COM]",
                 "FIELD_FORM_ASSOCIATION": null
             }
