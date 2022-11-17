@@ -3,7 +3,7 @@
     "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/PAC_NATIONAL_PARTY_RECOUNT_JF_TRANSFER_MEMO.json",
     "version": "v0.0.0.0",
     "title": "FEC PAC National Party Recount Joint Fundraising Memo",
-    "description": "PAC National Party Recount Joint Fundraising Memo (12)",
+    "description": "PAC National Party Recount Joint Fundraising Memo (17)",
     "type": "object",
     "required": [
         "form_type",
@@ -24,7 +24,8 @@
         "aggregation_group",
         "contribution_purpose_descrip",
         "memo_code",
-        "donor_committee_fec_id"
+        "donor_committee_fec_id",
+        "donor_committee_name"
     ],
     "fec_recommended": [],
     "properties": {
@@ -359,7 +360,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 100,
-            "pattern": "^Recount/Legal Proceedings Account JF Memo: [ -~]{0,91}$",
+            "pattern": "^Recount/Legal Proceedings Account JF Memo: [ -~]{0,57}$",
             "fec_spec": {
                 "FIELD_DESCRIPTION": "CONTRIBUTION PURPOSE DESCRIPTION",
                 "TYPE": "A/N-100",

@@ -3,7 +3,7 @@
     "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/TRIBAL_NATIONAL_PARTY_RECOUNT_JF_TRANSFER_MEMO.json",
     "version": "v0.0.0.0",
     "title": "FEC Tribal National Party Recount JF Memo",
-    "description": "Tribal National Party Recount - JF Memo (12)",
+    "description": "Tribal National Party Recount - JF Memo (17)",
     "type": "object",
     "required": [
         "form_type",
@@ -355,7 +355,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 100,
-            "pattern": "^Recount/Legal Proceedings Account JF Memo: [ -~]{0,91}$",
+            "pattern": "^Recount/Legal Proceedings Account JF Memo: [ -~]{0,57}$",
             "fec_spec": {
                 "FIELD_DESCRIPTION": "CONTRIBUTION PURPOSE DESCRIPTION",
                 "TYPE": "A/N-100",
