@@ -1,9 +1,9 @@
 {
     "$schema": "https://json-schema.org/draft-07/schema#",
-    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/JF_TRANSFER_NATIONAL_PARTY_RECOUNT_ACCOUNT.json",
+    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/JF_TRANSFER_NATIONAL_PARTY_CONVENTION_ACCOUNT.json",
     "version": "v0.0.0.0",
-    "title": "FEC Joint Fundraising Transfer - National Party Recount/Legal Proceedings Account",
-    "description": "Transfer (17)",
+    "title": "FEC JF Trnsfr - Nat'l Party Conv.",
+    "description": "JF Transfer - Nat'l. Party Convention Account (17)",
     "type": "object",
     "required": [
         "form_type",
@@ -12,7 +12,6 @@
         "transaction_id",
         "entity_type",
         "contributor_organization_name",
-        "contributor_fec_id",
         "contributor_street_1",
         "contributor_city",
         "contributor_state",
@@ -67,15 +66,15 @@
         "transaction_type_identifier": {
             "title": "TRANSACTION TYPE IDENTIFIER",
             "description": "",
-            "const": "JF_TRANSFER_NATIONAL_PARTY_RECOUNT_ACCOUNT",
+            "const": "JF_TRANSFER_NATIONAL_PARTY_CONVENTION_ACCOUNT",
             "examples": [
-                "JF_TRANSFER_NATIONAL_PARTY_RECOUNT_ACCOUNT"
+                "JF_TRANSFER_NATIONAL_PARTY_CONVENTION_ACCOUNT"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "TRANSACTION TYPE IDENTIFIER",
                 "TYPE": "A/N-12",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "JF_TRANSFER_NATIONAL_PARTY_RECOUNT_ACCOUNT",
+                "SAMPLE_DATA": "JF_TRANSFER_NATIONAL_PARTY_CONVENTION_ACCOUNT",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
@@ -97,7 +96,7 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "A56123456789-1234",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Must be unique for the life of a report (original + amendments) within each committee account. Letters, if included, must be uppercase.",
+                "RULE_REFERENCE": "must be unique and UPPER CASE for the life of the report (original + all amendments)",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -127,7 +126,13 @@
         "back_reference_sched_name": {
             "title": "BACK REFERENCE SCHED NAME",
             "description": "",
-            "const": "SA17",
+            "type": [
+                "string",
+                "null"
+            ],
+            "minLength": 0,
+            "maxLength": 8,
+            "pattern": "^[ -~]{0,8}$",
             "examples": [
                 "SA17"
             ],
@@ -136,7 +141,7 @@
                 "TYPE": "A/N-8",
                 "REQUIRED": null,
                 "SAMPLE_DATA": "SA17",
-                "VALUE_REFERENCE": "SA17 only",
+                "VALUE_REFERENCE": "SA[line# ref]",
                 "RULE_REFERENCE": "Ref to the Schedule that has the Related Record.  SA3L must be used \nwith the F3L",
                 "FIELD_FORM_ASSOCIATION": null
             }
@@ -292,7 +297,7 @@
                 "TYPE": "NUM-8",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": 20120615,
-                "VALUE_REFERENCE": null,
+                "VALUE_REFERENCE": "YYYYMMDD",
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }
@@ -338,31 +343,31 @@
         "aggregation_group": {
             "title": "AGGREGATION GROUP",
             "description": "",
-            "const": "NATIONAL_PARTY_RECOUNT_ACCOUNT",
+            "const": "NATIONAL_PARTY_CONVENTION_ACCOUNT",
             "examples": [
-                "NATIONAL_PARTY_RECOUNT_ACCOUNT"
+                "NATIONAL_PARTY_CONVENTION_ACCOUNT"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "AGGREGATION GROUP",
                 "TYPE": "A/N-100",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "NATIONAL_PARTY_RECOUNT_ACCOUNT",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": "National Party Convention Account",
+                "RULE_REFERENCE": "National Party Convention Account",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
         "contribution_purpose_descrip": {
             "title": "CONTRIBUTION PURPOSE DESCRIPTION",
             "description": "",
-            "const": "Recount/Legal Proceedings Account Transfer of JF Proceeds",
+            "const": "Pres. Nominating Convention Account Transfer of JF Proceeds",
             "fec_spec": {
                 "FIELD_DESCRIPTION": "CONTRIBUTION PURPOSE DESCRIPTION",
                 "TYPE": "A/N-100",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "Recount/Legal Proceedings Account Transfer of JF Proceeds",
-                "VALUE_REFERENCE": "Recount/Legal Proceedings Account Transfer of JF Proceeds",
-                "RULE_REFERENCE": "Recount/Legal Proceedings Account Transfer of JF Proceeds",
+                "SAMPLE_DATA": "Pres. Nominating Convention Account Transfer of JF Proceeds",
+                "VALUE_REFERENCE": "Pres. Nominating Convention Account Transfer of JF Proceeds",
+                "RULE_REFERENCE": "Pres. Nominating Convention Account Transfer of JF Proceeds",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -379,7 +384,7 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Should populate with information from FEC database",
+                "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -399,7 +404,7 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "Action PAC",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Should populate with information from FEC database",
+                "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
