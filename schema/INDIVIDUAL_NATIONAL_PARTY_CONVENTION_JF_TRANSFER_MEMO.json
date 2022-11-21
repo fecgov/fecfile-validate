@@ -447,7 +447,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 100,
-            "pattern": "^JF Memo: [ -~]{0,91}$",
+            "pattern": "^Pres. Nominating Convention Account JF Memo: [ -~]{0,55}$",
             "fec_spec": {
                 "FIELD_DESCRIPTION": "CONTRIBUTION PURPOSE DESCRIPTION",
                 "TYPE": "A/N-100",
