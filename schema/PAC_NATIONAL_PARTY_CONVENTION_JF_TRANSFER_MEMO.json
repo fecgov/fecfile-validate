@@ -1,15 +1,17 @@
 {
     "$schema": "https://json-schema.org/draft-07/schema#",
-    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/JF_TRANSFER_NATIONAL_PARTY_CONVENTION_ACCOUNT.json",
+    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/PAC_NATIONAL_PARTY_CONVENTION_JF_TRANSFER_MEMO.json",
     "version": "v0.0.0.0",
-    "title": "FEC JF Trnsfr - Nat'l Party Conv.",
-    "description": "JF Transfer - Nat'l. Party Convention Account (17)",
+    "title": "FEC PAC National Party Pres. Nominating Convention Account JF Memo",
+    "description": "National PAC Party Pres. Nominating Convention Account JF Memo (17)",
     "type": "object",
     "required": [
         "form_type",
         "filer_committee_id_number",
         "transaction_type_identifier",
         "transaction_id",
+        "back_reference_tran_id_number",
+        "back_reference_sched_name",
         "entity_type",
         "contributor_organization_name",
         "contributor_street_1",
@@ -21,6 +23,7 @@
         "contribution_aggregate",
         "aggregation_group",
         "contribution_purpose_descrip",
+        "memo_code",
         "donor_committee_fec_id",
         "donor_committee_name"
     ],
@@ -66,15 +69,15 @@
         "transaction_type_identifier": {
             "title": "TRANSACTION TYPE IDENTIFIER",
             "description": "",
-            "const": "JF_TRANSFER_NATIONAL_PARTY_CONVENTION_ACCOUNT",
+            "const": "PAC_NATIONAL_PARTY_CONVENTION_JF_TRANSFER_MEMO",
             "examples": [
-                "JF_TRANSFER_NATIONAL_PARTY_CONVENTION_ACCOUNT"
+                "PAC_NATIONAL_PARTY_CONVENTION_JF_TRANSFER_MEMO"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "TRANSACTION TYPE IDENTIFIER",
                 "TYPE": "A/N-12",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "JF_TRANSFER_NATIONAL_PARTY_CONVENTION_ACCOUNT",
+                "SAMPLE_DATA": "PAC_NATIONAL_PARTY_CONVENTION_JF_TRANSFER_MEMO",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
@@ -96,17 +99,14 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "A56123456789-1234",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "must be unique and UPPER CASE for the life of the report (original + all amendments)",
+                "RULE_REFERENCE": "Must be unique for the life of a report (original + amendments) within each committee account. Letters, if included, must be uppercase.",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
         "back_reference_tran_id_number": {
             "title": "BACK REFERENCE TRAN ID NUMBER",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
+            "type": "string",
             "minLength": 0,
             "maxLength": 20,
             "pattern": "^[ -~]{0,20}$",
@@ -116,7 +116,7 @@
             "fec_spec": {
                 "FIELD_DESCRIPTION": "BACK REFERENCE TRAN ID NUMBER",
                 "TYPE": "A/N-20",
-                "REQUIRED": null,
+                "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "A123456789-1234",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": "Reference to the Tran ID of a Related Record",
@@ -126,22 +126,16 @@
         "back_reference_sched_name": {
             "title": "BACK REFERENCE SCHED NAME",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
-            "minLength": 0,
-            "maxLength": 8,
-            "pattern": "^[ -~]{0,8}$",
+            "const": "SA17",
             "examples": [
                 "SA17"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "BACK REFERENCE SCHED NAME",
                 "TYPE": "A/N-8",
-                "REQUIRED": null,
-                "SAMPLE_DATA": null,
-                "VALUE_REFERENCE": "SA[line# ref]",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "SA17",
+                "VALUE_REFERENCE": "SA17 Only",
                 "RULE_REFERENCE": "Ref to the Schedule that has the Related Record.  SA3L must be used \nwith the F3L",
                 "FIELD_FORM_ASSOCIATION": null
             }
@@ -158,7 +152,7 @@
                 "TYPE": "A/N-3",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "COM",
-                "VALUE_REFERENCE": "COM only",
+                "VALUE_REFERENCE": "COM Only",
                 "RULE_REFERENCE": "[COM]",
                 "FIELD_FORM_ASSOCIATION": null
             }
@@ -349,7 +343,7 @@
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "AGGREGATION GROUP",
-                "TYPE": "A/N-100",
+                "TYPE": null,
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": "National Party Convention Account",
@@ -360,14 +354,17 @@
         "contribution_purpose_descrip": {
             "title": "CONTRIBUTION PURPOSE DESCRIPTION",
             "description": "",
-            "const": "Pres. Nominating Convention Account Transfer of JF Proceeds",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 100,
+            "pattern": "^Pres. Nominating Convention Account JF Memo: [ -~]{0,55}$",
             "fec_spec": {
                 "FIELD_DESCRIPTION": "CONTRIBUTION PURPOSE DESCRIPTION",
                 "TYPE": "A/N-100",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "Pres. Nominating Convention Account Transfer of JF Proceeds",
-                "VALUE_REFERENCE": "Pres. Nominating Convention Account Transfer of JF Proceeds",
-                "RULE_REFERENCE": "Pres. Nominating Convention Account Transfer of JF Proceeds",
+                "SAMPLE_DATA": "Pres. Nominating Convention Account JF Memo: XX",
+                "VALUE_REFERENCE": "Pres. Nominating Convention Account JF Memo: XX",
+                "RULE_REFERENCE": "Pres. Nominating Convention Account JF Memo: XX, where XX is organization name from parent transaction COL SEQ 8",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -377,7 +374,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 9,
-            "pattern": "^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$",
+            "pattern": "^[ -~]{0,9}$",
             "fec_spec": {
                 "FIELD_DESCRIPTION": "DONOR COMMITTEE FEC ID",
                 "TYPE": "A/N-9",
@@ -411,14 +408,11 @@
         "memo_code": {
             "title": "MEMO CODE",
             "description": "",
-            "type": [
-                "boolean",
-                "null"
-            ],
+            "const": true,
             "fec_spec": {
                 "FIELD_DESCRIPTION": "MEMO CODE",
                 "TYPE": "A/N-1",
-                "REQUIRED": null,
+                "REQUIRED": "X (error)",
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": "X",
                 "RULE_REFERENCE": "X = True",
