@@ -365,8 +365,8 @@
                 "FIELD_DESCRIPTION": "CONTRIBUTION PURPOSE DESCRIPTION",
                 "TYPE": "A/N-100",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": null,
-                "VALUE_REFERENCE": null,
+                "SAMPLE_DATA": "Recount/Legal Proceedings Account",
+                "VALUE_REFERENCE": "Recount/Legal Proceedings Account",
                 "RULE_REFERENCE": "Recount/Legal Proceedings Account",
                 "FIELD_FORM_ASSOCIATION": null
             }
