@@ -8,7 +8,7 @@
     "required": [
         "form_type",
         "filer_committee_id_number",
-        "transaction_id_number",
+        "transaction_id",
         "entity_type",
         "payee_organization_name",
         "payee_last_name",
@@ -489,7 +489,7 @@
             ],
             "fec_spec": {
                 "COL_SEQ": 21,
-                "FIELD_DESCRIPTION": "EXPENDITURE AMOUNT {F3L Bundled}",
+                "FIELD_DESCRIPTION": "EXPENDITURE AMOUNT",
                 "TYPE": "AMT-12",
                 "REQUIRED": "X (warning)",
                 "SAMPLE_DATA": 1500,
