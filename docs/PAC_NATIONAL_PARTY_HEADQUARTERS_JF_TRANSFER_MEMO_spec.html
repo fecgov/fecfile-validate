@@ -190,6 +190,26 @@ with the F3L</td>
 <td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 100</li><li>regex: ^Headquarters Buildings Account JF Memo: [ -~]{0,62}$</li></td>
 </tr>
 <tr>
+<td>DONOR COMMITTEE FEC ID</td>
+<td>A/N-9</td>
+<td>X (error)</td>
+<td></td>
+<td></td>
+<td>Should populate with information from FEC database</td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 9</li><li>regex: ^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$</li></td>
+</tr>
+<tr>
+<td>DONOR COMMITTEE NAME</td>
+<td>A/N-200</td>
+<td>X (error)</td>
+<td>Action PAC</td>
+<td></td>
+<td>Should populate with information from FEC database</td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 200</li><li>regex: ^[ -~]{0,200}$</li></td>
+</tr>
+<tr>
 <td>MEMO CODE</td>
 <td>A/N-1</td>
 <td>X (error)</td>
