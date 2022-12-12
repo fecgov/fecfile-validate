@@ -14,8 +14,6 @@
         "back_reference_sched_name",
         "entity_type",
         "contributor_organization_name",
-        "contributor_last_name",
-        "contributor_first_name",
         "contributor_street_1",
         "contributor_city",
         "contributor_state",
@@ -25,6 +23,8 @@
         "contribution_aggregate",
         "aggregation_group",
         "contribution_purpose_descrip",
+        "donor_committee_fec_id",
+        "donor_committee_name",
         "memo_code"
     ],
     "fec_recommended": [],
@@ -365,6 +365,43 @@
                 "SAMPLE_DATA": "Headquarters Buildings Account JF Memo: XX",
                 "VALUE_REFERENCE": "Headquarters Buildings Account JF Memo: XX",
                 "RULE_REFERENCE": "Headquarters Buildings Account JF Memo: XX, where XX is organization name from parent transaction COL SEQ 8",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "donor_committee_fec_id": {
+            "title": "DONOR COMMITTEE FEC ID",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 9,
+            "pattern": "^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$",
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "DONOR COMMITTEE FEC ID",
+                "TYPE": "A/N-9",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "Should populate with information from FEC database",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "donor_committee_name": {
+            "title": "DONOR COMMITTEE NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 200,
+            "pattern": "^[ -~]{0,200}$",
+            "examples": [
+                "Action PAC"
+            ],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "DONOR COMMITTEE NAME",
+                "TYPE": "A/N-200",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "Action PAC",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "Should populate with information from FEC database",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
