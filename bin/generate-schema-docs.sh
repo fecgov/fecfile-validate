@@ -8,7 +8,7 @@ SCHEMAS=$(ls -m *.json | tr -d '[:space:]')
 generate-schema-doc ${SCHEMAS} ../docs
 
 # Remove fontawesome script that throws warnings in SonarCloud
-sed -e 's/<script src=https:\/\/use\.fontawesome\.com\/facf9fa52c\.js><\/script>//g' -i ../docs/*.html
+sed -e 's/<script src=https:\/\/use\.fontawesome\.com\/facf9fa52c\.js><\/script>//g' -i '' ../docs/*.html
 
 # Generate spec files
 for schema in ${SCHEMAS//,/ }
