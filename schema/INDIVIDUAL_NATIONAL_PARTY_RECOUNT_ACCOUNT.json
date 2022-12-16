@@ -20,6 +20,7 @@
         "contribution_date",
         "contribution_amount",
         "contribution_aggregate",
+        "contribution_purpose_descrip",
         "aggregation_group"
     ],
     "fec_recommended": [],
