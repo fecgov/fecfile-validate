@@ -10,8 +10,6 @@
         "filer_committee_id_number",
         "transaction_type_identifier",
         "transaction_id",
-        "back_reference_tran_id_number",
-        "back_reference_sched_name",
         "entity_type",
         "contributor_last_name",
         "contributor_first_name",
@@ -25,8 +23,7 @@
         "aggregation_group",
         "contribution_purpose_descrip",
         "contributor_employer",
-        "contributor_occupation",
-        "memo_code"
+        "contributor_occupation"
     ],
     "fec_recommended": [],
     "properties": {
@@ -107,7 +104,10 @@
         "back_reference_tran_id_number": {
             "title": "BACK REFERENCE TRAN ID NUMBER",
             "description": "",
-            "type": "string",
+            "type": [
+                "string",
+                "null"
+            ],
             "minLength": 0,
             "maxLength": 20,
             "pattern": "^[ -~]{0,20}$",
@@ -117,7 +117,7 @@
             "fec_spec": {
                 "FIELD_DESCRIPTION": "BACK REFERENCE TRAN ID NUMBER",
                 "TYPE": "A/N-20",
-                "REQUIRED": "X (error)",
+                "REQUIRED": null,
                 "SAMPLE_DATA": "A123456789-1234",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": "Reference to the Tran ID of a Related Record",
@@ -127,16 +127,22 @@
         "back_reference_sched_name": {
             "title": "BACK REFERENCE SCHED NAME",
             "description": "",
-            "const": "SA17",
+            "type": [
+                "string",
+                "null"
+            ],
+            "minLength": 0,
+            "maxLength": 8,
+            "pattern": "^[ -~]{0,8}$",
             "examples": [
-                "SA17"
+                "SA11AI"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "BACK REFERENCE SCHED NAME",
                 "TYPE": "A/N-8",
-                "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "SA17",
-                "VALUE_REFERENCE": "SA17 Only",
+                "REQUIRED": null,
+                "SAMPLE_DATA": "SA11AI",
+                "VALUE_REFERENCE": "SA[line# ref]",
                 "RULE_REFERENCE": "Ref to the Schedule that has the Related Record.  SA3L must be used \nwith the F3L",
                 "FIELD_FORM_ASSOCIATION": null
             }
@@ -498,11 +504,14 @@
         "memo_code": {
             "title": "MEMO CODE",
             "description": "",
-            "const": true,
+            "type": [
+                "boolean",
+                "null"
+            ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "MEMO CODE",
                 "TYPE": "A/N-1",
-                "REQUIRED": "X (error)",
+                "REQUIRED": null,
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": "X",
                 "RULE_REFERENCE": "X = True",
