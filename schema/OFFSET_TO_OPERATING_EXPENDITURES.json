@@ -146,13 +146,13 @@
             "title": "ENTITY TYPE",
             "description": "",
             "enum": [
-                "IND",
                 "ORG",
+                "IND",
                 "COM"
             ],
             "examples": [
-                "IND",
                 "ORG",
+                "IND",
                 "COM"
             ],
             "fec_spec": {
@@ -160,8 +160,8 @@
                 "TYPE": "A/N-3",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "IND",
-                "VALUE_REFERENCE": "IND, ORG, COM",
-                "RULE_REFERENCE": "[IND|ORG|COM]",
+                "VALUE_REFERENCE": "ORG, IND, COM",
+                "RULE_REFERENCE": "[ORG|IND|COM]",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
