@@ -21,6 +21,7 @@
         "contribution_amount",
         "contribution_aggregate",
         "aggregation_group",
+        "contribution_purpose_descrip",
         "donor_committee_fec_id",
         "donor_committee_name"
     ],
