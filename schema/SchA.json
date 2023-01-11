@@ -857,8 +857,8 @@
                 "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P"
             }
         },
-        "conduit_street1": {
-            "title": "CONDUIT STREET1",
+        "conduit_street_1": {
+            "title": "CONDUIT STREET 1",
             "description": "",
             "type": [
                 "string",
@@ -872,7 +872,7 @@
             ],
             "fec_spec": {
                 "COL_SEQ": 38,
-                "FIELD_DESCRIPTION": "CONDUIT STREET1",
+                "FIELD_DESCRIPTION": "CONDUIT STREET 1",
                 "TYPE": "A/N-34",
                 "REQUIRED": null,
                 "SAMPLE_DATA": "45 E Street",
@@ -881,8 +881,8 @@
                 "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P"
             }
         },
-        "conduit_street2": {
-            "title": "CONDUIT STREET2",
+        "conduit_street_2": {
+            "title": "CONDUIT STREET 2",
             "description": "",
             "type": [
                 "string",
@@ -893,7 +893,7 @@
             "pattern": "^[ -~]{0,34}$",
             "fec_spec": {
                 "COL_SEQ": 39,
-                "FIELD_DESCRIPTION": "CONDUIT STREET2",
+                "FIELD_DESCRIPTION": "CONDUIT STREET 2",
                 "TYPE": "A/N-34",
                 "REQUIRED": null,
                 "SAMPLE_DATA": null,

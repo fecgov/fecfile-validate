@@ -548,7 +548,10 @@
         "category_code": {
             "title": "CATEGORY CODE",
             "description": "",
-            "type": "string",
+            "type": [
+                "string",
+                "null"
+            ],
             "minLength": 0,
             "maxLength": 3,
             "pattern": "^[ -~]{0,3}$",
