@@ -370,7 +370,7 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "If ENTITY TYPE of associated EAR_MEMO = COM, \"Earmarked \nthrough XX\" where XX is the conduit from EAR_MEMO associated \nIf ENTITY TYPE of associated EAR_MEMO  = IND,  \"Earmarked \nthrough XX\" where XX is first_name last_name from EAR_MEMO \nassociated",
+                "RULE_REFERENCE": "Earmarked through xx",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
