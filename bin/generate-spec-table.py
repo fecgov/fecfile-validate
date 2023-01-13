@@ -9,7 +9,7 @@ import json
 
 parser = argparse.ArgumentParser()
 parser.add_argument(
-    "filename", help="filename of JSON schema doc to convert" " to HTML table"
+    "filename", help="filename of JSON schema doc to convert to HTML table"
 )
 args = parser.parse_args()
 
