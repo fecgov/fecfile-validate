@@ -87,7 +87,7 @@ with the F3L</td>
 <td></td>
 <td>Required if NOT [IND]</td>
 <td></td>
-<td><ul><li>REQUIRED if ENTITY_TYPE one of ['ORG', 'COM']</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 200</li><li>regex: ^[ -~]{0,200}$</li></td>
+<td><ul><li>REQUIRED if ENTITY_TYPE equals ORG</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 200</li><li>regex: ^[ -~]{0,200}$</li></td>
 </tr>
 <tr>
 <td>CONTRIBUTOR LAST NAME</td>
@@ -207,7 +207,7 @@ with the F3L</td>
 <td></td>
 <td>Negative Number</td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: number</li><li>minimum: -99999999.99</li></td>
+<td><ul><li>REQUIRED</li><li>type: number</li><li>minimum: -99999999.99</li><li>less than: 0</li></td>
 </tr>
 <tr>
 <td>CONTRIBUTION AGGREGATE</td>

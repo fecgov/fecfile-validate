@@ -617,10 +617,7 @@
             "if": {
                 "properties": {
                     "entity_type": {
-                        "enum": [
-                            "ORG",
-                            "COM"
-                        ]
+                        "const": "ORG"
                     }
                 },
                 "required": [
