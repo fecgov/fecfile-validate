@@ -1,6 +1,7 @@
 from openpyxl import load_workbook
 import json
 from os import path
+import sys
 
 
 COLUMNS = {
@@ -13,7 +14,7 @@ COLUMNS = {
 }
 
 
-def get_sheet_name(sheet):
+def get_transaction_type_identifier(sheet):
 	if sheet['F6'].value == None:
 		return ""
 
@@ -185,32 +186,85 @@ def verify(sheet, schema):
 	return errors
 
 if (__name__ == "__main__"):
-	workbook = load_workbook('spec.xlsx')
+	filename = "spec.xlsx"
+	if len(sys.argv) > 1:
+		filename = sys.argv[1]
+		if not path.exists(filename):
+			print("File does not exist")
+			exit
+
+	workbook = load_workbook(filename)
 	sheets = workbook._sheets
 
+	excluded_sheets = [
+		"HDR Record",
+		"zzEARMARK_MEMO_HEADQUARTERS_ACCOUNT",
+		"zzEARMARK_RECEIPT_HEADQUARTERS_ACCOUNT",
+		"zzEARMARK_MEMO_CONVENTION_ACCOUNT",
+		"zzEARMARK_RECEIPT_CONVENTION_ACCOUNT",
+		"zzEARMARK_MEMO_RECOUNT_ACCOUNT",
+		"zzEARMARK_RECEIPT_RECOUNT_ACCOUNT",
+	]
+
+	errors = {}
+	missing_schema_files = []
+	missing_transaction_type_identifiers = []
+	failed_to_open = []
+	failed_to_load = []
+
 	for sheet in sheets:
-		name = get_sheet_name(sheet)
-		if not name:
+		if sheet.title in excluded_sheets:
 			continue
 
-		schema_file_path = '../schema/'+name+'.json'
+		transaction_type_identifier = get_transaction_type_identifier(sheet)
+		if not transaction_type_identifier:
+			missing_transaction_type_identifiers.append(sheet["A1"].value)
+			continue
+
+		schema_file_path = '../schema/'+transaction_type_identifier+'.json'
 		if not path.exists(schema_file_path):
+			missing_schema_files.append(transaction_type_identifier)
 			continue
 
 		json_file = open(schema_file_path, 'r')
 		if not json_file:
+			failed_to_open.append(f'Failed to open JSON file: {transaction_type_identifier}')
 			continue
 
 		schema = json.load(json_file)
 		if not schema:
+			failed_to_load.append(f'Failed to load JSON: {transaction_type_identifier}')
 			continue
 
-		##if name != 'INDIVIDUAL_RECEIPT':
-		##	continue
+		errors[transaction_type_identifier] = verify(sheet, schema)
 
-		errors = verify(sheet, schema)
-		if (len(errors) > 0):
-			print(name)
-			for error in errors:
-				print(error)
-			print('\n')
+	sheets_with_errors = list(errors.keys())
+	sheets_with_errors.sort()
+	missing_schema_files.sort()
+	missing_transaction_type_identifiers.sort()
+	failed_to_open.sort()
+	failed_to_load.sort()
+
+	if (len(missing_schema_files) > 0):
+		print("Missing Schema Files:")
+		print("   ", "\n    ".join(missing_schema_files),"\n")
+
+	if (len(missing_transaction_type_identifiers) > 0):
+		print("Sheets missing a Transaction Type Identifier:")
+		print("   ", "\n    ".join(missing_transaction_type_identifiers), "\n")
+
+	if (len(failed_to_open) > 0):
+		print("Failed to open:")
+		print("   ", *failed_to_open)
+
+	if (len(failed_to_load) > 0):
+		print("Failed to load:")
+		print("   ", *failed_to_load)
+
+	if (len(sheets_with_errors) > 0):
+		for sheet in sheets_with_errors:
+			if (len(errors[sheet]) > 0):
+				print(sheet)
+				for error in errors[sheet]:
+					print(error)
+				print('\n')
