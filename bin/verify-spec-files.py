@@ -8,7 +8,8 @@ COLUMNS = {
 	"type": 1,
 	"required": 2,
 	"sample_data": 3,
-	"value_reference": 4
+	"value_reference": 4,
+	"rule_reference": 5,
 }
 
 
@@ -87,16 +88,27 @@ def compare_required(row, schema, field_name):
 	if sheet_required != schema_required:
 		return f'    Error: {field_name}, {sheet_required_raw}, {schema_required_raw}'
 
-	in_required_list = field_name in schema_required_list
-	if sheet_required != in_required_list:
-		foundInAllOf = False
-		if (schema['allOf']):
-			for allOfRule in schema['allOf']:
-				if field_name in allOfRule['then']['required']:
-					foundInAllOf = True; break
+	field_rule_reference = row[COLUMNS['rule_reference']].value
+	if field_rule_reference == None:
+		conditionally_required = False
+	else:
+		conditionally_required = "Req" in field_rule_reference
 
-		if not foundInAllOf:
+	in_required_list = field_name in schema_required_list
+	in_all_of = False
+	if conditionally_required and "allOf" in schema.keys():
+		for allOfRule in schema['allOf']:
+				if field_name in allOfRule['then']['required']:
+						in_all_of = True; break
+
+
+	if not conditionally_required:
+		if sheet_required != in_required_list:
 			return f'    Error: {field_name} required - {sheet_required} {in_required_list}'
+	else:
+		if sheet_required != in_all_of:
+			return f'    Error: {field_name} conditionally required - {sheet_required} {in_all_of}\n{field_rule_reference}'
+
 
 def compare_sample_data(row, schema, field_name):
 	sheet_sample_data = row[COLUMNS['sample_data']].value
