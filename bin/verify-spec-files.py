@@ -7,6 +7,7 @@ COLUMNS = {
 	"property_name": 0,
 	"type": 1,
 	"required": 2,
+	"sample_data": 3,
 	"value_reference": 4
 }
 
@@ -86,7 +87,8 @@ def compare_required(row, schema, field_name):
 	if sheet_required != schema_required:
 		return f'    Error: {field_name}, {sheet_required_raw}, {schema_required_raw}'
 
-	if sheet_required and not field_name in schema_required_list:
+	in_required_list = field_name in schema_required_list
+	if sheet_required != in_required_list:
 		foundInAllOf = False
 		if (schema['allOf']):
 			for allOfRule in schema['allOf']:
@@ -94,20 +96,77 @@ def compare_required(row, schema, field_name):
 					foundInAllOf = True; break
 
 		if not foundInAllOf:
-			return f'    Error: {field_name} not in required list'
+			return f'    Error: {field_name} required - {sheet_required} {in_required_list}'
+
+def compare_sample_data(row, schema, field_name):
+	sheet_sample_data = row[COLUMNS['sample_data']].value
+	schema_sample_data = get_schema_property(schema, field_name, 'SAMPLE_DATA', True)
+	if sheet_sample_data != schema_sample_data:
+		return f'    Minor Error: Sample Data - {field_name} {sheet_sample_data}, {schema_sample_data}'
+
+def check_form_type(row, schema, field_name):
+	if field_name not in ["form_type", "back_reference_sched_name"]:
+		return
+
+	form_type = row[COLUMNS['sample_data']].value
+	schema_properties = schema['properties'][field_name]
+
+	if "const" in schema_properties.keys():
+		if not form_type == schema_properties["const"]:
+			return f'    Error: {field_name} - {form_type}, {schema_properties["const"]}'
+
+	elif "enum" in schema_properties.keys():
+		if not form_type in schema_properties["enum"]:
+			return f'    Error: {field_name} - {form_type}, {schema_properties["enum"]}'
+
+def check_entity_type(row, schema, field_name):
+	if field_name != "entity_type":
+		return
+
+	entity_types = row[COLUMNS['value_reference']].value
+	schema_properties = schema['properties'][field_name]
+
+	if "const" in schema_properties.keys():
+		if schema_properties["const"] not in entity_types:
+			return f'    Error: {field_name} - {entity_types}, {schema_properties["const"]}'
+
+	elif "enum" in schema_properties.keys():
+		for e_type in schema_properties["enum"]:
+			if e_type not in entity_types:
+				return f'    Error (enum): {field_name} - {entity_types}, {schema_properties["enum"]}'
+
+def check_aggregation_group(row, schema, field_name):
+	if field_name != "aggregation_group":
+		return
+
+	sheet_aggr_group = row[COLUMNS['value_reference']].value
+	schema_aggr_group = schema['properties'][field_name]["const"]
+
+	if sheet_aggr_group:
+		sheet_aggr_group = sheet_aggr_group.replace(" ", "_")
+		sheet_aggr_group = sheet_aggr_group.replace("-", "_")
+		sheet_aggr_group = sheet_aggr_group.upper()
+
+	if sheet_aggr_group != schema_aggr_group:
+		return f'    Error: {field_name} - {sheet_aggr_group}, {schema_aggr_group}'
+
 
 def verify(sheet, schema):
 	errors = []
-	comparisons = [
+	check_functions = [
 		compare_type,
 		compare_required,
+		##compare_sample_data,
+		check_form_type,
+		check_entity_type,
+		check_aggregation_group
 	]
 
 	fields = get_schema_fields(sheet)
 	for field in fields.keys():
 		row = sheet[str(fields[field])]
-		for comparison_function in comparisons:
-			error = comparison_function(row, schema, field)
+		for check_function in check_functions:
+			error = check_function(row, schema, field)
 			if error != None:
 				errors.append(error)
 	
