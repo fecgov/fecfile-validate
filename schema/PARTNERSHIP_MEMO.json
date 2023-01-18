@@ -10,6 +10,8 @@
         "filer_committee_id_number",
         "transaction_type_identifier",
         "transaction_id",
+        "back_reference_tran_id_number",
+        "back_reference_sched_name",
         "entity_type",
         "contributor_last_name",
         "contributor_first_name",
@@ -108,10 +110,7 @@
         "back_reference_tran_id_number": {
             "title": "BACK REFERENCE TRAN ID NUMBER",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
+            "type": "string",
             "minLength": 0,
             "maxLength": 20,
             "pattern": "^[ -~]{0,20}$",
@@ -121,7 +120,7 @@
             "fec_spec": {
                 "FIELD_DESCRIPTION": "BACK REFERENCE TRAN ID NUMBER",
                 "TYPE": "A/N-20",
-                "REQUIRED": null,
+                "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "A123456789-1234",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": "Reference to the Tran ID of a Related Record",
@@ -131,10 +130,7 @@
         "back_reference_sched_name": {
             "title": "BACK REFERENCE SCHED NAME",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
+            "type": "string",
             "minLength": 0,
             "maxLength": 8,
             "pattern": "^[ -~]{0,8}$",
@@ -144,7 +140,7 @@
             "fec_spec": {
                 "FIELD_DESCRIPTION": "BACK REFERENCE SCHED NAME",
                 "TYPE": "A/N-8",
-                "REQUIRED": null,
+                "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "SA11AI",
                 "VALUE_REFERENCE": "SA[line# ref]",
                 "RULE_REFERENCE": "Ref to the Schedule that has the Related Record.  SA3L must be used \nwith the F3L",
@@ -454,15 +450,15 @@
         "contribution_purpose_descrip": {
             "title": "CONTRIBUTION PURPOSE DESCRIPTION",
             "description": "",
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 100,
-            "pattern": "^[ -~]{0,100}$",
+            "const": "Partnership Attribution",
+            "examples": [
+                "Partnership Attribution"
+            ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "CONTRIBUTION PURPOSE DESCRIPTION",
                 "TYPE": "A/N-100",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": null,
+                "SAMPLE_DATA": "Partnership Attribution",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": "Partnership Attribution",
                 "FIELD_FORM_ASSOCIATION": null
