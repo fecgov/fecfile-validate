@@ -198,12 +198,12 @@ if (__name__ == "__main__"):
 
 	excluded_sheets = [
 		"HDR Record",
-		"zzEARMARK_MEMO_HEADQUARTERS_ACCOUNT",
-		"zzEARMARK_RECEIPT_HEADQUARTERS_ACCOUNT",
-		"zzEARMARK_MEMO_CONVENTION_ACCOUNT",
-		"zzEARMARK_RECEIPT_CONVENTION_ACCOUNT",
-		"zzEARMARK_MEMO_RECOUNT_ACCOUNT",
-		"zzEARMARK_RECEIPT_RECOUNT_ACCOUNT",
+		"zzEARMARK_MEMO_HEADQUARTERS_ACCOUNT"[:31], #Sheet titles cannot be longer than 31 characters
+		"zzEARMARK_RECEIPT_HEADQUARTERS_ACCOUNT"[:31],
+		"zzEARMARK_MEMO_CONVENTION_ACCOUNT"[:31],
+		"zzEARMARK_RECEIPT_CONVENTION_ACCOUNT"[:31],
+		"zzEARMARK_MEMO_RECOUNT_ACCOUNT"[:31],
+		"zzEARMARK_RECEIPT_RECOUNT_ACCOUNT"[:31],
 	]
 
 	errors = {}
@@ -218,12 +218,12 @@ if (__name__ == "__main__"):
 
 		transaction_type_identifier = get_transaction_type_identifier(sheet)
 		if not transaction_type_identifier:
-			missing_transaction_type_identifiers.append(sheet["A1"].value)
+			missing_transaction_type_identifiers.append(sheet.title)
 			continue
 
 		schema_file_path = '../schema/'+transaction_type_identifier+'.json'
 		if not path.exists(schema_file_path):
-			missing_schema_files.append(transaction_type_identifier)
+			missing_schema_files.append(f'{sheet.title}: {transaction_type_identifier}')
 			continue
 
 		json_file = open(schema_file_path, 'r')
