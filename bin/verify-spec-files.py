@@ -2,6 +2,15 @@ from openpyxl import load_workbook
 import json
 from os import path
 
+
+COLUMNS = {
+	"property_name": 0,
+	"type": 1,
+	"required": 2,
+	"value_reference": 4
+}
+
+
 def get_sheet_name(sheet):
 	if sheet['F6'].value == None:
 		return ""
@@ -39,18 +48,70 @@ def get_schema_fields(sheet):
 
 	return fields
 
+def get_schema_property(schema, field_name, property, FEC_spec=False):
+	field = schema['properties'][field_name]
+	if FEC_spec:
+		field = field['fec_spec']
+
+	return field[property]
+
+def compare_type(row, schema, field_name):
+	expected_type = row[COLUMNS['type']].value
+	actual_type = get_schema_property(schema, field_name, 'TYPE', FEC_spec=True)
+
+	if expected_type == None:
+		match = True
+	else:
+		expected_type = expected_type.strip(' ') ##Strips the lingering spaces present in some fields of the spreadsheet
+		match = (expected_type == actual_type)
+
+	if not match:
+		return f'    Error: {field_name}, {expected_type}, {actual_type}'
+
+def compare_required(row, schema, field_name):
+	sheet_required_raw = row[COLUMNS['required']].value
+	schema_required_raw = get_schema_property(schema, field_name, 'REQUIRED', True)
+	schema_required_list = schema['required']
+	
+	if sheet_required_raw == None:
+		sheet_required = False
+	else:
+		sheet_required = "X (error)" in sheet_required_raw
+
+	if schema_required_raw == None:
+		schema_required = False
+	else:
+		schema_required = "X (error)" in schema_required_raw
+
+	if sheet_required != schema_required:
+		return f'    Error: {field_name}, {sheet_required_raw}, {schema_required_raw}'
+
+	if sheet_required and not field_name in schema_required_list:
+		foundInAllOf = False
+		if (schema['allOf']):
+			for allOfRule in schema['allOf']:
+				if field_name in allOfRule['then']['required']:
+					foundInAllOf = True; break
+
+		if not foundInAllOf:
+			return f'    Error: {field_name} not in required list'
 
 def verify(sheet, schema):
+	errors = []
+	comparisons = [
+		compare_type,
+		compare_required,
+	]
+
 	fields = get_schema_fields(sheet)
 	for field in fields.keys():
 		row = sheet[str(fields[field])]
-		rowStr = field
-		for cell in row:
-			rowStr += ', '
-			rowStr += str(cell.value)
-		print(rowStr)
+		for comparison_function in comparisons:
+			error = comparison_function(row, schema, field)
+			if error != None:
+				errors.append(error)
 	
-	return True
+	return errors
 
 if (__name__ == "__main__"):
 	workbook = load_workbook('spec.xlsx')
@@ -73,8 +134,12 @@ if (__name__ == "__main__"):
 		if not schema:
 			continue
 
-		if name != 'INDIVIDUAL_RECEIPT':
-			continue
+		##if name != 'INDIVIDUAL_RECEIPT':
+		##	continue
 
-		if not verify(sheet, schema):
-			print(name, "does not match!")
+		errors = verify(sheet, schema)
+		if (len(errors) > 0):
+			print(name)
+			for error in errors:
+				print(error)
+			print('\n')
