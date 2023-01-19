@@ -62,9 +62,9 @@ def get_schema_fields(sheet):
 	return fields
 
 
-def get_schema_property(schema, field_name, property, FEC_spec=False):
+def get_schema_property(schema, field_name, property, is_fec_spec=False):
 	field = schema['properties'][field_name]
-	if FEC_spec:
+	if is_fec_spec:
 		field = field['fec_spec']
 
 	return field[property]
@@ -73,7 +73,7 @@ def get_schema_property(schema, field_name, property, FEC_spec=False):
 def compare_type(row, schema, field_name):
 	errors = []
 	expected_type = row[COLUMNS['type']].value
-	actual_type = get_schema_property(schema, field_name, 'TYPE', FEC_spec=True)
+	actual_type = get_schema_property(schema, field_name, 'TYPE', is_fec_spec=True)
 
 	if expected_type == None:
 		match = True
@@ -90,7 +90,7 @@ def compare_type(row, schema, field_name):
 def compare_required(row, schema, field_name):
 	errors = []
 	sheet_required_raw = row[COLUMNS['required']].value
-	schema_required_raw = get_schema_property(schema, field_name, 'REQUIRED', FEC_spec=True)
+	schema_required_raw = get_schema_property(schema, field_name, 'REQUIRED', is_fec_spec=True)
 	schema_required_list = schema['required']
 	
 	if sheet_required_raw == None:
@@ -112,9 +112,9 @@ def compare_required(row, schema, field_name):
 	in_required_list = field_name in schema_required_list
 	in_all_of = False
 	if conditionally_required and "allOf" in schema.keys():
-		for allOfRule in schema['allOf']:
-				if field_name in allOfRule['then']['required']:
-						in_all_of = True; break
+		for all_of_rule in schema['allOf']:
+			if field_name in all_of_rule['then']['required']:
+				in_all_of = True; break
 
 	if not conditionally_required:
 		if sheet_required != in_required_list:
@@ -157,11 +157,11 @@ def check_form_type(row, schema, field_name):
 	schema_properties = schema['properties'][field_name]
 
 	if "const" in schema_properties.keys():
-		if not form_type == schema_properties["const"]:
+		if form_type != schema_properties["const"]:
 			errors.append(f'    Error: {field_name} - Sheet has Form Type "{form_type}" while the Schema has "{schema_properties["const"]}"')
 
 	elif "enum" in schema_properties.keys():
-		if not form_type in schema_properties["enum"]:
+		if form_type not in schema_properties["enum"]:
 			errors.append(f'    Error: {field_name} - Sheet has Form Type "{form_type}" while the Schema has "{schema_properties["enum"]}"')
 
 	return errors
