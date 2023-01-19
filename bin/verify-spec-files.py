@@ -77,7 +77,7 @@ def compare_type(row, schema, field_name):
     expected_type = row[COLUMNS['type']].value
     actual_type = get_schema_property(schema, field_name, 'TYPE', is_fec_spec=True)
 
-    if expected_type == None:
+    if expected_type is None:
         match = True
     else:
         # Strips the lingering spaces present in some fields of the spreadsheet
@@ -96,18 +96,18 @@ def check_required(row, schema, field_name):
     schema_required_raw = get_schema_property(schema, field_name, 'REQUIRED', is_fec_spec=True)
     schema_required_list = schema['required']
 
-    if sheet_required_raw == None:
+    if sheet_required_raw is None:
         sheet_required = False
     else:
         sheet_required = "X (error)" in sheet_required_raw
 
-    if schema_required_raw == None:
+    if schema_required_raw is None:
         schema_required = False
     else:
         schema_required = "X (error)" in schema_required_raw
 
     field_rule_reference = row[COLUMNS['rule_reference']].value
-    if field_rule_reference == None:
+    if field_rule_reference is None:
         conditionally_required = False
     else:
         conditionally_required = "Req" in field_rule_reference
