@@ -26,7 +26,7 @@ def get_transaction_type_identifier(sheet):
 
     if sheet.title in overrides.keys():
         return overrides[sheet.title]
-    
+
     return ""
 
 
@@ -57,7 +57,7 @@ def get_schema_fields(sheet):
         if field_name not in skipped_fields:
             fields[field_name] = row
 
-        row+=1
+        row += 1
 
     return fields
 
@@ -78,7 +78,8 @@ def compare_type(row, schema, field_name):
     if expected_type == None:
         match = True
     else:
-        expected_type = expected_type.strip(' ') ##Strips the lingering spaces present in some fields of the spreadsheet
+		# Strips the lingering spaces present in some fields of the spreadsheet
+        expected_type = expected_type.strip(' ')
         match = (expected_type == actual_type)
 
     if not match:
@@ -92,7 +93,7 @@ def check_required(row, schema, field_name):
     sheet_required_raw = row[COLUMNS['required']].value
     schema_required_raw = get_schema_property(schema, field_name, 'REQUIRED', is_fec_spec=True)
     schema_required_list = schema['required']
-    
+
     if sheet_required_raw == None:
         sheet_required = False
     else:
@@ -114,7 +115,8 @@ def check_required(row, schema, field_name):
     if conditionally_required and "allOf" in schema.keys():
         for all_of_rule in schema['allOf']:
             if field_name in all_of_rule['then']['required']:
-                in_all_of = True; break
+                in_all_of = True
+                break
 
     if sheet_required != schema_required:
         if sheet_required:
@@ -229,13 +231,12 @@ def verify(sheet, schema):
             errors += check_function(row, schema, field)
         for check_function in minor_error_check_functions:
             minor_errors += check_function(row, schema, field)
-    
+
     return [errors, minor_errors]
 
 
 def get_help_message():
     return str(
-
 """
 This script checks for differences between this repo's JSON Schema files and a given spec spreadsheet.
 The user may specify a spreadsheet file to test against ending with ".xlsx" otherwise the default of "spec.xlsx" will be used
@@ -243,7 +244,7 @@ The user may specify a spreadsheet file to test against ending with ".xlsx" othe
     -v Displays minor errors (e.g. Sample Data mismatches)
     -h Displays this message
 """
-    )
+	)
 
 
 if (__name__ == "__main__"):
@@ -270,9 +271,10 @@ if (__name__ == "__main__"):
     workbook = load_workbook(filename)
     sheets = workbook._sheets
 
+ 	# Sheet titles cannot be longer than 31 characters
     excluded_sheets = [
         "HDR Record",
-        "zzEARMARK_MEMO_HEADQUARTERS_ACCOUNT"[:31], #Sheet titles cannot be longer than 31 characters
+        "zzEARMARK_MEMO_HEADQUARTERS_ACCOUNT"[:31],
         "zzEARMARK_RECEIPT_HEADQUARTERS_ACCOUNT"[:31],
         "zzEARMARK_MEMO_CONVENTION_ACCOUNT"[:31],
         "zzEARMARK_RECEIPT_CONVENTION_ACCOUNT"[:31],
@@ -326,7 +328,7 @@ if (__name__ == "__main__"):
 
     if (len(missing_schema_files) > 0):
         print("Missing Schema Files:")
-        print("   ", "\n    ".join(missing_schema_files),"\n")
+        print("   ", "\n    ".join(missing_schema_files), "\n")
 
     if (len(missing_transaction_type_identifiers) > 0):
         print("Sheets missing a Transaction Type Identifier:")
