@@ -246,7 +246,7 @@ passes in a valid  spreadsheet file name.
 options:
     -v Displays minor errors (e.g. Sample Data mismatches)
     -h Displays this message
-	""")
+    """)
 
 
 if (__name__ == "__main__"):
@@ -285,7 +285,7 @@ if (__name__ == "__main__"):
     workbook = load_workbook(filename)
     sheets = workbook._sheets
 
-     # Sheet titles cannot be longer than 31 characters
+    # Sheet titles cannot be longer than 31 characters
     excluded_sheets = [
         "HDR Record",
         "zzEARMARK_MEMO_HEADQUARTERS_ACCOUNT"[:31],
