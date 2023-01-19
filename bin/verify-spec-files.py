@@ -15,10 +15,20 @@ COLUMNS = {
 
 
 def get_transaction_type_identifier(sheet):
-	if sheet['F6'].value == None:
-		return ""
+	overrides = {
+		"TEXT": "Text",
+	}
 
-	return sheet['F6'].value
+	tti_row_range = range(5, 11)
+	for row in tti_row_range:
+		if sheet[f'A{row}'].value == "TRANSACTION TYPE IDENTIFIER":
+			return sheet[f'F{row}'].value
+
+	if sheet.title in overrides.keys():
+		return overrides[sheet.title]
+	
+	return ""
+
 
 def get_schema_fields(sheet):
 	name_overrides = {
@@ -51,6 +61,7 @@ def get_schema_fields(sheet):
 
 	return fields
 
+
 def get_schema_property(schema, field_name, property, FEC_spec=False):
 	field = schema['properties'][field_name]
 	if FEC_spec:
@@ -58,7 +69,9 @@ def get_schema_property(schema, field_name, property, FEC_spec=False):
 
 	return field[property]
 
+
 def compare_type(row, schema, field_name):
+	errors = []
 	expected_type = row[COLUMNS['type']].value
 	actual_type = get_schema_property(schema, field_name, 'TYPE', FEC_spec=True)
 
@@ -69,11 +82,15 @@ def compare_type(row, schema, field_name):
 		match = (expected_type == actual_type)
 
 	if not match:
-		return f'    Error: {field_name}, {expected_type}, {actual_type}'
+		errors.append(f'    Error: {field_name} - Sheet has Type {expected_type} and Schema has {actual_type}')
+
+	return errors
+
 
 def compare_required(row, schema, field_name):
+	errors = []
 	sheet_required_raw = row[COLUMNS['required']].value
-	schema_required_raw = get_schema_property(schema, field_name, 'REQUIRED', True)
+	schema_required_raw = get_schema_property(schema, field_name, 'REQUIRED', FEC_spec=True)
 	schema_required_list = schema['required']
 	
 	if sheet_required_raw == None:
@@ -85,9 +102,6 @@ def compare_required(row, schema, field_name):
 		schema_required = False
 	else:
 		schema_required = "X (error)" in schema_required_raw
-
-	if sheet_required != schema_required:
-		return f'    Error: {field_name}, {sheet_required_raw}, {schema_required_raw}'
 
 	field_rule_reference = row[COLUMNS['rule_reference']].value
 	if field_rule_reference == None:
@@ -102,57 +116,84 @@ def compare_required(row, schema, field_name):
 				if field_name in allOfRule['then']['required']:
 						in_all_of = True; break
 
-
 	if not conditionally_required:
 		if sheet_required != in_required_list:
-			return f'    Error: {field_name} required - {sheet_required} {in_required_list}'
+			if sheet_required:
+				errors.append(f"    Error: {field_name} - This is a required field, but it's not in the Schema's required array")
+			else:
+				errors.append(f"    Error: {field_name} - This is not a required field, but it is in the Schema's required array")
 	else:
 		if sheet_required != in_all_of:
-			return f'    Error: {field_name} conditionally required - {sheet_required} {in_all_of}\n{field_rule_reference}'
+			if sheet_required:
+				errors.append(f"    Error: {field_name} - This is a conditionally required field, but it's not in the Schema's AllOf")
+			else:
+				errors.append(f"    Error: {field_name} - This is not a conditionally required field, but it is in the Schema's AllOf")
+
+	if sheet_required != schema_required:
+		if sheet_required:
+			errors.append(f'    Error: {field_name} - This is a required field, but the Schema\'s FEC Spec does not have "X (error)"')
+		else:
+			errors.append(f'    Error: {field_name} - This is not a required field, but the Schema\'s FEC Spec has "X (error) in it"')
+	
+	return errors
 
 
 def compare_sample_data(row, schema, field_name):
+	errors = []
 	sheet_sample_data = row[COLUMNS['sample_data']].value
 	schema_sample_data = get_schema_property(schema, field_name, 'SAMPLE_DATA', True)
 	if sheet_sample_data != schema_sample_data:
-		return f'    Minor Error: Sample Data - {field_name} {sheet_sample_data}, {schema_sample_data}'
+		errors.append(f'    Minor Error: {field_name} - The Sheet has Sample Data of "{sheet_sample_data}" while the Schema has "{schema_sample_data}"')
+
+	return errors
+
 
 def check_form_type(row, schema, field_name):
+	errors = []
 	if field_name not in ["form_type", "back_reference_sched_name"]:
-		return
+		return errors
 
 	form_type = row[COLUMNS['sample_data']].value
 	schema_properties = schema['properties'][field_name]
 
 	if "const" in schema_properties.keys():
 		if not form_type == schema_properties["const"]:
-			return f'    Error: {field_name} - {form_type}, {schema_properties["const"]}'
+			errors.append(f'    Error: {field_name} - Sheet has Form Type "{form_type}" while the Schema has "{schema_properties["const"]}"')
 
 	elif "enum" in schema_properties.keys():
 		if not form_type in schema_properties["enum"]:
-			return f'    Error: {field_name} - {form_type}, {schema_properties["enum"]}'
+			errors.append(f'    Error: {field_name} - Sheet has Form Type "{form_type}" while the Schema has "{schema_properties["enum"]}"')
+
+	return errors
+
 
 def check_entity_type(row, schema, field_name):
+	errors = []
 	if field_name != "entity_type":
-		return
+		return errors
 
 	entity_types = row[COLUMNS['value_reference']].value
 	schema_properties = schema['properties'][field_name]
 
 	if "const" in schema_properties.keys():
 		if schema_properties["const"] not in entity_types:
-			return f'    Error: {field_name} - {entity_types}, {schema_properties["const"]}'
+			errors.append(f'    Error: {field_name} - Sheet has Entity Type "{entity_types}" while the Schema has "{schema_properties["const"]}"')
 
 	elif "enum" in schema_properties.keys():
 		for e_type in schema_properties["enum"]:
 			if e_type not in entity_types:
-				return f'    Error (enum): {field_name} - {entity_types}, {schema_properties["enum"]}'
+				errors.append(f'    Error: {field_name} - Sheet has Entity Types: "{entity_types}" while the Schema has "{schema_properties["enum"]}"')
+
+	return errors
+
 
 def check_aggregation_group(row, schema, field_name):
+	errors = []
 	if field_name != "aggregation_group":
-		return
+		return errors
 
-	sheet_aggr_group = row[COLUMNS['value_reference']].value
+	sheet_aggr_group = row[COLUMNS['rule_reference']].value
+
 	schema_aggr_group = schema['properties'][field_name]["const"]
 
 	if sheet_aggr_group:
@@ -161,37 +202,52 @@ def check_aggregation_group(row, schema, field_name):
 		sheet_aggr_group = sheet_aggr_group.upper()
 
 	if sheet_aggr_group != schema_aggr_group:
-		return f'    Error: {field_name} - {sheet_aggr_group}, {schema_aggr_group}'
+		errors.append(f'    Error: {field_name} - Sheet has an (adjusted) Aggregation Group of "{sheet_aggr_group}" while the Schema has "{schema_aggr_group}"')
+
+	return errors
 
 
 def verify(sheet, schema):
 	errors = []
-	check_functions = [
+	error_check_functions = [
 		compare_type,
 		compare_required,
-		##compare_sample_data,
 		check_form_type,
 		check_entity_type,
 		check_aggregation_group
 	]
 
+	minor_errors = []
+	minor_error_check_functions = [
+		compare_sample_data,
+	]
+
 	fields = get_schema_fields(sheet)
 	for field in fields.keys():
 		row = sheet[str(fields[field])]
-		for check_function in check_functions:
-			error = check_function(row, schema, field)
-			if error != None:
-				errors.append(error)
+		for check_function in error_check_functions:
+			errors += check_function(row, schema, field)
+		for check_function in minor_error_check_functions:
+			minor_errors += check_function(row, schema, field)
 	
-	return errors
+	return [errors, minor_errors]
+
 
 if (__name__ == "__main__"):
 	filename = "spec.xlsx"
+	display_minor_errors = False
+
 	if len(sys.argv) > 1:
-		filename = sys.argv[1]
-		if not path.exists(filename):
-			print("File does not exist")
-			exit
+		for arg in sys.argv[1:]:
+			if ".xlsx" in arg:
+				print("filename", arg)
+				filename = sys.argv[-1]
+			if arg == "-v":
+				display_minor_errors = True
+
+	if not path.exists(filename):
+		print("File does not exist")
+		exit
 
 	workbook = load_workbook(filename)
 	sheets = workbook._sheets
@@ -207,6 +263,7 @@ if (__name__ == "__main__"):
 	]
 
 	errors = {}
+	minor_errors = {}
 	missing_schema_files = []
 	missing_transaction_type_identifiers = []
 	failed_to_open = []
@@ -236,10 +293,14 @@ if (__name__ == "__main__"):
 			failed_to_load.append(f'Failed to load JSON: {transaction_type_identifier}')
 			continue
 
-		errors[transaction_type_identifier] = verify(sheet, schema)
+		new_errors, new_minor_errors = verify(sheet, schema)
+		errors[transaction_type_identifier] = new_errors
+		minor_errors[transaction_type_identifier] = new_minor_errors
 
 	sheets_with_errors = list(errors.keys())
+	sheets_with_minor_errors = list(minor_errors.keys())
 	sheets_with_errors.sort()
+	sheets_with_minor_errors.sort()
 	missing_schema_files.sort()
 	missing_transaction_type_identifiers.sort()
 	failed_to_open.sort()
@@ -261,10 +322,16 @@ if (__name__ == "__main__"):
 		print("Failed to load:")
 		print("   ", *failed_to_load)
 
-	if (len(sheets_with_errors) > 0):
-		for sheet in sheets_with_errors:
-			if (len(errors[sheet]) > 0):
-				print(sheet)
-				for error in errors[sheet]:
-					print(error)
-				print('\n')
+	sheets = sheets_with_errors
+	if (display_minor_errors):
+		sheets += sheets_with_minor_errors
+
+	for sheet in sheets:
+		if (len(errors[sheet]) > 0):
+			print(sheet)
+			for error in errors[sheet]:
+				print(error)
+			if (display_minor_errors):
+				for minor_error in minor_errors[sheet]:
+					print(minor_error)
+			print('\n')
