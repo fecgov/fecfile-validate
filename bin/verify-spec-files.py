@@ -238,8 +238,7 @@ def verify(sheet, schema):
 
 
 def get_help_message():
-    return str(
-"""
+    return str("""
 This script checks for differences between this repo's JSON Schema files and a spec spreadsheet.
 The script will scan the local directory for a spreadsheet ending with ".xlsx" unless the user
 passes in a valid  spreadsheet file name.
@@ -247,8 +246,7 @@ passes in a valid  spreadsheet file name.
 options:
     -v Displays minor errors (e.g. Sample Data mismatches)
     -h Displays this message
-"""
-    )
+	""")
 
 
 if (__name__ == "__main__"):
@@ -269,7 +267,7 @@ if (__name__ == "__main__"):
         files = listdir('./')
         xlsx_files = []
         for file in files:
-            if re.search("\.xlsx$", file):
+            if re.search("\\.xlsx$", file):
                 xlsx_files.append(file)
         if len(xlsx_files) > 0:
             xlsx_files.sort()
