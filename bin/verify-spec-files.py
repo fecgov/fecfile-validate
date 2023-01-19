@@ -233,6 +233,19 @@ def verify(sheet, schema):
 	return [errors, minor_errors]
 
 
+def get_help_message():
+	return str(
+
+"""
+This script checks for differences between this repo's JSON Schema files and a provided spec spreadsheet.
+The user may specify a spreadsheet file to test against ending with ".xlsx" otherwise the default of "spec.xlsx" will be used
+
+	-v Displays minor errors (e.g. Sample Data mismatches)
+	-h Displays this message
+"""
+	)
+
+
 if (__name__ == "__main__"):
 	filename = "spec.xlsx"
 	display_minor_errors = False
@@ -240,14 +253,19 @@ if (__name__ == "__main__"):
 	if len(sys.argv) > 1:
 		for arg in sys.argv[1:]:
 			if ".xlsx" in arg:
-				print("filename", arg)
-				filename = sys.argv[-1]
+				filename = arg
 			if arg == "-v":
 				display_minor_errors = True
+			if arg == "-h":
+				print(get_help_message())
+				exit()
 
 	if not path.exists(filename):
-		print("File does not exist")
-		exit
+		print("\nFile does not exist:", filename)
+		print(get_help_message())
+		exit()
+
+	print()
 
 	workbook = load_workbook(filename)
 	sheets = workbook._sheets
