@@ -1,7 +1,9 @@
 from openpyxl import load_workbook
 import json
-from os import path
+from os import path, listdir
 import sys
+import re
+import time
 
 
 COLUMNS = {
@@ -78,7 +80,7 @@ def compare_type(row, schema, field_name):
     if expected_type == None:
         match = True
     else:
-		# Strips the lingering spaces present in some fields of the spreadsheet
+        # Strips the lingering spaces present in some fields of the spreadsheet
         expected_type = expected_type.strip(' ')
         match = (expected_type == actual_type)
 
@@ -238,17 +240,19 @@ def verify(sheet, schema):
 def get_help_message():
     return str(
 """
-This script checks for differences between this repo's JSON Schema files and a given spec spreadsheet.
-The user may specify a spreadsheet file to test against ending with ".xlsx" otherwise the default of "spec.xlsx" will be used
+This script checks for differences between this repo's JSON Schema files and a spec spreadsheet.
+The script will scan the local directory for a spreadsheet ending with ".xlsx" unless the user
+passes in a valid  spreadsheet file name.
 
+options:
     -v Displays minor errors (e.g. Sample Data mismatches)
     -h Displays this message
 """
-	)
+    )
 
 
 if (__name__ == "__main__"):
-    filename = "spec.xlsx"
+    filename = None
     display_minor_errors = False
 
     if len(sys.argv) > 1:
@@ -261,7 +265,19 @@ if (__name__ == "__main__"):
                 print(get_help_message())
                 exit()
 
-    if not path.exists(filename):
+    if not filename:
+        files = listdir('./')
+        xlsx_files = []
+        for file in files:
+            if re.search("\.xlsx$", file):
+                xlsx_files.append(file)
+        if len(xlsx_files) > 0:
+            xlsx_files.sort()
+            filename = xlsx_files[-1]
+            print("\nTesting against found spreadsheet:", filename)
+            time.sleep(1.5)
+
+    if not filename or not path.exists(filename):
         print("\nFile does not exist:", filename)
         print(get_help_message())
         exit()
@@ -271,7 +287,7 @@ if (__name__ == "__main__"):
     workbook = load_workbook(filename)
     sheets = workbook._sheets
 
- 	# Sheet titles cannot be longer than 31 characters
+     # Sheet titles cannot be longer than 31 characters
     excluded_sheets = [
         "HDR Record",
         "zzEARMARK_MEMO_HEADQUARTERS_ACCOUNT"[:31],
@@ -327,7 +343,7 @@ if (__name__ == "__main__"):
     failed_to_load.sort()
 
     if (len(missing_schema_files) > 0):
-        print("Missing Schema Files:")
+        print("Transaction Type Identifiers without a corresponding JSON Schema file:")
         print("   ", "\n    ".join(missing_schema_files), "\n")
 
     if (len(missing_transaction_type_identifiers) > 0):
