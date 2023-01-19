@@ -237,7 +237,7 @@ def get_help_message():
 	return str(
 
 """
-This script checks for differences between this repo's JSON Schema files and a provided spec spreadsheet.
+This script checks for differences between this repo's JSON Schema files and a given spec spreadsheet.
 The user may specify a spreadsheet file to test against ending with ".xlsx" otherwise the default of "spec.xlsx" will be used
 
 	-v Displays minor errors (e.g. Sample Data mismatches)
