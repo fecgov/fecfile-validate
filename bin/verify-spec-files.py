@@ -1,9 +1,9 @@
-from openpyxl import load_workbook
-import json
 from os import path, listdir
+import pkg_resources
+import json
+import time
 import sys
 import re
-import time
 
 
 COLUMNS = {
@@ -16,18 +16,32 @@ COLUMNS = {
 }
 
 
+def openpyxl_is_installed():
+    for package in pkg_resources.working_set:
+        if package.key == "openpyxl":
+            return True
+    return False
+
+
 def get_transaction_type_identifier(sheet):
-    overrides = {
+    tti_overrides = {
         "TEXT": "Text",
+    }
+
+    column_overrides = {
+        "OFFSET_TO_OPERATING_EXPENDITURE":"E"
     }
 
     tti_row_range = range(5, 11)
     for row in tti_row_range:
+        column = "F"
+        if sheet.title in column_overrides.keys():
+            column = column_overrides[sheet.title]
         if sheet[f'A{row}'].value == "TRANSACTION TYPE IDENTIFIER":
-            return sheet[f'F{row}'].value
+            return sheet[f'{column}{row}'].value
 
-    if sheet.title in overrides.keys():
-        return overrides[sheet.title]
+    if sheet.title in tti_overrides.keys():
+        return tti_overrides[sheet.title]
 
     return ""
 
@@ -238,20 +252,27 @@ def verify(sheet, schema):
 
 
 def get_help_message():
-    return str("""
-This script checks for differences between this repo's JSON Schema files and a spec spreadsheet.
-The script will scan the local directory for a spreadsheet ending with ".xlsx" unless the user
-passes in a valid  spreadsheet file name.
-
-options:
-    -v Displays minor errors (e.g. Sample Data mismatches)
-    -h Displays this message
-    """)
+    return str(
+        "This script checks for differences between this repo's JSON Schema files and a spec spreadsheet.\n"+
+        'The script will scan the local directory for a spreadsheet ending with ".xlsx" unless the user\n'+
+        "passes in a valid  spreadsheet file name.\n\n"+
+        "options:\n"
+        "   -v Displays minor errors (e.g. Sample Data mismatches)\n"
+        "   -h Displays this message"
+    )
 
 
 if (__name__ == "__main__"):
     filename = None
     display_minor_errors = False
+
+    if not openpyxl_is_installed():
+        print(
+            "The openpyxl package is not installed.  Install the package with:\n"+
+            "    python -m pip install openpyxl"
+        )
+        exit()
+    from openpyxl import load_workbook
 
     if len(sys.argv) > 1:
         for arg in sys.argv[1:]:
