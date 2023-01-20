@@ -83,7 +83,10 @@ def get_schema_property(schema, field_name, property, is_fec_spec=False):
     if is_fec_spec:
         field = field['fec_spec']
 
-    return field[property]
+    if property in field.keys():
+        return field[property]
+    else:
+        return None
 
 
 def compare_type(row, schema, field_name):
@@ -99,9 +102,67 @@ def compare_type(row, schema, field_name):
         match = (expected_type == actual_type)
 
     if not match:
-        errors.append(f'    Error: {field_name} - Sheet has Type {expected_type} and Schema has {actual_type}')
+        errors.append(f'    Error: {field_name} - Sheet has Type {expected_type} and the JSON has {actual_type}')
 
     return errors
+
+
+def get_cpd_pattern_length(pattern):
+    # Left of the "[" we find the fixed text of the pattern
+    # Right of the "[" we find the "[ -~]{min_length,max_length}$" pattern
+    fixed, length_str = pattern.split("[")
+
+    length_str = length_str.split(",")[1]  # Right of the comma aaaaand
+    max_length = length_str.split("}")[0]  # left of the curly brace is the length of arbitrary characters
+
+    fixed = fixed.strip("^")  # We remove the "^" symbol since it doesn't factor into the length
+
+    pattern_length = len(fixed)+int(max_length)
+    return pattern_length
+
+
+def compare_length(row, schema, field_name):
+    errors = []
+    field_type = row[COLUMNS["type"]].value
+
+    fixed_patterns = {
+        "filer_committee_id_number": "^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$",
+        "contribution_date": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+        "donor_committee_fec_id": "^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$",
+    }
+
+    if not field_type:
+        return errors
+
+    split_field_type = field_type.split("-")
+    if len(split_field_type) <= 1:
+        return errors
+
+    expected_length = str(split_field_type[-1]).strip(" ")
+    json_max_length = get_schema_property(schema, field_name, "maxLength")
+    json_pattern = get_schema_property(schema, field_name, "pattern")
+
+    if json_max_length:
+        if str(json_max_length) != expected_length:
+            errors.append(f"    Error: {field_name} - Sheet has Type {field_type} but the JSON's max_length is {json_max_length}")
+
+    if json_pattern:
+        if field_name == "contribution_purpose_descrip":
+            pattern_length = get_cpd_pattern_length(json_pattern)
+            if expected_length != str(pattern_length):
+                errors.append(f"    Error: {field_name} - Sheet has Type {field_type} but the JSON field's pattern's length adds up to {pattern_length}")
+        elif field_name not in fixed_patterns.keys():
+            if not re.search(f"{expected_length}}}\$$", json_pattern):
+                errors.append(f"    Error: {field_name} - Sheet has Type {field_type} but the JSON field's pattern's max length is wrong ({json_pattern})")
+        else:
+            if json_pattern != fixed_patterns[field_name]:
+                errors.append(f"    Error: {field_name} - The JSON has a pattern of {json_pattern} but the expected pattern is {fixed_patterns[field_name]}")
+
+    return errors
+
+
+def check_contribution_amount(row, schema, field_name):
+    return []
 
 
 def check_required(row, schema, field_name):
@@ -136,22 +197,22 @@ def check_required(row, schema, field_name):
 
     if sheet_required != schema_required:
         if sheet_required:
-            errors.append(f'    Error: {field_name} - This is a required field, but the Schema\'s FEC Spec does not have "X (error)"')
+            errors.append(f'    Error: {field_name} - This is a required field, but the JSON\'s FEC Spec does not have "X (error)"')
         else:
-            errors.append(f'    Error: {field_name} - This is not a required field, but the Schema\'s FEC Spec has "X (error) in it"')
+            errors.append(f'    Error: {field_name} - This is not a required field, but the JSON\'s FEC Spec has "X (error) in it"')
 
     if not conditionally_required:
         if sheet_required != in_required_list:
             if sheet_required:
-                errors.append(f"    Error: {field_name} - This is a required field, but it's not in the Schema's required array")
+                errors.append(f"    Error: {field_name} - This is a required field, but it's not in the JSON's required array")
             else:
-                errors.append(f"    Error: {field_name} - This is not a required field, but it is in the Schema's required array")
+                errors.append(f"    Error: {field_name} - This is not a required field, but it is in the JSON's required array")
     else:
         if sheet_required != in_all_of:
             if sheet_required:
-                errors.append(f"    Error: {field_name} - This is a conditionally required field, but it's not in the Schema's AllOf")
+                errors.append(f"    Error: {field_name} - This is a conditionally required field, but it's not in the JSON's AllOf")
             else:
-                errors.append(f"    Error: {field_name} - This is not a conditionally required field, but it is in the Schema's AllOf")
+                errors.append(f"    Error: {field_name} - This is not a conditionally required field, but it is in the JSON's AllOf")
 
     return errors
 
@@ -161,7 +222,7 @@ def compare_sample_data(row, schema, field_name):
     sheet_sample_data = row[COLUMNS['sample_data']].value
     schema_sample_data = get_schema_property(schema, field_name, 'SAMPLE_DATA', True)
     if sheet_sample_data != schema_sample_data:
-        errors.append(f'    Minor Error: {field_name} - The Sheet has Sample Data of "{sheet_sample_data}" while the Schema has "{schema_sample_data}"')
+        errors.append(f'    Minor Error: {field_name} - The Sheet has Sample Data of "{sheet_sample_data}" while the JSON has "{schema_sample_data}"')
 
     return errors
 
@@ -176,11 +237,11 @@ def check_form_type(row, schema, field_name):
 
     if "const" in schema_properties.keys():
         if form_type != schema_properties["const"]:
-            errors.append(f'    Error: {field_name} - Sheet has Form Type "{form_type}" while the Schema has "{schema_properties["const"]}"')
+            errors.append(f'    Error: {field_name} - Sheet has Form Type "{form_type}" while the JSON has "{schema_properties["const"]}"')
 
     elif "enum" in schema_properties.keys():
         if form_type not in schema_properties["enum"]:
-            errors.append(f'    Error: {field_name} - Sheet has Form Type "{form_type}" while the Schema has "{schema_properties["enum"]}"')
+            errors.append(f'    Error: {field_name} - Sheet has Form Type "{form_type}" while the JSON has "{schema_properties["enum"]}"')
 
     return errors
 
@@ -195,12 +256,12 @@ def check_entity_type(row, schema, field_name):
 
     if "const" in schema_properties.keys():
         if schema_properties["const"] not in entity_types:
-            errors.append(f'    Error: {field_name} - Sheet has Entity Type "{entity_types}" while the Schema has "{schema_properties["const"]}"')
+            errors.append(f'    Error: {field_name} - Sheet has Entity Type "{entity_types}" while the JSON has "{schema_properties["const"]}"')
 
     elif "enum" in schema_properties.keys():
         for e_type in schema_properties["enum"]:
             if e_type not in entity_types:
-                errors.append(f'    Error: {field_name} - Sheet has Entity Types: "{entity_types}" while the Schema has "{schema_properties["enum"]}"')
+                errors.append(f'    Error: {field_name} - Sheet has Entity Types: "{entity_types}" while the JSON has "{schema_properties["enum"]}"')
 
     return errors
 
@@ -220,18 +281,23 @@ def check_aggregation_group(row, schema, field_name):
         sheet_aggr_group = sheet_aggr_group.upper()
 
     if sheet_aggr_group != schema_aggr_group:
-        errors.append(f'    Error: {field_name} - Sheet has an (adjusted) Aggregation Group of "{sheet_aggr_group}" while the Schema has "{schema_aggr_group}"')
+        errors.append(f'    Error: {field_name} - Sheet has an (adjusted) Aggregation Group of "{sheet_aggr_group}" while the JSON has "{schema_aggr_group}"')
 
     return errors
 
 
 def verify(sheet, schema):
+    # Check methods are looking for a single field
+    # Compare methods run on *every* field
+
     errors = []
     error_check_functions = [
         compare_type,
+        compare_length,
         check_required,
         check_form_type,
         check_entity_type,
+        check_contribution_amount,
         check_aggregation_group
     ]
 
@@ -253,13 +319,71 @@ def verify(sheet, schema):
 
 def get_help_message():
     return str(
-        "This script checks for differences between this repo's JSON Schema files and a spec spreadsheet.\n"+
+        "This script checks for differences between this repo's JSON files and a spec spreadsheet.\n"+
         'The script will scan the local directory for a spreadsheet ending with ".xlsx" unless the user\n'+
         "passes in a valid  spreadsheet file name.\n\n"+
         "options:\n"
         "   -v Displays minor errors (e.g. Sample Data mismatches)\n"
         "   -h Displays this message"
     )
+
+
+def generate_report(
+    errors,
+    minor_errors,
+    missing_schema_files,
+    missing_transaction_type_identifiers,
+    failed_to_open,
+    failed_to_load,
+    save=True
+):
+    report = ""
+
+    sheets_with_errors = list(errors.keys())
+    sheets_with_minor_errors = list(minor_errors.keys())
+    sheets_with_errors.sort()
+    sheets_with_minor_errors.sort()
+    missing_schema_files.sort()
+    missing_transaction_type_identifiers.sort()
+    failed_to_open.sort()
+    failed_to_load.sort()
+
+    if (len(missing_schema_files) > 0):
+        report += "Transaction Type Identifiers without a corresponding JSON file:\n"
+        report += "    "+"\n    ".join(missing_schema_files)+"\n\n"
+
+    if (len(missing_transaction_type_identifiers) > 0):
+        report += "Sheets missing a Transaction Type Identifier:\n"
+        report += "    "+"\n    ".join(missing_transaction_type_identifiers)+"\n\n"
+
+    if (len(failed_to_open) > 0):
+        report += "Failed to open:\n"
+        report += "    "+"\n    ".join(failed_to_open)+"\n\n"
+
+    if (len(failed_to_load) > 0):
+        report += "Failed to load:\n"
+        report += "    "+"\n    ".join(failed_to_load)+"\n\n"
+
+    sheets = sheets_with_errors
+    if (display_minor_errors):
+        sheets += sheets_with_minor_errors
+
+    for sheet_name in sheets:
+        if (len(errors[sheet_name]) > 0):
+            report += sheet_name+"\n"
+            for error in errors[sheet_name]:
+                report += error+"\n"
+            if (display_minor_errors):
+                for minor_error in minor_errors[sheet_name]:
+                    report += minor_error+"\n"
+            report += '\n\n'
+
+    print(report)
+    if save:
+        file = open("spec_report.txt", "w")
+        file.write(report)
+        file.close()
+
 
 
 if (__name__ == "__main__"):
@@ -352,41 +476,12 @@ if (__name__ == "__main__"):
         errors[transaction_type_identifier] = new_errors
         minor_errors[transaction_type_identifier] = new_minor_errors
 
-    sheets_with_errors = list(errors.keys())
-    sheets_with_minor_errors = list(minor_errors.keys())
-    sheets_with_errors.sort()
-    sheets_with_minor_errors.sort()
-    missing_schema_files.sort()
-    missing_transaction_type_identifiers.sort()
-    failed_to_open.sort()
-    failed_to_load.sort()
-
-    if (len(missing_schema_files) > 0):
-        print("Transaction Type Identifiers without a corresponding JSON Schema file:")
-        print("   ", "\n    ".join(missing_schema_files), "\n")
-
-    if (len(missing_transaction_type_identifiers) > 0):
-        print("Sheets missing a Transaction Type Identifier:")
-        print("   ", "\n    ".join(missing_transaction_type_identifiers), "\n")
-
-    if (len(failed_to_open) > 0):
-        print("Failed to open:")
-        print("   ", *failed_to_open)
-
-    if (len(failed_to_load) > 0):
-        print("Failed to load:")
-        print("   ", *failed_to_load)
-
-    sheets = sheets_with_errors
-    if (display_minor_errors):
-        sheets += sheets_with_minor_errors
-
-    for sheet in sheets:
-        if (len(errors[sheet]) > 0):
-            print(sheet)
-            for error in errors[sheet]:
-                print(error)
-            if (display_minor_errors):
-                for minor_error in minor_errors[sheet]:
-                    print(minor_error)
-            print('\n')
+    generate_report(
+        errors,
+        minor_errors,
+        missing_schema_files,
+        missing_transaction_type_identifiers,
+        failed_to_open,
+        failed_to_load,
+        save=True
+    )
