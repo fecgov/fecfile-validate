@@ -29,7 +29,7 @@ def get_transaction_type_identifier(sheet):
     }
 
     column_overrides = {
-        "OFFSET_TO_OPERATING_EXPENDITURE":"E"
+        "OFFSET_TO_OPERATING_EXPENDITURE": "E"
     }
 
     tti_row_range = range(5, 11)
@@ -149,9 +149,8 @@ def compare_length(row, schema, field_name):
     json_max_length = get_schema_property(schema, field_name, "maxLength")
     json_pattern = get_schema_property(schema, field_name, "pattern")
 
-    if json_max_length:
-        if json_max_length != expected_length:
-            errors.append(f"    Error: {field_name} - Sheet has Type {field_type} but the JSON's max_length is {json_max_length}")
+    if json_max_length and json_max_length != expected_length:
+        errors.append(f"    Error: {field_name} - Sheet has Type {field_type} but the JSON's max_length is {json_max_length}")
 
     if json_pattern:
         if field_name == "contribution_purpose_descrip":
@@ -159,7 +158,7 @@ def compare_length(row, schema, field_name):
             if expected_length != pattern_length:
                 errors.append(f"    Error: {field_name} - Sheet has Type {field_type} but the JSON field's pattern's length adds up to {pattern_length}")
         elif field_name not in fixed_patterns.keys():
-            if not re.search(f"{expected_length}}}\$$", json_pattern):
+            if not re.search(f"{expected_length}}}\\$$", json_pattern):
                 errors.append(f"    Error: {field_name} - Sheet has Type {field_type} but the JSON field's pattern's max length is wrong ({json_pattern})")
         else:
             if json_pattern != fixed_patterns[field_name]:
@@ -181,7 +180,7 @@ def check_contribution_amount(row, schema, field_name):
 
     sheet_rule_reference = row[COLUMNS["rule_reference"]].value
     sheet_amount_negative = False
-    if sheet_rule_reference != None:
+    if sheet_rule_reference is not None:
         sheet_amount_negative = "negative" in sheet_rule_reference.lower()
 
     json_minimum = get_schema_property(schema, field_name, "minimum")
@@ -194,7 +193,7 @@ def check_contribution_amount(row, schema, field_name):
         errors.append(f"    Error: {field_name} - The JSON's minimum value is {json_minimum} when it should have a length of 12")
 
     if not sheet_amount_negative:
-        if not json_maximum: 
+        if not json_maximum:
             errors.append(f"    Error: {field_name} - The JSON for the field has no maximum value")
         elif len(str(json_maximum)) != expected_length:
             errors.append(f"    Error: {field_name} - The JSON's maximum value is {json_maximum} when it should have a length of 12")
@@ -361,9 +360,9 @@ def verify(sheet, schema):
 
 def get_help_message():
     return str(
-        "This script checks for differences between this repo's JSON files and a spec spreadsheet.\n"+
-        'The script will scan the local directory for a spreadsheet ending with ".xlsx" unless the user\n'+
-        "passes in a valid  spreadsheet file name.\n\n"+
+        "This script checks for differences between this repo's JSON files and a spec spreadsheet.\n"
+        'The script will scan the local directory for a spreadsheet ending with ".xlsx" unless the user\n'
+        "passes in a valid  spreadsheet file name.\n\n"
         "options:\n"
         "   -v Displays minor errors (e.g. Sample Data mismatches)\n"
         "   -h Displays this message"
@@ -427,14 +426,13 @@ def generate_report(
         file.close()
 
 
-
 if (__name__ == "__main__"):
     filename = None
     display_minor_errors = False
 
     if not openpyxl_is_installed():
         print(
-            "The openpyxl package is not installed.  Install the package with:\n"+
+            "The openpyxl package is not installed.  Install the package with:\n"
             "    python -m pip install openpyxl"
         )
         exit()
