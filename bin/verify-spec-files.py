@@ -107,6 +107,17 @@ def compare_type(row, schema, field_name):
     return errors
 
 
+def get_length_from_type(type):
+    if not type:
+        return None
+
+    split_type = type.split("-")
+    if len(split_type) <= 1:
+        return None
+
+    return int(split_type[-1].strip(" "))
+
+
 def get_cpd_pattern_length(pattern):
     # Left of the "[" we find the fixed text of the pattern
     # Right of the "[" we find the "[ -~]{min_length,max_length}$" pattern
@@ -123,7 +134,6 @@ def get_cpd_pattern_length(pattern):
 
 def compare_length(row, schema, field_name):
     errors = []
-    field_type = row[COLUMNS["type"]].value
 
     fixed_patterns = {
         "filer_committee_id_number": "^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$",
@@ -131,25 +141,22 @@ def compare_length(row, schema, field_name):
         "donor_committee_fec_id": "^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$",
     }
 
-    if not field_type:
+    field_type = row[COLUMNS["type"]].value
+    expected_length = get_length_from_type(field_type)
+    if not expected_length:
         return errors
 
-    split_field_type = field_type.split("-")
-    if len(split_field_type) <= 1:
-        return errors
-
-    expected_length = str(split_field_type[-1]).strip(" ")
     json_max_length = get_schema_property(schema, field_name, "maxLength")
     json_pattern = get_schema_property(schema, field_name, "pattern")
 
     if json_max_length:
-        if str(json_max_length) != expected_length:
+        if json_max_length != expected_length:
             errors.append(f"    Error: {field_name} - Sheet has Type {field_type} but the JSON's max_length is {json_max_length}")
 
     if json_pattern:
         if field_name == "contribution_purpose_descrip":
             pattern_length = get_cpd_pattern_length(json_pattern)
-            if expected_length != str(pattern_length):
+            if expected_length != pattern_length:
                 errors.append(f"    Error: {field_name} - Sheet has Type {field_type} but the JSON field's pattern's length adds up to {pattern_length}")
         elif field_name not in fixed_patterns.keys():
             if not re.search(f"{expected_length}}}\$$", json_pattern):
@@ -162,7 +169,42 @@ def compare_length(row, schema, field_name):
 
 
 def check_contribution_amount(row, schema, field_name):
-    return []
+    errors = []
+
+    if field_name != "contribution_amount":
+        return errors
+
+    sheet_form_type = row[COLUMNS["type"]].value
+    expected_length = get_length_from_type(sheet_form_type)
+    if not expected_length:
+        return errors
+
+    sheet_rule_reference = row[COLUMNS["rule_reference"]].value
+    sheet_amount_negative = False
+    if sheet_rule_reference != None:
+        sheet_amount_negative = "negative" in sheet_rule_reference.lower()
+
+    json_minimum = get_schema_property(schema, field_name, "minimum")
+    json_maximum = get_schema_property(schema, field_name, "maximum")
+    json_exclusive_maximum = get_schema_property(schema, field_name, "exclusiveMaximum")
+
+    if not json_minimum:
+        errors.append(f"    Error: {field_name} - The JSON for the field has no minimum value")
+    elif len(str(json_minimum)) != expected_length:
+        errors.append(f"    Error: {field_name} - The JSON's minimum value is {json_minimum} when it should have a length of 12")
+
+    if not sheet_amount_negative:
+        if not json_maximum: 
+            errors.append(f"    Error: {field_name} - The JSON for the field has no maximum value")
+        elif len(str(json_maximum)) != expected_length:
+            errors.append(f"    Error: {field_name} - The JSON's maximum value is {json_maximum} when it should have a length of 12")
+    else:
+        if json_exclusive_maximum is None:
+            errors.append(f"    Error: {field_name} - The JSON for the field has no exclusiveMaximum value")
+        elif json_exclusive_maximum != 0:
+            errors.append(f"    Error: {field_name} - The JSON's exclusiveMaximum should equal 0")
+
+    return errors
 
 
 def check_required(row, schema, field_name):
