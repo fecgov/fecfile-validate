@@ -106,7 +106,10 @@ def compare_type(row, schema, field_name):
         match = (expected_type == actual_type)
 
     if not match:
-        errors.append(f'    Error: {field_name} - Sheet has Type {expected_type} and the JSON has {actual_type}')
+        errors.append(
+            f'    Error: {field_name} - Sheet has Type {expected_type} '
+            f'and the JSON has {actual_type}'
+        )
 
     return errors
 
@@ -154,19 +157,31 @@ def compare_length(row, schema, field_name):
     json_pattern = get_schema_property(schema, field_name, "pattern")
 
     if json_max_length and json_max_length != expected_length:
-        errors.append(f"    Error: {field_name} - Sheet has Type {field_type} but the JSON's max_length is {json_max_length}")
+        errors.append(
+            f"    Error: {field_name} - Sheet has Type {field_type} but "
+            f"the JSON's max_length is {json_max_length}"
+        )
 
     if json_pattern:
         if field_name == "contribution_purpose_descrip":
             pattern_length = get_cpd_pattern_length(json_pattern)
             if expected_length != pattern_length:
-                errors.append(f"    Error: {field_name} - Sheet has Type {field_type} but the JSON field's pattern's length adds up to {pattern_length}")
+                errors.append(
+                    f"    Error: {field_name} - Sheet has Type {field_type} but "
+                    f"the JSON field's pattern's length adds up to {pattern_length}"
+                )
         elif field_name not in fixed_patterns.keys():
             if not re.search(f"{expected_length}}}\\$$", json_pattern):
-                errors.append(f"    Error: {field_name} - Sheet has Type {field_type} but the JSON field's pattern's max length is wrong ({json_pattern})")
+                errors.append(
+                    f"    Error: {field_name} - Sheet has Type {field_type} but "
+                    f"the JSON field's pattern's max length is wrong ({json_pattern})"
+                )
         else:
             if json_pattern != fixed_patterns[field_name]:
-                errors.append(f"    Error: {field_name} - The JSON has a pattern of {json_pattern} but the expected pattern is {fixed_patterns[field_name]}")
+                errors.append(
+                    f"    Error: {field_name} - The JSON has a pattern of {json_pattern} "
+                    f"but the expected pattern is {fixed_patterns[field_name]}"
+                )
 
     return errors
 
@@ -192,20 +207,38 @@ def check_contribution_amount(row, schema, field_name):
     json_exclusive_maximum = get_schema_property(schema, field_name, "exclusiveMaximum")
 
     if not json_minimum:
-        errors.append(f"    Error: {field_name} - The JSON for the field has no minimum value")
+        errors.append(
+            f"    Error: {field_name} - The JSON for "
+            f"the field has no minimum value"
+        )
     elif len(str(json_minimum)) != expected_length:
-        errors.append(f"    Error: {field_name} - The JSON's minimum value is {json_minimum} when it should have a length of 12")
+        errors.append(
+            f"    Error: {field_name} - The JSON's minimum value "
+            f"is {json_minimum} when it should have a length of 12"
+        )
 
     if not sheet_amount_negative:
         if not json_maximum:
-            errors.append(f"    Error: {field_name} - The JSON for the field has no maximum value")
+            errors.append(
+                f"    Error: {field_name} - The JSON for the field "
+                f"has no maximum value"
+            )
         elif len(str(json_maximum)) != expected_length:
-            errors.append(f"    Error: {field_name} - The JSON's maximum value is {json_maximum} when it should have a length of 12")
+            errors.append(
+                f"    Error: {field_name} - The JSON's maximum value "
+                f"is {json_maximum} when it should have a length of 12"
+            )
     else:
         if json_exclusive_maximum is None:
-            errors.append(f"    Error: {field_name} - The JSON for the field has no exclusiveMaximum value")
+            errors.append(
+                f"    Error: {field_name} - The JSON for "
+                f"the field has no exclusiveMaximum value"
+            )
         elif json_exclusive_maximum != 0:
-            errors.append(f"    Error: {field_name} - The JSON's exclusiveMaximum should equal 0")
+            errors.append(
+                f"    Error: {field_name} - The JSON's "
+                f"exclusiveMaximum should equal 0"
+            )
 
     return errors
 
@@ -213,7 +246,9 @@ def check_contribution_amount(row, schema, field_name):
 def check_required(row, schema, field_name):
     errors = []
     sheet_required_raw = row[COLUMNS['required']].value
-    schema_required_raw = get_schema_property(schema, field_name, 'REQUIRED', is_fec_spec=True)
+    schema_required_raw = get_schema_property(
+        schema, field_name, 'REQUIRED', is_fec_spec=True
+    )
     schema_required_list = schema['required']
 
     if sheet_required_raw is None:
@@ -242,22 +277,40 @@ def check_required(row, schema, field_name):
 
     if sheet_required != schema_required:
         if sheet_required:
-            errors.append(f'    Error: {field_name} - This is a required field, but the JSON\'s FEC Spec does not have "X (error)"')
+            errors.append(
+                f'    Error: {field_name} - This is a required field, '
+                f'but the JSON\'s FEC Spec does not have "X (error)"'
+            )
         else:
-            errors.append(f'    Error: {field_name} - This is not a required field, but the JSON\'s FEC Spec has "X (error) in it"')
+            errors.append(
+                f'    Error: {field_name} - This is not a required field, '
+                f'but the JSON\'s FEC Spec has "X (error) in it"'
+            )
 
     if not conditionally_required:
         if sheet_required != in_required_list:
             if sheet_required:
-                errors.append(f"    Error: {field_name} - This is a required field, but it's not in the JSON's required array")
+                errors.append(
+                    f"    Error: {field_name} - This is a required "
+                    f"field, but it's not in the JSON's required array"
+                )
             else:
-                errors.append(f"    Error: {field_name} - This is not a required field, but it is in the JSON's required array")
+                errors.append(
+                    f"    Error: {field_name} - This is not a required "
+                    f"field, but it is in the JSON's required array"
+                )
     else:
         if sheet_required != in_all_of:
             if sheet_required:
-                errors.append(f"    Error: {field_name} - This is a conditionally required field, but it's not in the JSON's AllOf")
+                errors.append(
+                    f"    Error: {field_name} - This is a conditionally "
+                    f"required field, but it's not in the JSON's AllOf"
+                )
             else:
-                errors.append(f"    Error: {field_name} - This is not a conditionally required field, but it is in the JSON's AllOf")
+                errors.append(
+                    f"    Error: {field_name} - This is not a conditionally "
+                    f"required field, but it is in the JSON's AllOf"
+                )
 
     return errors
 
@@ -267,7 +320,10 @@ def compare_sample_data(row, schema, field_name):
     sheet_sample_data = row[COLUMNS['sample_data']].value
     schema_sample_data = get_schema_property(schema, field_name, 'SAMPLE_DATA', True)
     if sheet_sample_data != schema_sample_data:
-        errors.append(f'    Minor Error: {field_name} - The Sheet has Sample Data of "{sheet_sample_data}" while the JSON has "{schema_sample_data}"')
+        errors.append(
+            f'    Minor Error: {field_name} - The Sheet has Sample Data of '
+            f'"{sheet_sample_data}" while the JSON has "{schema_sample_data}"'
+        )
 
     return errors
 
@@ -282,11 +338,17 @@ def check_form_type(row, schema, field_name):
 
     if "const" in schema_properties.keys():
         if form_type != schema_properties["const"]:
-            errors.append(f'    Error: {field_name} - Sheet has Form Type "{form_type}" while the JSON has "{schema_properties["const"]}"')
+            errors.append(
+                f'    Error: {field_name} - Sheet has Form Type '
+                f'"{form_type}" while the JSON has "{schema_properties["const"]}"'
+            )
 
     elif "enum" in schema_properties.keys():
         if form_type not in schema_properties["enum"]:
-            errors.append(f'    Error: {field_name} - Sheet has Form Type "{form_type}" while the JSON has "{schema_properties["enum"]}"')
+            errors.append(
+                f'    Error: {field_name} - Sheet has Form Type '
+                f'"{form_type}" while the JSON has "{schema_properties["enum"]}"'
+            )
 
     return errors
 
@@ -301,12 +363,18 @@ def check_entity_type(row, schema, field_name):
 
     if "const" in schema_properties.keys():
         if schema_properties["const"] not in entity_types:
-            errors.append(f'    Error: {field_name} - Sheet has Entity Type "{entity_types}" while the JSON has "{schema_properties["const"]}"')
+            errors.append(
+                f'    Error: {field_name} - Sheet has Entity Type '
+                f'"{entity_types}" while the JSON has "{schema_properties["const"]}"'
+            )
 
     elif "enum" in schema_properties.keys():
         for e_type in schema_properties["enum"]:
             if e_type not in entity_types:
-                errors.append(f'    Error: {field_name} - Sheet has Entity Types: "{entity_types}" while the JSON has "{schema_properties["enum"]}"')
+                errors.append(
+                    f'    Error: {field_name} - Sheet has Entity Types: '
+                    f'"{entity_types}" while the JSON has "{schema_properties["enum"]}"'
+                )
 
     return errors
 
@@ -328,7 +396,10 @@ def check_aggregation_group(row, schema, field_name):
         sheet_aggr_group = sheet_aggr_group.upper()
 
     if sheet_aggr_group != schema_aggr_group:
-        errors.append(f'    Error: {field_name} - Sheet has an (adjusted) Aggregation Group of "{sheet_aggr_group}" while the JSON has "{schema_aggr_group}"')
+        errors.append(
+            f'    Error: {field_name} - Sheet has an (adjusted) Aggregation Group '
+            f'of "{sheet_aggr_group}" while the JSON has "{schema_aggr_group}"'
+        )
 
     return errors
 
@@ -366,8 +437,10 @@ def verify(sheet, schema):
 
 def get_help_message():
     return str(
-        "This script checks for differences between this repo's JSON files and a spec spreadsheet.\n"
-        'The script will scan the local directory for a spreadsheet ending with ".xlsx" unless the user\n'
+        'This script checks for differences between this '
+        "repo's JSON files and a spec spreadsheet.\n"
+        'The script will scan the local directory for a '
+        'spreadsheet ending with ".xlsx" unless the user\n'
         "passes in a valid  spreadsheet file name.\n\n"
         "options:\n"
         "   -v Displays minor errors (e.g. Sample Data mismatches)\n"
@@ -511,7 +584,9 @@ if (__name__ == "__main__"):
 
         json_file = open(schema_file_path, 'r')
         if not json_file:
-            failed_to_open.append(f'Failed to open JSON file: {transaction_type_identifier}')
+            failed_to_open.append(
+                f'Failed to open JSON file: {transaction_type_identifier}'
+            )
             continue
 
         schema = json.load(json_file)
