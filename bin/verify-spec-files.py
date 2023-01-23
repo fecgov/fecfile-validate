@@ -143,6 +143,9 @@ def get_cpd_pattern_length(pattern):
 def compare_length(row, schema, field_name):
     errors = []
 
+    # These are recurring patterns whose lengths are very hard to measure with a function
+    # Instead, the fields corresponding to the keys here are considered as matching if
+    # their pattern matches the value below
     fixed_patterns = {
         "filer_committee_id_number": "^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$",
         "contribution_date": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
