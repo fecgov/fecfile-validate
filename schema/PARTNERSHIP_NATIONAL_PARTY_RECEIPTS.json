@@ -355,7 +355,9 @@
                 "NATIONAL_PARTY_CONVENTION_ACCOUNT"
             ],
             "examples": [
-                "NATIONAL_PARTY_RECOUNT_ACCOUNT"
+                "NATIONAL_PARTY_RECOUNT_ACCOUNT",
+                "NATIONAL_PARTY_HEADQUARTERS_ACCOUNT",
+                "NATIONAL_PARTY_CONVENTION_ACCOUNT"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "AGGREGATION GROUP",
@@ -373,7 +375,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 100,
-            "pattern": "^[ -~]{0,100}$",
+            "pattern": "^([ -~]{0,46} \\(Partnership attributions do not require itemization\\)|[ -~]{0,62} \\(See Partnership Attribution\\(s\\) below\\))$",
             "fec_spec": {
                 "FIELD_DESCRIPTION": "CONTRIBUTION PURPOSE DESCRIPTION",
                 "TYPE": "A/N-100",
@@ -421,5 +423,64 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         }
-    }
+    },
+    "allOf": [
+        {
+            "if": {
+                "properties": {
+                    "transaction_type_identifier": {
+                        "const": "PARTNERSHIP_NATIONAL_PARTY_RECOUNT_ACCOUNT"
+                    }
+                },
+                "required": [
+                    "transaction_type_identifier"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "aggregation_group": {
+                        "const": "NATIONAL_PARTY_RECOUNT_ACCOUNT"
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "transaction_type_identifier": {
+                        "const": "PARTNERSHIP_NATIONAL_PARTY_HEADQUARTERS_ACCOUNT"
+                    }
+                },
+                "required": [
+                    "transaction_type_identifier"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "aggregation_group": {
+                        "const": "NATIONAL_PARTY_HEADQUARTERS_ACCOUNT"
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "transaction_type_identifier": {
+                        "const": "PARTNERSHIP_NATIONAL_PARTY_CONVENTION_ACCOUNT"
+                    }
+                },
+                "required": [
+                    "transaction_type_identifier"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "aggregation_group": {
+                        "const": "NATIONAL_PARTY_CONVENTION_ACCOUNT"
+                    }
+                }
+            }
+        }
+    ]
 }
