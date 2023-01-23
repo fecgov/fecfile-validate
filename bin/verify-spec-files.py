@@ -130,10 +130,11 @@ def get_cpd_pattern_length(pattern):
     # Right of the "[" we find the "[ -~]{min_length,max_length}$" pattern
     fixed, length_str = pattern.split("[")
 
+    # Finding the maximum length of abritrary characters in the pattern
     length_str = length_str.split(",")[1]  # Right of the comma aaaaand
-    max_length = length_str.split("}")[0]  # left of the curly brace is the length of arbitrary characters
+    max_length = length_str.split("}")[0]  # left of the brace is the max length
 
-    fixed = fixed.strip("^")  # We remove the "^" symbol since it doesn't factor into the length
+    fixed = fixed.strip("^")  # We remove the ^ symbol since it's not part of the length
 
     pattern_length = len(fixed)+int(max_length)
     return pattern_length
