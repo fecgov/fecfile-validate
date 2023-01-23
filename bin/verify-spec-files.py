@@ -32,6 +32,10 @@ def get_transaction_type_identifier(sheet):
         "OFFSET_TO_OPERATING_EXPENDITURE": "E"
     }
 
+    tti_field = sheet['A2'].value
+    if (tti_field and tti_field != "FIELD DESCRIPTION"):
+        return tti_field
+
     tti_row_range = range(5, 11)
     for row in tti_row_range:
         column = "F"
@@ -60,7 +64,7 @@ def get_schema_fields(sheet):
     ]
 
     fields = {}
-    row = 4
+    row = 5
     while sheet['A'+str(row)].value:
         field_name_raw = sheet['A'+str(row)].value.lower()
         field_name = '_'.join(field_name_raw.split(' '))
@@ -313,6 +317,8 @@ def check_aggregation_group(row, schema, field_name):
         return errors
 
     sheet_aggr_group = row[COLUMNS['rule_reference']].value
+    if not sheet_aggr_group:
+        sheet_aggr_group = row[COLUMNS["value_reference"]].value
 
     schema_aggr_group = schema['properties'][field_name]["const"]
 
@@ -473,6 +479,7 @@ if (__name__ == "__main__"):
     # Sheet titles cannot be longer than 31 characters
     excluded_sheets = [
         "HDR Record",
+        "TEXT",
         "zzEARMARK_MEMO_HEADQUARTERS_ACCOUNT"[:31],
         "zzEARMARK_RECEIPT_HEADQUARTERS_ACCOUNT"[:31],
         "zzEARMARK_MEMO_CONVENTION_ACCOUNT"[:31],
