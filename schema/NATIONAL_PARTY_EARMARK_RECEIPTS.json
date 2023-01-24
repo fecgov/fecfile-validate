@@ -474,6 +474,8 @@
             ],
             "examples": [
                 "NATIONAL_PARTY_RECOUNT_ACCOUNT",
+                "NATIONAL_PARTY_CONVENTION_ACCOUNT",
+                "NATIONAL_PARTY_HEADQUARTERS_ACCOUNT"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "AGGREGATION GROUP",
@@ -688,7 +690,11 @@
                     "contribution_purpose_descrip: ": {
                         "pattern": "^Recount/Legal Proceedings Account - Earmarked Through [ -~]{0,46}$"
                     }
-                }
+                },
+                "required": [
+                    "contribution_purpose_descrip",
+                    "aggregation_group"
+                ]
             }
         },
         {
@@ -710,7 +716,11 @@
                     "contribution_purpose_descrip: ": {
                         "pattern": "^Pres. Nominating Convention Account - Earmarked Through [ -~]{0,44}$"
                     }
-                }
+                },
+                "required": [
+                    "contribution_purpose_descrip",
+                    "aggregation_group"
+                ]
             }
         },
         {
@@ -732,7 +742,11 @@
                     "contribution_purpose_descrip: ": {
                         "pattern": "^Headquarters Buildings Account - Earmarked Through [ -~]{0,49}$"
                     }
-                }
+                },
+                "required": [
+                    "contribution_purpose_descrip",
+                    "aggregation_group"
+                ]
             }
         }
     ]
