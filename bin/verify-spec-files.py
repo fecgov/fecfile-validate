@@ -1,11 +1,46 @@
+"""
+Verify local JSON schema files against an Excel spreadsheet.
+
+This script checks for differences between this repo's JSON files and a spec spreadsheet.
+The script will scan the local directory for a spreadsheet ending with ".xlsx" unless the user
+passes in a valid  spreadsheet file name.
+
+The JSON schema standard can be found here:
+http://json-schema.org/
+"""
+
+
 from os import path, listdir
-import pkg_resources
+from openpyxl import load_workbook
+import argparse
 import json
 import time
-import sys
 import re
 
 
+parser = argparse.ArgumentParser(
+    description =
+        'This script checks for differences between this '
+        "repo's JSON files and a spec spreadsheet.\n"
+        'The script will scan the local directory for a '
+        'spreadsheet ending with ".xlsx" unless the user\n'
+        "passes in a valid  spreadsheet file name.\n\n"
+)
+parser.add_argument(
+    "excel_filename",
+    default = None,
+    nargs = '?',  # Allows for 0 or 1 filenames to be specified
+    help = "an excel filename that will be parsed to generate JSON schema docs",
+)
+parser.add_argument(
+    "-v",
+    "--verbose",
+    help = "record and print minor errors",
+    action = "store_true"
+)
+args = parser.parse_args()
+VERBOSE = args.verbose
+EXCEL_FILENAME = args.excel_filename
 COLUMNS = {
     "property_name": 0,
     "type": 1,
@@ -14,13 +49,6 @@ COLUMNS = {
     "value_reference": 4,
     "rule_reference": 5,
 }
-
-
-def openpyxl_is_installed():
-    for package in pkg_resources.working_set:
-        if package.key == "openpyxl":
-            return True
-    return False
 
 
 def get_transaction_type_identifier(sheet):
@@ -439,19 +467,6 @@ def verify(sheet, schema):
     return [errors, minor_errors]
 
 
-def get_help_message():
-    return str(
-        'This script checks for differences between this '
-        "repo's JSON files and a spec spreadsheet.\n"
-        'The script will scan the local directory for a '
-        'spreadsheet ending with ".xlsx" unless the user\n'
-        "passes in a valid  spreadsheet file name.\n\n"
-        "options:\n"
-        "   -v Displays minor errors (e.g. Sample Data mismatches)\n"
-        "   -h Displays this message"
-    )
-
-
 def generate_report(
     errors,
     minor_errors,
@@ -504,32 +519,14 @@ def generate_report(
 
     print(report)
     if save:
-        file = open("spec_report.txt", "w")
+        file = open("spec_verification_report.txt", "w")
         file.write(report)
         file.close()
 
 
 if (__name__ == "__main__"):
-    filename = None
-    display_minor_errors = False
-
-    if not openpyxl_is_installed():
-        print(
-            "The openpyxl package is not installed.  Install the package with:\n"
-            "    python -m pip install openpyxl"
-        )
-        exit()
-    from openpyxl import load_workbook
-
-    if len(sys.argv) > 1:
-        for arg in sys.argv[1:]:
-            if ".xlsx" in arg:
-                filename = arg
-            if arg == "-v":
-                display_minor_errors = True
-            if arg == "-h":
-                print(get_help_message())
-                exit()
+    filename = EXCEL_FILENAME
+    display_minor_errors = VERBOSE
 
     if not filename:
         files = listdir('./')
@@ -543,12 +540,12 @@ if (__name__ == "__main__"):
             print("\nTesting against found spreadsheet:", filename)
             time.sleep(1.5)
 
-    if not filename or not path.exists(filename):
-        print("\nFile does not exist:", filename)
-        print(get_help_message())
+    if not filename:
+        print("No excel file found")
         exit()
-
-    print()
+    if not path.exists(filename):
+        print("File does not exist:", filename)
+        exit()
 
     workbook = load_workbook(filename)
     sheets = workbook._sheets
