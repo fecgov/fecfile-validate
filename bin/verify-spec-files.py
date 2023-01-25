@@ -2,8 +2,8 @@
 Verify local JSON schema files against an Excel spreadsheet.
 
 This script checks for differences between this repo's JSON files and a spec spreadsheet.
-The script will scan the local directory for a spreadsheet ending with ".xlsx" unless the user
-passes in a valid  spreadsheet file name.
+The script will scan the local directory for a spreadsheet ending with ".xlsx" unless
+the user passes in a valid  spreadsheet file name.
 
 The JSON schema standard can be found here:
 http://json-schema.org/
@@ -19,7 +19,7 @@ import re
 
 
 parser = argparse.ArgumentParser(
-    description =
+    description=
         'This script checks for differences between this '
         "repo's JSON files and a spec spreadsheet.\n"
         'The script will scan the local directory for a '
@@ -28,15 +28,15 @@ parser = argparse.ArgumentParser(
 )
 parser.add_argument(
     "excel_filename",
-    default = None,
-    nargs = '?',  # Allows for 0 or 1 filenames to be specified
-    help = "an excel filename that will be parsed to generate JSON schema docs",
+    default=None,
+    nargs='?',  # Allows for 0 or 1 filenames to be specified
+    help="an excel filename that will be parsed to generate JSON schema docs",
 )
 parser.add_argument(
     "-v",
     "--verbose",
-    help = "record and print minor errors",
-    action = "store_true"
+    help="record and print minor errors",
+    action="store_true"
 )
 args = parser.parse_args()
 VERBOSE = args.verbose
