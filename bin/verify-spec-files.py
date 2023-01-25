@@ -19,12 +19,12 @@ import re
 
 
 parser = argparse.ArgumentParser(
-    description=
-        'This script checks for differences between this '
-        "repo's JSON files and a spec spreadsheet.\n"
-        'The script will scan the local directory for a '
-        'spreadsheet ending with ".xlsx" unless the user\n'
-        "passes in a valid  spreadsheet file name.\n\n"
+    description=''
+    'This script checks for differences between this '
+    "repo's JSON files and a spec spreadsheet.\n"
+    'The script will scan the local directory for a '
+    'spreadsheet ending with ".xlsx" unless the user\n'
+    "passes in a valid  spreadsheet file name.\n\n"
 )
 parser.add_argument(
     "excel_filename",
