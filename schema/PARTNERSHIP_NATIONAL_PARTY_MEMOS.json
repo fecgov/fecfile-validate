@@ -630,6 +630,33 @@
                     }
                 }
             }
+        },
+        {
+            "if": {
+                "properties": {
+                    "contribution_aggregate": {
+                        "type": "number",
+                        "minimum": 200.01
+                    }
+                },
+                "required": [
+                    "contribution_aggregate"
+                ]
+            },
+            "then": {
+                "required": [
+                    "contributor_employer",
+                    "contributor_occupation"
+                ],
+                "properties": {
+                    "contributor_employer": {
+                        "type": "string"
+                    },
+                    "contributor_occupation": {
+                        "type": "string"
+                    }
+                }
+            }
         }
     ]
 }
