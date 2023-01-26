@@ -1,9 +1,9 @@
 {
     "$schema": "https://json-schema.org/draft-07/schema#",
-    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/NATIONAL_PARTY_EARMARK_RECEIPTS.json",
+    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/NATIONAL_PARTY_EARMARK_MEMOS.json",
     "version": "v0.0.0.0",
-    "title": "FEC National Party Earmark Receipts",
-    "description": "National Party Earmark Receipts (17)",
+    "title": "FEC National Party Earmark Memos",
+    "description": "National Party Earmark Memos (17)",
     "type": "object",
     "required": [
         "form_type",
@@ -19,7 +19,8 @@
         "contribution_amount",
         "contribution_aggregate",
         "aggregation_group",
-        "contribution_purpose_descrip"
+        "contribution_purpose_descrip",
+        "memo_code"
     ],
     "fec_recommended": [],
     "properties": {
@@ -64,20 +65,20 @@
             "title": "TRANSACTION TYPE IDENTIFIER",
             "description": "",
             "enum": [
-                "EARMARK_RECEIPT_RECOUNT_ACCOUNT",
-                "EARMARK_RECEIPT_CONVENTION_ACCOUNT",
-                "EARMARK_RECEIPT_HEADQUARTERS_ACCOUNT"
+                "EARMARK_MEMO_RECOUNT_ACCOUNT",
+                "EARMARK_MEMO_CONVENTION_ACCOUNT",
+                "EARMARK_MEMO_HEADQUARTERS_ACCOUNT"
             ],
             "examples": [
-                "EARMARK_RECEIPT_RECOUNT_ACCOUNT",
-                "EARMARK_RECEIPT_CONVENTION_ACCOUNT",
-                "EARMARK_RECEIPT_HEADQUARTERS_ACCOUNT"
+                "EARMARK_MEMO_RECOUNT_ACCOUNT",
+                "EARMARK_MEMO_CONVENTION_ACCOUNT",
+                "EARMARK_MEMO_HEADQUARTERS_ACCOUNT"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "TRANSACTION TYPE IDENTIFIER",
                 "TYPE": "A/N-12",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "EARMARK_RECEIPT_CONVENTION_ACCOUNT",
+                "SAMPLE_DATA": "EARMARK_MEMO_CONVENTION_ACCOUNT",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
@@ -490,13 +491,7 @@
         "contribution_purpose_descrip": {
             "title": "CONTRIBUTION PURPOSE DESCRIPTION",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
-            "minLength": 0,
-            "maxLength": 100,
-            "pattern": "^[ -~]{0,100}$",
+            "const": "Total earmarked through conduit.",
             "fec_spec": {
                 "FIELD_DESCRIPTION": "CONTRIBUTION PURPOSE DESCRIPTION",
                 "TYPE": "A/N-100",
@@ -556,14 +551,11 @@
         "memo_code": {
             "title": "MEMO CODE",
             "description": "",
-            "type": [
-                "boolean",
-                "null"
-            ],
+            "const": true,
             "fec_spec": {
                 "FIELD_DESCRIPTION": "MEMO CODE",
                 "TYPE": "A/N-1",
-                "REQUIRED": null,
+                "REQUIRED": "X (error)",
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": "X",
                 "RULE_REFERENCE": "X = True",
@@ -675,7 +667,7 @@
             "if": {
                 "properties": {
                     "transaction_type_identifier": {
-                        "const": "EARMARK_RECEIPT_RECOUNT_ACCOUNT"
+                        "const": "EARMARK_MEMO_RECOUNT_ACCOUNT"
                     }
                 },
                 "required": [
@@ -686,14 +678,9 @@
                 "properties": {
                     "aggregation_group": {
                         "const": "NATIONAL_PARTY_RECOUNT_ACCOUNT"
-                    },
-                    "contribution_purpose_descrip: ": {
-                        "pattern": "^Recount/Legal Proceedings Account - Earmarked Through [ -~]{0,46}$",
-                        "type": "string"
                     }
                 },
                 "required": [
-                    "contribution_purpose_descrip",
                     "aggregation_group"
                 ]
             }
@@ -702,7 +689,7 @@
             "if": {
                 "properties": {
                     "transaction_type_identifier": {
-                        "const": "EARMARK_RECEIPT_CONVENTION_ACCOUNT"
+                        "const": "EARMARK_MEMO_CONVENTION_ACCOUNT"
                     }
                 },
                 "required": [
@@ -713,14 +700,9 @@
                 "properties": {
                     "aggregation_group": {
                         "const": "NATIONAL_PARTY_CONVENTION_ACCOUNT"
-                    },
-                    "contribution_purpose_descrip: ": {
-                        "pattern": "^Pres. Nominating Convention Account - Earmarked Through [ -~]{0,44}$",
-                        "type": "string"
                     }
                 },
                 "required": [
-                    "contribution_purpose_descrip",
                     "aggregation_group"
                 ]
             }
@@ -729,7 +711,7 @@
             "if": {
                 "properties": {
                     "transaction_type_identifier": {
-                        "const": "EARMARK_RECEIPT_HEADQUARTERS_ACCOUNT"
+                        "const": "EARMARK_MEMO_HEADQUARTERS_ACCOUNT"
                     }
                 },
                 "required": [
@@ -740,14 +722,9 @@
                 "properties": {
                     "aggregation_group": {
                         "const": "NATIONAL_PARTY_HEADQUARTERS_ACCOUNT"
-                    },
-                    "contribution_purpose_descrip: ": {
-                        "pattern": "^Headquarters Buildings Account - Earmarked Through [ -~]{0,49}$",
-                        "type": "string"
                     }
                 },
                 "required": [
-                    "contribution_purpose_descrip",
                     "aggregation_group"
                 ]
             }
