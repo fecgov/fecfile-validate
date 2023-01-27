@@ -362,7 +362,7 @@
             "fec_spec": {
                 "FIELD_DESCRIPTION": "AGGREGATION GROUP",
                 "TYPE": null,
-                "REQUIRED": null,
+                "REQUIRED": "X (error)",
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
@@ -440,6 +440,12 @@
                 "properties": {
                     "aggregation_group": {
                         "const": "NATIONAL_PARTY_RECOUNT_ACCOUNT"
+                    },
+                    "contribution_purpose_descrip": {
+                        "enum": [
+                            "Recount/Legal Proceedings Account (Partnership attributions do not require itemization)",
+                            "Recount/Legal Proceedings Account (See Partnership Attribution(s) below)"
+                        ]
                     }
                 }
             }
@@ -459,6 +465,12 @@
                 "properties": {
                     "aggregation_group": {
                         "const": "NATIONAL_PARTY_HEADQUARTERS_ACCOUNT"
+                    },
+                    "contribution_purpose_descrip": {
+                        "enum": [
+                            "Headquarters Buildings Account (Partnership attributions do not require itemization)",
+                            "Headquarters Buildings Account (See Partnership Attribution(s) below)"
+                        ]
                     }
                 }
             }
@@ -478,6 +490,12 @@
                 "properties": {
                     "aggregation_group": {
                         "const": "NATIONAL_PARTY_CONVENTION_ACCOUNT"
+                    },
+                    "contribution_purpose_descrip": {
+                        "enum": [
+                            "Pres. Nominating Convention Account (Partnership attributions do not require itemization)",
+                            "Pres. Nominating Convention Account (See Partnership Attribution(s) below)"
+                        ]
                     }
                 }
             }
