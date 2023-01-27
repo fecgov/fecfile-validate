@@ -87,6 +87,14 @@ for p in data["properties"]:
                 conditions = get_conditions(all_of)
                 result = f"{p.upper()} = '{const_value}'"
                 validation_rules += f"<li>{result} if {' & '.join(conditions)}</li>"
+            if (
+                p in all_of["then"]["properties"]
+                and "enum" in all_of["then"]["properties"][p]
+            ):
+                enum_value = all_of["then"]["properties"][p]["enum"]
+                conditions = get_conditions(all_of)
+                result = f"{p.upper()} must be one of {enum_value}"
+                validation_rules += f"<li>{result} if {' & '.join(conditions)}</li>"
 
     if p in data["required"]:
         validation_rules += "<li>REQUIRED</li>"
