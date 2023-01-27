@@ -46,15 +46,15 @@ def get_conditions(all_of):
     for q in all_of["if"]["properties"]:
         if "const" in all_of["if"]["properties"][q]:
             conditions.append(
-                f"{q.upper()} equals " f"{all_of['if']['properties'][q]['const']}"
+                f"{q.upper()} equals {all_of['if']['properties'][q]['const']}"
             )
         if "enum" in all_of["if"]["properties"][q]:
             conditions.append(
-                f"{q.upper()} one of " f"{all_of['if']['properties'][q]['enum']}"
+                f"{q.upper()} one of {all_of['if']['properties'][q]['enum']}"
             )
         if "minimum" in all_of["if"]["properties"][q]:
             conditions.append(
-                f"{q.upper()} >= " f"{all_of['if']['properties'][q]['minimum']}"
+                f"{q.upper()} >= {all_of['if']['properties'][q]['minimum']}"
             )
     return conditions
 
