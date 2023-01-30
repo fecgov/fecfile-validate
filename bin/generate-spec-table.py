@@ -101,7 +101,7 @@ for p in data["properties"]:
             ):
                 pattern_value = all_of["then"]["properties"][p]["enum"]
                 conditions = get_conditions(all_of)
-                result = f"{p.upper()} must be one of {pattern_value}"
+                result = f"{p.upper()} must match {pattern_value}"
                 validation_rules += f"<li>{result} if {' & '.join(conditions)}</li>"
 
     if p in data["required"]:
