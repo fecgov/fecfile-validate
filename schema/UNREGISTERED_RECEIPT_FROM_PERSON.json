@@ -1,9 +1,9 @@
 {
     "$schema": "https://json-schema.org/draft-07/schema#",
-    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/OFFSET_TO_OPERATING_EXPENDITURES.json",
+    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/UNREGISTERED_RECEIPT_FROM_PERSON.json",
     "version": "v0.0.0.0",
-    "title": "FEC Offsets to Operating Exp",
-    "description": "SCHEDULE A - ITEMIZED RECEIPTS-Line 15 Offset",
+    "title": "FEC Unregistered Receipt from Person",
+    "description": "Unregistered Receipt from Person (11a)",
     "type": "object",
     "required": [
         "form_type",
@@ -11,6 +11,7 @@
         "transaction_type_identifier",
         "transaction_id",
         "entity_type",
+        "contributor_organization_name",
         "contributor_street_1",
         "contributor_city",
         "contributor_state",
@@ -18,24 +19,30 @@
         "contribution_date",
         "contribution_amount",
         "contribution_aggregate",
-        "aggregation_group"
+        "aggregation_group",
+        "contribution_purpose_descrip"
     ],
     "fec_recommended": [],
     "properties": {
         "form_type": {
             "title": "FORM TYPE",
             "description": "",
-            "const": "SA15",
+            "type": "string",
+            "enum": [
+                "SA11AI",
+                "SA11AII"
+            ],
             "examples": [
-                "SA15"
+                "SA11AI",
+                "SA11AII"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "FORM TYPE",
                 "TYPE": "A/N-8",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "SA15",
-                "VALUE_REFERENCE": "SA15 Only",
-                "RULE_REFERENCE": null,
+                "SAMPLE_DATA": "SA11AI",
+                "VALUE_REFERENCE": "SA11AI or SA11AII only",
+                "RULE_REFERENCE": "SA11AI or SA11AII only",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -62,15 +69,15 @@
         "transaction_type_identifier": {
             "title": "TRANSACTION TYPE IDENTIFIER",
             "description": "",
-            "const": "OFFSET_TO_OPERATING_EXPENDITURES",
+            "const": "UNREGISTERED_RECEIPT_FROM_PERSON",
             "examples": [
-                "OFFSET_TO_OPERATING_EXPENDITURES"
+                "UNREGISTERED_RECEIPT_FROM_PERSON"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "TRANSACTION TYPE IDENTIFIER",
                 "TYPE": "A/N-12",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "OFFSET_TO_OPERATING_EXPENDITURES",
+                "SAMPLE_DATA": "UNREGISTERED_RECEIPT_FROM_PERSON",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
@@ -145,33 +152,24 @@
         "entity_type": {
             "title": "ENTITY TYPE",
             "description": "",
-            "enum": [
-                "ORG",
-                "IND",
-                "COM"
-            ],
+            "const": "ORG",
             "examples": [
-                "ORG",
-                "IND",
-                "COM"
+                "ORG"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "ENTITY TYPE",
                 "TYPE": "A/N-3",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "IND",
-                "VALUE_REFERENCE": "ORG, IND, COM",
-                "RULE_REFERENCE": "[ORG|IND|COM]",
+                "SAMPLE_DATA": "ORG",
+                "VALUE_REFERENCE": "ORG",
+                "RULE_REFERENCE": "ORG Only",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
         "contributor_organization_name": {
-            "title": "CONTRIBUTOR ORGANIZATION NAME",
+            "title": "CONTRIBUTOR ORGANIZATION",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
+            "type": "string",
             "minLength": 0,
             "maxLength": 200,
             "pattern": "^[ -~]{0,200}$",
@@ -179,127 +177,12 @@
                 "John Smith & Co."
             ],
             "fec_spec": {
-                "FIELD_DESCRIPTION": "CONTRIBUTOR ORGANIZATION NAME",
+                "FIELD_DESCRIPTION": "CONTRIBUTOR ORGANIZATION",
                 "TYPE": "A/N-200",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "John Smith & Co.",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Required if [ORG|COM]",
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "contributor_last_name": {
-            "title": "CONTRIBUTOR LAST NAME",
-            "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
-            "minLength": 0,
-            "maxLength": 30,
-            "pattern": "^[ -~]{0,30}$",
-            "examples": [
-                "Smith"
-            ],
-            "fec_spec": {
-                "FIELD_DESCRIPTION": "CONTRIBUTOR LAST NAME",
-                "TYPE": "A/N-30",
-                "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "Smith",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Required if [IND]",
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "contributor_first_name": {
-            "title": "CONTRIBUTOR FIRST NAME",
-            "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
-            "minLength": 0,
-            "maxLength": 20,
-            "pattern": "^[ -~]{0,20}$",
-            "examples": [
-                "John"
-            ],
-            "fec_spec": {
-                "FIELD_DESCRIPTION": "CONTRIBUTOR FIRST NAME",
-                "TYPE": "A/N-20",
-                "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "John",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Required if [IND]",
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "contributor_middle_name": {
-            "title": "CONTRIBUTOR MIDDLE NAME",
-            "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
-            "minLength": 0,
-            "maxLength": 20,
-            "pattern": "^[ -~]{0,20}$",
-            "examples": [
-                "W"
-            ],
-            "fec_spec": {
-                "FIELD_DESCRIPTION": "CONTRIBUTOR MIDDLE NAME",
-                "TYPE": "A/N-20",
-                "REQUIRED": null,
-                "SAMPLE_DATA": "W",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Optional if [IND]",
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "contributor_prefix": {
-            "title": "CONTRIBUTOR PREFIX",
-            "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
-            "minLength": 0,
-            "maxLength": 10,
-            "pattern": "^[ -~]{0,10}$",
-            "examples": [
-                "Dr"
-            ],
-            "fec_spec": {
-                "FIELD_DESCRIPTION": "CONTRIBUTOR PREFIX",
-                "TYPE": "A/N-10",
-                "REQUIRED": null,
-                "SAMPLE_DATA": "Dr",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Optional if [IND]",
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "contributor_suffix": {
-            "title": "CONTRIBUTOR SUFFIX",
-            "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
-            "minLength": 0,
-            "maxLength": 10,
-            "pattern": "^[ -~]{0,10}$",
-            "examples": [
-                "Jr"
-            ],
-            "fec_spec": {
-                "FIELD_DESCRIPTION": "CONTRIBUTOR SUFFIX",
-                "TYPE": "A/N-10",
-                "REQUIRED": null,
-                "SAMPLE_DATA": "Jr",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Optional if [IND]",
+                "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -456,44 +339,41 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": 1000,
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
+                "RULE_REFERENCE": "YTD",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
         "aggregation_group": {
             "title": "AGGREGATION GROUP",
             "description": "",
-            "const": "LINE_15",
+            "const": "GENERAL",
             "examples": [
-                "LINE_15"
+                "GENERAL"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "AGGREGATION GROUP",
-                "TYPE": "A/N-100",
+                "TYPE": null,
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "LINE_15",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": "General",
+                "RULE_REFERENCE": "General",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
         "contribution_purpose_descrip": {
             "title": "CONTRIBUTION PURPOSE DESCRIPTION",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
+            "type": "string",
             "minLength": 0,
             "maxLength": 100,
             "pattern": "^[ -~]{0,100}$",
             "fec_spec": {
                 "FIELD_DESCRIPTION": "CONTRIBUTION PURPOSE DESCRIPTION",
                 "TYPE": "A/N-100",
-                "REQUIRED": null,
+                "REQUIRED": "X (error)",
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Must remain editable to end user, but no auto-population",
+                "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -534,58 +414,5 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         }
-    },
-    "allOf": [
-        {
-            "if": {
-                "properties": {
-                    "entity_type": {
-                        "enum": [
-                            "ORG",
-                            "COM"
-                        ]
-                    }
-                },
-                "required": [
-                    "entity_type"
-                ]
-            },
-            "then": {
-                "required": [
-                    "contributor_organization_name"
-                ],
-                "properties": {
-                    "contributor_organization_name": {
-                        "type": "string"
-                    }
-                }
-            }
-        },
-        {
-            "if": {
-                "properties": {
-                    "entity_type": {
-                        "const": "IND"
-                    }
-                },
-                "required": [
-                    "entity_type"
-                ]
-            },
-            "then": {
-                "required": [
-                    "contributor_first_name",
-                    "contributor_last_name"
-                ],
-                "properties": {
-                    "contributor_first_name": {
-                        "type": "string"
-                    },
-                    "contributor_last_name": {
-                        "type": "string"
-                    }
-                }
-            }
-        }
-    ]
+    }
 }

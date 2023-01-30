@@ -1,9 +1,9 @@
 {
     "$schema": "https://json-schema.org/draft-07/schema#",
-    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/OFFSET_TO_OPERATING_EXPENDITURES.json",
+    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/RETURN_RECEIPT.json",
     "version": "v0.0.0.0",
-    "title": "FEC Offsets to Operating Exp",
-    "description": "SCHEDULE A - ITEMIZED RECEIPTS-Line 15 Offset",
+    "title": "FEC Returned/Bounced Receipt",
+    "description": "Returned/Bounced Receipt (11a)",
     "type": "object",
     "required": [
         "form_type",
@@ -18,24 +18,30 @@
         "contribution_date",
         "contribution_amount",
         "contribution_aggregate",
-        "aggregation_group"
+        "aggregation_group",
+        "contribution_purpose_descrip"
     ],
     "fec_recommended": [],
     "properties": {
         "form_type": {
             "title": "FORM TYPE",
             "description": "",
-            "const": "SA15",
+            "type": "string",
+            "enum": [
+                "SA11AI",
+                "SA11AII"
+            ],
             "examples": [
-                "SA15"
+                "SA11AI",
+                "SA11AII"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "FORM TYPE",
                 "TYPE": "A/N-8",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "SA15",
-                "VALUE_REFERENCE": "SA15 Only",
-                "RULE_REFERENCE": null,
+                "SAMPLE_DATA": "SA11AI",
+                "VALUE_REFERENCE": "SA[line# ref]",
+                "RULE_REFERENCE": "SA11AI or SA11AII only",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -62,17 +68,17 @@
         "transaction_type_identifier": {
             "title": "TRANSACTION TYPE IDENTIFIER",
             "description": "",
-            "const": "OFFSET_TO_OPERATING_EXPENDITURES",
+            "const": "RETURN_RECEIPT",
             "examples": [
-                "OFFSET_TO_OPERATING_EXPENDITURES"
+                "RETURN_RECEIPT"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "TRANSACTION TYPE IDENTIFIER",
                 "TYPE": "A/N-12",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "OFFSET_TO_OPERATING_EXPENDITURES",
+                "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
+                "RULE_REFERENCE": "RETURN_RECEIPT",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -146,22 +152,19 @@
             "title": "ENTITY TYPE",
             "description": "",
             "enum": [
-                "ORG",
                 "IND",
-                "COM"
+                "ORG"
             ],
             "examples": [
-                "ORG",
-                "IND",
-                "COM"
+                "IND"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "ENTITY TYPE",
                 "TYPE": "A/N-3",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "IND",
-                "VALUE_REFERENCE": "ORG, IND, COM",
-                "RULE_REFERENCE": "[ORG|IND|COM]",
+                "VALUE_REFERENCE": "IND, ORG",
+                "RULE_REFERENCE": "IND, ORG",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -184,7 +187,7 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "John Smith & Co.",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Required if [ORG|COM]",
+                "RULE_REFERENCE": "Required if NOT [IND]",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -379,7 +382,7 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "WA",
                 "VALUE_REFERENCE": "AK,AL,...,ZZ",
-                "RULE_REFERENCE": "Edit: ST",
+                "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -427,17 +430,17 @@
             "description": "",
             "type": "number",
             "minimum": -99999999.99,
-            "maximum": 999999999.99,
+            "exclusiveMaximum": 0,
             "examples": [
-                250
+                -250
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "CONTRIBUTION AMOUNT",
                 "TYPE": "AMT-12",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": 250,
+                "SAMPLE_DATA": -250,
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
+                "RULE_REFERENCE": "Negative Number",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -456,44 +459,87 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": 1000,
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
+                "RULE_REFERENCE": "YTD",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
         "aggregation_group": {
             "title": "AGGREGATION GROUP",
             "description": "",
-            "const": "LINE_15",
+            "const": "GENERAL",
             "examples": [
-                "LINE_15"
+                "GENERAL"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "AGGREGATION GROUP",
-                "TYPE": "A/N-100",
+                "TYPE": null,
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "LINE_15",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": "GENERAL",
+                "RULE_REFERENCE": "GENERAL",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
         "contribution_purpose_descrip": {
             "title": "CONTRIBUTION PURPOSE DESCRIPTION",
             "description": "",
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100,
+            "pattern": "^[ -~]{1,100}$",
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "CONTRIBUTION PURPOSE DESCRIPTION",
+                "TYPE": "A/N-100",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "contributor_employer": {
+            "title": "CONTRIBUTOR EMPLOYER",
+            "description": "",
             "type": [
                 "string",
                 "null"
             ],
             "minLength": 0,
-            "maxLength": 100,
-            "pattern": "^[ -~]{0,100}$",
+            "maxLength": 38,
+            "pattern": "^[ -~]{0,38}$",
+            "examples": [
+                "XYZ Company"
+            ],
             "fec_spec": {
-                "FIELD_DESCRIPTION": "CONTRIBUTION PURPOSE DESCRIPTION",
-                "TYPE": "A/N-100",
-                "REQUIRED": null,
-                "SAMPLE_DATA": null,
+                "FIELD_DESCRIPTION": "CONTRIBUTOR EMPLOYER",
+                "TYPE": "A/N-38",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "XYZ Company",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Must remain editable to end user, but no auto-population",
+                "RULE_REFERENCE": "Req [IND] and Donor aggregate >$200",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "contributor_occupation": {
+            "title": "CONTRIBUTOR OCCUPATION",
+            "description": "",
+            "type": [
+                "string",
+                "null"
+            ],
+            "minLength": 0,
+            "maxLength": 38,
+            "pattern": "^[ -~]{0,38}$",
+            "examples": [
+                "QC Inspector"
+            ],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "CONTRIBUTOR OCCUPATION",
+                "TYPE": "A/N-38",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "QC Inspector",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "Req [IND] and Donor aggregate >$200",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -540,10 +586,38 @@
             "if": {
                 "properties": {
                     "entity_type": {
-                        "enum": [
-                            "ORG",
-                            "COM"
-                        ]
+                        "const": "IND"
+                    },
+                    "contribution_aggregate": {
+                        "type": "number",
+                        "minimum": 200.01
+                    }
+                },
+                "required": [
+                    "entity_type",
+                    "contribution_aggregate"
+                ]
+            },
+            "then": {
+                "required": [
+                    "contributor_employer",
+                    "contributor_occupation"
+                ],
+                "properties": {
+                    "contributor_employer": {
+                        "type": "string"
+                    },
+                    "contributor_occupation": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "entity_type": {
+                        "const": "ORG"
                     }
                 },
                 "required": [
