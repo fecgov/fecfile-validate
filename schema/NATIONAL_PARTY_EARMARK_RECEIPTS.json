@@ -490,17 +490,14 @@
         "contribution_purpose_descrip": {
             "title": "CONTRIBUTION PURPOSE DESCRIPTION",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
+            "type": "string",
             "minLength": 0,
             "maxLength": 100,
             "pattern": "^[ -~]{0,100}$",
             "fec_spec": {
                 "FIELD_DESCRIPTION": "CONTRIBUTION PURPOSE DESCRIPTION",
                 "TYPE": "A/N-100",
-                "REQUIRED": null,
+                "REQUIRED": "X (error)",
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": "Must remain editable to end user, but no auto-population",
@@ -742,11 +739,7 @@
                         "pattern": "^Recount/Legal Proceedings Account - Earmarked Through [ -~]{0,46}$",
                         "type": "string"
                     }
-                },
-                "required": [
-                    "contribution_purpose_descrip",
-                    "aggregation_group"
-                ]
+                }
             }
         },
         {
@@ -769,11 +762,7 @@
                         "pattern": "^Pres. Nominating Convention Account - Earmarked Through [ -~]{0,44}$",
                         "type": "string"
                     }
-                },
-                "required": [
-                    "contribution_purpose_descrip",
-                    "aggregation_group"
-                ]
+                }
             }
         },
         {
@@ -796,11 +785,7 @@
                         "pattern": "^Headquarters Buildings Account - Earmarked Through [ -~]{0,49}$",
                         "type": "string"
                     }
-                },
-                "required": [
-                    "contribution_purpose_descrip",
-                    "aggregation_group"
-                ]
+                }
             }
         }
     ]
