@@ -99,7 +99,7 @@ for p in data["properties"]:
                 p in all_of["then"]["properties"]
                 and "pattern" in all_of["then"]["properties"][p]
             ):
-                pattern_value = all_of["then"]["properties"][p]["enum"]
+                pattern_value = all_of["then"]["properties"][p]["pattern"]
                 conditions = get_conditions(all_of)
                 result = f"{p.upper()} must match {pattern_value}"
                 validation_rules += f"<li>{result} if {' & '.join(conditions)}</li>"
