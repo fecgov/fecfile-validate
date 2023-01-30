@@ -227,7 +227,7 @@ with the F3L</td>
 <td></td>
 <td></td>
 <td></td>
-<td><ul><li>REQUIRED if TRANSACTION_TYPE_IDENTIFIER equals EARMARK_RECEIPT_RECOUNT_ACCOUNT</li><li>REQUIRED if TRANSACTION_TYPE_IDENTIFIER equals EARMARK_RECEIPT_CONVENTION_ACCOUNT</li><li>REQUIRED if TRANSACTION_TYPE_IDENTIFIER equals EARMARK_RECEIPT_HEADQUARTERS_ACCOUNT</li><li>REQUIRED</li><li>must be one of: ['NATIONAL_PARTY_RECOUNT_ACCOUNT', 'NATIONAL_PARTY_CONVENTION_ACCOUNT', 'NATIONAL_PARTY_HEADQUARTERS_ACCOUNT']</li></td>
+<td><ul><li>REQUIRED if TRANSACTION_TYPE_IDENTIFIER equals EARMARK_RECEIPT_RECOUNT_ACCOUNT</li><li>AGGREGATION_GROUP = 'NATIONAL_PARTY_RECOUNT_ACCOUNT' if TRANSACTION_TYPE_IDENTIFIER equals EARMARK_RECEIPT_RECOUNT_ACCOUNT</li><li>REQUIRED if TRANSACTION_TYPE_IDENTIFIER equals EARMARK_RECEIPT_CONVENTION_ACCOUNT</li><li>AGGREGATION_GROUP = 'NATIONAL_PARTY_CONVENTION_ACCOUNT' if TRANSACTION_TYPE_IDENTIFIER equals EARMARK_RECEIPT_CONVENTION_ACCOUNT</li><li>REQUIRED if TRANSACTION_TYPE_IDENTIFIER equals EARMARK_RECEIPT_HEADQUARTERS_ACCOUNT</li><li>AGGREGATION_GROUP = 'NATIONAL_PARTY_HEADQUARTERS_ACCOUNT' if TRANSACTION_TYPE_IDENTIFIER equals EARMARK_RECEIPT_HEADQUARTERS_ACCOUNT</li><li>REQUIRED</li><li>must be one of: ['NATIONAL_PARTY_RECOUNT_ACCOUNT', 'NATIONAL_PARTY_CONVENTION_ACCOUNT', 'NATIONAL_PARTY_HEADQUARTERS_ACCOUNT']</li></td>
 </tr>
 <tr>
 <td>CONTRIBUTION PURPOSE DESCRIPTION</td>
@@ -238,6 +238,26 @@ with the F3L</td>
 <td>Must remain editable to end user, but no auto-population</td>
 <td></td>
 <td><ul><li>REQUIRED if TRANSACTION_TYPE_IDENTIFIER equals EARMARK_RECEIPT_RECOUNT_ACCOUNT</li><li>REQUIRED if TRANSACTION_TYPE_IDENTIFIER equals EARMARK_RECEIPT_CONVENTION_ACCOUNT</li><li>REQUIRED if TRANSACTION_TYPE_IDENTIFIER equals EARMARK_RECEIPT_HEADQUARTERS_ACCOUNT</li><li>REQUIRED</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 100</li><li>regex: ^[ -~]{0,100}$</li></td>
+</tr>
+<tr>
+<td>DONOR COMMITTEE FEC ID</td>
+<td>A/N-9</td>
+<td>X (error)</td>
+<td></td>
+<td></td>
+<td>Required if NOT [IND]</td>
+<td></td>
+<td><ul><li>REQUIRED if ENTITY_TYPE equals COM</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 9</li><li>regex: ^C[0-9]{8}$</li></td>
+</tr>
+<tr>
+<td>DONOR COMMITTEE NAME</td>
+<td>A/N-200</td>
+<td>X (error)</td>
+<td>Action PAC</td>
+<td></td>
+<td>Required if NOT [IND]</td>
+<td></td>
+<td><ul><li>REQUIRED if ENTITY_TYPE equals COM</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 200</li><li>regex: ^[ -~]{0,200}$</li></td>
 </tr>
 <tr>
 <td>CONTRIBUTOR EMPLOYER</td>
