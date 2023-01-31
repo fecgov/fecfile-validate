@@ -11,6 +11,8 @@
         "transaction_type_identifier",
         "transaction_id",
         "entity_type",
+        "contributor_last_name",
+        "contributor_first_name",
         "contributor_street_1",
         "contributor_city",
         "contributor_state",
@@ -26,6 +28,7 @@
         "form_type": {
             "title": "FORM TYPE",
             "description": "",
+            "type": "string",
             "const": "SA17",
             "examples": [
                 "SA17"
@@ -152,10 +155,7 @@
         "entity_type": {
             "title": "ENTITY TYPE",
             "description": "",
-            "enum": [
-                "IND",
-                "COM"
-            ],
+            "const": "IND",
             "examples": [
                 "IND"
             ],
@@ -164,42 +164,16 @@
                 "TYPE": "A/N-3",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "IND",
-                "VALUE_REFERENCE": "IND, COM",
-                "RULE_REFERENCE": "[IND|COM]",
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "contributor_organization_name": {
-            "title": "CONTRIBUTOR ORGANIZATION NAME",
-            "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
-            "minLength": 0,
-            "maxLength": 200,
-            "pattern": "^[ -~]{0,200}$",
-            "examples": [
-                "John Smith & Co."
-            ],
-            "fec_spec": {
-                "FIELD_DESCRIPTION": "CONTRIBUTOR ORGANIZATION NAME",
-                "TYPE": "A/N-200",
-                "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "John Smith & Co.",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Required if [ORG]",
+                "VALUE_REFERENCE": "IND",
+                "RULE_REFERENCE": "IND Only",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
         "contributor_last_name": {
             "title": "CONTRIBUTOR LAST NAME",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
-            "minLength": 0,
+            "type": "string",
+            "minLength": 1,
             "maxLength": 30,
             "pattern": "^[ -~]{0,30}$",
             "examples": [
@@ -211,18 +185,15 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "Smith",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Required if [IND]",
+                "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
         "contributor_first_name": {
             "title": "CONTRIBUTOR FIRST NAME",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
-            "minLength": 0,
+            "type": "string",
+            "minLength": 1,
             "maxLength": 20,
             "pattern": "^[ -~]{0,20}$",
             "examples": [
@@ -234,7 +205,7 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "John",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Required if [IND]",
+                "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -257,7 +228,7 @@
                 "REQUIRED": null,
                 "SAMPLE_DATA": "W",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Optional if [IND]",
+                "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -280,7 +251,7 @@
                 "REQUIRED": null,
                 "SAMPLE_DATA": "Dr",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Optional if [IND]",
+                "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -303,7 +274,7 @@
                 "REQUIRED": null,
                 "SAMPLE_DATA": "Jr",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Optional if [IND]",
+                "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -635,16 +606,12 @@
         {
             "if": {
                 "properties": {
-                    "entity_type": {
-                        "const": "IND"
-                    },
                     "contribution_aggregate": {
                         "type": "number",
                         "minimum": 200.01
                     }
                 },
                 "required": [
-                    "entity_type",
                     "contribution_aggregate"
                 ]
             },
@@ -658,62 +625,6 @@
                         "type": "string"
                     },
                     "contributor_occupation": {
-                        "type": "string"
-                    }
-                }
-            }
-        },
-        {
-            "if": {
-                "properties": {
-                    "entity_type": {
-                        "const": "COM"
-                    }
-                },
-                "required": [
-                    "entity_type"
-                ]
-            },
-            "then": {
-                "required": [
-                    "contributor_organization_name",
-                    "donor_committee_fec_id",
-                    "donor_committee_name"
-                ],
-                "properties": {
-                    "contributor_organization_name": {
-                        "type": "string"
-                    },
-                    "donor_committee_fec_id": {
-                        "type": "string"
-                    },
-                    "donor_committee_name": {
-                        "type": "string"
-                    }
-                }
-            }
-        },
-        {
-            "if": {
-                "properties": {
-                    "entity_type": {
-                        "const": "IND"
-                    }
-                },
-                "required": [
-                    "entity_type"
-                ]
-            },
-            "then": {
-                "required": [
-                    "contributor_first_name",
-                    "contributor_last_name"
-                ],
-                "properties": {
-                    "contributor_first_name": {
-                        "type": "string"
-                    },
-                    "contributor_last_name": {
                         "type": "string"
                     }
                 }
