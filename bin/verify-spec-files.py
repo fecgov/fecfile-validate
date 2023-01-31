@@ -41,7 +41,7 @@ parser.add_argument(
 parser.add_argument(
     "-d",
     "--debug",
-    help="Prints the names of sheets and fields as it parses in order to assist with debugging",
+    help="Prints the names of sheets and fields as the script works",
     action="store_true"
 )
 args = parser.parse_args()
