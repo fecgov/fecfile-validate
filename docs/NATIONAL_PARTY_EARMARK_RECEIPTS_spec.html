@@ -230,32 +230,12 @@ with the F3L</td>
 <td><ul><li>CONTRIBUTION_PURPOSE_DESCRIP must match ^Recount/Legal Proceedings Account - Earmarked Through [ -~]{0,46}$ if TRANSACTION_TYPE_IDENTIFIER equals EARMARK_RECEIPT_RECOUNT_ACCOUNT</li><li>CONTRIBUTION_PURPOSE_DESCRIP must match ^Pres. Nominating Convention Account - Earmarked Through [ -~]{0,44}$ if TRANSACTION_TYPE_IDENTIFIER equals EARMARK_RECEIPT_CONVENTION_ACCOUNT</li><li>CONTRIBUTION_PURPOSE_DESCRIP must match ^Headquarters Buildings Account - Earmarked Through [ -~]{0,49}$ if TRANSACTION_TYPE_IDENTIFIER equals EARMARK_RECEIPT_HEADQUARTERS_ACCOUNT</li><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 100</li><li>regex: ^[ -~]{0,100}$</li></td>
 </tr>
 <tr>
-<td>DONOR COMMITTEE FEC ID</td>
-<td>A/N-9</td>
-<td>X (error)</td>
-<td></td>
-<td></td>
-<td>Required if NOT [IND]</td>
-<td></td>
-<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 9</li><li>regex: ^C[0-9]{8}$</li></td>
-</tr>
-<tr>
-<td>DONOR COMMITTEE NAME</td>
-<td>A/N-200</td>
-<td>X (error)</td>
-<td>Action PAC</td>
-<td></td>
-<td>Required if NOT [IND]</td>
-<td></td>
-<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 200</li><li>regex: ^[ -~]{0,200}$</li></td>
-</tr>
-<tr>
 <td>CONTRIBUTOR EMPLOYER</td>
 <td>A/N-38</td>
 <td>X (error)</td>
 <td>XYZ Company</td>
 <td></td>
-<td>If ENTITY = IND; Req if Donor aggregate >$200</td>
+<td>Req if Donor aggregate >$200</td>
 <td></td>
 <td><ul><li>REQUIRED if CONTRIBUTION_AGGREGATE >= 200.01</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 38</li><li>regex: ^[ -~]{0,38}$</li></td>
 </tr>
@@ -265,7 +245,7 @@ with the F3L</td>
 <td>X (error)</td>
 <td>QC Inspector</td>
 <td></td>
-<td>If ENTITY = IND; Req if Donor aggregate >$200</td>
+<td>Req if Donor aggregate >$200</td>
 <td></td>
 <td><ul><li>REQUIRED if CONTRIBUTION_AGGREGATE >= 200.01</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 38</li><li>regex: ^[ -~]{0,38}$</li></td>
 </tr>

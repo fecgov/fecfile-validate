@@ -475,49 +475,6 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "donor_committee_fec_id": {
-            "title": "DONOR COMMITTEE FEC ID",
-            "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
-            "minLength": 0,
-            "maxLength": 9,
-            "pattern": "^C[0-9]{8}$",
-            "fec_spec": {
-                "FIELD_DESCRIPTION": "DONOR COMMITTEE FEC ID",
-                "TYPE": "A/N-9",
-                "REQUIRED": "X (error)",
-                "SAMPLE_DATA": null,
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Required if NOT [IND]",
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "donor_committee_name": {
-            "title": "DONOR COMMITTEE NAME",
-            "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
-            "minLength": 0,
-            "maxLength": 200,
-            "pattern": "^[ -~]{0,200}$",
-            "examples": [
-                "Action PAC"
-            ],
-            "fec_spec": {
-                "FIELD_DESCRIPTION": "DONOR COMMITTEE NAME",
-                "TYPE": "A/N-200",
-                "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "Action PAC",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Required if NOT [IND]",
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
         "contributor_employer": {
             "title": "CONTRIBUTOR EMPLOYER",
             "description": "",
@@ -537,7 +494,7 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "XYZ Company",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "If ENTITY = IND; Req if Donor aggregate >$200",
+                "RULE_REFERENCE": "Req if Donor aggregate >$200",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -560,7 +517,7 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "QC Inspector",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "If ENTITY = IND; Req if Donor aggregate >$200",
+                "RULE_REFERENCE": "Req if Donor aggregate >$200",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
