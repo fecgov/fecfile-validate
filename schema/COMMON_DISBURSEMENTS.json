@@ -46,9 +46,9 @@
             "title": "FILER COMMITTEE ID NUMBER",
             "description": "",
             "type": "string",
-            "minLength": 0,
+            "minLength": 9,
             "maxLength": 9,
-            "pattern": "^[ -~]{0,9}$",
+            "pattern": "^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$",
             "examples": [
                 "C00123456"
             ],
@@ -58,8 +58,8 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "C00123456",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Must be either \"CXXXXXXXX\" where X is a numeric value (C, then 8 numbers) or \"PXXXXXXXX\" where X is a numeric value (P, then 8 numbers) or [H|S][0-9]{1}[A-Z]{2}[0-9]{5} (H or S, 1 number, 2 letters, 5 numbers)",
-                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
             }
         },
         "transaction_type_identifier": {
