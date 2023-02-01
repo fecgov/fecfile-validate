@@ -38,8 +38,15 @@ parser.add_argument(
     help="record and print minor errors",
     action="store_true"
 )
+parser.add_argument(
+    "-d",
+    "--debug",
+    help="Prints the names of sheets and fields as the script works",
+    action="store_true"
+)
 args = parser.parse_args()
 VERBOSE = args.verbose
+DEBUG = args.debug
 EXCEL_FILENAME = args.excel_filename
 COLUMNS = {
     "property_name": 0,
@@ -93,7 +100,14 @@ def get_schema_fields(sheet):
 
     fields = {}
     row = 5
+
+    if DEBUG:
+        print("    Determining the schema spreadsheet's fields")
+
     while sheet['A'+str(row)].value:
+        if DEBUG and VERBOSE:
+            print(f"        Parsing row {row}")
+
         field_name_raw = sheet['A'+str(row)].value.lower()
         field_name = '_'.join(field_name_raw.split(' '))
         if field_name in name_overrides:
@@ -456,12 +470,21 @@ def verify(sheet, schema):
         compare_sample_data,
     ]
 
+    if DEBUG:
+        print("    Verifying the JSON schema")
+
     fields = get_schema_fields(sheet)
     for field in fields.keys():
+        if DEBUG:
+            print(f"        {field}")
         row = sheet[str(fields[field])]
         for check_function in error_check_functions:
+            if DEBUG and VERBOSE:
+                print(" "*11, check_function)
             errors += check_function(row, schema, field)
         for check_function in minor_error_check_functions:
+            if DEBUG and VERBOSE:
+                print(" "*11, check_function)
             minor_errors += check_function(row, schema, field)
 
     return [errors, minor_errors]
@@ -572,6 +595,9 @@ if (__name__ == "__main__"):
     for sheet in sheets:
         if sheet.title in excluded_sheets:
             continue
+
+        if DEBUG:
+            print(sheet.title)
 
         transaction_type_identifier = get_transaction_type_identifier(sheet)
         if not transaction_type_identifier:
