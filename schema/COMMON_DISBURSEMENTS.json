@@ -511,7 +511,7 @@
         "category_code": {
             "title": "CATEGORY CODE",
             "description": "",
-            "type": "string",
+            "type": ["string", "null"],
             "enum": ["001", "002", "003", "004", "005", "006", "007", "008", "009", "010", "011", "012", null],
             "examples": [
                 1
