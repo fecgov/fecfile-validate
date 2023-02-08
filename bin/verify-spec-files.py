@@ -61,11 +61,16 @@ COLUMNS = {
 def get_transaction_type_identifier(sheet):
     tti_overrides = {
         "TEXT": "Text",
+        "National Party Earmark Memos": "NATIONAL_PARTY_EARMARK_MEMOS",
+        "National Party Earmark Receipts": "NATIONAL_PARTY_EARMARK_RECEIPTS",
     }
 
     column_overrides = {
         "OFFSET_TO_OPERATING_EXPENDITURE": "E"
     }
+
+    if sheet.title in tti_overrides.keys():
+        return tti_overrides[sheet.title]
 
     tti_field = sheet['A2'].value
     if (tti_field and tti_field != "FIELD DESCRIPTION"):
@@ -78,9 +83,6 @@ def get_transaction_type_identifier(sheet):
             column = column_overrides[sheet.title]
         if sheet[f'A{row}'].value == "TRANSACTION TYPE IDENTIFIER":
             return sheet[f'{column}{row}'].value
-
-    if sheet.title in tti_overrides.keys():
-        return tti_overrides[sheet.title]
 
     return ""
 
@@ -99,7 +101,15 @@ def get_schema_fields(sheet):
     ]
 
     fields = {}
-    row = 5
+    row = None
+    for r in range(1, sheet.max_row):
+        fieldDescription = sheet[f'A{r}'].value
+        if fieldDescription == "FORM TYPE":
+            row = r
+            break
+
+    if row == None:
+        print("    FORM TYPE row not found", sheet.title)
 
     if DEBUG:
         print("    Determining the schema spreadsheet's fields")
@@ -317,7 +327,7 @@ def check_required(row, schema, field_name):
     in_all_of = False
     if conditionally_required and "allOf" in schema.keys():
         for all_of_rule in schema['allOf']:
-            if field_name in all_of_rule['then']['required']:
+            if 'required' in all_of_rule['then'] and field_name in all_of_rule['then']['required']:
                 in_all_of = True
                 break
 
@@ -434,18 +444,87 @@ def check_aggregation_group(row, schema, field_name):
     if not sheet_aggr_group:
         sheet_aggr_group = row[COLUMNS["value_reference"]].value
 
-    schema_aggr_group = schema['properties'][field_name]["const"]
+    if not sheet_aggr_group:
+        errors.append(
+            f'    Error: {field_name} - Cannot find aggregation group in sheet'
+        )
+        return errors
 
+    if "," in sheet_aggr_group:
+        return check_aggregation_group_multiple(sheet_aggr_group.split(','), schema, field_name)
+    else:
+        return check_aggregation_group_single(sheet_aggr_group, schema, field_name)
+
+
+def clean_aggregation_group_name(aggr_group):
+    sheet_aggr_group = aggr_group.replace(" ", "_")
+    sheet_aggr_group = sheet_aggr_group.replace("-", "_")
+    sheet_aggr_group = sheet_aggr_group.upper()
+    return sheet_aggr_group
+
+
+def clean_aggregation_group_names(aggr_groups):
+    cleaned_aggregation_group_names = []
+    for aggr_group in aggr_groups:
+        clean_name = clean_aggregation_group_name(aggr_group)
+        cleaned_aggregation_group_names.append(clean_name)
+    return cleaned_aggregation_group_names
+
+
+def check_aggregation_group_single(sheet_aggr_group, schema, field_name):
+    errors = []
+
+    schema_group_name = None
+    if "const" in schema['properties'][field_name]:
+        schema_group_name = schema['properties'][field_name]["const"]
+    if not schema_group_name:
+        errors.append(
+            f'    Error: {field_name} - Cannot find aggregation group in json schema'
+        )
+        return errors
+
+    sheet_group_name = ""
     if sheet_aggr_group:
-        sheet_aggr_group = sheet_aggr_group.replace(" ", "_")
-        sheet_aggr_group = sheet_aggr_group.replace("-", "_")
-        sheet_aggr_group = sheet_aggr_group.upper()
+        sheet_group_name = clean_aggregation_group_name(sheet_aggr_group)
 
-    if sheet_aggr_group != schema_aggr_group:
+    if sheet_group_name != schema_group_name:
         errors.append(
             f'    Error: {field_name} - Sheet has an (adjusted) Aggregation Group '
-            f'of "{sheet_aggr_group}" while the JSON has "{schema_aggr_group}"'
+            f'of "{sheet_group_name}" while the JSON has "{schema_group_name}"'
         )
+
+    return errors
+
+
+def check_aggregation_group_multiple(sheet_aggr_groups, schema, field_name):
+    errors = []
+
+    schema_group_names = None
+    if "enum" in schema['properties'][field_name]:
+        schema_group_names = schema['properties'][field_name]["enum"]
+    if not schema_group_names:
+        errors.append(
+            f'    Error: {field_name} - Cannot find aggregation group in json schema'
+        )
+        return errors
+
+    sheet_group_names = None
+    if sheet_aggr_groups:
+        sheet_group_names = clean_aggregation_group_names(sheet_aggr_groups)
+
+    for sheet_group_name in sheet_group_names:
+        if sheet_group_name not in schema_group_names:
+            errors.append(
+                f'    Error: {field_name} - Sheet has an aggregation group "{sheet_group_name}" '
+                f'not found in the schema, {schema_group_names}'
+            )
+
+    for schema_group_name in schema_group_names:
+        if schema_group_name not in sheet_group_names:
+            errors.append(
+                f'    Error: {field_name} - Schema has an aggregation group "{schema_group_name}" '
+                f'not found in the sheet, {sheet_group_names}'
+            )
 
     return errors
 
