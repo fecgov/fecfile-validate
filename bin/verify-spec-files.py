@@ -58,7 +58,17 @@ COLUMNS = {
 }
 
 
+def get_filename(sheet):
+    filename = sheet['A2'].value
+    if not filename:
+        filename = get_transaction_type_identifier(sheet)
+    return filename
+
+
 def get_transaction_type_identifier(sheet):
+    if ',' in sheet['A1'].value:
+        print("HEY:", sheet['A2'].value)
+
     tti_overrides = {
         "TEXT": "Text",
         "National Party Earmark Memos": "NATIONAL_PARTY_EARMARK_MEMOS",
@@ -300,73 +310,88 @@ def check_contribution_amount(row, schema, field_name):
 
 
 def check_required(row, schema, field_name):
-    errors = []
     sheet_required_raw = row[COLUMNS['required']].value
-    schema_required_raw = get_schema_property(
+
+    if sheet_required_raw == "X (error)":
+        return check_strictly_required(schema, field_name)
+
+    if sheet_required_raw == "X (conditional error)":
+        return check_conditionally_required(schema, field_name)
+
+    return check_not_required(schema, field_name)
+
+
+def check_strictly_required(schema, field_name):
+    errors = []
+    schema_required = get_schema_property(
         schema, field_name, 'REQUIRED', is_fec_spec=True
     )
-    schema_required_list = schema['required']
 
-    if sheet_required_raw is None:
-        sheet_required = False
-    else:
-        sheet_required = "X (error)" in sheet_required_raw
+    if schema_required != "X (error)":
+        errors.append(
+            f'    Error: {field_name} - The field is required, but the JSON\'s FEC Spec does not have "X (error)"'
+        )
 
-    if schema_required_raw is None:
-        schema_required = False
-    else:
-        schema_required = "X (error)" in schema_required_raw
+    if field_name not in schema['required']:
+        errors.append(
+            f'    Error: {field_name} - The field is required, but it\'s not present in the JSONs required array'
+        )
 
-    field_rule_reference = row[COLUMNS['rule_reference']].value
-    if field_rule_reference is None:
-        conditionally_required = False
-    else:
-        conditionally_required = "Req" in field_rule_reference
+    return errors
 
-    in_required_list = field_name in schema_required_list
-    in_all_of = False
-    if conditionally_required and "allOf" in schema.keys():
+
+def found_in_all_of(schema, field_name):
+    if "allOf" in schema.keys():
         for all_of_rule in schema['allOf']:
             if 'required' in all_of_rule['then'] and field_name in all_of_rule['then']['required']:
-                in_all_of = True
-                break
+                return True
+    return False
 
-    if sheet_required != schema_required:
-        if sheet_required:
-            errors.append(
-                f'    Error: {field_name} - This is a required field, '
-                f'but the JSON\'s FEC Spec does not have "X (error)"'
-            )
-        else:
-            errors.append(
-                f'    Error: {field_name} - This is not a required field, '
-                f'but the JSON\'s FEC Spec has "X (error) in it"'
-            )
 
-    if not conditionally_required:
-        if sheet_required != in_required_list:
-            if sheet_required:
-                errors.append(
-                    f"    Error: {field_name} - This is a required "
-                    f"field, but it's not in the JSON's required array"
-                )
-            else:
-                errors.append(
-                    f"    Error: {field_name} - This is not a required "
-                    f"field, but it is in the JSON's required array"
-                )
-    else:
-        if sheet_required != in_all_of:
-            if sheet_required:
-                errors.append(
-                    f"    Error: {field_name} - This is a conditionally "
-                    f"required field, but it's not in the JSON's AllOf"
-                )
-            else:
-                errors.append(
-                    f"    Error: {field_name} - This is not a conditionally "
-                    f"required field, but it is in the JSON's AllOf"
-                )
+def check_conditionally_required(schema, field_name):
+    errors = []
+    schema_required = get_schema_property(
+        schema, field_name, 'REQUIRED', is_fec_spec=True
+    )
+
+    if schema_required != "X (conditional error)":
+        errors.append(
+            f'    Error: {field_name} - The field is conditionally required, but the JSONs FEC Spec does not have "X (conditional error)"'
+        )
+
+    if field_name in schema['required']:
+        errors.append(
+            f'    Error: {field_name} - The field is conditionally required, but it is present in the JSONs required array'
+        )
+
+    if not found_in_all_of(schema, field_name):
+        errors.append(
+            f'    Error: {field_name} - The field is conditionally required, but it is not present in the JSONs allOf rules'
+        )
+
+    return errors
+
+
+def check_not_required(schema, field_name):
+    errors = []
+    schema_required = get_schema_property(
+        schema, field_name, 'REQUIRED', is_fec_spec=True
+    )
+
+    if schema_required != None:
+        errors.append(
+            f'    Error: {field_name} - The field is not required, but it\'s marked as "{schema_required}" in the JSON'
+        )
+
+    if field_name in schema['required']:
+        errors.append(
+            f'    Error: {field_name} - The field is not required, but it\'s present in the JSON\'s required array'
+        )
+
+    if found_in_all_of(schema, field_name):
+        errors.append(
+            f'    Error: {field_name} - The field is not required, but it can be set as required in the JSON\'s AllOf'
+        )
 
     return errors
 
@@ -678,31 +703,32 @@ if (__name__ == "__main__"):
         if DEBUG:
             print(sheet.title)
 
-        transaction_type_identifier = get_transaction_type_identifier(sheet)
-        if not transaction_type_identifier:
-            missing_transaction_type_identifiers.append(sheet.title)
-            continue
-
-        schema_file_path = '../schema/'+transaction_type_identifier+'.json'
+        filename = get_filename(sheet)
+        schema_file_path = f'../schema/{filename}.json'
         if not path.exists(schema_file_path):
-            missing_schema_files.append(f'{sheet.title}: {transaction_type_identifier}')
+            missing_schema_files.append(f'{sheet.title}: {filename}')
             continue
 
         json_file = open(schema_file_path, 'r')
         if not json_file:
             failed_to_open.append(
-                f'Failed to open JSON file: {transaction_type_identifier}'
+                f'Failed to open JSON file: {filename}'
             )
             continue
 
         schema = json.load(json_file)
         if not schema:
-            failed_to_load.append(f'Failed to load JSON: {transaction_type_identifier}')
+            failed_to_load.append(f'Failed to load JSON: {filename}')
+            continue
+
+        transaction_type_identifier = get_transaction_type_identifier(sheet)
+        if not transaction_type_identifier:
+            missing_transaction_type_identifiers.append(sheet.title)
             continue
 
         new_errors, new_minor_errors = verify(sheet, schema)
-        errors[transaction_type_identifier] = new_errors
-        minor_errors[transaction_type_identifier] = new_minor_errors
+        errors[filename] = new_errors
+        minor_errors[filename] = new_minor_errors
 
     generate_report(
         errors,
