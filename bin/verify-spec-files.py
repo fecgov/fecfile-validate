@@ -496,22 +496,66 @@ def check_entity_type(row, schema, field_name):
         return errors
 
     entity_types = row[COLUMNS['value_reference']].value
-    schema_properties = schema['properties'][field_name]
+    if not entity_types:
+        errors.append(
+            f'    Error: {field_name} - Entity Types not found in sheet'
+        )
+        return errors
 
-    if "const" in schema_properties.keys():
-        if schema_properties["const"] not in entity_types:
+    if "|" in entity_types:
+        return check_multiple_entity_types(schema, field_name, entity_types)
+    else:
+        return check_single_entity_type(schema, field_name, entity_types)
+
+
+def check_single_entity_type(schema, field_name, raw_sheet_entity_type):
+    errors = []
+    json_entity_type = get_schema_property(schema, field_name, "const")
+    if not json_entity_type:
+        errors.append(
+            f'    Error: {field_name} - The sheet has a single entity type'
+            ' but the JSON does not have a constant value'
+        )
+        return errors
+
+    sheet_entity_type = raw_sheet_entity_type.replace(" Only", "").replace(" only", "").strip()
+
+
+    if sheet_entity_type != json_entity_type:
+        errors.append(
+            f'    Error: {field_name} - The sheet has an entity type of {sheet_entity_type},'
+            f' but the JSON has {json_entity_type}'
+        )
+    return errors
+
+
+def check_multiple_entity_types(schema, field_name, raw_sheet_entity_types):
+    errors = []
+    json_entity_types = get_schema_property(schema, field_name, "enum")
+    if not json_entity_types:
+        errors.append(
+            f'    Error: {field_name} - The sheet has a single entity type'
+            ' but the JSON does not have an enumerated value'
+        )
+        return errors
+
+    cleaned_sheet_entity_types = raw_sheet_entity_types.replace("[", "").replace("]","")
+    cleaner_sheet_entity_types = cleaned_sheet_entity_types.replace(" ", "")
+    sheet_entity_types = cleaner_sheet_entity_types.split("|")
+
+    for s_entity in sheet_entity_types:
+        if s_entity not in json_entity_types:
             errors.append(
-                f'    Error: {field_name} - Sheet has Entity Type '
-                f'"{entity_types}" while the JSON has "{schema_properties["const"]}"'
+                f'    Error: {field_name} - The sheet has an entity type "{s_entity}"'
+                ' that is not present in the JSON\'s entity type'
             )
 
-    elif "enum" in schema_properties.keys():
-        for e_type in schema_properties["enum"]:
-            if e_type not in entity_types:
-                errors.append(
-                    f'    Error: {field_name} - Sheet has Entity Types: '
-                    f'"{entity_types}" while the JSON has "{schema_properties["enum"]}"'
-                )
+    for j_entity in json_entity_types:
+        if j_entity not in sheet_entity_types:
+            errors.append(
+                f'    Error: {field_name} - The JSON has an entity type "{j_entity}"'
+                ' that is not present in the Sheet\'s entity type'
+            )
 
     return errors
 
@@ -596,15 +640,15 @@ def check_aggregation_group_multiple(sheet_aggr_groups, schema, field_name):
     for sheet_group_name in sheet_group_names:
         if sheet_group_name not in schema_group_names:
             errors.append(
-                f'    Error: {field_name} - Sheet has an aggregation group "{sheet_group_name}" '
-                f'not found in the schema, {schema_group_names}'
+                f'    Error: {field_name} - Sheet has a group "{sheet_group_name}" '
+                'that is missing in the schema'
             )
 
     for schema_group_name in schema_group_names:
         if schema_group_name not in sheet_group_names:
             errors.append(
-                f'    Error: {field_name} - Schema has an aggregation group "{schema_group_name}" '
-                f'not found in the sheet, {sheet_group_names}'
+                f'    Error: {field_name} - Schema has a group "{schema_group_name}" '
+                f'that is not found in the sheet'
             )
 
     return errors
