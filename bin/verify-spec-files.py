@@ -66,22 +66,9 @@ def get_filename(sheet):
 
 
 def get_transaction_type_identifier(sheet):
-    tti_overrides = {
-        "TEXT": "Text",
-        "National Party Earmark Memos": "NATIONAL_PARTY_EARMARK_MEMOS",
-        "National Party Earmark Receipts": "NATIONAL_PARTY_EARMARK_RECEIPTS",
-    }
-
     column_overrides = {
         "OFFSET_TO_OPERATING_EXPENDITURE": "E"
     }
-
-    if sheet.title in tti_overrides.keys():
-        return tti_overrides[sheet.title]
-
-    tti_field = sheet['A2'].value
-    if (tti_field and tti_field != "FIELD DESCRIPTION"):
-        return tti_field
 
     tti_row_range = range(5, 11)
     for row in tti_row_range:
@@ -715,7 +702,7 @@ def generate_report(
     failed_to_load,
     save=True
 ):
-    report = ""
+    report = "\n"
 
     sheets_with_errors = list(errors.keys())
     sheets_with_minor_errors = list(minor_errors.keys())
@@ -727,7 +714,7 @@ def generate_report(
     failed_to_load.sort()
 
     if (len(missing_schema_files) > 0):
-        report += "Transaction Type Identifiers without a corresponding JSON file:\n"
+        report += "Sheets without a corresponding JSON file:\n"
         report += "    "+"\n    ".join(missing_schema_files)+"\n\n"
 
     if (len(missing_transaction_type_identifiers) > 0):
