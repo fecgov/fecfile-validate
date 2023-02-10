@@ -110,8 +110,8 @@ def get_schema_fields(sheet):
     fields = {}
     row = None
     for r in range(1, sheet.max_row):
-        fieldDescription = sheet[f'A{r}'].value
-        if fieldDescription == "FORM TYPE":
+        field_description = sheet[f'A{r}'].value
+        if field_description == "FORM TYPE":
             row = r
             break
 
@@ -160,7 +160,7 @@ def check_transaction_type_identifier(row, schema, field_name):
     sheet_tti = row[COLUMNS["rule_reference"]].value
     if not sheet_tti:
         errors.append(
-            f'    Error: {field_name} - Transaction Type Identifier is missing from the sheet'
+            f'    Error: {field_name} - The sheet\'s Transaction Type Identifier is blank'
         )
         return errors
 
@@ -186,6 +186,7 @@ def check_single_tti(schema, field_name, sheet_tti):
             f' while the JSON has "{json_tti}"'
         )
     return errors
+
 
 def check_multi_tti(schema, field_name, sheet_tti):
     errors = []
@@ -385,12 +386,14 @@ def check_strictly_required(schema, field_name):
 
     if schema_required != "X (error)":
         errors.append(
-            f'    Error: {field_name} - The field is required, but the JSON\'s FEC Spec does not have "X (error)"'
+            f'    Error: {field_name} - The field is required, '
+            'but the JSON\'s FEC Spec does not have "X (error)"'
         )
 
     if field_name not in schema['required']:
         errors.append(
-            f'    Error: {field_name} - The field is required, but it\'s not present in the JSONs required array'
+            f'    Error: {field_name} - The field is required, '
+            "but it's not present in the JSON's required array"
         )
 
     return errors
@@ -399,8 +402,9 @@ def check_strictly_required(schema, field_name):
 def found_in_all_of(schema, field_name):
     if "allOf" in schema.keys():
         for all_of_rule in schema['allOf']:
-            if 'required' in all_of_rule['then'] and field_name in all_of_rule['then']['required']:
-                return True
+            if 'required' in all_of_rule['then']:
+                if field_name in all_of_rule['then']['required']:
+                    return True
     return False
 
 
@@ -412,17 +416,20 @@ def check_conditionally_required(schema, field_name):
 
     if schema_required != "X (conditional error)":
         errors.append(
-            f'    Error: {field_name} - The field is conditionally required, but the JSONs FEC Spec does not have "X (conditional error)"'
+            f'    Error: {field_name} - The field is conditionally required, '
+            'but the JSON\'s FEC Spec does not have "X (conditional error)"'
         )
 
     if field_name in schema['required']:
         errors.append(
-            f'    Error: {field_name} - The field is conditionally required, but it is present in the JSONs required array'
+            f'    Error: {field_name} - The field is conditionally required, '
+            "but it is present in the JSON's required array"
         )
 
     if not found_in_all_of(schema, field_name):
         errors.append(
-            f'    Error: {field_name} - The field is conditionally required, but it is not present in the JSONs allOf rules'
+            f'    Error: {field_name} - The field is conditionally required, '
+            "but it is not present in the JSON's allOf rules"
         )
 
     return errors
@@ -436,17 +443,20 @@ def check_not_required(schema, field_name):
 
     if schema_required != None:
         errors.append(
-            f'    Error: {field_name} - The field is not required, but it\'s marked as "{schema_required}" in the JSON'
+            f'    Error: {field_name} - The field is not required, '
+            'but it\'s marked as "{schema_required}" in the JSON'
         )
 
     if field_name in schema['required']:
         errors.append(
-            f'    Error: {field_name} - The field is not required, but it\'s present in the JSON\'s required array'
+            f'    Error: {field_name} - The field is not required,'
+            " but it's present in the JSON's required array"
         )
 
     if found_in_all_of(schema, field_name):
         errors.append(
-            f'    Error: {field_name} - The field is not required, but it can be set as required in the JSON\'s AllOf'
+            f'    Error: {field_name} - The field is not required,'
+            " but it can be set as required in the JSON's AllOf"
         )
 
     return errors
@@ -518,13 +528,12 @@ def check_single_entity_type(schema, field_name, raw_sheet_entity_type):
         )
         return errors
 
-    sheet_entity_type = raw_sheet_entity_type.replace(" Only", "").replace(" only", "").strip()
-
+    sheet_entity_type = raw_sheet_entity_type.replace(" Only", "").replace(" only", "")
 
     if sheet_entity_type != json_entity_type:
         errors.append(
-            f'    Error: {field_name} - The sheet has an entity type of {sheet_entity_type},'
-            f' but the JSON has {json_entity_type}'
+            f'    Error: {field_name} - The sheet has an entity type of'
+            f' {sheet_entity_type}, but the JSON has {json_entity_type}'
         )
     return errors
 
@@ -539,7 +548,7 @@ def check_multiple_entity_types(schema, field_name, raw_sheet_entity_types):
         )
         return errors
 
-    cleaned_sheet_entity_types = raw_sheet_entity_types.replace("[", "").replace("]","")
+    cleaned_sheet_entity_types = raw_sheet_entity_types.replace("[", "").replace("]", "")
     cleaner_sheet_entity_types = cleaned_sheet_entity_types.replace(" ", "")
     sheet_entity_types = cleaner_sheet_entity_types.split("|")
 
@@ -576,7 +585,9 @@ def check_aggregation_group(row, schema, field_name):
         return errors
 
     if "," in sheet_aggr_group:
-        return check_aggregation_group_multiple(sheet_aggr_group.split(','), schema, field_name)
+        return check_aggregation_group_multiple(
+            sheet_aggr_group.split(','), schema, field_name
+        )
     else:
         return check_aggregation_group_single(sheet_aggr_group, schema, field_name)
 
