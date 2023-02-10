@@ -66,9 +66,6 @@ def get_filename(sheet):
 
 
 def get_transaction_type_identifier(sheet):
-    if ',' in sheet['A1'].value:
-        print("HEY:", sheet['A2'].value)
-
     tti_overrides = {
         "TEXT": "Text",
         "National Party Earmark Memos": "NATIONAL_PARTY_EARMARK_MEMOS",
@@ -153,6 +150,65 @@ def get_schema_property(schema, field_name, property, is_fec_spec=False):
         return field[property]
     else:
         return None
+
+
+def check_transaction_type_identifier(row, schema, field_name):
+    errors = []
+    if field_name != "transaction_type_identifier":
+        return errors
+
+    sheet_tti = row[COLUMNS["rule_reference"]].value
+    if not sheet_tti:
+        errors.append(
+            f'    Error: {field_name} - Transaction Type Identifier is missing from the sheet'
+        )
+        return errors
+
+    if " or" in sheet_tti:
+        sheet_tti = sheet_tti.replace("\n", " ")
+        sheet_tti = sheet_tti.split(" or ")
+        return check_multi_tti(schema, field_name, sheet_tti)
+    else:
+        return check_single_tti(schema, field_name, sheet_tti)
+
+
+def check_single_tti(schema, field_name, sheet_tti):
+    errors = []
+    json_tti = get_schema_property(schema, field_name, "const")
+    if not json_tti:
+        errors.append(
+            f'    Error: {field_name} - Schema has a TTI of "{sheet_tti}"'
+            ' while the JSON does not have a constant value'
+        )
+    elif json_tti != sheet_tti:
+        errors.append(
+            f'    Error: {field_name} - Schema has a TTI of "{sheet_tti}"'
+            f' while the JSON has "{json_tti}"'
+        )
+    return errors
+
+def check_multi_tti(schema, field_name, sheet_tti):
+    errors = []
+    json_tti = get_schema_property(schema, field_name, "enum")
+    if not json_tti:
+        errors.append(
+            f'    Error: {field_name} - Schema allows for TTI\'s of {sheet_tti}'
+            ' while the JSON does not have an enumerated value'
+        )
+    else:
+        for j_tti in json_tti:
+            if j_tti not in sheet_tti:
+                errors.append(
+                    f'    Error: {field_name} - The JSON has a TTI of "{j_tti}"'
+                    ' that is not present in the sheet'
+                )
+        for s_tti in sheet_tti:
+            if s_tti not in json_tti:
+                errors.append(
+                    f'    Error: {field_name} - The Sheet has a TTI of "{s_tti}"'
+                    ' that is not present in the JSON'
+                )
+    return errors
 
 
 def compare_type(row, schema, field_name):
@@ -566,7 +622,8 @@ def verify(sheet, schema):
         check_form_type,
         check_entity_type,
         check_contribution_amount,
-        check_aggregation_group
+        check_aggregation_group,
+        check_transaction_type_identifier,
     ]
 
     minor_errors = []
@@ -706,7 +763,7 @@ if (__name__ == "__main__"):
         filename = get_filename(sheet)
         schema_file_path = f'../schema/{filename}.json'
         if not path.exists(schema_file_path):
-            missing_schema_files.append(f'{sheet.title}: {filename}')
+            missing_schema_files.append(f'{sheet.title}: {schema_file_path}')
             continue
 
         json_file = open(schema_file_path, 'r')
@@ -719,11 +776,6 @@ if (__name__ == "__main__"):
         schema = json.load(json_file)
         if not schema:
             failed_to_load.append(f'Failed to load JSON: {filename}')
-            continue
-
-        transaction_type_identifier = get_transaction_type_identifier(sheet)
-        if not transaction_type_identifier:
-            missing_transaction_type_identifiers.append(sheet.title)
             continue
 
         new_errors, new_minor_errors = verify(sheet, schema)
