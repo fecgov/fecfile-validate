@@ -182,7 +182,7 @@
             "fec_spec": {
                 "FIELD_DESCRIPTION": "CONTRIBUTOR ORGANIZATION NAME",
                 "TYPE": "A/N-200",
-                "REQUIRED": "X (error)",
+                "REQUIRED": "X (conditional error)",
                 "SAMPLE_DATA": "John Smith & Co.",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": "Required if [ORG]",
@@ -205,7 +205,7 @@
             "fec_spec": {
                 "FIELD_DESCRIPTION": "CONTRIBUTOR LAST NAME",
                 "TYPE": "A/N-30",
-                "REQUIRED": "X (error)",
+                "REQUIRED": "X (conditional error)",
                 "SAMPLE_DATA": "Smith",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": "Required if [IND]",
@@ -228,7 +228,7 @@
             "fec_spec": {
                 "FIELD_DESCRIPTION": "CONTRIBUTOR FIRST NAME",
                 "TYPE": "A/N-20",
-                "REQUIRED": "X (error)",
+                "REQUIRED": "X (conditional error)",
                 "SAMPLE_DATA": "John",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": "Required if [IND]",
@@ -511,7 +511,7 @@
             "fec_spec": {
                 "FIELD_DESCRIPTION": "DONOR COMMITTEE FEC ID",
                 "TYPE": "A/N-9",
-                "REQUIRED": "X (error)",
+                "REQUIRED": "X (conditional error)",
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": "Required if NOT [IND]",
@@ -534,7 +534,7 @@
             "fec_spec": {
                 "FIELD_DESCRIPTION": "DONOR COMMITTEE NAME",
                 "TYPE": "A/N-200",
-                "REQUIRED": "X (error)",
+                "REQUIRED": "X (conditional error)",
                 "SAMPLE_DATA": "Action PAC",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": "Required if NOT [IND]",
@@ -557,7 +557,7 @@
             "fec_spec": {
                 "FIELD_DESCRIPTION": "CONTRIBUTOR EMPLOYER",
                 "TYPE": "A/N-38",
-                "REQUIRED": "X (error)",
+                "REQUIRED": "X (conditional error)",
                 "SAMPLE_DATA": "XYZ Company",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": "If ENTITY = IND; Req if Donor aggregate >$200",
@@ -580,7 +580,7 @@
             "fec_spec": {
                 "FIELD_DESCRIPTION": "CONTRIBUTOR OCCUPATION",
                 "TYPE": "A/N-38",
-                "REQUIRED": "X (error)",
+                "REQUIRED": "X (conditional error)",
                 "SAMPLE_DATA": "QC Inspector",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": "If ENTITY = IND; Req if Donor aggregate >$200",
