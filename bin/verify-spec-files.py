@@ -115,7 +115,7 @@ def get_schema_fields(sheet):
             row = r
             break
 
-    if row == None:
+    if row is None:
         print("    FORM TYPE row not found", sheet.title)
 
     if DEBUG:
@@ -441,7 +441,7 @@ def check_not_required(schema, field_name):
         schema, field_name, 'REQUIRED', is_fec_spec=True
     )
 
-    if schema_required != None:
+    if schema_required is not None:
         errors.append(
             f'    Error: {field_name} - The field is not required, '
             'but it\'s marked as "{schema_required}" in the JSON'
