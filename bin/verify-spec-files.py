@@ -597,9 +597,7 @@ def clean_aggregation_group_names(aggr_groups):
 def check_aggregation_group_single(sheet_aggr_group, schema, field_name):
     errors = []
 
-    schema_group_name = None
-    if "const" in schema['properties'][field_name]:
-        schema_group_name = schema['properties'][field_name]["const"]
+    schema_group_name = get_schema_property(schema, field_name, "const")
     if not schema_group_name:
         errors.append(
             f'    Error: {field_name} - Cannot find aggregation group in json schema'
@@ -622,9 +620,7 @@ def check_aggregation_group_single(sheet_aggr_group, schema, field_name):
 def check_aggregation_group_multiple(sheet_aggr_groups, schema, field_name):
     errors = []
 
-    schema_group_names = None
-    if "enum" in schema['properties'][field_name]:
-        schema_group_names = schema['properties'][field_name]["enum"]
+    schema_group_names = get_schema_property(schema, field_name, "enum")
     if not schema_group_names:
         errors.append(
             f'    Error: {field_name} - Cannot find aggregation group in json schema'
