@@ -316,19 +316,19 @@ def check_contribution_amount(row, schema, field_name):
     json_maximum = get_schema_property(schema, field_name, "maximum")
     json_exclusive_maximum = get_schema_property(schema, field_name, "exclusiveMaximum")
 
-    if not json_minimum:
+    if json_minimum is None:
         errors.append(
             f"    Error: {field_name} - The JSON for "
             f"the field has no minimum value"
         )
-    elif len(str(json_minimum)) != expected_length:
+    elif json_minimum != 0 and len(str(json_minimum)) != expected_length:
         errors.append(
             f"    Error: {field_name} - The JSON's minimum value "
             f"is {json_minimum} when it should have a length of 12"
         )
 
     if not sheet_amount_negative:
-        if not json_maximum:
+        if json_maximum is None:
             errors.append(
                 f"    Error: {field_name} - The JSON for the field "
                 f"has no maximum value"
@@ -431,7 +431,7 @@ def check_not_required(schema, field_name):
     if schema_required is not None:
         errors.append(
             f'    Error: {field_name} - The field is not required, '
-            'but it\'s marked as "{schema_required}" in the JSON'
+            f'but it\'s marked as "{schema_required}" in the JSON'
         )
 
     if field_name in schema['required']:
