@@ -40,6 +40,25 @@ print(
     f"<caption>Specification for {title}</caption><tr>"
 )
 
+
+def get_conditions(all_of):
+    conditions = []
+    for q in all_of["if"]["properties"]:
+        if "const" in all_of["if"]["properties"][q]:
+            conditions.append(
+                f"{q.upper()} equals {all_of['if']['properties'][q]['const']}"
+            )
+        if "enum" in all_of["if"]["properties"][q]:
+            conditions.append(
+                f"{q.upper()} one of {all_of['if']['properties'][q]['enum']}"
+            )
+        if "minimum" in all_of["if"]["properties"][q]:
+            conditions.append(
+                f"{q.upper()} >= {all_of['if']['properties'][q]['minimum']}"
+            )
+    return conditions
+
+
 for c in COLUMNS:
     print(f"<th>{c}</th>")
 print("</tr>")
@@ -57,25 +76,33 @@ for p in data["properties"]:
 
     if "allOf" in data:
         for all_of in data["allOf"]:
-            if p in all_of["then"]["required"]:
-                conditions = []
-                for q in all_of["if"]["properties"]:
-                    if "const" in all_of["if"]["properties"][q]:
-                        conditions.append(
-                            f"{q.upper()} equals "
-                            f"{all_of['if']['properties'][q]['const']}"
-                        )
-                    if "enum" in all_of["if"]["properties"][q]:
-                        conditions.append(
-                            f"{q.upper()} one of "
-                            f"{all_of['if']['properties'][q]['enum']}"
-                        )
-                    if "minimum" in all_of["if"]["properties"][q]:
-                        conditions.append(
-                            f"{q.upper()} >= "
-                            f"{all_of['if']['properties'][q]['minimum']}"
-                        )
+            if "required" in all_of["then"] and p in all_of["then"]["required"]:
+                conditions = get_conditions(all_of)
                 validation_rules += f"<li>REQUIRED if {' & '.join(conditions)}</li>"
+            if (
+                p in all_of["then"]["properties"]
+                and "const" in all_of["then"]["properties"][p]
+            ):
+                const_value = all_of["then"]["properties"][p]["const"]
+                conditions = get_conditions(all_of)
+                result = f"{p.upper()} = '{const_value}'"
+                validation_rules += f"<li>{result} if {' & '.join(conditions)}</li>"
+            if (
+                p in all_of["then"]["properties"]
+                and "enum" in all_of["then"]["properties"][p]
+            ):
+                enum_value = all_of["then"]["properties"][p]["enum"]
+                conditions = get_conditions(all_of)
+                result = f"{p.upper()} must be one of {enum_value}"
+                validation_rules += f"<li>{result} if {' & '.join(conditions)}</li>"
+            if (
+                p in all_of["then"]["properties"]
+                and "pattern" in all_of["then"]["properties"][p]
+            ):
+                pattern_value = all_of["then"]["properties"][p]["pattern"]
+                conditions = get_conditions(all_of)
+                result = f"{p.upper()} must match {pattern_value}"
+                validation_rules += f"<li>{result} if {' & '.join(conditions)}</li>"
 
     if p in data["required"]:
         validation_rules += "<li>REQUIRED</li>"
