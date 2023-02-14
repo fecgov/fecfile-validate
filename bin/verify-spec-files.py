@@ -651,7 +651,8 @@ def check_aggregation_group_multiple(sheet_aggr_group, schema, field_name):
         sheet_group_names = clean_aggregation_group_names(sheet_aggr_group)
 
     for sheet_group_name in sheet_group_names:
-        if sheet_group_name not in schema_group_names and not group_in_all_of(schema, sheet_group_name):
+        in_all_of = group_in_all_of(schema, sheet_group_name)
+        if sheet_group_name not in schema_group_names and not in_all_of:
             errors.append(
                 f'    Error: {field_name} - Sheet has a group "{sheet_group_name}" '
                 'that is missing in the schema'
