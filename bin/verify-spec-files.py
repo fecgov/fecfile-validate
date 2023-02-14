@@ -573,7 +573,7 @@ def check_aggregation_group(row, schema, field_name):
 
     if "," in sheet_aggr_group:
         return check_aggregation_group_multiple(
-            sheet_aggr_group.split(','), schema, field_name
+            sheet_aggr_group, schema, field_name
         )
     else:
         return check_aggregation_group_single(sheet_aggr_group, schema, field_name)
@@ -586,7 +586,12 @@ def clean_aggregation_group_name(aggr_group):
     return sheet_aggr_group
 
 
-def clean_aggregation_group_names(aggr_groups):
+def clean_aggregation_group_names(aggr_group_field):
+    aggr_group_lines = aggr_group_field.split('\n')
+    aggr_groups = []
+    for aggr_group_line in aggr_group_lines:
+        aggr_groups.append(aggr_group_line.split(', then ')[1])
+
     cleaned_aggregation_group_names = []
     for aggr_group in aggr_groups:
         clean_name = clean_aggregation_group_name(aggr_group)
@@ -617,7 +622,21 @@ def check_aggregation_group_single(sheet_aggr_group, schema, field_name):
     return errors
 
 
-def check_aggregation_group_multiple(sheet_aggr_groups, schema, field_name):
+def group_in_all_of(schema, group):
+    group_name = group.replace("XX", "")
+    if "allOf" in schema.keys():
+        for all_of_rule in schema['allOf']:
+            if 'required' in all_of_rule['then']:
+                if "aggregation_group" in all_of_rule['then']['properties']:
+                    prop = all_of_rule['then']['properties']['aggregation_group']
+                    if "const" in prop and prop["const"] == group_name:
+                        return True
+                    if "pattern" in prop and group_name in prop["pattern"]:
+                        return True
+    return False
+
+
+def check_aggregation_group_multiple(sheet_aggr_group, schema, field_name):
     errors = []
 
     schema_group_names = get_schema_property(schema, field_name, "enum")
@@ -628,11 +647,11 @@ def check_aggregation_group_multiple(sheet_aggr_groups, schema, field_name):
         return errors
 
     sheet_group_names = None
-    if sheet_aggr_groups:
-        sheet_group_names = clean_aggregation_group_names(sheet_aggr_groups)
+    if sheet_aggr_group:
+        sheet_group_names = clean_aggregation_group_names(sheet_aggr_group)
 
     for sheet_group_name in sheet_group_names:
-        if sheet_group_name not in schema_group_names:
+        if sheet_group_name not in schema_group_names and not group_in_all_of(schema, sheet_group_name):
             errors.append(
                 f'    Error: {field_name} - Sheet has a group "{sheet_group_name}" '
                 'that is missing in the schema'
