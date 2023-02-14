@@ -103,6 +103,38 @@ for p in data["properties"]:
                 conditions = get_conditions(all_of)
                 result = f"{p.upper()} must match {pattern_value}"
                 validation_rules += f"<li>{result} if {' & '.join(conditions)}</li>"
+            if (
+                p in all_of["then"]["properties"]
+                and "minimum" in all_of["then"]["properties"][p]
+            ):
+                min_value = all_of["then"]["properties"][p]["minimum"]
+                conditions = get_conditions(all_of)
+                result = f"{p.upper()} >= {min_value}"
+                validation_rules += f"<li>{result} if {' & '.join(conditions)}</li>"
+            if (
+                p in all_of["then"]["properties"]
+                and "maximum" in all_of["then"]["properties"][p]
+            ):
+                max_value = all_of["then"]["properties"][p]["maximum"]
+                conditions = get_conditions(all_of)
+                result = f"{p.upper()} <= {max_value}"
+                validation_rules += f"<li>{result} if {' & '.join(conditions)}</li>"
+            if (
+                p in all_of["then"]["properties"]
+                and "exclusiveMinimum" in all_of["then"]["properties"][p]
+            ):
+                min_value = all_of["then"]["properties"][p]["exclusiveMinimum"]
+                conditions = get_conditions(all_of)
+                result = f"{p.upper()} > {min_value}"
+                validation_rules += f"<li>{result} if {' & '.join(conditions)}</li>"
+            if (
+                p in all_of["then"]["properties"]
+                and "exclusiveMaximum" in all_of["then"]["properties"][p]
+            ):
+                max_value = all_of["then"]["properties"][p]["exclusiveMaximum"]
+                conditions = get_conditions(all_of)
+                result = f"{p.upper()} < {max_value}"
+                validation_rules += f"<li>{result} if {' & '.join(conditions)}</li>"
 
     if p in data["required"]:
         validation_rules += "<li>REQUIRED</li>"
