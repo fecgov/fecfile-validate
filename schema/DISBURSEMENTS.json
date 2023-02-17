@@ -1,8 +1,8 @@
 {
     "$schema": "https://json-schema.org/draft-07/schema#",
-    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/COMMON_DISBURSEMENTS.json",
+    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/DISBURSEMENTS.json",
     "version": "8.3.0.1",
-    "title": "FEC Common Disbursements",
+    "title": "FEC Disbursements",
     "description": "SCHEDULE B - Operating Expenditure (Line 21b), Void of Operating Expenditure (21b), Other Disbursement (29), Void of Other Disbursement (29)",
     "type": "object",
     "required": [
