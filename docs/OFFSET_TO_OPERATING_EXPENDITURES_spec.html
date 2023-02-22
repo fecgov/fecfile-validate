@@ -74,15 +74,15 @@ with the F3L</td>
 <td>A/N-3</td>
 <td>X (error)</td>
 <td>IND</td>
-<td>IND, ORG, COM</td>
-<td>[IND|ORG|COM]</td>
+<td>ORG, IND, COM</td>
+<td>[ORG|IND|COM]</td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>must be one of: ['IND', 'ORG', 'COM']</li></td>
+<td><ul><li>REQUIRED</li><li>must be one of: ['ORG', 'IND', 'COM']</li></td>
 </tr>
 <tr>
 <td>CONTRIBUTOR ORGANIZATION NAME</td>
 <td>A/N-200</td>
-<td>X (error)</td>
+<td>X (conditional error)</td>
 <td>John Smith & Co.</td>
 <td></td>
 <td>Required if [ORG|COM]</td>
@@ -92,7 +92,7 @@ with the F3L</td>
 <tr>
 <td>CONTRIBUTOR LAST NAME</td>
 <td>A/N-30</td>
-<td>X (error)</td>
+<td>X (conditional error)</td>
 <td>Smith</td>
 <td></td>
 <td>Required if [IND]</td>
@@ -102,7 +102,7 @@ with the F3L</td>
 <tr>
 <td>CONTRIBUTOR FIRST NAME</td>
 <td>A/N-20</td>
-<td>X (error)</td>
+<td>X (conditional error)</td>
 <td>John</td>
 <td></td>
 <td>Required if [IND]</td>
