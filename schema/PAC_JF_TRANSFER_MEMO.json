@@ -24,7 +24,8 @@
         "aggregation_group",
         "contribution_purpose_descrip",
         "memo_code",
-        "donor_committee_fec_id"
+        "donor_committee_fec_id",
+        "donor_committee_name"
     ],
     "fec_recommended": [],
     "properties": {
@@ -359,7 +360,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 100,
-            "pattern": "^Joint Fundraising Memo: [ -~]{0,91}$",
+            "pattern": "^Joint Fundraising Memo: [ -~]{0,76}$",
             "fec_spec": {
                 "FIELD_DESCRIPTION": "CONTRIBUTION PURPOSE DESCRIPTION",
                 "TYPE": "A/N-100",

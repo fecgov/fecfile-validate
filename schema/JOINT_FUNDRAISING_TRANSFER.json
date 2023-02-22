@@ -21,7 +21,9 @@
         "contribution_amount",
         "contribution_aggregate",
         "aggregation_group",
-        "donor_committee_fec_id"
+        "donor_committee_fec_id",
+        "donor_committee_name",
+        "contribution_purpose_descrip"
     ],
     "fec_recommended": [],
     "properties": {
@@ -363,7 +365,7 @@
             "fec_spec": {
                 "FIELD_DESCRIPTION": "CONTRIBUTION PURPOSE DESCRIPTION",
                 "TYPE": "A/N-100",
-                "REQUIRED": null,
+                "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "Transfer of Joint Fundraising Proceeds",
                 "VALUE_REFERENCE": "Transfer of Joint Fundraising Proceeds",
                 "RULE_REFERENCE": "Transfer of Joint Fundraising Proceeds",

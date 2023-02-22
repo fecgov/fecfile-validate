@@ -445,7 +445,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 100,
-            "pattern": "^Headquarters Buildings Account JF Memo: [ -~]{0,62}$",
+            "pattern": "^Headquarters Buildings Account JF Memo: [ -~]{0,60}$",
             "fec_spec": {
                 "FIELD_DESCRIPTION": "CONTRIBUTION PURPOSE DESCRIPTION",
                 "TYPE": "A/N-100",

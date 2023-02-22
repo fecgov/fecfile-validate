@@ -21,7 +21,7 @@
         "contribution_aggregate",
         "aggregation_group",
         "donor_committee_fec_id",
-        "donor_committe_name"
+        "donor_committee_name"
     ],
     "fec_recommended": [],
     "properties": {
