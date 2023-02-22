@@ -355,12 +355,14 @@ def check_contribution_amount(row, schema, field_name):
 
 def check_required(row, schema, field_name):
     sheet_required_raw = row[COLUMNS['required']].value
+    if sheet_required_raw is not None:
+        sheet_required = sheet_required_raw.strip()
 
-    if sheet_required_raw == "X (error)":
-        return check_strictly_required(schema, field_name)
+        if sheet_required == "X (error)":
+            return check_strictly_required(schema, field_name)
 
-    if sheet_required_raw == "X (conditional error)":
-        return check_conditionally_required(schema, field_name)
+        if sheet_required == "X (conditional error)":
+            return check_conditionally_required(schema, field_name)
 
     return check_not_required(schema, field_name)
 
