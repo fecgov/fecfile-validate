@@ -182,7 +182,7 @@
             "fec_spec": {
                 "FIELD_DESCRIPTION": "CONTRIBUTOR LAST NAME",
                 "TYPE": "A/N-30",
-                "REQUIRED": "X (conditional error)",
+                "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "Smith",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
@@ -202,7 +202,7 @@
             "fec_spec": {
                 "FIELD_DESCRIPTION": "CONTRIBUTOR FIRST NAME",
                 "TYPE": "A/N-20",
-                "REQUIRED": "X (conditional error)",
+                "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "John",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
