@@ -14,7 +14,7 @@
 <td>X (error)</td>
 <td>SB21b</td>
 <td>SB[line# ref]</td>
-<td>If Transaction Type is OPERATING_EXPENDITURE or OPERATING_EXPENDITURE_VOID, Form Type is SB21b. If Transaction Type is OTHER_DISBURSEMENT or OTHER_DISBURSEMENT_VOID, Form Type is SB29.</td>
+<td>If Transaction Type is OPERATING_EXPENDITURE_STAFF_REIMBURSEMENT, Form Type is SB21b. If Transaction Type is OTHER_DISBURSEMENT_STAFF_REIMBURSEMENT, Form Type is SB29.</td>
 <td>F3 | F3X | F3P | F3L</td>
 <td><ul><li>FORM_TYPE = 'SB21b' if TRANSACTION_TYPE_IDENTIFIER equals OPERATING_EXPENDITURE_STAFF_REIMBURSEMENT</li><li>FORM_TYPE = 'SB29' if TRANSACTION_TYPE_IDENTIFIER equals OTHER_DISBURSEMENT_STAFF_REIMBURSEMENT</li><li>REQUIRED</li><li>must be one of: ['SB21b', 'SB29']</li></td>
 </tr>
@@ -195,7 +195,7 @@ with the F3L</td>
 <td>X (error)</td>
 <td>1500</td>
 <td></td>
-<td>If Transaction Type is OPERATING_EXPENDITURE_VOID or OTHER_DISBURSEMENT_VOID, amount must be negative.</td>
+<td></td>
 <td>F3 | F3X | F3P | F3L</td>
 <td><ul><li>REQUIRED</li><li>type: number</li><li>minimum: -99999999.99</li><li>maximum: 999999999.99</li></td>
 </tr>

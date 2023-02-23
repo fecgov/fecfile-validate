@@ -40,7 +40,7 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "SB21b",
                 "VALUE_REFERENCE": "SB[line# ref]",
-                "RULE_REFERENCE": "If Transaction Type is OPERATING_EXPENDITURE or OPERATING_EXPENDITURE_VOID, Form Type is SB21b. If Transaction Type is OTHER_DISBURSEMENT or OTHER_DISBURSEMENT_VOID, Form Type is SB29.",
+                "RULE_REFERENCE": "If Transaction Type is OPERATING_EXPENDITURE_STAFF_REIMBURSEMENT, Form Type is SB21b. If Transaction Type is OTHER_DISBURSEMENT_STAFF_REIMBURSEMENT, Form Type is SB29.",
                 "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
             }
         },
@@ -419,7 +419,7 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": 1500,
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "If Transaction Type is OPERATING_EXPENDITURE_VOID or OTHER_DISBURSEMENT_VOID, amount must be negative.",
+                "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
             }
         },
