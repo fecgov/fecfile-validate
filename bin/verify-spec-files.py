@@ -59,9 +59,17 @@ COLUMNS = {
 
 
 def get_filename(sheet):
+    filename_overrides = {
+        "NATIONAL_PARTY_PARTNERSHIP_MEMOS (needs review as it is named PARTNERSHIP_NATIONAL_PARTY_MEMOS in the code)":"PARTNERSHIP_NATIONAL_PARTY_MEMOS",
+        "NATIONAL_PARTY_PARTNERSHIP_RECEIPTS (needs review as it is named PARTNERSHIP_NATIONAL_PARTY_RECEIPTS in the code)":"PARTNERSHIP_NATIONAL_PARTY_RECEIPTS"
+    }
+
     filename = sheet['A2'].value
     if not filename:
         filename = get_transaction_type_identifier(sheet)
+    elif filename in filename_overrides.keys():
+        filename = filename_overrides[filename]
+
     return filename
 
 
@@ -151,9 +159,8 @@ def check_transaction_type_identifier(row, schema, field_name):
         )
         return errors
 
-    if " or" in sheet_tti:
-        sheet_tti = sheet_tti.replace("\n", " ")
-        sheet_tti = sheet_tti.split(" or ")
+    if "\n" in sheet_tti:
+        sheet_tti = sheet_tti.split("\n")
         return check_multi_tti(schema, field_name, sheet_tti)
     else:
         return check_single_tti(schema, field_name, sheet_tti)
@@ -231,19 +238,38 @@ def get_length_from_type(type):
     return int(split_type[-1].strip(" "))
 
 
-def get_cpd_pattern_length(pattern):
-    # Left of the "[" we find the fixed text of the pattern
-    # Right of the "[" we find the "[ -~]{min_length,max_length}$" pattern
-    fixed, length_str = pattern.split("[")
+def get_cpd_lengths_and_patterns(regex):
+    lengths = []
+    patterns = regex.split("|")
+    for pattern in patterns:
+        split_left = pattern.split("[")
+        split_right = pattern.split("}")
 
-    # Finding the maximum length of abritrary characters in the pattern
-    length_str = length_str.split(",")[1]  # Right of the comma aaaaand
-    max_length = length_str.split("}")[0]  # left of the brace is the max length
+        fixed = []
+        if len(split_left) > 1:
+            fixed.append(split_left[0])
+        if len(split_right) > 1:
+            fixed.append(split_right[1])
 
-    fixed = fixed.strip("^")  # We remove the ^ symbol since it's not part of the length
+        # Right of the "[" we find the "[ -~]{min_length,max_length}$" pattern
+        length_str = split_left[-1]
 
-    pattern_length = len(fixed)+int(max_length)
-    return pattern_length
+        # Finding the maximum length of abritrary characters in the pattern
+        length_str = length_str.split(",")[1]  # Right of the comma aaaaand
+        max_length = length_str.split("}")[0]  # left of the brace is the max length
+
+        length = 0
+        # Remove the ^, &, \\, (, and ) symbols since they're not part of the length
+        # Count the length of escaped parens!
+        for f in fixed:
+            fix = f.strip("^").strip("$")
+            length += fix.count("\\)") + fix.count("\\(")
+            fix = fix.replace("\\", "").replace("(", "").replace(")", "")
+            length += len(fix)
+
+        lengths.append([length+int(max_length), pattern])
+
+    return lengths
 
 
 def compare_length(row, schema, field_name):
@@ -264,7 +290,7 @@ def compare_length(row, schema, field_name):
         return errors
 
     json_max_length = get_schema_property(schema, field_name, "maxLength")
-    json_pattern = get_schema_property(schema, field_name, "pattern")
+    json_pattern_regex = get_schema_property(schema, field_name, "pattern")
 
     if json_max_length and json_max_length != expected_length:
         errors.append(
@@ -272,24 +298,30 @@ def compare_length(row, schema, field_name):
             f"the JSON's max_length is {json_max_length}"
         )
 
-    if json_pattern:
+    if json_pattern_regex:
         if field_name == "contribution_purpose_descrip":
-            pattern_length = get_cpd_pattern_length(json_pattern)
-            if expected_length != pattern_length:
-                errors.append(
-                    f"    Error: {field_name} - Sheet has Type {field_type} but "
-                    f"the JSON field's pattern's length adds up to {pattern_length}"
-                )
+            lengths_and_patterns = get_cpd_lengths_and_patterns(json_pattern_regex)
+            for pattern_length, pattern in lengths_and_patterns:
+                if expected_length != pattern_length:
+                    # Phrase the error different depending on whether or not it is a sub-pattern
+                    substring = "field's pattern's"
+                    if len(lengths_and_patterns) > 0:
+                        substring = f"field has a sub-pattern ({pattern}) whose"
+
+                    errors.append(
+                        f"    Error: {field_name} - Sheet has Type {field_type} but "
+                        f"the JSON {substring} length adds up to {pattern_length}"
+                    )
         elif field_name not in fixed_patterns.keys():
-            if not re.search(f"{expected_length}}}\\$$", json_pattern):
+            if not re.search(f"{expected_length}}}\\$$", json_pattern_regex):
                 errors.append(
                     f"    Error: {field_name} - Sheet has Type {field_type} but "
-                    f"the JSON field's pattern's max length is wrong ({json_pattern})"
+                    f"the JSON field's pattern's max length is wrong ({json_pattern_regex})"
                 )
         else:
-            if json_pattern != fixed_patterns[field_name]:
+            if json_pattern_regex != fixed_patterns[field_name]:
                 errors.append(
-                    f"    Error: {field_name} - The JSON has a pattern of {json_pattern} "
+                    f"    Error: {field_name} - The JSON has a pattern of {json_pattern_regex} "
                     f"but the expected pattern is {fixed_patterns[field_name]}"
                 )
 
