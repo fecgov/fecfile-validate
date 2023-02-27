@@ -1,6 +1,6 @@
 {
     "$schema": "https://json-schema.org/draft-07/schema#",
-    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/DISBURSEMENTS.json",
+    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/DISBURSEMENT_PARENTS.json",
     "version": "8.3.0.1",
     "title": "FEC Payroll and Credit Card Disbursements",
     "description": "SCHEDULE B - Credit Card Payment for Operating Expenditure, Payment to Payroll for Operating Expenditure, (Line 29b) Credit Card Payment for Other Disbursement, Payment to Payroll for Other Disbursement (Line 29)",
