@@ -155,7 +155,7 @@ with the F3L</td>
 <td>X (error)</td>
 <td>1500</td>
 <td></td>
-<td>If Transaction Type is OPERATING_EXPENDITURE_VOID or OTHER_DISBURSEMENT_VOID, amount must be negative.</td>
+<td></td>
 <td>F3 | F3X | F3P | F3L</td>
 <td><ul><li>REQUIRED</li><li>type: number</li><li>minimum: -99999999.99</li><li>maximum: 999999999.99</li></td>
 </tr>
@@ -187,7 +187,7 @@ with the F3L</td>
 <td></td>
 <td></td>
 <td>F3 | F3X | F3P</td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>must be one of: ['Credit Card: See Below', 'Payroll: See Below']</li></td>
+<td><ul><li>EXPENDITURE_PURPOSE_DESCRIP = 'Credit Card: See Below' if TRANSACTION_TYPE_IDENTIFIER one of ['OTHER_DISBURSEMENT_CREDIT_CARD_PAYMENT', 'OPERATING_EXPENDITURE_CREDIT_CARD_PAYMENT']</li><li>EXPENDITURE_PURPOSE_DESCRIP = 'Payroll: See Below' if TRANSACTION_TYPE_IDENTIFIER one of ['OTHER_DISBURSEMENT_PAYMENT_TO_PAYROLL', 'OPERATING_EXPENDITURE_PAYMENT_TO_PAYROLL']</li><li>REQUIRED</li><li>type: string</li><li>must be one of: ['Credit Card: See Below', 'Payroll: See Below']</li></td>
 </tr>
 <tr>
 <td>CATEGORY CODE</td>

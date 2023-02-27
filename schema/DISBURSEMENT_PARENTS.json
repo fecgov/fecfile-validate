@@ -328,7 +328,7 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": 1500,
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "If Transaction Type is OPERATING_EXPENDITURE_VOID or OTHER_DISBURSEMENT_VOID, amount must be negative.",
+                "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
             }
         },
@@ -486,6 +486,50 @@
                 "properties": {
                     "form_type": {
                         "const": "SB29"
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "transaction_type_identifier": {
+                        "enum": [
+                            "OTHER_DISBURSEMENT_CREDIT_CARD_PAYMENT",
+                            "OPERATING_EXPENDITURE_CREDIT_CARD_PAYMENT"
+                        ]
+                    }
+                },
+                "required": [
+                    "transaction_type_identifier"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "expenditure_purpose_descrip": {
+                        "const": "Credit Card: See Below"
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "transaction_type_identifier": {
+                        "enum": [
+                            "OTHER_DISBURSEMENT_PAYMENT_TO_PAYROLL",
+                            "OPERATING_EXPENDITURE_PAYMENT_TO_PAYROLL"
+                        ]
+                    }
+                },
+                "required": [
+                    "transaction_type_identifier"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "expenditure_purpose_descrip": {
+                        "const": "Payroll: See Below"
                     }
                 }
             }
