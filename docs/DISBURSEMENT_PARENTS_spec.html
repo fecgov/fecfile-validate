@@ -13,7 +13,7 @@
 <td>A/N-8</td>
 <td>X (error)</td>
 <td>SB21b</td>
-<td>SB[line# ref]</td>
+<td>[SB21b | SB29]</td>
 <td>If Transaction Type is OPERATING_EXPENDITURE_CREDIT_CARD_PAYMENT or OPERATING_EXPENDITURE_PAYMENT_TO_PAYROLL, Form Type is SB21b.  If Transaction Type is OTHER_DISBURSEMENT_CREDIT_CARD_PAYMENT or OTHER_DISBURSEMENT_PAYMENT_TO_PAYROLL, Form Type is SB29.</td>
 <td>F3 | F3X | F3P | F3L</td>
 <td><ul><li>FORM_TYPE = 'SB21b' if TRANSACTION_TYPE_IDENTIFIER one of ['OPERATING_EXPENDITURE_CREDIT_CARD_PAYMENT', 'OPERATING_EXPENDITURE_PAYMENT_TO_PAYROLL']</li><li>FORM_TYPE = 'SB29' if TRANSACTION_TYPE_IDENTIFIER one of ['OTHER_DISBURSEMENT_CREDIT_CARD_PAYMENT', 'OTHER_DISBURSEMENT_PAYMENT_TO_PAYROLL']</li><li>REQUIRED</li><li>must be one of: ['SB21b', 'SB29']</li></td>
@@ -74,8 +74,8 @@ with the F3L</td>
 <td>A/N-3</td>
 <td>X (error)</td>
 <td>ORG</td>
-<td>ORG</td>
-<td>ORG</td>
+<td>[ORG]</td>
+<td>ORG Only</td>
 <td></td>
 <td><ul><li>REQUIRED</li><li>must equal: ORG</li></td>
 </tr>
@@ -184,7 +184,7 @@ with the F3L</td>
 <td>A/N-100</td>
 <td>X (error)</td>
 <td>Credit Card: See Below</td>
-<td></td>
+<td>Credit Card: See Below | Payroll: See Below</td>
 <td></td>
 <td>F3 | F3X | F3P</td>
 <td><ul><li>EXPENDITURE_PURPOSE_DESCRIP = 'Credit Card: See Below' if TRANSACTION_TYPE_IDENTIFIER one of ['OTHER_DISBURSEMENT_CREDIT_CARD_PAYMENT', 'OPERATING_EXPENDITURE_CREDIT_CARD_PAYMENT']</li><li>EXPENDITURE_PURPOSE_DESCRIP = 'Payroll: See Below' if TRANSACTION_TYPE_IDENTIFIER one of ['OTHER_DISBURSEMENT_PAYMENT_TO_PAYROLL', 'OPERATING_EXPENDITURE_PAYMENT_TO_PAYROLL']</li><li>REQUIRED</li><li>type: string</li><li>must be one of: ['Credit Card: See Below', 'Payroll: See Below']</li></td>

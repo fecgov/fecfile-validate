@@ -38,7 +38,7 @@
                 "TYPE": "A/N-8",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "SB21b",
-                "VALUE_REFERENCE": "SB[line# ref]",
+                "VALUE_REFERENCE": "[SB21b | SB29]",
                 "RULE_REFERENCE": "If Transaction Type is OPERATING_EXPENDITURE_CREDIT_CARD_PAYMENT or OPERATING_EXPENDITURE_PAYMENT_TO_PAYROLL, Form Type is SB21b.  If Transaction Type is OTHER_DISBURSEMENT_CREDIT_CARD_PAYMENT or OTHER_DISBURSEMENT_PAYMENT_TO_PAYROLL, Form Type is SB29.",
                 "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
             }
@@ -163,8 +163,8 @@
                 "TYPE": "A/N-3",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "ORG",
-                "VALUE_REFERENCE": "ORG",
-                "RULE_REFERENCE": "ORG",
+                "VALUE_REFERENCE": "[ORG]",
+                "RULE_REFERENCE": "ORG Only",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -384,7 +384,7 @@
                 "TYPE": "A/N-100",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "Credit Card: See Below",
-                "VALUE_REFERENCE": null,
+                "VALUE_REFERENCE": "Credit Card: See Below | Payroll: See Below",
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P"
             }
