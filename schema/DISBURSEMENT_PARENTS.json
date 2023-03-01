@@ -1,0 +1,538 @@
+{
+    "$schema": "https://json-schema.org/draft-07/schema#",
+    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/DISBURSEMENT_PARENTS.json",
+    "version": "8.3.0.1",
+    "title": "FEC Payroll and Credit Card Disbursements",
+    "description": "SCHEDULE B - Credit Card Payment for Operating Expenditure, Payment to Payroll for Operating Expenditure, (Line 29b) Credit Card Payment for Other Disbursement, Payment to Payroll for Other Disbursement (Line 29)",
+    "type": "object",
+    "required": [
+        "form_type",
+        "filer_committee_id_number",
+        "transaction_type_identifier",
+        "transaction_id",
+        "entity_type",
+        "payee_organization_name",
+        "payee_street_1",
+        "payee_city",
+        "payee_state",
+        "payee_zip",
+        "expenditure_date",
+        "expenditure_amount",
+        "aggregate_amount",
+        "aggregation_group",
+        "expenditure_purpose_descrip"
+    ],
+    "properties": {
+        "form_type": {
+            "title": "FORM TYPE",
+            "description": "",
+            "enum": [
+                "SB21b",
+                "SB29"
+            ],
+            "examples": [
+                "SB21b"
+            ],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "FORM TYPE",
+                "TYPE": "A/N-8",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "SB21b",
+                "VALUE_REFERENCE": "[SB21b | SB29]",
+                "RULE_REFERENCE": "If Transaction Type is OPERATING_EXPENDITURE_CREDIT_CARD_PAYMENT or OPERATING_EXPENDITURE_PAYMENT_TO_PAYROLL, Form Type is SB21b.  If Transaction Type is OTHER_DISBURSEMENT_CREDIT_CARD_PAYMENT or OTHER_DISBURSEMENT_PAYMENT_TO_PAYROLL, Form Type is SB29.",
+                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+            }
+        },
+        "filer_committee_id_number": {
+            "title": "FILER COMMITTEE ID NUMBER",
+            "description": "",
+            "type": "string",
+            "minLength": 9,
+            "maxLength": 9,
+            "pattern": "^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$",
+            "examples": [
+                "C00123456"
+            ],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "FILER COMMITTEE ID NUMBER",
+                "TYPE": "A/N-9",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "C00123456",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "transaction_type_identifier": {
+            "title": "TRANSACTION TYPE IDENTIFIER",
+            "description": "",
+            "enum": [
+                "OPERATING_EXPENDITURE_CREDIT_CARD_PAYMENT",
+                "OPERATING_EXPENDITURE_PAYMENT_TO_PAYROLL",
+                "OTHER_DISBURSEMENT_CREDIT_CARD_PAYMENT",
+                "OTHER_DISBURSEMENT_PAYMENT_TO_PAYROLL"
+            ],
+            "examples": [
+                "OPERATING_EXPENDITURE_CREDIT_CARD_PAYMENT"
+            ],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "TRANSACTION TYPE IDENTIFIER",
+                "TYPE": "A/N-12",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "OPERATING_EXPENDITURE_CREDIT_CARD_PAYMENT",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "OPERATING_EXPENDITURE_CREDIT_CARD_PAYMENT, OPERATING_EXPENDITURE_PAYMENT_TO_PAYROLL, OTHER_DISBURSEMENT_CREDIT_CARD_PAYMENT, OTHER_DISBURSEMENT_PAYMENT_TO_PAYROLL",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "transaction_id": {
+            "title": "TRANSACTION ID",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 20,
+            "pattern": "^[ -~]{0,20}$",
+            "examples": [
+                "B56123456789-1234"
+            ],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "TRANSACTION ID",
+                "TYPE": "A/N-20",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "B56123456789-1234",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "must be unique for the life of the report (original + all amendments)",
+                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+            }
+        },
+        "back_reference_tran_id_number": {
+            "title": "BACK REFERENCE TRAN ID NUMBER",
+            "description": "",
+            "type": [
+                "string",
+                "null"
+            ],
+            "minLength": 0,
+            "maxLength": 20,
+            "pattern": "^[ -~]{0,20}$",
+            "examples": [
+                "B123456789-1234"
+            ],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "BACK REFERENCE TRAN ID NUMBER",
+                "TYPE": "A/N-20",
+                "REQUIRED": null,
+                "SAMPLE_DATA": "B123456789-1234",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "Reference to the Tran ID of a Related Record",
+                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+            }
+        },
+        "back_reference_sched_name": {
+            "title": "BACK REFERENCE SCHED NAME",
+            "description": "",
+            "type": [
+                "string",
+                "null"
+            ],
+            "minLength": 0,
+            "maxLength": 8,
+            "pattern": "^[ -~]{0,8}$",
+            "examples": [
+                "SB21"
+            ],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "BACK REFERENCE SCHED NAME",
+                "TYPE": "A/N-8",
+                "REQUIRED": null,
+                "SAMPLE_DATA": "SB21",
+                "VALUE_REFERENCE": "SB[line# ref]",
+                "RULE_REFERENCE": "Ref to the Schedule that has the Related Record.  SB3L must be used \nwith the F3L",
+                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+            }
+        },
+        "entity_type": {
+            "title": "ENTITY TYPE",
+            "description": "",
+            "const": "ORG",
+            "examples": [
+                "ORG"
+            ],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "ENTITY TYPE",
+                "TYPE": "A/N-3",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "ORG",
+                "VALUE_REFERENCE": "[ORG]",
+                "RULE_REFERENCE": "ORG Only",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "payee_organization_name": {
+            "title": "PAYEE ORGANIZATION NAME",
+            "description": "",
+            "type": [
+                "string",
+                "null"
+            ],
+            "minLength": 0,
+            "maxLength": 200,
+            "pattern": "^[ -~]{0,200}$",
+            "examples": [
+                "John Smith & Co."
+            ],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "PAYEE ORGANIZATION NAME",
+                "TYPE": "A/N-200",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "John Smith & Co.",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "Required if [ORG|COM]",
+                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+            }
+        },
+        "payee_street_1": {
+            "title": "PAYEE STREET  1",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 34,
+            "pattern": "^[ -~]{0,34}$",
+            "examples": [
+                "Suite 16"
+            ],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "PAYEE STREET  1",
+                "TYPE": "A/N-34",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "Suite 16",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+            }
+        },
+        "payee_street_2": {
+            "title": "PAYEE STREET  2",
+            "description": "",
+            "type": [
+                "string",
+                "null"
+            ],
+            "minLength": 0,
+            "maxLength": 34,
+            "pattern": "^[ -~]{0,34}$",
+            "examples": [
+                "30 Oak Street"
+            ],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "PAYEE STREET  2",
+                "TYPE": "A/N-34",
+                "REQUIRED": null,
+                "SAMPLE_DATA": "30 Oak Street",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+            }
+        },
+        "payee_city": {
+            "title": "PAYEE CITY",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 30,
+            "pattern": "^[ -~]{0,30}$",
+            "examples": [
+                "Springfield"
+            ],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "PAYEE CITY",
+                "TYPE": "A/N-30",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "Springfield",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+            }
+        },
+        "payee_state": {
+            "title": "PAYEE STATE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 2,
+            "pattern": "^[ -~]{0,2}$",
+            "examples": [
+                "MA"
+            ],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "PAYEE STATE",
+                "TYPE": "A/N-2",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "MA",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+            }
+        },
+        "payee_zip": {
+            "title": "PAYEE ZIP",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 9,
+            "pattern": "^[ -~]{0,9}$",
+            "examples": [
+                1012
+            ],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "PAYEE ZIP",
+                "TYPE": "A/N-9",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": 1012,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+            }
+        },
+        "expenditure_date": {
+            "title": "EXPENDITURE DATE",
+            "description": "",
+            "type": "string",
+            "minLength": 10,
+            "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+            "examples": [
+                "2012-07-20"
+            ],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "EXPENDITURE DATE",
+                "TYPE": "NUM-8",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": 20120720,
+                "VALUE_REFERENCE": "YYYYMMDD",
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P"
+            }
+        },
+        "expenditure_amount": {
+            "title": "EXPENDITURE AMOUNT",
+            "description": "",
+            "type": "number",
+            "minimum": -99999999.99,
+            "maximum": 999999999.99,
+            "examples": [
+                1500
+            ],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "EXPENDITURE AMOUNT",
+                "TYPE": "AMT-12",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": 1500,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+            }
+        },
+        "aggregate_amount": {
+            "title": "AGGREGATE AMOUNT",
+            "description": "",
+            "type": "number",
+            "minimum": -99999999.99,
+            "maximum": 999999999.99,
+            "examples": [
+                1000
+            ],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "AGGREGATE AMOUNT",
+                "TYPE": "AMT-12",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": 1000,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "aggregation_group": {
+            "title": "AGGREGATION GROUP",
+            "description": "",
+            "const": "GENERAL_DISBURSEMENT",
+            "examples": [
+                "GENERAL_DISBURSEMENT"
+            ],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "AGGREGATION GROUP",
+                "TYPE": "A/N-100",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "GENERAL_DISBURSEMENT",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "GENERAL_DISBURSEMENT",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "expenditure_purpose_descrip": {
+            "title": "EXPENDITURE PURPOSE DESCRIP",
+            "description": "",
+            "type": "string",
+            "enum": [
+                "Credit Card: See Below",
+                "Payroll: See Below"
+            ],
+            "examples": [
+                "Credit Card: See Below"
+            ],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "EXPENDITURE PURPOSE DESCRIP",
+                "TYPE": "A/N-100",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "Credit Card: See Below",
+                "VALUE_REFERENCE": "Credit Card: See Below | Payroll: See Below",
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P"
+            }
+        },
+        "category_code": {
+            "title": "CATEGORY CODE",
+            "description": "",
+            "type": ["string", "null"],
+            "enum": ["001", "002", "003", "004", "005", "006", "007", "008", "009", "010", "011", "012", null],
+            "examples": [
+                1
+            ],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "CATEGORY CODE",
+                "TYPE": "A/N-3",
+                "REQUIRED": null,
+                "SAMPLE_DATA": 1,
+                "VALUE_REFERENCE": "001, 002, ... 012",
+                "RULE_REFERENCE": "Only codes 001-012",
+                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P"
+            }
+        },
+        "memo_code": {
+            "title": "MEMO CODE",
+            "description": "",
+            "type": [
+                "boolean",
+                "null"
+            ],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "MEMO CODE",
+                "TYPE": "A/N-1",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": "X",
+                "RULE_REFERENCE": "X = True",
+                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+            }
+        },
+        "memo_text_description": {
+            "title": "MEMO TEXT/DESCRIPTION",
+            "description": "",
+            "type": [
+                "string",
+                "null"
+            ],
+            "minLength": 0,
+            "maxLength": 100,
+            "pattern": "^[ -~]{0,100}$",
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "MEMO TEXT/DESCRIPTION",
+                "TYPE": "A/N-100",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+            }
+        }
+    },
+    "allOf": [
+        {
+            "if": {
+                "properties": {
+                    "transaction_type_identifier": {
+                        "enum": [
+                            "OPERATING_EXPENDITURE_CREDIT_CARD_PAYMENT",
+                            "OPERATING_EXPENDITURE_PAYMENT_TO_PAYROLL"
+                        ]
+                    }
+                },
+                "required": [
+                    "transaction_type_identifier"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "form_type": {
+                        "const": "SB21b"
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "transaction_type_identifier": {
+                        "enum": [
+                            "OTHER_DISBURSEMENT_CREDIT_CARD_PAYMENT",
+                            "OTHER_DISBURSEMENT_PAYMENT_TO_PAYROLL"
+                        ]
+                    }
+                },
+                "required": [
+                    "transaction_type_identifier"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "form_type": {
+                        "const": "SB29"
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "transaction_type_identifier": {
+                        "enum": [
+                            "OTHER_DISBURSEMENT_CREDIT_CARD_PAYMENT",
+                            "OPERATING_EXPENDITURE_CREDIT_CARD_PAYMENT"
+                        ]
+                    }
+                },
+                "required": [
+                    "transaction_type_identifier"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "expenditure_purpose_descrip": {
+                        "const": "Credit Card: See Below"
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "transaction_type_identifier": {
+                        "enum": [
+                            "OTHER_DISBURSEMENT_PAYMENT_TO_PAYROLL",
+                            "OPERATING_EXPENDITURE_PAYMENT_TO_PAYROLL"
+                        ]
+                    }
+                },
+                "required": [
+                    "transaction_type_identifier"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "expenditure_purpose_descrip": {
+                        "const": "Payroll: See Below"
+                    }
+                }
+            }
+        }
+    ]
+}
