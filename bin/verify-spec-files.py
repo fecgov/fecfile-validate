@@ -305,7 +305,8 @@ def compare_length(row, schema, field_name):
             lengths_and_patterns = get_cpd_lengths_and_patterns(json_pattern_regex)
             for pattern_length, pattern in lengths_and_patterns:
                 if expected_length != pattern_length:
-                    # Phrase the error different depending on whether or not it is a sub-pattern
+                    # Phrase the error different depending on whether or not
+                    # it is a sub-pattern
                     substring = "field's pattern's"
                     if len(lengths_and_patterns) > 0:
                         substring = f"field has a sub-pattern ({pattern}) whose"
@@ -318,12 +319,14 @@ def compare_length(row, schema, field_name):
             if not re.search(f"{expected_length}}}\\$$", json_pattern_regex):
                 errors.append(
                     f"    Error: {field_name} - Sheet has Type {field_type} but "
-                    f"the JSON field's pattern's max length is wrong ({json_pattern_regex})"
+                    f"the JSON field's pattern's max length is wrong "
+                    f"({json_pattern_regex})"
                 )
         else:
             if json_pattern_regex != fixed_patterns[field_name]:
                 errors.append(
-                    f"    Error: {field_name} - The JSON has a pattern of {json_pattern_regex} "
+                    f"    Error: {field_name} - The JSON has a pattern of "
+                    f"{json_pattern_regex} "
                     f"but the expected pattern is {fixed_patterns[field_name]}"
                 )
 
