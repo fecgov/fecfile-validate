@@ -247,7 +247,7 @@ with the F3L</td>
 <td></td>
 <td>Required if NOT [IND]</td>
 <td></td>
-<td><ul><li>REQUIRED if ENTITY_TYPE equals COM</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 9</li><li>regex: ^C[0-9]{8}$</li></td>
+<td><ul><li>REQUIRED if ENTITY_TYPE equals COM</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 9</li><li>regex: ^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$</li></td>
 </tr>
 <tr>
 <td>DONOR COMMITTEE NAME</td>
