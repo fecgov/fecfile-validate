@@ -355,7 +355,7 @@ def check_contribution_amount(row, schema, field_name):
 
     if json_minimum is None:
         errors.append(
-            f"    Error: {field_name} - The JSON for " f"the field has no minimum value"
+            f"    Error: {field_name} - The JSON for the field has no minimum value"
         )
     elif json_minimum != 0 and len(str(json_minimum)) != expected_length:
         errors.append(
