@@ -58,18 +58,17 @@ COLUMNS = {
 }
 
 
-def get_transaction_type_identifier(sheet):
-    tti_overrides = {
-        "TEXT": "Text",
-    }
+def get_filename(sheet):
+    filename = sheet['A2'].value
+    if not filename:
+        filename = get_transaction_type_identifier(sheet)
+    return filename
 
+
+def get_transaction_type_identifier(sheet):
     column_overrides = {
         "OFFSET_TO_OPERATING_EXPENDITURE": "E"
     }
-
-    tti_field = sheet['A2'].value
-    if (tti_field and tti_field != "FIELD DESCRIPTION"):
-        return tti_field
 
     tti_row_range = range(5, 11)
     for row in tti_row_range:
@@ -78,9 +77,6 @@ def get_transaction_type_identifier(sheet):
             column = column_overrides[sheet.title]
         if sheet[f'A{row}'].value == "TRANSACTION TYPE IDENTIFIER":
             return sheet[f'{column}{row}'].value
-
-    if sheet.title in tti_overrides.keys():
-        return tti_overrides[sheet.title]
 
     return ""
 
@@ -99,7 +95,15 @@ def get_schema_fields(sheet):
     ]
 
     fields = {}
-    row = 5
+    row = None
+    for r in range(1, sheet.max_row):
+        field_description = sheet[f'A{r}'].value
+        if field_description == "FORM TYPE":
+            row = r
+            break
+
+    if row is None:
+        print("    FORM TYPE row not found", sheet.title)
 
     if DEBUG:
         print("    Determining the schema spreadsheet's fields")
@@ -133,6 +137,66 @@ def get_schema_property(schema, field_name, property, is_fec_spec=False):
         return field[property]
     else:
         return None
+
+
+def check_transaction_type_identifier(row, schema, field_name):
+    errors = []
+    if field_name != "transaction_type_identifier":
+        return errors
+
+    sheet_tti = row[COLUMNS["rule_reference"]].value
+    if not sheet_tti:
+        errors.append(
+            f'    Error: {field_name} - The sheet\'s Transaction Type Identifier is blank'
+        )
+        return errors
+
+    if " or" in sheet_tti:
+        sheet_tti = sheet_tti.replace("\n", " ")
+        sheet_tti = sheet_tti.split(" or ")
+        return check_multi_tti(schema, field_name, sheet_tti)
+    else:
+        return check_single_tti(schema, field_name, sheet_tti)
+
+
+def check_single_tti(schema, field_name, sheet_tti):
+    errors = []
+    json_tti = get_schema_property(schema, field_name, "const")
+    if not json_tti:
+        errors.append(
+            f'    Error: {field_name} - Schema has a TTI of "{sheet_tti}"'
+            ' while the JSON does not have a constant value'
+        )
+    elif json_tti != sheet_tti:
+        errors.append(
+            f'    Error: {field_name} - Schema has a TTI of "{sheet_tti}"'
+            f' while the JSON has "{json_tti}"'
+        )
+    return errors
+
+
+def check_multi_tti(schema, field_name, sheet_tti):
+    errors = []
+    json_tti = get_schema_property(schema, field_name, "enum")
+    if not json_tti:
+        errors.append(
+            f'    Error: {field_name} - Schema allows for TTI\'s of {sheet_tti}'
+            ' while the JSON does not have an enumerated value'
+        )
+    else:
+        for j_tti in json_tti:
+            if j_tti not in sheet_tti:
+                errors.append(
+                    f'    Error: {field_name} - The JSON has a TTI of "{j_tti}"'
+                    ' that is not present in the sheet'
+                )
+        for s_tti in sheet_tti:
+            if s_tti not in json_tti:
+                errors.append(
+                    f'    Error: {field_name} - The Sheet has a TTI of "{s_tti}"'
+                    ' that is not present in the JSON'
+                )
+    return errors
 
 
 def compare_type(row, schema, field_name):
@@ -252,19 +316,19 @@ def check_contribution_amount(row, schema, field_name):
     json_maximum = get_schema_property(schema, field_name, "maximum")
     json_exclusive_maximum = get_schema_property(schema, field_name, "exclusiveMaximum")
 
-    if not json_minimum:
+    if json_minimum is None:
         errors.append(
             f"    Error: {field_name} - The JSON for "
             f"the field has no minimum value"
         )
-    elif len(str(json_minimum)) != expected_length:
+    elif json_minimum != 0 and len(str(json_minimum)) != expected_length:
         errors.append(
             f"    Error: {field_name} - The JSON's minimum value "
             f"is {json_minimum} when it should have a length of 12"
         )
 
     if not sheet_amount_negative:
-        if not json_maximum:
+        if json_maximum is None:
             errors.append(
                 f"    Error: {field_name} - The JSON for the field "
                 f"has no maximum value"
@@ -290,73 +354,97 @@ def check_contribution_amount(row, schema, field_name):
 
 
 def check_required(row, schema, field_name):
-    errors = []
     sheet_required_raw = row[COLUMNS['required']].value
-    schema_required_raw = get_schema_property(
+
+    if sheet_required_raw == "X (error)":
+        return check_strictly_required(schema, field_name)
+
+    if sheet_required_raw == "X (conditional error)":
+        return check_conditionally_required(schema, field_name)
+
+    return check_not_required(schema, field_name)
+
+
+def check_strictly_required(schema, field_name):
+    errors = []
+    schema_required = get_schema_property(
         schema, field_name, 'REQUIRED', is_fec_spec=True
     )
-    schema_required_list = schema['required']
 
-    if sheet_required_raw is None:
-        sheet_required = False
-    else:
-        sheet_required = "X (error)" in sheet_required_raw
+    if schema_required != "X (error)":
+        errors.append(
+            f'    Error: {field_name} - The field is required, '
+            'but the JSON\'s FEC Spec does not have "X (error)"'
+        )
 
-    if schema_required_raw is None:
-        schema_required = False
-    else:
-        schema_required = "X (error)" in schema_required_raw
+    if field_name not in schema['required']:
+        errors.append(
+            f'    Error: {field_name} - The field is required, '
+            "but it's not present in the JSON's required array"
+        )
 
-    field_rule_reference = row[COLUMNS['rule_reference']].value
-    if field_rule_reference is None:
-        conditionally_required = False
-    else:
-        conditionally_required = "Req" in field_rule_reference
+    return errors
 
-    in_required_list = field_name in schema_required_list
-    in_all_of = False
-    if conditionally_required and "allOf" in schema.keys():
+
+def found_in_all_of(schema, field_name):
+    if "allOf" in schema.keys():
         for all_of_rule in schema['allOf']:
-            if field_name in all_of_rule['then']['required']:
-                in_all_of = True
-                break
+            if 'required' in all_of_rule['then']:
+                if field_name in all_of_rule['then']['required']:
+                    return True
+    return False
 
-    if sheet_required != schema_required:
-        if sheet_required:
-            errors.append(
-                f'    Error: {field_name} - This is a required field, '
-                f'but the JSON\'s FEC Spec does not have "X (error)"'
-            )
-        else:
-            errors.append(
-                f'    Error: {field_name} - This is not a required field, '
-                f'but the JSON\'s FEC Spec has "X (error) in it"'
-            )
 
-    if not conditionally_required:
-        if sheet_required != in_required_list:
-            if sheet_required:
-                errors.append(
-                    f"    Error: {field_name} - This is a required "
-                    f"field, but it's not in the JSON's required array"
-                )
-            else:
-                errors.append(
-                    f"    Error: {field_name} - This is not a required "
-                    f"field, but it is in the JSON's required array"
-                )
-    else:
-        if sheet_required != in_all_of:
-            if sheet_required:
-                errors.append(
-                    f"    Error: {field_name} - This is a conditionally "
-                    f"required field, but it's not in the JSON's AllOf"
-                )
-            else:
-                errors.append(
-                    f"    Error: {field_name} - This is not a conditionally "
-                    f"required field, but it is in the JSON's AllOf"
-                )
+def check_conditionally_required(schema, field_name):
+    errors = []
+    schema_required = get_schema_property(
+        schema, field_name, 'REQUIRED', is_fec_spec=True
+    )
+
+    if schema_required != "X (conditional error)":
+        errors.append(
+            f'    Error: {field_name} - The field is conditionally required, '
+            'but the JSON\'s FEC Spec does not have "X (conditional error)"'
+        )
+
+    if field_name in schema['required']:
+        errors.append(
+            f'    Error: {field_name} - The field is conditionally required, '
+            "but it is present in the JSON's required array"
+        )
+
+    if not found_in_all_of(schema, field_name):
+        errors.append(
+            f'    Error: {field_name} - The field is conditionally required, '
+            "but it is not present in the JSON's allOf rules"
+        )
+
+    return errors
+
+
+def check_not_required(schema, field_name):
+    errors = []
+    schema_required = get_schema_property(
+        schema, field_name, 'REQUIRED', is_fec_spec=True
+    )
+
+    if schema_required is not None:
+        errors.append(
+            f'    Error: {field_name} - The field is not required, '
+            f'but it\'s marked as "{schema_required}" in the JSON'
+        )
+
+    if field_name in schema['required']:
+        errors.append(
+            f'    Error: {field_name} - The field is not required,'
+            " but it's present in the JSON's required array"
+        )
+
+    if found_in_all_of(schema, field_name):
+        errors.append(
+            f'    Error: {field_name} - The field is not required,'
+            " but it can be set as required in the JSON's AllOf"
+        )
 
     return errors
 
@@ -405,22 +493,65 @@ def check_entity_type(row, schema, field_name):
         return errors
 
     entity_types = row[COLUMNS['value_reference']].value
-    schema_properties = schema['properties'][field_name]
+    if not entity_types:
+        errors.append(
+            f'    Error: {field_name} - Entity Types not found in sheet'
+        )
+        return errors
 
-    if "const" in schema_properties.keys():
-        if schema_properties["const"] not in entity_types:
+    if "|" in entity_types:
+        return check_multiple_entity_types(schema, field_name, entity_types)
+    else:
+        return check_single_entity_type(schema, field_name, entity_types)
+
+
+def check_single_entity_type(schema, field_name, raw_sheet_entity_type):
+    errors = []
+    json_entity_type = get_schema_property(schema, field_name, "const")
+    if not json_entity_type:
+        errors.append(
+            f'    Error: {field_name} - The sheet has a single entity type'
+            ' but the JSON does not have a constant value'
+        )
+        return errors
+
+    sheet_entity_type = raw_sheet_entity_type.replace(" Only", "").replace(" only", "")
+
+    if sheet_entity_type != json_entity_type:
+        errors.append(
+            f'    Error: {field_name} - The sheet has an entity type of'
+            f' {sheet_entity_type}, but the JSON has {json_entity_type}'
+        )
+    return errors
+
+
+def check_multiple_entity_types(schema, field_name, raw_sheet_entity_types):
+    errors = []
+    json_entity_types = get_schema_property(schema, field_name, "enum")
+    if not json_entity_types:
+        errors.append(
+            f'    Error: {field_name} - The sheet has a single entity type'
+            ' but the JSON does not have an enumerated value'
+        )
+        return errors
+
+    cleaned_sheet_entity_types = raw_sheet_entity_types.replace("[", "").replace("]", "")
+    cleaner_sheet_entity_types = cleaned_sheet_entity_types.replace(" ", "")
+    sheet_entity_types = cleaner_sheet_entity_types.split("|")
+
+    for s_entity in sheet_entity_types:
+        if s_entity not in json_entity_types:
             errors.append(
-                f'    Error: {field_name} - Sheet has Entity Type '
-                f'"{entity_types}" while the JSON has "{schema_properties["const"]}"'
+                f'    Error: {field_name} - The sheet has an entity type "{s_entity}"'
+                ' that is not present in the JSON\'s entity type'
             )
 
-    elif "enum" in schema_properties.keys():
-        for e_type in schema_properties["enum"]:
-            if e_type not in entity_types:
-                errors.append(
-                    f'    Error: {field_name} - Sheet has Entity Types: '
-                    f'"{entity_types}" while the JSON has "{schema_properties["enum"]}"'
-                )
+    for j_entity in json_entity_types:
+        if j_entity not in sheet_entity_types:
+            errors.append(
+                f'    Error: {field_name} - The JSON has an entity type "{j_entity}"'
+                ' that is not present in the Sheet\'s entity type'
+            )
 
     return errors
 
@@ -434,18 +565,105 @@ def check_aggregation_group(row, schema, field_name):
     if not sheet_aggr_group:
         sheet_aggr_group = row[COLUMNS["value_reference"]].value
 
-    schema_aggr_group = schema['properties'][field_name]["const"]
+    if not sheet_aggr_group:
+        errors.append(
+            f'    Error: {field_name} - Cannot find aggregation group in sheet'
+        )
+        return errors
 
+    if "," in sheet_aggr_group:
+        return check_aggregation_group_multiple(
+            sheet_aggr_group, schema, field_name
+        )
+    else:
+        return check_aggregation_group_single(sheet_aggr_group, schema, field_name)
+
+
+def clean_aggregation_group_name(aggr_group):
+    sheet_aggr_group = aggr_group.replace(" ", "_")
+    sheet_aggr_group = sheet_aggr_group.replace("-", "_")
+    sheet_aggr_group = sheet_aggr_group.upper()
+    return sheet_aggr_group
+
+
+def clean_aggregation_group_names(aggr_group_field):
+    aggr_group_lines = aggr_group_field.split('\n')
+    aggr_groups = []
+    for aggr_group_line in aggr_group_lines:
+        aggr_groups.append(aggr_group_line.split(', then ')[1])
+
+    cleaned_aggregation_group_names = []
+    for aggr_group in aggr_groups:
+        clean_name = clean_aggregation_group_name(aggr_group)
+        cleaned_aggregation_group_names.append(clean_name)
+    return cleaned_aggregation_group_names
+
+
+def check_aggregation_group_single(sheet_aggr_group, schema, field_name):
+    errors = []
+
+    schema_group_name = get_schema_property(schema, field_name, "const")
+    if not schema_group_name:
+        errors.append(
+            f'    Error: {field_name} - Cannot find aggregation group in json schema'
+        )
+        return errors
+
+    sheet_group_name = ""
     if sheet_aggr_group:
-        sheet_aggr_group = sheet_aggr_group.replace(" ", "_")
-        sheet_aggr_group = sheet_aggr_group.replace("-", "_")
-        sheet_aggr_group = sheet_aggr_group.upper()
+        sheet_group_name = clean_aggregation_group_name(sheet_aggr_group)
 
-    if sheet_aggr_group != schema_aggr_group:
+    if sheet_group_name != schema_group_name:
         errors.append(
             f'    Error: {field_name} - Sheet has an (adjusted) Aggregation Group '
-            f'of "{sheet_aggr_group}" while the JSON has "{schema_aggr_group}"'
+            f'of "{sheet_group_name}" while the JSON has "{schema_group_name}"'
         )
+
+    return errors
+
+
+def group_in_all_of(schema, group):
+    group_name = group.replace("XX", "")
+    if "allOf" in schema.keys():
+        for all_of_rule in schema['allOf']:
+            if 'required' in all_of_rule['then']:
+                if "aggregation_group" in all_of_rule['then']['properties']:
+                    prop = all_of_rule['then']['properties']['aggregation_group']
+                    if "const" in prop and prop["const"] == group_name:
+                        return True
+                    if "pattern" in prop and group_name in prop["pattern"]:
+                        return True
+    return False
+
+
+def check_aggregation_group_multiple(sheet_aggr_group, schema, field_name):
+    errors = []
+
+    schema_group_names = get_schema_property(schema, field_name, "enum")
+    if not schema_group_names:
+        errors.append(
+            f'    Error: {field_name} - Cannot find aggregation group in json schema'
+        )
+        return errors
+
+    sheet_group_names = None
+    if sheet_aggr_group:
+        sheet_group_names = clean_aggregation_group_names(sheet_aggr_group)
+
+    for sheet_group_name in sheet_group_names:
+        in_all_of = group_in_all_of(schema, sheet_group_name)
+        if sheet_group_name not in schema_group_names and not in_all_of:
+            errors.append(
+                f'    Error: {field_name} - Sheet has a group "{sheet_group_name}" '
+                'that is missing in the schema'
+            )
+
+    for schema_group_name in schema_group_names:
+        if schema_group_name not in sheet_group_names:
+            errors.append(
+                f'    Error: {field_name} - Schema has a group "{schema_group_name}" '
+                f'that is not found in the sheet'
+            )
 
     return errors
 
@@ -462,7 +680,8 @@ def verify(sheet, schema):
         check_form_type,
         check_entity_type,
         check_contribution_amount,
-        check_aggregation_group
+        check_aggregation_group,
+        check_transaction_type_identifier,
     ]
 
     minor_errors = []
@@ -499,7 +718,7 @@ def generate_report(
     failed_to_load,
     save=True
 ):
-    report = ""
+    report = "\n"
 
     sheets_with_errors = list(errors.keys())
     sheets_with_minor_errors = list(minor_errors.keys())
@@ -511,7 +730,7 @@ def generate_report(
     failed_to_load.sort()
 
     if (len(missing_schema_files) > 0):
-        report += "Transaction Type Identifiers without a corresponding JSON file:\n"
+        report += "Sheets without a corresponding JSON file:\n"
         report += "    "+"\n    ".join(missing_schema_files)+"\n\n"
 
     if (len(missing_transaction_type_identifiers) > 0):
@@ -599,31 +818,27 @@ if (__name__ == "__main__"):
         if DEBUG:
             print(sheet.title)
 
-        transaction_type_identifier = get_transaction_type_identifier(sheet)
-        if not transaction_type_identifier:
-            missing_transaction_type_identifiers.append(sheet.title)
-            continue
-
-        schema_file_path = '../schema/'+transaction_type_identifier+'.json'
+        filename = get_filename(sheet)
+        schema_file_path = f'../schema/{filename}.json'
         if not path.exists(schema_file_path):
-            missing_schema_files.append(f'{sheet.title}: {transaction_type_identifier}')
+            missing_schema_files.append(f'{sheet.title}: {schema_file_path}')
             continue
 
         json_file = open(schema_file_path, 'r')
         if not json_file:
             failed_to_open.append(
-                f'Failed to open JSON file: {transaction_type_identifier}'
+                f'Failed to open JSON file: {filename}'
             )
             continue
 
         schema = json.load(json_file)
         if not schema:
-            failed_to_load.append(f'Failed to load JSON: {transaction_type_identifier}')
+            failed_to_load.append(f'Failed to load JSON: {filename}')
             continue
 
         new_errors, new_minor_errors = verify(sheet, schema)
-        errors[transaction_type_identifier] = new_errors
-        minor_errors[transaction_type_identifier] = new_minor_errors
+        errors[filename] = new_errors
+        minor_errors[filename] = new_minor_errors
 
     generate_report(
         errors,
