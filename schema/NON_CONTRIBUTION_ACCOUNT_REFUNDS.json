@@ -462,7 +462,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 9,
-            "pattern": "^[ -~]{0,9}$",
+            "pattern": "^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$",
             "examples": [
                 "C00654323"
             ],
@@ -487,7 +487,7 @@
             "fec_spec": {
                 "FIELD_DESCRIPTION": "BENEFICIARY COMMITTEE NAME",
                 "TYPE": "A/N-200",
-                "REQUIRED": "X (error)",
+                "REQUIRED": "X (conditional error)",
                 "RULE_REFERENCE": "Req if Transaction Type is OTHER_COMMITTEE_REFUND_NON_CONTRIBUTION_ACCOUNT.",
                 "NOTE": "Pull from PAYEE Entity Name/ID."
             }
@@ -527,9 +527,7 @@
             "if": {
                 "properties": {
                     "transaction_type_identifier": {
-                        "enum": [
-                            "INDIVIDUAL_REFUND_NON_CONTRIBUTION_ACCOUNT"
-                        ]
+                        "const": "INDIVIDUAL_REFUND_NON_CONTRIBUTION_ACCOUNT"
                     }
                 },
                 "required": [
@@ -552,9 +550,7 @@
             "if": {
                 "properties": {
                     "transaction_type_identifier": {
-                        "enum": [
-                            "BUSINESS_LABOR_REFUND_NON_CONTRIBUTION_ACCOUNT"
-                        ]
+                        "const": "BUSINESS_LABOR_REFUND_NON_CONTRIBUTION_ACCOUNT"
                     }
                 },
                 "required": [
@@ -576,9 +572,7 @@
             "if": {
                 "properties": {
                     "transaction_type_identifier": {
-                        "enum": [
-                            "OTHER_COMMITTEE_REFUND_NON_CONTRIBUTION_ACCOUNT"
-                        ]
+                        "const": "OTHER_COMMITTEE_REFUND_NON_CONTRIBUTION_ACCOUNT"
                     }
                 },
                 "required": [

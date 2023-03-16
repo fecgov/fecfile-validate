@@ -31,6 +31,16 @@ COLUMNS = [
     "VALIDATION RULES",
 ]
 
+FEC_PROPERTIES = [
+    "FIELD_DESCRIPTION",
+    "TYPE",
+    "REQUIRED",
+    "SAMPLE_DATA",
+    "VALUE_REFERENCE",
+    "RULE_REFERENCE",
+    "FIELD_FORM_ASSOCIATION",
+]
+
 if "transaction_type_identifier" in data["properties"]:
     COLUMNS = COLUMNS[1:]
 
@@ -65,15 +75,16 @@ print("</tr>")
 
 for p in data["properties"]:
     print("<tr>")
-    for s in data["properties"][p]["fec_spec"]:
-        if s == "AUTO_POPULATE":
+    for s in FEC_PROPERTIES:
+        if s not in data["properties"][p]["fec_spec"].keys():
+            print("<td></td>")
             continue
         value = data["properties"][p]["fec_spec"][s]
         if not value:
             value = ""
         print(f"<td>{value}</td>")
-    validation_rules = "<ul>"
 
+    validation_rules = "<ul>"
     if "allOf" in data:
         for all_of in data["allOf"]:
             if "required" in all_of["then"] and p in all_of["then"]["required"]:
