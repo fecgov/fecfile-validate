@@ -1,15 +1,17 @@
 {
     "$schema": "https://json-schema.org/draft-07/schema#",
-    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/NON_CONTRIBUTION_ACCOUNT_STAFF_REIMBURSEMENT.json",
+    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/NON_CONTRIBUTION_MEMOS.json",
     "version": "8.3.0.1",
-    "title": "FEC Non-Contribution Account Staff Reimbursement",
-    "description": "SCHEDULE B - Non-Contribution Account Staff Reimbursement (Line 29)",
+    "title": "FEC Non-Contribution Memos",
+    "description": "SCHEDULE B - Non-Contribution Account Credit Card Payment Memo, Non-Contribution Account Staff Reimbursement Memo, Non-Contribution Account Payment to Payroll Memo (Line 29)",
     "type": "object",
     "required": [
         "form_type",
         "filer_committee_id_number",
         "transaction_type_identifier",
         "transaction_id",
+        "back_reference_sched_name",
+        "back_reference_tran_id_number",
         "entity_type",
         "payee_first_name",
         "payee_last_name",
@@ -59,14 +61,18 @@
         "transaction_type_identifier": {
             "title": "TRANSACTION TYPE IDENTIFIER",
             "description": "",
-            "const": "NON_CONTRIBUTION_ACCOUNT_STAFF_REIMBURSEMENT",
+            "enum": [
+                "NON_CONTRIBUTION_ACCOUNT_STAFF_REIMBURSEMENT_MEMO",
+                "NON_CONTRIBUTION_ACCOUNT_CREDIT_CARD_PAYMENT_MEMO",
+                "NON_CONTRIBUTION_ACCOUNT_PAYMENT_TO_PAYROLL_MEMO"
+            ],
             "examples": [
-                "NON_CONTRIBUTION_ACCOUNT_STAFF_REIMBURSEMENT"
+                "NON_CONTRIBUTION_ACCOUNT_STAFF_REIMBURSEMENT_MEMO"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "TRANSACTION TYPE IDENTIFIER",
                 "REQUIRED": "X (error)",
-                "RULE_REFERENCE": "NON_CONTRIBUTION_ACCOUNT_STAFF_REIMBURSEMENT"
+                "RULE_REFERENCE": "NON_CONTRIBUTION_ACCOUNT_STAFF_REIMBURSEMENT_MEMO"
             }
         },
         "transaction_id": {
@@ -103,6 +109,7 @@
             "fec_spec": {
                 "FIELD_DESCRIPTION": "BACK REFERENCE TRAN ID NUMBER",
                 "TYPE": "A/N-20",
+                "REQUIRED":  "X (error)",
                 "SAMPLE_DATA": "B123456789-1234",
                 "RULE_REFERENCE": "Reference to the Tran ID of a Related Record"
             }
@@ -124,6 +131,7 @@
                 "FIELD_DESCRIPTION": "BACK REFERENCE SCHED NAME",
                 "TYPE": "A/N-8",
                 "SAMPLE_DATA": "SB21",
+                "REQUIRED":  "X (error)",
                 "VALUE_REFERENCE": "SB[line# ref]",
                 "RULE_REFERENCE": "Ref to the Schedule that has the Related Record.  SB3L must be used \nwith the F3L"
             }
@@ -131,7 +139,11 @@
         "entity_type": {
             "title": "ENTITY TYPE",
             "description": "",
-            "const": "IND",
+            "enum": [
+                "IND",
+                "ORG",
+                "COM"
+            ],
             "examples": [
                 "IND"
             ],
@@ -141,16 +153,38 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "IND",
                 "VALUE_REFERENCE": "IND",
-                "RULE_REFERENCE": "IND only."
+                "RULE_REFERENCE": "If Transaction Type is NON_CONTRIBUTION_ACCOUNT_CREDIT_CARD_PAYMENT_MEMO or NON_CONTRIBUTION_ACCOUNT_STAFF_REIMBURSEMENT_MEMO, must be ORG, IND, COM only.  If Transaction Type is NON_CONTRIBUTION_ACCOUNT_PAYMENT_TO_PAYROLL_MEMO, must be IND or ORG only."
+            }
+        },
+        "payee_organization_name": {
+            "title": "PAYEE ORGANIZATION NAME",
+            "description": "",
+            "type": [
+                "string",
+                "null"
+            ],
+            "minLength": 0,
+            "maxLength": 200,
+            "pattern": "^[ -~]{0,200}$",
+            "examples": [
+                "John Smith & Co."
+            ],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "PAYEE ORGANIZATION NAME",
+                "TYPE": "A/N-200",
+                "REQUIRED": "X (conditional error)",
+                "SAMPLE_DATA": "John Smith & Co.",
+                "RULE_REFERENCE": "Required if [ORG|COM]"
             }
         },
         "payee_last_name": {
             "title": "PAYEE LAST NAME",
             "description": "",
             "type": [
-                "string"
+                "string",
+                "null"
             ],
-            "minLength": 1,
+            "minLength": 0,
             "maxLength": 30,
             "pattern": "^[ -~]{0,30}$",
             "examples": [
@@ -159,18 +193,19 @@
             "fec_spec": {
                 "FIELD_DESCRIPTION": "PAYEE LAST NAME",
                 "TYPE": "A/N-30",
-                "REQUIRED": "X (error)",
+                "REQUIRED": "X (conditional error)",
                 "SAMPLE_DATA": "Smith",
-                "RULE_REFERENCE": ""
+                "RULE_REFERENCE": "Required if [IND]"
             }
         },
         "payee_first_name": {
             "title": "PAYEE FIRST NAME",
             "description": "",
             "type": [
-                "string"
+                "string",
+                "null"
             ],
-            "minLength": 1,
+            "minLength": 0,
             "maxLength": 20,
             "pattern": "^[ -~]{0,20}$",
             "examples": [
@@ -179,9 +214,9 @@
             "fec_spec": {
                 "FIELD_DESCRIPTION": "PAYEE FIRST NAME",
                 "TYPE": "A/N-20",
-                "REQUIRED": "X (error)",
+                "REQUIRED": "X (conditional error)",
                 "SAMPLE_DATA": "John",
-                "RULE_REFERENCE": ""
+                "RULE_REFERENCE": "Required if [IND]"
             }
         },
         "payee_middle_name": {
@@ -474,5 +509,93 @@
                 "TYPE": "A/N-100"
             }
         }
-    }
+    },
+    "allOf": [
+        {
+            "if": {
+                "properties": {
+                    "transaction_type_identifier": {
+                        "enum": [
+                            "NON_CONTRIBUTION_ACCOUNT_STAFF_REIMBURSEMENT_MEMO",
+                            "NON_CONTRIBUTION_ACCOUNT_CREDIT_CARD_PAYMENT_MEMO"
+                        ]
+                    }
+                },
+                "required": [
+                    "transaction_type_identifier"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "entity_type": {
+                        "enum": [
+                            "IND",
+                            "ORG",
+                            "COM"
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "transaction_type_identifier": {
+                        "const": "NON_CONTRIBUTION_ACCOUNT_PAYMENT_TO_PAYROLL_MEMO",
+                    }
+                },
+                "required": [
+                    "transaction_type_identifier"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "entity_type": {
+                        "enum": [
+                            "IND",
+                            "ORG"
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "entity_type": {
+                        "enum": [
+                            "ORG",
+                            "COM"
+                        ]
+                    }
+                },
+                "required": [
+                    "transaction_type_identifier"
+                ]
+            },
+            "then": {
+                "required": [
+                    "payee_organization_name"
+                ]
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "entity_type": {
+                        "const": "IND"
+                    }
+                },
+                "required": [
+                    "transaction_type_identifier"
+                ]
+            },
+            "then": {
+                "required": [
+                    "payee_first_name",
+                    "payee_last_name"
+                ]
+            }
+        }
+    ]
 }
