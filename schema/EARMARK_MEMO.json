@@ -498,7 +498,7 @@
             ],
             "minLength": 0,
             "maxLength": 9,
-            "pattern": "^C[0-9]{8}$",
+            "pattern": "^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$",
             "fec_spec": {
                 "FIELD_DESCRIPTION": "DONOR COMMITTEE FEC ID",
                 "TYPE": "A/N-9",

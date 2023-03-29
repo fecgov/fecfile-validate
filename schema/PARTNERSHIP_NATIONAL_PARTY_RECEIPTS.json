@@ -375,7 +375,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 100,
-            "pattern": "^([ -~]{0,46} \\(Partnership attributions do not require itemization\\)|[ -~]{0,62} \\(See Partnership Attribution\\(s\\) below\\))$",
+            "pattern": "^([ -~]{0,46} \\(Partnership attributions do not require itemization\\)|[ -~]{0,61} \\(See Partnership Attribution\\(s\\) below\\))$",
             "fec_spec": {
                 "FIELD_DESCRIPTION": "CONTRIBUTION PURPOSE DESCRIPTION",
                 "TYPE": "A/N-100",
