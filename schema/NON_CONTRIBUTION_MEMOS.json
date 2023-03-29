@@ -541,7 +541,7 @@
             "if": {
                 "properties": {
                     "transaction_type_identifier": {
-                        "const": "NON_CONTRIBUTION_ACCOUNT_PAYMENT_TO_PAYROLL_MEMO",
+                        "const": "NON_CONTRIBUTION_ACCOUNT_PAYMENT_TO_PAYROLL_MEMO"
                     }
                 },
                 "required": [
@@ -574,6 +574,7 @@
                 ]
             },
             "then": {
+                "properties": {},
                 "required": [
                     "payee_organization_name"
                 ]
@@ -591,6 +592,7 @@
                 ]
             },
             "then": {
+                "properties": {},
                 "required": [
                     "payee_first_name",
                     "payee_last_name"
