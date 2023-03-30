@@ -90,8 +90,9 @@ for p in data["properties"]:
             if "required" in all_of["then"] and p in all_of["then"]["required"]:
                 conditions = get_conditions(all_of)
                 validation_rules += f"<li>REQUIRED if {' & '.join(conditions)}</li>"
+
             if (
-                "properties" not in all_of["then"].keys()
+                "properties" not in all_of["then"]
                 or p not in all_of["then"]["properties"]
             ):
                 continue
