@@ -418,15 +418,13 @@
             "title": "EXPENDITURE PURPOSE DESCRIP",
             "description": "",
             "type": "string",
-            "const": "Reimbursement: See Below",
-            "examples": [
-                "Reimbursement: See Below"
-            ],
+            "minLength": 1,
+            "maxLength": 100,
             "fec_spec": {
                 "FIELD_DESCRIPTION": "EXPENDITURE PURPOSE DESCRIP",
                 "TYPE": "A/N-100",
                 "REQUIRED": "X (error)",
-                "VALUE_REFERENCE": "Non-Contribution Account - Reimbursement: See Below"
+                "VALUE_REFERENCE": ""
             }
         },
         "category_code": {
