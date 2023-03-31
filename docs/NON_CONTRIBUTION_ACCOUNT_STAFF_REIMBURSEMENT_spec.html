@@ -217,7 +217,7 @@ with the F3L</td>
 <td>Non-Contribution Account - Reimbursement: See Below</td>
 <td></td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>must equal: Reimbursement: See Below</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>must equal: Non-Contribution Account - Reimbursement: See Below</li></td>
 </tr>
 <tr>
 <td>CATEGORY CODE</td>
@@ -228,16 +228,6 @@ with the F3L</td>
 <td>Only codes 001-012</td>
 <td></td>
 <td><ul><li>type: ['string', 'null']</li><li>must be one of: ['001', '002', '003', '004', '005', '006', '007', '008', '009', '010', '011', '012', None]</li></td>
-</tr>
-<tr>
-<td>BENEFICIARY COMMITTEE FEC ID</td>
-<td>A/N-9</td>
-<td>X (conditional error)</td>
-<td></td>
-<td></td>
-<td>Req if Transaction Type is OTHER_COMMITTEE_REFUND_NON_CONTRIBUTION_ACCOUNT.</td>
-<td></td>
-<td><ul><li>type: string</li><li>min length: 0</li><li>max length: 9</li><li>regex: ^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$</li></td>
 </tr>
 <tr>
 <td>MEMO CODE</td>
