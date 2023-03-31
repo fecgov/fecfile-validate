@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><title>NON_CONTRIBUTION_MEMOS</title><link rel="stylesheet" href="spec_table.css"></head><body><table><caption>Specification for NON_CONTRIBUTION_MEMOS</caption><tr>
+<!DOCTYPE html><html lang="en"><head><title>NON_CONTRIBUTION_PARENTS</title><link rel="stylesheet" href="spec_table.css"></head><body><table><caption>Specification for NON_CONTRIBUTION_PARENTS</caption><tr>
 <th>FIELD DESCRIPTION</th>
 <th>TYPE</th>
 <th>REQUIRED</th>
@@ -34,9 +34,9 @@
 <td>X (error)</td>
 <td></td>
 <td></td>
-<td>NON_CONTRIBUTION_ACCOUNT_STAFF_REIMBURSEMENT_MEMO</td>
+<td>NON_CONTRIBUTION_ACCOUNT_CREDIT_CARD_PAYMENT</td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>must be one of: ['NON_CONTRIBUTION_ACCOUNT_STAFF_REIMBURSEMENT_MEMO', 'NON_CONTRIBUTION_ACCOUNT_CREDIT_CARD_PAYMENT_MEMO', 'NON_CONTRIBUTION_ACCOUNT_PAYMENT_TO_PAYROLL_MEMO']</li></td>
+<td><ul><li>REQUIRED</li><li>must be one of: ['NON_CONTRIBUTION_ACCOUNT_CREDIT_CARD_PAYMENT', 'NON_CONTRIBUTION_ACCOUNT_PAYMENT_TO_PAYROLL']</li></td>
 </tr>
 <tr>
 <td>TRANSACTION ID</td>
@@ -51,93 +51,43 @@
 <tr>
 <td>BACK REFERENCE TRAN ID NUMBER</td>
 <td>A/N-20</td>
-<td>X (error)</td>
+<td></td>
 <td>B123456789-1234</td>
 <td></td>
 <td>Reference to the Tran ID of a Related Record</td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
+<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
 </tr>
 <tr>
 <td>BACK REFERENCE SCHED NAME</td>
 <td>A/N-8</td>
-<td>X (error)</td>
+<td></td>
 <td>SB21</td>
 <td>SB[line# ref]</td>
 <td>Ref to the Schedule that has the Related Record.  SB3L must be used 
 with the F3L</td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 8</li><li>regex: ^[ -~]{0,8}$</li></td>
+<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 8</li><li>regex: ^[ -~]{0,8}$</li></td>
 </tr>
 <tr>
 <td>ENTITY TYPE</td>
 <td>A/N-3</td>
 <td>X (error)</td>
-<td>IND</td>
-<td>IND</td>
-<td>If Transaction Type is NON_CONTRIBUTION_ACCOUNT_CREDIT_CARD_PAYMENT_MEMO or NON_CONTRIBUTION_ACCOUNT_STAFF_REIMBURSEMENT_MEMO, must be ORG, IND, COM only.  If Transaction Type is NON_CONTRIBUTION_ACCOUNT_PAYMENT_TO_PAYROLL_MEMO, must be IND or ORG only.</td>
+<td>ORG</td>
+<td>ORG</td>
+<td>ORG only.</td>
 <td></td>
-<td><ul><li>ENTITY_TYPE must be one of ['IND', 'ORG', 'COM'] if TRANSACTION_TYPE_IDENTIFIER one of ['NON_CONTRIBUTION_ACCOUNT_STAFF_REIMBURSEMENT_MEMO', 'NON_CONTRIBUTION_ACCOUNT_CREDIT_CARD_PAYMENT_MEMO']</li><li>ENTITY_TYPE must be one of ['IND', 'ORG'] if TRANSACTION_TYPE_IDENTIFIER equals NON_CONTRIBUTION_ACCOUNT_PAYMENT_TO_PAYROLL_MEMO</li><li>REQUIRED</li><li>must be one of: ['IND', 'ORG', 'COM']</li></td>
+<td><ul><li>REQUIRED</li><li>must equal: ORG</li></td>
 </tr>
 <tr>
 <td>PAYEE ORGANIZATION NAME</td>
 <td>A/N-200</td>
-<td>X (conditional error)</td>
+<td>X (error)</td>
 <td>John Smith & Co.</td>
 <td></td>
 <td>Required if [ORG|COM]</td>
 <td></td>
-<td><ul><li>REQUIRED if ENTITY_TYPE one of ['ORG', 'COM']</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 200</li><li>regex: ^[ -~]{0,200}$</li></td>
-</tr>
-<tr>
-<td>PAYEE LAST NAME</td>
-<td>A/N-30</td>
-<td>X (conditional error)</td>
-<td>Smith</td>
-<td></td>
-<td>Required if [IND]</td>
-<td></td>
-<td><ul><li>REQUIRED if ENTITY_TYPE equals IND</li><li>REQUIRED</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 30</li><li>regex: ^[ -~]{0,30}$</li></td>
-</tr>
-<tr>
-<td>PAYEE FIRST NAME</td>
-<td>A/N-20</td>
-<td>X (conditional error)</td>
-<td>John</td>
-<td></td>
-<td>Required if [IND]</td>
-<td></td>
-<td><ul><li>REQUIRED if ENTITY_TYPE equals IND</li><li>REQUIRED</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
-</tr>
-<tr>
-<td>PAYEE MIDDLE NAME</td>
-<td>A/N-20</td>
-<td></td>
-<td>W</td>
-<td></td>
-<td></td>
-<td></td>
-<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
-</tr>
-<tr>
-<td>PAYEE PREFIX</td>
-<td>A/N-10</td>
-<td></td>
-<td>Dr</td>
-<td></td>
-<td></td>
-<td></td>
-<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 10</li><li>regex: ^[ -~]{0,10}$</li></td>
-</tr>
-<tr>
-<td>PAYEE SUFFIX</td>
-<td>A/N-10</td>
-<td></td>
-<td>Jr</td>
-<td></td>
-<td></td>
-<td></td>
-<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 10</li><li>regex: ^[ -~]{0,10}$</li></td>
+<td><ul><li>REQUIRED</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 200</li><li>regex: ^[ -~]{0,200}$</li></td>
 </tr>
 <tr>
 <td>PAYEE STREET  1</td>
@@ -224,10 +174,10 @@ with the F3L</td>
 <td>A/N-100</td>
 <td>X (error)</td>
 <td></td>
+<td>Non-Contribution Account - Payroll: See Below</td>
 <td></td>
 <td></td>
-<td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 100</li></td>
+<td><ul><li>EXPENDITURE_PURPOSE_DESCRIP = 'Non-Contribution Account - Payroll: See Below' if ENTITY_TYPE equals NON_CONTRIBUTION_ACCOUNT_PAYMENT_TO_PAYROLL</li><li>EXPENDITURE_PURPOSE_DESCRIP = 'Non-Contribution Account - Credit Card: See Below' if ENTITY_TYPE equals NON_CONTRIBUTION_ACCOUNT_CREDIT_CARD_PAYMENT</li><li>REQUIRED</li><li>type: string</li><li>must be one of: ['Non-Contribution Account - Credit Card: See Below', 'Non-Contribution Account - Payroll: See Below']</li></td>
 </tr>
 <tr>
 <td>CATEGORY CODE</td>
