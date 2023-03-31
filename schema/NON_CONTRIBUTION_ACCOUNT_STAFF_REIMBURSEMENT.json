@@ -383,9 +383,9 @@
             "title": "EXPENDITURE PURPOSE DESCRIP",
             "description": "",
             "type": "string",
-            "const": "Reimbursement: See Below",
+            "const": "Non-Contribution Account - Reimbursement: See Below",
             "examples": [
-                "Reimbursement: See Below"
+                "Non-Contribution Account - Reimbursement: See Below"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "EXPENDITURE PURPOSE DESCRIP",
@@ -425,24 +425,6 @@
                 "SAMPLE_DATA": 1,
                 "VALUE_REFERENCE": "001, 002, ... 012",
                 "RULE_REFERENCE": "Only codes 001-012"
-            }
-        },
-        "beneficiary_committee_fec_id": {
-            "title": "BENEFICIARY COMMITTEE FEC ID",
-            "description": "",
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 9,
-            "pattern": "^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$",
-            "examples": [
-                "C00654323"
-            ],
-            "fec_spec": {
-                "FIELD_DESCRIPTION": "BENEFICIARY COMMITTEE FEC ID",
-                "TYPE": "A/N-9",
-                "REQUIRED": "X (conditional error)",
-                "RULE_REFERENCE": "Req if Transaction Type is OTHER_COMMITTEE_REFUND_NON_CONTRIBUTION_ACCOUNT.",
-                "NOTE": "Pull from PAYEE Entity Name/ID."
             }
         },
         "memo_code": {
