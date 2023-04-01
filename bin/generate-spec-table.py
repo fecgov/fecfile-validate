@@ -90,58 +90,44 @@ for p in data["properties"]:
             if "required" in all_of["then"] and p in all_of["then"]["required"]:
                 conditions = get_conditions(all_of)
                 validation_rules += f"<li>REQUIRED if {' & '.join(conditions)}</li>"
+
             if (
-                p in all_of["then"]["properties"]
-                and "const" in all_of["then"]["properties"][p]
+                "properties" not in all_of["then"]
+                or p not in all_of["then"]["properties"]
             ):
+                continue
+
+            if "const" in all_of["then"]["properties"][p]:
                 const_value = all_of["then"]["properties"][p]["const"]
                 conditions = get_conditions(all_of)
                 result = f"{p.upper()} = '{const_value}'"
                 validation_rules += f"<li>{result} if {' & '.join(conditions)}</li>"
-            if (
-                p in all_of["then"]["properties"]
-                and "enum" in all_of["then"]["properties"][p]
-            ):
+            if "enum" in all_of["then"]["properties"][p]:
                 enum_value = all_of["then"]["properties"][p]["enum"]
                 conditions = get_conditions(all_of)
                 result = f"{p.upper()} must be one of {enum_value}"
                 validation_rules += f"<li>{result} if {' & '.join(conditions)}</li>"
-            if (
-                p in all_of["then"]["properties"]
-                and "pattern" in all_of["then"]["properties"][p]
-            ):
+            if "pattern" in all_of["then"]["properties"][p]:
                 pattern_value = all_of["then"]["properties"][p]["pattern"]
                 conditions = get_conditions(all_of)
                 result = f"{p.upper()} must match {pattern_value}"
                 validation_rules += f"<li>{result} if {' & '.join(conditions)}</li>"
-            if (
-                p in all_of["then"]["properties"]
-                and "minimum" in all_of["then"]["properties"][p]
-            ):
+            if "minimum" in all_of["then"]["properties"][p]:
                 min_value = all_of["then"]["properties"][p]["minimum"]
                 conditions = get_conditions(all_of)
                 result = f"{p.upper()} >= {min_value}"
                 validation_rules += f"<li>{result} if {' & '.join(conditions)}</li>"
-            if (
-                p in all_of["then"]["properties"]
-                and "maximum" in all_of["then"]["properties"][p]
-            ):
+            if "maximum" in all_of["then"]["properties"][p]:
                 max_value = all_of["then"]["properties"][p]["maximum"]
                 conditions = get_conditions(all_of)
                 result = f"{p.upper()} <= {max_value}"
                 validation_rules += f"<li>{result} if {' & '.join(conditions)}</li>"
-            if (
-                p in all_of["then"]["properties"]
-                and "exclusiveMinimum" in all_of["then"]["properties"][p]
-            ):
+            if "exclusiveMinimum" in all_of["then"]["properties"][p]:
                 min_value = all_of["then"]["properties"][p]["exclusiveMinimum"]
                 conditions = get_conditions(all_of)
                 result = f"{p.upper()} > {min_value}"
                 validation_rules += f"<li>{result} if {' & '.join(conditions)}</li>"
-            if (
-                p in all_of["then"]["properties"]
-                and "exclusiveMaximum" in all_of["then"]["properties"][p]
-            ):
+            if "exclusiveMaximum" in all_of["then"]["properties"][p]:
                 max_value = all_of["then"]["properties"][p]["exclusiveMaximum"]
                 conditions = get_conditions(all_of)
                 result = f"{p.upper()} < {max_value}"
