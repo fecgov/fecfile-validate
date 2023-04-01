@@ -97,7 +97,7 @@ with the F3L</td>
 <td></td>
 <td>Required if [IND]</td>
 <td></td>
-<td><ul><li>REQUIRED if ENTITY_TYPE equals IND</li><li>REQUIRED</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 30</li><li>regex: ^[ -~]{0,30}$</li></td>
+<td><ul><li>REQUIRED if ENTITY_TYPE equals IND</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 30</li><li>regex: ^[ -~]{0,30}$</li></td>
 </tr>
 <tr>
 <td>PAYEE FIRST NAME</td>
@@ -107,7 +107,7 @@ with the F3L</td>
 <td></td>
 <td>Required if [IND]</td>
 <td></td>
-<td><ul><li>REQUIRED if ENTITY_TYPE equals IND</li><li>REQUIRED</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
+<td><ul><li>REQUIRED if ENTITY_TYPE equals IND</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
 </tr>
 <tr>
 <td>PAYEE MIDDLE NAME</td>
@@ -242,12 +242,12 @@ with the F3L</td>
 <tr>
 <td>MEMO CODE</td>
 <td>A/N-1</td>
-<td></td>
+<td>X (error)</td>
 <td></td>
 <td>X</td>
 <td>X = True</td>
 <td></td>
-<td><ul><li>type: ['boolean', 'null']</li></td>
+<td><ul><li>REQUIRED</li><li>must equal: True</li></td>
 </tr>
 <tr>
 <td>MEMO TEXT/DESCRIPTION</td>
