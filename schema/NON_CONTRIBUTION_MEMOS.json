@@ -3,7 +3,7 @@
     "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/NON_CONTRIBUTION_MEMOS.json",
     "version": "8.3.0.1",
     "title": "FEC Non-Contribution Memos",
-    "description": "SCHEDULE B - Non-Contribution Account Credit Card Payment Memo, Non-Contribution Account Staff Reimbursement Memo, Non-Contribution Account Payment to Payroll Memo (Line 29)",
+    "description": "SCHEDULE B - Non-contribution Account Credit Card Payment Memo, Non-contribution Account Staff Reimbursement Memo, Non-contribution Account Payment to Payroll Memo (Line 29)",
     "type": "object",
     "required": [
         "form_type",

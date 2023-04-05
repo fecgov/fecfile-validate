@@ -2,8 +2,8 @@
     "$schema": "https://json-schema.org/draft-07/schema#",
     "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/INDIVIDUAL_RECEIPT_NON_CONTRIBUTION_ACCOUNT.json",
     "version": "v0.0.0.0",
-    "title": "FEC Individual Receipt - Non-Contribution Account",
-    "description": "Individual Receipt - Non-Contribution Account (17)",
+    "title": "FEC Individual Receipt - Non-contribution Account",
+    "description": "Individual Receipt - Non-contribution Account (17)",
     "type": "object",
     "required": [
         "form_type",

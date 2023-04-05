@@ -2,8 +2,8 @@
     "$schema": "https://json-schema.org/draft-07/schema#",
     "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/NON_CONTRIBUTION_ACCOUNT_STAFF_REIMBURSEMENT.json",
     "version": "8.3.0.1",
-    "title": "FEC Non-Contribution Account Staff Reimbursement",
-    "description": "SCHEDULE B - Non-Contribution Account Staff Reimbursement (Line 29)",
+    "title": "FEC Non-contribution Account Staff Reimbursement",
+    "description": "SCHEDULE B - Non-contribution Account Staff Reimbursement (Line 29)",
     "type": "object",
     "required": [
         "form_type",
@@ -383,15 +383,15 @@
             "title": "EXPENDITURE PURPOSE DESCRIP",
             "description": "",
             "type": "string",
-            "const": "Non-Contribution Account - Reimbursement: See Below",
+            "const": "Non-contribution Account - Reimbursement: See Below",
             "examples": [
-                "Non-Contribution Account - Reimbursement: See Below"
+                "Non-contribution Account - Reimbursement: See Below"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "EXPENDITURE PURPOSE DESCRIP",
                 "TYPE": "A/N-100",
                 "REQUIRED": "X (error)",
-                "VALUE_REFERENCE": "Non-Contribution Account - Reimbursement: See Below"
+                "VALUE_REFERENCE": "Non-contribution Account - Reimbursement: See Below"
             }
         },
         "category_code": {
