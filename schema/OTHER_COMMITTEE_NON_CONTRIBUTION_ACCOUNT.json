@@ -352,8 +352,8 @@
                 "TYPE": null,
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": null,
-                "VALUE_REFERENCE": "Non-Contribution Account",
-                "RULE_REFERENCE": "Non-Contribution Account",
+                "VALUE_REFERENCE": "Non-contribution Account",
+                "RULE_REFERENCE": "Non-contribution Account",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },

@@ -2,8 +2,8 @@
     "$schema": "https://json-schema.org/draft-07/schema#",
     "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/NON_CONTRIBUTION_PARENTS.json",
     "version": "8.3.0.1",
-    "title": "FEC Non-Contribution Account Credit Card Payment (Line 29), Non-Contribution Account Payment to Payroll",
-    "description": "SCHEDULE B - Non-Contribution Account Credit Card Payment (Line 29), Non-Contribution Account Payment to Payroll (Line 29)",
+    "title": "FEC Non-contribution Account Credit Card Payment (Line 29), Non-contribution Account Payment to Payroll",
+    "description": "SCHEDULE B - Non-contribution Account Credit Card Payment (Line 29), Non-contribution Account Payment to Payroll (Line 29)",
     "type": "object",
     "required": [
         "form_type",
@@ -307,17 +307,17 @@
             "description": "",
             "type": "string",
             "enum": [
-                "Non-Contribution Account - Credit Card: See Below",
-                "Non-Contribution Account - Payroll: See Below"
+                "Non-contribution Account - Credit Card: See Below",
+                "Non-contribution Account - Payroll: See Below"
             ],
             "examples": [
-                "Non-Contribution Account - Payroll: See Below"
+                "Non-contribution Account - Payroll: See Below"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "EXPENDITURE PURPOSE DESCRIP",
                 "TYPE": "A/N-100",
                 "REQUIRED": "X (error)",
-                "VALUE_REFERENCE": "Non-Contribution Account - Payroll: See Below"
+                "VALUE_REFERENCE": "Non-contribution Account - Payroll: See Below"
             }
         },
         "category_code": {
@@ -398,7 +398,7 @@
             "then":{
                 "properties": {
                     "expenditure_purpose_descrip":{
-                        "const": "Non-Contribution Account - Payroll: See Below"
+                        "const": "Non-contribution Account - Payroll: See Below"
                     }
                 }
             }
@@ -417,7 +417,7 @@
             "then":{
                 "properties": {
                     "expenditure_purpose_descrip":{
-                        "const": "Non-Contribution Account - Credit Card: See Below"
+                        "const": "Non-contribution Account - Credit Card: See Below"
                     }
                 }
             }

@@ -3,7 +3,7 @@
     "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/NON_CONTRIBUTION_ACCOUNT_REFUNDS.json",
     "version": "8.3.0.1",
     "title": "FEC Payroll and Credit Card Disbursements",
-    "description": "SCHEDULE B - Individual Refund - Non-Contribution Account, Business/Labor Organization Refund - Non-Contribution Account, Other Committee Refund - Non-Contribution Account (line 29)",
+    "description": "SCHEDULE B - Individual Refund - Non-contribution Account, Business/Labor Organization Refund - Non-contribution Account, Other Committee Refund - Non-contribution Account (line 29)",
     "type": "object",
     "required": [
         "form_type",
