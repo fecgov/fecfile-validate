@@ -19,7 +19,6 @@
         "payee_zip",
         "expenditure_date",
         "expenditure_amount",
-        "aggregate_amount",
         "aggregation_group",
         "expenditure_purpose_descrip"
     ],
