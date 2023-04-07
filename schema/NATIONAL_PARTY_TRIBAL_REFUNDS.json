@@ -166,9 +166,9 @@
             "fec_spec": {
                 "FIELD_DESCRIPTION": "PAYEE ORGANIZATION NAME",
                 "TYPE": "A/N-200",
-                "REQUIRED": "X (conditional error)",
+                "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "John Smith & Co.",
-                "RULE_REFERENCE": "Required if [ORG|COM]"
+                "RULE_REFERENCE": "[ORG]"
             }
         },
         "payee_street_1": {
@@ -407,6 +407,9 @@
             },
             "then": {
                 "properties": {
+                    "form_type":{
+                        "const":"SB21B"
+                    },
                     "aggregation_group":{
                         "const":"NATIONAL_PARTY_HEADQUARTERS_ACCOUNT"
                     },
@@ -429,6 +432,9 @@
             },
             "then": {
                 "properties": {
+                    "form_type":{
+                        "const":"SB21B"
+                    },
                     "aggregation_group":{
                         "const":"NATIONAL_PARTY_CONVENTION_ACCOUNT"
                     },
@@ -451,6 +457,9 @@
             },
             "then": {
                 "properties": {
+                    "form_type":{
+                        "const":"SB29"
+                    },
                     "aggregation_group":{
                         "const":"NATIONAL_PARTY_RECOUNT_ACCOUNT"
                     },

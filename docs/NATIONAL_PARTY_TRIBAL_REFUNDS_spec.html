@@ -16,7 +16,7 @@
 <td>SB29</td>
 <td>If Transaction Type is TRIBAL_REFUND_NP_HEADQUARTERS_ACCOUNT or TRIBAL_REFUND_NP_CONVENTION_ACCOUNT then Form Type is SB21B; If Transaction Type is TRIBAL_REFUND_NP_RECOUNT_ACCOUNT then Form Type is SB29</td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>must be one of: ['SB29', 'SB21B']</li></td>
+<td><ul><li>FORM_TYPE = 'SB21B' if TRANSACTION_TYPE_IDENTIFIER equals TRIBAL_REFUND_NP_HEADQUARTERS_ACCOUNT</li><li>FORM_TYPE = 'SB21B' if TRANSACTION_TYPE_IDENTIFIER equals TRIBAL_REFUND_NP_CONVENTION_ACCOUNT</li><li>FORM_TYPE = 'SB29' if TRANSACTION_TYPE_IDENTIFIER equals TRIBAL_REFUND_NP_RECOUNT_ACCOUNT</li><li>REQUIRED</li><li>must be one of: ['SB29', 'SB21B']</li></td>
 </tr>
 <tr>
 <td>FILER COMMITTEE ID NUMBER</td>
@@ -82,10 +82,10 @@ with the F3L</td>
 <tr>
 <td>PAYEE ORGANIZATION NAME</td>
 <td>A/N-200</td>
-<td>X (conditional error)</td>
+<td>X (error)</td>
 <td>John Smith & Co.</td>
 <td></td>
-<td>Required if [ORG|COM]</td>
+<td>[ORG]</td>
 <td></td>
 <td><ul><li>REQUIRED</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 200</li><li>regex: ^[ -~]{0,200}$</li></td>
 </tr>
