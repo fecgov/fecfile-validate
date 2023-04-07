@@ -39,7 +39,7 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "SB21B",
                 "VALUE_REFERENCE": "[ SB21B | SB29 ]",
-                "RULE_REFERENCE": "If Transaction Type is INDIVIDUAL_REFUND_NP_HEADQUARTERS_ACCOUNT or INDIVIDUAL_REFUND_NP_CONVENTION_ACCOUNT then Form Type is SB21B\nIf Transaction Type is INDIVIDUAL_REFUND_NP_RECOUNT then Form Type is SB29",
+                "RULE_REFERENCE": "If Transaction Type is INDIVIDUAL_REFUND_NP_HEADQUARTERS_ACCOUNT or INDIVIDUAL_REFUND_NP_CONVENTION_ACCOUNT then Form Type is SB21B\nIf Transaction Type is INDIVIDUAL_REFUND_NP_RECOUNT_ACCOUNT then Form Type is SB29",
                 "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
             }
         },
@@ -69,7 +69,7 @@
             "enum": [
                 "INDIVIDUAL_REFUND_NP_HEADQUARTERS_ACCOUNT",
                 "INDIVIDUAL_REFUND_NP_CONVENTION_ACCOUNT",
-                "INDIVIDUAL_REFUND_NP_RECOUNT"
+                "INDIVIDUAL_REFUND_NP_RECOUNT_ACCOUNT"
             ],
             "examples": [
                 "INDIVIDUAL_REFUND_NP_HEADQUARTERS_ACCOUNT"
@@ -80,7 +80,7 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "INDIVIDUAL_REFUND_NP_HEADQUARTERS_ACCOUNT, INDIVIDUAL_REFUND_NP_CONVENTION_ACCOUNT, INDIVIDUAL_REFUND_NP_RECOUNT",
+                "RULE_REFERENCE": "INDIVIDUAL_REFUND_NP_HEADQUARTERS_ACCOUNT, INDIVIDUAL_REFUND_NP_CONVENTION_ACCOUNT, INDIVIDUAL_REFUND_NP_RECOUNT_ACCOUNT",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -434,7 +434,7 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": "[NATIONAL_PARTY_HEADQUARTERS_ACCOUNT | NATIONAL_PARTY_CONVENTION_ACCOUNT | NATIONAL_PARTY_RECOUNT_ACCOUNT]",
-                "RULE_REFERENCE": "If Transaction Type is INDIVIDUAL_REFUND_NP_HEADQUARTERS_ACCOUNT then Aggregation Group is NATIONAL_PARTY_HEADQUARTERS_ACCOUNT\nIf Transaction Type is INDIVIDUAL_REFUND_NP_CONVENTION_ACCOUNT then Aggregation Group is NATIONAL_PARTY_CONVENTION_ACCOUNT\nIf Transaction Type is INDIVIDUAL_REFUND_NP_RECOUNT then Aggregation Group is NATIONAL_PARTY_RECOUNT_ACCOUNT",
+                "RULE_REFERENCE": "If Transaction Type is INDIVIDUAL_REFUND_NP_HEADQUARTERS_ACCOUNT then Aggregation Group is NATIONAL_PARTY_HEADQUARTERS_ACCOUNT\nIf Transaction Type is INDIVIDUAL_REFUND_NP_CONVENTION_ACCOUNT then Aggregation Group is NATIONAL_PARTY_CONVENTION_ACCOUNT\nIf Transaction Type is INDIVIDUAL_REFUND_NP_RECOUNT_ACCOUNT then Aggregation Group is NATIONAL_PARTY_RECOUNT_ACCOUNT",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -455,7 +455,7 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "Headquarters Buildings Account: Refund",
                 "VALUE_REFERENCE": "[ Headquarters Buildings Account: Refund | Pres. Nominating Convention Account: Refund | Recount/Legal Proceedings Account: Refund ]",
-                "RULE_REFERENCE": "If Transaction Type is INDIVIDUAL_REFUND_NP_HEADQUARTERS_ACCOUNT then use “Headquarters Buildings Account: Refund\nIf Transaction Type is INDIVIDUAL_REFUND_NP_CONVENTION_ACCOUNT then use “Pres. Nominating Convention Account: Refund\nIf Transaction Type is INDIVIDUAL_REFUND_NP_RECOUNT then use “Recount/Legal Proceedings Account: Refund",
+                "RULE_REFERENCE": "If Transaction Type is INDIVIDUAL_REFUND_NP_HEADQUARTERS_ACCOUNT then use “Headquarters Buildings Account: Refund\nIf Transaction Type is INDIVIDUAL_REFUND_NP_CONVENTION_ACCOUNT then use “Pres. Nominating Convention Account: Refund\nIf Transaction Type is INDIVIDUAL_REFUND_NP_RECOUNT_ACCOUNT then use “Recount/Legal Proceedings Account: Refund",
                 "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P"
             }
         },
@@ -570,7 +570,7 @@
             "if": {
                 "properties": {
                     "transaction_type_identifier": {
-                        "const": "INDIVIDUAL_REFUND_NP_RECOUNT"
+                        "const": "INDIVIDUAL_REFUND_NP_RECOUNT_ACCOUNT"
                     }
                 },
                 "required": [
