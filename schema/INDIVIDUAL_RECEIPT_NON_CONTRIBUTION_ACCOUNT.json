@@ -449,7 +449,7 @@
         "contribution_purpose_descrip": {
             "title": "CONTRIBUTION PURPOSE DESCRIPTION",
             "description": "",
-            "const": "Non-contribution Account Receipt",
+            "const": "Non-contribution Account",
             "type": [
                 "string"
             ],
@@ -459,7 +459,7 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Non-contribution Account Receipt",
+                "RULE_REFERENCE": "Non-contribution Account",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
