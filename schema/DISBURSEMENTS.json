@@ -26,19 +26,19 @@
             "title": "FORM TYPE",
             "description": "",
             "enum": [
-                "SB21b",
+                "SB21B",
                 "SB29"
             ],
             "examples": [
-                "SB21b"
+                "SB21B"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "FORM TYPE",
                 "TYPE": "A/N-8",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "SB21b",
+                "SAMPLE_DATA": "SB21B",
                 "VALUE_REFERENCE": "SB[line# ref]",
-                "RULE_REFERENCE": "If Transaction Type is OPERATING_EXPENDITURE or OPERATING_EXPENDITURE_VOID, Form Type is SB21b. If Transaction Type is OTHER_DISBURSEMENT or OTHER_DISBURSEMENT_VOID, Form Type is SB29.",
+                "RULE_REFERENCE": "If Transaction Type is OPERATING_EXPENDITURE or OPERATING_EXPENDITURE_VOID, Form Type is SB21B. If Transaction Type is OTHER_DISBURSEMENT or OTHER_DISBURSEMENT_VOID, Form Type is SB29.",
                 "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
             }
         },
@@ -582,7 +582,7 @@
             "then": {
                 "properties": {
                     "form_type": {
-                        "const": "SB21b"
+                        "const": "SB21B"
                     }
                 }
             }

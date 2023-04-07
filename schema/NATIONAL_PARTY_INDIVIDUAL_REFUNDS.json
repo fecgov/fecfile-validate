@@ -27,18 +27,18 @@
             "title": "FORM TYPE",
             "description": "",
             "enum": [
-                "SB21b",
+                "SB21B",
                 "SB29"
             ],
             "examples": [
-                "SB21b"
+                "SB21B"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "FORM TYPE",
                 "TYPE": "A/N-8",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "SB21b",
-                "VALUE_REFERENCE": "[ SB21b | SB29 ]",
+                "SAMPLE_DATA": "SB21B",
+                "VALUE_REFERENCE": "[ SB21B | SB29 ]",
                 "RULE_REFERENCE": "If Transaction Type is INDIVIDUAL_REFUND_NP_HEADQUARTERS_ACCOUNT or INDIVIDUAL_REFUND_NP_CONVENTION_ACCOUNT then Form Type is SB21B\nIf Transaction Type is INDIVIDUAL_REFUND_NP_RECOUNT then Form Type is SB29",
                 "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
             }
@@ -530,7 +530,7 @@
             "then": {
                 "properties": {
                     "form_type": {
-                        "const": "SB21b"
+                        "const": "SB21B"
                     },
                     "aggregation_group": {
                         "const": "NATIONAL_PARTY_HEADQUARTERS_ACCOUNT"
@@ -555,7 +555,7 @@
             "then": {
                 "properties": {
                     "form_type": {
-                        "const": "SB21b"
+                        "const": "SB21B"
                     },
                     "aggregation_group": {
                         "const": "NATIONAL_PARTY_CONVENTION_ACCOUNT"
