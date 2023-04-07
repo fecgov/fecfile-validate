@@ -38,7 +38,7 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "SB29",
                 "VALUE_REFERENCE": "SB29",
-                "RULE_REFERENCE": "If Transaction Type is TRIBAL_REFUND_NP_HEADQUARTERS_ACCOUNT or TRIBAL_REFUND_NP_CONVENTION_ACCOUNT then Form Type is SB21B; If Transaction Type is TRIBAL_REFUND_NP_RECOUNT then Form Type is SB29"
+                "RULE_REFERENCE": "If Transaction Type is TRIBAL_REFUND_NP_HEADQUARTERS_ACCOUNT or TRIBAL_REFUND_NP_CONVENTION_ACCOUNT then Form Type is SB21B; If Transaction Type is TRIBAL_REFUND_NP_RECOUNT_ACCOUNT then Form Type is SB29"
             }
         },
         "filer_committee_id_number": {
@@ -64,7 +64,7 @@
             "enum": [
                 "TRIBAL_REFUND_NP_HEADQUARTERS_ACCOUNT",
                 "TRIBAL_REFUND_NP_CONVENTION_ACCOUNT",
-                "TRIBAL_REFUND_NP_RECOUNT"
+                "TRIBAL_REFUND_NP_RECOUNT_ACCOUNT"
             ],
             "examples": [
                 "INDIVIDUAL_REFUND_NON_CONTRIBUTION_ACCOUNT"
@@ -72,7 +72,7 @@
             "fec_spec": {
                 "FIELD_DESCRIPTION": "TRANSACTION TYPE IDENTIFIER",
                 "REQUIRED": "X (error)",
-                "RULE_REFERENCE": "TRIBAL_REFUND_NP_HEADQUARTERS_ACCOUNT, TRIBAL_REFUND_NP_CONVENTION_ACCOUNT, TRIBAL_REFUND_NP_RECOUNT"
+                "RULE_REFERENCE": "TRIBAL_REFUND_NP_HEADQUARTERS_ACCOUNT, TRIBAL_REFUND_NP_CONVENTION_ACCOUNT, TRIBAL_REFUND_NP_RECOUNT_ACCOUNT"
             }
         },
         "transaction_id": {
@@ -307,7 +307,7 @@
                 "TYPE": "A/N-100",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "NATIONAL_PARTY_HEADQUARTERS_ACCOUNT",
-                "RULE_REFERENCE": "If Transaction Type is TRIBAL_REFUND_NP_HEADQUARTERS_ACCOUNT then Aggregation Group is NATIONAL_PARTY_HEADQUARTERS_ACCOUNT; If Transaction Type is TRIBAL_REFUND_NP_CONVENTION_ACCOUNT then Aggregation Group is NATIONAL_PARTY_CONVENTION_ACCOUNT; If Transaction Type is TRIBAL_REFUND_NP_RECOUNT then Aggregation Group is NATIONAL_PARTY_RECOUNT_ACCOUNT"
+                "RULE_REFERENCE": "If Transaction Type is TRIBAL_REFUND_NP_HEADQUARTERS_ACCOUNT then Aggregation Group is NATIONAL_PARTY_HEADQUARTERS_ACCOUNT; If Transaction Type is TRIBAL_REFUND_NP_CONVENTION_ACCOUNT then Aggregation Group is NATIONAL_PARTY_CONVENTION_ACCOUNT; If Transaction Type is TRIBAL_REFUND_NP_RECOUNT_ACCOUNT then Aggregation Group is NATIONAL_PARTY_RECOUNT_ACCOUNT"
             }
         },
         "expenditure_purpose_descrip": {
@@ -327,7 +327,7 @@
                 "TYPE": "A/N-100",
                 "REQUIRED": "X (error)",
                 "VALUE_REFERENCE": "Headquarters Buildings Account: Refund",
-                "RULE_REFERENCE": "If Transaction Type is TRIBAL_REFUND_NP_HEADQUARTERS_ACCOUNT then use “Headquarters Buildings Account: Refund; If Transaction Type is TRIBAL_REFUND_NP_CONVENTION_ACCOUNT then use “Pres. Nominating Convention Account: Refund; If Transaction Type is TRIBAL_REFUND_NP_RECOUNT then use “Recount/Legal Proceedings Account: Refund”"
+                "RULE_REFERENCE": "If Transaction Type is TRIBAL_REFUND_NP_HEADQUARTERS_ACCOUNT then use “Headquarters Buildings Account: Refund; If Transaction Type is TRIBAL_REFUND_NP_CONVENTION_ACCOUNT then use “Pres. Nominating Convention Account: Refund; If Transaction Type is TRIBAL_REFUND_NP_RECOUNT_ACCOUNT then use “Recount/Legal Proceedings Account: Refund”"
             }
         },
         "category_code": {
@@ -448,7 +448,7 @@
             "if": {
                 "properties": {
                     "transaction_type_identifier": {
-                        "const": "TRIBAL_REFUND_NP_RECOUNT"
+                        "const": "TRIBAL_REFUND_NP_RECOUNT_ACCOUNT"
                     }
                 },
                 "required": [
