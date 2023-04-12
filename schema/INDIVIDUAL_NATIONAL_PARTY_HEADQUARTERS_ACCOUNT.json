@@ -21,8 +21,7 @@
         "contribution_amount",
         "contribution_aggregate",
         "aggregation_group",
-        "contribution_purpose_descrip",
-        "memo_code"
+        "contribution_purpose_descrip"
     ],
     "fec_recommended": [],
     "properties": {
@@ -512,11 +511,14 @@
         "memo_code": {
             "title": "MEMO CODE",
             "description": "",
-            "const": true,
+            "type": [
+                "boolean",
+                "null"
+            ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "MEMO CODE",
                 "TYPE": "A/N-1",
-                "REQUIRED": "X (error)",
+                "REQUIRED": null,
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": "X",
                 "RULE_REFERENCE": "X = True",
