@@ -321,7 +321,7 @@
                 "REQUIRED": "X (conditional error)",
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Req if Item Election Code = \"OYYYY\"",
+                "RULE_REFERENCE": "Req if Item Election Code = R, S, C, E",
                 "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P"
             }
         },
