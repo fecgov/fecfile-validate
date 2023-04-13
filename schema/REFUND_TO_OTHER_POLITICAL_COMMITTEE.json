@@ -499,7 +499,8 @@
             "if": {
                 "properties": {
                     "election_code": {
-                        "pattern": "^[RSCE]\\d{4}$"
+                        "pattern": "^[RSCE]\\d{4}$",
+                        "type": "string"
                     }
                 },
                 "required": [
