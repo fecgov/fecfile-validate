@@ -350,22 +350,18 @@
         "expenditure_purpose_descrip": {
             "title": "EXPENDITURE PURPOSE DESCRIP",
             "description": "",
-            "enum": [
-                "Headquarters Buildings Account: Refund",
-                "Pres. Nominating Convention Account: Refund",
-                "Recount/Legal Proceedings Account: Refund"
-            ],
-            "examples": [
-                "Headquarters Buildings Account: Refund"
-            ],
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100,
+            "pattern": "^[ -~]{0,100}$",
             "fec_spec": {
-                "FIELD_DESCRIPTION": "EXPENDITURE PURPOSE DESCRIP",
+                "FIELD_DESCRIPTION": "EXPENDITURE PURPOSE DESCRIPTION",
                 "TYPE": "A/N-100",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "Headquarters Buildings Account: Refund",
-                "VALUE_REFERENCE": "[ Headquarters Buildings Account: Refund | Pres. Nominating Convention Account: Refund | Recount/Legal Proceedings Account: Refund ]",
-                "RULE_REFERENCE": "If Transaction Type is INDIVIDUAL_REFUND_NP_HEADQUARTERS_ACCOUNT then use “Headquarters Buildings Account: Refund\nIf Transaction Type is INDIVIDUAL_REFUND_NP_CONVENTION_ACCOUNT then use “Pres. Nominating Convention Account: Refund\nIf Transaction Type is INDIVIDUAL_REFUND_NP_RECOUNT_ACCOUNT then use “Recount/Legal Proceedings Account: Refund",
-                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P"
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
             }
         },
         "category_code": {

@@ -169,16 +169,14 @@
 <td><ul><li>REQUIRED</li><li>must equal: GENERAL</li></td>
 </tr>
 <tr>
-<td>EXPENDITURE PURPOSE DESCRIP</td>
+<td>EXPENDITURE PURPOSE DESCRIPTION</td>
 <td>A/N-100</td>
 <td>X (error)</td>
-<td>Headquarters Buildings Account: Refund</td>
-<td>[ Headquarters Buildings Account: Refund | Pres. Nominating Convention Account: Refund | Recount/Legal Proceedings Account: Refund ]</td>
-<td>If Transaction Type is INDIVIDUAL_REFUND_NP_HEADQUARTERS_ACCOUNT then use “Headquarters Buildings Account: Refund
-If Transaction Type is INDIVIDUAL_REFUND_NP_CONVENTION_ACCOUNT then use “Pres. Nominating Convention Account: Refund
-If Transaction Type is INDIVIDUAL_REFUND_NP_RECOUNT_ACCOUNT then use “Recount/Legal Proceedings Account: Refund</td>
-<td>F3 | F3X | F3P</td>
-<td><ul><li>REQUIRED</li><li>must be one of: ['Headquarters Buildings Account: Refund', 'Pres. Nominating Convention Account: Refund', 'Recount/Legal Proceedings Account: Refund']</li></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 100</li><li>regex: ^[ -~]{0,100}$</li></td>
 </tr>
 <tr>
 <td>CATEGORY CODE</td>
