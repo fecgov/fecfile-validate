@@ -1,9 +1,9 @@
 {
     "$schema": "https://json-schema.org/draft-07/schema#",
-    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/DISBURSEMENTS.json",
+    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/UNREGISTERED_REFUNDS.json",
     "version": "8.3.0.1",
-    "title": "FEC Disbursements",
-    "description": "SCHEDULE B - Operating Expenditure (Line 21b), Void of Operating Expenditure (21b), Other Disbursement (29), Void of Other Disbursement (29)",
+    "title": "FEC Refund of Unregistered Receipt from Person  (Line 28A), Refund of Unregistered Receipt from Person - Void (Line 28a)",
+    "description": "SCHEDULE B - Refund of Unregistered Receipt from Person  (Line 28A), Refund of Unregistered Receipt from Person - Void (Line 28a)",
     "type": "object",
     "required": [
         "form_type",
@@ -11,33 +11,28 @@
         "transaction_type_identifier",
         "transaction_id",
         "entity_type",
+        "payee_organization_name",
         "payee_street_1",
         "payee_city",
         "payee_state",
         "payee_zip",
         "expenditure_date",
         "expenditure_amount",
-        "aggregation_group",
-        "expenditure_purpose_descrip"
+        "aggregation_group"
     ],
     "properties": {
         "form_type": {
             "title": "FORM TYPE",
             "description": "",
-            "enum": [
-                "SB21B",
-                "SB29"
-            ],
-            "examples": [
-                "SB21B"
-            ],
+            "const": "SB28A",
+            "examples": ["SB28A"],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "FORM TYPE",
                 "TYPE": "A/N-8",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "SB21B",
-                "VALUE_REFERENCE": "SB[line# ref]",
-                "RULE_REFERENCE": "If Transaction Type is OPERATING_EXPENDITURE or OPERATING_EXPENDITURE_VOID, Form Type is SB21B. If Transaction Type is OTHER_DISBURSEMENT or OTHER_DISBURSEMENT_VOID, Form Type is SB29.",
+                "SAMPLE_DATA": "SB28A",
+                "VALUE_REFERENCE": "SB28A",
+                "RULE_REFERENCE": "SB28A Only",
                 "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
             }
         },
@@ -65,21 +60,19 @@
             "title": "TRANSACTION TYPE IDENTIFIER",
             "description": "",
             "enum": [
-                "OPERATING_EXPENDITURE",
-                "OPERATING_EXPENDITURE_VOID",
-                "OTHER_DISBURSEMENT",
-                "OTHER_DISBURSEMENT_VOID"
+                "REFUND_UNREGISTERED_CONTRIBUTION",
+                "REFUND_UNREGISTERED_CONTRIBUTION_VOID"
             ],
             "examples": [
-                "OPERATING_EXPENDITURE"
+                "REFUND_UNREGISTERED_CONTRIBUTION"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "TRANSACTION TYPE IDENTIFIER",
                 "TYPE": "A/N-12",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "OPERATING_EXPENDITURE",
+                "SAMPLE_DATA": "REFUND_UNREGISTERED_CONTRIBUTION",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "OPERATING_EXPENDITURE, OPERATING_EXPENDITURE_VOID, OTHER_DISBURSEMENT, OTHER_DISBURSEMENT_VOID",
+                "RULE_REFERENCE": "REFUND_UNREGISTERED_CONTRIBUTION, REFUND_UNREGISTERED_CONTRIBUTION_VOID",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -152,23 +145,17 @@
         "entity_type": {
             "title": "ENTITY TYPE",
             "description": "",
-            "enum": [
-                "ORG",
-                "IND",
-                "COM"
-            ],
+            "const": "ORG",
             "examples": [
-                "ORG",
-                "IND",
-                "COM"
+                "ORG"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "ENTITY TYPE",
                 "TYPE": "A/N-3",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "IND",
-                "VALUE_REFERENCE": "ORG, IND, COM",
-                "RULE_REFERENCE": "[ORG|IND|COM]",
+                "SAMPLE_DATA": "ORG",
+                "VALUE_REFERENCE": "ORG",
+                "RULE_REFERENCE": "[ORG]",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -192,121 +179,6 @@
                 "SAMPLE_DATA": "John Smith & Co.",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": "Required if [ORG|COM]",
-                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
-            }
-        },
-        "payee_last_name": {
-            "title": "PAYEE LAST NAME",
-            "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
-            "minLength": 0,
-            "maxLength": 30,
-            "pattern": "^[ -~]{0,30}$",
-            "examples": [
-                "Smith"
-            ],
-            "fec_spec": {
-                "FIELD_DESCRIPTION": "PAYEE LAST NAME",
-                "TYPE": "A/N-30",
-                "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "Smith",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Required if [IND]",
-                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
-            }
-        },
-        "payee_first_name": {
-            "title": "PAYEE FIRST NAME",
-            "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
-            "minLength": 0,
-            "maxLength": 20,
-            "pattern": "^[ -~]{0,20}$",
-            "examples": [
-                "John"
-            ],
-            "fec_spec": {
-                "FIELD_DESCRIPTION": "PAYEE FIRST NAME",
-                "TYPE": "A/N-20",
-                "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "John",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Required if [IND]",
-                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
-            }
-        },
-        "payee_middle_name": {
-            "title": "PAYEE MIDDLE NAME",
-            "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
-            "minLength": 0,
-            "maxLength": 20,
-            "pattern": "^[ -~]{0,20}$",
-            "examples": [
-                "W"
-            ],
-            "fec_spec": {
-                "FIELD_DESCRIPTION": "PAYEE MIDDLE NAME",
-                "TYPE": "A/N-20",
-                "REQUIRED": null,
-                "SAMPLE_DATA": "W",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Optional if [IND]",
-                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
-            }
-        },
-        "payee_prefix": {
-            "title": "PAYEE PREFIX",
-            "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
-            "minLength": 0,
-            "maxLength": 10,
-            "pattern": "^[ -~]{0,10}$",
-            "examples": [
-                "Dr"
-            ],
-            "fec_spec": {
-                "FIELD_DESCRIPTION": "PAYEE PREFIX",
-                "TYPE": "A/N-10",
-                "REQUIRED": null,
-                "SAMPLE_DATA": "Dr",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Optional if [IND]",
-                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
-            }
-        },
-        "payee_suffix": {
-            "title": "PAYEE SUFFIX",
-            "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
-            "minLength": 0,
-            "maxLength": 10,
-            "pattern": "^[ -~]{0,10}$",
-            "examples": [
-                "Jr"
-            ],
-            "fec_spec": {
-                "FIELD_DESCRIPTION": "PAYEE SUFFIX",
-                "TYPE": "A/N-10",
-                "REQUIRED": null,
-                "SAMPLE_DATA": "Jr",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Optional if [IND]",
                 "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
             }
         },
@@ -454,35 +326,33 @@
         "aggregation_group": {
             "title": "AGGREGATION GROUP",
             "description": "",
-            "const": "GENERAL_DISBURSEMENT",
+            "const": "GENERAL",
             "examples": [
-                "GENERAL_DISBURSEMENT"
+                "GENERAL"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "AGGREGATION GROUP",
                 "TYPE": "A/N-100",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "GENERAL_DISBURSEMENT",
+                "SAMPLE_DATA": "GENERAL",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "GENERAL_DISBURSEMENT",
+                "RULE_REFERENCE": "GENERAL",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
         "expenditure_purpose_descrip": {
             "title": "EXPENDITURE PURPOSE DESCRIP",
             "description": "",
-            "type": "string",
+            "type": ["string", "null"],
             "minLength": 0,
             "maxLength": 100,
             "pattern": "^[ -~]{0,100}$",
-            "examples": [
-                "Repay Loan"
-            ],
+            "examples": [],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "EXPENDITURE PURPOSE DESCRIP",
                 "TYPE": "A/N-100",
-                "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "Repay Loan",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P"
@@ -549,54 +419,7 @@
             "if": {
                 "properties": {
                     "transaction_type_identifier": {
-                        "enum": [
-                            "OPERATING_EXPENDITURE",
-                            "OPERATING_EXPENDITURE_VOID"
-                        ]
-                    }
-                },
-                "required": [
-                    "transaction_type_identifier"
-                ]
-            },
-            "then": {
-                "properties": {
-                    "form_type": {
-                        "const": "SB21B"
-                    }
-                }
-            }
-        },
-        {
-            "if": {
-                "properties": {
-                    "transaction_type_identifier": {
-                        "enum": [
-                            "OTHER_DISBURSEMENT",
-                            "OTHER_DISBURSEMENT_VOID"
-                        ]
-                    }
-                },
-                "required": [
-                    "transaction_type_identifier"
-                ]
-            },
-            "then": {
-                "properties": {
-                    "form_type": {
-                        "const": "SB29"
-                    }
-                }
-            }
-        },
-        {
-            "if": {
-                "properties": {
-                    "transaction_type_identifier": {
-                        "enum": [
-                            "OPERATING_EXPENDITURE_VOID",
-                            "OTHER_DISBURSEMENT_VOID"
-                        ]
+                        "const": "REFUND_UNREGISTERED_CONTRIBUTION_VOID"
                     }
                 },
                 "required": [
@@ -607,57 +430,6 @@
                 "properties": {
                     "expenditure_amount": {
                         "exclusiveMaximum": 0
-                    }
-                }
-            }
-        },
-        {
-            "if": {
-                "properties": {
-                    "entity_type": {
-                        "enum": [
-                            "ORG",
-                            "COM"
-                        ]
-                    }
-                },
-                "required": [
-                    "entity_type"
-                ]
-            },
-            "then": {
-                "required": [
-                    "payee_organization_name"
-                ],
-                "properties": {
-                    "payee_organization_name": {
-                        "type": "string"
-                    }
-                }
-            }
-        },
-        {
-            "if": {
-                "properties": {
-                    "entity_type": {
-                        "const": "IND"
-                    }
-                },
-                "required": [
-                    "entity_type"
-                ]
-            },
-            "then": {
-                "required": [
-                    "payee_first_name",
-                    "payee_last_name"
-                ],
-                "properties": {
-                    "payee_first_name": {
-                        "type": "string"
-                    },
-                    "payee_last_name": {
-                        "type": "string"
                     }
                 }
             }

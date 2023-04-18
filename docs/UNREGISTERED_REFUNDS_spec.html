@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><title>DISBURSEMENT_PARENTS</title><link rel="stylesheet" href="spec_table.css"></head><body><table><caption>Specification for DISBURSEMENT_PARENTS</caption><tr>
+<!DOCTYPE html><html lang="en"><head><title>UNREGISTERED_REFUNDS</title><link rel="stylesheet" href="spec_table.css"></head><body><table><caption>Specification for UNREGISTERED_REFUNDS</caption><tr>
 <th>FIELD DESCRIPTION</th>
 <th>TYPE</th>
 <th>REQUIRED</th>
@@ -12,11 +12,11 @@
 <td>FORM TYPE</td>
 <td>A/N-8</td>
 <td>X (error)</td>
-<td>SB21B</td>
-<td>[SB21B | SB29]</td>
-<td>If Transaction Type is OPERATING_EXPENDITURE_CREDIT_CARD_PAYMENT or OPERATING_EXPENDITURE_PAYMENT_TO_PAYROLL, Form Type is SB21B.  If Transaction Type is OTHER_DISBURSEMENT_CREDIT_CARD_PAYMENT or OTHER_DISBURSEMENT_PAYMENT_TO_PAYROLL, Form Type is SB29.</td>
+<td>SB28A</td>
+<td>SB28A</td>
+<td>SB28A Only</td>
 <td>F3 | F3X | F3P | F3L</td>
-<td><ul><li>FORM_TYPE = 'SB21B' if TRANSACTION_TYPE_IDENTIFIER one of ['OPERATING_EXPENDITURE_CREDIT_CARD_PAYMENT', 'OPERATING_EXPENDITURE_PAYMENT_TO_PAYROLL']</li><li>FORM_TYPE = 'SB29' if TRANSACTION_TYPE_IDENTIFIER one of ['OTHER_DISBURSEMENT_CREDIT_CARD_PAYMENT', 'OTHER_DISBURSEMENT_PAYMENT_TO_PAYROLL']</li><li>REQUIRED</li><li>must be one of: ['SB21B', 'SB29']</li></td>
+<td><ul><li>REQUIRED</li><li>must equal: SB28A</li></td>
 </tr>
 <tr>
 <td>FILER COMMITTEE ID NUMBER</td>
@@ -32,11 +32,11 @@
 <td>TRANSACTION TYPE IDENTIFIER</td>
 <td>A/N-12</td>
 <td>X (error)</td>
-<td>OPERATING_EXPENDITURE_CREDIT_CARD_PAYMENT</td>
+<td>REFUND_UNREGISTERED_CONTRIBUTION</td>
 <td></td>
-<td>OPERATING_EXPENDITURE_CREDIT_CARD_PAYMENT, OPERATING_EXPENDITURE_PAYMENT_TO_PAYROLL, OTHER_DISBURSEMENT_CREDIT_CARD_PAYMENT, OTHER_DISBURSEMENT_PAYMENT_TO_PAYROLL</td>
+<td>REFUND_UNREGISTERED_CONTRIBUTION, REFUND_UNREGISTERED_CONTRIBUTION_VOID</td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>must be one of: ['OPERATING_EXPENDITURE_CREDIT_CARD_PAYMENT', 'OPERATING_EXPENDITURE_PAYMENT_TO_PAYROLL', 'OTHER_DISBURSEMENT_CREDIT_CARD_PAYMENT', 'OTHER_DISBURSEMENT_PAYMENT_TO_PAYROLL']</li></td>
+<td><ul><li>REQUIRED</li><li>must be one of: ['REFUND_UNREGISTERED_CONTRIBUTION', 'REFUND_UNREGISTERED_CONTRIBUTION_VOID']</li></td>
 </tr>
 <tr>
 <td>TRANSACTION ID</td>
@@ -74,8 +74,8 @@ with the F3L</td>
 <td>A/N-3</td>
 <td>X (error)</td>
 <td>ORG</td>
+<td>ORG</td>
 <td>[ORG]</td>
-<td>ORG Only</td>
 <td></td>
 <td><ul><li>REQUIRED</li><li>must equal: ORG</li></td>
 </tr>
@@ -155,29 +155,29 @@ with the F3L</td>
 <td>X (error)</td>
 <td>1500</td>
 <td></td>
-<td></td>
+<td>If Transaction Type is OPERATING_EXPENDITURE_VOID or OTHER_DISBURSEMENT_VOID, amount must be negative.</td>
 <td>F3 | F3X | F3P | F3L</td>
-<td><ul><li>REQUIRED</li><li>type: number</li><li>minimum: -99999999.99</li><li>maximum: 999999999.99</li></td>
+<td><ul><li>EXPENDITURE_AMOUNT < 0 if TRANSACTION_TYPE_IDENTIFIER equals REFUND_UNREGISTERED_CONTRIBUTION_VOID</li><li>REQUIRED</li><li>type: number</li><li>minimum: -99999999.99</li><li>maximum: 999999999.99</li></td>
 </tr>
 <tr>
 <td>AGGREGATION GROUP</td>
 <td>A/N-100</td>
 <td>X (error)</td>
-<td>GENERAL_DISBURSEMENT</td>
+<td>GENERAL</td>
 <td></td>
-<td>GENERAL_DISBURSEMENT</td>
+<td>GENERAL</td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>must equal: GENERAL_DISBURSEMENT</li></td>
+<td><ul><li>REQUIRED</li><li>must equal: GENERAL</li></td>
 </tr>
 <tr>
 <td>EXPENDITURE PURPOSE DESCRIP</td>
 <td>A/N-100</td>
-<td>X (error)</td>
-<td>Credit Card: See Below</td>
-<td>Credit Card: See Below | Payroll: See Below</td>
+<td></td>
+<td></td>
+<td></td>
 <td></td>
 <td>F3 | F3X | F3P</td>
-<td><ul><li>EXPENDITURE_PURPOSE_DESCRIP = 'Credit Card: See Below' if TRANSACTION_TYPE_IDENTIFIER one of ['OTHER_DISBURSEMENT_CREDIT_CARD_PAYMENT', 'OPERATING_EXPENDITURE_CREDIT_CARD_PAYMENT']</li><li>EXPENDITURE_PURPOSE_DESCRIP = 'Payroll: See Below' if TRANSACTION_TYPE_IDENTIFIER one of ['OTHER_DISBURSEMENT_PAYMENT_TO_PAYROLL', 'OPERATING_EXPENDITURE_PAYMENT_TO_PAYROLL']</li><li>REQUIRED</li><li>type: string</li><li>must be one of: ['Credit Card: See Below', 'Payroll: See Below']</li></td>
+<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 100</li><li>regex: ^[ -~]{0,100}$</li></td>
 </tr>
 <tr>
 <td>CATEGORY CODE</td>
