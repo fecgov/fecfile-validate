@@ -210,16 +210,6 @@ with the F3L</td>
 <td><ul><li>EXPENDITURE_AMOUNT < 0 if TRANSACTION_TYPE_IDENTIFIER equals REFUND_INDIVIDUAL_CONTRIBUTION_VOID</li><li>REQUIRED</li><li>type: number</li><li>minimum: -99999999.99</li><li>maximum: 999999999.99</li></td>
 </tr>
 <tr>
-<td>AGGREGATE AMOUNT</td>
-<td>AMT-12</td>
-<td>X (error)</td>
-<td>1000</td>
-<td></td>
-<td></td>
-<td></td>
-<td><ul><li>REQUIRED</li><li>type: number</li><li>minimum: -99999999.99</li><li>maximum: 999999999.99</li></td>
-</tr>
-<tr>
 <td>AGGREGATION GROUP</td>
 <td>A/N-100</td>
 <td>X (error)</td>
@@ -237,7 +227,7 @@ with the F3L</td>
 <td></td>
 <td></td>
 <td>F3 | F3X | F3P</td>
-<td><ul><li>type: string</li><li>min length: 0</li><li>max length: 100</li><li>regex: ^[ -~]{0,100}$</li></td>
+<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 100</li><li>regex: ^[ -~]{0,100}$</li></td>
 </tr>
 <tr>
 <td>CATEGORY CODE</td>
