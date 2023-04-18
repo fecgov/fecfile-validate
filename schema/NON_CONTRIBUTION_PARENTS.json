@@ -1,9 +1,9 @@
 {
     "$schema": "https://json-schema.org/draft-07/schema#",
-    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/NON_CONTRIBUTION_ACCOUNT_REFUNDS.json",
+    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/NON_CONTRIBUTION_PARENTS.json",
     "version": "8.3.0.1",
-    "title": "FEC Payroll and Credit Card Disbursements",
-    "description": "SCHEDULE B - Individual Refund - Non-contribution Account, Business/Labor Organization Refund - Non-contribution Account, Other Committee Refund - Non-contribution Account (line 29)",
+    "title": "FEC Non-contribution Account Credit Card Payment (Line 29), Non-contribution Account Payment to Payroll",
+    "description": "SCHEDULE B - Non-contribution Account Credit Card Payment (Line 29), Non-contribution Account Payment to Payroll (Line 29)",
     "type": "object",
     "required": [
         "form_type",
@@ -11,6 +11,7 @@
         "transaction_type_identifier",
         "transaction_id",
         "entity_type",
+        "payee_organization_name",
         "payee_street_1",
         "payee_city",
         "payee_state",
@@ -58,17 +59,16 @@
             "title": "TRANSACTION TYPE IDENTIFIER",
             "description": "",
             "enum": [
-                "INDIVIDUAL_REFUND_NON_CONTRIBUTION_ACCOUNT",
-                "BUSINESS_LABOR_REFUND_NON_CONTRIBUTION_ACCOUNT",
-                "OTHER_COMMITTEE_REFUND_NON_CONTRIBUTION_ACCOUNT"
+                "NON_CONTRIBUTION_ACCOUNT_CREDIT_CARD_PAYMENT",
+                "NON_CONTRIBUTION_ACCOUNT_PAYMENT_TO_PAYROLL"
             ],
             "examples": [
-                "INDIVIDUAL_REFUND_NON_CONTRIBUTION_ACCOUNT"
+                "NON_CONTRIBUTION_ACCOUNT_CREDIT_CARD_PAYMENT"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "TRANSACTION TYPE IDENTIFIER",
                 "REQUIRED": "X (error)",
-                "RULE_REFERENCE": "INDIVIDUAL_REFUND_NON_CONTRIBUTION_ACCOUNT, BUSINESS_LABOR_REFUND_NON_CONTRIBUTION_ACCOUNT, OTHER_COMMITTEE_REFUND_NON_CONTRIBUTION_ACCOUNT"
+                "RULE_REFERENCE": "NON_CONTRIBUTION_ACCOUNT_CREDIT_CARD_PAYMENT"
             }
         },
         "transaction_id": {
@@ -133,21 +133,17 @@
         "entity_type": {
             "title": "ENTITY TYPE",
             "description": "",
-            "enum": [
-                "IND",
-                "ORG",
-                "COM"
-            ],
+            "const": "ORG",
             "examples": [
-                "IND"
+                "ORG"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "ENTITY TYPE",
                 "TYPE": "A/N-3",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "IND",
-                "VALUE_REFERENCE": "[IND|ORG|COM]",
-                "RULE_REFERENCE": "If Transaction Type is INDIVIDUAL_REFUND_NON_CONTRIBUTION_ACCOUNT, then IND only.\nIf Transaction Type is BUSINESS_LABOR_REFUND_NON_CONTRIBUTION_ACCOUNT, then ORG only.\nIf Transaction Type is OTHER_COMMITTEE_REFUND_NON_CONTRIBUTION_ACCOUNT, then COM only."
+                "SAMPLE_DATA": "ORG",
+                "VALUE_REFERENCE": "ORG",
+                "RULE_REFERENCE": "ORG only."
             }
         },
         "payee_organization_name": {
@@ -166,111 +162,9 @@
             "fec_spec": {
                 "FIELD_DESCRIPTION": "PAYEE ORGANIZATION NAME",
                 "TYPE": "A/N-200",
-                "REQUIRED": "X (conditional error)",
+                "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "John Smith & Co.",
                 "RULE_REFERENCE": "Required if [ORG|COM]"
-            }
-        },
-        "payee_last_name": {
-            "title": "PAYEE LAST NAME",
-            "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
-            "minLength": 0,
-            "maxLength": 30,
-            "pattern": "^[ -~]{0,30}$",
-            "examples": [
-                "Smith"
-            ],
-            "fec_spec": {
-                "FIELD_DESCRIPTION": "PAYEE LAST NAME",
-                "TYPE": "A/N-30",
-                "REQUIRED": "X (conditional error)",
-                "SAMPLE_DATA": "Smith",
-                "RULE_REFERENCE": "Required if [IND]"
-            }
-        },
-        "payee_first_name": {
-            "title": "PAYEE FIRST NAME",
-            "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
-            "minLength": 0,
-            "maxLength": 20,
-            "pattern": "^[ -~]{0,20}$",
-            "examples": [
-                "John"
-            ],
-            "fec_spec": {
-                "FIELD_DESCRIPTION": "PAYEE FIRST NAME",
-                "TYPE": "A/N-20",
-                "REQUIRED": "X (conditional error)",
-                "SAMPLE_DATA": "John",
-                "RULE_REFERENCE": "Required if [IND]"
-            }
-        },
-        "payee_middle_name": {
-            "title": "PAYEE MIDDLE NAME",
-            "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
-            "minLength": 0,
-            "maxLength": 20,
-            "pattern": "^[ -~]{0,20}$",
-            "examples": [
-                "W"
-            ],
-            "fec_spec": {
-                "FIELD_DESCRIPTION": "PAYEE MIDDLE NAME",
-                "TYPE": "A/N-20",
-                "SAMPLE_DATA": "W",
-                "RULE_REFERENCE": "Optional if [IND]"
-            }
-        },
-        "payee_prefix": {
-            "title": "PAYEE PREFIX",
-            "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
-            "minLength": 0,
-            "maxLength": 10,
-            "pattern": "^[ -~]{0,10}$",
-            "examples": [
-                "Dr"
-            ],
-            "fec_spec": {
-                "FIELD_DESCRIPTION": "PAYEE PREFIX",
-                "TYPE": "A/N-10",
-                "SAMPLE_DATA": "Dr",
-                "RULE_REFERENCE": "Optional if [IND]"
-            }
-        },
-        "payee_suffix": {
-            "title": "PAYEE SUFFIX",
-            "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
-            "minLength": 0,
-            "maxLength": 10,
-            "pattern": "^[ -~]{0,10}$",
-            "examples": [
-                "Jr"
-            ],
-            "fec_spec": {
-                "FIELD_DESCRIPTION": "PAYEE SUFFIX",
-                "TYPE": "A/N-10",
-                "SAMPLE_DATA": "Jr",
-                "RULE_REFERENCE": "Optional if [IND]"
             }
         },
         "payee_street_1": {
@@ -396,31 +290,34 @@
         "aggregation_group": {
             "title": "AGGREGATION GROUP",
             "description": "",
-            "const": "NON_CONTRIBUTION_ACCOUNT",
+            "const": "GENERAL_DISBURSEMENT",
             "examples": [
-                "NON_CONTRIBUTION_ACCOUNT"
+                "GENERAL_DISBURSEMENT"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "AGGREGATION GROUP",
                 "TYPE": "A/N-100",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "NON_CONTRIBUTION_ACCOUNT",
-                "RULE_REFERENCE": "NON_CONTRIBUTION_ACCOUNT"
+                "SAMPLE_DATA": "GENERAL_DISBURSEMENT",
+                "RULE_REFERENCE": "GENERAL_DISBURSEMENT"
             }
         },
         "expenditure_purpose_descrip": {
             "title": "EXPENDITURE PURPOSE DESCRIP",
             "description": "",
             "type": "string",
-            "const": "Non-contribution Account Refund",
+            "enum": [
+                "Non-contribution Account - Credit Card: See Below",
+                "Non-contribution Account - Payroll: See Below"
+            ],
             "examples": [
-                "Non-contribution Account Refund"
+                "Non-contribution Account - Payroll: See Below"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "EXPENDITURE PURPOSE DESCRIP",
                 "TYPE": "A/N-100",
                 "REQUIRED": "X (error)",
-                "VALUE_REFERENCE": "Non-contribution Account Refund"
+                "VALUE_REFERENCE": "Non-contribution Account - Payroll: See Below"
             }
         },
         "category_code": {
@@ -456,42 +353,6 @@
                 "RULE_REFERENCE": "Only codes 001-012"
             }
         },
-        "beneficiary_committee_fec_id": {
-            "title": "BENEFICIARY COMMITTEE FEC ID",
-            "description": "",
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 9,
-            "pattern": "^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$",
-            "examples": [
-                "C00654323"
-            ],
-            "fec_spec": {
-                "FIELD_DESCRIPTION": "BENEFICIARY COMMITTEE FEC ID",
-                "TYPE": "A/N-9",
-                "REQUIRED": "X (conditional error)",
-                "RULE_REFERENCE": "Req if Transaction Type is OTHER_COMMITTEE_REFUND_NON_CONTRIBUTION_ACCOUNT.",
-                "NOTE": "Pull from PAYEE Entity Name/ID."
-            }
-        },
-        "beneficiary_committee_name": {
-            "title": "BENEFICIARY COMMITTEE NAME",
-            "description": "",
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 200,
-            "pattern": "^[ -~]{0,200}$",
-            "examples": [
-                "John Smith & Co."
-            ],
-            "fec_spec": {
-                "FIELD_DESCRIPTION": "BENEFICIARY COMMITTEE NAME",
-                "TYPE": "A/N-200",
-                "REQUIRED": "X (conditional error)",
-                "RULE_REFERENCE": "Req if Transaction Type is OTHER_COMMITTEE_REFUND_NON_CONTRIBUTION_ACCOUNT.",
-                "NOTE": "Pull from PAYEE Entity Name/ID."
-            }
-        },
         "memo_code": {
             "title": "MEMO CODE",
             "description": "",
@@ -524,70 +385,39 @@
     },
     "allOf": [
         {
-            "if": {
+            "if":{
                 "properties": {
-                    "transaction_type_identifier": {
-                        "const": "INDIVIDUAL_REFUND_NON_CONTRIBUTION_ACCOUNT"
+                    "entity_type":{
+                        "const": "NON_CONTRIBUTION_ACCOUNT_PAYMENT_TO_PAYROLL"
                     }
                 },
                 "required": [
-                    "transaction_type_identifier"
+                    "entity_type"
                 ]
             },
-            "then": {
-                "required": [
-                    "payee_first_name",
-                    "payee_last_name"
-                ],
+            "then":{
                 "properties": {
-                    "entity_type": {
-                        "const": "IND"
+                    "expenditure_purpose_descrip":{
+                        "const": "Non-contribution Account - Payroll: See Below"
                     }
                 }
             }
         },
         {
-            "if": {
+            "if":{
                 "properties": {
-                    "transaction_type_identifier": {
-                        "const": "BUSINESS_LABOR_REFUND_NON_CONTRIBUTION_ACCOUNT"
+                    "entity_type":{
+                        "const": "NON_CONTRIBUTION_ACCOUNT_CREDIT_CARD_PAYMENT"
                     }
                 },
                 "required": [
-                    "transaction_type_identifier"
+                    "entity_type"
                 ]
             },
-            "then": {
-                "required": [
-                    "payee_organization_name"
-                ],
+            "then":{
                 "properties": {
-                    "entity_type": {
-                        "const": "ORG"
-                    }
-                }
-            }
-        },
-        {
-            "if": {
-                "properties": {
-                    "transaction_type_identifier": {
-                        "const": "OTHER_COMMITTEE_REFUND_NON_CONTRIBUTION_ACCOUNT"
-                    }
-                },
-                "required": [
-                    "transaction_type_identifier"
-                ]
-            },
-            "then": {
-                "required": [
-                    "payee_organization_name",
-                    "beneficiary_committee_fec_id",
-                    "beneficiary_committee_name"
-                ],
-                "properties": {
-                    "entity_type": {
-                        "const": "COM"
+                    "expenditure_purpose_descrip":{
+                        "const": "Non-contribution Account - Credit Card: See Below"
                     }
                 }
             }

@@ -359,17 +359,17 @@
         "contribution_purpose_descrip": {
             "title": "CONTRIBUTION PURPOSE DESCRIPTION",
             "description": "",
-            "const": "Non-contribution Account Receipt",
+            "const": "Non-contribution Account",
             "examples": [
-                "Non-contribution Account Receipt"
+                "Non-contribution Account"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "CONTRIBUTION PURPOSE DESCRIPTION",
                 "TYPE": "A/N-100",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "Non-contribution Account Receipt",
+                "SAMPLE_DATA": "Non-contribution Account",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Non-contribution Account Receipt",
+                "RULE_REFERENCE": "Non-contribution Account",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },

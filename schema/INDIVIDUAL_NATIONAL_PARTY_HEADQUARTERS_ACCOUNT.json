@@ -1,6 +1,6 @@
 {
     "$schema": "https://json-schema.org/draft-07/schema#",
-    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/INDIVIDUAL_NATIONAL_PARTY_HEADQUARTERS_BUILDINGS_ACCOUNT.json",
+    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/INDIVIDUAL_NATIONAL_PARTY_HEADQUARTERS_ACCOUNT.json",
     "version": "v0.0.0.0",
     "title": "FEC Individual National Party Headquarters Buildings Account",
     "description": "Individual National Party Headquarters Buildings Account (17)",
@@ -21,8 +21,7 @@
         "contribution_amount",
         "contribution_aggregate",
         "aggregation_group",
-        "contribution_purpose_descrip",
-        "memo_code"
+        "contribution_purpose_descrip"
     ],
     "fec_recommended": [],
     "properties": {
@@ -512,11 +511,14 @@
         "memo_code": {
             "title": "MEMO CODE",
             "description": "",
-            "const": true,
+            "type": [
+                "boolean",
+                "null"
+            ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "MEMO CODE",
                 "TYPE": "A/N-1",
-                "REQUIRED": "X (error)",
+                "REQUIRED": null,
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": "X",
                 "RULE_REFERENCE": "X = True",

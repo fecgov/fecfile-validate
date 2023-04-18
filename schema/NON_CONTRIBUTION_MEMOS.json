@@ -1,15 +1,17 @@
 {
     "$schema": "https://json-schema.org/draft-07/schema#",
-    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/DISBURSEMENTS.json",
+    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/NON_CONTRIBUTION_MEMOS.json",
     "version": "8.3.0.1",
-    "title": "FEC Disbursements",
-    "description": "SCHEDULE B - Operating Expenditure (Line 21b), Void of Operating Expenditure (21b), Other Disbursement (29), Void of Other Disbursement (29)",
+    "title": "FEC Non-Contribution Memos",
+    "description": "SCHEDULE B - Non-contribution Account Credit Card Payment Memo, Non-contribution Account Staff Reimbursement Memo, Non-contribution Account Payment to Payroll Memo (Line 29)",
     "type": "object",
     "required": [
         "form_type",
         "filer_committee_id_number",
         "transaction_type_identifier",
         "transaction_id",
+        "back_reference_sched_name",
+        "back_reference_tran_id_number",
         "entity_type",
         "payee_street_1",
         "payee_city",
@@ -17,29 +19,25 @@
         "payee_zip",
         "expenditure_date",
         "expenditure_amount",
-        "aggregate_amount",
         "aggregation_group",
-        "expenditure_purpose_descrip"
+        "expenditure_purpose_descrip",
+        "memo_code"
     ],
     "properties": {
         "form_type": {
             "title": "FORM TYPE",
             "description": "",
-            "enum": [
-                "SB21B",
-                "SB29"
-            ],
+            "const": "SB29",
             "examples": [
-                "SB21B"
+                "SB29"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "FORM TYPE",
                 "TYPE": "A/N-8",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "SB21B",
-                "VALUE_REFERENCE": "SB[line# ref]",
-                "RULE_REFERENCE": "If Transaction Type is OPERATING_EXPENDITURE or OPERATING_EXPENDITURE_VOID, Form Type is SB21B. If Transaction Type is OTHER_DISBURSEMENT or OTHER_DISBURSEMENT_VOID, Form Type is SB29.",
-                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+                "SAMPLE_DATA": "SB29",
+                "VALUE_REFERENCE": "SB29",
+                "RULE_REFERENCE": "SB29 Only"
             }
         },
         "filer_committee_id_number": {
@@ -56,32 +54,24 @@
                 "FIELD_DESCRIPTION": "FILER COMMITTEE ID NUMBER",
                 "TYPE": "A/N-9",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "C00123456",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": null
+                "SAMPLE_DATA": "C00123456"
             }
         },
         "transaction_type_identifier": {
             "title": "TRANSACTION TYPE IDENTIFIER",
             "description": "",
             "enum": [
-                "OPERATING_EXPENDITURE",
-                "OPERATING_EXPENDITURE_VOID",
-                "OTHER_DISBURSEMENT",
-                "OTHER_DISBURSEMENT_VOID"
+                "NON_CONTRIBUTION_ACCOUNT_STAFF_REIMBURSEMENT_MEMO",
+                "NON_CONTRIBUTION_ACCOUNT_CREDIT_CARD_PAYMENT_MEMO",
+                "NON_CONTRIBUTION_ACCOUNT_PAYMENT_TO_PAYROLL_MEMO"
             ],
             "examples": [
-                "OPERATING_EXPENDITURE"
+                "NON_CONTRIBUTION_ACCOUNT_STAFF_REIMBURSEMENT_MEMO"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "TRANSACTION TYPE IDENTIFIER",
-                "TYPE": "A/N-12",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "OPERATING_EXPENDITURE",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "OPERATING_EXPENDITURE, OPERATING_EXPENDITURE_VOID, OTHER_DISBURSEMENT, OTHER_DISBURSEMENT_VOID",
-                "FIELD_FORM_ASSOCIATION": null
+                "RULE_REFERENCE": "NON_CONTRIBUTION_ACCOUNT_STAFF_REIMBURSEMENT_MEMO"
             }
         },
         "transaction_id": {
@@ -99,9 +89,7 @@
                 "TYPE": "A/N-20",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "B56123456789-1234",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "must be unique for the life of the report (original + all amendments)",
-                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+                "RULE_REFERENCE": "must be unique for the life of the report (original + all amendments)"
             }
         },
         "back_reference_tran_id_number": {
@@ -120,11 +108,9 @@
             "fec_spec": {
                 "FIELD_DESCRIPTION": "BACK REFERENCE TRAN ID NUMBER",
                 "TYPE": "A/N-20",
-                "REQUIRED": null,
+                "REQUIRED":  "X (error)",
                 "SAMPLE_DATA": "B123456789-1234",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Reference to the Tran ID of a Related Record",
-                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+                "RULE_REFERENCE": "Reference to the Tran ID of a Related Record"
             }
         },
         "back_reference_sched_name": {
@@ -143,34 +129,30 @@
             "fec_spec": {
                 "FIELD_DESCRIPTION": "BACK REFERENCE SCHED NAME",
                 "TYPE": "A/N-8",
-                "REQUIRED": null,
                 "SAMPLE_DATA": "SB21",
+                "REQUIRED":  "X (error)",
                 "VALUE_REFERENCE": "SB[line# ref]",
-                "RULE_REFERENCE": "Ref to the Schedule that has the Related Record.  SB3L must be used \nwith the F3L",
-                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+                "RULE_REFERENCE": "Ref to the Schedule that has the Related Record.  SB3L must be used \nwith the F3L"
             }
         },
         "entity_type": {
             "title": "ENTITY TYPE",
             "description": "",
             "enum": [
-                "ORG",
                 "IND",
+                "ORG",
                 "COM"
             ],
             "examples": [
-                "ORG",
-                "IND",
-                "COM"
+                "IND"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "ENTITY TYPE",
                 "TYPE": "A/N-3",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "IND",
-                "VALUE_REFERENCE": "ORG, IND, COM",
-                "RULE_REFERENCE": "[ORG|IND|COM]",
-                "FIELD_FORM_ASSOCIATION": null
+                "VALUE_REFERENCE": "IND",
+                "RULE_REFERENCE": "If Transaction Type is NON_CONTRIBUTION_ACCOUNT_CREDIT_CARD_PAYMENT_MEMO or NON_CONTRIBUTION_ACCOUNT_STAFF_REIMBURSEMENT_MEMO, must be ORG, IND, COM only.  If Transaction Type is NON_CONTRIBUTION_ACCOUNT_PAYMENT_TO_PAYROLL_MEMO, must be IND or ORG only."
             }
         },
         "payee_organization_name": {
@@ -189,11 +171,9 @@
             "fec_spec": {
                 "FIELD_DESCRIPTION": "PAYEE ORGANIZATION NAME",
                 "TYPE": "A/N-200",
-                "REQUIRED": "X (error)",
+                "REQUIRED": "X (conditional error)",
                 "SAMPLE_DATA": "John Smith & Co.",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Required if [ORG|COM]",
-                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+                "RULE_REFERENCE": "Required if [ORG|COM]"
             }
         },
         "payee_last_name": {
@@ -212,11 +192,9 @@
             "fec_spec": {
                 "FIELD_DESCRIPTION": "PAYEE LAST NAME",
                 "TYPE": "A/N-30",
-                "REQUIRED": "X (error)",
+                "REQUIRED": "X (conditional error)",
                 "SAMPLE_DATA": "Smith",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Required if [IND]",
-                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+                "RULE_REFERENCE": "Required if [IND]"
             }
         },
         "payee_first_name": {
@@ -235,11 +213,9 @@
             "fec_spec": {
                 "FIELD_DESCRIPTION": "PAYEE FIRST NAME",
                 "TYPE": "A/N-20",
-                "REQUIRED": "X (error)",
+                "REQUIRED": "X (conditional error)",
                 "SAMPLE_DATA": "John",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Required if [IND]",
-                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+                "RULE_REFERENCE": "Required if [IND]"
             }
         },
         "payee_middle_name": {
@@ -258,11 +234,8 @@
             "fec_spec": {
                 "FIELD_DESCRIPTION": "PAYEE MIDDLE NAME",
                 "TYPE": "A/N-20",
-                "REQUIRED": null,
                 "SAMPLE_DATA": "W",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Optional if [IND]",
-                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+                "RULE_REFERENCE": ""
             }
         },
         "payee_prefix": {
@@ -281,11 +254,8 @@
             "fec_spec": {
                 "FIELD_DESCRIPTION": "PAYEE PREFIX",
                 "TYPE": "A/N-10",
-                "REQUIRED": null,
                 "SAMPLE_DATA": "Dr",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Optional if [IND]",
-                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+                "RULE_REFERENCE": ""
             }
         },
         "payee_suffix": {
@@ -304,11 +274,8 @@
             "fec_spec": {
                 "FIELD_DESCRIPTION": "PAYEE SUFFIX",
                 "TYPE": "A/N-10",
-                "REQUIRED": null,
                 "SAMPLE_DATA": "Jr",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Optional if [IND]",
-                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+                "RULE_REFERENCE": ""
             }
         },
         "payee_street_1": {
@@ -325,10 +292,7 @@
                 "FIELD_DESCRIPTION": "PAYEE STREET  1",
                 "TYPE": "A/N-34",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "Suite 16",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+                "SAMPLE_DATA": "Suite 16"
             }
         },
         "payee_street_2": {
@@ -347,11 +311,7 @@
             "fec_spec": {
                 "FIELD_DESCRIPTION": "PAYEE STREET  2",
                 "TYPE": "A/N-34",
-                "REQUIRED": null,
-                "SAMPLE_DATA": "30 Oak Street",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+                "SAMPLE_DATA": "30 Oak Street"
             }
         },
         "payee_city": {
@@ -368,10 +328,7 @@
                 "FIELD_DESCRIPTION": "PAYEE CITY",
                 "TYPE": "A/N-30",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "Springfield",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+                "SAMPLE_DATA": "Springfield"
             }
         },
         "payee_state": {
@@ -388,10 +345,7 @@
                 "FIELD_DESCRIPTION": "PAYEE STATE",
                 "TYPE": "A/N-2",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "MA",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+                "SAMPLE_DATA": "MA"
             }
         },
         "payee_zip": {
@@ -408,10 +362,7 @@
                 "FIELD_DESCRIPTION": "PAYEE ZIP",
                 "TYPE": "A/N-9",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": 1012,
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+                "SAMPLE_DATA": 1012
             }
         },
         "expenditure_date": {
@@ -428,9 +379,7 @@
                 "TYPE": "NUM-8",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": 20120720,
-                "VALUE_REFERENCE": "YYYYMMDD",
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P"
+                "VALUE_REFERENCE": "YYYYMMDD"
             }
         },
         "expenditure_amount": {
@@ -446,29 +395,7 @@
                 "FIELD_DESCRIPTION": "EXPENDITURE AMOUNT",
                 "TYPE": "AMT-12",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": 1500,
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "If Transaction Type is OPERATING_EXPENDITURE_VOID or OTHER_DISBURSEMENT_VOID, amount must be negative.",
-                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
-            }
-        },
-        "aggregate_amount": {
-            "title": "AGGREGATE AMOUNT",
-            "description": "",
-            "type": "number",
-            "minimum": -99999999.99,
-            "maximum": 999999999.99,
-            "examples": [
-                1000
-            ],
-            "fec_spec": {
-                "FIELD_DESCRIPTION": "AGGREGATE AMOUNT",
-                "TYPE": "AMT-12",
-                "REQUIRED": "X (error)",
-                "SAMPLE_DATA": 1000,
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": null
+                "SAMPLE_DATA": 1500
             }
         },
         "aggregation_group": {
@@ -483,64 +410,67 @@
                 "TYPE": "A/N-100",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "GENERAL_DISBURSEMENT",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "GENERAL_DISBURSEMENT",
-                "FIELD_FORM_ASSOCIATION": null
+                "RULE_REFERENCE": "GENERAL_DISBURSEMENT"
             }
         },
         "expenditure_purpose_descrip": {
             "title": "EXPENDITURE PURPOSE DESCRIP",
             "description": "",
             "type": "string",
-            "minLength": 0,
+            "minLength": 1,
             "maxLength": 100,
-            "pattern": "^[ -~]{0,100}$",
-            "examples": [
-                "Repay Loan"
-            ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "EXPENDITURE PURPOSE DESCRIP",
                 "TYPE": "A/N-100",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "Repay Loan",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P"
+                "VALUE_REFERENCE": ""
             }
         },
         "category_code": {
             "title": "CATEGORY CODE",
             "description": "",
-            "type": ["string", "null"],
-            "enum": ["001", "002", "003", "004", "005", "006", "007", "008", "009", "010", "011", "012", null],
+            "type": [
+                "string",
+                "null"
+            ],
+            "enum": [
+                "001",
+                "002",
+                "003",
+                "004",
+                "005",
+                "006",
+                "007",
+                "008",
+                "009",
+                "010",
+                "011",
+                "012",
+                null
+            ],
             "examples": [
                 1
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "CATEGORY CODE",
                 "TYPE": "A/N-3",
-                "REQUIRED": null,
                 "SAMPLE_DATA": 1,
                 "VALUE_REFERENCE": "001, 002, ... 012",
-                "RULE_REFERENCE": "Only codes 001-012",
-                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P"
+                "RULE_REFERENCE": "Only codes 001-012"
             }
         },
         "memo_code": {
             "title": "MEMO CODE",
             "description": "",
-            "type": [
-                "boolean",
-                "null"
-            ],
+            "const": true,
             "fec_spec": {
                 "FIELD_DESCRIPTION": "MEMO CODE",
                 "TYPE": "A/N-1",
-                "REQUIRED": null,
+                "REQUIRED": "X (error)",
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": "X",
                 "RULE_REFERENCE": "X = True",
-                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+                "FIELD_FORM_ASSOCIATION": null
             }
         },
         "memo_text_description": {
@@ -555,12 +485,7 @@
             "pattern": "^[ -~]{0,100}$",
             "fec_spec": {
                 "FIELD_DESCRIPTION": "MEMO TEXT/DESCRIPTION",
-                "TYPE": "A/N-100",
-                "REQUIRED": null,
-                "SAMPLE_DATA": null,
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+                "TYPE": "A/N-100"
             }
         }
     },
@@ -570,8 +495,8 @@
                 "properties": {
                     "transaction_type_identifier": {
                         "enum": [
-                            "OPERATING_EXPENDITURE",
-                            "OPERATING_EXPENDITURE_VOID"
+                            "NON_CONTRIBUTION_ACCOUNT_STAFF_REIMBURSEMENT_MEMO",
+                            "NON_CONTRIBUTION_ACCOUNT_CREDIT_CARD_PAYMENT_MEMO"
                         ]
                     }
                 },
@@ -581,8 +506,12 @@
             },
             "then": {
                 "properties": {
-                    "form_type": {
-                        "const": "SB21B"
+                    "entity_type": {
+                        "enum": [
+                            "IND",
+                            "ORG",
+                            "COM"
+                        ]
                     }
                 }
             }
@@ -591,10 +520,7 @@
             "if": {
                 "properties": {
                     "transaction_type_identifier": {
-                        "enum": [
-                            "OTHER_DISBURSEMENT",
-                            "OTHER_DISBURSEMENT_VOID"
-                        ]
+                        "const": "NON_CONTRIBUTION_ACCOUNT_PAYMENT_TO_PAYROLL_MEMO"
                     }
                 },
                 "required": [
@@ -603,30 +529,11 @@
             },
             "then": {
                 "properties": {
-                    "form_type": {
-                        "const": "SB29"
-                    }
-                }
-            }
-        },
-        {
-            "if": {
-                "properties": {
-                    "transaction_type_identifier": {
+                    "entity_type": {
                         "enum": [
-                            "OPERATING_EXPENDITURE_VOID",
-                            "OTHER_DISBURSEMENT_VOID"
+                            "IND",
+                            "ORG"
                         ]
-                    }
-                },
-                "required": [
-                    "transaction_type_identifier"
-                ]
-            },
-            "then": {
-                "properties": {
-                    "expenditure_amount": {
-                        "exclusiveMaximum": 0
                     }
                 }
             }
@@ -642,18 +549,14 @@
                     }
                 },
                 "required": [
-                    "entity_type"
+                    "transaction_type_identifier"
                 ]
             },
             "then": {
+                "properties": {},
                 "required": [
                     "payee_organization_name"
-                ],
-                "properties": {
-                    "payee_organization_name": {
-                        "type": "string"
-                    }
-                }
+                ]
             }
         },
         {
@@ -664,22 +567,15 @@
                     }
                 },
                 "required": [
-                    "entity_type"
+                    "transaction_type_identifier"
                 ]
             },
             "then": {
+                "properties": {},
                 "required": [
                     "payee_first_name",
                     "payee_last_name"
-                ],
-                "properties": {
-                    "payee_first_name": {
-                        "type": "string"
-                    },
-                    "payee_last_name": {
-                        "type": "string"
-                    }
-                }
+                ]
             }
         }
     ]

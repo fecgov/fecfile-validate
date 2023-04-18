@@ -1,6 +1,6 @@
 {
     "$schema": "https://json-schema.org/draft-07/schema#",
-    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/TRIBAL_NATIONAL_PARTY_PRESIDENTIAL_NOMINATING_CONVENTION_ACCOUNT.json",
+    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/TRIBAL_NATIONAL_PARTY_CONVENTION_ACCOUNT.json",
     "version": "v0.0.0.0",
     "title": "FEC Tribal National Party Pres. Nominating Convention Account",
     "description": "Tribal Tribal National Party Pres. Nominating Convention Account (17)",
