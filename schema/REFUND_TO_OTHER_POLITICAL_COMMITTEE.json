@@ -294,7 +294,6 @@
                 "P2012"
             ],
             "fec_spec": {
-                "COL_SEQ": 18,
                 "FIELD_DESCRIPTION": "ELECTION CODE",
                 "TYPE": "A/N-5",
                 "REQUIRED": "X (error)",
@@ -315,7 +314,6 @@
             "maxLength": 20,
             "pattern": "^[ -~]{0,20}$",
             "fec_spec": {
-                "COL_SEQ": 19,
                 "FIELD_DESCRIPTION": "ELECTION OTHER DESCRIPTION",
                 "TYPE": "A/N-20",
                 "REQUIRED": "X (conditional error)",
