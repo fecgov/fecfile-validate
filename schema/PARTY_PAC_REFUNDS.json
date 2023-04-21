@@ -19,7 +19,6 @@
         "expenditure_date",
         "expenditure_amount",
         "aggregation_group",
-        "expenditure_purpose_descrip",
         "beneficiary_committee_fec_id",
         "beneficiary_committee_name"
     ],
@@ -185,9 +184,9 @@
             "fec_spec": {
                 "FIELD_DESCRIPTION": "PAYEE ORGANIZATION NAME",
                 "TYPE": "A/N-200",
-                "REQUIRED": "X (conditional error)",
+                "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "John Smith & Co.",
-                "RULE_REFERENCE": "Required if [ORG|COM]"
+                "RULE_REFERENCE": null
             }
         },
         "payee_street_1": {
@@ -317,6 +316,7 @@
             "description": "",
             "type": "number",
             "minimum": -99999999.99,
+            "maximum": 999999999.99,
             "examples": [
                 1500
             ],
@@ -350,14 +350,14 @@
         "expenditure_purpose_descrip": {
             "title": "EXPENDITURE PURPOSE DESCRIP",
             "description": "",
-            "type": "string",
+            "type": ["string", "null"],
             "minLength": 1,
             "maxLength": 100,
             "pattern": "^[ -~]{0,100}$",
             "fec_spec": {
                 "FIELD_DESCRIPTION": "EXPENDITURE PURPOSE DESCRIPTION",
                 "TYPE": "A/N-100",
-                "REQUIRED": "X (error)",
+                "REQUIRED": null,
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
@@ -519,13 +519,6 @@
                 "properties": {
                     "expenditure_amount": {
                         "exclusiveMaximum": 0
-                    }
-                }
-            },
-            "else": {
-                "properties": {
-                    "expenditure_amount": {
-                        "maximum": 999999999.99
                     }
                 }
             }
