@@ -1,9 +1,9 @@
 {
     "$schema": "https://json-schema.org/draft-07/schema#",
-    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/PAC_NATIONAL_PARTY_HEADQUARTERS_ACCOUNT.json",
+    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/REFUND_TO_OTHER_POLITICAL_COMMITTEE.json",
     "version": "v0.0.0.0",
-    "title": "FEC PAC National Party Headquarters Buildings Account",
-    "description": "PAC National Party Headquarters Buildings Account (17)",
+    "title": "FEC Refund of Contribution to Other Political Committee",
+    "description": "Refund of Contribution to Other Political Committee  (16)",
     "type": "object",
     "required": [
         "form_type",
@@ -12,16 +12,15 @@
         "transaction_id",
         "entity_type",
         "contributor_organization_name",
-        "contributor_fec_id",
         "contributor_street_1",
         "contributor_city",
         "contributor_state",
         "contributor_zip",
+        "election_code",
         "contribution_date",
         "contribution_amount",
         "contribution_aggregate",
         "aggregation_group",
-        "contribution_purpose_descrip",
         "donor_committee_fec_id",
         "donor_committee_name"
     ],
@@ -30,16 +29,16 @@
         "form_type": {
             "title": "FORM TYPE",
             "description": "",
-            "const": "SA17",
+            "const": "SA16",
             "examples": [
-                "SA17"
+                "SA16"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "FORM TYPE",
                 "TYPE": "A/N-8",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "SA17",
-                "VALUE_REFERENCE": "SA[line# ref]",
+                "SAMPLE_DATA": "SA16",
+                "VALUE_REFERENCE": "SA16 Only",
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }
@@ -60,22 +59,22 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "C00123456",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "this is the ID of the Committee Account the report/transaction is associated with",
+                "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
         "transaction_type_identifier": {
             "title": "TRANSACTION TYPE IDENTIFIER",
             "description": "",
-            "const": "PAC_NATIONAL_PARTY_HEADQUARTERS_ACCOUNT",
+            "const": "REFUND_TO_OTHER_POLITICAL_COMMITTEE",
             "examples": [
-                "PAC_NATIONAL_PARTY_HEADQUARTERS_ACCOUNT"
+                "REFUND_TO_OTHER_POLITICAL_COMMITTEE"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "TRANSACTION TYPE IDENTIFIER",
                 "TYPE": "A/N-12",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "PAC_NATIONAL_PARTY_HEADQUARTERS_ACCOUNT",
+                "SAMPLE_DATA": "REFUND_TO_OTHER_POLITICAL_COMMITTEE",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
@@ -135,13 +134,13 @@
             "maxLength": 8,
             "pattern": "^[ -~]{0,8}$",
             "examples": [
-                "SA17"
+                "SA11AI"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "BACK REFERENCE SCHED NAME",
                 "TYPE": "A/N-8",
                 "REQUIRED": null,
-                "SAMPLE_DATA": "SA17",
+                "SAMPLE_DATA": "SA11AI",
                 "VALUE_REFERENCE": "SA[line# ref]",
                 "RULE_REFERENCE": "Ref to the Schedule that has the Related Record.  SA3L must be used \nwith the F3L",
                 "FIELD_FORM_ASSOCIATION": null
@@ -159,26 +158,26 @@
                 "TYPE": "A/N-3",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "COM",
-                "VALUE_REFERENCE": "COM only",
-                "RULE_REFERENCE": null,
+                "VALUE_REFERENCE": "COM Only",
+                "RULE_REFERENCE": "[COM]",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
         "contributor_organization_name": {
-            "title": "CONTRIBUTOR ORGANIZATION NAME",
+            "title": "CONTRIBUTOR ORGANIZATION",
             "description": "",
             "type": "string",
             "minLength": 0,
             "maxLength": 200,
             "pattern": "^[ -~]{0,200}$",
             "examples": [
-                "Jo Smith & Co."
+                "John Smith & Co."
             ],
             "fec_spec": {
-                "FIELD_DESCRIPTION": "CONTRIBUTOR ORGANIZATION NAME",
+                "FIELD_DESCRIPTION": "CONTRIBUTOR ORGANIZATION",
                 "TYPE": "A/N-200",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "Jo Smith & Co.",
+                "SAMPLE_DATA": "John Smith & Co.",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
@@ -284,6 +283,46 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
+        "election_code": {
+            "title": "ELECTION CODE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 5,
+            "pattern": "^[GPRSCE]\\d{4}$",
+            "examples": [
+                "P2012"
+            ],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "ELECTION CODE",
+                "TYPE": "A/N-5",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "P2012",
+                "VALUE_REFERENCE": "G,P,O[YYYY]",
+                "RULE_REFERENCE": "Values: [G|P|R|S|C|E|O]+Year{YYYY}",
+                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P"
+            }
+        },
+        "election_other_description": {
+            "title": "ELECTION OTHER DESCRIPTION",
+            "description": "",
+            "type": [
+                "string",
+                "null"
+            ],
+            "minLength": 0,
+            "maxLength": 20,
+            "pattern": "^[ -~]{0,20}$",
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "ELECTION OTHER DESCRIPTION",
+                "TYPE": "A/N-20",
+                "REQUIRED": "X (conditional error)",
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "Req if Item Election Code = R, S, C, E",
+                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P"
+            }
+        },
         "contribution_date": {
             "title": "CONTRIBUTION DATE",
             "description": "",
@@ -298,7 +337,7 @@
                 "TYPE": "NUM-8",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": 20120615,
-                "VALUE_REFERENCE": null,
+                "VALUE_REFERENCE": "YYYYMMDD",
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }
@@ -307,7 +346,7 @@
             "title": "CONTRIBUTION AMOUNT",
             "description": "",
             "type": "number",
-            "minimum": -99999999.99,
+            "minimum": 0,
             "maximum": 999999999.99,
             "examples": [
                 250
@@ -326,7 +365,7 @@
             "title": "CONTRIBUTION AGGREGATE",
             "description": "",
             "type": "number",
-            "minimum": -99999999.99,
+            "minimum": 0,
             "maximum": 999999999.99,
             "examples": [
                 1000
@@ -344,15 +383,15 @@
         "aggregation_group": {
             "title": "AGGREGATION GROUP",
             "description": "",
-            "const": "NATIONAL_PARTY_HEADQUARTERS_ACCOUNT",
+            "const": "LINE_16",
             "examples": [
-                "NATIONAL_PARTY_HEADQUARTERS_ACCOUNT"
+                "LINE_16"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "AGGREGATION GROUP",
                 "TYPE": "A/N-100",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "NATIONAL_PARTY_HEADQUARTERS_ACCOUNT",
+                "SAMPLE_DATA": "LINE_16",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
@@ -361,17 +400,20 @@
         "contribution_purpose_descrip": {
             "title": "CONTRIBUTION PURPOSE DESCRIPTION",
             "description": "",
-            "const": "Headquarters Buildings Account",
-            "examples": [
-                "Headquarters Buildings Account"
+            "type": [
+                "string",
+                "null"
             ],
+            "minLength": 0,
+            "maxLength": 100,
+            "pattern": "^[ -~]{0,100}$",
             "fec_spec": {
                 "FIELD_DESCRIPTION": "CONTRIBUTION PURPOSE DESCRIPTION",
                 "TYPE": "A/N-100",
-                "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "Headquarters Buildings Account",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Headquarters Buildings Account",
+                "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -379,7 +421,7 @@
             "title": "DONOR COMMITTEE FEC ID",
             "description": "",
             "type": "string",
-            "minLength": 0,
+            "minLength": 9,
             "maxLength": 9,
             "pattern": "^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$",
             "fec_spec": {
@@ -388,7 +430,7 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Should populate with information from FEC database",
+                "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -408,7 +450,7 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "Action PAC",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Should populate with information from FEC database",
+                "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -449,5 +491,30 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         }
-    }
+    },
+    "allOf": [
+        {
+            "if": {
+                "properties": {
+                    "election_code": {
+                        "pattern": "^[RSCE]\\d{4}$",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "election_code"
+                ]
+            },
+            "then": {
+                "required": [
+                    "election_other_description"
+                ],
+                "properties": {
+                    "election_other_description": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    ]
 }
