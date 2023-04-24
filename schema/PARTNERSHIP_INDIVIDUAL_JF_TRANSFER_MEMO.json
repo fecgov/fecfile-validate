@@ -447,7 +447,7 @@
                 "FIELD_DESCRIPTION": "CONTRIBUTION PURPOSE DESCRIPTION",
                 "TYPE": "A/N-100",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "JF Memo: [ -~]{0,65} (Partnership Attribution)",
+                "SAMPLE_DATA": "JF Memo: [ -~]{0,65} \\(Partnership Attribution\\)",
                 "RULE_REFERENCE": "JF Memo: XX (Partnership Attribution), where XX is auto-populated with name of committee entered in grandparent transaction JF_TRAN COL SEQ 8",
                 "FIELD_FORM_ASSOCIATION": null
             }
