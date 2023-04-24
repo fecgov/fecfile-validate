@@ -442,14 +442,13 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 100,
-            "pattern": "^Pres. Nominating Convention Account JF Memo: [ -~]{0,55}$",
+            "pattern": "^JF Memo: [ -~]{0,65} (Partnership Attribution)$",
             "fec_spec": {
                 "FIELD_DESCRIPTION": "CONTRIBUTION PURPOSE DESCRIPTION",
                 "TYPE": "A/N-100",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "Pres. Nominating Convention Account JF Memo: XX",
-                "VALUE_REFERENCE": "Pres. Nominating Convention Account JF Memo: XX",
-                "RULE_REFERENCE": "Pres. Nominating Convention Account JF Memo: XX, where XX is organization name from parent transaction COL SEQ 8",
+                "SAMPLE_DATA": "JF Memo: [ -~]{0,65} (Partnership Attribution)",
+                "RULE_REFERENCE": "JF Memo: XX (Partnership Attribution), where XX is auto-populated with name of committee entered in grandparent transaction JF_TRAN COL SEQ 8",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
