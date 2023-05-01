@@ -171,9 +171,10 @@
             "title": "PAYEE LAST NAME",
             "description": "",
             "type": [
-                "string"
+                "string",
+                "null"
             ],
-            "minLength": 1,
+            "minLength": 0,
             "maxLength": 30,
             "pattern": "^[ -~]{0,30}$",
             "examples": [
@@ -191,9 +192,10 @@
             "title": "PAYEE FIRST NAME",
             "description": "",
             "type": [
-                "string"
+                "string",
+                "null"
             ],
-            "minLength": 1,
+            "minLength": 0,
             "maxLength": 20,
             "pattern": "^[ -~]{0,20}$",
             "examples": [
