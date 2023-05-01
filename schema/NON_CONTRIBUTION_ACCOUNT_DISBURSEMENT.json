@@ -495,6 +495,16 @@
                 ]
             },
             "then": {
+                "properties": {
+                    "payee_first_name": {
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "payee_last_name": {
+                        "minLength": 1,
+                        "type": "string"
+                    }
+                },
                 "required": [
                     "payee_first_name",
                     "payee_last_name"
@@ -516,6 +526,12 @@
                 ]
             },
             "then": {
+                "properties": {
+                    "payee_organization_name": {
+                        "minLength": 1,
+                        "type": "string"
+                    }
+                },
                 "required": [
                     "payee_organization_name"
                 ]
