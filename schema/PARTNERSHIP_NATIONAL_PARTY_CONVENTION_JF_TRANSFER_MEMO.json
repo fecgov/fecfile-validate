@@ -355,7 +355,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 100,
-            "pattern": "^Pres. Nominating Convention Account JF Memo: [ -~]{0,55}$",
+            "pattern": "^(Pres. Nominating Convention Account JF Memo: [ -~]{0,1} \\(Partnership attributions do not require itemization\\)|Pres. Nominating Convention Account JF Memo: [ -~]{0,16} \\(See Partnership Attribution\\(s\\) below\\))$",
             "fec_spec": {
                 "FIELD_DESCRIPTION": "CONTRIBUTION PURPOSE DESCRIPTION",
                 "TYPE": "A/N-100",
