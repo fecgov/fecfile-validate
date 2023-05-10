@@ -156,7 +156,7 @@
             }
         },
         "contributor_organization_name": {
-            "title": "CONTRIBUTOR ORGANIZATION",
+            "title": "CONTRIBUTOR ORGANIZATION NAME",
             "description": "",
             "type": "string",
             "minLength": 0,
@@ -166,7 +166,7 @@
                 "John Smith & Co."
             ],
             "fec_spec": {
-                "FIELD_DESCRIPTION": "CONTRIBUTOR ORGANIZATION",
+                "FIELD_DESCRIPTION": "CONTRIBUTOR ORGANIZATION NAME",
                 "TYPE": "A/N-200",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "John Smith & Co.",
