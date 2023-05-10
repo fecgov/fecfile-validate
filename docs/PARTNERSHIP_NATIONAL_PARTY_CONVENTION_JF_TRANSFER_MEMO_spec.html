@@ -188,7 +188,7 @@
 --If transaction has associated Partnership memos, reads 'Pres. Nominating Convention Account JF Memo: XX (See Partnership Attribution(s) below)'
 --and XX is auto-populated with name of committee entered in parent transaction JF_TRAN COL SEQ 8.</td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 100</li><li>regex: ^Pres. Nominating Convention Account JF Memo: [ -~]{0,55}$</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 100</li><li>regex: ^(Pres. Nominating Convention Account JF Memo: [ -~]{0,1} \(Partnership attributions do not require itemization\)|Pres. Nominating Convention Account JF Memo: [ -~]{0,16} \(See Partnership Attribution\(s\) below\))$</li></td>
 </tr>
 <tr>
 <td>MEMO CODE</td>
