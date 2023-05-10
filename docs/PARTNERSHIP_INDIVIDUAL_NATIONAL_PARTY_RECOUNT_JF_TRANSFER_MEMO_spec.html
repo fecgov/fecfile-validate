@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><title>PARTNERSHIP_INDIVIDUAL_JF_TRANSFER_MEMO</title><link rel="stylesheet" href="spec_table.css"></head><body><table><caption>Specification for PARTNERSHIP_INDIVIDUAL_JF_TRANSFER_MEMO</caption><tr>
+<!DOCTYPE html><html lang="en"><head><title>PARTNERSHIP_INDIVIDUAL_NATIONAL_PARTY_RECOUNT_JF_TRANSFER_MEMO</title><link rel="stylesheet" href="spec_table.css"></head><body><table><caption>Specification for PARTNERSHIP_INDIVIDUAL_NATIONAL_PARTY_RECOUNT_JF_TRANSFER_MEMO</caption><tr>
 <th>FIELD DESCRIPTION</th>
 <th>TYPE</th>
 <th>REQUIRED</th>
@@ -12,11 +12,11 @@
 <td>FORM TYPE</td>
 <td>A/N-8</td>
 <td>X (error)</td>
-<td>SA12</td>
-<td>SA12</td>
-<td>SA12 Only</td>
+<td>SA17</td>
+<td>SA17</td>
+<td>SA17 Only</td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>must equal: SA12</li></td>
+<td><ul><li>REQUIRED</li><li>must equal: SA17</li></td>
 </tr>
 <tr>
 <td>FILER COMMITTEE ID NUMBER</td>
@@ -34,9 +34,9 @@
 <td>X (error)</td>
 <td></td>
 <td></td>
-<td>PARTNERSHIP_INDIVIDUAL_JF_TRANSFER_MEMO</td>
+<td>PARTNERSHIP_INDIVIDUAL_NATIONAL_PARTY_RECOUNT_JF_TRANSFER_MEMO</td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>must equal: PARTNERSHIP_INDIVIDUAL_JF_TRANSFER_MEMO</li></td>
+<td><ul><li>REQUIRED</li><li>must equal: PARTNERSHIP_INDIVIDUAL_NATIONAL_PARTY_RECOUNT_JF_TRANSFER_MEMO</li></td>
 </tr>
 <tr>
 <td>TRANSACTION ID</td>
@@ -62,7 +62,7 @@
 <td>BACK REFERENCE SCHED NAME</td>
 <td>A/N-8</td>
 <td>X (error)</td>
-<td>SA12</td>
+<td>SA17</td>
 <td></td>
 <td></td>
 <td></td>
@@ -213,20 +213,20 @@
 <td></td>
 <td>X (error)</td>
 <td></td>
-<td>GENERAL</td>
-<td>GENERAL</td>
+<td>NATIONAL_PARTY_RECOUNT_ACCOUNT</td>
+<td>NATIONAL_PARTY_RECOUNT_ACCOUNT</td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>must equal: GENERAL</li></td>
+<td><ul><li>REQUIRED</li><li>must equal: NATIONAL_PARTY_RECOUNT_ACCOUNT</li></td>
 </tr>
 <tr>
 <td>CONTRIBUTION PURPOSE DESCRIPTION</td>
 <td>A/N-100</td>
 <td>X (error)</td>
-<td>JF Memo: XX (Partnership Attribution)</td>
+<td>Recount/Legal Proceedings Account JF Memo: XX (Partnership Attribution)</td>
 <td></td>
-<td>JF Memo: XX (Partnership Attribution), where XX is auto-populated with name of committee entered in grandparent transaction JF_TRAN COL SEQ 8</td>
+<td>Recount/Legal Proceedings Account JF Memo: XX (Partnership Attribution), where XX is auto-populated with name of committee entered in grandparent transaction JF_TRAN COL SEQ 8</td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 100</li><li>regex: ^JF Memo: [ -~]{0,65} \(Partnership Attribution\)$</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 100</li><li>regex: ^Recount/Legal Proceedings Account JF Memo: [ -~]{0,31} \(Partnership Attribution\)$</li></td>
 </tr>
 <tr>
 <td>CONTRIBUTOR EMPLOYER</td>
