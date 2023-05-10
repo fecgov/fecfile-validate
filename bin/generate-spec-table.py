@@ -66,6 +66,10 @@ def get_conditions(all_of):
             conditions.append(
                 f"{q.upper()} >= {all_of['if']['properties'][q]['minimum']}"
             )
+        if "pattern" in all_of["if"]["properties"][q]:
+            conditions.append(
+                f"{q.upper()} matches regex: {all_of['if']['properties'][q]['pattern']}"
+            )
     return conditions
 
 

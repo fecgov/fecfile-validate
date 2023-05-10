@@ -1,9 +1,9 @@
 {
     "$schema": "https://json-schema.org/draft-07/schema#",
-    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/DISBURSEMENTS.json",
-    "version": "8.3.0.1",
-    "title": "FEC Disbursements",
-    "description": "SCHEDULE B - Operating Expenditure (Line 21b), Void of Operating Expenditure (21b), Other Disbursement (29), Void of Other Disbursement (29)",
+    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/NATIONAL_PARTY_OTHER_COMMITTEE_REFUNDS.json",
+    "version": "v0.0.0.0",
+    "title": "FEC Other Committee Refund - National Party Headquarters Buildings Account (Line 21b), Other Committee Refund - National Party Pres. Nominating Convention Account (Line 21b), Other Committee Refund - National Party Recount/Legal Proceedings Account (Line 29)",
+    "description": "Other Committee Refund - National Party Headquarters Buildings Account (Line 21b), Other Committee Refund - National Party Pres. Nominating Convention Account (Line 21b), Other Committee Refund - National Party Recount/Legal Proceedings Account (Line 29)",
     "type": "object",
     "required": [
         "form_type",
@@ -11,35 +11,35 @@
         "transaction_type_identifier",
         "transaction_id",
         "entity_type",
+        "payee_organization_name",
         "payee_street_1",
         "payee_city",
         "payee_state",
         "payee_zip",
         "expenditure_date",
         "expenditure_amount",
-        "aggregate_amount",
         "aggregation_group",
-        "expenditure_purpose_descrip"
+        "expenditure_purpose_descrip",
+        "beneficiary_committee_fec_id",
+        "beneficiary_committee_name"
     ],
+    "fec_recommended": [],
     "properties": {
         "form_type": {
             "title": "FORM TYPE",
             "description": "",
-            "enum": [
-                "SB21B",
-                "SB29"
-            ],
+            "enum": ["SB21B", "SB29"],
             "examples": [
-                "SB21B"
+                "SB29"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "FORM TYPE",
                 "TYPE": "A/N-8",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "SB21B",
-                "VALUE_REFERENCE": "SB[line# ref]",
-                "RULE_REFERENCE": "If Transaction Type is OPERATING_EXPENDITURE or OPERATING_EXPENDITURE_VOID, Form Type is SB21B. If Transaction Type is OTHER_DISBURSEMENT or OTHER_DISBURSEMENT_VOID, Form Type is SB29.",
-                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+                "VALUE_REFERENCE": "[SB21B|SB29]",
+                "RULE_REFERENCE": "If Transaction Type is OTHER_COMMITTEE_REFUND_REFUND_NP_HEADQUARTERS_ACCOUNT or OTHER_COMMITTEE_REFUND_REFUND_NP_CONVENTION_ACCOUNT then Form Type is SB21B If Transaction Type is OTHER_COMMITTEE_REFUND_REFUND_NP_RECOUNT then Form Type is SB29",
+                "FIELD_FORM_ASSOCIATION": null
             }
         },
         "filer_committee_id_number": {
@@ -58,29 +58,24 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "C00123456",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
+                "RULE_REFERENCE": "this is the ID of the Committee Account the report/transaction is associated with",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
         "transaction_type_identifier": {
             "title": "TRANSACTION TYPE IDENTIFIER",
             "description": "",
-            "enum": [
-                "OPERATING_EXPENDITURE",
-                "OPERATING_EXPENDITURE_VOID",
-                "OTHER_DISBURSEMENT",
-                "OTHER_DISBURSEMENT_VOID"
-            ],
+            "enum": ["OTHER_COMMITTEE_REFUND_REFUND_NP_HEADQUARTERS_ACCOUNT", "OTHER_COMMITTEE_REFUND_REFUND_NP_CONVENTION_ACCOUNT", "OTHER_COMMITTEE_REFUND_REFUND_NP_RECOUNT_ACCOUNT"],
             "examples": [
-                "OPERATING_EXPENDITURE"
+                "OTHER_COMMITTEE_REFUND_REFUND_NP_HEADQUARTERS_ACCOUNT"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "TRANSACTION TYPE IDENTIFIER",
                 "TYPE": "A/N-12",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "OPERATING_EXPENDITURE",
+                "SAMPLE_DATA": "OTHER_COMMITTEE_REFUND_REFUND_NP_RECOUNT_ACCOUNT",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "OPERATING_EXPENDITURE, OPERATING_EXPENDITURE_VOID, OTHER_DISBURSEMENT, OTHER_DISBURSEMENT_VOID",
+                "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -92,16 +87,16 @@
             "maxLength": 20,
             "pattern": "^[ -~]{0,20}$",
             "examples": [
-                "B56123456789-1234"
+                "A56123456789-1234"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "TRANSACTION ID",
                 "TYPE": "A/N-20",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "B56123456789-1234",
+                "SAMPLE_DATA": "A56123456789-1234",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "must be unique for the life of the report (original + all amendments)",
-                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+                "RULE_REFERENCE": "Must be unique for the life of a report (original + amendments) within each committee account. Letters, if included, must be uppercase.",
+                "FIELD_FORM_ASSOCIATION": null
             }
         },
         "back_reference_tran_id_number": {
@@ -115,16 +110,16 @@
             "maxLength": 20,
             "pattern": "^[ -~]{0,20}$",
             "examples": [
-                "B123456789-1234"
+                "A123456789-1234"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "BACK REFERENCE TRAN ID NUMBER",
                 "TYPE": "A/N-20",
                 "REQUIRED": null,
-                "SAMPLE_DATA": "B123456789-1234",
+                "SAMPLE_DATA": "A123456789-1234",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": "Reference to the Tran ID of a Related Record",
-                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+                "FIELD_FORM_ASSOCIATION": null
             }
         },
         "back_reference_sched_name": {
@@ -146,169 +141,45 @@
                 "REQUIRED": null,
                 "SAMPLE_DATA": "SB21",
                 "VALUE_REFERENCE": "SB[line# ref]",
-                "RULE_REFERENCE": "Ref to the Schedule that has the Related Record.  SB3L must be used \nwith the F3L",
-                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+                "RULE_REFERENCE": "Ref to the Schedule that has the Related Record.  SA3L must be used \nwith the F3L",
+                "FIELD_FORM_ASSOCIATION": null
             }
         },
         "entity_type": {
             "title": "ENTITY TYPE",
             "description": "",
-            "enum": [
-                "ORG",
-                "IND",
-                "COM"
-            ],
+            "const": "COM",
             "examples": [
-                "ORG",
-                "IND",
                 "COM"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "ENTITY TYPE",
                 "TYPE": "A/N-3",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "IND",
-                "VALUE_REFERENCE": "ORG, IND, COM",
-                "RULE_REFERENCE": "[ORG|IND|COM]",
+                "SAMPLE_DATA": "COM",
+                "VALUE_REFERENCE": "COM only",
+                "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
         "payee_organization_name": {
             "title": "PAYEE ORGANIZATION NAME",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
+            "type": "string",
             "minLength": 0,
             "maxLength": 200,
             "pattern": "^[ -~]{0,200}$",
             "examples": [
-                "John Smith & Co."
+                "Jo Smith & Co."
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "PAYEE ORGANIZATION NAME",
                 "TYPE": "A/N-200",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "John Smith & Co.",
+                "SAMPLE_DATA": "Jo Smith & Co.",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Required if [ORG|COM]",
-                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
-            }
-        },
-        "payee_last_name": {
-            "title": "PAYEE LAST NAME",
-            "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
-            "minLength": 0,
-            "maxLength": 30,
-            "pattern": "^[ -~]{0,30}$",
-            "examples": [
-                "Smith"
-            ],
-            "fec_spec": {
-                "FIELD_DESCRIPTION": "PAYEE LAST NAME",
-                "TYPE": "A/N-30",
-                "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "Smith",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Required if [IND]",
-                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
-            }
-        },
-        "payee_first_name": {
-            "title": "PAYEE FIRST NAME",
-            "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
-            "minLength": 0,
-            "maxLength": 20,
-            "pattern": "^[ -~]{0,20}$",
-            "examples": [
-                "John"
-            ],
-            "fec_spec": {
-                "FIELD_DESCRIPTION": "PAYEE FIRST NAME",
-                "TYPE": "A/N-20",
-                "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "John",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Required if [IND]",
-                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
-            }
-        },
-        "payee_middle_name": {
-            "title": "PAYEE MIDDLE NAME",
-            "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
-            "minLength": 0,
-            "maxLength": 20,
-            "pattern": "^[ -~]{0,20}$",
-            "examples": [
-                "W"
-            ],
-            "fec_spec": {
-                "FIELD_DESCRIPTION": "PAYEE MIDDLE NAME",
-                "TYPE": "A/N-20",
-                "REQUIRED": null,
-                "SAMPLE_DATA": "W",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Optional if [IND]",
-                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
-            }
-        },
-        "payee_prefix": {
-            "title": "PAYEE PREFIX",
-            "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
-            "minLength": 0,
-            "maxLength": 10,
-            "pattern": "^[ -~]{0,10}$",
-            "examples": [
-                "Dr"
-            ],
-            "fec_spec": {
-                "FIELD_DESCRIPTION": "PAYEE PREFIX",
-                "TYPE": "A/N-10",
-                "REQUIRED": null,
-                "SAMPLE_DATA": "Dr",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Optional if [IND]",
-                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
-            }
-        },
-        "payee_suffix": {
-            "title": "PAYEE SUFFIX",
-            "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
-            "minLength": 0,
-            "maxLength": 10,
-            "pattern": "^[ -~]{0,10}$",
-            "examples": [
-                "Jr"
-            ],
-            "fec_spec": {
-                "FIELD_DESCRIPTION": "PAYEE SUFFIX",
-                "TYPE": "A/N-10",
-                "REQUIRED": null,
-                "SAMPLE_DATA": "Jr",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Optional if [IND]",
-                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
             }
         },
         "payee_street_1": {
@@ -319,16 +190,16 @@
             "maxLength": 34,
             "pattern": "^[ -~]{0,34}$",
             "examples": [
-                "Suite 16"
+                "123 Main Street"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "PAYEE STREET  1",
                 "TYPE": "A/N-34",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "Suite 16",
+                "SAMPLE_DATA": "123 Main Street",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+                "FIELD_FORM_ASSOCIATION": null
             }
         },
         "payee_street_2": {
@@ -341,17 +212,14 @@
             "minLength": 0,
             "maxLength": 34,
             "pattern": "^[ -~]{0,34}$",
-            "examples": [
-                "30 Oak Street"
-            ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "PAYEE STREET  2",
                 "TYPE": "A/N-34",
                 "REQUIRED": null,
-                "SAMPLE_DATA": "30 Oak Street",
+                "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+                "FIELD_FORM_ASSOCIATION": null
             }
         },
         "payee_city": {
@@ -362,16 +230,16 @@
             "maxLength": 30,
             "pattern": "^[ -~]{0,30}$",
             "examples": [
-                "Springfield"
+                "Anytown"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "PAYEE CITY",
                 "TYPE": "A/N-30",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "Springfield",
+                "SAMPLE_DATA": "Anytown",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+                "FIELD_FORM_ASSOCIATION": null
             }
         },
         "payee_state": {
@@ -382,16 +250,16 @@
             "maxLength": 2,
             "pattern": "^[ -~]{0,2}$",
             "examples": [
-                "MA"
+                "WA"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "PAYEE STATE",
                 "TYPE": "A/N-2",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "MA",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+                "SAMPLE_DATA": "WA",
+                "VALUE_REFERENCE": "AK,AL,...,ZZ",
+                "RULE_REFERENCE": "Edit: ST",
+                "FIELD_FORM_ASSOCIATION": null
             }
         },
         "payee_zip": {
@@ -402,16 +270,16 @@
             "maxLength": 9,
             "pattern": "^[ -~]{0,9}$",
             "examples": [
-                1012
+                981110123
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "PAYEE ZIP",
                 "TYPE": "A/N-9",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": 1012,
+                "SAMPLE_DATA": 981110123,
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+                "FIELD_FORM_ASSOCIATION": null
             }
         },
         "expenditure_date": {
@@ -421,16 +289,16 @@
             "minLength": 10,
             "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
             "examples": [
-                "2012-07-20"
+                "2018-11-13"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "EXPENDITURE DATE",
                 "TYPE": "NUM-8",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": 20120720,
-                "VALUE_REFERENCE": "YYYYMMDD",
+                "SAMPLE_DATA": 20120615,
+                "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P"
+                "FIELD_FORM_ASSOCIATION": null
             }
         },
         "expenditure_amount": {
@@ -440,32 +308,13 @@
             "minimum": -99999999.99,
             "maximum": 999999999.99,
             "examples": [
-                1500
+                250
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "EXPENDITURE AMOUNT",
                 "TYPE": "AMT-12",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": 1500,
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "If Transaction Type is OPERATING_EXPENDITURE_VOID or OTHER_DISBURSEMENT_VOID, amount must be negative.",
-                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
-            }
-        },
-        "aggregate_amount": {
-            "title": "AGGREGATE AMOUNT",
-            "description": "",
-            "type": "number",
-            "minimum": -99999999.99,
-            "maximum": 999999999.99,
-            "examples": [
-                1000
-            ],
-            "fec_spec": {
-                "FIELD_DESCRIPTION": "AGGREGATE AMOUNT",
-                "TYPE": "AMT-12",
-                "REQUIRED": "X (error)",
-                "SAMPLE_DATA": 1000,
+                "SAMPLE_DATA": 250,
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
@@ -474,38 +323,35 @@
         "aggregation_group": {
             "title": "AGGREGATION GROUP",
             "description": "",
-            "const": "GENERAL_DISBURSEMENT",
+            "enum": ["NATIONAL_PARTY_HEADQUARTERS_ACCOUNT", "NATIONAL_PARTY_CONVENTION_ACCOUNT", "NATIONAL_PARTY_RECOUNT_ACCOUNT"],
             "examples": [
-                "GENERAL_DISBURSEMENT"
+                "NATIONAL_PARTY_RECOUNT_ACCOUNT"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "AGGREGATION GROUP",
                 "TYPE": "A/N-100",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "GENERAL_DISBURSEMENT",
+                "SAMPLE_DATA": "NATIONAL_PARTY_RECOUNT_ACCOUNT",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "GENERAL_DISBURSEMENT",
+                "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
         "expenditure_purpose_descrip": {
-            "title": "EXPENDITURE PURPOSE DESCRIP",
+            "title": "EXPENDITURE PURPOSE DESCRIPTION",
             "description": "",
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 100,
-            "pattern": "^[ -~]{0,100}$",
+            "enum": ["Headquarters Buildings Account: Refund", "Pres. Nominating Convention Account: Refund", "Recount/Legal Proceedings Account: Refund"],
             "examples": [
-                "Repay Loan"
+                "Recount/Legal Proceedings Account: Refund"
             ],
             "fec_spec": {
-                "FIELD_DESCRIPTION": "EXPENDITURE PURPOSE DESCRIP",
+                "FIELD_DESCRIPTION": "EXPENDITURE PURPOSE DESCRIPTION",
                 "TYPE": "A/N-100",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "Repay Loan",
+                "SAMPLE_DATA": "Recount/Legal Proceedings Account: Refund",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P"
+                "FIELD_FORM_ASSOCIATION": null
             }
         },
         "category_code": {
@@ -526,6 +372,43 @@
                 "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P"
             }
         },
+        "beneficiary_committee_fec_id": {
+            "title": "BENEFICIARY COMMITTEE FEC ID",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 9,
+            "pattern": "^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$",
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "BENEFICIARY COMMITTEE FEC ID",
+                "TYPE": "A/N-9",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "Should populate with information from FEC database",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "beneficiary_committee_name": {
+            "title": "BENEFICIARY COMMITTEE NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 200,
+            "pattern": "^[ -~]{0,200}$",
+            "examples": [
+                "Action PAC"
+            ],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "BENEFICIARY COMMITTEE NAME",
+                "TYPE": "A/N-200",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "Action PAC",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "Should populate with information from FEC database",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
         "memo_code": {
             "title": "MEMO CODE",
             "description": "",
@@ -540,7 +423,7 @@
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": "X",
                 "RULE_REFERENCE": "X = True",
-                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+                "FIELD_FORM_ASSOCIATION": null
             }
         },
         "memo_text_description": {
@@ -560,7 +443,7 @@
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+                "FIELD_FORM_ASSOCIATION": null
             }
         }
     },
@@ -570,8 +453,8 @@
                 "properties": {
                     "transaction_type_identifier": {
                         "enum": [
-                            "OPERATING_EXPENDITURE",
-                            "OPERATING_EXPENDITURE_VOID"
+                            "OTHER_COMMITTEE_REFUND_REFUND_NP_HEADQUARTERS_ACCOUNT",
+                            "OTHER_COMMITTEE_REFUND_REFUND_NP_CONVENTION_ACCOUNT"
                         ]
                     }
                 },
@@ -591,10 +474,51 @@
             "if": {
                 "properties": {
                     "transaction_type_identifier": {
-                        "enum": [
-                            "OTHER_DISBURSEMENT",
-                            "OTHER_DISBURSEMENT_VOID"
-                        ]
+                        "const": "OTHER_COMMITTEE_REFUND_REFUND_NP_HEADQUARTERS_ACCOUNT"
+                    }
+                },
+                "required": [
+                    "transaction_type_identifier"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "aggregation_group": {
+                        "const": "NATIONAL_PARTY_HEADQUARTERS_ACCOUNT"
+                    },
+                    "expenditure_purpose_descrip": {
+                        "const": "Headquarters Buildings Account: Refund"
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "transaction_type_identifier": {
+                        "const": "OTHER_COMMITTEE_REFUND_REFUND_NP_CONVENTION_ACCOUNT"
+                    }
+                },
+                "required": [
+                    "transaction_type_identifier"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "aggregation_group": {
+                        "const": "NATIONAL_PARTY_CONVENTION_ACCOUNT"
+                    },
+                    "expenditure_purpose_descrip": {
+                        "const": "Pres. Nominating Convention Account: Refund"
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "transaction_type_identifier": {
+                        "const": "OTHER_COMMITTEE_REFUND_REFUND_NP_RECOUNT"
                     }
                 },
                 "required": [
@@ -605,83 +529,16 @@
                 "properties": {
                     "form_type": {
                         "const": "SB29"
-                    }
-                }
-            }
-        },
-        {
-            "if": {
-                "properties": {
-                    "transaction_type_identifier": {
-                        "enum": [
-                            "OPERATING_EXPENDITURE_VOID",
-                            "OTHER_DISBURSEMENT_VOID"
-                        ]
-                    }
-                },
-                "required": [
-                    "transaction_type_identifier"
-                ]
-            },
-            "then": {
-                "properties": {
-                    "expenditure_amount": {
-                        "type": "number",
-                        "exclusiveMaximum": 0
-                    }
-                }
-            }
-        },
-        {
-            "if": {
-                "properties": {
-                    "entity_type": {
-                        "enum": [
-                            "ORG",
-                            "COM"
-                        ]
-                    }
-                },
-                "required": [
-                    "entity_type"
-                ]
-            },
-            "then": {
-                "required": [
-                    "payee_organization_name"
-                ],
-                "properties": {
-                    "payee_organization_name": {
-                        "type": "string"
-                    }
-                }
-            }
-        },
-        {
-            "if": {
-                "properties": {
-                    "entity_type": {
-                        "const": "IND"
-                    }
-                },
-                "required": [
-                    "entity_type"
-                ]
-            },
-            "then": {
-                "required": [
-                    "payee_first_name",
-                    "payee_last_name"
-                ],
-                "properties": {
-                    "payee_first_name": {
-                        "type": "string"
                     },
-                    "payee_last_name": {
-                        "type": "string"
+                    "aggregation_group": {
+                        "const": "NATIONAL_PARTY_RECOUNT_ACCOUNT"
+                    },
+                    "expenditure_purpose_descrip": {
+                        "const": "Recount/Legal Proceedings Account: Refund"
                     }
                 }
             }
         }
+
     ]
 }
