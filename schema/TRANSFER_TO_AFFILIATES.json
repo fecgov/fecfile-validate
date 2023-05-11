@@ -62,9 +62,9 @@
         "transaction_type_identifier": {
             "title": "TRANSACTION TYPE IDENTIFIER",
             "description": "",
-            "const": "TRANSFER_TO_AFFIILIATES",
+            "const": "TRANSFER_TO_AFFILIATES",
             "examples": [
-                "TRANSFER_TO_AFFIILIATES"
+                "TRANSFER_TO_AFFILIATES"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "TRANSACTION TYPE IDENTIFIER",
@@ -72,7 +72,7 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "TRANSFER_TO_AFFIILIATES",
+                "RULE_REFERENCE": "TRANSFER_TO_AFFILIATES",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
