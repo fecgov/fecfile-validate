@@ -63,7 +63,7 @@ def populate_global_columns(sheet):
     for c in range(len(col_vals)):
         header = sheet[f"{col_vals[c]}{column_header_row}"].value
         if header:
-            cleaned_header = header.replace("\n", "_").replace(" ","_").lower()
+            cleaned_header = header.replace("\n", "_").replace(" ", "_").lower()
             COLUMNS[cleaned_header] = c
 
     """
@@ -79,6 +79,7 @@ def populate_global_columns(sheet):
     }
     """
     return len(COLUMNS.keys()) > 0
+
 
 def get_filename(sheet):
     filename_overrides = {
@@ -310,13 +311,14 @@ def compare_length(row, schema, field_name):
     # These are recurring patterns whose lengths are very hard to measure with a function
     # Instead, the fields corresponding to the keys here are considered as matching if
     # their pattern matches the value below
+    committee_id_pattern = "^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$"
     fixed_patterns = {
-        "filer_committee_id_number": "^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$",
+        "filer_committee_id_number": committee_id_pattern,
+        "donor_committee_fec_id": committee_id_pattern,
+        "beneficiary_committee_fec_id": committee_id_pattern,
         "contribution_date": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
         "expenditure_date": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
-        "donor_committee_fec_id": "^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$",
-        "beneficiary_committee_fec_id": "^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$",
-        "election_code": "^[GPRSCE]\d{4}$",
+        "election_code": "^[GPRSCE]\\d{4}$",
     }
 
     field_type = row[COLUMNS["type"]].value
@@ -544,6 +546,7 @@ def clean_form_types(raw_form_type):
         return no_brackets.split("|")
     return [no_brackets]
 
+
 def check_form_type(row, schema, field_name):
     errors = []
     if field_name not in ["form_type", "back_reference_sched_name"]:
@@ -628,8 +631,8 @@ def check_multiple_entity_types(schema, field_name, raw_sheet_entity_types):
     cleaned_sheet_entity_types = raw_sheet_entity_types.replace("[", "").replace(
         "]", ""
     )
-    cleaner_sheet_entity_types = cleaned_sheet_entity_types.replace(" ", "").replace(",","|")
-    sheet_entity_types = cleaner_sheet_entity_types.split("|")
+    cleaner_entity_types = cleaned_sheet_entity_types.replace(" ", "").replace(",", "|")
+    sheet_entity_types = cleaner_entity_types.split("|")
 
     for s_entity in sheet_entity_types:
         if s_entity not in json_entity_types:
@@ -684,22 +687,6 @@ def clean_aggregation_group_names(aggr_group_field):
     aggr_groups = bars_please.split("|")
     return [clean_aggregation_group_name(name) for name in aggr_groups]
 
-    """
-    legacy code.  Pray we do not need to return to it
-
-    if ", then" in aggr_group_field:
-        aggr_group_lines = aggr_group_field.split("\n")
-        aggr_groups = []
-        for aggr_group_line in aggr_group_lines:
-            aggr_groups.append(aggr_group_line.split(", then ")[1])
-
-        cleaned_aggregation_group_names = []
-        for aggr_group in aggr_groups:
-            clean_name = clean_aggregation_group_name(aggr_group)
-            cleaned_aggregation_group_names.append(clean_name)
-        return cleaned_aggregation_group_names
-    """
-
 
 def check_aggregation_group_single(sheet_aggr_group, schema, field_name):
     errors = []
@@ -707,7 +694,7 @@ def check_aggregation_group_single(sheet_aggr_group, schema, field_name):
     schema_group_name = get_schema_property(schema, field_name, "const")
     if not schema_group_name:
         errors.append(
-            f"    Error: {field_name} - Cannot find aggregation group field in json schema"
+            f"    Error: {field_name} - Cannot find aggregation group field in schema"
         )
         return errors
 
@@ -744,7 +731,7 @@ def check_aggregation_group_multiple(sheet_aggr_group, schema, field_name):
     schema_group_names = get_schema_property(schema, field_name, "enum")
     if not schema_group_names:
         errors.append(
-            f"    Error: {field_name} - Cannot find aggregation groups field in json schema"
+            f"    Error: {field_name} - Cannot find aggregation groups field in schema"
         )
         return errors
 
@@ -823,7 +810,6 @@ def generate_report(
 ):
     report = "\n"
 
-    all_sheets = errors.keys()
     sheets_with_errors = list(s for s in errors.keys() if len(errors[s]) > 0 )
     sheets_with_minor_errors = list(minor_errors.keys())
     sheets_with_errors.sort()
@@ -836,6 +822,8 @@ def generate_report(
     error_count = len(
         [item for sublist in errors.values() for item in sublist]
     )
+    sheet_count = len(errors.keys())
+    error_sheets_count = len(sheets_with_errors)
 
     if len(missing_schema_files) > 0:
         report += "Sheets without a corresponding JSON file:\n"
@@ -857,7 +845,9 @@ def generate_report(
         report += "Failed to load:\n"
         report += "    " + "\n    ".join(failed_to_load) + "\n\n"
 
-    report += f"{error_count} Errors in {len(sheets_with_errors)} sheets out of {len(all_sheets)} sheets total \n\n"
+    report += f"""
+    {error_count} Errors in {error_sheets_count} out of {sheet_count} sheets total\n
+    """
 
     sheets = sheets_with_errors
     if display_minor_errors:
