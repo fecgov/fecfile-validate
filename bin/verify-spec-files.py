@@ -810,7 +810,7 @@ def generate_report(
 ):
     report = "\n"
 
-    sheets_with_errors = list(s for s in errors.keys() if len(errors[s]) > 0 )
+    sheets_with_errors = list(s for s in errors.keys() if len(errors[s]) > 0)
     sheets_with_minor_errors = list(minor_errors.keys())
     sheets_with_errors.sort()
     sheets_with_minor_errors.sort()
