@@ -8,7 +8,7 @@ from check_required import check_required
 from check_length import check_length
 from check_type import check_type
 
-def get_schema_fields(sheet, verbose, debug):
+def get_schema_fields(sheet, debug):
     name_overrides = {
         "contribution_purpose_description": "contribution_purpose_descrip",
         "memo_text/description": "memo_text_description",
@@ -40,7 +40,7 @@ def get_schema_fields(sheet, verbose, debug):
         print("    Determining the schema spreadsheet's fields")
 
     while sheet["A" + str(row)].value:
-        if debug and verbose:
+        if debug:
             print(f"        Parsing row {row}")
 
         field_name_raw = sheet["A" + str(row)].value.lower()
@@ -60,41 +60,35 @@ def get_schema_fields(sheet, verbose, debug):
 
 
 def verify(sheet, schema, columns, verbose, debug):
-    # Check methods are looking for a single field
-    # Compare methods run on *every* field
-
     errors = []
     error_check_functions = [
-        check_type,
-        check_length,
-        check_required,
-        check_form_type,
-        check_entity_type,
-        check_contribution_amount,
-        check_aggregation_group,
-        check_transaction_type_identifier,
+        check_type,  # Runs on every field
+        check_length,  # Runs on every field
+        check_required,  # Runs on every field
+        check_form_type,  # Runs on form_type and back_reference_sched_name
+        check_entity_type,  # Runs on entity_type
+        check_contribution_amount,  # Runs on contribution_amount
+        check_aggregation_group,  # Runs on aggregation_group
+        check_transaction_type_identifier,  # Runs on transaction_type_identifier
     ]
 
     minor_errors = []
-    minor_error_check_functions = [
-        check_sample_data,
+    minor_error_check_functions = [  # Minor Error Checks are only run in VERBOSE mode
+        check_sample_data,  # Runs on every field
     ]
 
     if debug:
         print("    Verifying the JSON schema")
 
-    fields = get_schema_fields(sheet, verbose, debug)
+    fields = get_schema_fields(sheet, debug)
     for field in fields.keys():
         if debug:
             print(f"        {field}")
         row = sheet[str(fields[field])]
         for check_function in error_check_functions:
-            if debug and verbose:
-                print(" " * 11, check_function)
             errors += check_function(row, schema, field, columns)
         for check_function in minor_error_check_functions:
-            if debug and verbose:
-                print(" " * 11, check_function)
-            minor_errors += check_function(row, schema, field, columns)
+            if verbose:
+                minor_errors += check_function(row, schema, field, columns)
 
     return [errors, minor_errors]

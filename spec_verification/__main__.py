@@ -36,8 +36,8 @@ parser.add_argument(
     action="store_true",
 )
 args = parser.parse_args()
-VERBOSE = args.verbose
-DEBUG = args.debug
+VERBOSE = args.verbose  # Controls whether or not checks for minor errors are run
+DEBUG = args.debug  	# If true, script will print its state in great detail as it runs
 EXCEL_FILENAME = args.excel_filename
 
 run_verification(EXCEL_FILENAME, VERBOSE, DEBUG)
