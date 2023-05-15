@@ -1,15 +1,3 @@
-"""
-Verify local JSON schema files against an Excel spreadsheet.
-
-This script checks for differences between this repo's JSON files and a spec spreadsheet.
-The script will scan the local directory for a spreadsheet ending with ".xlsx" unless
-the user passes in a valid  spreadsheet file name.
-
-The JSON schema standard can be found here:
-http://json-schema.org/
-"""
-
-
 from os import path, listdir, getcwd
 from openpyxl import load_workbook
 import json
@@ -19,7 +7,10 @@ import re
 from verify_schema_files import verify
 
 
-def populate_global_columns(sheet):
+# Looks for a row near the top of the spreadsheet that always starts with "FIELD DESCRIPTION"
+# Returns a dictionary of header_name to letter pairs (i.e. {"field_description": "A"})
+# The example can be read as: "the field_description column can be found at position A"
+def get_column_headers(sheet):
     columns = {}
     column_header_row = 0
     for r in range(1, 10):
@@ -54,7 +45,7 @@ def get_filename(sheet):
     }
 
     filename = sheet["A2"].value
-    if not filename and filename in filename_overrides.keys():
+    if filename in filename_overrides.keys():
         filename = filename_overrides[filename]
 
     return filename
@@ -199,7 +190,7 @@ def run_verification(filename, verbose, debug):
             failed_to_load.append(f"Failed to load JSON: {filename}")
             continue
 
-        columns = populate_global_columns(sheet)
+        columns = get_column_headers(sheet)
         if len(columns.keys()) == 0:
             missing_column_headers.append(sheet.title)
             continue

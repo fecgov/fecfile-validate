@@ -1,3 +1,13 @@
+"""
+This script checks for differences between this repo's JSON files and a spec spreadsheet.
+The script will scan the working directory for a spreadsheet ending with ".xlsx" unless
+the user passes in a valid  spreadsheet file name.
+
+The JSON schema standard can be found here:
+http://json-schema.org/
+"""
+
+
 from verify_against_spreadsheet import run_verification
 import argparse
 
