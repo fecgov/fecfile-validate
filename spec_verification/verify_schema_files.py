@@ -8,6 +8,7 @@ from check_required import check_required
 from check_length import check_length
 from check_type import check_type
 
+
 def get_schema_fields(sheet, debug):
     name_overrides = {
         "contribution_purpose_description": "contribution_purpose_descrip",

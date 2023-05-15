@@ -1,5 +1,6 @@
 from utils import get_schema_property
 
+
 def check_transaction_type_identifier(row, schema, field_name, columns):
     errors = []
     if field_name != "transaction_type_identifier":

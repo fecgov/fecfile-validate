@@ -9,6 +9,7 @@ def get_schema_property(schema, field_name, property, is_fec_spec=False):
         else:
             return None
 
+
 def get_length_from_type(type):
     if not type:
         return None

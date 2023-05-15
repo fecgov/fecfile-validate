@@ -1,5 +1,6 @@
 from utils import get_schema_property
 
+
 def check_type(row, schema, field_name, columns):
     errors = []
     expected_type = row[columns["type"]].value

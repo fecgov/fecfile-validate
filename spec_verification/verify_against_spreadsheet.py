@@ -7,9 +7,8 @@ import re
 from verify_schema_files import verify
 
 
-# Looks for a row near the top of the spreadsheet that always starts with "FIELD DESCRIPTION"
+# Looks for a row near the top of the sheet that always starts with "FIELD DESCRIPTION"
 # Returns a dictionary of header_name to letter pairs (i.e. {"field_description": "A"})
-# The example can be read as: "the field_description column can be found at position A"
 def get_column_headers(sheet):
     columns = {}
     column_header_row = 0
