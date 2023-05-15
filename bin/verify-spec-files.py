@@ -45,15 +45,40 @@ args = parser.parse_args()
 VERBOSE = args.verbose
 DEBUG = args.debug
 EXCEL_FILENAME = args.excel_filename
-COLUMNS = {
-    "property_name": 0,
-    "type": 1,
-    "required": 2,
-    "sample_data": 3,
-    "value_reference": 4,
-    "rule_reference": 5,
-}
+COLUMNS = {}  # redefined on a sheet-by-sheet basis by populate_global_columns()
 
+
+def populate_global_columns(sheet):
+    column_header_row = 0
+    for r in range(1, 10):
+        value = sheet[f"A{r}"].value
+        if value and value.replace("\n", " ") == "FIELD DESCRIPTION":
+            column_header_row = r
+            break
+
+    if column_header_row == 0:
+        return False
+
+    col_vals = "ABCDEFGHIJKL"
+    for c in range(len(col_vals)):
+        header = sheet[f"{col_vals[c]}{column_header_row}"].value
+        if header:
+            cleaned_header = header.replace("\n", "_").replace(" ","_").lower()
+            COLUMNS[cleaned_header] = c
+
+    """
+    example of a possible value for COLUMNS:
+
+    COLUMNS = {
+        "property_name": 0,
+        "type": 1,
+        "required": 2,
+        "sample_data": 3,
+        "value_reference": 4,
+        "rule_reference": 5,
+    }
+    """
+    return len(COLUMNS.keys()) > 0
 
 def get_filename(sheet):
     filename_overrides = {
@@ -97,6 +122,10 @@ def get_schema_fields(sheet):
         "contributor_organization": "contributor_organization_name",
         "contributor_street__1": "contributor_street_1",
         "contributor_street__2": "contributor_street_2",
+        "transaction_id_number": "transaction_id",
+        "payee_street__1": "payee_street_1",
+        "payee_street__2": "payee_street_2",
+        "election_code/year": "election_code",
     }
 
     skipped_fields = [
@@ -138,14 +167,15 @@ def get_schema_fields(sheet):
 
 
 def get_schema_property(schema, field_name, property, is_fec_spec=False):
-    field = schema["properties"][field_name]
-    if is_fec_spec:
-        field = field["fec_spec"]
+    if field_name in schema["properties"]:
+        field = schema["properties"][field_name]
+        if is_fec_spec:
+            field = field["fec_spec"]
 
-    if property in field.keys():
-        return field[property]
-    else:
-        return None
+        if property in field.keys():
+            return field[property]
+        else:
+            return None
 
 
 def check_transaction_type_identifier(row, schema, field_name):
@@ -200,7 +230,7 @@ def check_multi_tti(schema, field_name, sheet_tti):
                     " that is not present in the sheet"
                 )
         for s_tti in sheet_tti:
-            if s_tti not in json_tti:
+            if s_tti != "" and s_tti not in json_tti:
                 errors.append(
                     f'    Error: {field_name} - The Sheet has a TTI of "{s_tti}"'
                     " that is not present in the JSON"
@@ -283,7 +313,10 @@ def compare_length(row, schema, field_name):
     fixed_patterns = {
         "filer_committee_id_number": "^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$",
         "contribution_date": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+        "expenditure_date": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
         "donor_committee_fec_id": "^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$",
+        "beneficiary_committee_fec_id": "^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$",
+        "election_code": "^[GPRSCE]\d{4}$",
     }
 
     field_type = row[COLUMNS["type"]].value
@@ -301,7 +334,7 @@ def compare_length(row, schema, field_name):
         )
 
     if json_pattern_regex:
-        if field_name == "contribution_purpose_descrip":
+        if field_name in ["contribution_purpose_descrip", "expenditure_purpose_descrip"]:
             lengths_and_patterns = get_cpd_lengths_and_patterns(json_pattern_regex)
             for pattern_length, pattern in lengths_and_patterns:
                 if expected_length != pattern_length:
@@ -500,27 +533,46 @@ def compare_sample_data(row, schema, field_name):
     return errors
 
 
+def clean_form_types(raw_form_type):
+    no_or = raw_form_type.replace(" or ", "|")
+    no_whitespace = no_or.replace(" ", "").replace("\n", ",")
+    no_quotes = no_whitespace.replace('"', "")
+    no_brackets = no_quotes.replace("[", "").replace("]", "")
+    if "," in no_brackets:
+        return no_brackets.split(",")
+    if "|" in no_brackets:
+        return no_brackets.split("|")
+    return [no_brackets]
+
 def check_form_type(row, schema, field_name):
     errors = []
     if field_name not in ["form_type", "back_reference_sched_name"]:
         return errors
 
-    form_type = row[COLUMNS["sample_data"]].value
+    form_type_values = row[COLUMNS["value_reference"]].value
+    if not form_type_values:
+        form_type_values = row[COLUMNS["sample_data"]].value
+    if not form_type_values:
+        errors.append(f"    Error: {field_name} - No form types found in sheet")
+        return errors
+
+    form_types = clean_form_types(form_type_values)
     schema_properties = schema["properties"][field_name]
 
-    if "const" in schema_properties.keys():
-        if form_type != schema_properties["const"]:
-            errors.append(
-                f"    Error: {field_name} - Sheet has Form Type "
-                f'"{form_type}" while the JSON has "{schema_properties["const"]}"'
-            )
+    for form_type in form_types:
+        if "const" in schema_properties.keys():
+            if form_type.upper() != schema_properties["const"].upper():
+                errors.append(
+                    f"    Error: {field_name} - Sheet has Form Type "
+                    f'"{form_type}" while the JSON has "{schema_properties["const"]}"'
+                )
 
-    elif "enum" in schema_properties.keys():
-        if form_type not in schema_properties["enum"]:
-            errors.append(
-                f"    Error: {field_name} - Sheet has Form Type "
-                f'"{form_type}" while the JSON has "{schema_properties["enum"]}"'
-            )
+        elif "enum" in schema_properties.keys():
+            if form_type.upper() not in [x.upper() for x in schema_properties["enum"]]:
+                errors.append(
+                    f"    Error: {field_name} - Sheet has Form Type "
+                    f'"{form_type}" while the JSON has "{schema_properties["enum"]}"'
+                )
 
     return errors
 
@@ -535,10 +587,12 @@ def check_entity_type(row, schema, field_name):
         errors.append(f"    Error: {field_name} - Entity Types not found in sheet")
         return errors
 
-    if "|" in entity_types:
-        return check_multiple_entity_types(schema, field_name, entity_types)
+    clean_entity_types = entity_types.replace("[", "").replace("]", "")
+
+    if "|" in clean_entity_types or "," in clean_entity_types:
+        return check_multiple_entity_types(schema, field_name, clean_entity_types)
     else:
-        return check_single_entity_type(schema, field_name, entity_types)
+        return check_single_entity_type(schema, field_name, clean_entity_types)
 
 
 def check_single_entity_type(schema, field_name, raw_sheet_entity_type):
@@ -574,7 +628,7 @@ def check_multiple_entity_types(schema, field_name, raw_sheet_entity_types):
     cleaned_sheet_entity_types = raw_sheet_entity_types.replace("[", "").replace(
         "]", ""
     )
-    cleaner_sheet_entity_types = cleaned_sheet_entity_types.replace(" ", "")
+    cleaner_sheet_entity_types = cleaned_sheet_entity_types.replace(" ", "").replace(",","|")
     sheet_entity_types = cleaner_sheet_entity_types.split("|")
 
     for s_entity in sheet_entity_types:
@@ -599,9 +653,9 @@ def check_aggregation_group(row, schema, field_name):
     if field_name != "aggregation_group":
         return errors
 
-    sheet_aggr_group = row[COLUMNS["rule_reference"]].value
+    sheet_aggr_group = row[COLUMNS["value_reference"]].value
     if not sheet_aggr_group:
-        sheet_aggr_group = row[COLUMNS["value_reference"]].value
+        sheet_aggr_group = row[COLUMNS["rule_reference"]].value
 
     if not sheet_aggr_group:
         errors.append(
@@ -609,7 +663,7 @@ def check_aggregation_group(row, schema, field_name):
         )
         return errors
 
-    if "," in sheet_aggr_group:
+    if "," in sheet_aggr_group or "|" in sheet_aggr_group:
         return check_aggregation_group_multiple(sheet_aggr_group, schema, field_name)
     else:
         return check_aggregation_group_single(sheet_aggr_group, schema, field_name)
@@ -623,16 +677,28 @@ def clean_aggregation_group_name(aggr_group):
 
 
 def clean_aggregation_group_names(aggr_group_field):
-    aggr_group_lines = aggr_group_field.split("\n")
-    aggr_groups = []
-    for aggr_group_line in aggr_group_lines:
-        aggr_groups.append(aggr_group_line.split(", then ")[1])
+    no_brackets = aggr_group_field.replace("[", "").replace("]", "")
+    no_whitespace = no_brackets.replace(" ", "").replace("\n", "")
+    bars_please = no_whitespace.replace(",", "|")
 
-    cleaned_aggregation_group_names = []
-    for aggr_group in aggr_groups:
-        clean_name = clean_aggregation_group_name(aggr_group)
-        cleaned_aggregation_group_names.append(clean_name)
-    return cleaned_aggregation_group_names
+    aggr_groups = bars_please.split("|")
+    return [clean_aggregation_group_name(name) for name in aggr_groups]
+
+    """
+    legacy code.  Pray we do not need to return to it
+
+    if ", then" in aggr_group_field:
+        aggr_group_lines = aggr_group_field.split("\n")
+        aggr_groups = []
+        for aggr_group_line in aggr_group_lines:
+            aggr_groups.append(aggr_group_line.split(", then ")[1])
+
+        cleaned_aggregation_group_names = []
+        for aggr_group in aggr_groups:
+            clean_name = clean_aggregation_group_name(aggr_group)
+            cleaned_aggregation_group_names.append(clean_name)
+        return cleaned_aggregation_group_names
+    """
 
 
 def check_aggregation_group_single(sheet_aggr_group, schema, field_name):
@@ -641,7 +707,7 @@ def check_aggregation_group_single(sheet_aggr_group, schema, field_name):
     schema_group_name = get_schema_property(schema, field_name, "const")
     if not schema_group_name:
         errors.append(
-            f"    Error: {field_name} - Cannot find aggregation group in json schema"
+            f"    Error: {field_name} - Cannot find aggregation group field in json schema"
         )
         return errors
 
@@ -678,7 +744,7 @@ def check_aggregation_group_multiple(sheet_aggr_group, schema, field_name):
     schema_group_names = get_schema_property(schema, field_name, "enum")
     if not schema_group_names:
         errors.append(
-            f"    Error: {field_name} - Cannot find aggregation group in json schema"
+            f"    Error: {field_name} - Cannot find aggregation groups field in json schema"
         )
         return errors
 
@@ -750,13 +816,15 @@ def generate_report(
     minor_errors,
     missing_schema_files,
     missing_transaction_type_identifiers,
+    missing_column_headers,
     failed_to_open,
     failed_to_load,
     save=True,
 ):
     report = "\n"
 
-    sheets_with_errors = list(errors.keys())
+    all_sheets = errors.keys()
+    sheets_with_errors = list(s for s in errors.keys() if len(errors[s]) > 0 )
     sheets_with_minor_errors = list(minor_errors.keys())
     sheets_with_errors.sort()
     sheets_with_minor_errors.sort()
@@ -764,6 +832,10 @@ def generate_report(
     missing_transaction_type_identifiers.sort()
     failed_to_open.sort()
     failed_to_load.sort()
+
+    error_count = len(
+        [item for sublist in errors.values() for item in sublist]
+    )
 
     if len(missing_schema_files) > 0:
         report += "Sheets without a corresponding JSON file:\n"
@@ -773,6 +845,10 @@ def generate_report(
         report += "Sheets missing a Transaction Type Identifier:\n"
         report += "    " + "\n    ".join(missing_transaction_type_identifiers) + "\n\n"
 
+    if len(missing_column_headers) > 0:
+        report += "Sheets missing Column Headers:\n"
+        report += "    " + "\n    ".join(missing_column_headers) + "\n\n"
+
     if len(failed_to_open) > 0:
         report += "Failed to open:\n"
         report += "    " + "\n    ".join(failed_to_open) + "\n\n"
@@ -780,6 +856,8 @@ def generate_report(
     if len(failed_to_load) > 0:
         report += "Failed to load:\n"
         report += "    " + "\n    ".join(failed_to_load) + "\n\n"
+
+    report += f"{error_count} Errors in {len(sheets_with_errors)} sheets out of {len(all_sheets)} sheets total \n\n"
 
     sheets = sheets_with_errors
     if display_minor_errors:
@@ -844,6 +922,7 @@ if __name__ == "__main__":
     minor_errors = {}
     missing_schema_files = []
     missing_transaction_type_identifiers = []
+    missing_column_headers = []
     failed_to_open = []
     failed_to_load = []
 
@@ -870,6 +949,10 @@ if __name__ == "__main__":
             failed_to_load.append(f"Failed to load JSON: {filename}")
             continue
 
+        if not populate_global_columns(sheet):
+            missing_column_headers.append(sheet.title)
+            continue
+
         new_errors, new_minor_errors = verify(sheet, schema)
         errors[filename] = new_errors
         minor_errors[filename] = new_minor_errors
@@ -879,6 +962,7 @@ if __name__ == "__main__":
         minor_errors,
         missing_schema_files,
         missing_transaction_type_identifiers,
+        missing_column_headers,
         failed_to_open,
         failed_to_load,
         save=True,
