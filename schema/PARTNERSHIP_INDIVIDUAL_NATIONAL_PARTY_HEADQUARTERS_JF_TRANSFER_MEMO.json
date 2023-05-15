@@ -397,7 +397,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 100,
-            "pattern": "^Headquarters Buildings Account JF Memo: [ -~]{0,37} \\(Partnership Attribution\\)$",
+            "pattern": "^Headquarters Buildings Account JF Memo: [ -~]{0,34} \\(Partnership Attribution\\)$",
             "fec_spec": {
                 "FIELD_DESCRIPTION": "CONTRIBUTION PURPOSE DESCRIPTION",
                 "TYPE": "A/N-100",
