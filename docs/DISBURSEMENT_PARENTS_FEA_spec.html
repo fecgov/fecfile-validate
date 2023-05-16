@@ -146,7 +146,7 @@
 <td>G,P[YYYY]</td>
 <td>Values: [G|P|R|S|C|E|O]+Year{YYYY}</td>
 <td>F3 | F3X | F3P</td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 5</li><li>regex: ^[GPRSCE]\d{4}$</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 5</li><li>regex: ^[GPRSCEO]\d{4}$</li></td>
 </tr>
 <tr>
 <td>ELECTION OTHER DESCRIPTION</td>
@@ -156,7 +156,7 @@
 <td></td>
 <td>Req if Item Election Code = R, S, C, E</td>
 <td>F3 | F3X | F3P</td>
-<td><ul><li>REQUIRED if ELECTION_CODE matches regex: ^[RSCE]\d{4}$</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
+<td><ul><li>REQUIRED if ELECTION_CODE matches regex: ^O\d{4}$</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
 </tr>
 <tr>
 <td>EXPENDITURE DATE</td>

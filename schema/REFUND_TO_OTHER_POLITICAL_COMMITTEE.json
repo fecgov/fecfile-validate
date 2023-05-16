@@ -289,7 +289,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 5,
-            "pattern": "^[GPRSCE]\\d{4}$",
+            "pattern": "^[GPRSCEO]\\d{4}$",
             "examples": [
                 "P2012"
             ],
@@ -497,7 +497,7 @@
             "if": {
                 "properties": {
                     "election_code": {
-                        "pattern": "^[RSCE]\\d{4}$",
+                        "pattern": "^O\\d{4}$",
                         "type": "string"
                     }
                 },
