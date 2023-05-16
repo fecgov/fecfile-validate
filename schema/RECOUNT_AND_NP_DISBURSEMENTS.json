@@ -2,8 +2,8 @@
     "$schema": "https://json-schema.org/draft-07/schema#",
     "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/RECOUNT_AND_NP_DISBURSEMENTS.json",
     "version": "8.3.0.1",
-    "title": "FEC Recount Account Disbursement, National Party Recount/Legal Proceedings Account Disbursements",
-    "description": "SCHEDULE B - Recount Account Disbursement (Line 29), National Party Recount/Legal Proceedings Account Disbursements (Line 29)",
+    "title": "FEC Recount Account Disbursement, National Party Recount/Legal Proceedings Account Disbursements, National Party Headquarters Account Disbursement, National Party Convention Account Disbursement",
+    "description": "SCHEDULE B - Recount Account Disbursement (Line 29), National Party Recount/Legal Proceedings Account Disbursements (Line 29), National Party Headquarters Account Disbursement (Line 21.b), National Party Convention Account Disbursement (Line 21.b)",
     "type": "object",
     "required": [
         "form_type",
