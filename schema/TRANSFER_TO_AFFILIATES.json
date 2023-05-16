@@ -33,8 +33,8 @@
                 "FIELD_DESCRIPTION": "FORM TYPE",
                 "TYPE": "A/N-8",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "SB28B",
-                "VALUE_REFERENCE": "[ SB28B ]",
+                "SAMPLE_DATA": "SB22",
+                "VALUE_REFERENCE": "[ SB22 ]",
                 "RULE_REFERENCE": "SB22 Only",
                 "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
             }
