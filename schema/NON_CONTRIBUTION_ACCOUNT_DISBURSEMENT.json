@@ -428,7 +428,9 @@
             "title": "EXPENDITURE PURPOSE DESCRIP",
             "description": "",
             "type": "string",
-            "pattern": "^Non-contribution Account: [ -~]{1,74}$",
+            "minLength": 1,
+            "maxLength": 100,
+            "pattern": "^Non-contribution Account: [ -~]{0,74}$",
             "examples": [
                 "Non-contribution Account: XX"
             ],
