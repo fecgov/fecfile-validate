@@ -3,7 +3,7 @@
     "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/SchC2.json",
     "version": "8.3.0.1",
     "title": "FEC Sch C2",
-    "description": "SCHEDULE C2 - LOAN GUARANTOR NAME & ADDRESS INFORMATION                      \n                            (SUPPLEMENTARY FOR INFORMATION FOUND ON SCHEDULE C)",
+    "description": "SCHEDULE C2 - LOAN GUARANTOR NAME & ADDRESS INFORMATION (SUPPLEMENTARY FOR INFORMATION FOUND ON SCHEDULE C)",
     "type": "object",
     "required": [
         "form_type",
@@ -12,6 +12,14 @@
         "back_reference_tran_id_number",
         "guarantor_last_name",
         "guarantor_first_name"
+    ],
+    "fec_recommended": [
+        "guarantor_street_1",
+        "guarantor_city",
+        "guarantor_state",
+        "guarantor_zip",
+        "guarantor_employer",
+        "guarantor_occupation"
     ],
     "properties": {
         "form_type": {
