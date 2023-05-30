@@ -8,17 +8,26 @@ def check_transaction_type_identifier(row, schema, field_name, columns):
 
     sheet_tti = row[columns["rule_reference"]].value
     if not sheet_tti:
-        errors.append(
-            f"    Error: {field_name} - The sheet's Transaction Type "
-            + "Identifier is blank"
-        )
-        return errors
+        sheet_tti = row[columns["value_reference"]].value
+        if not sheet_tti:
+            errors.append(
+                f"    Error: {field_name} - The sheet's Transaction Type "
+                + "Identifier is blank"
+            )
+            return errors
 
     if "\n" in sheet_tti:
         sheet_tti = sheet_tti.split("\n")
-        return check_multi_tti(schema, field_name, sheet_tti)
+        return check_multi_tti(schema, field_name, sanitize_multi_tti(sheet_tti))
     else:
         return check_single_tti(schema, field_name, sheet_tti)
+
+
+def sanitize_multi_tti(tti_values):
+    out_tti = []
+    for tti in tti_values:
+        out_tti.append(tti.strip())
+    return out_tti
 
 
 def check_single_tti(schema, field_name, sheet_tti):
