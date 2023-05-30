@@ -561,7 +561,7 @@
                 "RULE_REFERENCE": null
             }
         },
-        "date_depository_account_established": {
+        "depository_account_established_date": {
             "title": "E.4 DATE (Depository account established)",
             "description": "",
             "type": [
@@ -600,7 +600,7 @@
                 "RULE_REFERENCE": null
             }
         },
-        "street_1": {
+        "account_street_1": {
             "title": "E.6 STREET  1",
             "description": "",
             "type": [
@@ -620,7 +620,7 @@
                 "RULE_REFERENCE": null
             }
         },
-        "street_2": {
+        "account_street_2": {
             "title": "E.7 STREET  2",
             "description": "",
             "type": [
@@ -640,7 +640,7 @@
                 "RULE_REFERENCE": null
             }
         },
-        "city": {
+        "account_city": {
             "title": "E.8 CITY",
             "description": "",
             "type": [
@@ -660,7 +660,7 @@
                 "RULE_REFERENCE": null
             }
         },
-        "state": {
+        "account_state": {
             "title": "E.9 STATE",
             "description": "",
             "type": [
@@ -680,7 +680,7 @@
                 "RULE_REFERENCE": null
             }
         },
-        "zip": {
+        "account_zip": {
             "title": "E.10 ZIP",
             "description": "",
             "type": [
