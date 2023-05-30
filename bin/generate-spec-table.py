@@ -32,6 +32,7 @@ COLUMNS = [
 ]
 
 FEC_PROPERTIES = [
+    "COL_SEQ",
     "FIELD_DESCRIPTION",
     "TYPE",
     "REQUIRED",
@@ -43,6 +44,7 @@ FEC_PROPERTIES = [
 
 if "transaction_type_identifier" in data["properties"]:
     COLUMNS = COLUMNS[1:]
+    FEC_PROPERTIES = FEC_PROPERTIES[1:]
 
 print(
     f'<!DOCTYPE html><html lang="en"><head><title>{title}</title>'
