@@ -1,0 +1,540 @@
+<!DOCTYPE html><html lang="en"><head><title>SchC1</title><link rel="stylesheet" href="spec_table.css"></head><body><table><caption>Specification for SchC1</caption><tr>
+<th>COL SEQ</th>
+<th>FIELD DESCRIPTION</th>
+<th>TYPE</th>
+<th>REQUIRED</th>
+<th>SAMPLE DATA</th>
+<th>VALUE REFERENCE</th>
+<th>RULE REFERENCE</th>
+<th>FIELD FORM ASSOCIATION</th>
+<th>VALIDATION RULES</th>
+</tr>
+<tr>
+<td>1</td>
+<td>FORM TYPE</td>
+<td>A/N-8</td>
+<td>X (error)</td>
+<td>SC1/9</td>
+<td>SC1/[line# ref]</td>
+<td>Appendix C</td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 8</li><li>regex: ^[ -~]{0,8}$</li></td>
+</tr>
+<tr>
+<td>2</td>
+<td>FILER COMMITTEE ID NUMBER</td>
+<td>A/N-9</td>
+<td>X (error)</td>
+<td>C00123456</td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 9</li><li>regex: ^[ -~]{0,9}$</li></td>
+</tr>
+<tr>
+<td>3</td>
+<td>TRANSACTION ID</td>
+<td>A/N-20</td>
+<td>X (error)</td>
+<td>C123456789-3456-001</td>
+<td>May be a combination of Parent SC/ TranID + a unique ID for this Child SC1/ record</td>
+<td>must be unique for the life of the report (original + all amendments)</td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
+</tr>
+<tr>
+<td>4</td>
+<td>BACK REFERENCE TRAN ID NUMBER</td>
+<td>A/N-20</td>
+<td>X (error)</td>
+<td>C123456789-3456</td>
+<td></td>
+<td>Reference to the Tran ID of a Related SC/{***} Record</td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
+</tr>
+<tr>
+<td>5</td>
+<td>LENDER ORGANIZATION NAME</td>
+<td>A/N-200</td>
+<td>X (error)</td>
+<td>The Bank of Banks</td>
+<td></td>
+<td>Required if NOT [IND|CAN]</td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 200</li><li>regex: ^[ -~]{0,200}$</li></td>
+</tr>
+<tr>
+<td>6</td>
+<td>LENDER STREET  1</td>
+<td>A/N-34</td>
+<td>X (warning)</td>
+<td>The Bank Tower</td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 34</li><li>regex: ^[ -~]{0,34}$</li></td>
+</tr>
+<tr>
+<td>7</td>
+<td>LENDER STREET  2</td>
+<td>A/N-34</td>
+<td></td>
+<td>100 Broadway</td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 34</li><li>regex: ^[ -~]{0,34}$</li></td>
+</tr>
+<tr>
+<td>8</td>
+<td>LENDER CITY</td>
+<td>A/N-30</td>
+<td>X (warning)</td>
+<td>New York</td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 30</li><li>regex: ^[ -~]{0,30}$</li></td>
+</tr>
+<tr>
+<td>9</td>
+<td>LENDER STATE</td>
+<td>A/N-2</td>
+<td>X (warning)</td>
+<td>NY</td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 2</li><li>regex: ^[ -~]{0,2}$</li></td>
+</tr>
+<tr>
+<td>10</td>
+<td>LENDER ZIP</td>
+<td>A/N-9</td>
+<td>X (warning)</td>
+<td>10011</td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 9</li><li>regex: ^[ -~]{0,9}$</li></td>
+</tr>
+<tr>
+<td>11</td>
+<td>LOAN AMOUNT</td>
+<td>AMT-12</td>
+<td>X (error)</td>
+<td>10000.0</td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: number</li><li>minimum: -99999999.99</li><li>maximum: 999999999.99</li></td>
+</tr>
+<tr>
+<td>12</td>
+<td>LOAN INTEREST RATE %</td>
+<td>A/N-15</td>
+<td>X (warning)</td>
+<td>.0565</td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 15</li><li>regex: ^[ -~]{0,15}$</li></td>
+</tr>
+<tr>
+<td>13</td>
+<td>LOAN INCURRED DATE</td>
+<td>NUM-8</td>
+<td>X (error)</td>
+<td>20120101</td>
+<td>YYYYMMDD</td>
+<td></td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 10</li><li>regex: ^[0-9]{4}-[0-9]{2}-[0-9]{2}$</li></td>
+</tr>
+<tr>
+<td>14</td>
+<td>LOAN DUE DATE</td>
+<td>A/N-15</td>
+<td>X (error)</td>
+<td>20121231</td>
+<td>YYYYMMDD</td>
+<td></td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 15</li><li>regex: ^[ -~]{0,15}$</li></td>
+</tr>
+<tr>
+<td>15</td>
+<td>A1.YES/NO (Loan Restructured)</td>
+<td>A/N-1</td>
+<td></td>
+<td>N</td>
+<td>Y,N</td>
+<td>Edit: Yes/No</td>
+<td></td>
+<td><ul><li>type: ['boolean', 'null']</li></td>
+</tr>
+<tr>
+<td>16</td>
+<td>A2. DATE (Of Original Loan)</td>
+<td>NUM-8</td>
+<td></td>
+<td>20120101</td>
+<td>YYYYMMDD</td>
+<td></td>
+<td></td>
+<td><ul><li>type: ['string', 'null']</li><li>min length: 10</li><li>regex: ^[0-9]{4}-[0-9]{2}-[0-9]{2}$</li></td>
+</tr>
+<tr>
+<td>17</td>
+<td>B.1. CREDIT AMOUNT THIS DRAW</td>
+<td>AMT-12</td>
+<td></td>
+<td>500.0</td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>type: ['number', 'null']</li><li>minimum: -99999999.99</li><li>maximum: 999999999.99</li></td>
+</tr>
+<tr>
+<td>18</td>
+<td>B.2. TOTAL BALANCE</td>
+<td>AMT-12</td>
+<td></td>
+<td>10000.0</td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>type: ['number', 'null']</li><li>minimum: -99999999.99</li><li>maximum: 999999999.99</li></td>
+</tr>
+<tr>
+<td>19</td>
+<td>C. YES/NO (Others liable?)</td>
+<td>A/N-1</td>
+<td></td>
+<td>Y</td>
+<td>Y,N</td>
+<td>Edit: Yes/No</td>
+<td></td>
+<td><ul><li>type: ['boolean', 'null']</li></td>
+</tr>
+<tr>
+<td>20</td>
+<td>D. YES/NO (Collateral?)</td>
+<td>A/N-1</td>
+<td></td>
+<td>Y</td>
+<td>Y,N</td>
+<td>Edit: Yes/No</td>
+<td></td>
+<td><ul><li>type: ['boolean', 'null']</li></td>
+</tr>
+<tr>
+<td>21</td>
+<td>D.1 DESC (Collateral)</td>
+<td>A/N-100</td>
+<td></td>
+<td>House & Car</td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 100</li><li>regex: ^[ -~]{0,100}$</li></td>
+</tr>
+<tr>
+<td>22</td>
+<td>D.2 COLLATERAL VALUE/AMOUNT</td>
+<td>AMT-12</td>
+<td></td>
+<td>95000.0</td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>type: ['number', 'null']</li><li>minimum: -99999999.99</li><li>maximum: 999999999.99</li></td>
+</tr>
+<tr>
+<td>23</td>
+<td>D.3 YES/NO  (Perfected Interest?))</td>
+<td>A/N-1</td>
+<td></td>
+<td>N</td>
+<td>Y,N</td>
+<td>Edit: Yes/No</td>
+<td></td>
+<td><ul><li>type: ['boolean', 'null']</li></td>
+</tr>
+<tr>
+<td>24</td>
+<td>E.1 YES/NO  (Future Income)</td>
+<td>A/N-1</td>
+<td></td>
+<td>N</td>
+<td>Y,N</td>
+<td>Edit: Yes/No</td>
+<td></td>
+<td><ul><li>type: ['boolean', 'null']</li></td>
+</tr>
+<tr>
+<td>25</td>
+<td>E.2  DESC  (Specification of the above)</td>
+<td>A/N-100</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 100</li><li>regex: ^[ -~]{0,100}$</li></td>
+</tr>
+<tr>
+<td>26</td>
+<td>E.3 ESTIMATED VALUE</td>
+<td>AMT-12</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>type: ['number', 'null']</li><li>minimum: -99999999.99</li><li>maximum: 999999999.99</li></td>
+</tr>
+<tr>
+<td>27</td>
+<td>E.4 DATE (Depository account established)</td>
+<td>NUM-8</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>type: ['string', 'null']</li><li>min length: 10</li><li>regex: ^[0-9]{4}-[0-9]{2}-[0-9]{2}$</li></td>
+</tr>
+<tr>
+<td>28</td>
+<td>E.5 IND/NAME (Account Location)</td>
+<td>A/N-200</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 200</li><li>regex: ^[ -~]{0,200}$</li></td>
+</tr>
+<tr>
+<td>29</td>
+<td>E.6 STREET  1</td>
+<td>A/N-34</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 34</li><li>regex: ^[ -~]{0,34}$</li></td>
+</tr>
+<tr>
+<td>30</td>
+<td>E.7 STREET  2</td>
+<td>A/N-34</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 34</li><li>regex: ^[ -~]{0,34}$</li></td>
+</tr>
+<tr>
+<td>31</td>
+<td>E.8 CITY</td>
+<td>A/N-30</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 30</li><li>regex: ^[ -~]{0,30}$</li></td>
+</tr>
+<tr>
+<td>32</td>
+<td>E.9 STATE</td>
+<td>A/N-2</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 2</li><li>regex: ^[ -~]{0,2}$</li></td>
+</tr>
+<tr>
+<td>33</td>
+<td>E.10 ZIP</td>
+<td>A/N-9</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 9</li><li>regex: ^[ -~]{0,9}$</li></td>
+</tr>
+<tr>
+<td>34</td>
+<td>E.11 DEP ACCT AUTH DATE (Presidential)</td>
+<td>NUM-8</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>type: ['string', 'null']</li><li>min length: 10</li><li>regex: ^[0-9]{4}-[0-9]{2}-[0-9]{2}$</li></td>
+</tr>
+<tr>
+<td>35</td>
+<td>F. BASIS OF LOAN DESCRIPTION</td>
+<td>A/N-100</td>
+<td></td>
+<td>Handshake</td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 100</li><li>regex: ^[ -~]{0,100}$</li></td>
+</tr>
+<tr>
+<td>36</td>
+<td>G. TREASURER LAST NAME</td>
+<td>A/N-30</td>
+<td>X (error)</td>
+<td>Smith</td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 30</li><li>regex: ^[ -~]{0,30}$</li></td>
+</tr>
+<tr>
+<td>37</td>
+<td>G. TREASURER FIRST NAME</td>
+<td>A/N-20</td>
+<td>X (error)</td>
+<td>Patrick</td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
+</tr>
+<tr>
+<td>38</td>
+<td>G. TREASURER MIDDLE NAME</td>
+<td>A/N-20</td>
+<td></td>
+<td>Thomas</td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
+</tr>
+<tr>
+<td>39</td>
+<td>G. TREASURER PREFIX</td>
+<td>A/N-10</td>
+<td></td>
+<td>Mr.</td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 10</li><li>regex: ^[ -~]{0,10}$</li></td>
+</tr>
+<tr>
+<td>40</td>
+<td>G. TREASURER SUFFIX</td>
+<td>A/N-10</td>
+<td></td>
+<td>Jr.</td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 10</li><li>regex: ^[ -~]{0,10}$</li></td>
+</tr>
+<tr>
+<td>41</td>
+<td>G. DATE SIGNED</td>
+<td>NUM-8</td>
+<td>X (error)</td>
+<td>20120729</td>
+<td>YYYYMMDD</td>
+<td></td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 10</li><li>regex: ^[0-9]{4}-[0-9]{2}-[0-9]{2}$</li></td>
+</tr>
+<tr>
+<td>42</td>
+<td>H. AUTHORIZED LAST NAME</td>
+<td>A/N-30</td>
+<td>X (error)</td>
+<td>Smith</td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 30</li><li>regex: ^[ -~]{0,30}$</li></td>
+</tr>
+<tr>
+<td>43</td>
+<td>H. AUTHORIZED FIRST NAME</td>
+<td>A/N-20</td>
+<td>X (error)</td>
+<td>Patrick</td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
+</tr>
+<tr>
+<td>44</td>
+<td>H. AUTHORIZED MIDDLE NAME</td>
+<td>A/N-20</td>
+<td></td>
+<td>Thomas</td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
+</tr>
+<tr>
+<td>45</td>
+<td>H. AUTHORIZED PREFIX</td>
+<td>A/N-10</td>
+<td></td>
+<td>Mr.</td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 10</li><li>regex: ^[ -~]{0,10}$</li></td>
+</tr>
+<tr>
+<td>46</td>
+<td>H. AUTHORIZED SUFFIX</td>
+<td>A/N-10</td>
+<td></td>
+<td>Jr.</td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 10</li><li>regex: ^[ -~]{0,10}$</li></td>
+</tr>
+<tr>
+<td>47</td>
+<td>H. AUTHORIZED TITLE</td>
+<td>A/N-20</td>
+<td>X (error)</td>
+<td>Treasurer</td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
+</tr>
+<tr>
+<td>48</td>
+<td>H. DATE SIGNED</td>
+<td>NUM-8</td>
+<td>X (error)</td>
+<td>20120820</td>
+<td>YYYYMMDD</td>
+<td></td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 10</li><li>regex: ^[0-9]{4}-[0-9]{2}-[0-9]{2}$</li></td>
+</tr>
+</table></body></html>
