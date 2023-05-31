@@ -178,7 +178,7 @@
             "fec_spec": {
                 "FIELD_DESCRIPTION": "PAYEE ORGANIZATION NAME",
                 "TYPE": "A/N-200",
-                "REQUIRED": "X (error)",
+                "REQUIRED": "X (conditional error)",
                 "SAMPLE_DATA": "John Smith & Co.",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": "Required if [ORG|COM]",
@@ -201,7 +201,7 @@
             "fec_spec": {
                 "FIELD_DESCRIPTION": "PAYEE LAST NAME",
                 "TYPE": "A/N-30",
-                "REQUIRED": "X (error)",
+                "REQUIRED": "X (conditional error)",
                 "SAMPLE_DATA": "Smith",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": "Required if [IND]",
@@ -224,7 +224,7 @@
             "fec_spec": {
                 "FIELD_DESCRIPTION": "PAYEE FIRST NAME",
                 "TYPE": "A/N-20",
-                "REQUIRED": "X (error)",
+                "REQUIRED": "X (conditional error)",
                 "SAMPLE_DATA": "John",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": "Required if [IND]",

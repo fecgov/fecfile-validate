@@ -410,7 +410,10 @@
         "contributor_employer": {
             "title": "CONTRIBUTOR EMPLOYER",
             "description": "",
-            "type": "string",
+            "type": [
+                "string",
+                "null"
+            ],
             "minLength": 0,
             "maxLength": 38,
             "pattern": "^[ -~]{0,38}$",
@@ -420,7 +423,7 @@
             "fec_spec": {
                 "FIELD_DESCRIPTION": "CONTRIBUTOR EMPLOYER",
                 "TYPE": "A/N-38",
-                "REQUIRED": "X (error)",
+                "REQUIRED": "X (conditional error)",
                 "SAMPLE_DATA": "XYZ Company",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": "Req if Donor aggregate >$200",
@@ -430,7 +433,10 @@
         "contributor_occupation": {
             "title": "CONTRIBUTOR OCCUPATION",
             "description": "",
-            "type": "string",
+            "type": [
+                "string",
+                "null"
+            ],
             "minLength": 0,
             "maxLength": 38,
             "pattern": "^[ -~]{0,38}$",
@@ -440,7 +446,7 @@
             "fec_spec": {
                 "FIELD_DESCRIPTION": "CONTRIBUTOR OCCUPATION",
                 "TYPE": "A/N-38",
-                "REQUIRED": "X (error)",
+                "REQUIRED": "X (conditional error)",
                 "SAMPLE_DATA": "QC Inspector",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": "Req if Donor aggregate >$200",
