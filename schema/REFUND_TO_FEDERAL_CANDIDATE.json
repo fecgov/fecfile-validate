@@ -26,9 +26,7 @@
         "donor_candidate_fec_id",
         "donor_candidate_last_name",
         "donor_candidate_first_name",
-        "donor_candidate_office",
-        "donor_candidate_state",
-        "donor_candidate_district"
+        "donor_candidate_office"
     ],
     "fec_recommended": [],
     "properties": {
@@ -598,17 +596,20 @@
         "donor_candidate_state": {
             "title": "DONOR CANDIDATE STATE",
             "description": "",
-            "type": "string",
-            "minLength": 0,
+            "type": [
+                "string",
+                "null"
+            ],
+            "minLength": 2,
             "maxLength": 2,
-            "pattern": "^[ -~]{0,2}$",
+            "pattern": "^[A-Z]{2}$",
             "examples": [
                 "FL"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "DONOR CANDIDATE STATE",
                 "TYPE": "A/N-2",
-                "REQUIRED": "X (error)",
+                "REQUIRED": "X (conditional error)",
                 "SAMPLE_DATA": "FL",
                 "VALUE_REFERENCE": "AK,AL,...",
                 "RULE_REFERENCE": null,
@@ -618,17 +619,20 @@
         "donor_candidate_district": {
             "title": "DONOR CANDIDATE DISTRICT",
             "description": "",
-            "type": "string",
+            "type": [
+                "string",
+                "null"
+            ],
             "minLength": 2,
             "maxLength": 2,
-            "pattern": "^\\d{2}$",
+            "pattern": "^[0-9]{2}$",
             "examples": [
                 35
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "DONOR CANDIDATE DISTRICT",
                 "TYPE": "NUM-2",
-                "REQUIRED": "X (error)",
+                "REQUIRED": "X (conditional error)",
                 "SAMPLE_DATA": 35,
                 "VALUE_REFERENCE": "01-99",
                 "RULE_REFERENCE": null,
@@ -692,6 +696,58 @@
                 ],
                 "properties": {
                     "election_other_description": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "donor_candidate_office": {
+                        "enum": [
+                            "H"
+                        ]
+                    }
+                },
+                "required": [
+                    "donor_candidate_office"
+                ]
+            },
+            "then": {
+                "required": [
+                    "donor_candidate_state",
+                    "donor_candidate_district"
+                ],
+                "properties": {
+                    "donor_candidate_state": {
+                        "type": "string"
+                    },
+                    "donor_candidate_district": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "donor_candidate_office": {
+                        "enum": [
+                            "S"
+                        ]
+                    }
+                },
+                "required": [
+                    "donor_candidate_office"
+                ]
+            },
+            "then": {
+                "required": [
+                    "donor_candidate_state"
+                ],
+                "properties": {
+                    "donor_candidate_state": {
                         "type": "string"
                     }
                 }
