@@ -13,10 +13,10 @@
 <td>A/N-8</td>
 <td>X (error)</td>
 <td>SA11AI</td>
-<td>[SA11AI | SA11AII]</td>
-<td>"SA11AI" or "SA11AII" only</td>
+<td>SA11AI or SA11AII only</td>
+<td>SA11AI or SA11AII only</td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>must equal: SA11AI</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>must be one of: ['SA11AI', 'SA11AII']</li></td>
 </tr>
 <tr>
 <td>FILER COMMITTEE ID NUMBER</td>
@@ -51,7 +51,7 @@
 <tr>
 <td>BACK REFERENCE TRAN ID NUMBER</td>
 <td>A/N-20</td>
-<td>X (error)</td>
+<td></td>
 <td>A123456789-1234</td>
 <td></td>
 <td></td>
@@ -61,7 +61,7 @@
 <tr>
 <td>BACK REFERENCE SCHED NAME</td>
 <td>A/N-8</td>
-<td>X (error)</td>
+<td></td>
 <td>SA12</td>
 <td></td>
 <td></td>
@@ -226,7 +226,7 @@
 <td>In-Kind: XX</td>
 <td>"In-Kind: XX", where XX is user entered and concatenated within the CPD when generating the *.fec file</td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>min length: 0</li><li>max length: 100</li><li>regex: ^In-Kind: [ -~]{1,91}$</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 100</li><li>regex: ^In-Kind: [ -~]{1,91}$</li></td>
 </tr>
 <tr>
 <td>CONTRIBUTOR EMPLOYER</td>
@@ -251,12 +251,12 @@
 <tr>
 <td>MEMO CODE</td>
 <td>A/N-1</td>
-<td>X (error)</td>
+<td></td>
 <td></td>
 <td>X</td>
 <td>X = True</td>
 <td></td>
-<td><ul><li>must equal: True</li></td>
+<td><ul><li>type: ['boolean', 'null']</li></td>
 </tr>
 <tr>
 <td>MEMO TEXT/DESCRIPTION</td>

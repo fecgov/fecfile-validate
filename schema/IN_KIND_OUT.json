@@ -21,7 +21,6 @@
         "payee_zip",
         "expenditure_date",
         "expenditure_amount",
-        "expenditure_aggregate",
         "aggregation_group",
         "expenditure_purpose_descrip"
     ],
@@ -110,7 +109,7 @@
             "fec_spec": {
                 "FIELD_DESCRIPTION": "BACK REFERENCE TRAN ID NUMBER",
                 "TYPE": "A/N-20",
-                "REQUIRED": null,
+                "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "A123456789-1234",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": "Reference to the Tran ID of a Related Record",
@@ -120,15 +119,20 @@
         "back_reference_sched_name": {
             "title": "BACK REFERENCE SCHED NAME",
             "description": "",
-            "const": "SA11AI",
+            "type": "string",
+            "enum": [
+                "SA11AI",
+                "SA11AII"
+            ],
             "examples": [
-                "SA11AI"
+                "SA11AI",
+                "SA11AII"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "BACK REFERENCE SCHED NAME",
                 "TYPE": "A/N-8",
-                "REQUIRED": null,
-                "SAMPLE_DATA": "SA17",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "SA11AI",
                 "VALUE_REFERENCE": "SA[line# ref]",
                 "RULE_REFERENCE": "Ref to the Schedule that has the Related Record.  SA3L must be used \nwith the F3L",
                 "FIELD_FORM_ASSOCIATION": null
@@ -398,25 +402,6 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "expenditure_aggregate": {
-            "title": "EXPENDITURE AGGREGATE",
-            "description": "",
-            "type": "number",
-            "minimum": -99999999.99,
-            "maximum": 999999999.99,
-            "examples": [
-                1000
-            ],
-            "fec_spec": {
-                "FIELD_DESCRIPTION": "EXPENDITURE AGGREGATE",
-                "TYPE": "AMT-12",
-                "REQUIRED": "X (error)",
-                "SAMPLE_DATA": 1000,
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Auto-generated from associated IN_KIND_RECEIPT",
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
         "aggregation_group": {
             "title": "AGGREGATION GROUP",
             "description": "",
@@ -437,17 +422,17 @@
         "expenditure_purpose_descrip": {
             "title": "EXPENDITURE PURPOSE DESCRIPTION",
             "description": "",
-            "const": "Non-expenditure Account",
-            "type": [
-                "string"
-            ],
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 100,
+            "pattern": "^In-Kind: [ -~]{1,91}$",
             "fec_spec": {
                 "FIELD_DESCRIPTION": "EXPENDITURE PURPOSE DESCRIPTION",
                 "TYPE": "A/N-100",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Non-expenditure Account",
+                "RULE_REFERENCE": "Auto-generated from associated IN_KIND_RECEIPT ",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },

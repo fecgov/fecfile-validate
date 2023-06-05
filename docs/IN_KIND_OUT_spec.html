@@ -51,7 +51,7 @@
 <tr>
 <td>BACK REFERENCE TRAN ID NUMBER</td>
 <td>A/N-20</td>
-<td></td>
+<td>X (error)</td>
 <td>A123456789-1234</td>
 <td></td>
 <td>Reference to the Tran ID of a Related Record</td>
@@ -61,13 +61,13 @@
 <tr>
 <td>BACK REFERENCE SCHED NAME</td>
 <td>A/N-8</td>
-<td></td>
-<td>SA17</td>
+<td>X (error)</td>
+<td>SA11AI</td>
 <td>SA[line# ref]</td>
 <td>Ref to the Schedule that has the Related Record.  SA3L must be used 
 with the F3L</td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>must equal: SA11AI</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>must be one of: ['SA11AI', 'SA11AII']</li></td>
 </tr>
 <tr>
 <td>ENTITY TYPE</td>
@@ -200,16 +200,6 @@ with the F3L</td>
 <td><ul><li>REQUIRED</li><li>type: number</li><li>minimum: -99999999.99</li><li>maximum: 999999999.99</li></td>
 </tr>
 <tr>
-<td>EXPENDITURE AGGREGATE</td>
-<td>AMT-12</td>
-<td>X (error)</td>
-<td>1000</td>
-<td></td>
-<td>Auto-generated from associated IN_KIND_RECEIPT</td>
-<td></td>
-<td><ul><li>REQUIRED</li><li>type: number</li><li>minimum: -99999999.99</li><li>maximum: 999999999.99</li></td>
-</tr>
-<tr>
 <td>AGGREGATION GROUP</td>
 <td>A/N-100</td>
 <td>X (error)</td>
@@ -225,9 +215,9 @@ with the F3L</td>
 <td>X (error)</td>
 <td></td>
 <td></td>
-<td>Non-expenditure Account</td>
+<td>Auto-generated from associated IN_KIND_RECEIPT </td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: ['string']</li><li>must equal: Non-expenditure Account</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 100</li><li>regex: ^In-Kind: [ -~]{1,91}$</li></td>
 </tr>
 <tr>
 <td>CATEGORY CODE</td>

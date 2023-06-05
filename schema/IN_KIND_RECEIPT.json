@@ -28,18 +28,23 @@
         "form_type": {
             "title": "FORM TYPE",
             "description": "",
-            "const": "SA11AI",
+            "type": "string",
+            "enum": [
+                "SA11AI",
+                "SA11AII"
+            ],
             "examples": [
-                "SA11AI"
+                "SA11AI",
+                "SA11AII"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "FORM TYPE",
                 "TYPE": "A/N-8",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "SA11AI",
-                "VALUE_REFERENCE": "[SA11AI | SA11AII]",
-                "RULE_REFERENCE": "\"SA11AI\" or \"SA11AII\" only",
-                "NOTES": "Note that anything that is SA11AII would never show up on *.fec, though the totals would appear in SA11AII on DSP"
+                "VALUE_REFERENCE": "SA11AI or SA11AII only",
+                "RULE_REFERENCE": "SA11AI or SA11AII only",
+                "FIELD_FORM_ASSOCIATION": null
             }
         },
         "filer_committee_id_number": {
@@ -109,7 +114,7 @@
             "fec_spec": {
                 "FIELD_DESCRIPTION": "BACK REFERENCE TRAN ID NUMBER",
                 "TYPE": "A/N-20",
-                "REQUIRED": "X (error)",
+                "REQUIRED": null,
                 "SAMPLE_DATA": "A123456789-1234"
             }
         },
@@ -126,7 +131,7 @@
             "fec_spec": {
                 "FIELD_DESCRIPTION": "BACK REFERENCE SCHED NAME",
                 "TYPE": "A/N-8",
-                "REQUIRED": "X (error)",
+                "REQUIRED": null,
                 "SAMPLE_DATA": "SA12"
             }
         },
@@ -392,6 +397,7 @@
         "contribution_purpose_descrip": {
             "title": "CONTRIBUTION PURPOSE DESCRIPTION",
             "description": "",
+            "type": "string",
             "minLength": 0,
             "maxLength": 100,
             "pattern": "^In-Kind: [ -~]{1,91}$",
@@ -454,11 +460,14 @@
         "memo_code": {
             "title": "MEMO CODE",
             "description": "",
-            "const": true,
+            "type": [
+                "boolean",
+                "null"
+            ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "MEMO CODE",
                 "TYPE": "A/N-1",
-                "REQUIRED": "X (error)",
+                "REQUIRED": null,
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": "X",
                 "RULE_REFERENCE": "X = True",
