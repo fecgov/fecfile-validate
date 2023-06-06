@@ -31,17 +31,17 @@
             "title": "FORM TYPE",
             "description": "",
             "type": "string",
-            "const": "SA21B",
+            "const": "SB21B",
             "examples": [
-                "SA21B"
+                "SB21B"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "FORM TYPE",
                 "TYPE": "A/N-8",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "SA21B",
-                "VALUE_REFERENCE": "SA21B Only",
-                "RULE_REFERENCE": "SA21B Only"
+                "SAMPLE_DATA": "SB21B",
+                "VALUE_REFERENCE": "SB21B Only",
+                "RULE_REFERENCE": "SB21B Only"
             }
         },
         "filer_committee_id_number": {
