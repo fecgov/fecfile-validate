@@ -705,9 +705,7 @@
             "if": {
                 "properties": {
                     "donor_candidate_office": {
-                        "enum": [
-                            "H"
-                        ]
+                        "const": "H"
                     }
                 },
                 "required": [
@@ -733,9 +731,7 @@
             "if": {
                 "properties": {
                     "donor_candidate_office": {
-                        "enum": [
-                            "S"
-                        ]
+                        "const": "S"
                     }
                 },
                 "required": [
