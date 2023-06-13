@@ -387,56 +387,6 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "payee_employer": {
-            "title": "EMPLOYER",
-            "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
-            "minLength": 0,
-            "maxLength": 38,
-            "pattern": "^[ -~]{0,38}$",
-            "examples": [
-                "XYZ Company"
-            ],
-            "fec_spec": {
-                "COL_SEQ": 13,
-                "FIELD_DESCRIPTION": "EMPLOYER",
-                "TYPE": "A/N-38",
-                "REQUIRED": null,
-                "AUTO_POPULATE": null,
-                "SAMPLE_DATA": "XYZ Company",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Req if Donor aggregate >$200",
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "payee_occupation": {
-            "title": "OCCUPATION",
-            "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
-            "minLength": 0,
-            "maxLength": 38,
-            "pattern": "^[ -~]{0,38}$",
-            "examples": [
-                "QC Inspector"
-            ],
-            "fec_spec": {
-                "COL_SEQ": 14,
-                "FIELD_DESCRIPTION": "OCCUPATION",
-                "TYPE": "A/N-38",
-                "REQUIRED": null,
-                "AUTO_POPULATE": null,
-                "SAMPLE_DATA": "QC Inspector",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Req if Donor aggregate >$200",
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
         "category_code": {
             "title": "CATEGORY CODE",
             "description": "",

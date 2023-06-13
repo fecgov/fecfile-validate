@@ -461,7 +461,7 @@
                 "REQUIRED": "X (conditional error)",
                 "SAMPLE_DATA": "XYZ Company",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Req if Donor aggregate >$200",
+                "RULE_REFERENCE": "Req if Donor AMOUNT >$200",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -484,7 +484,7 @@
                 "REQUIRED": "X (conditional error)",
                 "SAMPLE_DATA": "QC Inspector",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Req if Donor aggregate >$200",
+                "RULE_REFERENCE": "Req if Donor AMOUNT >$200",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -530,7 +530,7 @@
         {
             "if": {
                 "properties": {
-                    "contribution_aggregate": {
+                    "contribution_amount": {
                         "type": "number",
                         "minimum": 200.01
                     }
