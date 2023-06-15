@@ -431,7 +431,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 100,
-            "pattern": "^Earmarked for [ -~]{0,76} (Committee)$",
+            "pattern": "^Earmarked for [ -~]{0,76} \\(Committee\\)$",
             "fec_spec": {
                 "FIELD_DESCRIPTION": "CONTRIBUTION PURPOSE DESCRIPTION",
                 "TYPE": "A/N-100",
