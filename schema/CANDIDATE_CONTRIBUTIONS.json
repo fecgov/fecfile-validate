@@ -701,7 +701,8 @@
                 ],
                 "properties": {
                     "expenditure_amount": {
-                        "exclusiveMaximum": 0
+                        "exclusiveMaximum": 0,
+                        "type": "number"
                     },
                     "expenditure_purpose_descrip": {
                         "type": "string"
