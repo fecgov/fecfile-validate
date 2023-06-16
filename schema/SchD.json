@@ -68,7 +68,7 @@
             }
         },
         "transaction_id": {
-            "title": "TRANSACTION ID NUMBER",
+            "title": "TRANSACTION ID",
             "description": "",
             "type": "string",
             "minLength": 0,
@@ -79,7 +79,7 @@
             ],
             "fec_spec": {
                 "COL_SEQ": 3,
-                "FIELD_DESCRIPTION": "TRANSACTION ID NUMBER",
+                "FIELD_DESCRIPTION": "TRANSACTION ID",
                 "TYPE": "A/N-20",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "D123456789-3456",
