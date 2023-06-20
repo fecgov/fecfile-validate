@@ -76,7 +76,7 @@
 <td>[IND | ORG | COM]</td>
 <td>[IND | ORG | COM]</td>
 <td></td>
-<td><ul><li>ENTITY_TYPE must be one of ['ORG', 'IND', 'COM'] if TRANSACTION_TYPE_IDENTIFIER one of ['FEDERAL_ELECTION_ACTIVITY_CREDIT_CARD_PAYMENT_MEMO', 'FEDERAL_ELECTION_ACTIVITY_STAFF_REIMBURSEMENT_MEMO']</li><li>ENTITY_TYPE must be one of ['IND', 'ORG', 'COM'] if TRANSACTION_TYPE_IDENTIFIER one of ['FEDERAL_ELECTION_ACTIVITY_PAYMENT_TO_PAYROLL_MEMO']</li><li>REQUIRED</li><li>must be one of: ['IND', 'ORG', 'COM']</li></td>
+<td><ul><li>REQUIRED</li><li>must be one of: ['IND', 'ORG', 'COM']</li></td>
 </tr>
 <tr>
 <td>PAYEE ORGANIZATION NAME</td>
@@ -276,7 +276,7 @@
 <td></td>
 <td></td>
 <td></td>
-<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 9</li><li>regex: ^[ -~]{0,9}$</li></td>
+<td><ul><li>type: string</li><li>min length: 9</li><li>max length: 9</li><li>regex: ^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$</li></td>
 </tr>
 <tr>
 <td>BENEFICIARY CANDIDATE LAST NAME</td>

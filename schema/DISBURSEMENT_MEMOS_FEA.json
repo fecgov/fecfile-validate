@@ -491,13 +491,10 @@
         "beneficiary_candidate_fec_id": {
             "title": "BENEFICIARY CANDIDATE FEC ID",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
-            "minLength": 0,
+            "type": "string",
+            "minLength": 9,
             "maxLength": 9,
-            "pattern": "^[ -~]{0,9}$",
+            "pattern": "^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$",
             "examples": [
                 "H98765431"
             ],
@@ -610,57 +607,6 @@
         }
     },
     "allOf": [
-        {
-            "if": {
-                "properties": {
-                    "transaction_type_identifier": {
-                        "enum": [
-                            "FEDERAL_ELECTION_ACTIVITY_CREDIT_CARD_PAYMENT_MEMO",
-                            "FEDERAL_ELECTION_ACTIVITY_STAFF_REIMBURSEMENT_MEMO"
-                        ]
-                    }
-                },
-                "required": [
-                    "transaction_type_identifier"
-                ]
-            },
-            "then": {
-                "properties": {
-                    "entity_type": {
-                        "enum": [
-                            "ORG",
-                            "IND",
-                            "COM"
-                        ]
-                    }
-                }
-            }
-        },
-        {
-            "if": {
-                "properties": {
-                    "transaction_type_identifier": {
-                        "enum": [
-                            "FEDERAL_ELECTION_ACTIVITY_PAYMENT_TO_PAYROLL_MEMO"
-                        ]
-                    }
-                },
-                "required": [
-                    "transaction_type_identifier"
-                ]
-            },
-            "then": {
-                "properties": {
-                    "entity_type": {
-                        "enum": [
-                            "IND",
-                            "ORG",
-                            "COM"
-                        ]
-                    }
-                }
-            }
-        },
         {
             "if": {
                 "properties": {
