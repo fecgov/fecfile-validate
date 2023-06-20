@@ -691,7 +691,7 @@
             "then": {
                 "properties": {
                     "memo_code": {
-                        "const": "false"
+                        "const": false
                     }
                 }
             }
@@ -710,7 +710,7 @@
             "then": {
                 "properties": {
                     "memo_code": {
-                        "const": "true"
+                        "const": true
                     }
                 },
                 "required": [
