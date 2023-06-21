@@ -56,7 +56,7 @@
 <td></td>
 <td>Reference to the Tran ID of a Related Record</td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
 </tr>
 <tr>
 <td>BACK REFERENCE SCHED NAME</td>
@@ -67,7 +67,7 @@
 <td>Ref to the Schedule that has the Related Record.  SA3L must be used 
 with the F3L</td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 8</li><li>regex: ^[ -~]{0,8}$</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 8</li><li>regex: ^[ -~]{0,8}$</li></td>
 </tr>
 <tr>
 <td>ENTITY TYPE</td>
@@ -90,7 +90,7 @@ with the F3L</td>
 <td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 200</li><li>regex: ^[ -~]{0,200}$</li></td>
 </tr>
 <tr>
-<td>payee STREET  1</td>
+<td>PAYEE STREET  1</td>
 <td>A/N-34</td>
 <td>X (error)</td>
 <td>123 Main Street</td>
@@ -100,7 +100,7 @@ with the F3L</td>
 <td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 34</li><li>regex: ^[ -~]{0,34}$</li></td>
 </tr>
 <tr>
-<td>payee STREET  2</td>
+<td>PAYEE STREET  2</td>
 <td>A/N-34</td>
 <td></td>
 <td></td>
@@ -110,7 +110,7 @@ with the F3L</td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 34</li><li>regex: ^[ -~]{0,34}$</li></td>
 </tr>
 <tr>
-<td>payee CITY</td>
+<td>PAYEE CITY</td>
 <td>A/N-30</td>
 <td>X (error)</td>
 <td>Anytown</td>
@@ -120,7 +120,7 @@ with the F3L</td>
 <td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 30</li><li>regex: ^[ -~]{0,30}$</li></td>
 </tr>
 <tr>
-<td>payee STATE</td>
+<td>PAYEE STATE</td>
 <td>A/N-2</td>
 <td>X (error)</td>
 <td>WA</td>
@@ -130,7 +130,7 @@ with the F3L</td>
 <td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 2</li><li>regex: ^[ -~]{0,2}$</li></td>
 </tr>
 <tr>
-<td>payee ZIP</td>
+<td>PAYEE ZIP</td>
 <td>A/N-9</td>
 <td>X (error)</td>
 <td>981110123</td>
@@ -160,7 +160,7 @@ with the F3L</td>
 <td><ul><li>REQUIRED if ELECTION_CODE matches regex: ^O\d{4}$</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
 </tr>
 <tr>
-<td>expenditure DATE</td>
+<td>EXPENDITURE DATE</td>
 <td>NUM-8</td>
 <td>X (error)</td>
 <td>20120615</td>
@@ -170,7 +170,7 @@ with the F3L</td>
 <td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 10</li><li>regex: ^[0-9]{4}-[0-9]{2}-[0-9]{2}$</li></td>
 </tr>
 <tr>
-<td>expenditure AMOUNT</td>
+<td>EXPENDITURE AMOUNT</td>
 <td>AMT-12</td>
 <td>X (error)</td>
 <td>250</td>
@@ -180,7 +180,7 @@ with the F3L</td>
 <td><ul><li>REQUIRED</li><li>type: number</li><li>minimum: -99999999.99</li><li>maximum: 999999999.99</li></td>
 </tr>
 <tr>
-<td>expenditure PURPOSE DESCRIPTION</td>
+<td>EXPENDITURE PURPOSE DESCRIPTION</td>
 <td>A/N-100</td>
 <td>X (error)</td>
 <td></td>
@@ -237,7 +237,7 @@ with the F3L</td>
 <td></td>
 <td>Used if CAN or CCM</td>
 <td>F3 | F3X | F3P | F3L</td>
-<td><ul><li>REQUIRED</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 30</li><li>regex: ^[ -~]{0,30}$</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 30</li><li>regex: ^[ -~]{0,30}$</li></td>
 </tr>
 <tr>
 <td>BENEFICIARY CANDIDATE FIRST NAME</td>
@@ -248,7 +248,7 @@ with the F3L</td>
 <td>If either Last or First name coded;
 both Last & First names required.</td>
 <td>F3 | F3X | F3P | F3L</td>
-<td><ul><li>REQUIRED</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
 </tr>
 <tr>
 <td>BENEFICIARY CANDIDATE MIDDLE NAME</td>
@@ -288,7 +288,7 @@ both Last & First names required.</td>
 <td>H,S,P</td>
 <td></td>
 <td>F3 | F3X | F3P | F3L</td>
-<td><ul><li>REQUIRED</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 1</li><li>regex: ^[ -~]{0,1}$</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 1</li><li>regex: ^[ -~]{0,1}$</li></td>
 </tr>
 <tr>
 <td>BENEFICIARY CANDIDATE STATE</td>
@@ -298,7 +298,7 @@ both Last & First names required.</td>
 <td>AK,AL,...</td>
 <td></td>
 <td>F3 | F3X | F3P | F3L</td>
-<td><ul><li>REQUIRED</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 2</li><li>regex: ^[ -~]{0,2}$</li></td>
+<td><ul><li>REQUIRED if BENEFICIARY_CANDIDATE_OFFICE equals H</li><li>REQUIRED if BENEFICIARY_CANDIDATE_OFFICE equals S</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 2</li><li>regex: ^[ -~]{0,2}$</li></td>
 </tr>
 <tr>
 <td>BENEFICIARY CANDIDATE DISTRICT</td>
@@ -308,7 +308,7 @@ both Last & First names required.</td>
 <td>01 ... 99</td>
 <td></td>
 <td>F3 | F3X | F3P | F3L</td>
-<td><ul><li>REQUIRED</li><li>type: ['string', 'null']</li><li>min length: 2</li><li>max length: 2</li><li>regex: ^\d{2}$</li></td>
+<td><ul><li>REQUIRED if BENEFICIARY_CANDIDATE_OFFICE equals H</li><li>type: ['string', 'null']</li><li>min length: 2</li><li>max length: 2</li><li>regex: ^\d{2}$</li></td>
 </tr>
 <tr>
 <td>MEMO CODE</td>
@@ -318,7 +318,7 @@ both Last & First names required.</td>
 <td>X</td>
 <td>X = True</td>
 <td></td>
-<td><ul><li>MEMO_CODE = 'False' if TRANSACTION_TYPE_IDENTIFIER equals CONDUIT_EARMARK_RECEIPT_DEPOSITED</li><li>REQUIRED if TRANSACTION_TYPE_IDENTIFIER equals CONDUIT_EARMARK_RECEIPT_UNDEPOSITED</li><li>MEMO_CODE = 'True' if TRANSACTION_TYPE_IDENTIFIER equals CONDUIT_EARMARK_RECEIPT_UNDEPOSITED</li><li>type: ['boolean', 'null']</li></td>
+<td><ul><li>REQUIRED</li><li>type: boolean</li></td>
 </tr>
 <tr>
 <td>MEMO TEXT/DESCRIPTION</td>
