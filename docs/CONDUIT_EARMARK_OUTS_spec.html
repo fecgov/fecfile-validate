@@ -187,27 +187,7 @@ with the F3L</td>
 <td></td>
 <td>If Transaction type is (CONDUIT_EARMARK_OUT_DEPOSITED or CONDUIT_EARMARK_OUT_UNDEPOSITED) then Earmark from XX (Individual), where XX is Individual First Name Last Name from the parent Conduit Earmark Receipt on Schedule A; If Transaction type is (PAC_CONDUIT_EARMARK_OUT_DEPOSITED or PAC_CONDUIT_EARMARK_OUT_UNDEPOSITED) then Earmark from XX (Committee), where XX is Committee Name from the parent PAC Conduit Earmark Receipt on Schedule A</td>
 <td></td>
-<td><ul><li>EXPENDITURE_PURPOSE_DESCRIP must match ^Earmarked from [ -~]{0,72} (Individual)$ if EXPENDITURE_PURPOSE_DESCRIP one of ['CONDUIT_EARMARK_OUT_DEPOSITED', 'CONDUIT_EARMARK_OUT_UNDEPOSITED']</li><li>EXPENDITURE_PURPOSE_DESCRIP must match ^Earmarked from [ -~]{0,73} (Committee)$ if EXPENDITURE_PURPOSE_DESCRIP one of ['PAC_CONDUIT_EARMARK_OUT_DEPOSITED', 'PAC_CONDUIT_EARMARK_OUT_UNDEPOSITED']</li><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 100</li></td>
-</tr>
-<tr>
-<td>EMPLOYER</td>
-<td>A/N-38</td>
-<td></td>
-<td>XYZ Company</td>
-<td></td>
-<td>Req if Donor aggregate >$200</td>
-<td></td>
-<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 38</li><li>regex: ^[ -~]{0,38}$</li></td>
-</tr>
-<tr>
-<td>OCCUPATION</td>
-<td>A/N-38</td>
-<td></td>
-<td>QC Inspector</td>
-<td></td>
-<td>Req if Donor aggregate >$200</td>
-<td></td>
-<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 38</li><li>regex: ^[ -~]{0,38}$</li></td>
+<td><ul><li>EXPENDITURE_PURPOSE_DESCRIP must match ^Earmarked from [ -~]{0,72} \(Individual\)$ if TRANSACTION_TYPE_IDENTIFIER one of ['CONDUIT_EARMARK_OUT_DEPOSITED', 'CONDUIT_EARMARK_OUT_UNDEPOSITED']</li><li>EXPENDITURE_PURPOSE_DESCRIP must match ^Earmarked from [ -~]{0,73} \(Committee\)$ if TRANSACTION_TYPE_IDENTIFIER one of ['PAC_CONDUIT_EARMARK_OUT_DEPOSITED', 'PAC_CONDUIT_EARMARK_OUT_UNDEPOSITED']</li><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 100</li></td>
 </tr>
 <tr>
 <td>CATEGORY CODE</td>
@@ -338,7 +318,7 @@ both Last & First names required.</td>
 <td>X</td>
 <td>X = True</td>
 <td></td>
-<td><ul><li>MEMO_CODE = 'false' if TRANSACTION_TYPE_IDENTIFIER equals CONDUIT_EARMARK_RECEIPT_DEPOSITED</li><li>REQUIRED if TRANSACTION_TYPE_IDENTIFIER equals CONDUIT_EARMARK_RECEIPT_UNDEPOSITED</li><li>MEMO_CODE = 'true' if TRANSACTION_TYPE_IDENTIFIER equals CONDUIT_EARMARK_RECEIPT_UNDEPOSITED</li><li>type: ['boolean', 'null']</li></td>
+<td><ul><li>MEMO_CODE = 'False' if TRANSACTION_TYPE_IDENTIFIER equals CONDUIT_EARMARK_RECEIPT_DEPOSITED</li><li>REQUIRED if TRANSACTION_TYPE_IDENTIFIER equals CONDUIT_EARMARK_RECEIPT_UNDEPOSITED</li><li>MEMO_CODE = 'True' if TRANSACTION_TYPE_IDENTIFIER equals CONDUIT_EARMARK_RECEIPT_UNDEPOSITED</li><li>type: ['boolean', 'null']</li></td>
 </tr>
 <tr>
 <td>MEMO TEXT/DESCRIPTION</td>

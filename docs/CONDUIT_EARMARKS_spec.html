@@ -207,7 +207,7 @@ with the F3L</td>
 <td></td>
 <td>Earmarked for XX (Committee)</td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 100</li><li>regex: ^Earmarked for [ -~]{0,76} (Committee)$</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 100</li><li>regex: ^Earmarked for [ -~]{0,76} \(Committee\)$</li></td>
 </tr>
 <tr>
 <td>CONTRIBUTOR EMPLOYER</td>
@@ -215,9 +215,9 @@ with the F3L</td>
 <td>X (conditional error)</td>
 <td>XYZ Company</td>
 <td></td>
-<td>Req if Donor aggregate >$200</td>
+<td>Req if Donor AMOUNT >$200</td>
 <td></td>
-<td><ul><li>REQUIRED if CONTRIBUTION_AGGREGATE >= 200.01</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 38</li><li>regex: ^[ -~]{0,38}$</li></td>
+<td><ul><li>REQUIRED if CONTRIBUTION_AMOUNT >= 200.01</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 38</li><li>regex: ^[ -~]{0,38}$</li></td>
 </tr>
 <tr>
 <td>CONTRIBUTOR OCCUPATION</td>
@@ -225,9 +225,9 @@ with the F3L</td>
 <td>X (conditional error)</td>
 <td>QC Inspector</td>
 <td></td>
-<td>Req if Donor aggregate >$200</td>
+<td>Req if Donor AMOUNT >$200</td>
 <td></td>
-<td><ul><li>REQUIRED if CONTRIBUTION_AGGREGATE >= 200.01</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 38</li><li>regex: ^[ -~]{0,38}$</li></td>
+<td><ul><li>REQUIRED if CONTRIBUTION_AMOUNT >= 200.01</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 38</li><li>regex: ^[ -~]{0,38}$</li></td>
 </tr>
 <tr>
 <td>MEMO CODE</td>
@@ -237,7 +237,7 @@ with the F3L</td>
 <td>X</td>
 <td>X = True</td>
 <td></td>
-<td><ul><li>MEMO_CODE = 'false' if TRANSACTION_TYPE_IDENTIFIER equals CONDUIT_EARMARK_RECEIPT_DEPOSITED</li><li>REQUIRED if TRANSACTION_TYPE_IDENTIFIER equals CONDUIT_EARMARK_RECEIPT_UNDEPOSITED</li><li>MEMO_CODE = 'true' if TRANSACTION_TYPE_IDENTIFIER equals CONDUIT_EARMARK_RECEIPT_UNDEPOSITED</li><li>type: ['boolean', 'null']</li></td>
+<td><ul><li>MEMO_CODE = 'False' if TRANSACTION_TYPE_IDENTIFIER equals CONDUIT_EARMARK_RECEIPT_DEPOSITED</li><li>REQUIRED if TRANSACTION_TYPE_IDENTIFIER equals CONDUIT_EARMARK_RECEIPT_UNDEPOSITED</li><li>MEMO_CODE = 'True' if TRANSACTION_TYPE_IDENTIFIER equals CONDUIT_EARMARK_RECEIPT_UNDEPOSITED</li><li>type: ['boolean', 'null']</li></td>
 </tr>
 <tr>
 <td>MEMO TEXT/DESCRIPTION</td>

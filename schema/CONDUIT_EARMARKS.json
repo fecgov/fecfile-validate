@@ -536,7 +536,7 @@
                     }
                 },
                 "required": [
-                    "contribution_aggregate"
+                    "contribution_amount"
                 ]
             },
             "then": {
@@ -546,10 +546,12 @@
                 ],
                 "properties": {
                     "contributor_employer": {
-                        "type": "string"
+                        "type": "string",
+                        "minLength": 1
                     },
                     "contributor_occupation": {
-                        "type": "string"
+                        "type": "string",
+                        "minLength": 1
                     }
                 }
             }
