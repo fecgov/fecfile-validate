@@ -80,7 +80,7 @@ with the F3L</td>
 <td><ul><li>REQUIRED</li><li>must equal: IND</li></td>
 </tr>
 <tr>
-<td>LAST NAME</td>
+<td>CONTRIBUTOR LAST NAME</td>
 <td>A/N-30</td>
 <td>X (error)</td>
 <td>Smith</td>
@@ -90,7 +90,7 @@ with the F3L</td>
 <td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 30</li><li>regex: ^[ -~]{0,30}$</li></td>
 </tr>
 <tr>
-<td>FIRST NAME</td>
+<td>CONTRIBUTOR FIRST NAME</td>
 <td>A/N-20</td>
 <td>X (error)</td>
 <td>John</td>
@@ -100,7 +100,7 @@ with the F3L</td>
 <td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
 </tr>
 <tr>
-<td>MIDDLE NAME</td>
+<td>CONTRIBUTOR MIDDLE NAME</td>
 <td>A/N-20</td>
 <td></td>
 <td>W</td>
@@ -110,7 +110,7 @@ with the F3L</td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
 </tr>
 <tr>
-<td>PREFIX</td>
+<td>CONTRIBUTOR PREFIX</td>
 <td>A/N-10</td>
 <td></td>
 <td>Dr</td>
@@ -120,7 +120,7 @@ with the F3L</td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 10</li><li>regex: ^[ -~]{0,10}$</li></td>
 </tr>
 <tr>
-<td>SUFFIX</td>
+<td>CONTRIBUTOR SUFFIX</td>
 <td>A/N-10</td>
 <td></td>
 <td>Jr</td>
@@ -237,7 +237,7 @@ with the F3L</td>
 <td>X</td>
 <td>X = True</td>
 <td></td>
-<td><ul><li>MEMO_CODE = 'False' if TRANSACTION_TYPE_IDENTIFIER equals CONDUIT_EARMARK_RECEIPT_DEPOSITED</li><li>REQUIRED if TRANSACTION_TYPE_IDENTIFIER equals CONDUIT_EARMARK_RECEIPT_UNDEPOSITED</li><li>MEMO_CODE = 'True' if TRANSACTION_TYPE_IDENTIFIER equals CONDUIT_EARMARK_RECEIPT_UNDEPOSITED</li><li>type: ['boolean', 'null']</li></td>
+<td><ul><li>MEMO_CODE = 'False' if TRANSACTION_TYPE_IDENTIFIER equals CONDUIT_EARMARK_RECEIPT_DEPOSITED</li><li>MEMO_CODE = 'True' if TRANSACTION_TYPE_IDENTIFIER equals CONDUIT_EARMARK_RECEIPT_UNDEPOSITED</li><li>REQUIRED</li><li>type: boolean</li></td>
 </tr>
 <tr>
 <td>MEMO TEXT/DESCRIPTION</td>

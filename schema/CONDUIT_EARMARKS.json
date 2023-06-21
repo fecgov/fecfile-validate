@@ -21,7 +21,8 @@
         "contribution_amount",
         "contribution_purpose_descrip",
         "donor_committee_fec_id",
-        "donor_committee_name"
+        "donor_committee_name",
+        "memo_code"
     ],
     "fec_recommended": [],
     "properties": {
@@ -169,7 +170,7 @@
             }
         },
         "contributor_last_name": {
-            "title": "LAST NAME",
+            "title": "CONTRIBUTOR LAST NAME",
             "description": "",
             "type": "string",
             "minLength": 0,
@@ -180,7 +181,7 @@
             ],
             "fec_spec": {
                 "COL_SEQ": 2,
-                "FIELD_DESCRIPTION": "LAST NAME",
+                "FIELD_DESCRIPTION": "CONTRIBUTOR LAST NAME",
                 "TYPE": "A/N-30",
                 "REQUIRED": "X (error)",
                 "AUTO_POPULATE": null,
@@ -191,7 +192,7 @@
             }
         },
         "contributor_first_name": {
-            "title": "FIRST NAME",
+            "title": "CONTRIBUTOR FIRST NAME",
             "description": "",
             "type": "string",
             "minLength": 0,
@@ -202,7 +203,7 @@
             ],
             "fec_spec": {
                 "COL_SEQ": 3,
-                "FIELD_DESCRIPTION": "FIRST NAME",
+                "FIELD_DESCRIPTION": "CONTRIBUTOR FIRST NAME",
                 "TYPE": "A/N-20",
                 "REQUIRED": "X (error)",
                 "AUTO_POPULATE": null,
@@ -213,7 +214,7 @@
             }
         },
         "contributor_middle_name": {
-            "title": "MIDDLE NAME",
+            "title": "CONTRIBUTOR MIDDLE NAME",
             "description": "",
             "type": [
                 "string",
@@ -227,7 +228,7 @@
             ],
             "fec_spec": {
                 "COL_SEQ": 4,
-                "FIELD_DESCRIPTION": "MIDDLE NAME",
+                "FIELD_DESCRIPTION": "CONTRIBUTOR MIDDLE NAME",
                 "TYPE": "A/N-20",
                 "REQUIRED": null,
                 "AUTO_POPULATE": null,
@@ -238,7 +239,7 @@
             }
         },
         "contributor_prefix": {
-            "title": "PREFIX",
+            "title": "CONTRIBUTOR PREFIX",
             "description": "",
             "type": [
                 "string",
@@ -252,7 +253,7 @@
             ],
             "fec_spec": {
                 "COL_SEQ": 5,
-                "FIELD_DESCRIPTION": "PREFIX",
+                "FIELD_DESCRIPTION": "CONTRIBUTOR PREFIX",
                 "TYPE": "A/N-10",
                 "REQUIRED": null,
                 "AUTO_POPULATE": null,
@@ -263,7 +264,7 @@
             }
         },
         "contributor_suffix": {
-            "title": "SUFFIX",
+            "title": "CONTRIBUTOR SUFFIX",
             "description": "",
             "type": [
                 "string",
@@ -277,7 +278,7 @@
             ],
             "fec_spec": {
                 "COL_SEQ": 6,
-                "FIELD_DESCRIPTION": "SUFFIX",
+                "FIELD_DESCRIPTION": "CONTRIBUTOR SUFFIX",
                 "TYPE": "A/N-10",
                 "REQUIRED": null,
                 "AUTO_POPULATE": null,
@@ -491,10 +492,7 @@
         "memo_code": {
             "title": "MEMO CODE",
             "description": "",
-            "type": [
-                "boolean",
-                "null"
-            ],
+            "type": "boolean",
             "fec_spec": {
                 "FIELD_DESCRIPTION": "MEMO CODE",
                 "TYPE": "A/N-1",
@@ -591,10 +589,7 @@
                     "memo_code": {
                         "const": true
                     }
-                },
-                "required": [
-                    "memo_code"
-                ]
+                }
             }
         }
     ]

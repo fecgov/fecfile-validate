@@ -28,8 +28,7 @@
         "beneficiary_candidate_first_name",
         "beneficiary_candidate_last_name",
         "beneficiary_candidate_office",
-        "beneficiary_candidate_state",
-        "beneficiary_candidate_district"
+        "memo_code"
     ],
     "fec_recommended": [],
     "properties": {
@@ -115,10 +114,7 @@
         "back_reference_tran_id_number": {
             "title": "BACK REFERENCE TRAN ID NUMBER",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
+            "type": "string",
             "minLength": 0,
             "maxLength": 20,
             "pattern": "^[ -~]{0,20}$",
@@ -138,10 +134,7 @@
         "back_reference_sched_name": {
             "title": "BACK REFERENCE SCHED NAME",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
+            "type": "string",
             "minLength": 0,
             "maxLength": 8,
             "pattern": "^[ -~]{0,8}$",
@@ -194,7 +187,7 @@
             }
         },
         "payee_street_1": {
-            "title": "payee STREET  1",
+            "title": "PAYEE STREET  1",
             "description": "",
             "type": "string",
             "minLength": 0,
@@ -204,7 +197,7 @@
                 "123 Main Street"
             ],
             "fec_spec": {
-                "FIELD_DESCRIPTION": "payee STREET  1",
+                "FIELD_DESCRIPTION": "PAYEE STREET  1",
                 "TYPE": "A/N-34",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "123 Main Street",
@@ -214,7 +207,7 @@
             }
         },
         "payee_street_2": {
-            "title": "payee STREET  2",
+            "title": "PAYEE STREET  2",
             "description": "",
             "type": [
                 "string",
@@ -224,7 +217,7 @@
             "maxLength": 34,
             "pattern": "^[ -~]{0,34}$",
             "fec_spec": {
-                "FIELD_DESCRIPTION": "payee STREET  2",
+                "FIELD_DESCRIPTION": "PAYEE STREET  2",
                 "TYPE": "A/N-34",
                 "REQUIRED": null,
                 "SAMPLE_DATA": null,
@@ -234,7 +227,7 @@
             }
         },
         "payee_city": {
-            "title": "payee CITY",
+            "title": "PAYEE CITY",
             "description": "",
             "type": "string",
             "minLength": 0,
@@ -244,7 +237,7 @@
                 "Anytown"
             ],
             "fec_spec": {
-                "FIELD_DESCRIPTION": "payee CITY",
+                "FIELD_DESCRIPTION": "PAYEE CITY",
                 "TYPE": "A/N-30",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "Anytown",
@@ -254,7 +247,7 @@
             }
         },
         "payee_state": {
-            "title": "payee STATE",
+            "title": "PAYEE STATE",
             "description": "",
             "type": "string",
             "minLength": 0,
@@ -264,7 +257,7 @@
                 "WA"
             ],
             "fec_spec": {
-                "FIELD_DESCRIPTION": "payee STATE",
+                "FIELD_DESCRIPTION": "PAYEE STATE",
                 "TYPE": "A/N-2",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "WA",
@@ -274,7 +267,7 @@
             }
         },
         "payee_zip": {
-            "title": "payee ZIP",
+            "title": "PAYEE ZIP",
             "description": "",
             "type": "string",
             "minLength": 0,
@@ -284,7 +277,7 @@
                 981110123
             ],
             "fec_spec": {
-                "FIELD_DESCRIPTION": "payee ZIP",
+                "FIELD_DESCRIPTION": "PAYEE ZIP",
                 "TYPE": "A/N-9",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": 981110123,
@@ -334,7 +327,7 @@
             }
         },
         "expenditure_date": {
-            "title": "expenditure DATE",
+            "title": "EXPENDITURE DATE",
             "description": "",
             "type": "string",
             "minLength": 10,
@@ -343,7 +336,7 @@
                 "2018-11-13"
             ],
             "fec_spec": {
-                "FIELD_DESCRIPTION": "expenditure DATE",
+                "FIELD_DESCRIPTION": "EXPENDITURE DATE",
                 "TYPE": "NUM-8",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": 20120615,
@@ -353,7 +346,7 @@
             }
         },
         "expenditure_amount": {
-            "title": "expenditure AMOUNT",
+            "title": "EXPENDITURE AMOUNT",
             "description": "",
             "type": "number",
             "minimum": -99999999.99,
@@ -362,7 +355,7 @@
                 250
             ],
             "fec_spec": {
-                "FIELD_DESCRIPTION": "expenditure AMOUNT",
+                "FIELD_DESCRIPTION": "EXPENDITURE AMOUNT",
                 "TYPE": "AMT-12",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": 250,
@@ -372,13 +365,13 @@
             }
         },
         "expenditure_purpose_descrip": {
-            "title": "expenditure PURPOSE DESCRIPTION",
+            "title": "EXPENDITURE PURPOSE DESCRIPTION",
             "description": "",
             "type": "string",
             "minLength": 0,
             "maxLength": 100,
             "fec_spec": {
-                "FIELD_DESCRIPTION": "expenditure PURPOSE DESCRIPTION",
+                "FIELD_DESCRIPTION": "EXPENDITURE PURPOSE DESCRIPTION",
                 "TYPE": "A/N-100",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": null,
@@ -464,10 +457,7 @@
         "beneficiary_candidate_last_name": {
             "title": "BENEFICIARY CANDIDATE LAST NAME",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
+            "type": "string",
             "minLength": 0,
             "maxLength": 30,
             "pattern": "^[ -~]{0,30}$",
@@ -485,10 +475,7 @@
         "beneficiary_candidate_first_name": {
             "title": "BENEFICIARY CANDIDATE FIRST NAME",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
+            "type": "string",
             "minLength": 0,
             "maxLength": 20,
             "pattern": "^[ -~]{0,20}$",
@@ -569,10 +556,7 @@
         "beneficiary_candidate_office": {
             "title": "BENEFICIARY CANDIDATE OFFICE",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
+            "type": "string",
             "minLength": 0,
             "maxLength": 1,
             "pattern": "^[ -~]{0,1}$",
@@ -641,10 +625,7 @@
         "memo_code": {
             "title": "MEMO CODE",
             "description": "",
-            "type": [
-                "boolean",
-                "null"
-            ],
+            "type": "boolean",
             "fec_spec": {
                 "FIELD_DESCRIPTION": "MEMO CODE",
                 "TYPE": "A/N-1",
@@ -677,47 +658,6 @@
         }
     },
     "allOf": [
-        {
-            "if": {
-                "properties": {
-                    "transaction_type_identifier": {
-                        "const": "CONDUIT_EARMARK_RECEIPT_DEPOSITED"
-                    }
-                },
-                "required": [
-                    "transaction_type_identifier"
-                ]
-            },
-            "then": {
-                "properties": {
-                    "memo_code": {
-                        "const": false
-                    }
-                }
-            }
-        },
-        {
-            "if": {
-                "properties": {
-                    "transaction_type_identifier": {
-                        "const": "CONDUIT_EARMARK_RECEIPT_UNDEPOSITED"
-                    }
-                },
-                "required": [
-                    "transaction_type_identifier"
-                ]
-            },
-            "then": {
-                "properties": {
-                    "memo_code": {
-                        "const": true
-                    }
-                },
-                "required": [
-                    "memo_code"
-                ]
-            }
-        },
         {
             "if": {
                 "properties": {
@@ -782,6 +722,54 @@
                 ],
                 "properties": {
                     "election_other_description": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "beneficiary_candidate_office": {
+                        "const": "H"
+                    }
+                },
+                "required": [
+                    "beneficiary_candidate_office"
+                ]
+            },
+            "then": {
+                "required": [
+                    "beneficiary_candidate_state",
+                    "beneficiary_candidate_district"
+                ],
+                "properties": {
+                    "beneficiary_candidate_state": {
+                        "type": "string"
+                    },
+                    "beneficiary_candidate_district": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "beneficiary_candidate_office": {
+                        "const": "S"
+                    }
+                },
+                "required": [
+                    "beneficiary_candidate_office"
+                ]
+            },
+            "then": {
+                "required": [
+                    "beneficiary_candidate_state"
+                ],
+                "properties": {
+                    "beneficiary_candidate_state": {
                         "type": "string"
                     }
                 }
