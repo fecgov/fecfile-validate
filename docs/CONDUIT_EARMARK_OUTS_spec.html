@@ -298,7 +298,7 @@ both Last & First names required.</td>
 <td>AK,AL,...</td>
 <td></td>
 <td>F3 | F3X | F3P | F3L</td>
-<td><ul><li>REQUIRED if BENEFICIARY_CANDIDATE_OFFICE equals H</li><li>REQUIRED if BENEFICIARY_CANDIDATE_OFFICE equals S</li><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 2</li><li>regex: ^[ -~]{0,2}$</li></td>
+<td><ul><li>REQUIRED if BENEFICIARY_CANDIDATE_OFFICE equals H</li><li>REQUIRED if BENEFICIARY_CANDIDATE_OFFICE equals S</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 2</li><li>regex: ^[ -~]{0,2}$</li></td>
 </tr>
 <tr>
 <td>BENEFICIARY CANDIDATE DISTRICT</td>
@@ -318,7 +318,7 @@ both Last & First names required.</td>
 <td>X</td>
 <td>Auto-Pull from parent transaction If Transaction Type is (CONDUIT_EARMARK_RECEIPT_DEPOSITED or PAC_CONDUIT_EARMARK_RECEIPT_DEPOSITED), this is required to be unchecked. If Transaction Type is (CONDUIT_EARMARK_RECEIPT_UNDEPOSITED or PAC_CONDUIT_EARMARK_RECEIPT_UNDEPOSITED), this is required to be checked.</td>
 <td></td>
-<td><ul><li>REQUIRED if TRANSACTION_TYPE_IDENTIFIER one of ['CONDUIT_EARMARK_OUT_DEPOSITED', 'PAC_CONDUIT_EARMARK_OUT_DEPOSITED']</li><li>MEMO_CODE = 'True' if TRANSACTION_TYPE_IDENTIFIER one of ['CONDUIT_EARMARK_OUT_DEPOSITED', 'PAC_CONDUIT_EARMARK_OUT_DEPOSITED']</li><li>REQUIRED if TRANSACTION_TYPE_IDENTIFIER one of ['CONDUIT_EARMARK_OUT_UNDEPOSITED', 'PAC_CONDUIT_EARMARK_OUT_UNDEPOSITED']</li><li>MEMO_CODE = 'False' if TRANSACTION_TYPE_IDENTIFIER one of ['CONDUIT_EARMARK_OUT_UNDEPOSITED', 'PAC_CONDUIT_EARMARK_OUT_UNDEPOSITED']</li><li>REQUIRED</li><li>type: boolean</li></td>
+<td><ul><li>REQUIRED if TRANSACTION_TYPE_IDENTIFIER one of ['CONDUIT_EARMARK_OUT_DEPOSITED', 'PAC_CONDUIT_EARMARK_OUT_DEPOSITED']</li><li>MEMO_CODE = 'False' if TRANSACTION_TYPE_IDENTIFIER one of ['CONDUIT_EARMARK_OUT_DEPOSITED', 'PAC_CONDUIT_EARMARK_OUT_DEPOSITED']</li><li>REQUIRED if TRANSACTION_TYPE_IDENTIFIER one of ['CONDUIT_EARMARK_OUT_UNDEPOSITED', 'PAC_CONDUIT_EARMARK_OUT_UNDEPOSITED']</li><li>MEMO_CODE = 'True' if TRANSACTION_TYPE_IDENTIFIER one of ['CONDUIT_EARMARK_OUT_UNDEPOSITED', 'PAC_CONDUIT_EARMARK_OUT_UNDEPOSITED']</li><li>REQUIRED</li><li>type: boolean</li></td>
 </tr>
 <tr>
 <td>MEMO TEXT/DESCRIPTION</td>

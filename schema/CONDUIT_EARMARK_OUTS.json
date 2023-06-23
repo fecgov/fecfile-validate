@@ -28,7 +28,6 @@
         "beneficiary_candidate_first_name",
         "beneficiary_candidate_last_name",
         "beneficiary_candidate_office",
-        "beneficiary_candidate_state",
         "memo_code"
     ],
     "fec_recommended": [],
@@ -384,8 +383,25 @@
         "category_code": {
             "title": "CATEGORY CODE",
             "description": "",
-            "type": ["string", "null"],
-            "enum": ["001", "002", "003", "004", "005", "006", "007", "008", "009", "010", "011", "012", null],
+            "type": [
+                "string",
+                "null"
+            ],
+            "enum": [
+                "001",
+                "002",
+                "003",
+                "004",
+                "005",
+                "006",
+                "007",
+                "008",
+                "009",
+                "010",
+                "011",
+                "012",
+                null
+            ],
             "examples": [
                 1
             ],
@@ -578,7 +594,10 @@
         "beneficiary_candidate_state": {
             "title": "BENEFICIARY CANDIDATE STATE",
             "description": "",
-            "type": "string",
+            "type": [
+                "string",
+                "null"
+            ],
             "minLength": 0,
             "maxLength": 2,
             "pattern": "^[ -~]{0,2}$",
