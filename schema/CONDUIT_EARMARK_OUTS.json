@@ -183,7 +183,7 @@
                 "TYPE": "A/N-200",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "John Smith & Co.",
-                "RULE_REFERENCE": "Auto-generated from associated Schedule A IN_KIND receipt"
+                "RULE_REFERENCE": ""
             }
         },
         "payee_street_1": {
@@ -322,7 +322,7 @@
                 "REQUIRED": "X (conditional error)",
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Req if Item Election Code = R, S, C, E",
+                "RULE_REFERENCE": "Req if Item Election Code = O",
                 "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P"
             }
         },
@@ -376,7 +376,7 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "If Transaction type is (CONDUIT_EARMARK_OUT_DEPOSITED or CONDUIT_EARMARK_OUT_UNDEPOSITED) then Earmark from XX (Individual), where XX is Individual First Name Last Name from the parent Conduit Earmark Receipt on Schedule A; If Transaction type is (PAC_CONDUIT_EARMARK_OUT_DEPOSITED or PAC_CONDUIT_EARMARK_OUT_UNDEPOSITED) then Earmark from XX (Committee), where XX is Committee Name from the parent PAC Conduit Earmark Receipt on Schedule A",
+                "RULE_REFERENCE": "If Transaction type is (CONDUIT_EARMARK_OUT_DEPOSITED or CONDUIT_EARMARK_OUT_UNDEPOSITED) then\"Earmark from XX (Individual)\", where \"XX\" is Individual First Name Last Name from the parent Conduit Earmark Receipt on Schedule A; If Transaction type is (PAC_CONDUIT_EARMARK_OUT_DEPOSITED or PAC_CONDUIT_EARMARK_OUT_UNDEPOSITED) then \"Earmark from XX (Committee)\", where \"XX\" is Committee Name from the parent PAC Conduit Earmark Receipt on Schedule A",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -412,7 +412,7 @@
                 "FIELD_DESCRIPTION": "BENEFICIARY COMMITTEE FEC ID",
                 "TYPE": "A/N-9",
                 "REQUIRED": "X (error)",
-                "RULE_REFERENCE": "Auto-generated from associated Schedule A IN_KIND receipt",
+                "RULE_REFERENCE": "Must match Payee",
                 "NOTE": "Pull from PAYEE Entity Name/ID."
             }
         },
@@ -430,7 +430,7 @@
                 "FIELD_DESCRIPTION": "BENEFICIARY COMMITTEE NAME",
                 "TYPE": "A/N-200",
                 "REQUIRED": "X (error)",
-                "RULE_REFERENCE": "Auto-generated from associated Schedule A IN_KIND receipt",
+                "RULE_REFERENCE": "Must match Payee Org Name",
                 "NOTE": "Pull from PAYEE Entity Name/ID."
             }
         },
@@ -632,7 +632,7 @@
                 "REQUIRED": "X (conditional error)",
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": "X",
-                "RULE_REFERENCE": "X = True",
+                "RULE_REFERENCE": "Auto-Pull from parent transaction If Transaction Type is (CONDUIT_EARMARK_RECEIPT_DEPOSITED or PAC_CONDUIT_EARMARK_RECEIPT_DEPOSITED), this is required to be unchecked. If Transaction Type is (CONDUIT_EARMARK_RECEIPT_UNDEPOSITED or PAC_CONDUIT_EARMARK_RECEIPT_UNDEPOSITED), this is required to be checked."
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -771,6 +771,56 @@
                 "properties": {
                     "beneficiary_candidate_state": {
                         "type": "string"
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "transaction_type_identifier": {
+                        "enum": [
+                            "CONDUIT_EARMARK_OUT_DEPOSITED",
+                            "PAC_CONDUIT_EARMARK_OUT_DEPOSITED"
+                        ]
+                    }
+                },
+                "required": [
+                    "transaction_type_identifier"
+                ]
+            },
+            "then": {
+                "required": [
+                    "memo_code"
+                ],
+                "properties": {
+                    "memo_code": {
+                        "const": true
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "transaction_type_identifier": {
+                        "enum": [
+                            "CONDUIT_EARMARK_OUT_UNDEPOSITED",
+                            "PAC_CONDUIT_EARMARK_OUT_UNDEPOSITED"
+                        ]
+                    }
+                },
+                "required": [
+                    "transaction_type_identifier"
+                ]
+            },
+            "then": {
+                "required": [
+                    "memo_code"
+                ],
+                "properties": {
+                    "memo_code": {
+                        "const": false
                     }
                 }
             }
