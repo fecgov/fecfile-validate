@@ -632,7 +632,7 @@
                 "REQUIRED": "X (conditional error)",
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": "X",
-                "RULE_REFERENCE": "Auto-Pull from parent transaction If Transaction Type is (CONDUIT_EARMARK_RECEIPT_DEPOSITED or PAC_CONDUIT_EARMARK_RECEIPT_DEPOSITED), this is required to be unchecked. If Transaction Type is (CONDUIT_EARMARK_RECEIPT_UNDEPOSITED or PAC_CONDUIT_EARMARK_RECEIPT_UNDEPOSITED), this is required to be checked."
+                "RULE_REFERENCE": "Auto-Pull from parent transaction If Transaction Type is (CONDUIT_EARMARK_RECEIPT_DEPOSITED or PAC_CONDUIT_EARMARK_RECEIPT_DEPOSITED), this is required to be unchecked. If Transaction Type is (CONDUIT_EARMARK_RECEIPT_UNDEPOSITED or PAC_CONDUIT_EARMARK_RECEIPT_UNDEPOSITED), this is required to be checked.",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
