@@ -28,7 +28,6 @@
         "beneficiary_candidate_first_name",
         "beneficiary_candidate_last_name",
         "beneficiary_candidate_office",
-        "beneficiary_candidate_district",
         "beneficiary_candidate_state",
         "memo_code"
     ],
@@ -600,7 +599,10 @@
         "beneficiary_candidate_district": {
             "title": "BENEFICIARY CANDIDATE DISTRICT",
             "description": "",
-            "type": "string",
+            "type": [
+                "string",
+                "null"
+            ],
             "minLength": 2,
             "maxLength": 2,
             "pattern": "^\\d{2}$",
@@ -611,7 +613,7 @@
                 "COL_SEQ": 35,
                 "FIELD_DESCRIPTION": "BENEFICIARY CANDIDATE DISTRICT",
                 "TYPE": "NUM-2",
-                "REQUIRED": "X (error)",
+                "REQUIRED": "X (conditional error)",
                 "SAMPLE_DATA": 35,
                 "VALUE_REFERENCE": "01 ... 99",
                 "RULE_REFERENCE": null,
