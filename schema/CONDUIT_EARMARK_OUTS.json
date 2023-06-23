@@ -28,6 +28,8 @@
         "beneficiary_candidate_first_name",
         "beneficiary_candidate_last_name",
         "beneficiary_candidate_office",
+        "beneficiary_candidate_district",
+        "beneficiary_candidate_state",
         "memo_code"
     ],
     "fec_recommended": [],
@@ -577,10 +579,7 @@
         "beneficiary_candidate_state": {
             "title": "BENEFICIARY CANDIDATE STATE",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
+            "type": "string",
             "minLength": 0,
             "maxLength": 2,
             "pattern": "^[ -~]{0,2}$",
@@ -601,10 +600,7 @@
         "beneficiary_candidate_district": {
             "title": "BENEFICIARY CANDIDATE DISTRICT",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
+            "type": "string",
             "minLength": 2,
             "maxLength": 2,
             "pattern": "^\\d{2}$",
