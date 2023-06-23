@@ -793,7 +793,7 @@
                 ],
                 "properties": {
                     "memo_code": {
-                        "const": true
+                        "const": false
                     }
                 }
             }
@@ -818,7 +818,7 @@
                 ],
                 "properties": {
                     "memo_code": {
-                        "const": false
+                        "const": true
                     }
                 }
             }
