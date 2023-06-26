@@ -180,7 +180,7 @@
                 "FIELD_DESCRIPTION": "PAYEE ORGANIZATION NAME",
                 "TYPE": "A/N-200",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "John Smith & Co.",
+                "SAMPLE_DATA": "John Smith & Co."
             }
         },
         "payee_street_1": {
