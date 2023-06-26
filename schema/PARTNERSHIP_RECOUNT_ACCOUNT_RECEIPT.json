@@ -361,7 +361,7 @@
             "description": "",
             "type": "string",
             "enum": [
-                "Recount Account (Partnership attributions do not require itemization)",
+                "Recount Account (Partnership attributions do not meet itemization threshold)",
                 "Recount Account (See Partnership Attribution(s) below)"
             ],
             "fec_spec": {

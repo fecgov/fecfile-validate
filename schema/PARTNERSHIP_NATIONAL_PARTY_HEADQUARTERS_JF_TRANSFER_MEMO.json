@@ -358,14 +358,14 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 100,
-            "pattern": "^(Headquarters Buildings Account JF Memo: [ -~]{0,6} \\(Partnership attributions do not require itemization\\)|Headquarters Buildings Account JF Memo: [ -~]{0,21} \\(See Partnership Attribution\\(s\\) below\\))$",
+            "pattern": "^(Headquarters Buildings Account JF Memo: [ -~]{0,60}|Headquarters Buildings Account JF Memo: [ -~]{0,21} \\(See Partnership Attribution\\(s\\) below\\))$",
             "fec_spec": {
                 "FIELD_DESCRIPTION": "CONTRIBUTION PURPOSE DESCRIPTION",
                 "TYPE": "A/N-100",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "Recount/Legal Proceedings Account Headquarters Buildings Account JF Memo: XX",
                 "VALUE_REFERENCE": "Recount/Legal Proceedings Account Headquarters Buildings Account JF Memo: XX",
-                "RULE_REFERENCE": "If transaction has no associated Partnership memos, reads 'Headquarters Buildings Account JF Memo: XX (Partnership attributions do not require itemization)'. If transaction has associated Partnership memos, reads 'Headquarters Buildings Account JF Memo: XX (See Partnership Attribution(s) below)' and XX is auto-populated with name of committee entered in parent transaction JF_TRAN COL SEQ 8.",
+                "RULE_REFERENCE": "If transaction has no associated Partnership memos, reads 'Headquarters Buildings Account JF Memo: XX (Partnership attributions do not meet itemization threshold)'. If transaction has associated Partnership memos, reads 'Headquarters Buildings Account JF Memo: XX (See Partnership Attribution(s) below)' and XX is auto-populated with name of committee entered in parent transaction JF_TRAN COL SEQ 8.",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
