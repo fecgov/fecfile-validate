@@ -16,7 +16,6 @@
         "contributor_city",
         "contributor_state",
         "contributor_zip",
-        "election_code",
         "contribution_date",
         "contribution_amount",
         "contribution_aggregate",
@@ -283,46 +282,6 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "election_code": {
-            "title": "ELECTION CODE",
-            "description": "",
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 5,
-            "pattern": "^[GPRSCEO]\\d{4}$",
-            "examples": [
-                "P2012"
-            ],
-            "fec_spec": {
-                "FIELD_DESCRIPTION": "ELECTION CODE",
-                "TYPE": "A/N-5",
-                "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "P2012",
-                "VALUE_REFERENCE": "G,P,O[YYYY]",
-                "RULE_REFERENCE": "Values: [G|P|R|S|C|E|O]+Year{YYYY}",
-                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P"
-            }
-        },
-        "election_other_description": {
-            "title": "ELECTION OTHER DESCRIPTION",
-            "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
-            "minLength": 0,
-            "maxLength": 20,
-            "pattern": "^[ -~]{0,20}$",
-            "fec_spec": {
-                "FIELD_DESCRIPTION": "ELECTION OTHER DESCRIPTION",
-                "TYPE": "A/N-20",
-                "REQUIRED": "X (conditional error)",
-                "SAMPLE_DATA": null,
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Req if Item Election Code = R, S, C, E",
-                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P"
-            }
-        },
         "contribution_date": {
             "title": "CONTRIBUTION DATE",
             "description": "",
@@ -491,30 +450,5 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         }
-    },
-    "allOf": [
-        {
-            "if": {
-                "properties": {
-                    "election_code": {
-                        "pattern": "^O\\d{4}$",
-                        "type": "string"
-                    }
-                },
-                "required": [
-                    "election_code"
-                ]
-            },
-            "then": {
-                "required": [
-                    "election_other_description"
-                ],
-                "properties": {
-                    "election_other_description": {
-                        "type": "string"
-                    }
-                }
-            }
-        }
-    ]
+    }
 }
