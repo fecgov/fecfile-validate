@@ -1,17 +1,15 @@
 {
     "$schema": "https://json-schema.org/draft-07/schema#",
-    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/CONDUIT_EARMARK_OUTS.json",
+    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/CANDIDATE_CONTRIBUTIONS.json",
     "version": "v0.0.0.0",
-    "title": "FEC Conduit Earmark Outs",
-    "description": "Conduit Earmark Out (Deposited), Conduit Earmark Out (Undeposited), PAC Conduit Earmark Out (Deposited), PAC Conduit Earmark Out (Undeposited) (Line 23)",
+    "title": "FEC Contribution to Candidate, Void of Contribution to Candidate",
+    "description": "Contribution to Candidate (Line 23), Void of Contribution to Candidate (Line 23)",
     "type": "object",
     "required": [
         "form_type",
         "filer_committee_id_number",
         "transaction_type_identifier",
         "transaction_id",
-        "back_reference_tran_id_number",
-        "back_reference_sched_name",
         "entity_type",
         "payee_organization_name",
         "payee_street_1",
@@ -21,15 +19,14 @@
         "election_code",
         "expenditure_date",
         "expenditure_amount",
-        "expenditure_purpose_descrip",
         "beneficiary_committee_fec_id",
         "beneficiary_committee_name",
         "beneficiary_candidate_fec_id",
-        "beneficiary_candidate_first_name",
         "beneficiary_candidate_last_name",
-        "beneficiary_candidate_office",
-        "memo_code"
+        "beneficiary_candidate_first_name",
+        "beneficiary_candidate_office"
     ],
+    "fec_recommended": [],
     "properties": {
         "form_type": {
             "title": "FORM TYPE",
@@ -64,7 +61,7 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "C00123456",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "this is the ID of the Committee Account the report/transaction is associated with",
+                "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -72,21 +69,19 @@
             "title": "TRANSACTION TYPE IDENTIFIER",
             "description": "",
             "enum": [
-                "CONDUIT_EARMARK_OUT_DEPOSITED",
-                "CONDUIT_EARMARK_OUT_UNDEPOSITED",
-                "PAC_CONDUIT_EARMARK_OUT_DEPOSITED",
-                "PAC_CONDUIT_EARMARK_OUT_UNDEPOSITED"
+                "CONTRIBUTION_TO_CANDIDATE",
+                "CONTRIBUTION_TO_CANDIDATE_VOID"
             ],
             "examples": [
-                "CONDUIT_EARMARK_RECEIPT_DEPOSITED"
+                "CANDIDATE_CONTRIBUTIONS"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "TRANSACTION TYPE IDENTIFIER",
-                "TYPE": "A/N-12",
+                "TYPE": null,
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": null,
-                "VALUE_REFERENCE": "CONDUIT_EARMARK_RECEIPT_DEPOSITED, CONDUIT_EARMARK_RECEIPT_UNDEPOSITED",
-                "RULE_REFERENCE": "CONDUIT_EARMARK_RECEIPT_DEPOSITED, CONDUIT_EARMARK_RECEIPT_UNDEPOSITED",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "CANDIDATE_CONTRIBUTIONS, CONTRIBUTION_TO_CANDIDATE",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -113,27 +108,33 @@
         "back_reference_tran_id_number": {
             "title": "BACK REFERENCE TRAN ID NUMBER",
             "description": "",
-            "type": "string",
+            "type": [
+                "string",
+                "null"
+            ],
             "minLength": 0,
             "maxLength": 20,
             "pattern": "^[ -~]{0,20}$",
             "examples": [
-                "B123456789-1234"
+                "A123456789-1234"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "BACK REFERENCE TRAN ID NUMBER",
                 "TYPE": "A/N-20",
-                "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "B123456789-1234",
+                "REQUIRED": null,
+                "SAMPLE_DATA": "A123456789-1234",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Reference to the Tran ID of a Related Record",
+                "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
         "back_reference_sched_name": {
             "title": "BACK REFERENCE SCHED NAME",
             "description": "",
-            "type": "string",
+            "type": [
+                "string",
+                "null"
+            ],
             "minLength": 0,
             "maxLength": 8,
             "pattern": "^[ -~]{0,8}$",
@@ -143,10 +144,10 @@
             "fec_spec": {
                 "FIELD_DESCRIPTION": "BACK REFERENCE SCHED NAME",
                 "TYPE": "A/N-8",
-                "REQUIRED": "X (error)",
+                "REQUIRED": null,
                 "SAMPLE_DATA": "SB23",
-                "VALUE_REFERENCE": "SB[line# ref]",
-                "RULE_REFERENCE": "Ref to the Schedule that has the Related Record.  SA3L must be used \nwith the F3L",
+                "VALUE_REFERENCE": "SA[line# ref]",
+                "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -162,7 +163,8 @@
                 "TYPE": "A/N-3",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "COM",
-                "RULE_REFERENCE": "COM only",
+                "VALUE_REFERENCE": "COM",
+                "RULE_REFERENCE": "COM Only",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -177,10 +179,13 @@
                 "John Smith & Co."
             ],
             "fec_spec": {
-                "FIELD_DESCRIPTION": "PAYEE ORGANIZATION NAME",
+                "FIELD_DESCRIPTION": "PAYEE ORGANIZATION",
                 "TYPE": "A/N-200",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "John Smith & Co.",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
             }
         },
         "payee_street_1": {
@@ -298,7 +303,7 @@
                 "TYPE": "A/N-5",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "P2012",
-                "VALUE_REFERENCE": "G,P[YYYY]",
+                "VALUE_REFERENCE": "G,P,O[YYYY]",
                 "RULE_REFERENCE": "Values: [G|P|R|S|C|E|O]+Year{YYYY}",
                 "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P"
             }
@@ -357,48 +362,35 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": 250,
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "This should automatically pull from the parent on Schedule A.",
+                "RULE_REFERENCE": "If Transaction Type is CONTRIBUTION_TO_CANDIDATE_VOID then this is Required to be a negative value",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
         "expenditure_purpose_descrip": {
             "title": "EXPENDITURE PURPOSE DESCRIPTION",
             "description": "",
-            "type": "string",
+            "type": [
+                "string",
+                "null"
+            ],
             "minLength": 0,
             "maxLength": 100,
+            "pattern": "^[ -~]{0,100}$",
             "fec_spec": {
                 "FIELD_DESCRIPTION": "EXPENDITURE PURPOSE DESCRIPTION",
                 "TYPE": "A/N-100",
-                "REQUIRED": "X (error)",
+                "REQUIRED": "X (conditional error)",
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "If Transaction type is (CONDUIT_EARMARK_OUT_DEPOSITED or CONDUIT_EARMARK_OUT_UNDEPOSITED) then\"Earmark from XX (Individual)\", where \"XX\" is Individual First Name Last Name from the parent Conduit Earmark Receipt on Schedule A; If Transaction type is (PAC_CONDUIT_EARMARK_OUT_DEPOSITED or PAC_CONDUIT_EARMARK_OUT_UNDEPOSITED) then \"Earmark from XX (Committee)\", where \"XX\" is Committee Name from the parent PAC Conduit Earmark Receipt on Schedule A",
+                "RULE_REFERENCE": "Required if Transaction Type is CONTRIBUTION_TO_CANDIDATE_VOID",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
         "category_code": {
             "title": "CATEGORY CODE",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
-            "enum": [
-                "001",
-                "002",
-                "003",
-                "004",
-                "005",
-                "006",
-                "007",
-                "008",
-                "009",
-                "010",
-                "011",
-                "012",
-                null
-            ],
+            "type": ["string", "null"],
+            "enum": ["001", "002", "003", "004", "005", "006", "007", "008", "009", "010", "011", "012", null],
             "examples": [
                 1
             ],
@@ -416,18 +408,17 @@
             "title": "BENEFICIARY COMMITTEE FEC ID",
             "description": "",
             "type": "string",
-            "minLength": 0,
+            "minLength": 9,
             "maxLength": 9,
             "pattern": "^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$",
-            "examples": [
-                "C00654323"
-            ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "BENEFICIARY COMMITTEE FEC ID",
                 "TYPE": "A/N-9",
                 "REQUIRED": "X (error)",
-                "RULE_REFERENCE": "Must match Payee",
-                "NOTE": "Pull from PAYEE Entity Name/ID."
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "Matches the PAYEE org ID",
+                "FIELD_FORM_ASSOCIATION": null
             }
         },
         "beneficiary_committee_name": {
@@ -438,14 +429,16 @@
             "maxLength": 200,
             "pattern": "^[ -~]{0,200}$",
             "examples": [
-                "John Smith & Co."
+                "Action PAC"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "BENEFICIARY COMMITTEE NAME",
                 "TYPE": "A/N-200",
                 "REQUIRED": "X (error)",
-                "RULE_REFERENCE": "Must match Payee Org Name",
-                "NOTE": "Pull from PAYEE Entity Name/ID."
+                "SAMPLE_DATA": "Action PAC",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "Matches the PAYEE org name",
+                "FIELD_FORM_ASSOCIATION": null
             }
         },
         "beneficiary_candidate_fec_id": {
@@ -464,6 +457,7 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "H98765431",
                 "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -475,13 +469,13 @@
             "maxLength": 30,
             "pattern": "^[ -~]{0,30}$",
             "fec_spec": {
-                "COL_SEQ": 28,
                 "FIELD_DESCRIPTION": "BENEFICIARY CANDIDATE LAST NAME",
                 "TYPE": "A/N-30",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
             }
         },
         "beneficiary_candidate_first_name": {
@@ -492,12 +486,13 @@
             "maxLength": 20,
             "pattern": "^[ -~]{0,20}$",
             "fec_spec": {
-                "COL_SEQ": 29,
                 "FIELD_DESCRIPTION": "BENEFICIARY CANDIDATE FIRST NAME",
                 "TYPE": "A/N-20",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": null,
-                "VALUE_REFERENCE": null
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
             }
         },
         "beneficiary_candidate_middle_name": {
@@ -511,14 +506,13 @@
             "maxLength": 20,
             "pattern": "^[ -~]{0,20}$",
             "fec_spec": {
-                "COL_SEQ": 30,
                 "FIELD_DESCRIPTION": "BENEFICIARY CANDIDATE MIDDLE NAME",
                 "TYPE": "A/N-20",
                 "REQUIRED": null,
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+                "FIELD_FORM_ASSOCIATION": null
             }
         },
         "beneficiary_candidate_prefix": {
@@ -532,14 +526,13 @@
             "maxLength": 10,
             "pattern": "^[ -~]{0,10}$",
             "fec_spec": {
-                "COL_SEQ": 31,
                 "FIELD_DESCRIPTION": "BENEFICIARY CANDIDATE PREFIX",
                 "TYPE": "A/N-10",
                 "REQUIRED": null,
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+                "FIELD_FORM_ASSOCIATION": null
             }
         },
         "beneficiary_candidate_suffix": {
@@ -553,35 +546,34 @@
             "maxLength": 10,
             "pattern": "^[ -~]{0,10}$",
             "fec_spec": {
-                "COL_SEQ": 32,
                 "FIELD_DESCRIPTION": "BENEFICIARY CANDIDATE SUFFIX",
                 "TYPE": "A/N-10",
                 "REQUIRED": null,
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+                "FIELD_FORM_ASSOCIATION": null
             }
         },
         "beneficiary_candidate_office": {
             "title": "BENEFICIARY CANDIDATE OFFICE",
             "description": "",
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 1,
-            "pattern": "^[ -~]{0,1}$",
+            "enum": [
+                "H",
+                "S",
+                "P"
+            ],
             "examples": [
                 "H"
             ],
             "fec_spec": {
-                "COL_SEQ": 33,
                 "FIELD_DESCRIPTION": "BENEFICIARY CANDIDATE OFFICE",
                 "TYPE": "A/N-1",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "H",
-                "VALUE_REFERENCE": "H,S,P",
+                "VALUE_REFERENCE": "[H|S|P]",
                 "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+                "FIELD_FORM_ASSOCIATION": null
             }
         },
         "beneficiary_candidate_state": {
@@ -591,21 +583,20 @@
                 "string",
                 "null"
             ],
-            "minLength": 0,
+            "minLength": 2,
             "maxLength": 2,
-            "pattern": "^[ -~]{0,2}$",
+            "pattern": "^[A-Z]{2}$",
             "examples": [
                 "FL"
             ],
             "fec_spec": {
-                "COL_SEQ": 34,
                 "FIELD_DESCRIPTION": "BENEFICIARY CANDIDATE STATE",
                 "TYPE": "A/N-2",
                 "REQUIRED": "X (conditional error)",
                 "SAMPLE_DATA": "FL",
                 "VALUE_REFERENCE": "AK,AL,...",
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+                "RULE_REFERENCE": "REQUIRED if CANDIDATE_OFFICE equals S, REQUIRED if CANDIDATE_OFFICE equals H",
+                "FIELD_FORM_ASSOCIATION": null
             }
         },
         "beneficiary_candidate_district": {
@@ -617,32 +608,34 @@
             ],
             "minLength": 2,
             "maxLength": 2,
-            "pattern": "^\\d{2}$",
+            "pattern": "^[0-9]{2}$",
             "examples": [
                 35
             ],
             "fec_spec": {
-                "COL_SEQ": 35,
                 "FIELD_DESCRIPTION": "BENEFICIARY CANDIDATE DISTRICT",
                 "TYPE": "NUM-2",
                 "REQUIRED": "X (conditional error)",
                 "SAMPLE_DATA": 35,
-                "VALUE_REFERENCE": "01 ... 99",
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+                "VALUE_REFERENCE": "01-99",
+                "RULE_REFERENCE": "REQUIRED if CANDIDATE_OFFICE equals H",
+                "FIELD_FORM_ASSOCIATION": null
             }
         },
         "memo_code": {
             "title": "MEMO CODE",
             "description": "",
-            "type": "boolean",
+            "type": [
+                "boolean",
+                "null"
+            ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "MEMO CODE",
                 "TYPE": "A/N-1",
-                "REQUIRED": "X (conditional error)",
+                "REQUIRED": null,
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": "X",
-                "RULE_REFERENCE": "Auto-Pull from parent transaction If Transaction Type is (CONDUIT_EARMARK_RECEIPT_DEPOSITED or PAC_CONDUIT_EARMARK_RECEIPT_DEPOSITED), this is required to be unchecked. If Transaction Type is (CONDUIT_EARMARK_RECEIPT_UNDEPOSITED or PAC_CONDUIT_EARMARK_RECEIPT_UNDEPOSITED), this is required to be checked.",
+                "RULE_REFERENCE": "X = True",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -671,52 +664,6 @@
         {
             "if": {
                 "properties": {
-                    "transaction_type_identifier": {
-                        "enum": [
-                            "CONDUIT_EARMARK_OUT_DEPOSITED",
-                            "CONDUIT_EARMARK_OUT_UNDEPOSITED"
-                        ]
-                    }
-                },
-                "required": [
-                    "transaction_type_identifier"
-                ]
-            },
-            "then": {
-                "properties": {
-                    "expenditure_purpose_descrip": {
-                        "pattern": "^Earmarked from [ -~]{0,72} \\(Individual\\)$",
-                        "type": "string"
-                    }
-                }
-            }
-        },
-        {
-            "if": {
-                "properties": {
-                    "transaction_type_identifier": {
-                        "enum": [
-                            "PAC_CONDUIT_EARMARK_OUT_DEPOSITED",
-                            "PAC_CONDUIT_EARMARK_OUT_UNDEPOSITED"
-                        ]
-                    }
-                },
-                "required": [
-                    "transaction_type_identifier"
-                ]
-            },
-            "then": {
-                "properties": {
-                    "expenditure_purpose_descrip": {
-                        "pattern": "^Earmarked from [ -~]{0,73} \\(Committee\\)$",
-                        "type": "string"
-                    }
-                }
-            }
-        },
-        {
-            "if": {
-                "properties": {
                     "election_code": {
                         "pattern": "^O\\d{4}$",
                         "type": "string"
@@ -732,6 +679,32 @@
                 ],
                 "properties": {
                     "election_other_description": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "transaction_type_identifier": {
+                        "const": "CONTRIBUTION_TO_CANDIDATE_VOID"
+                    }
+                },
+                "required": [
+                    "transaction_type_identifier"
+                ]
+            },
+            "then": {
+                "required": [
+                    "expenditure_purpose_descrip"
+                ],
+                "properties": {
+                    "expenditure_amount": {
+                        "exclusiveMaximum": 0,
+                        "type": "number"
+                    },
+                    "expenditure_purpose_descrip": {
                         "type": "string"
                     }
                 }
@@ -781,56 +754,6 @@
                 "properties": {
                     "beneficiary_candidate_state": {
                         "type": "string"
-                    }
-                }
-            }
-        },
-        {
-            "if": {
-                "properties": {
-                    "transaction_type_identifier": {
-                        "enum": [
-                            "CONDUIT_EARMARK_OUT_DEPOSITED",
-                            "PAC_CONDUIT_EARMARK_OUT_DEPOSITED"
-                        ]
-                    }
-                },
-                "required": [
-                    "transaction_type_identifier"
-                ]
-            },
-            "then": {
-                "required": [
-                    "memo_code"
-                ],
-                "properties": {
-                    "memo_code": {
-                        "const": false
-                    }
-                }
-            }
-        },
-        {
-            "if": {
-                "properties": {
-                    "transaction_type_identifier": {
-                        "enum": [
-                            "CONDUIT_EARMARK_OUT_UNDEPOSITED",
-                            "PAC_CONDUIT_EARMARK_OUT_UNDEPOSITED"
-                        ]
-                    }
-                },
-                "required": [
-                    "transaction_type_identifier"
-                ]
-            },
-            "then": {
-                "required": [
-                    "memo_code"
-                ],
-                "properties": {
-                    "memo_code": {
-                        "const": true
                     }
                 }
             }
