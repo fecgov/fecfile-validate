@@ -30,7 +30,6 @@
         "beneficiary_candidate_office",
         "memo_code"
     ],
-    "fec_recommended": [],
     "properties": {
         "form_type": {
             "title": "FORM TYPE",
@@ -119,13 +118,13 @@
             "maxLength": 20,
             "pattern": "^[ -~]{0,20}$",
             "examples": [
-                "A123456789-1234"
+                "B123456789-1234"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "BACK REFERENCE TRAN ID NUMBER",
                 "TYPE": "A/N-20",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "A123456789-1234",
+                "SAMPLE_DATA": "B123456789-1234",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": "Reference to the Tran ID of a Related Record",
                 "FIELD_FORM_ASSOCIATION": null
@@ -139,14 +138,14 @@
             "maxLength": 8,
             "pattern": "^[ -~]{0,8}$",
             "examples": [
-                "SA11AI"
+                "SB23"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "BACK REFERENCE SCHED NAME",
                 "TYPE": "A/N-8",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "SA11AI",
-                "VALUE_REFERENCE": "SA[line# ref]",
+                "SAMPLE_DATA": "SB23",
+                "VALUE_REFERENCE": "SB[line# ref]",
                 "RULE_REFERENCE": "Ref to the Schedule that has the Related Record.  SA3L must be used \nwith the F3L",
                 "FIELD_FORM_ASSOCIATION": null
             }
@@ -163,8 +162,7 @@
                 "TYPE": "A/N-3",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "COM",
-                "VALUE_REFERENCE": "COM Only",
-                "RULE_REFERENCE": null,
+                "RULE_REFERENCE": "COM only",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -182,8 +180,7 @@
                 "FIELD_DESCRIPTION": "PAYEE ORGANIZATION NAME",
                 "TYPE": "A/N-200",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "John Smith & Co.",
-                "RULE_REFERENCE": ""
+                "SAMPLE_DATA": "John Smith & Co."
             }
         },
         "payee_street_1": {
@@ -360,7 +357,7 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": 250,
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
+                "RULE_REFERENCE": "This should automatically pull from the parent on Schedule A.",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -467,7 +464,6 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "H98765431",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Used if CAN or CCM",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -485,7 +481,6 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Used if CAN or CCM",
                 "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
             }
         },
@@ -502,9 +497,7 @@
                 "TYPE": "A/N-20",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": null,
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "If either Last or First name coded;\nboth Last & First names required.",
-                "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+                "VALUE_REFERENCE": null
             }
         },
         "beneficiary_candidate_middle_name": {
@@ -608,7 +601,7 @@
                 "COL_SEQ": 34,
                 "FIELD_DESCRIPTION": "BENEFICIARY CANDIDATE STATE",
                 "TYPE": "A/N-2",
-                "REQUIRED": "X (error)",
+                "REQUIRED": "X (conditional error)",
                 "SAMPLE_DATA": "FL",
                 "VALUE_REFERENCE": "AK,AL,...",
                 "RULE_REFERENCE": null,
