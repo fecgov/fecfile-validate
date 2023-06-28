@@ -1,6 +1,6 @@
 {
     "$schema": "https://json-schema.org/draft-07/schema#",
-    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/PARTNERSHIP_NATIONAL_PARTY_MEMOS.json",
+    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/PARTNERSHIP_ATTRIBUTION_NATIONAL_PARTY_MEMOS.json",
     "version": "v0.0.0.0",
     "title": "FEC Partnership National Party Memos (17)",
     "description": "Partnership National Party Memos (17)",
@@ -70,20 +70,20 @@
             "description": "",
             "type": "string",
             "enum": [
-                "PARTNERSHIP_NATIONAL_PARTY_RECOUNT_ACCOUNT_MEMO",
-                "PARTNERSHIP_NATIONAL_PARTY_HEADQUARTERS_ACCOUNT_MEMO",
-                "PARTNERSHIP_NATIONAL_PARTY_CONVENTION_ACCOUNT_MEMO"
+                "PARTNERSHIP_ATTRIBUTION_NATIONAL_PARTY_RECOUNT_ACCOUNT_MEMO",
+                "PARTNERSHIP_ATTRIBUTION_NATIONAL_PARTY_HEADQUARTERS_ACCOUNT_MEMO",
+                "PARTNERSHIP_ATTRIBUTION_NATIONAL_PARTY_CONVENTION_ACCOUNT_MEMO"
             ],
             "examples": [
-                "PARTNERSHIP_NATIONAL_PARTY_RECOUNT_ACCOUNT_MEMO",
-                "PARTNERSHIP_NATIONAL_PARTY_HEADQUARTERS_ACCOUNT_MEMO",
-                "PARTNERSHIP_NATIONAL_PARTY_CONVENTION_ACCOUNT_MEMO"
+                "PARTNERSHIP_ATTRIBUTION_NATIONAL_PARTY_RECOUNT_ACCOUNT_MEMO",
+                "PARTNERSHIP_ATTRIBUTION_NATIONAL_PARTY_HEADQUARTERS_ACCOUNT_MEMO",
+                "PARTNERSHIP_ATTRIBUTION_NATIONAL_PARTY_CONVENTION_ACCOUNT_MEMO"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "TRANSACTION TYPE IDENTIFIER",
                 "TYPE": null,
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "PARTNERSHIP_NATIONAL_PARTY_RECOUNT_ACCOUNT_MEMO",
+                "SAMPLE_DATA": "PARTNERSHIP_ATTRIBUTION_NATIONAL_PARTY_RECOUNT_ACCOUNT_MEMO",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
@@ -569,7 +569,7 @@
             "if": {
                 "properties": {
                     "transaction_type_identifier": {
-                        "const": "PARTNERSHIP_NATIONAL_PARTY_RECOUNT_ACCOUNT_MEMO"
+                        "const": "PARTNERSHIP_ATTRIBUTION_NATIONAL_PARTY_RECOUNT_ACCOUNT_MEMO"
                     }
                 },
                 "required": [
@@ -591,7 +591,7 @@
             "if": {
                 "properties": {
                     "transaction_type_identifier": {
-                        "const": "PARTNERSHIP_NATIONAL_PARTY_HEADQUARTERS_ACCOUNT_MEMO"
+                        "const": "PARTNERSHIP_ATTRIBUTION_NATIONAL_PARTY_HEADQUARTERS_ACCOUNT_MEMO"
                     }
                 },
                 "required": [
@@ -613,7 +613,7 @@
             "if": {
                 "properties": {
                     "transaction_type_identifier": {
-                        "const": "PARTNERSHIP_NATIONAL_PARTY_CONVENTION_ACCOUNT_MEMO"
+                        "const": "PARTNERSHIP_ATTRIBUTION_NATIONAL_PARTY_CONVENTION_ACCOUNT_MEMO"
                     }
                 },
                 "required": [
