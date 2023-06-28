@@ -1,9 +1,9 @@
 {
     "$schema": "https://json-schema.org/draft-07/schema#",
-    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/PARTNERSHIP_RECOUNT_ACCOUNT_RECEIPT_MEMO.json",
+    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/PARTNERSHIP_ATTRIBUTION_RECOUNT_ACCOUNT_RECEIPT_MEMO.json",
     "version": "v0.0.0.0",
-    "title": "FEC Partnership Recount Account Receipt Memo",
-    "description": "Partnership Recount Account Receipt Memo (17)",
+    "title": "FEC Partnership Attribution Recount Account Receipt Memo",
+    "description": "Partnership Attribution Recount Account Receipt Memo (17)",
     "type": "object",
     "required": [
         "form_type",
@@ -69,15 +69,15 @@
         "transaction_type_identifier": {
             "title": "TRANSACTION TYPE IDENTIFIER",
             "description": "",
-            "const": "PARTNERSHIP_RECOUNT_ACCOUNT_RECEIPT_MEMO",
+            "const": "PARTNERSHIP_ATTRIBUTION_RECOUNT_ACCOUNT_RECEIPT_MEMO",
             "examples": [
-                "PARTNERSHIP_RECOUNT_ACCOUNT_RECEIPT_MEMO"
+                "PARTNERSHIP_ATTRIBUTION_RECOUNT_ACCOUNT_RECEIPT_MEMO"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "TRANSACTION TYPE IDENTIFIER",
                 "TYPE": "A/N-12",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "PARTNERSHIP_RECOUNT_ACCOUNT_RECEIPT_MEMO",
+                "SAMPLE_DATA": "PARTNERSHIP_ATTRIBUTION_RECOUNT_ACCOUNT_RECEIPT_MEMO",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
