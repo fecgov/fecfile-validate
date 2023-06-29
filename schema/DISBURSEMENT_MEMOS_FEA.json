@@ -683,6 +683,32 @@
                     }
                 }
             }
+        },
+        {
+            "if": {
+                "properties": {
+                    "beneficiary_candidate_fec_id": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "beneficiary_candidate_fec_id"
+                ]
+            },
+            "then": {
+                "required": [
+                    "beneficiary_candidate_last_name",
+                    "beneficiary_candidate_first_name"
+                ],
+                "properties": {
+                    "beneficiary_candidate_last_name": {
+                        "type": "string"
+                    },
+                    "beneficiary_candidate_first_name": {
+                        "type": "string"
+                    }
+                }
+            }
         }
     ]
 }
