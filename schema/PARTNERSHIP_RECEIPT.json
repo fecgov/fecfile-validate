@@ -365,7 +365,7 @@
             "description": "",
             "type": "string",
             "enum": [
-                "Partnership attributions do not require itemization",
+                "Partnership attributions do not meet itemization threshold",
                 "See Partnership Attribution(s) below"
             ],
             "fec_spec": {
