@@ -1,9 +1,9 @@
 {
     "$schema": "https://json-schema.org/draft-07/schema#",
-    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/PARTNERSHIP_INDIVIDUAL_NATIONAL_PARTY_HEADQUARTERS_JF_TRANSFER_MEMO.json",
+    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/PARTNERSHIP_ATTRIBUTION_NATIONAL_PARTY_HEADQUARTERS_JF_TRANSFER_MEMO.json",
     "version": "v0.0.0.0",
-    "title": "Partnership Individual Joint Fundraising Transfer Memo",
-    "description": "Partnership Individual Joint Fundraising Transfer Memo  (12)",
+    "title": "Partnership Attribution Headquarters Buildings Account JF Transfer Memo",
+    "description": "Partnership Attribution Headquarters Buildings Account JF Transfer Memo (12)",
     "type": "object",
     "required": [
         "form_type",
@@ -67,15 +67,15 @@
         "transaction_type_identifier": {
             "title": "TRANSACTION TYPE IDENTIFIER",
             "description": "",
-            "const": "PARTNERSHIP_INDIVIDUAL_NATIONAL_PARTY_HEADQUARTERS_JF_TRANSFER_MEMO",
+            "const": "PARTNERSHIP_ATTRIBUTION_NATIONAL_PARTY_HEADQUARTERS_JF_TRANSFER_MEMO",
             "examples": [
-                "PARTNERSHIP_INDIVIDUAL_NATIONAL_PARTY_HEADQUARTERS_JF_TRANSFER_MEMO"
+                "PARTNERSHIP_ATTRIBUTION_NATIONAL_PARTY_HEADQUARTERS_JF_TRANSFER_MEMO"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "TRANSACTION TYPE IDENTIFIER",
                 "TYPE": "A/N-12",
                 "REQUIRED": "X (error)",
-                "RULE_REFERENCE": "PARTNERSHIP_INDIVIDUAL_NATIONAL_PARTY_HEADQUARTERS_JF_TRANSFER_MEMO"
+                "RULE_REFERENCE": "PARTNERSHIP_ATTRIBUTION_NATIONAL_PARTY_HEADQUARTERS_JF_TRANSFER_MEMO"
             }
         },
         "transaction_id": {

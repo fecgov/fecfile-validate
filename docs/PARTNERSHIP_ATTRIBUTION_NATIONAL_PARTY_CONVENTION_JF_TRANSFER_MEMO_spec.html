@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><title>PARTNERSHIP_INDIVIDUAL_JF_TRANSFER_MEMO</title><link rel="stylesheet" href="spec_table.css"></head><body><table><caption>Specification for PARTNERSHIP_INDIVIDUAL_JF_TRANSFER_MEMO</caption><tr>
+<!DOCTYPE html><html lang="en"><head><title>PARTNERSHIP_ATTRIBUTION_NATIONAL_PARTY_CONVENTION_JF_TRANSFER_MEMO</title><link rel="stylesheet" href="spec_table.css"></head><body><table><caption>Specification for PARTNERSHIP_ATTRIBUTION_NATIONAL_PARTY_CONVENTION_JF_TRANSFER_MEMO</caption><tr>
 <th>FIELD DESCRIPTION</th>
 <th>TYPE</th>
 <th>REQUIRED</th>
@@ -12,11 +12,11 @@
 <td>FORM TYPE</td>
 <td>A/N-8</td>
 <td>X (error)</td>
-<td>SA12</td>
-<td>SA12</td>
-<td>SA12 Only</td>
+<td>SA17</td>
+<td>SA17</td>
+<td>SA17 Only</td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>must equal: SA12</li></td>
+<td><ul><li>REQUIRED</li><li>must equal: SA17</li></td>
 </tr>
 <tr>
 <td>FILER COMMITTEE ID NUMBER</td>
@@ -34,9 +34,9 @@
 <td>X (error)</td>
 <td></td>
 <td></td>
-<td>PARTNERSHIP_INDIVIDUAL_JF_TRANSFER_MEMO</td>
+<td>PARTNERSHIP_ATTRIBUTION_NATIONAL_PARTY_CONVENTION_JF_TRANSFER_MEMO</td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>must equal: PARTNERSHIP_INDIVIDUAL_JF_TRANSFER_MEMO</li></td>
+<td><ul><li>REQUIRED</li><li>must equal: PARTNERSHIP_ATTRIBUTION_NATIONAL_PARTY_CONVENTION_JF_TRANSFER_MEMO</li></td>
 </tr>
 <tr>
 <td>TRANSACTION ID</td>
@@ -62,7 +62,7 @@
 <td>BACK REFERENCE SCHED NAME</td>
 <td>A/N-8</td>
 <td>X (error)</td>
-<td>SA12</td>
+<td>SA17</td>
 <td></td>
 <td></td>
 <td></td>
@@ -194,7 +194,7 @@
 <td>X (error)</td>
 <td>250</td>
 <td></td>
-<td></td>
+<td>Amount cannot exceed the amount in the parent transaction (Partnership Receipt JF Transfer Memo). Future functionality - do not implement or test against!</td>
 <td></td>
 <td><ul><li>REQUIRED</li><li>type: number</li><li>minimum: -99999999.99</li><li>maximum: 999999999.99</li></td>
 </tr>
@@ -202,9 +202,9 @@
 <td>CONTRIBUTION AGGREGATE</td>
 <td>AMT-12</td>
 <td>X (error)</td>
-<td>250</td>
+<td>1000</td>
 <td></td>
-<td>Amount cannot exceed the amount in the parent transaction (Partnership Receipt JF Transfer Memo). Future functionality - do not implement or test against!</td>
+<td></td>
 <td></td>
 <td><ul><li>REQUIRED</li><li>type: number</li><li>minimum: -99999999.99</li><li>maximum: 999999999.99</li></td>
 </tr>
@@ -213,20 +213,20 @@
 <td></td>
 <td>X (error)</td>
 <td></td>
-<td>GENERAL</td>
-<td>GENERAL</td>
+<td>NATIONAL_PARTY_CONVENTION_ACCOUNT</td>
+<td>NATIONAL_PARTY_CONVENTION_ACCOUNT</td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>must equal: GENERAL</li></td>
+<td><ul><li>REQUIRED</li><li>must equal: NATIONAL_PARTY_CONVENTION_ACCOUNT</li></td>
 </tr>
 <tr>
 <td>CONTRIBUTION PURPOSE DESCRIPTION</td>
 <td>A/N-100</td>
 <td>X (error)</td>
-<td>JF Memo: XX (Partnership Attribution)</td>
+<td>Pres. Nominating Convention Account JF Memo: XX (Partnership Attribution)</td>
 <td></td>
-<td>JF Memo: XX (Partnership Attribution), where XX is auto-populated with name of committee entered in grandparent transaction JF_TRAN COL SEQ 8</td>
+<td>Pres. Nominating Convention Account JF Memo: XX (Partnership Attribution), where XX is auto-populated with name of committee entered in grandparent transaction JF_TRAN COL SEQ 8</td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 100</li><li>regex: ^JF Memo: [ -~]{0,65} \(Partnership Attribution\)$</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 100</li><li>regex: ^Pres. Nominating Convention Account JF Memo: [ -~]{0,29} \(Partnership Attribution\)$</li></td>
 </tr>
 <tr>
 <td>CONTRIBUTOR EMPLOYER</td>
@@ -254,7 +254,7 @@
 <td>X (error)</td>
 <td></td>
 <td>X</td>
-<td>X = True</td>
+<td>Req to be X. </td>
 <td></td>
 <td><ul><li>REQUIRED</li><li>must equal: True</li></td>
 </tr>

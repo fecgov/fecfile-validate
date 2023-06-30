@@ -1,9 +1,9 @@
 {
     "$schema": "https://json-schema.org/draft-07/schema#",
-    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/PARTNERSHIP_MEMO.json",
+    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/PARTNERSHIP_ATTRIBUTION.json",
     "version": "v0.0.0.0",
-    "title": "FEC Partnership Memo",
-    "description": "Partnership Memo (11a)",
+    "title": "FEC Partnership Attribution",
+    "description": "Partnership Attribution (11a)",
     "type": "object",
     "required": [
         "form_type",
@@ -73,15 +73,15 @@
         "transaction_type_identifier": {
             "title": "TRANSACTION TYPE IDENTIFIER",
             "description": "",
-            "const": "PARTNERSHIP_MEMO",
+            "const": "PARTNERSHIP_ATTRIBUTION",
             "examples": [
-                "PARTNERSHIP_MEMO"
+                "PARTNERSHIP_ATTRIBUTION"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "TRANSACTION TYPE IDENTIFIER",
                 "TYPE": "A/N-12",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "PARTNERSHIP_MEMO",
+                "SAMPLE_DATA": "PARTNERSHIP_ATTRIBUTION",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null

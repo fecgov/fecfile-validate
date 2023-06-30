@@ -1,9 +1,9 @@
 {
     "$schema": "https://json-schema.org/draft-07/schema#",
-    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/PARTNERSHIP_INDIVIDUAL_JF_TRANSFER_MEMO.json",
+    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/PARTNERSHIP_ATTRIBUTION_NATIONAL_PARTY_RECOUNT_JF_TRANSFER_MEMO.json",
     "version": "v0.0.0.0",
-    "title": "Partnership Individual Joint Fundraising Transfer Memo",
-    "description": "Partnership Individual Joint Fundraising Transfer Memo  (12)",
+    "title": "Partnership Attribution Recount/Legal Proceedings Account JF Transfer Memo",
+    "description": "Partnership Attribution Recount/Legal Proceedings Account JF Transfer Memo (17)",
     "type": "object",
     "required": [
         "form_type",
@@ -31,17 +31,17 @@
         "form_type": {
             "title": "FORM TYPE",
             "description": "",
-            "const": "SA12",
+            "const": "SA17",
             "examples": [
-                "SA12"
+                "SA17"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "FORM TYPE",
                 "TYPE": "A/N-8",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "SA12",
-                "VALUE_REFERENCE": "SA12",
-                "RULE_REFERENCE": "SA12 Only"
+                "SAMPLE_DATA": "SA17",
+                "VALUE_REFERENCE": "SA17",
+                "RULE_REFERENCE": "SA17 Only"
             }
         },
         "filer_committee_id_number": {
@@ -67,15 +67,15 @@
         "transaction_type_identifier": {
             "title": "TRANSACTION TYPE IDENTIFIER",
             "description": "",
-            "const": "PARTNERSHIP_INDIVIDUAL_JF_TRANSFER_MEMO",
+            "const": "PARTNERSHIP_ATTRIBUTION_NATIONAL_PARTY_RECOUNT_JF_TRANSFER_MEMO",
             "examples": [
-                "PARTNERSHIP_INDIVIDUAL_JF_TRANSFER_MEMO"
+                "PARTNERSHIP_ATTRIBUTION_NATIONAL_PARTY_RECOUNT_JF_TRANSFER_MEMO"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "TRANSACTION TYPE IDENTIFIER",
                 "TYPE": "A/N-12",
                 "REQUIRED": "X (error)",
-                "RULE_REFERENCE": "PARTNERSHIP_INDIVIDUAL_JF_TRANSFER_MEMO"
+                "RULE_REFERENCE": "PARTNERSHIP_ATTRIBUTION_NATIONAL_PARTY_RECOUNT_JF_TRANSFER_MEMO"
             }
         },
         "transaction_id": {
@@ -123,13 +123,13 @@
             "maxLength": 8,
             "pattern": "^[ -~]{0,8}$",
             "examples": [
-                "SA12"
+                "SA17"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "BACK REFERENCE SCHED NAME",
                 "TYPE": "A/N-8",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "SA12"
+                "SAMPLE_DATA": "SA17"
             }
         },
         "entity_type": {
@@ -377,17 +377,17 @@
         "aggregation_group": {
             "title": "AGGREGATION GROUP",
             "description": "",
-            "const": "GENERAL",
+            "const": "NATIONAL_PARTY_RECOUNT_ACCOUNT",
             "examples": [
-                "GENERAL"
+                "NATIONAL_PARTY_RECOUNT_ACCOUNT"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "AGGREGATION GROUP",
                 "TYPE": null,
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": null,
-                "VALUE_REFERENCE": "GENERAL",
-                "RULE_REFERENCE": "GENERAL",
+                "VALUE_REFERENCE": "NATIONAL_PARTY_RECOUNT_ACCOUNT",
+                "RULE_REFERENCE": "NATIONAL_PARTY_RECOUNT_ACCOUNT",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -397,13 +397,13 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 100,
-            "pattern": "^JF Memo: [ -~]{0,65} \\(Partnership Attribution\\)$",
+            "pattern": "^Recount/Legal Proceedings Account JF Memo: [ -~]{0,31} \\(Partnership Attribution\\)$",
             "fec_spec": {
                 "FIELD_DESCRIPTION": "CONTRIBUTION PURPOSE DESCRIPTION",
                 "TYPE": "A/N-100",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "JF Memo: XX (Partnership Attribution)",
-                "RULE_REFERENCE": "JF Memo: XX (Partnership Attribution), where XX is auto-populated with name of committee entered in grandparent transaction JF_TRAN COL SEQ 8",
+                "SAMPLE_DATA": "Recount/Legal Proceedings Account JF Memo: XX (Partnership Attribution)",
+                "RULE_REFERENCE": "Recount/Legal Proceedings Account JF Memo: XX (Partnership Attribution), where XX is auto-populated with name of committee entered in grandparent transaction JF_TRAN COL SEQ 8",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
