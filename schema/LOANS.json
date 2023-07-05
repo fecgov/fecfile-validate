@@ -1,0 +1,725 @@
+{
+    "$schema": "https://json-schema.org/draft-07/schema#",
+    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/LOANS.json",
+    "version": "8.3.0.1",
+    "title": "FEC Loan Received from Individual, Loan Received from Bank, Loan By Committee",
+    "description": "Loan Received from Individual, Loan Received from Bank, Loan By Committee",
+    "type": "object",
+    "required": [
+        "form_type",
+        "filer_committee_id_number",
+        "transaction_type_identifier",
+        "transaction_id",
+        "entity_type",
+        "lender_street_1",
+        "lender_city",
+        "lender_state",
+        "lender_zip",
+        "loan_amount",
+        "loan_payment_to_date",
+        "loan_balance",
+        "loan_incurred_date",
+        "loan_due_date",
+        "loan_interest_rate",
+        "secured"
+    ],
+    "properties": {
+        "form_type": {
+            "title": "FORM TYPE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 8,
+            "pattern": "^[ -~]{0,8}$",
+            "examples": [
+                "SC/10"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 1,
+                "FIELD_DESCRIPTION": "FORM TYPE",
+                "TYPE": "A/N-8",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "SC/10",
+                "VALUE_REFERENCE": "[SC/9 |SC/10 ]",
+                "RULE_REFERENCE": "If Transaction Type is LOAN_RECEIVED_FROM_INDIVIDUAL or LOAN_RECEIVED_FROM_BANK, then Form Type is SC/10 If Transaction Type is LOAN_BY_COMMITTEE, then Receipt Line Number is SC/9"
+            }
+        },
+        "filer_committee_id_number": {
+            "title": "FILER COMMITTEE ID NUMBER",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 9,
+            "pattern": "^[ -~]{0,9}$",
+            "examples": [
+                "C00123456"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 2,
+                "FIELD_DESCRIPTION": "FILER COMMITTEE ID NUMBER",
+                "TYPE": "A/N-9",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "C00123456",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null
+            }
+        },
+        "transaction_type_identifier": {
+            "title": "TRANSACTION TYPE IDENTIFIER",
+            "description": "",
+            "enum": [
+                "LOAN_RECEIVED_FROM_INDIVIDUAL",
+                "LOAN_RECEIVED_FROM_BANK",
+                "LOAN_BY_COMMITTEE"
+            ],
+            "examples": [
+                "LOAN_RECEIVED_FROM_INDIVIDUAL"
+            ],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "TRANSACTION TYPE IDENTIFIER",
+                "TYPE": "A/N-12",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "LOAN_RECEIVED_FROM_INDIVIDUAL",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "LOAN_RECEIVED_FROM_INDIVIDUAL, LOAN_RECEIVED_FROM_BANK, LOAN_BY_COMMITTEE",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "transaction_id": {
+            "title": "TRANSACTION ID",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 20,
+            "pattern": "^[ -~]{0,20}$",
+            "examples": [
+                "C123456789-3456"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 3,
+                "FIELD_DESCRIPTION": "TRANSACTION ID",
+                "TYPE": "A/N-20",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "C123456789-3456",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "must be unique for the life of the report (original + all amendments)"
+            }
+        },
+        "receipt_line_number": {
+            "title": "RECEIPT LINE NUMBER",
+            "description": "",
+            "enum": ["13", "27", "null"],
+            "examples": [
+                "13"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 4,
+                "FIELD_DESCRIPTION": "RECEIPT LINE NUMBER",
+                "TYPE": "A/N-8",
+                "REQUIRED": "X (conditional error)",
+                "SAMPLE_DATA": "13",
+                "VALUE_REFERENCE": "[13 | 27]",
+                "RULE_REFERENCE": "If Transaction Type is (LOAN_RECEIVED_FROM_INDIVIDUAL or LOAN_RECEIVED_FROM_BANK), then Receipt Line Number is 13, If Transaction Type is LOAN_BY_COMMITTEE, then Receipt Line Number is 27"
+            }
+        },
+        "entity_type": {
+            "title": "ENTITY TYPE",
+            "description": "",
+            "enum": ["IND", "ORG", "COM"],
+            "examples": [
+                "ORG"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 5,
+                "FIELD_DESCRIPTION": "ENTITY TYPE",
+                "TYPE": "A/N-3",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "ORG",
+                "VALUE_REFERENCE": "[IND | ORG | COM]",
+                "RULE_REFERENCE": "If Transaction Type is LOAN_RECEIVED_FROM_INDIVIDUAL, then Entity is IND, ORG, or COM, If Transaction Type is LOAN_RECEIVED_FROM_BANK, then Entity is ORG, If Transaction Type is LOAN_BY_COMMITTEE, then Entity is COM"
+            }
+        },
+        "lender_organization_name": {
+            "title": "LENDER ORGANIZATION NAME",
+            "description": "",
+            "type": [
+                "string",
+                "null"
+            ],
+            "minLength": 0,
+            "maxLength": 200,
+            "pattern": "^[ -~]{0,200}$",
+            "examples": [
+                "The Bank of Banks"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 6,
+                "FIELD_DESCRIPTION": "LENDER ORGANIZATION NAME",
+                "TYPE": "A/N-200",
+                "REQUIRED": "X (conditional error)",
+                "SAMPLE_DATA": "The Bank of Banks",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "Required if [ORG | COM]"
+            }
+        },
+        "lender_last_name": {
+            "title": "LENDER LAST NAME",
+            "description": "",
+            "type": [
+                "string",
+                "null"
+            ],
+            "minLength": 0,
+            "maxLength": 30,
+            "pattern": "^[ -~]{0,30}$",
+            "examples": [
+                "Smith"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 7,
+                "FIELD_DESCRIPTION": "LENDER LAST NAME",
+                "TYPE": "A/N-30",
+                "REQUIRED": "X (conditional error)",
+                "SAMPLE_DATA": "Smith",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "Required if [IND]"
+            }
+        },
+        "lender_first_name": {
+            "title": "LENDER FIRST NAME",
+            "description": "",
+            "type": [
+                "string",
+                "null"
+            ],
+            "minLength": 0,
+            "maxLength": 20,
+            "pattern": "^[ -~]{0,20}$",
+            "examples": [
+                "John"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 8,
+                "FIELD_DESCRIPTION": "LENDER FIRST NAME",
+                "TYPE": "A/N-20",
+                "REQUIRED": "X (conditional error)",
+                "SAMPLE_DATA": "John",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "Required if [IND]"
+            }
+        },
+        "lender_middle_name": {
+            "title": "LENDER MIDDLE NAME",
+            "description": "",
+            "type": [
+                "string",
+                "null"
+            ],
+            "minLength": 0,
+            "maxLength": 20,
+            "pattern": "^[ -~]{0,20}$",
+            "examples": [
+                "W"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 9,
+                "FIELD_DESCRIPTION": "LENDER MIDDLE NAME",
+                "TYPE": "A/N-20",
+                "REQUIRED": null,
+                "SAMPLE_DATA": "W",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null
+            }
+        },
+        "lender_prefix": {
+            "title": "LENDER PREFIX",
+            "description": "",
+            "type": [
+                "string",
+                "null"
+            ],
+            "minLength": 0,
+            "maxLength": 10,
+            "pattern": "^[ -~]{0,10}$",
+            "examples": [
+                "Dr"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 10,
+                "FIELD_DESCRIPTION": "LENDER PREFIX",
+                "TYPE": "A/N-10",
+                "REQUIRED": null,
+                "SAMPLE_DATA": "Dr",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null
+            }
+        },
+        "lender_suffix": {
+            "title": "LENDER SUFFIX",
+            "description": "",
+            "type": [
+                "string",
+                "null"
+            ],
+            "minLength": 0,
+            "maxLength": 10,
+            "pattern": "^[ -~]{0,10}$",
+            "examples": [
+                "Jr"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 11,
+                "FIELD_DESCRIPTION": "LENDER SUFFIX",
+                "TYPE": "A/N-10",
+                "REQUIRED": null,
+                "SAMPLE_DATA": "Jr",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null
+            }
+        },
+        "lender_street_1": {
+            "title": "LENDER STREET  1",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 34,
+            "pattern": "^[ -~]{0,34}$",
+            "examples": [
+                "Suite 16"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 12,
+                "FIELD_DESCRIPTION": "LENDER STREET  1",
+                "TYPE": "A/N-34",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "Suite 16",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null
+            }
+        },
+        "lender_street_2": {
+            "title": "LENDER STREET  2",
+            "description": "",
+            "type": [
+                "string",
+                "null"
+            ],
+            "minLength": 0,
+            "maxLength": 34,
+            "pattern": "^[ -~]{0,34}$",
+            "examples": [
+                "30 Oak Street"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 13,
+                "FIELD_DESCRIPTION": "LENDER STREET  2",
+                "TYPE": "A/N-34",
+                "REQUIRED": null,
+                "SAMPLE_DATA": "30 Oak Street",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null
+            }
+        },
+        "lender_city": {
+            "title": "LENDER CITY",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 30,
+            "pattern": "^[ -~]{0,30}$",
+            "examples": [
+                "Springfield"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 14,
+                "FIELD_DESCRIPTION": "LENDER CITY",
+                "TYPE": "A/N-30",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "Springfield",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null
+            }
+        },
+        "lender_state": {
+            "title": "LENDER STATE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 2,
+            "pattern": "^[ -~]{0,2}$",
+            "examples": [
+                "MA"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 15,
+                "FIELD_DESCRIPTION": "LENDER STATE",
+                "TYPE": "A/N-2",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "MA",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null
+            }
+        },
+        "lender_zip": {
+            "title": "LENDER ZIP",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 9,
+            "pattern": "^[ -~]{0,9}$",
+            "examples": [
+                1012
+            ],
+            "fec_spec": {
+                "COL_SEQ": 16,
+                "FIELD_DESCRIPTION": "LENDER ZIP",
+                "TYPE": "A/N-9",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": 1012,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null
+            }
+        },
+        "loan_amount": {
+            "title": "LOAN AMOUNT",
+            "description": "",
+            "type": "number",
+            "minimum": -99999999.99,
+            "maximum": 999999999.99,
+            "examples": [
+                10000
+            ],
+            "fec_spec": {
+                "COL_SEQ": 19,
+                "FIELD_DESCRIPTION": "LOAN AMOUNT",
+                "TYPE": "AMT-12",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": 10000,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null
+            }
+        },
+        "loan_payment_to_date": {
+            "title": "LOAN PAYMENT TO DATE",
+            "description": "",
+            "type": "number",
+            "minimum": -99999999.99,
+            "maximum": 999999999.99,
+            "examples": [
+                1000
+            ],
+            "fec_spec": {
+                "COL_SEQ": 20,
+                "FIELD_DESCRIPTION": "LOAN PAYMENT TO DATE",
+                "TYPE": "AMT-12",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": 1000,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "Auto-calculated based upon user entering payments on the loan."
+            }
+        },
+        "loan_balance": {
+            "title": "LOAN BALANCE",
+            "description": "",
+            "type": "number",
+            "minimum": -99999999.99,
+            "maximum": 999999999.99,
+            "examples": [
+                9000
+            ],
+            "fec_spec": {
+                "COL_SEQ": 21,
+                "FIELD_DESCRIPTION": "LOAN BALANCE (Original)",
+                "TYPE": "AMT-12",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": 9000,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "Auto-calculated based upon subtracting loan payment to date from original amount of loan"
+            }
+        },
+        "loan_incurred_date": {
+            "title": "LOAN INCURRED DATE",
+            "description": "",
+            "type": "string",
+            "minLength": 10,
+            "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+            "examples": [
+                "2012-01-01"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 22,
+                "FIELD_DESCRIPTION": "LOAN INCURRED DATE (Terms)",
+                "TYPE": "NUM-8",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": 20120101,
+                "VALUE_REFERENCE": "YYYYMMDD",
+                "RULE_REFERENCE": null
+            }
+        },
+        "loan_due_date": {
+            "title": "LOAN DUE DATE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 15,
+            "pattern": "^[ -~]{0,15}$",
+            "examples": [
+                "Whenever"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 23,
+                "FIELD_DESCRIPTION": "LOAN DUE DATE (Terms)",
+                "TYPE": "A/N-15",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "Whenever",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null
+            }
+        },
+        "loan_interest_rate": {
+            "title": "LOAN INTEREST RATE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 15,
+            "pattern": "^[ -~]{0,15}$",
+            "examples": [
+                ".0565"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 24,
+                "FIELD_DESCRIPTION": "LOAN INTEREST RATE % (Terms)",
+                "TYPE": "A/N-15",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": ".0565",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null
+            }
+        },
+        "secured": {
+            "title": "SECURED",
+            "description": "",
+            "type": "boolean",
+            "fec_spec": {
+                "COL_SEQ": 25,
+                "FIELD_DESCRIPTION": "YES/NO (Secured?)",
+                "TYPE": "A/N-1",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "Y",
+                "VALUE_REFERENCE": "Y/N",
+                "RULE_REFERENCE": "Edit: Yes/No"
+            }
+        },
+        "lender_committee_id_number": {
+            "title": "LENDER COMMITTEE ID NUMBER",
+            "description": "",
+            "type": ["string", "null"],
+            "minLength": 0,
+            "maxLength": 9,
+            "pattern": "^[ -~]{0,9}$",
+            "examples": [
+                "C00123456"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 27,
+                "FIELD_DESCRIPTION": "LENDER COMMITTEE ID NUMBER",
+                "TYPE": "A/N-9",
+                "REQUIRED": "X (conditional error)",
+                "SAMPLE_DATA": "C00123456",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "Required if [COM]"
+            }
+        },
+        "memo_code": {
+            "title": "MEMO CODE",
+            "description": "",
+            "type": [
+                "boolean",
+                "null"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 37,
+                "FIELD_DESCRIPTION": "MEMO CODE",
+                "TYPE": "A/N-1",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": "X",
+                "RULE_REFERENCE": "X = True"
+            }
+        },
+        "memo_text_description": {
+            "title": "MEMO TEXT/DESCRIPTION",
+            "description": "",
+            "type": [
+                "string",
+                "null"
+            ],
+            "minLength": 0,
+            "maxLength": 100,
+            "pattern": "^[ -~]{0,100}$",
+            "fec_spec": {
+                "COL_SEQ": 38,
+                "FIELD_DESCRIPTION": "MEMO TEXT/DESCRIPTION",
+                "TYPE": "A/N-100",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null
+            }
+        }
+    },
+    "allOf": [
+        {
+            "if": {
+                "properties": {
+                    "transaction_type_identifier": {
+                        "const": "LOAN_RECEIVED_FROM_INDIVIDUAL"
+                    }
+                },
+                "required": [
+                    "transaction_type_identifier"
+                ]
+            },
+            "then": {
+                "required": [
+                    "receipt_line_number"
+                ],
+                "properties": {
+                    "form_type": {
+                        "const": "SC/10"
+                    },
+                    "receipt_line_number": {
+                        "const": "13"
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "transaction_type_identifier": {
+                        "const": "LOAN_RECEIVED_FROM_BANK"
+                    }
+                },
+                "required": [
+                    "transaction_type_identifier"
+                ]
+            },
+            "then": {
+                "required": [
+                    "receipt_line_number"
+                ],
+                "properties": {
+                    "form_type": {
+                        "const": "SC/10"
+                    },
+                    "receipt_line_number": {
+                        "const": "13"
+                    },
+                    "entity_type": {
+                        "const": "ORG"
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "transaction_type_identifier": {
+                        "const": "LOAN_BY_COMMITTEE"
+                    }
+                },
+                "required": [
+                    "transaction_type_identifier"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "form_type": {
+                        "const": "SC/9"
+                    },
+                    "receipt_line_number": {
+                        "enum": ["27", "null"]
+                    },
+                    "entity_type": {
+                        "const": "COM"
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "entity_type": {
+                        "const": "IND"
+                    }
+                },
+                "required": [
+                    "entity_type"
+                ]
+            },
+            "then": {
+                "required": [
+                    "lender_last_name",
+                    "lender_first_name"
+                ],
+                "properties": {
+                    "lender_last_name": {
+                        "type": "string"
+                    },
+                    "lender_first_name": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "entity_type": {
+                        "const": "ORG"
+                    }
+                },
+                "required": [
+                    "entity_type"
+                ]
+            },
+            "then": {
+                "required": [
+                    "lender_organization_name"
+                ],
+                "properties": {
+                    "lender_organization_name": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "entity_type": {
+                        "const": "COM"
+                    }
+                },
+                "required": [
+                    "entity_type"
+                ]
+            },
+            "then": {
+                "required": [
+                    "lender_organization_name",
+                    "lender_committee_id_number"
+                ],
+                "properties": {
+                    "lender_organization_name": {
+                        "type": "string"
+                    },
+                    "lender_committee_id_number": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    ]
+}
