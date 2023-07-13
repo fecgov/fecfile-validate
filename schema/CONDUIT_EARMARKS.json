@@ -1,9 +1,9 @@
 {
     "$schema": "https://json-schema.org/draft-07/schema#",
-    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/JF_TRANSFER_NATIONAL_PARTY_RECOUNT_ACCOUNT.json",
+    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/CONDUIT_EARMARKS.json",
     "version": "v0.0.0.0",
-    "title": "FEC Joint Fundraising Transfer - National Party Recount/Legal Proceedings Account",
-    "description": "Transfer (17)",
+    "title": "FEC Conduit Earmarks",
+    "description": "Conduit Earmark (Deposited), Conduit Earmark (Undeposited) (11a)",
     "type": "object",
     "required": [
         "form_type",
@@ -11,35 +11,38 @@
         "transaction_type_identifier",
         "transaction_id",
         "entity_type",
-        "contributor_organization_name",
+        "contributor_last_name",
+        "contributor_first_name",
         "contributor_street_1",
         "contributor_city",
         "contributor_state",
         "contributor_zip",
         "contribution_date",
         "contribution_amount",
-        "contribution_aggregate",
-        "aggregation_group",
         "contribution_purpose_descrip",
         "donor_committee_fec_id",
-        "donor_committee_name"
+        "donor_committee_name",
+        "memo_code"
     ],
     "fec_recommended": [],
     "properties": {
         "form_type": {
             "title": "FORM TYPE",
             "description": "",
-            "const": "SA17",
+            "enum": [
+                "SA11AI",
+                "SA11AII"
+            ],
             "examples": [
-                "SA17"
+                "SA11AI"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "FORM TYPE",
                 "TYPE": "A/N-8",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "SA17",
-                "VALUE_REFERENCE": "SA17 Only",
-                "RULE_REFERENCE": null,
+                "SAMPLE_DATA": "SA11AI",
+                "VALUE_REFERENCE": "SA11AI",
+                "RULE_REFERENCE": "SA11AI or SA11AII only",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -66,17 +69,20 @@
         "transaction_type_identifier": {
             "title": "TRANSACTION TYPE IDENTIFIER",
             "description": "",
-            "const": "JF_TRANSFER_NATIONAL_PARTY_RECOUNT_ACCOUNT",
+            "enum": [
+                "CONDUIT_EARMARK_RECEIPT_DEPOSITED",
+                "CONDUIT_EARMARK_RECEIPT_UNDEPOSITED"
+            ],
             "examples": [
-                "JF_TRANSFER_NATIONAL_PARTY_RECOUNT_ACCOUNT"
+                "CONDUIT_EARMARK_RECEIPT_DEPOSITED"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "TRANSACTION TYPE IDENTIFIER",
                 "TYPE": "A/N-12",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "JF_TRANSFER_NATIONAL_PARTY_RECOUNT_ACCOUNT",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": "CONDUIT_EARMARK_RECEIPT_DEPOSITED, CONDUIT_EARMARK_RECEIPT_UNDEPOSITED",
+                "RULE_REFERENCE": "CONDUIT_EARMARK_RECEIPT_DEPOSITED, CONDUIT_EARMARK_RECEIPT_UNDEPOSITED",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -126,16 +132,22 @@
         "back_reference_sched_name": {
             "title": "BACK REFERENCE SCHED NAME",
             "description": "",
-            "const": "SA17",
+            "type": [
+                "string",
+                "null"
+            ],
+            "minLength": 0,
+            "maxLength": 8,
+            "pattern": "^[ -~]{0,8}$",
             "examples": [
-                "SA17"
+                "SA11AI"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "BACK REFERENCE SCHED NAME",
                 "TYPE": "A/N-8",
                 "REQUIRED": null,
-                "SAMPLE_DATA": "SA17",
-                "VALUE_REFERENCE": "SA17 only",
+                "SAMPLE_DATA": "SA11AI",
+                "VALUE_REFERENCE": "SA[line# ref]",
                 "RULE_REFERENCE": "Ref to the Schedule that has the Related Record.  SA3L must be used \nwith the F3L",
                 "FIELD_FORM_ASSOCIATION": null
             }
@@ -143,35 +155,134 @@
         "entity_type": {
             "title": "ENTITY TYPE",
             "description": "",
-            "const": "COM",
+            "const": "IND",
             "examples": [
-                "COM"
+                "IND"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "ENTITY TYPE",
                 "TYPE": "A/N-3",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "COM",
-                "VALUE_REFERENCE": "COM only",
-                "RULE_REFERENCE": "[COM]",
+                "SAMPLE_DATA": "IND",
+                "VALUE_REFERENCE": "IND Only",
+                "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "contributor_organization_name": {
-            "title": "CONTRIBUTOR ORGANIZATION",
+        "contributor_last_name": {
+            "title": "CONTRIBUTOR LAST NAME",
             "description": "",
             "type": "string",
             "minLength": 0,
-            "maxLength": 200,
-            "pattern": "^[ -~]{0,200}$",
+            "maxLength": 30,
+            "pattern": "^[ -~]{0,30}$",
             "examples": [
-                "John Smith & Co."
+                "Smith"
             ],
             "fec_spec": {
-                "FIELD_DESCRIPTION": "CONTRIBUTOR ORGANIZATION",
-                "TYPE": "A/N-200",
+                "COL_SEQ": 2,
+                "FIELD_DESCRIPTION": "CONTRIBUTOR LAST NAME",
+                "TYPE": "A/N-30",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "John Smith & Co.",
+                "AUTO_POPULATE": null,
+                "SAMPLE_DATA": "Smith",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "contributor_first_name": {
+            "title": "CONTRIBUTOR FIRST NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 20,
+            "pattern": "^[ -~]{0,20}$",
+            "examples": [
+                "John"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 3,
+                "FIELD_DESCRIPTION": "CONTRIBUTOR FIRST NAME",
+                "TYPE": "A/N-20",
+                "REQUIRED": "X (error)",
+                "AUTO_POPULATE": null,
+                "SAMPLE_DATA": "John",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "contributor_middle_name": {
+            "title": "CONTRIBUTOR MIDDLE NAME",
+            "description": "",
+            "type": [
+                "string",
+                "null"
+            ],
+            "minLength": 0,
+            "maxLength": 20,
+            "pattern": "^[ -~]{0,20}$",
+            "examples": [
+                "W"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 4,
+                "FIELD_DESCRIPTION": "CONTRIBUTOR MIDDLE NAME",
+                "TYPE": "A/N-20",
+                "REQUIRED": null,
+                "AUTO_POPULATE": null,
+                "SAMPLE_DATA": "W",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "contributor_prefix": {
+            "title": "CONTRIBUTOR PREFIX",
+            "description": "",
+            "type": [
+                "string",
+                "null"
+            ],
+            "minLength": 0,
+            "maxLength": 10,
+            "pattern": "^[ -~]{0,10}$",
+            "examples": [
+                "Dr"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 5,
+                "FIELD_DESCRIPTION": "CONTRIBUTOR PREFIX",
+                "TYPE": "A/N-10",
+                "REQUIRED": null,
+                "AUTO_POPULATE": null,
+                "SAMPLE_DATA": "Dr",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "contributor_suffix": {
+            "title": "CONTRIBUTOR SUFFIX",
+            "description": "",
+            "type": [
+                "string",
+                "null"
+            ],
+            "minLength": 0,
+            "maxLength": 10,
+            "pattern": "^[ -~]{0,10}$",
+            "examples": [
+                "Jr"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 6,
+                "FIELD_DESCRIPTION": "CONTRIBUTOR SUFFIX",
+                "TYPE": "A/N-10",
+                "REQUIRED": null,
+                "AUTO_POPULATE": null,
+                "SAMPLE_DATA": "Jr",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
@@ -291,7 +402,7 @@
                 "TYPE": "NUM-8",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": 20120615,
-                "VALUE_REFERENCE": null,
+                "VALUE_REFERENCE": "YYYYMMDD",
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }
@@ -315,104 +426,77 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "contribution_aggregate": {
-            "title": "CONTRIBUTION AGGREGATE",
-            "description": "",
-            "type": "number",
-            "minimum": -99999999.99,
-            "maximum": 999999999.99,
-            "examples": [
-                1000
-            ],
-            "fec_spec": {
-                "FIELD_DESCRIPTION": "CONTRIBUTION AGGREGATE",
-                "TYPE": "AMT-12",
-                "REQUIRED": "X (error)",
-                "SAMPLE_DATA": 1000,
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "YTD",
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "aggregation_group": {
-            "title": "AGGREGATION GROUP",
-            "description": "",
-            "const": "NATIONAL_PARTY_RECOUNT_ACCOUNT",
-            "examples": [
-                "NATIONAL_PARTY_RECOUNT_ACCOUNT"
-            ],
-            "fec_spec": {
-                "FIELD_DESCRIPTION": "AGGREGATION GROUP",
-                "TYPE": "A/N-100",
-                "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "NATIONAL_PARTY_RECOUNT_ACCOUNT",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
         "contribution_purpose_descrip": {
             "title": "CONTRIBUTION PURPOSE DESCRIPTION",
             "description": "",
-            "const": "Recount/Legal Proceedings Account Transfer of JF Proceeds",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 100,
+            "pattern": "^Earmarked for [ -~]{0,76} \\(Committee\\)$",
             "fec_spec": {
                 "FIELD_DESCRIPTION": "CONTRIBUTION PURPOSE DESCRIPTION",
                 "TYPE": "A/N-100",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "Recount/Legal Proceedings Account Transfer of JF Proceeds",
-                "VALUE_REFERENCE": "Recount/Legal Proceedings Account Transfer of JF Proceeds",
-                "RULE_REFERENCE": "Recount/Legal Proceedings Account Transfer of JF Proceeds",
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "donor_committee_fec_id": {
-            "title": "DONOR COMMITTEE FEC ID",
-            "description": "",
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 9,
-            "pattern": "^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$",
-            "fec_spec": {
-                "FIELD_DESCRIPTION": "DONOR COMMITTEE FEC ID",
-                "TYPE": "A/N-9",
-                "REQUIRED": "X (error)",
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Should populate with information from FEC database",
+                "RULE_REFERENCE": "Earmarked for XX (Committee)",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "donor_committee_name": {
-            "title": "DONOR COMMITTEE NAME",
+        "contributor_employer": {
+            "title": "CONTRIBUTOR EMPLOYER",
             "description": "",
-            "type": "string",
+            "type": [
+                "string",
+                "null"
+            ],
             "minLength": 0,
-            "maxLength": 200,
-            "pattern": "^[ -~]{0,200}$",
+            "maxLength": 38,
+            "pattern": "^[ -~]{0,38}$",
             "examples": [
-                "Action PAC"
+                "XYZ Company"
             ],
             "fec_spec": {
-                "FIELD_DESCRIPTION": "DONOR COMMITTEE NAME",
-                "TYPE": "A/N-200",
-                "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "Action PAC",
+                "FIELD_DESCRIPTION": "CONTRIBUTOR EMPLOYER",
+                "TYPE": "A/N-38",
+                "REQUIRED": "X (conditional error)",
+                "SAMPLE_DATA": "XYZ Company",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Should populate with information from FEC database",
+                "RULE_REFERENCE": "Req if Donor AMOUNT >$200",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "contributor_occupation": {
+            "title": "CONTRIBUTOR OCCUPATION",
+            "description": "",
+            "type": [
+                "string",
+                "null"
+            ],
+            "minLength": 0,
+            "maxLength": 38,
+            "pattern": "^[ -~]{0,38}$",
+            "examples": [
+                "QC Inspector"
+            ],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "CONTRIBUTOR OCCUPATION",
+                "TYPE": "A/N-38",
+                "REQUIRED": "X (conditional error)",
+                "SAMPLE_DATA": "QC Inspector",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "Req if Donor AMOUNT >$200",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
         "memo_code": {
             "title": "MEMO CODE",
             "description": "",
-            "type": [
-                "boolean",
-                "null"
-            ],
+            "type": "boolean",
             "fec_spec": {
                 "FIELD_DESCRIPTION": "MEMO CODE",
                 "TYPE": "A/N-1",
-                "REQUIRED": null,
+                "REQUIRED": "X (conditional error)",
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": "X",
                 "RULE_REFERENCE": "X = True",
@@ -439,5 +523,74 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         }
-    }
+    },
+    "allOf": [
+        {
+            "if": {
+                "properties": {
+                    "contribution_amount": {
+                        "type": "number",
+                        "minimum": 200.01
+                    }
+                },
+                "required": [
+                    "contribution_amount"
+                ]
+            },
+            "then": {
+                "required": [
+                    "contributor_employer",
+                    "contributor_occupation"
+                ],
+                "properties": {
+                    "contributor_employer": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "contributor_occupation": {
+                        "type": "string",
+                        "minLength": 1
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "transaction_type_identifier": {
+                        "const": "CONDUIT_EARMARK_RECEIPT_DEPOSITED"
+                    }
+                },
+                "required": [
+                    "transaction_type_identifier"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "memo_code": {
+                        "const": false
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "transaction_type_identifier": {
+                        "const": "CONDUIT_EARMARK_RECEIPT_UNDEPOSITED"
+                    }
+                },
+                "required": [
+                    "transaction_type_identifier"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "memo_code": {
+                        "const": true
+                    }
+                }
+            }
+        }
+    ]
 }
