@@ -97,8 +97,14 @@ git push --set-upstream origin hotfix/my-fix
 * (If commits were made to release/sprint-#) Developer creates a PR in GitHub to merge release/sprint-# branch into the `develop` branch
 * Reviewer approves PR and merges into `develop`
 * Delete release/sprint-# branch
-* In GitHub, go to `Code -> tags -> releases -> Draft a new release`
 * Publish a new release using tag sprint-#, be sure to Auto-generate release notes
+  * On Github, click on "Code" tab, then the "tags" link, then the "Releases" toggle
+  * Click the button "Draft a new release"
+  * Enter the new sprint tag "sprint-XX"
+  * Set Target option to "main"
+  * Set Release title to "sprint-XX"
+  * Click the button "Generate release notes"
+  * Click the "Publish release" button
 
 
 ## Additional developer notes
