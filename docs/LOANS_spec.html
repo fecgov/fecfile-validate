@@ -1,0 +1,281 @@
+<!DOCTYPE html><html lang="en"><head><title>LOANS</title><link rel="stylesheet" href="spec_table.css"></head><body><table><caption>Specification for LOANS</caption><tr>
+<th>FIELD DESCRIPTION</th>
+<th>TYPE</th>
+<th>REQUIRED</th>
+<th>SAMPLE DATA</th>
+<th>VALUE REFERENCE</th>
+<th>RULE REFERENCE</th>
+<th>FIELD FORM ASSOCIATION</th>
+<th>VALIDATION RULES</th>
+</tr>
+<tr>
+<td>FORM TYPE</td>
+<td>A/N-8</td>
+<td>X (error)</td>
+<td>SC/10</td>
+<td>[SC/9 |SC/10 ]</td>
+<td>If Transaction Type is LOAN_RECEIVED_FROM_INDIVIDUAL or LOAN_RECEIVED_FROM_BANK, then Form Type is SC/10 If Transaction Type is LOAN_BY_COMMITTEE, then Receipt Line Number is SC/9</td>
+<td></td>
+<td><ul><li>FORM_TYPE = 'SC/10' if TRANSACTION_TYPE_IDENTIFIER equals LOAN_RECEIVED_FROM_INDIVIDUAL</li><li>FORM_TYPE = 'SC/10' if TRANSACTION_TYPE_IDENTIFIER equals LOAN_RECEIVED_FROM_BANK</li><li>FORM_TYPE = 'SC/9' if TRANSACTION_TYPE_IDENTIFIER equals LOAN_BY_COMMITTEE</li><li>REQUIRED</li><li>must be one of: ['SC/9', 'SC/10']</li></td>
+</tr>
+<tr>
+<td>FILER COMMITTEE ID NUMBER</td>
+<td>A/N-9</td>
+<td>X (error)</td>
+<td>C00123456</td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 9</li><li>max length: 9</li><li>regex: ^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$</li></td>
+</tr>
+<tr>
+<td>TRANSACTION TYPE IDENTIFIER</td>
+<td>A/N-12</td>
+<td>X (error)</td>
+<td>LOAN_RECEIVED_FROM_INDIVIDUAL</td>
+<td></td>
+<td>LOAN_RECEIVED_FROM_INDIVIDUAL, LOAN_RECEIVED_FROM_BANK, LOAN_BY_COMMITTEE</td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>must be one of: ['LOAN_RECEIVED_FROM_INDIVIDUAL', 'LOAN_RECEIVED_FROM_BANK', 'LOAN_BY_COMMITTEE']</li></td>
+</tr>
+<tr>
+<td>TRANSACTION ID</td>
+<td>A/N-20</td>
+<td>X (error)</td>
+<td>C123456789-3456</td>
+<td></td>
+<td>must be unique for the life of the report (original + all amendments)</td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
+</tr>
+<tr>
+<td>RECEIPT LINE NUMBER</td>
+<td>A/N-8</td>
+<td>X (conditional error)</td>
+<td>13</td>
+<td>[13 | 27]</td>
+<td>If Transaction Type is (LOAN_RECEIVED_FROM_INDIVIDUAL or LOAN_RECEIVED_FROM_BANK), then Receipt Line Number is 13, If Transaction Type is LOAN_BY_COMMITTEE, then Receipt Line Number is 27</td>
+<td></td>
+<td><ul><li>REQUIRED if TRANSACTION_TYPE_IDENTIFIER equals LOAN_RECEIVED_FROM_INDIVIDUAL</li><li>RECEIPT_LINE_NUMBER = '13' if TRANSACTION_TYPE_IDENTIFIER equals LOAN_RECEIVED_FROM_INDIVIDUAL</li><li>REQUIRED if TRANSACTION_TYPE_IDENTIFIER equals LOAN_RECEIVED_FROM_BANK</li><li>RECEIPT_LINE_NUMBER = '13' if TRANSACTION_TYPE_IDENTIFIER equals LOAN_RECEIVED_FROM_BANK</li><li>RECEIPT_LINE_NUMBER must be one of ['27', 'null'] if TRANSACTION_TYPE_IDENTIFIER equals LOAN_BY_COMMITTEE</li><li>must be one of: ['13', '27', 'null']</li></td>
+</tr>
+<tr>
+<td>ENTITY TYPE</td>
+<td>A/N-3</td>
+<td>X (error)</td>
+<td>ORG</td>
+<td>[IND | ORG | COM]</td>
+<td>If Transaction Type is LOAN_RECEIVED_FROM_INDIVIDUAL, then Entity is IND, ORG, or COM, If Transaction Type is LOAN_RECEIVED_FROM_BANK, then Entity is ORG, If Transaction Type is LOAN_BY_COMMITTEE, then Entity is COM</td>
+<td></td>
+<td><ul><li>ENTITY_TYPE = 'ORG' if TRANSACTION_TYPE_IDENTIFIER equals LOAN_RECEIVED_FROM_BANK</li><li>ENTITY_TYPE = 'COM' if TRANSACTION_TYPE_IDENTIFIER equals LOAN_BY_COMMITTEE</li><li>REQUIRED</li><li>must be one of: ['IND', 'ORG', 'COM']</li></td>
+</tr>
+<tr>
+<td>LENDER ORGANIZATION NAME</td>
+<td>A/N-200</td>
+<td>X (conditional error)</td>
+<td>The Bank of Banks</td>
+<td></td>
+<td>Required if [ORG | COM]</td>
+<td></td>
+<td><ul><li>REQUIRED if ENTITY_TYPE equals ORG</li><li>REQUIRED if ENTITY_TYPE equals COM</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 200</li><li>regex: ^[ -~]{0,200}$</li></td>
+</tr>
+<tr>
+<td>LENDER LAST NAME</td>
+<td>A/N-30</td>
+<td>X (conditional error)</td>
+<td>Smith</td>
+<td></td>
+<td>Required if [IND]</td>
+<td></td>
+<td><ul><li>REQUIRED if ENTITY_TYPE equals IND</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 30</li><li>regex: ^[ -~]{0,30}$</li></td>
+</tr>
+<tr>
+<td>LENDER FIRST NAME</td>
+<td>A/N-20</td>
+<td>X (conditional error)</td>
+<td>John</td>
+<td></td>
+<td>Required if [IND]</td>
+<td></td>
+<td><ul><li>REQUIRED if ENTITY_TYPE equals IND</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
+</tr>
+<tr>
+<td>LENDER MIDDLE NAME</td>
+<td>A/N-20</td>
+<td></td>
+<td>W</td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
+</tr>
+<tr>
+<td>LENDER PREFIX</td>
+<td>A/N-10</td>
+<td></td>
+<td>Dr</td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 10</li><li>regex: ^[ -~]{0,10}$</li></td>
+</tr>
+<tr>
+<td>LENDER SUFFIX</td>
+<td>A/N-10</td>
+<td></td>
+<td>Jr</td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 10</li><li>regex: ^[ -~]{0,10}$</li></td>
+</tr>
+<tr>
+<td>LENDER STREET  1</td>
+<td>A/N-34</td>
+<td>X (error)</td>
+<td>Suite 16</td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 34</li><li>regex: ^[ -~]{0,34}$</li></td>
+</tr>
+<tr>
+<td>LENDER STREET  2</td>
+<td>A/N-34</td>
+<td></td>
+<td>30 Oak Street</td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 34</li><li>regex: ^[ -~]{0,34}$</li></td>
+</tr>
+<tr>
+<td>LENDER CITY</td>
+<td>A/N-30</td>
+<td>X (error)</td>
+<td>Springfield</td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 30</li><li>regex: ^[ -~]{0,30}$</li></td>
+</tr>
+<tr>
+<td>LENDER STATE</td>
+<td>A/N-2</td>
+<td>X (error)</td>
+<td>MA</td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 2</li><li>regex: ^[ -~]{0,2}$</li></td>
+</tr>
+<tr>
+<td>LENDER ZIP</td>
+<td>A/N-9</td>
+<td>X (error)</td>
+<td>1012</td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 9</li><li>regex: ^[ -~]{0,9}$</li></td>
+</tr>
+<tr>
+<td>LOAN AMOUNT</td>
+<td>AMT-12</td>
+<td>X (error)</td>
+<td>10000</td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: number</li><li>minimum: -99999999.99</li><li>maximum: 999999999.99</li></td>
+</tr>
+<tr>
+<td>LOAN PAYMENT TO DATE</td>
+<td>AMT-12</td>
+<td>X (error)</td>
+<td>1000</td>
+<td></td>
+<td>Auto-calculated based upon user entering payments on the loan.</td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: number</li><li>minimum: -99999999.99</li><li>maximum: 999999999.99</li></td>
+</tr>
+<tr>
+<td>LOAN BALANCE (Original)</td>
+<td>AMT-12</td>
+<td>X (error)</td>
+<td>9000</td>
+<td></td>
+<td>Auto-calculated based upon subtracting loan payment to date from original amount of loan</td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: number</li><li>minimum: -99999999.99</li><li>maximum: 999999999.99</li></td>
+</tr>
+<tr>
+<td>LOAN INCURRED DATE (Terms)</td>
+<td>NUM-8</td>
+<td>X (error)</td>
+<td>20120101</td>
+<td>YYYYMMDD</td>
+<td></td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 10</li><li>regex: ^[0-9]{4}-[0-9]{2}-[0-9]{2}$</li></td>
+</tr>
+<tr>
+<td>LOAN DUE DATE (Terms)</td>
+<td>A/N-15</td>
+<td>X (error)</td>
+<td>Whenever</td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 15</li><li>regex: ^[ -~]{0,15}$</li></td>
+</tr>
+<tr>
+<td>LOAN INTEREST RATE % (Terms)</td>
+<td>A/N-15</td>
+<td>X (error)</td>
+<td>.0565</td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 15</li><li>regex: ^[ -~]{0,15}$</li></td>
+</tr>
+<tr>
+<td>YES/NO (Secured?)</td>
+<td>A/N-1</td>
+<td>X (error)</td>
+<td>Y</td>
+<td>Y/N</td>
+<td>Edit: Yes/No</td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: boolean</li></td>
+</tr>
+<tr>
+<td>LENDER COMMITTEE ID NUMBER</td>
+<td>A/N-9</td>
+<td>X (conditional error)</td>
+<td>C00123456</td>
+<td></td>
+<td>Required if [COM]</td>
+<td></td>
+<td><ul><li>REQUIRED if ENTITY_TYPE equals COM</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 9</li><li>regex: ^[ -~]{0,9}$</li></td>
+</tr>
+<tr>
+<td>MEMO CODE</td>
+<td>A/N-1</td>
+<td></td>
+<td></td>
+<td>X</td>
+<td>X = True</td>
+<td></td>
+<td><ul><li>type: ['boolean', 'null']</li></td>
+</tr>
+<tr>
+<td>MEMO TEXT/DESCRIPTION</td>
+<td>A/N-100</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 100</li><li>regex: ^[ -~]{0,100}$</li></td>
+</tr>
+</table></body></html>
