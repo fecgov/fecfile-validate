@@ -1,9 +1,9 @@
 {
     "$schema": "https://json-schema.org/draft-07/schema#",
-    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/NATIONAL_PARTY_PARTNERSHIP_ATTRIBUTION_MEMOS.json",
+    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/NATIONAL_PARTY_PARTNERSHIP_MEMOS.json",
     "version": "v0.0.0.0",
-    "title": "FEC National Party Partnership Attribution Memos (17)",
-    "description": "National Party Partnership Attribution Memos (17)",
+    "title": "FEC National Party Partnership Memos (17)",
+    "description": "National Party Partnership Memos (17)",
     "type": "object",
     "required": [
         "form_type",
