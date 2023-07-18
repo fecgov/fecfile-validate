@@ -1,9 +1,9 @@
 {
     "$schema": "https://json-schema.org/draft-07/schema#",
-    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/PARTNERSHIP_NATIONAL_PARTY_RECEIPTS.json",
+    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/NATIONAL_PARTY_PARTNERSHIP_RECEIPTS.json",
     "version": "v0.0.0.0",
-    "title": "FEC Partnership National Party Receipts (17)",
-    "description": "Partnership National Party Receipts (17)",
+    "title": "FEC National Party Partnership Receipts (17)",
+    "description": "National Party Partnership Receipts (17)",
     "type": "object",
     "required": [
         "form_type",
