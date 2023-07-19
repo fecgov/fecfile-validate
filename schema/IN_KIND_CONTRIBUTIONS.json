@@ -1,9 +1,9 @@
 {
     "$schema": "https://json-schema.org/draft-07/schema#",
-    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/IN_KIND_RECEIPT.json",
+    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/IN_KIND_CONTRIBUTIONS.json",
     "version": "v0.0.0.0",
-    "title": "FEC In-Kind Receipt",
-    "description": "In-Kind Receipt (11a)",
+    "title": "FEC In-Kind Contributions to Candidate",
+    "description": "In-Kind Contributions to Candidate (Line 23)",
     "type": "object",
     "required": [
         "form_type",
