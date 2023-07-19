@@ -140,7 +140,7 @@
         "entity_type": {
             "title": "ENTITY TYPE",
             "description": "",
-            "const": [
+            "enum": [
                 "ORG",
                 "IND"
             ],
