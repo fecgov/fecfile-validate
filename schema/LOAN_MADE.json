@@ -12,6 +12,7 @@
         "transaction_id",
         "entity_type",
         "payee_organization_name",
+        "beneficiary_committee_fec_id",
         "payee_street_1",
         "payee_city",
         "payee_state",
@@ -352,6 +353,23 @@
                 "VALUE_REFERENCE": "001-012",
                 "RULE_REFERENCE": "Only codes 001-012",
                 "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P"
+            }
+        },
+        "beneficiary_committee_fec_id": {
+            "title": "BENEFICIARY COMMITTEE FEC ID",
+            "description": "",
+            "type": "string",
+            "minLength": 9,
+            "maxLength": 9,
+            "pattern": "^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$",
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "BENEFICIARY COMMITTEE FEC ID",
+                "TYPE": "A/N-9",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "[Auto-generated from SC Transaction]",
+                "FIELD_FORM_ASSOCIATION": null
             }
         },
         "memo_code": {
