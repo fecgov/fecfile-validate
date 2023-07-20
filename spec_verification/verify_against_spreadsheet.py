@@ -33,14 +33,7 @@ def get_column_headers(sheet):
 
 def get_filename(sheet):
     filename_overrides = {
-        (
-            "NATIONAL_PARTY_PARTNERSHIP_MEMOS (needs review as it is named "
-            "PARTNERSHIP_NATIONAL_PARTY_MEMOS in the code)"
-        ): "PARTNERSHIP_NATIONAL_PARTY_MEMOS",
-        (
-            "NATIONAL_PARTY_PARTNERSHIP_RECEIPTS (needs review as it is named "
-            "PARTNERSHIP_NATIONAL_PARTY_RECEIPTS in the code)"
-        ): "PARTNERSHIP_NATIONAL_PARTY_RECEIPTS",
+
     }
 
     filename = sheet["A2"].value
