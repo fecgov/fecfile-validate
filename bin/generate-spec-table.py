@@ -72,6 +72,11 @@ def get_conditions(all_of):
             conditions.append(
                 f"{q.upper()} matches regex: {all_of['if']['properties'][q]['pattern']}"
             )
+        if (
+            "type" in all_of["if"]["properties"][q]
+            and len(all_of["if"]["properties"][q]) == 1
+        ):
+            conditions.append(f"{q.upper()} is populated")
     return conditions
 
 
