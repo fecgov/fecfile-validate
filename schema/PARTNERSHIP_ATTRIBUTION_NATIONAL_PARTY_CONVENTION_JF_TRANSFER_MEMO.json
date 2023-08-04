@@ -1,9 +1,9 @@
 {
     "$schema": "https://json-schema.org/draft-07/schema#",
-    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/PARTNERSHIP_RECOUNT_ACCOUNT_RECEIPT_MEMO.json",
+    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/PARTNERSHIP_ATTRIBUTION_NATIONAL_PARTY_CONVENTION_JF_TRANSFER_MEMO.json",
     "version": "v0.0.0.0",
-    "title": "FEC Partnership Recount Account Receipt Memo",
-    "description": "Partnership Recount Account Receipt Memo (17)",
+    "title": "Partnership Attribution Pres. Nominating Convention Account JF Transfer Memo",
+    "description": "Partnership Attribution Pres. Nominating Convention Account JF Transfer Memo (17)",
     "type": "object",
     "required": [
         "form_type",
@@ -31,7 +31,6 @@
         "form_type": {
             "title": "FORM TYPE",
             "description": "",
-            "type": "string",
             "const": "SA17",
             "examples": [
                 "SA17"
@@ -42,8 +41,7 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "SA17",
                 "VALUE_REFERENCE": "SA17",
-                "RULE_REFERENCE": "SA17 only",
-                "FIELD_FORM_ASSOCIATION": null
+                "RULE_REFERENCE": "SA17 Only"
             }
         },
         "filer_committee_id_number": {
@@ -62,25 +60,22 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "C00123456",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "this is the ID of the Committee Account the report/transaction is associated with",
+                "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
         "transaction_type_identifier": {
             "title": "TRANSACTION TYPE IDENTIFIER",
             "description": "",
-            "const": "PARTNERSHIP_RECOUNT_ACCOUNT_RECEIPT_MEMO",
+            "const": "PARTNERSHIP_ATTRIBUTION_NATIONAL_PARTY_CONVENTION_JF_TRANSFER_MEMO",
             "examples": [
-                "PARTNERSHIP_RECOUNT_ACCOUNT_RECEIPT_MEMO"
+                "PARTNERSHIP_ATTRIBUTION_NATIONAL_PARTY_CONVENTION_JF_TRANSFER_MEMO"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "TRANSACTION TYPE IDENTIFIER",
                 "TYPE": "A/N-12",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "PARTNERSHIP_RECOUNT_ACCOUNT_RECEIPT_MEMO",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": null
+                "RULE_REFERENCE": "PARTNERSHIP_ATTRIBUTION_NATIONAL_PARTY_CONVENTION_JF_TRANSFER_MEMO"
             }
         },
         "transaction_id": {
@@ -117,10 +112,7 @@
                 "FIELD_DESCRIPTION": "BACK REFERENCE TRAN ID NUMBER",
                 "TYPE": "A/N-20",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "A123456789-1234",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Reference to the Tran ID of a Related Record",
-                "FIELD_FORM_ASSOCIATION": null
+                "SAMPLE_DATA": "A123456789-1234"
             }
         },
         "back_reference_sched_name": {
@@ -137,10 +129,7 @@
                 "FIELD_DESCRIPTION": "BACK REFERENCE SCHED NAME",
                 "TYPE": "A/N-8",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "SA17",
-                "VALUE_REFERENCE": "SA[line# ref]",
-                "RULE_REFERENCE": "Ref to the Schedule that has the Related Record.  SA3L must be used \nwith the F3L",
-                "FIELD_FORM_ASSOCIATION": null
+                "SAMPLE_DATA": "SA17"
             }
         },
         "entity_type": {
@@ -155,9 +144,8 @@
                 "TYPE": "A/N-3",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "IND",
-                "VALUE_REFERENCE": "IND only",
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": null
+                "VALUE_REFERENCE": "IND",
+                "RULE_REFERENCE": "IND Only"
             }
         },
         "contributor_last_name": {
@@ -174,10 +162,7 @@
                 "FIELD_DESCRIPTION": "CONTRIBUTOR LAST NAME",
                 "TYPE": "A/N-30",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "Smith",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": null
+                "SAMPLE_DATA": "Smith"
             }
         },
         "contributor_first_name": {
@@ -194,10 +179,7 @@
                 "FIELD_DESCRIPTION": "CONTRIBUTOR FIRST NAME",
                 "TYPE": "A/N-20",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "John",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": null
+                "SAMPLE_DATA": "John"
             }
         },
         "contributor_middle_name": {
@@ -216,11 +198,7 @@
             "fec_spec": {
                 "FIELD_DESCRIPTION": "CONTRIBUTOR MIDDLE NAME",
                 "TYPE": "A/N-20",
-                "REQUIRED": null,
-                "SAMPLE_DATA": "W",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": null
+                "SAMPLE_DATA": "W"
             }
         },
         "contributor_prefix": {
@@ -239,11 +217,7 @@
             "fec_spec": {
                 "FIELD_DESCRIPTION": "CONTRIBUTOR PREFIX",
                 "TYPE": "A/N-10",
-                "REQUIRED": null,
-                "SAMPLE_DATA": "Dr",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": null
+                "SAMPLE_DATA": "Dr"
             }
         },
         "contributor_suffix": {
@@ -262,11 +236,7 @@
             "fec_spec": {
                 "FIELD_DESCRIPTION": "CONTRIBUTOR SUFFIX",
                 "TYPE": "A/N-10",
-                "REQUIRED": null,
-                "SAMPLE_DATA": "Jr",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": null
+                "SAMPLE_DATA": "Jr"
             }
         },
         "contributor_street_1": {
@@ -283,10 +253,7 @@
                 "FIELD_DESCRIPTION": "CONTRIBUTOR STREET  1",
                 "TYPE": "A/N-34",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "123 Main Street",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": null
+                "SAMPLE_DATA": "123 Main Street"
             }
         },
         "contributor_street_2": {
@@ -301,12 +268,7 @@
             "pattern": "^[ -~]{0,34}$",
             "fec_spec": {
                 "FIELD_DESCRIPTION": "CONTRIBUTOR STREET  2",
-                "TYPE": "A/N-34",
-                "REQUIRED": null,
-                "SAMPLE_DATA": null,
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": null
+                "TYPE": "A/N-34"
             }
         },
         "contributor_city": {
@@ -323,10 +285,7 @@
                 "FIELD_DESCRIPTION": "CONTRIBUTOR CITY",
                 "TYPE": "A/N-30",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "Anytown",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": null
+                "SAMPLE_DATA": "Anytown"
             }
         },
         "contributor_state": {
@@ -344,9 +303,8 @@
                 "TYPE": "A/N-2",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "WA",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Edit: ST",
-                "FIELD_FORM_ASSOCIATION": null
+                "VALUE_REFERENCE": "AK,AL,...,ZZ",
+                "RULE_REFERENCE": "Edit: ST"
             }
         },
         "contributor_zip": {
@@ -363,10 +321,7 @@
                 "FIELD_DESCRIPTION": "CONTRIBUTOR ZIP",
                 "TYPE": "A/N-9",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": 981110123,
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": null
+                "SAMPLE_DATA": 981110123
             }
         },
         "contribution_date": {
@@ -383,9 +338,7 @@
                 "TYPE": "NUM-8",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": 20120615,
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": null
+                "VALUE_REFERENCE": "YYYYMMDD"
             }
         },
         "contribution_amount": {
@@ -402,9 +355,7 @@
                 "TYPE": "AMT-12",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": 250,
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": null
+                "RULE_REFERENCE": "Amount cannot exceed the amount in the parent transaction (Partnership Receipt JF Transfer Memo). Future functionality - do not implement or test against!"
             }
         },
         "contribution_aggregate": {
@@ -420,43 +371,39 @@
                 "FIELD_DESCRIPTION": "CONTRIBUTION AGGREGATE",
                 "TYPE": "AMT-12",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": 1000,
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "YTD",
-                "FIELD_FORM_ASSOCIATION": null
+                "SAMPLE_DATA": 1000
             }
         },
         "aggregation_group": {
             "title": "AGGREGATION GROUP",
             "description": "",
-            "const": "RECOUNT_ACCOUNT",
+            "const": "NATIONAL_PARTY_CONVENTION_ACCOUNT",
             "examples": [
-                "RECOUNT_ACCOUNT"
+                "NATIONAL_PARTY_CONVENTION_ACCOUNT"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "AGGREGATION GROUP",
-                "TYPE": "A/N-100",
+                "TYPE": null,
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "RECOUNT_ACCOUNT",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": "NATIONAL_PARTY_CONVENTION_ACCOUNT",
+                "RULE_REFERENCE": "NATIONAL_PARTY_CONVENTION_ACCOUNT",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
         "contribution_purpose_descrip": {
             "title": "CONTRIBUTION PURPOSE DESCRIPTION",
             "description": "",
-            "const": "Recount Account Partnership Attribution",
-            "examples": [
-                "Recount Account Partnership Attribution"
-            ],
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 100,
+            "pattern": "^Pres. Nominating Convention Account JF Memo: [ -~]{0,29} \\(Partnership Attribution\\)$",
             "fec_spec": {
                 "FIELD_DESCRIPTION": "CONTRIBUTION PURPOSE DESCRIPTION",
                 "TYPE": "A/N-100",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "Recount Account Partnership Attribution",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Recount Account Partnership Attribution",
+                "SAMPLE_DATA": "Pres. Nominating Convention Account JF Memo: XX (Partnership Attribution)",
+                "RULE_REFERENCE": "Pres. Nominating Convention Account JF Memo: XX (Partnership Attribution), where XX is auto-populated with name of committee entered in grandparent transaction JF_TRAN COL SEQ 8",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -516,7 +463,7 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": "X",
-                "RULE_REFERENCE": "X = True",
+                "RULE_REFERENCE": "Req to be X. ",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },

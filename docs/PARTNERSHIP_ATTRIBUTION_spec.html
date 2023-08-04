@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><title>PARTNERSHIP_RECOUNT_ACCOUNT_RECEIPT_MEMO</title><link rel="stylesheet" href="spec_table.css"></head><body><table><caption>Specification for PARTNERSHIP_RECOUNT_ACCOUNT_RECEIPT_MEMO</caption><tr>
+<!DOCTYPE html><html lang="en"><head><title>PARTNERSHIP_ATTRIBUTION</title><link rel="stylesheet" href="spec_table.css"></head><body><table><caption>Specification for PARTNERSHIP_ATTRIBUTION</caption><tr>
 <th>FIELD DESCRIPTION</th>
 <th>TYPE</th>
 <th>REQUIRED</th>
@@ -12,11 +12,11 @@
 <td>FORM TYPE</td>
 <td>A/N-8</td>
 <td>X (error)</td>
-<td>SA17</td>
-<td>SA17</td>
-<td>SA17 only</td>
+<td>SA11AI</td>
+<td>SA[line# ref]</td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>must equal: SA17</li></td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>must be one of: ['SA11AI', 'SA11AII']</li></td>
 </tr>
 <tr>
 <td>FILER COMMITTEE ID NUMBER</td>
@@ -32,11 +32,11 @@
 <td>TRANSACTION TYPE IDENTIFIER</td>
 <td>A/N-12</td>
 <td>X (error)</td>
-<td>PARTNERSHIP_RECOUNT_ACCOUNT_RECEIPT_MEMO</td>
+<td>PARTNERSHIP_ATTRIBUTION</td>
 <td></td>
 <td></td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>must equal: PARTNERSHIP_RECOUNT_ACCOUNT_RECEIPT_MEMO</li></td>
+<td><ul><li>REQUIRED</li><li>must equal: PARTNERSHIP_ATTRIBUTION</li></td>
 </tr>
 <tr>
 <td>TRANSACTION ID</td>
@@ -62,7 +62,7 @@
 <td>BACK REFERENCE SCHED NAME</td>
 <td>A/N-8</td>
 <td>X (error)</td>
-<td>SA17</td>
+<td>SA11AI</td>
 <td>SA[line# ref]</td>
 <td>Ref to the Schedule that has the Related Record.  SA3L must be used 
 with the F3L</td>
@@ -213,26 +213,26 @@ with the F3L</td>
 <td>AGGREGATION GROUP</td>
 <td>A/N-100</td>
 <td>X (error)</td>
-<td>RECOUNT_ACCOUNT</td>
+<td>GENERAL</td>
 <td></td>
 <td></td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>must equal: RECOUNT_ACCOUNT</li></td>
+<td><ul><li>REQUIRED</li><li>must equal: GENERAL</li></td>
 </tr>
 <tr>
 <td>CONTRIBUTION PURPOSE DESCRIPTION</td>
 <td>A/N-100</td>
 <td>X (error)</td>
-<td>Recount Account Partnership Attribution</td>
+<td>Partnership Attribution</td>
 <td></td>
-<td>Recount Account Partnership Attribution</td>
+<td>Partnership Attribution</td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>must equal: Recount Account Partnership Attribution</li></td>
+<td><ul><li>REQUIRED</li><li>must equal: Partnership Attribution</li></td>
 </tr>
 <tr>
 <td>CONTRIBUTOR EMPLOYER</td>
 <td>A/N-38</td>
-<td>X (error)</td>
+<td>X (conditional error)</td>
 <td>XYZ Company</td>
 <td></td>
 <td>Req if Donor aggregate >$200</td>
@@ -242,7 +242,7 @@ with the F3L</td>
 <tr>
 <td>CONTRIBUTOR OCCUPATION</td>
 <td>A/N-38</td>
-<td>X (error)</td>
+<td>X (conditional error)</td>
 <td>QC Inspector</td>
 <td></td>
 <td>Req if Donor aggregate >$200</td>

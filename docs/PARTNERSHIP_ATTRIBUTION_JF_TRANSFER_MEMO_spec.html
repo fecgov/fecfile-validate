@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><title>PARTNERSHIP_NATIONAL_PARTY_MEMOS</title><link rel="stylesheet" href="spec_table.css"></head><body><table><caption>Specification for PARTNERSHIP_NATIONAL_PARTY_MEMOS</caption><tr>
+<!DOCTYPE html><html lang="en"><head><title>PARTNERSHIP_ATTRIBUTION_JF_TRANSFER_MEMO</title><link rel="stylesheet" href="spec_table.css"></head><body><table><caption>Specification for PARTNERSHIP_ATTRIBUTION_JF_TRANSFER_MEMO</caption><tr>
 <th>FIELD DESCRIPTION</th>
 <th>TYPE</th>
 <th>REQUIRED</th>
@@ -12,11 +12,11 @@
 <td>FORM TYPE</td>
 <td>A/N-8</td>
 <td>X (error)</td>
-<td>SA17</td>
-<td>SA17</td>
-<td>SA17 only</td>
+<td>SA12</td>
+<td>SA12</td>
+<td>SA12 Only</td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>must equal: SA17</li></td>
+<td><ul><li>REQUIRED</li><li>must equal: SA12</li></td>
 </tr>
 <tr>
 <td>FILER COMMITTEE ID NUMBER</td>
@@ -24,19 +24,19 @@
 <td>X (error)</td>
 <td>C00123456</td>
 <td></td>
-<td>this is the ID of the Committee Account the report/transaction is associated with</td>
+<td></td>
 <td></td>
 <td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 9</li><li>max length: 9</li><li>regex: ^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$</li></td>
 </tr>
 <tr>
 <td>TRANSACTION TYPE IDENTIFIER</td>
-<td></td>
+<td>A/N-12</td>
 <td>X (error)</td>
-<td>PARTNERSHIP_NATIONAL_PARTY_RECOUNT_ACCOUNT_MEMO</td>
 <td></td>
 <td></td>
+<td>PARTNERSHIP_ATTRIBUTION_JF_TRANSFER_MEMO</td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>must be one of: ['PARTNERSHIP_NATIONAL_PARTY_RECOUNT_ACCOUNT_MEMO', 'PARTNERSHIP_NATIONAL_PARTY_HEADQUARTERS_ACCOUNT_MEMO', 'PARTNERSHIP_NATIONAL_PARTY_CONVENTION_ACCOUNT_MEMO']</li></td>
+<td><ul><li>REQUIRED</li><li>must equal: PARTNERSHIP_ATTRIBUTION_JF_TRANSFER_MEMO</li></td>
 </tr>
 <tr>
 <td>TRANSACTION ID</td>
@@ -44,7 +44,7 @@
 <td>X (error)</td>
 <td>A56123456789-1234</td>
 <td></td>
-<td>must be unique and UPPER CASE for the life of the report (original + all amendments)</td>
+<td>Must be unique for the life of a report (original + amendments) within each committee account. Letters, if included, must be uppercase.</td>
 <td></td>
 <td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
 </tr>
@@ -62,11 +62,11 @@
 <td>BACK REFERENCE SCHED NAME</td>
 <td>A/N-8</td>
 <td>X (error)</td>
-<td>SA17</td>
-<td>SA[line# ref]</td>
+<td>SA12</td>
 <td></td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 8</li><li>regex: ^[ -~]{0,8}$</li></td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 8</li><li>regex: ^[ -~]{0,8}$</li></td>
 </tr>
 <tr>
 <td>ENTITY TYPE</td>
@@ -74,7 +74,7 @@
 <td>X (error)</td>
 <td>IND</td>
 <td>IND</td>
-<td>IND only</td>
+<td>IND Only</td>
 <td></td>
 <td><ul><li>REQUIRED</li><li>must equal: IND</li></td>
 </tr>
@@ -164,7 +164,7 @@
 <td>X (error)</td>
 <td>WA</td>
 <td>AK,AL,...,ZZ</td>
-<td></td>
+<td>Edit: ST</td>
 <td></td>
 <td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 2</li><li>regex: ^[ -~]{0,2}$</li></td>
 </tr>
@@ -202,9 +202,9 @@
 <td>CONTRIBUTION AGGREGATE</td>
 <td>AMT-12</td>
 <td>X (error)</td>
-<td>1000</td>
+<td>250</td>
 <td></td>
-<td>YTD</td>
+<td>Amount cannot exceed the amount in the parent transaction (Partnership Receipt JF Transfer Memo). Future functionality - do not implement or test against!</td>
 <td></td>
 <td><ul><li>REQUIRED</li><li>type: number</li><li>minimum: -99999999.99</li><li>maximum: 999999999.99</li></td>
 </tr>
@@ -213,20 +213,20 @@
 <td></td>
 <td>X (error)</td>
 <td></td>
+<td>GENERAL</td>
+<td>GENERAL</td>
 <td></td>
-<td></td>
-<td></td>
-<td><ul><li>AGGREGATION_GROUP = 'NATIONAL_PARTY_RECOUNT_ACCOUNT' if TRANSACTION_TYPE_IDENTIFIER equals PARTNERSHIP_NATIONAL_PARTY_RECOUNT_ACCOUNT_MEMO</li><li>AGGREGATION_GROUP = 'NATIONAL_PARTY_HEADQUARTERS_ACCOUNT' if TRANSACTION_TYPE_IDENTIFIER equals PARTNERSHIP_NATIONAL_PARTY_HEADQUARTERS_ACCOUNT_MEMO</li><li>AGGREGATION_GROUP = 'NATIONAL_PARTY_CONVENTION_ACCOUNT' if TRANSACTION_TYPE_IDENTIFIER equals PARTNERSHIP_NATIONAL_PARTY_CONVENTION_ACCOUNT_MEMO</li><li>REQUIRED</li><li>type: string</li><li>must be one of: ['NATIONAL_PARTY_RECOUNT_ACCOUNT', 'NATIONAL_PARTY_HEADQUARTERS_ACCOUNT', 'NATIONAL_PARTY_CONVENTION_ACCOUNT']</li></td>
+<td><ul><li>REQUIRED</li><li>must equal: GENERAL</li></td>
 </tr>
 <tr>
 <td>CONTRIBUTION PURPOSE DESCRIPTION</td>
 <td>A/N-100</td>
 <td>X (error)</td>
+<td>JF Memo: XX (Partnership Attribution)</td>
 <td></td>
+<td>JF Memo: XX (Partnership Attribution), where XX is auto-populated with name of committee entered in grandparent transaction JF_TRAN COL SEQ 8</td>
 <td></td>
-<td></td>
-<td></td>
-<td><ul><li>CONTRIBUTION_PURPOSE_DESCRIP = 'Recount/Legal Proceedings Account Partnership Attribution' if TRANSACTION_TYPE_IDENTIFIER equals PARTNERSHIP_NATIONAL_PARTY_RECOUNT_ACCOUNT_MEMO</li><li>CONTRIBUTION_PURPOSE_DESCRIP = 'Headquarters Buildings Account Partnership Attribution' if TRANSACTION_TYPE_IDENTIFIER equals PARTNERSHIP_NATIONAL_PARTY_HEADQUARTERS_ACCOUNT_MEMO</li><li>CONTRIBUTION_PURPOSE_DESCRIP = 'Pres. Nominating Convention Account Partnership Attribution' if TRANSACTION_TYPE_IDENTIFIER equals PARTNERSHIP_NATIONAL_PARTY_CONVENTION_ACCOUNT_MEMO</li><li>REQUIRED</li><li>type: string</li><li>must be one of: ['Recount/Legal Proceedings Account Partnership Attribution', 'Headquarters Buildings Account Partnership Attribution', 'Pres. Nominating Convention Account Partnership Attribution']</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 100</li><li>regex: ^JF Memo: [ -~]{0,65} \(Partnership Attribution\)$</li></td>
 </tr>
 <tr>
 <td>CONTRIBUTOR EMPLOYER</td>
@@ -254,7 +254,7 @@
 <td>X (error)</td>
 <td></td>
 <td>X</td>
-<td></td>
+<td>X = True</td>
 <td></td>
 <td><ul><li>REQUIRED</li><li>must equal: True</li></td>
 </tr>

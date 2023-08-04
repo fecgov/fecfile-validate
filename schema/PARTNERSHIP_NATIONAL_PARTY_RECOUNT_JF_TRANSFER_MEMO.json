@@ -355,13 +355,13 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 100,
-            "pattern": "^(Recount/Legal Proceedings Account JF Memo: [ -~]{0,3} \\(Partnership attributions do not require itemization\\)|Recount/Legal Proceedings Account JF Memo: [ -~]{0,18} \\(See Partnership Attribution\\(s\\) below\\))$",
+            "pattern": "^Recount/Legal Proceedings Account JF Memo: [ -~]{0,57}$",
             "fec_spec": {
                 "FIELD_DESCRIPTION": "CONTRIBUTION PURPOSE DESCRIPTION",
                 "TYPE": "A/N-100",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "Recount/Legal Proceedings Account JF Memo: XX",
-                "RULE_REFERENCE": "Recount/Legal Proceedings Account JF Memo: XX (If transaction has no associated Partnership memos, \"Partnership attributions do not require itemization\". If transaction has associated Partnership memos, \"See Partnership Attribution below\"), where XX is auto-populated with name of committee entered in parent transaction JF_TRAN COL SEQ 8"
+                "RULE_REFERENCE": "Recount/Legal Proceedings Account JF Memo: XX (If transaction has no associated Partnership memos, \"Partnership attributions do not meet itemization threshold\". If transaction has associated Partnership memos, \"See Partnership Attribution below\"), where XX is auto-populated with name of committee entered in parent transaction JF_TRAN COL SEQ 8"
             }
         },
         "memo_code": {

@@ -1,9 +1,9 @@
 {
     "$schema": "https://json-schema.org/draft-07/schema#",
-    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/PARTNERSHIP_NATIONAL_PARTY_MEMOS.json",
+    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/PARTNERSHIP_ATTRIBUTION_RECOUNT_ACCOUNT_RECEIPT_MEMO.json",
     "version": "v0.0.0.0",
-    "title": "FEC Partnership National Party Memos (17)",
-    "description": "Partnership National Party Memos (17)",
+    "title": "FEC Partnership Attribution Recount Account Receipt Memo",
+    "description": "Partnership Attribution Recount Account Receipt Memo (17)",
     "type": "object",
     "required": [
         "form_type",
@@ -31,6 +31,7 @@
         "form_type": {
             "title": "FORM TYPE",
             "description": "",
+            "type": "string",
             "const": "SA17",
             "examples": [
                 "SA17"
@@ -68,22 +69,15 @@
         "transaction_type_identifier": {
             "title": "TRANSACTION TYPE IDENTIFIER",
             "description": "",
-            "type": "string",
-            "enum": [
-                "PARTNERSHIP_NATIONAL_PARTY_RECOUNT_ACCOUNT_MEMO",
-                "PARTNERSHIP_NATIONAL_PARTY_HEADQUARTERS_ACCOUNT_MEMO",
-                "PARTNERSHIP_NATIONAL_PARTY_CONVENTION_ACCOUNT_MEMO"
-            ],
+            "const": "PARTNERSHIP_ATTRIBUTION_RECOUNT_ACCOUNT_RECEIPT_MEMO",
             "examples": [
-                "PARTNERSHIP_NATIONAL_PARTY_RECOUNT_ACCOUNT_MEMO",
-                "PARTNERSHIP_NATIONAL_PARTY_HEADQUARTERS_ACCOUNT_MEMO",
-                "PARTNERSHIP_NATIONAL_PARTY_CONVENTION_ACCOUNT_MEMO"
+                "PARTNERSHIP_ATTRIBUTION_RECOUNT_ACCOUNT_RECEIPT_MEMO"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "TRANSACTION TYPE IDENTIFIER",
-                "TYPE": null,
+                "TYPE": "A/N-12",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "PARTNERSHIP_NATIONAL_PARTY_RECOUNT_ACCOUNT_MEMO",
+                "SAMPLE_DATA": "PARTNERSHIP_ATTRIBUTION_RECOUNT_ACCOUNT_RECEIPT_MEMO",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
@@ -105,7 +99,7 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "A56123456789-1234",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "must be unique and UPPER CASE for the life of the report (original + all amendments)",
+                "RULE_REFERENCE": "Must be unique for the life of a report (original + amendments) within each committee account. Letters, if included, must be uppercase.",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -125,17 +119,14 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "A123456789-1234",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
+                "RULE_REFERENCE": "Reference to the Tran ID of a Related Record",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
         "back_reference_sched_name": {
             "title": "BACK REFERENCE SCHED NAME",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
+            "type": "string",
             "minLength": 0,
             "maxLength": 8,
             "pattern": "^[ -~]{0,8}$",
@@ -148,7 +139,7 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "SA17",
                 "VALUE_REFERENCE": "SA[line# ref]",
-                "RULE_REFERENCE": null,
+                "RULE_REFERENCE": "Ref to the Schedule that has the Related Record.  SA3L must be used \nwith the F3L",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -164,8 +155,8 @@
                 "TYPE": "A/N-3",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "IND",
-                "VALUE_REFERENCE": "IND",
-                "RULE_REFERENCE": "IND only",
+                "VALUE_REFERENCE": "IND only",
+                "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -353,8 +344,8 @@
                 "TYPE": "A/N-2",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "WA",
-                "VALUE_REFERENCE": "AK,AL,...,ZZ",
-                "RULE_REFERENCE": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "Edit: ST",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -392,7 +383,7 @@
                 "TYPE": "NUM-8",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": 20120615,
-                "VALUE_REFERENCE": "YYYYMMDD",
+                "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }
@@ -438,22 +429,15 @@
         "aggregation_group": {
             "title": "AGGREGATION GROUP",
             "description": "",
-            "type": "string",
-            "enum": [
-                "NATIONAL_PARTY_RECOUNT_ACCOUNT",
-                "NATIONAL_PARTY_HEADQUARTERS_ACCOUNT",
-                "NATIONAL_PARTY_CONVENTION_ACCOUNT"
-            ],
+            "const": "RECOUNT_ACCOUNT",
             "examples": [
-                "NATIONAL_PARTY_RECOUNT_ACCOUNT",
-                "NATIONAL_PARTY_HEADQUARTERS_ACCOUNT",
-                "NATIONAL_PARTY_CONVENTION_ACCOUNT"
+                "RECOUNT_ACCOUNT"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "AGGREGATION GROUP",
-                "TYPE": null,
+                "TYPE": "A/N-100",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": null,
+                "SAMPLE_DATA": "RECOUNT_ACCOUNT",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
@@ -462,24 +446,17 @@
         "contribution_purpose_descrip": {
             "title": "CONTRIBUTION PURPOSE DESCRIPTION",
             "description": "",
-            "type": "string",
-            "enum": [
-                "Recount/Legal Proceedings Account Partnership Attribution",
-                "Headquarters Buildings Account Partnership Attribution",
-                "Pres. Nominating Convention Account Partnership Attribution"
-            ],
+            "const": "Recount Account Partnership Attribution",
             "examples": [
-                "Recount/Legal Proceedings Account Partnership Attribution",
-                "Headquarters Buildings Account Partnership Attribution",
-                "Pres. Nominating Convention Account Partnership Attribution"
+                "Recount Account Partnership Attribution"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "CONTRIBUTION PURPOSE DESCRIPTION",
                 "TYPE": "A/N-100",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": null,
+                "SAMPLE_DATA": "Recount Account Partnership Attribution",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
+                "RULE_REFERENCE": "Recount Account Partnership Attribution",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -539,7 +516,7 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": "X",
-                "RULE_REFERENCE": null,
+                "RULE_REFERENCE": "X = True",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -565,72 +542,6 @@
         }
     },
     "allOf": [
-        {
-            "if": {
-                "properties": {
-                    "transaction_type_identifier": {
-                        "const": "PARTNERSHIP_NATIONAL_PARTY_RECOUNT_ACCOUNT_MEMO"
-                    }
-                },
-                "required": [
-                    "transaction_type_identifier"
-                ]
-            },
-            "then": {
-                "properties": {
-                    "aggregation_group": {
-                        "const": "NATIONAL_PARTY_RECOUNT_ACCOUNT"
-                    },
-                    "contribution_purpose_descrip": {
-                        "const": "Recount/Legal Proceedings Account Partnership Attribution"
-                    }
-                }
-            }
-        },
-        {
-            "if": {
-                "properties": {
-                    "transaction_type_identifier": {
-                        "const": "PARTNERSHIP_NATIONAL_PARTY_HEADQUARTERS_ACCOUNT_MEMO"
-                    }
-                },
-                "required": [
-                    "transaction_type_identifier"
-                ]
-            },
-            "then": {
-                "properties": {
-                    "aggregation_group": {
-                        "const": "NATIONAL_PARTY_HEADQUARTERS_ACCOUNT"
-                    },
-                    "contribution_purpose_descrip": {
-                        "const": "Headquarters Buildings Account Partnership Attribution"
-                    }
-                }
-            }
-        },
-        {
-            "if": {
-                "properties": {
-                    "transaction_type_identifier": {
-                        "const": "PARTNERSHIP_NATIONAL_PARTY_CONVENTION_ACCOUNT_MEMO"
-                    }
-                },
-                "required": [
-                    "transaction_type_identifier"
-                ]
-            },
-            "then": {
-                "properties": {
-                    "aggregation_group": {
-                        "const": "NATIONAL_PARTY_CONVENTION_ACCOUNT"
-                    },
-                    "contribution_purpose_descrip": {
-                        "const": "Pres. Nominating Convention Account Partnership Attribution"
-                    }
-                }
-            }
-        },
         {
             "if": {
                 "properties": {
