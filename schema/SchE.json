@@ -22,16 +22,6 @@
         "completing_first_name",
         "date_signed"
     ],
-    "fec_recommended": [
-        "payee_street_1",
-        "payee_city",
-        "payee_state",
-        "payee_zip",
-        "calendar_ytd_per_election_office",
-        "expenditure_purpose_descrip",
-        "support_oppose_code",
-        "so_candidate_office"
-    ],
     "properties": {
         "form_type": {
             "title": "FORM TYPE",
@@ -950,7 +940,7 @@
             ],
             "fec_spec": {
                 "COL_SEQ": 42,
-                "FIELD_DESCRIPTION": "DISSEMINATION DATE",
+                "FIELD_DESCRIPTION": "DATE SIGNED",
                 "TYPE": "NUM-8",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": 20120820,
