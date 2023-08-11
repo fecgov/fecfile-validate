@@ -15,7 +15,6 @@
         "payee_city",
         "payee_state",
         "payee_zip",
-        "election_code",
         "expenditure_date",
         "expenditure_amount",
         "expenditure_purpose_descrip",
@@ -376,7 +375,7 @@
             "fec_spec": {
                 "FIELD_DESCRIPTION": "ELECTION CODE",
                 "TYPE": "A/N-5",
-                "REQUIRED": "X (error)",
+                "REQUIRED": "X (conditional error)",
                 "SAMPLE_DATA": "P2012",
                 "VALUE_REFERENCE": "G,P,O[YYYY]",
                 "RULE_REFERENCE": "Values: [G|P|R|S|C|E|O]+Year{YYYY}",
@@ -905,6 +904,23 @@
                         "type": "string"
                     }
                 }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "transaction_type_identifier": {
+                        "const": "IN_KIND_CONTRIBUTION_TO_CANDIDATE"
+                    }
+                },
+                "required": [
+                    "transaction_type_identifier"
+                ]
+            },
+            "then": {
+                "required": [
+                    "election_code"
+                ]
             }
         }
     ]
