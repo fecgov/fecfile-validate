@@ -19,11 +19,7 @@
         "expenditure_amount",
         "expenditure_purpose_descrip",
         "beneficiary_committee_fec_id",
-        "beneficiary_committee_name",
-        "beneficiary_candidate_fec_id",
-        "beneficiary_candidate_last_name",
-        "beneficiary_candidate_first_name",
-        "beneficiary_candidate_office"
+        "beneficiary_committee_name"
     ],
     "fec_recommended": [],
     "properties": {
@@ -560,7 +556,7 @@
             "fec_spec": {
                 "FIELD_DESCRIPTION": "BENEFICIARY CANDIDATE FEC ID",
                 "TYPE": "A/N-9",
-                "REQUIRED": "X (error)",
+                "REQUIRED": "X (conditional error)",
                 "SAMPLE_DATA": "H98765431",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
@@ -577,7 +573,7 @@
             "fec_spec": {
                 "FIELD_DESCRIPTION": "BENEFICIARY CANDIDATE LAST NAME",
                 "TYPE": "A/N-30",
-                "REQUIRED": "X (error)",
+                "REQUIRED": "X (conditional error)",
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
@@ -594,7 +590,7 @@
             "fec_spec": {
                 "FIELD_DESCRIPTION": "BENEFICIARY CANDIDATE FIRST NAME",
                 "TYPE": "A/N-20",
-                "REQUIRED": "X (error)",
+                "REQUIRED": "X (conditional error)",
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
@@ -675,7 +671,7 @@
             "fec_spec": {
                 "FIELD_DESCRIPTION": "BENEFICIARY CANDIDATE OFFICE",
                 "TYPE": "A/N-1",
-                "REQUIRED": "X (error)",
+                "REQUIRED": "X (conditional error)",
                 "SAMPLE_DATA": "H",
                 "VALUE_REFERENCE": "[H|S|P]",
                 "RULE_REFERENCE": null,
@@ -849,7 +845,11 @@
             },
             "then": {
                 "required": [
-                    "election_code"
+                    "election_code",
+                    "beneficiary_candidate_fec_id",
+                    "beneficiary_candidate_last_name",
+                    "beneficiary_candidate_first_name",
+                    "beneficiary_candidate_office"
                 ],
                 "properties": {
                     "election_code": {
