@@ -196,7 +196,7 @@
 <td>G,P,O[YYYY]</td>
 <td>Values: [G|P|R|S|C|E|O]+Year{YYYY}</td>
 <td>F3 | F3X | F3P</td>
-<td><ul><li>REQUIRED if TRANSACTION_TYPE_IDENTIFIER equals IN_KIND_CONTRIBUTION_TO_CANDIDATE</li><li>type: string</li><li>min length: 0</li><li>max length: 5</li><li>regex: ^[GPRSCEO]\d{4}$</li></td>
+<td><ul><li>REQUIRED if TRANSACTION_TYPE_IDENTIFIER equals IN_KIND_CONTRIBUTION_TO_CANDIDATE</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 5</li><li>regex: ^[GPRSCEO]\d{4}$</li></td>
 </tr>
 <tr>
 <td>ELECTION OTHER DESCRIPTION</td>
@@ -237,26 +237,6 @@
 <td>"In-kind: XX", where XX is user entered and concatenated within the CPD when generating the *.fec file</td>
 <td></td>
 <td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 100</li><li>regex: ^In-kind: [ -~]{1,91}$</li></td>
-</tr>
-<tr>
-<td>PAYEE EMPLOYER</td>
-<td>A/N-38</td>
-<td>X (conditional error)</td>
-<td>XYZ Company</td>
-<td></td>
-<td>Req if Donor aggregate >$200</td>
-<td></td>
-<td><ul><li>REQUIRED if EXPENDITURE_AGGREGATE >= 200.01</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 38</li><li>regex: ^[ -~]{0,38}$</li></td>
-</tr>
-<tr>
-<td>PAYEE OCCUPATION</td>
-<td>A/N-38</td>
-<td>X (conditional error)</td>
-<td>QC Inspector</td>
-<td></td>
-<td>Req if Donor aggregate >$200</td>
-<td></td>
-<td><ul><li>REQUIRED if EXPENDITURE_AGGREGATE >= 200.01</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 38</li><li>regex: ^[ -~]{0,38}$</li></td>
 </tr>
 <tr>
 <td>CATEGORY CODE</td>

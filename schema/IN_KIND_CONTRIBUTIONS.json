@@ -365,7 +365,10 @@
         "election_code": {
             "title": "ELECTION CODE",
             "description": "",
-            "type": "string",
+            "type": [
+                "string",
+                "null"
+            ],
             "minLength": 0,
             "maxLength": 5,
             "pattern": "^[GPRSCEO]\\d{4}$",
@@ -449,52 +452,6 @@
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": "In-kind: XX",
                 "RULE_REFERENCE": "\"In-kind: XX\", where XX is user entered and concatenated within the CPD when generating the *.fec file",
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "payee_employer": {
-            "title": "PAYEE EMPLOYER",
-            "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
-            "minLength": 0,
-            "maxLength": 38,
-            "pattern": "^[ -~]{0,38}$",
-            "examples": [
-                "XYZ Company"
-            ],
-            "fec_spec": {
-                "FIELD_DESCRIPTION": "PAYEE EMPLOYER",
-                "TYPE": "A/N-38",
-                "REQUIRED": "X (conditional error)",
-                "SAMPLE_DATA": "XYZ Company",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Req if Donor aggregate >$200",
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "payee_occupation": {
-            "title": "PAYEE OCCUPATION",
-            "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
-            "minLength": 0,
-            "maxLength": 38,
-            "pattern": "^[ -~]{0,38}$",
-            "examples": [
-                "QC Inspector"
-            ],
-            "fec_spec": {
-                "FIELD_DESCRIPTION": "PAYEE OCCUPATION",
-                "TYPE": "A/N-38",
-                "REQUIRED": "X (conditional error)",
-                "SAMPLE_DATA": "QC Inspector",
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Req if Donor aggregate >$200",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -776,33 +733,6 @@
         {
             "if": {
                 "properties": {
-                    "expenditure_aggregate": {
-                        "type": "number",
-                        "minimum": 200.01
-                    }
-                },
-                "required": [
-                    "expenditure_aggregate"
-                ]
-            },
-            "then": {
-                "required": [
-                    "payee_employer",
-                    "payee_occupation"
-                ],
-                "properties": {
-                    "payee_employer": {
-                        "type": "string"
-                    },
-                    "payee_occupation": {
-                        "type": "string"
-                    }
-                }
-            }
-        },
-        {
-            "if": {
-                "properties": {
                     "entity_type": {
                         "const": "IND"
                     }
@@ -920,7 +850,12 @@
             "then": {
                 "required": [
                     "election_code"
-                ]
+                ],
+                "properties": {
+                    "election_code": {
+                        "type": "string"
+                    }
+                }
             }
         }
     ]
