@@ -441,14 +441,14 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 100,
-            "pattern": "^In-Kind: [ -~]{1,91}$",
+            "pattern": "^In-kind: [ -~]{1,91}$",
             "fec_spec": {
                 "FIELD_DESCRIPTION": "EXPENDITURE PURPOSE DESCRIPTION",
                 "TYPE": "A/N-100",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": null,
-                "VALUE_REFERENCE": "In-Kind: XX",
-                "RULE_REFERENCE": "\"In-Kind: XX\", where XX is user entered and concatenated within the CPD when generating the *.fec file",
+                "VALUE_REFERENCE": "In-kind: XX",
+                "RULE_REFERENCE": "\"In-kind: XX\", where XX is user entered and concatenated within the CPD when generating the *.fec file",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
