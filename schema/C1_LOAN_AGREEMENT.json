@@ -1,19 +1,29 @@
 {
     "$schema": "https://json-schema.org/draft-07/schema#",
-    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/SchC1.json",
+    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/C1_LOAN_AGREEMENT.json",
     "version": "8.3.0.1",
-    "title": "FEC Sch C1",
+    "title": "FEC C1 - Loan Agreement",
     "description": "SCHEDULE C1 - LOANS AND LINES OF CREDIT FROM LENDING INSTITUTIONS",
     "type": "object",
     "required": [
         "form_type",
         "filer_committee_id_number",
+        "transaction_type_identifier",
         "transaction_id",
         "back_reference_tran_id_number",
         "lender_organization_name",
+        "lender_street_1",
+        "lender_city",
+        "lender_state",
+        "lender_zip",
         "loan_amount",
+        "loan_interest_rate",
         "loan_incurred_date",
         "loan_due_date",
+        "loan_restructured",
+        "others_liable",
+        "collateral",
+        "future_income",
         "treasurer_last_name",
         "treasurer_first_name",
         "treasurer_date_signed",
@@ -21,13 +31,6 @@
         "authorized_first_name",
         "authorized_title",
         "authorized_date_signed"
-    ],
-    "fec_recommended": [
-        "lender_street_1",
-        "lender_city",
-        "lender_state",
-        "lender_zip",
-        "loan_interest_rate"
     ],
     "properties": {
         "form_type": {
@@ -38,16 +41,16 @@
             "maxLength": 8,
             "pattern": "^[ -~]{0,8}$",
             "examples": [
-                "SC1/9"
+                "SC1/10"
             ],
             "fec_spec": {
                 "COL_SEQ": 1,
                 "FIELD_DESCRIPTION": "FORM TYPE",
                 "TYPE": "A/N-8",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "SC1/9",
-                "VALUE_REFERENCE": "SC1/[line# ref]",
-                "RULE_REFERENCE": "Appendix C"
+                "SAMPLE_DATA": "SC1/10",
+                "VALUE_REFERENCE": "SC1/10",
+                "RULE_REFERENCE": "SC1/10"
             }
         },
         "filer_committee_id_number": {
@@ -68,6 +71,23 @@
                 "SAMPLE_DATA": "C00123456",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null
+            }
+        },
+        "transaction_type_identifier": {
+            "title": "TRANSACTION TYPE IDENTIFIER",
+            "description": "",
+            "const": "C1_LOAN_AGREEMENT",
+            "examples": [
+                "C1_LOAN_AGREEMENT"
+            ],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "TRANSACTION TYPE IDENTIFIER",
+                "TYPE": "A/N-12",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "C1_LOAN_AGREEMENT",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
             }
         },
         "transaction_id": {
@@ -127,16 +147,13 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "The Bank of Banks",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Required if NOT [IND|CAN]"
+                "RULE_REFERENCE": "Auto-pulled from LOAN_RECEIVED_FROM_BANK"
             }
         },
         "lender_street_1": {
             "title": "LENDER STREET  1",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
+            "type": "string",
             "minLength": 0,
             "maxLength": 34,
             "pattern": "^[ -~]{0,34}$",
@@ -147,10 +164,10 @@
                 "COL_SEQ": 6,
                 "FIELD_DESCRIPTION": "LENDER STREET  1",
                 "TYPE": "A/N-34",
-                "REQUIRED": "X (warning)",
+                "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "The Bank Tower",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null
+                "RULE_REFERENCE": "Auto-pulled from LOAN_RECEIVED_FROM_BANK"
             }
         },
         "lender_street_2": {
@@ -173,16 +190,13 @@
                 "REQUIRED": null,
                 "SAMPLE_DATA": "100 Broadway",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null
+                "RULE_REFERENCE": "Auto-pulled from LOAN_RECEIVED_FROM_BANK"
             }
         },
         "lender_city": {
             "title": "LENDER CITY",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
+            "type": "string",
             "minLength": 0,
             "maxLength": 30,
             "pattern": "^[ -~]{0,30}$",
@@ -193,19 +207,16 @@
                 "COL_SEQ": 8,
                 "FIELD_DESCRIPTION": "LENDER CITY",
                 "TYPE": "A/N-30",
-                "REQUIRED": "X (warning)",
+                "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "New York",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null
+                "RULE_REFERENCE": "Auto-pulled from LOAN_RECEIVED_FROM_BANK"
             }
         },
         "lender_state": {
             "title": "LENDER STATE",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
+            "type": "string",
             "minLength": 0,
             "maxLength": 2,
             "pattern": "^[ -~]{0,2}$",
@@ -216,19 +227,16 @@
                 "COL_SEQ": 9,
                 "FIELD_DESCRIPTION": "LENDER STATE",
                 "TYPE": "A/N-2",
-                "REQUIRED": "X (warning)",
+                "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "NY",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null
+                "RULE_REFERENCE": "Auto-pulled from LOAN_RECEIVED_FROM_BANK"
             }
         },
         "lender_zip": {
             "title": "LENDER ZIP",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
+            "type": "string",
             "minLength": 0,
             "maxLength": 9,
             "pattern": "^[ -~]{0,9}$",
@@ -239,10 +247,10 @@
                 "COL_SEQ": 10,
                 "FIELD_DESCRIPTION": "LENDER ZIP",
                 "TYPE": "A/N-9",
-                "REQUIRED": "X (warning)",
+                "REQUIRED": "X (error)",
                 "SAMPLE_DATA": 10011,
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null
+                "RULE_REFERENCE": "Auto-pulled from LOAN_RECEIVED_FROM_BANK"
             }
         },
         "loan_amount": {
@@ -261,16 +269,13 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": 10000.00,
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null
+                "RULE_REFERENCE": "If Original C1, auto-pulled from LOAN_RECEIVED_FROM_BANK"
             }
         },
         "loan_interest_rate": {
             "title": "LOAN INTEREST RATE",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
+            "type": "string",
             "minLength": 0,
             "maxLength": 15,
             "pattern": "^[ -~]{0,15}$",
@@ -281,10 +286,10 @@
                 "COL_SEQ": 12,
                 "FIELD_DESCRIPTION": "LOAN INTEREST RATE %",
                 "TYPE": "A/N-15",
-                "REQUIRED": "X (warning)",
+                "REQUIRED": "X (error)",
                 "SAMPLE_DATA": ".0565",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null
+                "RULE_REFERENCE": "If Original C1, auto-pulled from LOAN_RECEIVED_FROM_BANK"
             }
         },
         "loan_incurred_date": {
@@ -303,7 +308,7 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": 20120101,
                 "VALUE_REFERENCE": "YYYYMMDD",
-                "RULE_REFERENCE": null
+                "RULE_REFERENCE": "If Original C1, auto-pulled from LOAN_RECEIVED_FROM_BANK"
             }
         },
         "loan_due_date": {
@@ -323,24 +328,21 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "20121231",
                 "VALUE_REFERENCE": "YYYYMMDD",
-                "RULE_REFERENCE": null
+                "RULE_REFERENCE": "If Original C1, auto-pulled from LOAN_RECEIVED_FROM_BANK"
             }
         },
         "loan_restructured": {
             "title": "A1.YES/NO (Loan Restructured)",
             "description": "",
-            "type": [
-                "boolean",
-                "null"
-            ],
+            "type": "boolean",
             "fec_spec": {
                 "COL_SEQ": 15,
                 "FIELD_DESCRIPTION": "A1.YES/NO (Loan Restructured)",
                 "TYPE": "A/N-1",
-                "REQUIRED": null,
+                "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "N",
                 "VALUE_REFERENCE": "Y,N",
-                "RULE_REFERENCE": "Edit: Yes/No"
+                "RULE_REFERENCE": null
             }
         },
         "loan_originally_incurred_date": {
@@ -359,10 +361,10 @@
                 "COL_SEQ": 16,
                 "FIELD_DESCRIPTION": "A2. DATE (Of Original Loan)",
                 "TYPE": "NUM-8",
-                "REQUIRED": null,
+                "REQUIRED": "X (conditional error)",
                 "SAMPLE_DATA": 20120101,
                 "VALUE_REFERENCE": "YYYYMMDD",
-                "RULE_REFERENCE": null
+                "RULE_REFERENCE": "Req if Loan Restructured is YES"
             }
         },
         "credit_amount_this_draw": {
@@ -403,44 +405,38 @@
                 "COL_SEQ": 18,
                 "FIELD_DESCRIPTION": "B.2. TOTAL BALANCE",
                 "TYPE": "AMT-12",
-                "REQUIRED": null,
+                "REQUIRED": "X (conditional error)",
                 "SAMPLE_DATA": 10000.00,
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null
+                "RULE_REFERENCE": "Req if B.1 Credit Amount this Draw is populated"
             }
         },
         "others_liable": {
             "title": "C. YES/NO (Others liable?)",
             "description": "",
-            "type": [
-                "boolean",
-                "null"
-            ],
+            "type": "boolean",
             "fec_spec": {
                 "COL_SEQ": 19,
                 "FIELD_DESCRIPTION": "C. YES/NO (Others liable?)",
                 "TYPE": "A/N-1",
-                "REQUIRED": null,
+                "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "Y",
                 "VALUE_REFERENCE": "Y,N",
-                "RULE_REFERENCE": "Edit: Yes/No"
+                "RULE_REFERENCE": null
             }
         },
         "collateral": {
             "title": "D. YES/NO (Collateral?)",
             "description": "",
-            "type": [
-                "boolean",
-                "null"
-            ],
+            "type": "boolean",
             "fec_spec": {
                 "COL_SEQ": 20,
                 "FIELD_DESCRIPTION": "D. YES/NO (Collateral?)",
                 "TYPE": "A/N-1",
-                "REQUIRED": null,
+                "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "Y",
                 "VALUE_REFERENCE": "Y,N",
-                "RULE_REFERENCE": "Edit: Yes/No"
+                "RULE_REFERENCE": null
             }
         },
         "desc_collateral": {
@@ -460,10 +456,10 @@
                 "COL_SEQ": 21,
                 "FIELD_DESCRIPTION": "D.1 DESC (Collateral)",
                 "TYPE": "A/N-100",
-                "REQUIRED": null,
+                "REQUIRED": "X (conditional error)",
                 "SAMPLE_DATA": "House & Car",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null
+                "RULE_REFERENCE": "Req if Collateral is YES"
             }
         },
         "collateral_value_amount": {
@@ -482,10 +478,10 @@
                 "COL_SEQ": 22,
                 "FIELD_DESCRIPTION": "D.2 COLLATERAL VALUE/AMOUNT",
                 "TYPE": "AMT-12",
-                "REQUIRED": null,
+                "REQUIRED": "X (conditional error)",
                 "SAMPLE_DATA": 95000.00,
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null
+                "RULE_REFERENCE": "Req if Collateral is YES"
             }
         },
         "perfected_interest": {
@@ -502,24 +498,21 @@
                 "REQUIRED": null,
                 "SAMPLE_DATA": "N",
                 "VALUE_REFERENCE": "Y,N",
-                "RULE_REFERENCE": "Edit: Yes/No"
+                "RULE_REFERENCE": null
             }
         },
         "future_income": {
             "title": "E.1 YES/NO  (Future Income)",
             "description": "",
-            "type": [
-                "boolean",
-                "null"
-            ],
+            "type": "boolean",
             "fec_spec": {
                 "COL_SEQ": 24,
                 "FIELD_DESCRIPTION": "E.1 YES/NO  (Future Income)",
                 "TYPE": "A/N-1",
-                "REQUIRED": null,
+                "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "N",
                 "VALUE_REFERENCE": "Y,N",
-                "RULE_REFERENCE": "Edit: Yes/No"
+                "RULE_REFERENCE": null
             }
         },
         "desc_specification_of_the_above": {
@@ -536,10 +529,10 @@
                 "COL_SEQ": 25,
                 "FIELD_DESCRIPTION": "E.2  DESC  (Specification of the above)",
                 "TYPE": "A/N-100",
-                "REQUIRED": null,
+                "REQUIRED": "X (conditional error)",
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null
+                "RULE_REFERENCE": "Req if Future Income is YES"
             }
         },
         "estimated_value": {
@@ -555,10 +548,10 @@
                 "COL_SEQ": 26,
                 "FIELD_DESCRIPTION": "E.3 ESTIMATED VALUE",
                 "TYPE": "AMT-12",
-                "REQUIRED": null,
+                "REQUIRED": "X (conditional error)",
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null
+                "RULE_REFERENCE": "Req if Future Income is YES"
             }
         },
         "depository_account_established_date": {
@@ -574,10 +567,10 @@
                 "COL_SEQ": 27,
                 "FIELD_DESCRIPTION": "E.4 DATE (Depository account established)",
                 "TYPE": "NUM-8",
-                "REQUIRED": null,
+                "REQUIRED": "X (conditional error)",
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null
+                "RULE_REFERENCE": "Req if Future Income is YES"
             }
         },
         "ind_name_account_location": {
@@ -594,10 +587,10 @@
                 "COL_SEQ": 28,
                 "FIELD_DESCRIPTION": "E.5 IND/NAME (Account Location)",
                 "TYPE": "A/N-200",
-                "REQUIRED": null,
+                "REQUIRED": "X (conditional error)",
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null
+                "RULE_REFERENCE": "Req if Future Income is YES"
             }
         },
         "account_street_1": {
@@ -614,10 +607,10 @@
                 "COL_SEQ": 29,
                 "FIELD_DESCRIPTION": "E.6 STREET  1",
                 "TYPE": "A/N-34",
-                "REQUIRED": null,
+                "REQUIRED": "X (conditional error)",
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null
+                "RULE_REFERENCE": "Req if Future Income is YES"
             }
         },
         "account_street_2": {
@@ -654,10 +647,10 @@
                 "COL_SEQ": 31,
                 "FIELD_DESCRIPTION": "E.8 CITY",
                 "TYPE": "A/N-30",
-                "REQUIRED": null,
+                "REQUIRED": "X (conditional error)",
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null
+                "RULE_REFERENCE": "Req if Future Income is YES"
             }
         },
         "account_state": {
@@ -674,10 +667,10 @@
                 "COL_SEQ": 32,
                 "FIELD_DESCRIPTION": "E.9 STATE",
                 "TYPE": "A/N-2",
-                "REQUIRED": null,
+                "REQUIRED": "X (conditional error)",
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null
+                "RULE_REFERENCE": "Req if Future Income is YES"
             }
         },
         "account_zip": {
@@ -694,29 +687,10 @@
                 "COL_SEQ": 33,
                 "FIELD_DESCRIPTION": "E.10 ZIP",
                 "TYPE": "A/N-9",
-                "REQUIRED": null,
+                "REQUIRED": "X (conditional error)",
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null
-            }
-        },
-        "dep_acct_auth_date_presidential": {
-            "title": "E.11 DEP ACCT AUTH DATE (Presidential)",
-            "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
-            "minLength": 10,
-            "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
-            "fec_spec": {
-                "COL_SEQ": 34,
-                "FIELD_DESCRIPTION": "E.11 DEP ACCT AUTH DATE (Presidential)",
-                "TYPE": "NUM-8",
-                "REQUIRED": null,
-                "SAMPLE_DATA": null,
-                "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null
+                "RULE_REFERENCE": "Req if Future Income is YES"
             }
         },
         "basis_of_loan_description": {
@@ -1015,5 +989,125 @@
                 "RULE_REFERENCE": null
             }
         }
-    }
+    },
+    "allOf": [
+        {
+            "if": {
+                "properties": {
+                    "loan_restructured": {
+                        "const": true
+                    }
+                },
+                "required": [
+                    "loan_restructured"
+                ]
+            },
+            "then": {
+                "required": [
+                    "loan_originally_incurred_date"
+                ],
+                "properties": {
+                    "loan_originally_incurred_date": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "credit_amount_this_draw": {
+                        "type": "number"
+                    }
+                }
+            },
+            "then": {
+                "required": [
+                    "total_balance"
+                ],
+                "properties": {
+                    "total_balance": {
+                        "type": "number"
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "collateral": {
+                        "const": true
+                    }
+                },
+                "required": [
+                    "collateral"
+                ]
+            },
+            "then": {
+                "required": [
+                    "desc_collateral",
+                    "collateral_value_amount"
+                ],
+                "properties": {
+                    "desc_collateral": {
+                        "type": "string"
+                    },
+                    "collateral_value_amount": {
+                        "type": "number"
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "future_income": {
+                        "const": true
+                    }
+                },
+                "required": [
+                    "future_income"
+                ]
+            },
+            "then": {
+                "required": [
+                    "desc_specification_of_the_above",
+                    "estimated_value",
+                    "depository_account_established_date",
+                    "ind_name_account_location",
+                    "account_street_1",
+                    "account_city",
+                    "account_state",
+                    "account_zip"
+                ],
+                "properties": {
+                    "desc_specification_of_the_above": {
+                        "type": "string"
+                    },
+                    "estimated_value": {
+                        "type": "number"
+                    },
+                    "depository_account_established_date": {
+                        "minLength": 10,
+                        "type": "string"
+                    },
+                    "ind_name_account_location": {
+                        "type": "string"
+                    },
+                    "account_street_1": {
+                        "type": "string"
+                    },
+                    "account_city": {
+                        "type": "string"
+                    },
+                    "account_state": {
+                        "type": "string"
+                    },
+                    "account_zip": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    ]
 }
