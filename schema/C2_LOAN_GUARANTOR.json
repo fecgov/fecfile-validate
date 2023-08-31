@@ -360,5 +360,36 @@
                 "SAMPLE_DATA": 250
             }
         }
-    }
+    },
+    "allOf": [
+        {
+            "if": {
+                "properties": {
+                    "guaranteed_amount": {
+                        "type": "number",
+                        "minimum": 200.01
+                    }
+                },
+                "required": [
+                    "guaranteed_amount"
+                ]
+            },
+            "then": {
+                "required": [
+                    "guarantor_employer",
+                    "guarantor_occupation"
+                ],
+                "properties": {
+                    "guarantor_employer": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "guarantor_occupation": {
+                        "type": "string",
+                        "minLength": 1
+                    }
+                }
+            }
+        }
+    ]
 }
