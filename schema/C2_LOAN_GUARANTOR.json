@@ -23,7 +23,10 @@
         "form_type": {
             "title": "FORM TYPE",
             "description": "",
-            "const": "SC2/10",
+            "enum": [
+                "SC2/9",
+                "SC2/10"
+            ],
             "examples": [
                 "SC2/10"
             ],
