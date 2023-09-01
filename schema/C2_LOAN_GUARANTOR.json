@@ -1,8 +1,8 @@
 {
     "$schema": "https://json-schema.org/draft-07/schema#",
-    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/SchC2.json",
+    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/C2_LOAN_GUARANTOR.json",
     "version": "8.3.0.1",
-    "title": "FEC Sch C2",
+    "title": "C2 Loan Guarantor",
     "description": "SCHEDULE C2 - LOAN GUARANTOR NAME & ADDRESS INFORMATION (SUPPLEMENTARY FOR INFORMATION FOUND ON SCHEDULE C)",
     "type": "object",
     "required": [
@@ -23,10 +23,7 @@
         "form_type": {
             "title": "FORM TYPE",
             "description": "",
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 8,
-            "pattern": "^[ -~]{0,8}$",
+            "const": "SC2/10",
             "examples": [
                 "SC2/10"
             ],
