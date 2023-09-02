@@ -56,7 +56,7 @@
 <td>IND | ORG | COM</td>
 <td>IND | ORG | COM</td>
 <td></td>
-<td><ul><li>must be one of: ['IND', 'ORG', 'COM']</li></td>
+<td><ul><li>REQUIRED</li><li>must be one of: ['IND', 'ORG', 'COM']</li></td>
 </tr>
 <tr>
 <td>CREDITOR ORGANIZATION NAME</td>
@@ -66,7 +66,7 @@
 <td></td>
 <td>Required if NOT [IND]</td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 200</li><li>regex: ^[ -~]{0,200}$</li></td>
+<td><ul><li>REQUIRED if ENTITY_TYPE one of ['ORG', 'COM']</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 200</li><li>regex: ^[ -~]{0,200}$</li></td>
 </tr>
 <tr>
 <td>CREDITOR LAST NAME</td>
@@ -76,7 +76,7 @@
 <td></td>
 <td>Required if [IND]</td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 30</li><li>regex: ^[ -~]{0,30}$</li></td>
+<td><ul><li>REQUIRED if ENTITY_TYPE equals IND</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 30</li><li>regex: ^[ -~]{0,30}$</li></td>
 </tr>
 <tr>
 <td>CREDITOR FIRST NAME</td>
@@ -86,7 +86,7 @@
 <td></td>
 <td>Required if [IND]</td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
+<td><ul><li>REQUIRED if ENTITY_TYPE equals IND</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
 </tr>
 <tr>
 <td>CREDITOR MIDDLE NAME</td>

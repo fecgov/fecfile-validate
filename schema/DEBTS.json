@@ -10,9 +10,7 @@
         "filer_committee_id_number",
         "transaction_type_identifier",
         "transaction_id",
-        "creditor_organization_name",
-        "creditor_last_name",
-        "creditor_first_name",
+        "entity_type",
         "creditor_street_1",
         "creditor_city",
         "creditor_state",
@@ -411,5 +409,61 @@
                 "REQUIRED": "X (error)"
             }
         }
-    }
+    },
+    "allOf": [
+        {
+            "if": {
+                "properties": {
+                    "entity_type": {
+                        "enum": [
+                            "ORG",
+                            "COM"
+                        ]
+                    }
+                },
+                "required": [
+                    "entity_type"
+                ]
+            },
+            "then": {
+                "required": [
+                    "creditor_organization_name"
+                ],
+                "properties": {
+                    "creditor_organization_name": {
+                        "minLength": 1,
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "entity_type": {
+                        "const": "IND"
+                    }
+                },
+                "required": [
+                    "entity_type"
+                ]
+            },
+            "then": {
+                "required": [
+                    "creditor_first_name",
+                    "creditor_last_name"
+                ],
+                "properties": {
+                    "creditor_first_name": {
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "creditor_last_name": {
+                        "minLength": 1,
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    ]
 }
