@@ -16,7 +16,7 @@
 <td>[SD9 | SD10]</td>
 <td>If Transaction Type is DEBT_OWED_TO_COMMITTEE, then Form Type is SD9 If Transaction Type is DEBT_OWED_BY_COMMITTEE, then Form Type is SD10</td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 8</li><li>regex: ^[ -~]{0,8}$</li></td>
+<td><ul><li>FORM_TYPE = 'SD9' if TRANSACTION_TYPE_IDENTIFIER equals DEBT_OWED_TO_COMMITTEE</li><li>FORM_TYPE = 'SD10' if TRANSACTION_TYPE_IDENTIFIER equals DEBT_OWED_BY_COMMITTEE</li><li>REQUIRED</li><li>must be one of: ['SD9', 'SD10']</li></td>
 </tr>
 <tr>
 <td>FILER COMMITTEE ID NUMBER</td>
@@ -26,7 +26,7 @@
 <td></td>
 <td>this is the ID of the Committee Account the report/transaction is associated with</td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 9</li><li>regex: ^[ -~]{0,9}$</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 9</li><li>max length: 9</li><li>regex: ^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$</li></td>
 </tr>
 <tr>
 <td>TRANSACTION TYPE IDENTIFIER</td>
