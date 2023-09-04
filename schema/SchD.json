@@ -19,10 +19,10 @@
         "creditor_state",
         "creditor_zip",
         "purpose_of_debt_or_obligation",
-        "beginning_balance_this_period",
-        "incurred_amount_this_period",
-        "payment_amount_this_period",
-        "balance_at_close_this_period"
+        "beginning_balance",
+        "incurred_amount",
+        "payment_amount",
+        "balance_at_close"
     ],
     "properties": {
         "form_type": {
@@ -388,7 +388,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "beginning_balance_this_period": {
+        "beginning_balance": {
             "title": "BEGINNING BALANCE (This Period)",
             "description": "",
             "type": [
@@ -408,7 +408,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "incurred_amount_this_period": {
+        "incurred_amount": {
             "title": "INCURRED AMOUNT (This Period)",
             "description": "",
             "type": [
@@ -428,7 +428,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "payment_amount_this_period": {
+        "payment_amount": {
             "title": "PAYMENT AMOUNT (This Period)",
             "description": "",
             "type": [
@@ -448,7 +448,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "balance_at_close_this_period": {
+        "balance_at_close": {
             "title": "BALANCE AT CLOSE  (This Period)",
             "description": "",
             "type": [
