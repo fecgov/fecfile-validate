@@ -76,7 +76,7 @@
                 "COL_SEQ": 3,
                 "FIELD_DESCRIPTION": "REPORT TYPE {24/48 Hour}",
                 "TYPE": "A/N-2",
-                "REQUIRED": "X(error)",
+                "REQUIRED": "X (error)",
                 "SAMPLE_DATA": 48,
                 "VALUE_REFERENCE": "24, 48",
                 "RULE_REFERENCE": "Error if Code is missing;\nError if Coded incorrectly.",
@@ -145,7 +145,10 @@
         "street_2": {
             "title": "STREET 2",
             "description": "",
-            "type": "string",
+            "type": [
+                "string",
+                "null"
+            ],
             "minLength": 0,
             "maxLength": 34,
             "pattern": "^[ -~]{0,34}$",
