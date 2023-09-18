@@ -365,8 +365,15 @@
                 },
                 "required": ["form_type"]
             },
-            "then":{
-                "required": ["original_amendment_date"]
+            "then": {
+                "required": [
+                    "original_amendment_date"
+                ],
+                "properties": {
+                    "original_amendment_date": {
+                        "type": "string"
+                    }
+                }
             }
         }
     ],
