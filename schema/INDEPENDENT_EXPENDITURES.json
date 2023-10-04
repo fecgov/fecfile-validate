@@ -1138,30 +1138,6 @@
                     }
                 }
             }
-        }
-        ,
-        {
-            "if": {
-                "properties": {
-                    "dissemination_date": {
-                        "type": "string",
-                        "maxLength": 0
-                    }
-                },
-                "required": [
-                    "dissemination_date"
-                ]
-            },
-            "then": {
-                "required": [
-                    "disbursement_date"
-                ],
-                "properties": {
-                    "disbursement_date": {
-                        "type": "string"
-                    }
-                }
-            }
         },
         {
             "if": {
