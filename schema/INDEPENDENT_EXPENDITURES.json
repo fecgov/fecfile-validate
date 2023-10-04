@@ -1125,7 +1125,7 @@
                     }
                 },
                 "required": [
-                    "transaction_type_identifier"
+                    "dissemination_date"
                 ]
             },
             "then": {
@@ -1149,7 +1149,7 @@
                     }
                 },
                 "required": [
-                    "transaction_type_identifier"
+                    "dissemination_date"
                 ]
             },
             "then": {
@@ -1171,7 +1171,7 @@
                     }
                 },
                 "required": [
-                    "transaction_type_identifier"
+                    "disbursement_date"
                 ]
             },
             "then": {
@@ -1195,7 +1195,7 @@
                     }
                 },
                 "required": [
-                    "transaction_type_identifier"
+                    "disbursement_date"
                 ]
             },
             "then": {
