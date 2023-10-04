@@ -1162,6 +1162,28 @@
                     }
                 }
             }
+        },
+        {
+            "if": {
+                "properties": {
+                    "disbursement_date": {
+                        "type": "null"
+                    }
+                },
+                "required": [
+                    "disbursement_date"
+                ]
+            },
+            "then": {
+                "required": [
+                    "dissemination_date"
+                ],
+                "properties": {
+                    "dissemination_date": {
+                        "type": "string"
+                    }
+                }
+            }
         }
     ]
 }
