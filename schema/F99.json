@@ -8,7 +8,6 @@
     "required": [
         "form_type",
         "filer_committee_id_number",
-        "transaction_type_identifier",
         "treasurer_last_name",
         "treasurer_first_name"
     ],
@@ -48,24 +47,6 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "C00123456",
                 "VALUE_REFERENCE": "Filing Committee ID",
-                "RULE_REFERENCE": null,
-                "FIELD_FORM_ASSOCIATION": null
-            }
-        },
-        "transaction_type_identifier": {
-            "title": "TRANSACTION TYPE IDENTIFIER",
-            "description": "",
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 12,
-            "pattern": "^[ -~]{0,12}$",
-            "fec_spec": {
-                "COL_SEQ": 3,
-                "FIELD_DESCRIPTION": "TRANSACTION TYPE IDENTIFIER",
-                "TYPE": "A/N-12",
-                "REQUIRED": "X (error)",
-                "SAMPLE_DATA": null,
-                "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }
