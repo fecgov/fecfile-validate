@@ -32,7 +32,7 @@
 <td>TRANSACTION TYPE IDENTIFIER</td>
 <td>A/N-12</td>
 <td>X (error)</td>
-<td>INDEPENDENT_EXPENDITURE</td>
+<td>INDEPENDENT_EXPENDITURE_CREDIT_CARD_PAYMENT</td>
 <td></td>
 <td></td>
 <td></td>
@@ -267,7 +267,7 @@ with the F3L</td>
 <td></td>
 <td></td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 100</li><li>regex: ^[ -~]{0,100}$</li></td>
+<td><ul><li>EXPENDITURE_PURPOSE_DESCRIP = 'Credit Card: See Below' if TRANSACTION_TYPE_IDENTIFIER equals INDEPENDENT_EXPENDITURE_CREDIT_CARD_PAYMENT</li><li>EXPENDITURE_PURPOSE_DESCRIP = 'Payroll: See Below' if TRANSACTION_TYPE_IDENTIFIER equals INDEPENDENT_EXPENDITURE_PAYMENT_TO_PAYROLL</li><li>EXPENDITURE_PURPOSE_DESCRIP = 'Reimbursement: See Below' if TRANSACTION_TYPE_IDENTIFIER equals INDEPENDENT_EXPENDITURE_STAFF_REIMBURSEMENT</li><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 100</li><li>regex: ^[ -~]{0,100}$</li></td>
 </tr>
 <tr>
 <td>CATEGORY CODE</td>
