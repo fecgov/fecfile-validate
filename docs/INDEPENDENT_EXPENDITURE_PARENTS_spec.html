@@ -367,7 +367,7 @@ with the F3L</td>
 <td>AK,AL,...</td>
 <td>Edit: ST (if Office = Sen or House)</td>
 <td></td>
-<td><ul><li>REQUIRED if SO_CANDIDATE_OFFICE equals H</li><li>REQUIRED if SO_CANDIDATE_OFFICE equals S</li><li>REQUIRED if SO_CANDIDATE_OFFICE equals P & ELECTION_CODE equals P</li><li>REQUIRED</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 2</li><li>regex: ^[ -~]{0,2}$</li></td>
+<td><ul><li>REQUIRED if SO_CANDIDATE_OFFICE equals H</li><li>REQUIRED if SO_CANDIDATE_OFFICE equals S</li><li>REQUIRED if SO_CANDIDATE_OFFICE equals P & ELECTION_CODE matches regex: ^P\d{4}$</li><li>REQUIRED</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 2</li><li>regex: ^[ -~]{0,2}$</li></td>
 </tr>
 <tr>
 <td>S/O CANDIDATE DISTRICT</td>

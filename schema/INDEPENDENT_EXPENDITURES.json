@@ -1078,7 +1078,8 @@
                         "const": "P"
                     },
                     "election_code": {
-                        "const": "P"
+                        "pattern": "^P\\d{4}$",
+                        "type": "string"
                     }
                 },
                 "required": [
