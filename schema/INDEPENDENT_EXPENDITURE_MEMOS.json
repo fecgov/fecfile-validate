@@ -12,6 +12,7 @@
         "transaction_id",
         "back_reference_tran_id_number",
         "back_reference_sched_name",
+        "entity_type",
         "payee_street_1",
         "payee_city",
         "payee_state",
@@ -28,7 +29,8 @@
         "so_candidate_office",
         "completing_last_name",
         "completing_first_name",
-        "date_signed"
+        "date_signed",
+        "memo_code"
     ],
     "properties": {
         "form_type": {
@@ -159,7 +161,7 @@
                 "COL_SEQ": 6,
                 "FIELD_DESCRIPTION": "ENTITY TYPE",
                 "TYPE": "A/N-3",
-                "REQUIRED": null,
+                "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "IND",
                 "VALUE_REFERENCE": "CAN,CCM,...",
                 "RULE_REFERENCE": "Edit: Entity",
