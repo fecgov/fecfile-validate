@@ -1,9 +1,9 @@
 {
     "$schema": "https://json-schema.org/draft-07/schema#",
-    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/UNREGISTERED_RECEIPT_FROM_PERSON.json",
+    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/RECEIPT_FROM_UNREGISTERED_ENTITY_RETURN.json",
     "version": "v0.0.0.0",
-    "title": "FEC Unregistered Receipt from Person",
-    "description": "Unregistered Receipt from Person (11a)",
+    "title": "FEC Receipt from Unregistered Entity - Returned/Bounced Receipt",
+    "description": "Receipt from Unregistered Entity - Returned/Bounced Receipt (11a)",
     "type": "object",
     "required": [
         "form_type",
@@ -19,8 +19,8 @@
         "contribution_date",
         "contribution_amount",
         "contribution_aggregate",
-        "aggregation_group",
-        "contribution_purpose_descrip"
+        "contribution_purpose_descrip",
+        "aggregation_group"
     ],
     "fec_recommended": [],
     "properties": {
@@ -41,8 +41,8 @@
                 "TYPE": "A/N-8",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "SA11AI",
-                "VALUE_REFERENCE": "SA11AI or SA11AII only",
-                "RULE_REFERENCE": "SA11AI or SA11AII only",
+                "VALUE_REFERENCE": "SA[line# ref]",
+                "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -69,15 +69,15 @@
         "transaction_type_identifier": {
             "title": "TRANSACTION TYPE IDENTIFIER",
             "description": "",
-            "const": "UNREGISTERED_RECEIPT_FROM_PERSON",
+            "const": "RECEIPT_FROM_UNREGISTERED_ENTITY_RETURN",
             "examples": [
-                "UNREGISTERED_RECEIPT_FROM_PERSON"
+                "RECEIPT_FROM_UNREGISTERED_ENTITY_RETURN"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "TRANSACTION TYPE IDENTIFIER",
                 "TYPE": "A/N-12",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "UNREGISTERED_RECEIPT_FROM_PERSON",
+                "SAMPLE_DATA": "RECEIPT_FROM_UNREGISTERED_ENTITY_RETURN",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
@@ -161,8 +161,8 @@
                 "TYPE": "A/N-3",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "ORG",
-                "VALUE_REFERENCE": "ORG",
-                "RULE_REFERENCE": "ORG Only",
+                "VALUE_REFERENCE": "ORG only",
+                "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -186,7 +186,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "contributor_street_1": {
+       "contributor_street_1": {
             "title": "CONTRIBUTOR STREET  1",
             "description": "",
             "type": "string",
@@ -261,7 +261,7 @@
                 "TYPE": "A/N-2",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "WA",
-                "VALUE_REFERENCE": "AK,AL,...,ZZ",
+                "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": "Edit: ST",
                 "FIELD_FORM_ASSOCIATION": null
             }
@@ -300,7 +300,7 @@
                 "TYPE": "NUM-8",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": 20120615,
-                "VALUE_REFERENCE": "YYYYMMDD",
+                "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }
@@ -310,17 +310,17 @@
             "description": "",
             "type": "number",
             "minimum": -99999999.99,
-            "maximum": 999999999.99,
+            "exclusiveMaximum": 0,
             "examples": [
-                250
+                -250
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "CONTRIBUTION AMOUNT",
                 "TYPE": "AMT-12",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": 250,
+                "SAMPLE_DATA": -250,
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
+                "RULE_REFERENCE": "Negative Amount",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -352,11 +352,11 @@
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "AGGREGATION GROUP",
-                "TYPE": null,
+                "TYPE": "A/N-100",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": null,
-                "VALUE_REFERENCE": "General",
-                "RULE_REFERENCE": "General",
+                "SAMPLE_DATA": "GENERAL",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -364,9 +364,9 @@
             "title": "CONTRIBUTION PURPOSE DESCRIPTION",
             "description": "",
             "type": "string",
-            "minLength": 0,
+            "minLength": 1,
             "maxLength": 100,
-            "pattern": "^[ -~]{0,100}$",
+            "pattern": "^[ -~]{1,100}$",
             "fec_spec": {
                 "FIELD_DESCRIPTION": "CONTRIBUTION PURPOSE DESCRIPTION",
                 "TYPE": "A/N-100",
@@ -377,7 +377,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "memo_code": {
+       "memo_code": {
             "title": "MEMO CODE",
             "description": "",
             "type": [
