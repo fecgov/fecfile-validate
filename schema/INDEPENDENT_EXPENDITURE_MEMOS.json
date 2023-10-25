@@ -1,15 +1,18 @@
 {
     "$schema": "https://json-schema.org/draft-07/schema#",
-    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/INDEPENDENT_EXPENDITURES.json",
+    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/INDEPENDENT_EXPENDITURE_MEMOS.json",
     "version": "8.3.0.1",
-    "title": "FEC INDEPENDENT EXPENDITURES",
-    "description": "INDEPENDENT EXPENDITURES",
+    "title": "FEC INDEPENDENT EXPENDITURE_MEMOS",
+    "description": "INDEPENDENT EXPENDITURE_MEMOS",
     "type": "object",
     "required": [
         "form_type",
         "filer_committee_id_number",
         "transaction_type_identifier",
         "transaction_id",
+        "back_reference_tran_id_number",
+        "back_reference_sched_name",
+        "entity_type",
         "payee_street_1",
         "payee_city",
         "payee_state",
@@ -26,7 +29,8 @@
         "so_candidate_office",
         "completing_last_name",
         "completing_first_name",
-        "date_signed"
+        "date_signed",
+        "memo_code"
     ],
     "properties": {
         "form_type": {
@@ -68,15 +72,19 @@
         "transaction_type_identifier": {
             "title": "TRANSACTION TYPE IDENTIFIER",
             "description": "",
-            "enum": ["INDEPENDENT_EXPENDITURE", "INDEPENDENT_EXPENDITURE_VOID"],
+            "enum": [
+                "INDEPENDENT_EXPENDITURE_CREDIT_CARD_PAYMENT_MEMO",
+                "INDEPENDENT_EXPENDITURE_STAFF_REIMBURSEMENT_MEMO",
+                "INDEPENDENT_EXPENDITURE_PAYMENT_TO_PAYROLL_MEMO"
+            ],
             "examples": [
-                "INDEPENDENT_EXPENDITURE"
+                "INDEPENDENT_EXPENDITURE_CREDIT_CARD_PAYMENT_MEMO"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "TRANSACTION TYPE IDENTIFIER",
                 "TYPE": "A/N-12",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "INDEPENDENT_EXPENDITURE"
+                "SAMPLE_DATA": "INDEPENDENT_EXPENDITURE_CREDIT_CARD_PAYMENT_MEMO"
             }
         },
         "transaction_id": {
@@ -103,10 +111,7 @@
         "back_reference_tran_id_number": {
             "title": "BACK REFERENCE TRAN ID NUMBER",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
+            "type": "string",
             "minLength": 0,
             "maxLength": 20,
             "pattern": "^[ -~]{0,20}$",
@@ -117,7 +122,7 @@
                 "COL_SEQ": 4,
                 "FIELD_DESCRIPTION": "BACK REFERENCE TRAN ID NUMBER",
                 "TYPE": "A/N-20",
-                "REQUIRED": null,
+                "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "B123456789-1234",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": "Reference to the Tran ID of a Related Record",
@@ -127,10 +132,7 @@
         "back_reference_sched_name": {
             "title": "BACK REFERENCE SCHED NAME",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
+            "type": "string",
             "minLength": 0,
             "maxLength": 8,
             "pattern": "^[ -~]{0,8}$",
@@ -141,7 +143,7 @@
                 "COL_SEQ": 5,
                 "FIELD_DESCRIPTION": "BACK REFERENCE SCHED NAME",
                 "TYPE": "A/N-8",
-                "REQUIRED": null,
+                "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "SB21",
                 "VALUE_REFERENCE": "SB[line# ref]",
                 "RULE_REFERENCE": "Ref to the Schedule that has the Related Record.  SB3L must be used \nwith the F3L",
@@ -159,7 +161,7 @@
                 "COL_SEQ": 6,
                 "FIELD_DESCRIPTION": "ENTITY TYPE",
                 "TYPE": "A/N-3",
-                "REQUIRED": null,
+                "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "IND",
                 "VALUE_REFERENCE": "CAN,CCM,...",
                 "RULE_REFERENCE": "Edit: Entity",
@@ -916,18 +918,12 @@
         "memo_code": {
             "title": "MEMO CODE",
             "description": "",
-            "type": [
-                "boolean",
-                "null"
-            ],
+            "const": true,
             "fec_spec": {
-                "COL_SEQ": 43,
                 "FIELD_DESCRIPTION": "MEMO CODE",
                 "TYPE": "A/N-1",
-                "REQUIRED": null,
-                "SAMPLE_DATA": null,
-                "VALUE_REFERENCE": "X",
-                "RULE_REFERENCE": "X = True"
+                "REQUIRED": "X (error)",
+                "VALUE_REFERENCE": "X"
             }
         },
         "memo_text_description": {
@@ -1094,26 +1090,6 @@
                 "properties": {
                     "so_candidate_state": {
                         "type": "string"
-                    }
-                }
-            }
-        },
-        {
-            "if": {
-                "properties": {
-                    "transaction_type_identifier": {
-                        "const": "INDEPENDENT_EXPENDITURE_VOID"
-                    }
-                },
-                "required": [
-                    "transaction_type_identifier"
-                ]
-            },
-            "then": {
-                "properties": {
-                    "expenditure_amount": {
-                        "type": "number",
-                        "exclusiveMaximum": 0
                     }
                 }
             }
