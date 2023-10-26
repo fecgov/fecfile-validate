@@ -416,7 +416,7 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 5,
-            "pattern": "^[GPRSCEO]\\d{4}$",
+            "pattern": "^P\\d{4}$",
             "examples": [
                 "P2012"
             ],
@@ -425,8 +425,8 @@
                 "TYPE": "A/N-5",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "P2012",
-                "VALUE_REFERENCE": "G,P,O[YYYY]",
-                "RULE_REFERENCE": "Values: [G|P|R|S|C|E|O]+Year{YYYY}",
+                "VALUE_REFERENCE": "P[YYYY]",
+                "RULE_REFERENCE": "Values: [P]+Year{YYYY}",
                 "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P"
             }
         },
