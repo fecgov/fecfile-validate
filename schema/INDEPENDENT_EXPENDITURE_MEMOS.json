@@ -1000,7 +1000,7 @@
             "if": {
                 "properties": {
                     "election_code": {
-                        "pattern": "^O\\d{4}$",
+                        "pattern": "^O",
                         "type": "string"
                     }
                 },
