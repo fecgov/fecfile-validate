@@ -19,12 +19,12 @@
         "calendar_ytd_per_election_office",
         "aggregation_group",
         "expenditure_purpose_descrip",
-        "payee_committee_fec_id",
         "support_oppose_code",
         "so_candidate_id_number",
         "so_candidate_last_name",
         "so_candidate_first_name",
         "so_candidate_office",
+        "so_candidate_state",
         "completing_last_name",
         "completing_first_name",
         "date_signed"
@@ -589,14 +589,17 @@
         "payee_committee_fec_id": {
             "title": "PAYEE COMMITTEE FEC ID",
             "description": "",
-            "type": "string",
+            "type": [
+                "string",
+                "null"
+            ],
             "minLength": 0,
             "maxLength": 9,
             "pattern": "^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$",
             "fec_spec": {
                 "FIELD_DESCRIPTION": "PAYEE COMMITTEE FEC ID",
                 "TYPE": "A/N-9",
-                "REQUIRED": "X (error)",
+                "REQUIRED": null,
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
@@ -755,10 +758,7 @@
         "so_candidate_state": {
             "title": "S/O CANDIDATE STATE",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
+            "type": "string",
             "minLength": 0,
             "maxLength": 2,
             "pattern": "^[ -~]{0,2}$",
@@ -769,7 +769,7 @@
                 "COL_SEQ": 35,
                 "FIELD_DESCRIPTION": "S/O CANDIDATE STATE",
                 "TYPE": "A/N-2",
-                "REQUIRED": "X (conditional error)",
+                "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "FL",
                 "VALUE_REFERENCE": "AK,AL,...",
                 "RULE_REFERENCE": "Edit: ST (if Office = Sen or House)"
@@ -1013,104 +1013,6 @@
                         "type": "string"
                     },
                     "payee_last_name": {
-                        "type": "string"
-                    }
-                }
-            }
-        },
-        {
-            "if": {
-                "properties": {
-                    "election_code": {
-                        "pattern": "^O",
-                        "type": "string"
-                    }
-                },
-                "required": [
-                    "election_code"
-                ]
-            },
-            "then": {
-                "required": [
-                    "election_other_description"
-                ],
-                "properties": {
-                    "election_other_description": {
-                        "type": "string"
-                    }
-                }
-            }
-        },
-        {
-            "if": {
-                "properties": {
-                    "so_candidate_office": {
-                        "const": "H"
-                    }
-                },
-                "required": [
-                    "so_candidate_office"
-                ]
-            },
-            "then": {
-                "required": [
-                    "so_candidate_state",
-                    "so_candidate_district"
-                ],
-                "properties": {
-                    "so_candidate_state": {
-                        "type": "string"
-                    },
-                    "so_candidate_district": {
-                        "type": "string"
-                    }
-                }
-            }
-        },
-        {
-            "if": {
-                "properties": {
-                    "so_candidate_office": {
-                        "const": "S"
-                    }
-                },
-                "required": [
-                    "so_candidate_office"
-                ]
-            },
-            "then": {
-                "required": [
-                    "so_candidate_state"
-                ],
-                "properties": {
-                    "so_candidate_state": {
-                        "type": "string"
-                    }
-                }
-            }
-        },
-        {
-            "if": {
-                "properties": {
-                    "so_candidate_office": {
-                        "const": "P"
-                    },
-                    "election_code": {
-                        "pattern": "^P",
-                        "type": "string"
-                    }
-                },
-                "required": [
-                    "so_candidate_office",
-                    "election_code"
-                ]
-            },
-            "then": {
-                "required": [
-                    "so_candidate_state"
-                ],
-                "properties": {
-                    "so_candidate_state": {
                         "type": "string"
                     }
                 }

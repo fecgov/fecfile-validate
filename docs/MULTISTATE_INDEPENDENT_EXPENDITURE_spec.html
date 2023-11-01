@@ -207,7 +207,7 @@ with the F3L</td>
 <td></td>
 <td>Req if PGI = "O"</td>
 <td></td>
-<td><ul><li>REQUIRED if ELECTION_CODE matches regex: ^O</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
+<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
 </tr>
 <tr>
 <td>DISSEMINATION DATE</td>
@@ -282,12 +282,12 @@ with the F3L</td>
 <tr>
 <td>PAYEE COMMITTEE FEC ID</td>
 <td>A/N-9</td>
-<td>X (error)</td>
 <td></td>
 <td></td>
 <td></td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 9</li><li>regex: ^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$</li></td>
+<td></td>
+<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 9</li><li>regex: ^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$</li></td>
 </tr>
 <tr>
 <td>SUPPORT/OPPOSE CODE</td>
@@ -372,12 +372,12 @@ with the F3L</td>
 <tr>
 <td>S/O CANDIDATE STATE</td>
 <td>A/N-2</td>
-<td>X (conditional error)</td>
+<td>X (error)</td>
 <td>FL</td>
 <td>AK,AL,...</td>
 <td>Edit: ST (if Office = Sen or House)</td>
 <td></td>
-<td><ul><li>REQUIRED if SO_CANDIDATE_OFFICE equals H</li><li>REQUIRED if SO_CANDIDATE_OFFICE equals S</li><li>REQUIRED if SO_CANDIDATE_OFFICE equals P & ELECTION_CODE matches regex: ^P</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 2</li><li>regex: ^[ -~]{0,2}$</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 2</li><li>regex: ^[ -~]{0,2}$</li></td>
 </tr>
 <tr>
 <td>S/O CANDIDATE DISTRICT</td>
@@ -387,7 +387,7 @@ with the F3L</td>
 <td>01 ... 99</td>
 <td>(if Office = House)</td>
 <td></td>
-<td><ul><li>REQUIRED if SO_CANDIDATE_OFFICE equals H</li><li>type: ['string', 'null']</li><li>min length: 2</li><li>max length: 2</li><li>regex: ^\d{2}$</li></td>
+<td><ul><li>type: ['string', 'null']</li><li>min length: 2</li><li>max length: 2</li><li>regex: ^\d{2}$</li></td>
 </tr>
 <tr>
 <td>COMPLETING LAST NAME</td>
