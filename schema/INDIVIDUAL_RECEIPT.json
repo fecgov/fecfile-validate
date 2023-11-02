@@ -555,10 +555,6 @@
         "reattribution_redesignation_tag": {
             "title": "REATTRIBUTION REDESIGNATION TAG",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
             "enum": [
                 "REATTRIBUTED",
                 "REDESIGNATED",
