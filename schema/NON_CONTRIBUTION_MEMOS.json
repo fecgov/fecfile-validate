@@ -109,7 +109,7 @@
             "fec_spec": {
                 "FIELD_DESCRIPTION": "BACK REFERENCE TRAN ID NUMBER",
                 "TYPE": "A/N-20",
-                "REQUIRED":  "X (error)",
+                "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "B123456789-1234",
                 "RULE_REFERENCE": "Reference to the Tran ID of a Related Record"
             }
@@ -131,7 +131,7 @@
                 "FIELD_DESCRIPTION": "BACK REFERENCE SCHED NAME",
                 "TYPE": "A/N-8",
                 "SAMPLE_DATA": "SB21",
-                "REQUIRED":  "X (error)",
+                "REQUIRED": "X (error)",
                 "VALUE_REFERENCE": "SB[line# ref]",
                 "RULE_REFERENCE": "Ref to the Schedule that has the Related Record.  SB3L must be used \nwith the F3L"
             }
@@ -506,6 +506,34 @@
             "fec_spec": {
                 "FIELD_DESCRIPTION": "MEMO TEXT/DESCRIPTION",
                 "TYPE": "A/N-100"
+            }
+        },
+        "reattribution_redesignation_tag": {
+            "title": "REATTRIBUTION REDESIGNATION TAG",
+            "description": "",
+            "type": [
+                "string",
+                "null"
+            ],
+            "enum": [
+                "REATTRIBUTED",
+                "REDESIGNATED",
+                "REATTRIBUTION_FROM",
+                "REATTRIBUTION_TO",
+                "REDESIGNATION_FROM",
+                "REDESIGNATION_TO",
+                null
+            ],
+            "examples": [
+                "REATTRIBUTED"
+            ],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "REATTRIBUTION REDESIGNATION TAG",
+                "TYPE": "A/N-20",
+                "REQUIRED": null,
+                "SAMPLE_DATA": "REATTRIBUTED",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null
             }
         }
     },

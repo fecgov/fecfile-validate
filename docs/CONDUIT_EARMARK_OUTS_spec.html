@@ -52,7 +52,7 @@
 <td>BACK REFERENCE TRAN ID NUMBER</td>
 <td>A/N-20</td>
 <td>X (error)</td>
-<td>A123456789-1234</td>
+<td>B123456789-1234</td>
 <td></td>
 <td>Reference to the Tran ID of a Related Record</td>
 <td></td>
@@ -62,8 +62,8 @@
 <td>BACK REFERENCE SCHED NAME</td>
 <td>A/N-8</td>
 <td>X (error)</td>
-<td>SA11AI</td>
-<td>SA[line# ref]</td>
+<td>SB23</td>
+<td>SB[line# ref]</td>
 <td>Ref to the Schedule that has the Related Record.  SA3L must be used 
 with the F3L</td>
 <td></td>
@@ -74,8 +74,8 @@ with the F3L</td>
 <td>A/N-3</td>
 <td>X (error)</td>
 <td>COM</td>
-<td>COM Only</td>
 <td></td>
+<td>COM only</td>
 <td></td>
 <td><ul><li>REQUIRED</li><li>must equal: COM</li></td>
 </tr>
@@ -175,7 +175,7 @@ with the F3L</td>
 <td>X (error)</td>
 <td>250</td>
 <td></td>
-<td></td>
+<td>This should automatically pull from the parent on Schedule A.</td>
 <td></td>
 <td><ul><li>REQUIRED</li><li>type: number</li><li>minimum: -99999999.99</li><li>maximum: 999999999.99</li></td>
 </tr>
@@ -225,7 +225,7 @@ with the F3L</td>
 <td>X (error)</td>
 <td>H98765431</td>
 <td></td>
-<td>Used if CAN or CCM</td>
+<td></td>
 <td></td>
 <td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 9</li><li>regex: ^[ -~]{0,9}$</li></td>
 </tr>
@@ -235,7 +235,7 @@ with the F3L</td>
 <td>X (error)</td>
 <td></td>
 <td></td>
-<td>Used if CAN or CCM</td>
+<td></td>
 <td>F3 | F3X | F3P | F3L</td>
 <td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 30</li><li>regex: ^[ -~]{0,30}$</li></td>
 </tr>
@@ -245,9 +245,8 @@ with the F3L</td>
 <td>X (error)</td>
 <td></td>
 <td></td>
-<td>If either Last or First name coded;
-both Last & First names required.</td>
-<td>F3 | F3X | F3P | F3L</td>
+<td></td>
+<td></td>
 <td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
 </tr>
 <tr>
@@ -293,7 +292,7 @@ both Last & First names required.</td>
 <tr>
 <td>BENEFICIARY CANDIDATE STATE</td>
 <td>A/N-2</td>
-<td>X (error)</td>
+<td>X (conditional error)</td>
 <td>FL</td>
 <td>AK,AL,...</td>
 <td></td>
@@ -329,5 +328,15 @@ both Last & First names required.</td>
 <td></td>
 <td></td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 100</li><li>regex: ^[ -~]{0,100}$</li></td>
+</tr>
+<tr>
+<td>REATTRIBUTION REDESIGNATION TAG</td>
+<td>A/N-20</td>
+<td></td>
+<td>REATTRIBUTED</td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>type: ['string', 'null']</li><li>must be one of: ['REATTRIBUTED', 'REDESIGNATED', 'REATTRIBUTION_FROM', 'REATTRIBUTION_TO', 'REDESIGNATION_FROM', 'REDESIGNATION_TO', None]</li></td>
 </tr>
 </table></body></html>

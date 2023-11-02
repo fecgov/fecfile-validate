@@ -28,7 +28,10 @@
         "form_type": {
             "title": "FORM TYPE",
             "description": "",
-            "enum": ["SB21B", "SB29"],
+            "enum": [
+                "SB21B",
+                "SB29"
+            ],
             "examples": [
                 "SB29"
             ],
@@ -65,7 +68,11 @@
         "transaction_type_identifier": {
             "title": "TRANSACTION TYPE IDENTIFIER",
             "description": "",
-            "enum": ["OTHER_COMMITTEE_REFUND_REFUND_NP_HEADQUARTERS_ACCOUNT", "OTHER_COMMITTEE_REFUND_REFUND_NP_CONVENTION_ACCOUNT", "OTHER_COMMITTEE_REFUND_REFUND_NP_RECOUNT_ACCOUNT"],
+            "enum": [
+                "OTHER_COMMITTEE_REFUND_REFUND_NP_HEADQUARTERS_ACCOUNT",
+                "OTHER_COMMITTEE_REFUND_REFUND_NP_CONVENTION_ACCOUNT",
+                "OTHER_COMMITTEE_REFUND_REFUND_NP_RECOUNT_ACCOUNT"
+            ],
             "examples": [
                 "OTHER_COMMITTEE_REFUND_REFUND_NP_HEADQUARTERS_ACCOUNT"
             ],
@@ -323,7 +330,11 @@
         "aggregation_group": {
             "title": "AGGREGATION GROUP",
             "description": "",
-            "enum": ["NATIONAL_PARTY_HEADQUARTERS_ACCOUNT", "NATIONAL_PARTY_CONVENTION_ACCOUNT", "NATIONAL_PARTY_RECOUNT_ACCOUNT"],
+            "enum": [
+                "NATIONAL_PARTY_HEADQUARTERS_ACCOUNT",
+                "NATIONAL_PARTY_CONVENTION_ACCOUNT",
+                "NATIONAL_PARTY_RECOUNT_ACCOUNT"
+            ],
             "examples": [
                 "NATIONAL_PARTY_RECOUNT_ACCOUNT"
             ],
@@ -340,7 +351,11 @@
         "expenditure_purpose_descrip": {
             "title": "EXPENDITURE PURPOSE DESCRIPTION",
             "description": "",
-            "enum": ["Headquarters Buildings Account: Refund", "Pres. Nominating Convention Account: Refund", "Recount/Legal Proceedings Account: Refund"],
+            "enum": [
+                "Headquarters Buildings Account: Refund",
+                "Pres. Nominating Convention Account: Refund",
+                "Recount/Legal Proceedings Account: Refund"
+            ],
             "examples": [
                 "Recount/Legal Proceedings Account: Refund"
             ],
@@ -357,8 +372,25 @@
         "category_code": {
             "title": "CATEGORY CODE",
             "description": "",
-            "type": ["string", "null"],
-            "enum": ["001", "002", "003", "004", "005", "006", "007", "008", "009", "010", "011", "012", null],
+            "type": [
+                "string",
+                "null"
+            ],
+            "enum": [
+                "001",
+                "002",
+                "003",
+                "004",
+                "005",
+                "006",
+                "007",
+                "008",
+                "009",
+                "010",
+                "011",
+                "012",
+                null
+            ],
             "examples": [
                 1
             ],
@@ -444,6 +476,34 @@
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "reattribution_redesignation_tag": {
+            "title": "REATTRIBUTION REDESIGNATION TAG",
+            "description": "",
+            "type": [
+                "string",
+                "null"
+            ],
+            "enum": [
+                "REATTRIBUTED",
+                "REDESIGNATED",
+                "REATTRIBUTION_FROM",
+                "REATTRIBUTION_TO",
+                "REDESIGNATION_FROM",
+                "REDESIGNATION_TO",
+                null
+            ],
+            "examples": [
+                "REATTRIBUTED"
+            ],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "REATTRIBUTION REDESIGNATION TAG",
+                "TYPE": "A/N-20",
+                "REQUIRED": null,
+                "SAMPLE_DATA": "REATTRIBUTED",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null
             }
         }
     },
@@ -539,6 +599,5 @@
                 }
             }
         }
-
     ]
 }

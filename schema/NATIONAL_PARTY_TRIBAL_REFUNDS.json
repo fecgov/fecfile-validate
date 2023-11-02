@@ -25,7 +25,7 @@
         "form_type": {
             "title": "FORM TYPE",
             "description": "",
-            "enum":[
+            "enum": [
                 "SB29",
                 "SB21B"
             ],
@@ -294,7 +294,7 @@
         "aggregation_group": {
             "title": "AGGREGATION GROUP",
             "description": "",
-            "enum":[
+            "enum": [
                 "NATIONAL_PARTY_HEADQUARTERS_ACCOUNT",
                 "NATIONAL_PARTY_CONVENTION_ACCOUNT",
                 "NATIONAL_PARTY_RECOUNT_ACCOUNT"
@@ -327,7 +327,7 @@
                 "TYPE": "A/N-100",
                 "REQUIRED": "X (error)",
                 "VALUE_REFERENCE": "Headquarters Buildings Account: Refund",
-                "RULE_REFERENCE": "If Transaction Type is TRIBAL_REFUND_NP_HEADQUARTERS_ACCOUNT then use “Headquarters Buildings Account: Refund; If Transaction Type is TRIBAL_REFUND_NP_CONVENTION_ACCOUNT then use “Pres. Nominating Convention Account: Refund; If Transaction Type is TRIBAL_REFUND_NP_RECOUNT_ACCOUNT then use “Recount/Legal Proceedings Account: Refund”"
+                "RULE_REFERENCE": "If Transaction Type is TRIBAL_REFUND_NP_HEADQUARTERS_ACCOUNT then use \u201cHeadquarters Buildings Account: Refund; If Transaction Type is TRIBAL_REFUND_NP_CONVENTION_ACCOUNT then use \u201cPres. Nominating Convention Account: Refund; If Transaction Type is TRIBAL_REFUND_NP_RECOUNT_ACCOUNT then use \u201cRecount/Legal Proceedings Account: Refund\u201d"
             }
         },
         "category_code": {
@@ -391,6 +391,34 @@
                 "FIELD_DESCRIPTION": "MEMO TEXT/DESCRIPTION",
                 "TYPE": "A/N-100"
             }
+        },
+        "reattribution_redesignation_tag": {
+            "title": "REATTRIBUTION REDESIGNATION TAG",
+            "description": "",
+            "type": [
+                "string",
+                "null"
+            ],
+            "enum": [
+                "REATTRIBUTED",
+                "REDESIGNATED",
+                "REATTRIBUTION_FROM",
+                "REATTRIBUTION_TO",
+                "REDESIGNATION_FROM",
+                "REDESIGNATION_TO",
+                null
+            ],
+            "examples": [
+                "REATTRIBUTED"
+            ],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "REATTRIBUTION REDESIGNATION TAG",
+                "TYPE": "A/N-20",
+                "REQUIRED": null,
+                "SAMPLE_DATA": "REATTRIBUTED",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null
+            }
         }
     },
     "allOf": [
@@ -407,14 +435,14 @@
             },
             "then": {
                 "properties": {
-                    "form_type":{
-                        "const":"SB21B"
+                    "form_type": {
+                        "const": "SB21B"
                     },
-                    "aggregation_group":{
-                        "const":"NATIONAL_PARTY_HEADQUARTERS_ACCOUNT"
+                    "aggregation_group": {
+                        "const": "NATIONAL_PARTY_HEADQUARTERS_ACCOUNT"
                     },
-                    "expenditure_purpose_descrip":{
-                        "const":"Headquarters Buildings Account: Refund"
+                    "expenditure_purpose_descrip": {
+                        "const": "Headquarters Buildings Account: Refund"
                     }
                 }
             }
@@ -432,14 +460,14 @@
             },
             "then": {
                 "properties": {
-                    "form_type":{
-                        "const":"SB21B"
+                    "form_type": {
+                        "const": "SB21B"
                     },
-                    "aggregation_group":{
-                        "const":"NATIONAL_PARTY_CONVENTION_ACCOUNT"
+                    "aggregation_group": {
+                        "const": "NATIONAL_PARTY_CONVENTION_ACCOUNT"
                     },
-                    "expenditure_purpose_descrip":{
-                        "const":"Pres. Nominating Convention Account: Refund"
+                    "expenditure_purpose_descrip": {
+                        "const": "Pres. Nominating Convention Account: Refund"
                     }
                 }
             }
@@ -457,14 +485,14 @@
             },
             "then": {
                 "properties": {
-                    "form_type":{
-                        "const":"SB29"
+                    "form_type": {
+                        "const": "SB29"
                     },
-                    "aggregation_group":{
-                        "const":"NATIONAL_PARTY_RECOUNT_ACCOUNT"
+                    "aggregation_group": {
+                        "const": "NATIONAL_PARTY_RECOUNT_ACCOUNT"
                     },
-                    "expenditure_purpose_descrip":{
-                        "const":"Recount/Legal Proceedings Account: Refund"
+                    "expenditure_purpose_descrip": {
+                        "const": "Recount/Legal Proceedings Account: Refund"
                     }
                 }
             }

@@ -454,8 +454,25 @@
         "category_code": {
             "title": "CATEGORY CODE",
             "description": "",
-            "type": ["string", "null"],
-            "enum": ["001", "002", "003", "004", "005", "006", "007", "008", "009", "010", "011", "012", null],
+            "type": [
+                "string",
+                "null"
+            ],
+            "enum": [
+                "001",
+                "002",
+                "003",
+                "004",
+                "005",
+                "006",
+                "007",
+                "008",
+                "009",
+                "010",
+                "011",
+                "012",
+                null
+            ],
             "examples": [
                 1
             ],
@@ -722,6 +739,34 @@
                 "VALUE_REFERENCE": "01-99",
                 "RULE_REFERENCE": "REQUIRED if CANDIDATE_OFFICE equals H",
                 "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "reattribution_redesignation_tag": {
+            "title": "REATTRIBUTION REDESIGNATION TAG",
+            "description": "",
+            "type": [
+                "string",
+                "null"
+            ],
+            "enum": [
+                "REATTRIBUTED",
+                "REDESIGNATED",
+                "REATTRIBUTION_FROM",
+                "REATTRIBUTION_TO",
+                "REDESIGNATION_FROM",
+                "REDESIGNATION_TO",
+                null
+            ],
+            "examples": [
+                "REATTRIBUTED"
+            ],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "REATTRIBUTION REDESIGNATION TAG",
+                "TYPE": "A/N-20",
+                "REQUIRED": null,
+                "SAMPLE_DATA": "REATTRIBUTED",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null
             }
         }
     },

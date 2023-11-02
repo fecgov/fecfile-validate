@@ -286,7 +286,7 @@
 <td></td>
 <td></td>
 <td></td>
-<td><ul><li>REQUIRED if </li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 30</li><li>regex: ^[ -~]{0,30}$</li></td>
+<td><ul><li>REQUIRED if BENEFICIARY_CANDIDATE_FEC_ID is populated</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 30</li><li>regex: ^[ -~]{0,30}$</li></td>
 </tr>
 <tr>
 <td>BENEFICIARY CANDIDATE FIRST NAME</td>
@@ -296,7 +296,7 @@
 <td></td>
 <td></td>
 <td></td>
-<td><ul><li>REQUIRED if </li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
+<td><ul><li>REQUIRED if BENEFICIARY_CANDIDATE_FEC_ID is populated</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
 </tr>
 <tr>
 <td>BENEFICIARY CANDIDATE MIDDLE NAME</td>
@@ -347,5 +347,15 @@
 <td></td>
 <td></td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 100</li><li>regex: ^[ -~]{0,100}$</li></td>
+</tr>
+<tr>
+<td>REATTRIBUTION REDESIGNATION TAG</td>
+<td>A/N-20</td>
+<td></td>
+<td>REATTRIBUTED</td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>type: ['string', 'null']</li><li>must be one of: ['REATTRIBUTED', 'REDESIGNATED', 'REATTRIBUTION_FROM', 'REATTRIBUTION_TO', 'REDESIGNATION_FROM', 'REDESIGNATION_TO', None]</li></td>
 </tr>
 </table></body></html>
