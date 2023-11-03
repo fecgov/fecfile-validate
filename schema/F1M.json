@@ -1943,7 +1943,15 @@
                 "required": ["affiliated_committee_fec_id"]
             },
             "then":{
-                "required": ["affiliated_committee_name","affiliated_date_form_f1_filed"]
+                "required": ["affiliated_committee_name", "affiliated_date_form_f1_filed"],
+                "properties": {
+                    "affiliated_committee_name":{
+                        "type": "string"
+                    },
+                    "affiliated_date_form_f1_filed":{
+                        "type": "string"
+                    }
+                }
             }
         },
         {
@@ -1957,7 +1965,15 @@
                 "required": ["affiliated_committee_name"]
             },
             "then":{
-                "required": ["affiliated_committee_fec_id","affiliated_date_form_f1_filed"]
+                "required": ["affiliated_committee_fec_id", "affiliated_date_form_f1_filed"],
+                "properties": {
+                    "affiliated_committee_fec_id":{
+                        "type": "string"
+                    },
+                    "affiliated_date_form_f1_filed":{
+                        "type": "string"
+                    }
+                }
             }
         },
         {
@@ -1971,7 +1987,15 @@
                 "required": ["affiliated_date_form_f1_filed"]
             },
             "then":{
-                "required": ["affiliated_committee_name","affiliated_committee_fec_id"]
+                "required": ["affiliated_committee_name", "affiliated_committee_fec_id"],
+                "properties": {
+                    "affiliated_committee_name":{
+                        "type": "string"
+                    },
+                    "affiliated_committee_fec_id":{
+                        "type": "string"
+                    }
+                }
             }
         },
         {
@@ -1985,7 +2009,15 @@
                 "required": ["date_of_51st_contributor"]
             },
             "then":{
-                "required": ["date_of_original_registration","date_committee_met_requirements"]
+                "required": ["date_of_original_registration", "date_committee_met_requirements"],
+                "properties": {
+                    "date_of_original_registration":{
+                        "type": "string"
+                    },
+                    "date_committee_met_requirements":{
+                        "type": "string"
+                    }
+                }
             }
         },
         {
@@ -1999,7 +2031,15 @@
                 "required": ["date_of_original_registration"]
             },
             "then":{
-                "required": ["date_of_51st_contributor","date_committee_met_requirements"]
+                "required": ["date_of_51st_contributor", "date_committee_met_requirements"],
+                "properties": {
+                    "date_of_51st_contributor":{
+                        "type": "string"
+                    },
+                    "date_committee_met_requirements":{
+                        "type": "string"
+                    }
+                }
             }
         },
         {
@@ -2013,7 +2053,15 @@
                 "required": ["date_committee_met_requirements"]
             },
             "then":{
-                "required": ["date_of_original_registration","date_of_51st_contributor"]
+                "required": ["date_of_original_registration", "date_of_51st_contributor"],
+                "properties": {
+                    "date_of_original_registration":{
+                        "type": "string"
+                    },
+                    "date_of_51st_contributor":{
+                        "type": "string"
+                    }
+                }
             }
         },
         {
@@ -2053,7 +2101,84 @@
                     "V_candidate_last_name",
                     "V_candidate_office",
                     "V_date_of_contribution"
-                ]
+                ],
+                "properties": {
+                    "I_candidate_id":{
+                        "type": "string"
+                    },
+                    "I_candidate_first_name":{
+                        "type": "string"
+                    },
+                    "I_candidate_last_name":{
+                        "type": "string"
+                    },
+                    "I_candidate_office":{
+                        "type": "string"
+                    },
+                    "I_date_of_contribution":{
+                        "type": "string"
+                    },
+                    "II_candidate_id":{
+                        "type": "string"
+                    },
+                    "II_candidate_first_name":{
+                        "type": "string"
+                    },
+                    "II_candidate_last_name":{
+                        "type": "string"
+                    },
+                    "II_candidate_office":{
+                        "type": "string"
+                    },
+                    "II_date_of_contribution":{
+                        "type": "string"
+                    },
+                    "III_candidate_id":{
+                        "type": "string"
+                    },
+                    "III_candidate_first_name":{
+                        "type": "string"
+                    },
+                    "III_candidate_last_name":{
+                        "type": "string"
+                    },
+                    "III_candidate_office":{
+                        "type": "string"
+                    },
+                    "III_date_of_contribution":{
+                        "type": "string"
+                    },
+                    "IV_candidate_id":{
+                        "type": "string"
+                    },
+                    "IV_candidate_first_name":{
+                        "type": "string"
+                    },
+                    "IV_candidate_last_name":{
+                        "type": "string"
+                    },
+                    "IV_candidate_office":{
+                        "type": "string"
+                    },
+                    "IV_date_of_contributio":{
+                        "type": "string"
+                    },
+                    "V_candidate_id":{
+                        "type": "string"
+                    },
+                    "V_candidate_first_name":{
+                        "type": "string"
+                    },
+                    "V_candidate_last_name":{
+                        "type": "string"
+                    },
+                    "V_candidate_office":{
+                        "type": "string"
+                    },
+                    "V_date_of_contribution":{
+                        "type": "string"
+                    }
+                }
             }
         }
     ],
