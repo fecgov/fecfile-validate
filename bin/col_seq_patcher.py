@@ -10,9 +10,9 @@ import argparse
 parser = argparse.ArgumentParser(
     prog='Column Sequence Patcher',
     description='Creates a copy of an existing JSON schema file\n' +
-        'where all COL_SEQ attributes have been updated\n' +
-        'to be sequential in order of appearance within\n' +
-        'the file.'
+                'where all COL_SEQ attributes have been updated\n' +
+                'to be sequential in order of appearance within\n' +
+                'the file.'
 )
 
 parser.add_argument('filename')
