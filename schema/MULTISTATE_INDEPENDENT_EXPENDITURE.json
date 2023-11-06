@@ -38,7 +38,6 @@
                 "SE"
             ],
             "fec_spec": {
-                "COL_SEQ": 1,
                 "FIELD_DESCRIPTION": "FORM TYPE",
                 "TYPE": "A/N-8",
                 "REQUIRED": "X (error)",
@@ -91,7 +90,6 @@
                 "D123456789-3456"
             ],
             "fec_spec": {
-                "COL_SEQ": 3,
                 "FIELD_DESCRIPTION": "TRANSACTION ID",
                 "TYPE": "A/N-20",
                 "REQUIRED": "X (error)",
@@ -115,7 +113,6 @@
                 "B123456789-1234"
             ],
             "fec_spec": {
-                "COL_SEQ": 4,
                 "FIELD_DESCRIPTION": "BACK REFERENCE TRAN ID NUMBER",
                 "TYPE": "A/N-20",
                 "REQUIRED": null,
@@ -139,7 +136,6 @@
                 "SB21"
             ],
             "fec_spec": {
-                "COL_SEQ": 5,
                 "FIELD_DESCRIPTION": "BACK REFERENCE SCHED NAME",
                 "TYPE": "A/N-8",
                 "REQUIRED": null,
@@ -157,7 +153,6 @@
                 "IND"
             ],
             "fec_spec": {
-                "COL_SEQ": 6,
                 "FIELD_DESCRIPTION": "ENTITY TYPE",
                 "TYPE": "A/N-3",
                 "REQUIRED": null,
@@ -178,7 +173,6 @@
                 "The Bank of Banks"
             ],
             "fec_spec": {
-                "COL_SEQ": 7,
                 "FIELD_DESCRIPTION": "PAYEE ORGANIZATION NAME",
                 "TYPE": "A/N-200",
                 "REQUIRED": "X (conditional error)",
@@ -199,7 +193,6 @@
                 "Smith"
             ],
             "fec_spec": {
-                "COL_SEQ": 8,
                 "FIELD_DESCRIPTION": "PAYEE LAST NAME",
                 "TYPE": "A/N-30",
                 "REQUIRED": "X (conditional error)",
@@ -220,7 +213,6 @@
                 "John"
             ],
             "fec_spec": {
-                "COL_SEQ": 9,
                 "FIELD_DESCRIPTION": "PAYEE FIRST NAME",
                 "TYPE": "A/N-20",
                 "REQUIRED": "X (conditional error)",
@@ -244,7 +236,6 @@
                 "W"
             ],
             "fec_spec": {
-                "COL_SEQ": 10,
                 "FIELD_DESCRIPTION": "PAYEE MIDDLE NAME",
                 "TYPE": "A/N-20",
                 "REQUIRED": null,
@@ -268,7 +259,6 @@
                 "Dr"
             ],
             "fec_spec": {
-                "COL_SEQ": 11,
                 "FIELD_DESCRIPTION": "PAYEE PREFIX",
                 "TYPE": "A/N-10",
                 "REQUIRED": null,
@@ -292,7 +282,6 @@
                 "Jr"
             ],
             "fec_spec": {
-                "COL_SEQ": 12,
                 "FIELD_DESCRIPTION": "PAYEE SUFFIX",
                 "TYPE": "A/N-10",
                 "REQUIRED": null,
@@ -313,7 +302,6 @@
                 "The Bank Tower"
             ],
             "fec_spec": {
-                "COL_SEQ": 13,
                 "FIELD_DESCRIPTION": "PAYEE STREET  1",
                 "TYPE": "A/N-34",
                 "REQUIRED": "X (error)",
@@ -337,7 +325,6 @@
                 "100 Broadway"
             ],
             "fec_spec": {
-                "COL_SEQ": 14,
                 "FIELD_DESCRIPTION": "PAYEE STREET  2",
                 "TYPE": "A/N-34",
                 "REQUIRED": null,
@@ -358,7 +345,6 @@
                 "New York"
             ],
             "fec_spec": {
-                "COL_SEQ": 15,
                 "FIELD_DESCRIPTION": "PAYEE CITY",
                 "TYPE": "A/N-30",
                 "REQUIRED": "X (error)",
@@ -379,7 +365,6 @@
                 "NY"
             ],
             "fec_spec": {
-                "COL_SEQ": 16,
                 "FIELD_DESCRIPTION": "PAYEE STATE",
                 "TYPE": "A-2",
                 "REQUIRED": "X (error)",
@@ -400,7 +385,6 @@
                 10011
             ],
             "fec_spec": {
-                "COL_SEQ": 17,
                 "FIELD_DESCRIPTION": "PAYEE ZIP",
                 "TYPE": "A/N-9",
                 "REQUIRED": "X (error)",
@@ -441,7 +425,6 @@
             "maxLength": 20,
             "pattern": "^[ -~]{0,20}$",
             "fec_spec": {
-                "COL_SEQ": 19,
                 "FIELD_DESCRIPTION": "ELECTION OTHER DESCRIPTION",
                 "TYPE": "A/N-20",
                 "REQUIRED": "X (conditional error)",
@@ -460,7 +443,6 @@
                 "2012-01-01"
             ],
             "fec_spec": {
-                "COL_SEQ": 20,
                 "FIELD_DESCRIPTION": "DISSEMINATION DATE",
                 "TYPE": "NUM-8",
                 "REQUIRED": "X (conditional error)",
@@ -479,7 +461,6 @@
                 10000
             ],
             "fec_spec": {
-                "COL_SEQ": 21,
                 "FIELD_DESCRIPTION": "EXPENDITURE AMOUNT",
                 "TYPE": "AMT-12",
                 "REQUIRED": "X (error)",
@@ -498,7 +479,6 @@
                 "2012-01-01"
             ],
             "fec_spec": {
-                "COL_SEQ": 22,
                 "FIELD_DESCRIPTION": "DISBURSEMENT DATE",
                 "TYPE": "NUM-8",
                 "REQUIRED": "X (conditional error)",
@@ -517,7 +497,6 @@
                 11000.95
             ],
             "fec_spec": {
-                "COL_SEQ": 23,
                 "FIELD_DESCRIPTION": "CALENDAR Y-T-D (per election/office)",
                 "TYPE": "AMT-12",
                 "REQUIRED": "X (error)",
@@ -552,7 +531,6 @@
             "maxLength": 100,
             "pattern": "^[ -~]{0,100}$",
             "fec_spec": {
-                "COL_SEQ": 24,
                 "FIELD_DESCRIPTION": "EXPENDITURE PURPOSE DESCRIPTION",
                 "TYPE": "A/N-100",
                 "REQUIRED": "X (error)",
@@ -576,7 +554,6 @@
                 1
             ],
             "fec_spec": {
-                "COL_SEQ": 25,
                 "FIELD_DESCRIPTION": "CATEGORY CODE",
                 "TYPE": "A/N-3",
                 "REQUIRED": null,
@@ -614,7 +591,6 @@
                 "S"
             ],
             "fec_spec": {
-                "COL_SEQ": 27,
                 "FIELD_DESCRIPTION": "SUPPORT/OPPOSE CODE",
                 "TYPE": "A/N-1",
                 "REQUIRED": "X (error)",
@@ -635,7 +611,6 @@
                 "H98765431"
             ],
             "fec_spec": {
-                "COL_SEQ": 28,
                 "FIELD_DESCRIPTION": "S/O CANDIDATE ID NUMBER",
                 "TYPE": "A/N-9",
                 "REQUIRED": "X (error)",
@@ -652,7 +627,6 @@
             "maxLength": 30,
             "pattern": "^[ -~]{0,30}$",
             "fec_spec": {
-                "COL_SEQ": 29,
                 "FIELD_DESCRIPTION": "S/O CANDIDATE LAST NAME",
                 "TYPE": "A/N-30",
                 "REQUIRED": "X (error)",
@@ -669,7 +643,6 @@
             "maxLength": 20,
             "pattern": "^[ -~]{0,20}$",
             "fec_spec": {
-                "COL_SEQ": 30,
                 "FIELD_DESCRIPTION": "S/O CANDIDATE FIRST NAME",
                 "TYPE": "A/N-20",
                 "REQUIRED": "X (error)",
@@ -689,7 +662,6 @@
             "maxLength": 20,
             "pattern": "^[ -~]{0,20}$",
             "fec_spec": {
-                "COL_SEQ": 31,
                 "FIELD_DESCRIPTION": "S/O CANDIDATE MIDDLE NAME",
                 "TYPE": "A/N-20",
                 "REQUIRED": null,
@@ -709,7 +681,6 @@
             "maxLength": 10,
             "pattern": "^[ -~]{0,10}$",
             "fec_spec": {
-                "COL_SEQ": 32,
                 "FIELD_DESCRIPTION": "S/O CANDIDATE PREFIX",
                 "TYPE": "A/N-10",
                 "REQUIRED": null,
@@ -729,7 +700,6 @@
             "maxLength": 10,
             "pattern": "^[ -~]{0,10}$",
             "fec_spec": {
-                "COL_SEQ": 33,
                 "FIELD_DESCRIPTION": "S/O CANDIDATE SUFFIX",
                 "TYPE": "A/N-10",
                 "REQUIRED": null,
@@ -746,7 +716,6 @@
                 "P"
             ],
             "fec_spec": {
-                "COL_SEQ": 34,
                 "FIELD_DESCRIPTION": "S/O CANDIDATE OFFICE",
                 "TYPE": "A/N-1",
                 "REQUIRED": "X (error)",
@@ -766,7 +735,6 @@
                 "FL"
             ],
             "fec_spec": {
-                "COL_SEQ": 35,
                 "FIELD_DESCRIPTION": "S/O CANDIDATE STATE",
                 "TYPE": "A/N-2",
                 "REQUIRED": "X (error)",
@@ -789,7 +757,6 @@
                 35
             ],
             "fec_spec": {
-                "COL_SEQ": 36,
                 "FIELD_DESCRIPTION": "S/O CANDIDATE DISTRICT",
                 "TYPE": "NUM-2",
                 "REQUIRED": "X (conditional error)",
@@ -809,7 +776,6 @@
                 "Smith"
             ],
             "fec_spec": {
-                "COL_SEQ": 37,
                 "FIELD_DESCRIPTION": "COMPLETING LAST NAME",
                 "TYPE": "A/N-30",
                 "REQUIRED": "X (error)",
@@ -830,7 +796,6 @@
                 "John"
             ],
             "fec_spec": {
-                "COL_SEQ": 38,
                 "FIELD_DESCRIPTION": "COMPLETING FIRST NAME",
                 "TYPE": "A/N-20",
                 "REQUIRED": "X (error)",
@@ -854,7 +819,6 @@
                 "W"
             ],
             "fec_spec": {
-                "COL_SEQ": 39,
                 "FIELD_DESCRIPTION": "COMPLETING MIDDLE NAME",
                 "TYPE": "A/N-20",
                 "REQUIRED": null,
@@ -878,7 +842,6 @@
                 "Dr"
             ],
             "fec_spec": {
-                "COL_SEQ": 40,
                 "FIELD_DESCRIPTION": "COMPLETING PREFIX",
                 "TYPE": "A/N-10",
                 "REQUIRED": null,
@@ -902,7 +865,6 @@
                 "Jr"
             ],
             "fec_spec": {
-                "COL_SEQ": 41,
                 "FIELD_DESCRIPTION": "COMPLETING SUFFIX",
                 "TYPE": "A/N-10",
                 "REQUIRED": null,
@@ -922,7 +884,6 @@
                 "2012-01-01"
             ],
             "fec_spec": {
-                "COL_SEQ": 42,
                 "FIELD_DESCRIPTION": "DATE SIGNED",
                 "TYPE": "NUM-8",
                 "REQUIRED": "X (error)",
@@ -939,7 +900,6 @@
                 "null"
             ],
             "fec_spec": {
-                "COL_SEQ": 43,
                 "FIELD_DESCRIPTION": "MEMO CODE",
                 "TYPE": "A/N-1",
                 "REQUIRED": null,
@@ -959,7 +919,6 @@
             "maxLength": 100,
             "pattern": "^[ -~]{0,100}$",
             "fec_spec": {
-                "COL_SEQ": 44,
                 "FIELD_DESCRIPTION": "MEMO TEXT/DESCRIPTION",
                 "TYPE": "A/N-100",
                 "REQUIRED": null,
