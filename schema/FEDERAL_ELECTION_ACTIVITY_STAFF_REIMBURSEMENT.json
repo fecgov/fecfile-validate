@@ -130,7 +130,7 @@
         "entity_type": {
             "title": "ENTITY TYPE",
             "description": "",
-            "const":"IND",
+            "const": "IND",
             "examples": [
                 "IND"
             ],
@@ -407,7 +407,21 @@
                 "string",
                 "null"
             ],
-            "enum": ["001", "002", "003", "004", "005", "006", "007", "008", "009", "010", "011", "012", null],
+            "enum": [
+                "001",
+                "002",
+                "003",
+                "004",
+                "005",
+                "006",
+                "007",
+                "008",
+                "009",
+                "010",
+                "011",
+                "012",
+                null
+            ],
             "examples": [
                 1
             ],
@@ -446,6 +460,30 @@
             "fec_spec": {
                 "FIELD_DESCRIPTION": "MEMO TEXT/DESCRIPTION",
                 "TYPE": "A/N-100"
+            }
+        },
+        "reattribution_redesignation_tag": {
+            "title": "REATTRIBUTION REDESIGNATION TAG",
+            "description": "",
+            "enum": [
+                "REATTRIBUTED",
+                "REDESIGNATED",
+                "REATTRIBUTION_FROM",
+                "REATTRIBUTION_TO",
+                "REDESIGNATION_FROM",
+                "REDESIGNATION_TO",
+                null
+            ],
+            "examples": [
+                "REATTRIBUTED"
+            ],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "REATTRIBUTION REDESIGNATION TAG",
+                "TYPE": "A/N-20",
+                "REQUIRED": null,
+                "SAMPLE_DATA": "REATTRIBUTED",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null
             }
         }
     }

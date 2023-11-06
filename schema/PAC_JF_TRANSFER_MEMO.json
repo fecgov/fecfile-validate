@@ -414,7 +414,7 @@
         "memo_code": {
             "title": "MEMO CODE",
             "description": "",
-	    "const": true,
+            "const": true,
             "fec_spec": {
                 "FIELD_DESCRIPTION": "MEMO CODE",
                 "TYPE": "A/N-1",
@@ -443,6 +443,30 @@
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "reattribution_redesignation_tag": {
+            "title": "REATTRIBUTION REDESIGNATION TAG",
+            "description": "",
+            "enum": [
+                "REATTRIBUTED",
+                "REDESIGNATED",
+                "REATTRIBUTION_FROM",
+                "REATTRIBUTION_TO",
+                "REDESIGNATION_FROM",
+                "REDESIGNATION_TO",
+                null
+            ],
+            "examples": [
+                "REATTRIBUTED"
+            ],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "REATTRIBUTION REDESIGNATION TAG",
+                "TYPE": "A/N-20",
+                "REQUIRED": null,
+                "SAMPLE_DATA": "REATTRIBUTED",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null
             }
         }
     }

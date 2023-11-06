@@ -131,7 +131,7 @@
             "examples": [
                 "SA17"
             ],
-           "fec_spec": {
+            "fec_spec": {
                 "FIELD_DESCRIPTION": "BACK REFERENCE SCHED NAME",
                 "TYPE": "A/N-8",
                 "REQUIRED": "X (error)",
@@ -401,6 +401,30 @@
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "reattribution_redesignation_tag": {
+            "title": "REATTRIBUTION REDESIGNATION TAG",
+            "description": "",
+            "enum": [
+                "REATTRIBUTED",
+                "REDESIGNATED",
+                "REATTRIBUTION_FROM",
+                "REATTRIBUTION_TO",
+                "REDESIGNATION_FROM",
+                "REDESIGNATION_TO",
+                null
+            ],
+            "examples": [
+                "REATTRIBUTED"
+            ],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "REATTRIBUTION REDESIGNATION TAG",
+                "TYPE": "A/N-20",
+                "REQUIRED": null,
+                "SAMPLE_DATA": "REATTRIBUTED",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null
             }
         }
     }

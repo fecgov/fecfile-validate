@@ -401,13 +401,37 @@
                 "FIELD_DESCRIPTION": "MEMO TEXT/DESCRIPTION",
                 "TYPE": "A/N-100"
             }
+        },
+        "reattribution_redesignation_tag": {
+            "title": "REATTRIBUTION REDESIGNATION TAG",
+            "description": "",
+            "enum": [
+                "REATTRIBUTED",
+                "REDESIGNATED",
+                "REATTRIBUTION_FROM",
+                "REATTRIBUTION_TO",
+                "REDESIGNATION_FROM",
+                "REDESIGNATION_TO",
+                null
+            ],
+            "examples": [
+                "REATTRIBUTED"
+            ],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "REATTRIBUTION REDESIGNATION TAG",
+                "TYPE": "A/N-20",
+                "REQUIRED": null,
+                "SAMPLE_DATA": "REATTRIBUTED",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null
+            }
         }
     },
     "allOf": [
         {
-            "if":{
+            "if": {
                 "properties": {
-                    "entity_type":{
+                    "entity_type": {
                         "const": "NON_CONTRIBUTION_ACCOUNT_PAYMENT_TO_PAYROLL"
                     }
                 },
@@ -415,18 +439,18 @@
                     "entity_type"
                 ]
             },
-            "then":{
+            "then": {
                 "properties": {
-                    "expenditure_purpose_descrip":{
+                    "expenditure_purpose_descrip": {
                         "const": "Non-contribution Account - Payroll: See Below"
                     }
                 }
             }
         },
         {
-            "if":{
+            "if": {
                 "properties": {
-                    "entity_type":{
+                    "entity_type": {
                         "const": "NON_CONTRIBUTION_ACCOUNT_CREDIT_CARD_PAYMENT"
                     }
                 },
@@ -434,9 +458,9 @@
                     "entity_type"
                 ]
             },
-            "then":{
+            "then": {
                 "properties": {
-                    "expenditure_purpose_descrip":{
+                    "expenditure_purpose_descrip": {
                         "const": "Non-contribution Account - Credit Card: See Below"
                     }
                 }

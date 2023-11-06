@@ -185,11 +185,7 @@ with the F3L</td>
 <td>X (error)</td>
 <td></td>
 <td></td>
-<td>If ENTITY TYPE of associated EAR_MEMO = COM, "Earmarked 
-through XX" where XX is the conduit from EAR_MEMO associated 
-If ENTITY TYPE of associated EAR_MEMO  = IND,  "Earmarked 
-through XX" where XX is first_name last_name from EAR_MEMO 
-associated</td>
+<td>Earmarked through xx</td>
 <td></td>
 <td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 100</li><li>regex: ^Earmarked through [ -~]{0,82}$</li></td>
 </tr>
@@ -232,5 +228,15 @@ associated</td>
 <td></td>
 <td></td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 100</li><li>regex: ^[ -~]{0,100}$</li></td>
+</tr>
+<tr>
+<td>REATTRIBUTION REDESIGNATION TAG</td>
+<td>A/N-20</td>
+<td></td>
+<td>REATTRIBUTED</td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>must be one of: ['REATTRIBUTED', 'REDESIGNATED', 'REATTRIBUTION_FROM', 'REATTRIBUTION_TO', 'REDESIGNATION_FROM', 'REDESIGNATION_TO', None]</li></td>
 </tr>
 </table></body></html>
