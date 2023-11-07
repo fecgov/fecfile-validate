@@ -650,7 +650,6 @@
                     },
                     "receipt_line_number": {
                         "enum": [
-                            "27",
                             "null"
                         ]
                     },
