@@ -27,7 +27,10 @@
         "form_type": {
             "title": "FORM TYPE",
             "description": "",
-            "enum": ["SC/9", "SC/10"],
+            "enum": [
+                "SC/9",
+                "SC/10"
+            ],
             "examples": [
                 "SC/10"
             ],
@@ -105,7 +108,10 @@
         "receipt_line_number": {
             "title": "RECEIPT LINE NUMBER",
             "description": "",
-            "enum": ["13", "27", "null"],
+            "enum": [
+                "13",
+                "null"
+            ],
             "examples": [
                 "13"
             ],
@@ -115,14 +121,18 @@
                 "TYPE": "A/N-8",
                 "REQUIRED": "X (conditional error)",
                 "SAMPLE_DATA": "13",
-                "VALUE_REFERENCE": "[13 | 27]",
-                "RULE_REFERENCE": "If Transaction Type is (LOAN_RECEIVED_FROM_INDIVIDUAL or LOAN_RECEIVED_FROM_BANK), then Receipt Line Number is 13, If Transaction Type is LOAN_BY_COMMITTEE, then Receipt Line Number is 27"
+                "VALUE_REFERENCE": "[13]",
+                "RULE_REFERENCE": "Required if Transaction Type is (LOAN_RECEIVED_FROM_INDIVIDUAL or LOAN_RECEIVED_FROM_BANK), then Receipt Line Number is 13 If Transaction Type is LOAN_BY_COMMITTEE, must be blank."
             }
         },
         "entity_type": {
             "title": "ENTITY TYPE",
             "description": "",
-            "enum": ["IND", "ORG", "COM"],
+            "enum": [
+                "IND",
+                "ORG",
+                "COM"
+            ],
             "examples": [
                 "ORG"
             ],
@@ -510,7 +520,10 @@
         "lender_committee_id_number": {
             "title": "LENDER COMMITTEE ID NUMBER",
             "description": "",
-            "type": ["string", "null"],
+            "type": [
+                "string",
+                "null"
+            ],
             "minLength": 0,
             "maxLength": 9,
             "pattern": "^[ -~]{0,9}$",
@@ -636,7 +649,10 @@
                         "const": "SC/9"
                     },
                     "receipt_line_number": {
-                        "enum": ["27", "null"]
+                        "enum": [
+                            "27",
+                            "null"
+                        ]
                     },
                     "entity_type": {
                         "const": "COM"

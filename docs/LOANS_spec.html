@@ -53,10 +53,10 @@
 <td>A/N-8</td>
 <td>X (conditional error)</td>
 <td>13</td>
-<td>[13 | 27]</td>
-<td>If Transaction Type is (LOAN_RECEIVED_FROM_INDIVIDUAL or LOAN_RECEIVED_FROM_BANK), then Receipt Line Number is 13, If Transaction Type is LOAN_BY_COMMITTEE, then Receipt Line Number is 27</td>
+<td>[13]</td>
+<td>Required if Transaction Type is (LOAN_RECEIVED_FROM_INDIVIDUAL or LOAN_RECEIVED_FROM_BANK), then Receipt Line Number is 13 If Transaction Type is LOAN_BY_COMMITTEE, must be blank.</td>
 <td></td>
-<td><ul><li>REQUIRED if TRANSACTION_TYPE_IDENTIFIER equals LOAN_RECEIVED_FROM_INDIVIDUAL</li><li>RECEIPT_LINE_NUMBER = '13' if TRANSACTION_TYPE_IDENTIFIER equals LOAN_RECEIVED_FROM_INDIVIDUAL</li><li>REQUIRED if TRANSACTION_TYPE_IDENTIFIER equals LOAN_RECEIVED_FROM_BANK</li><li>RECEIPT_LINE_NUMBER = '13' if TRANSACTION_TYPE_IDENTIFIER equals LOAN_RECEIVED_FROM_BANK</li><li>RECEIPT_LINE_NUMBER must be one of ['27', 'null'] if TRANSACTION_TYPE_IDENTIFIER equals LOAN_BY_COMMITTEE</li><li>must be one of: ['13', '27', 'null']</li></td>
+<td><ul><li>REQUIRED if TRANSACTION_TYPE_IDENTIFIER equals LOAN_RECEIVED_FROM_INDIVIDUAL</li><li>RECEIPT_LINE_NUMBER = '13' if TRANSACTION_TYPE_IDENTIFIER equals LOAN_RECEIVED_FROM_INDIVIDUAL</li><li>REQUIRED if TRANSACTION_TYPE_IDENTIFIER equals LOAN_RECEIVED_FROM_BANK</li><li>RECEIPT_LINE_NUMBER = '13' if TRANSACTION_TYPE_IDENTIFIER equals LOAN_RECEIVED_FROM_BANK</li><li>RECEIPT_LINE_NUMBER must be one of ['27', 'null'] if TRANSACTION_TYPE_IDENTIFIER equals LOAN_BY_COMMITTEE</li><li>must be one of: ['13', 'null']</li></td>
 </tr>
 <tr>
 <td>ENTITY TYPE</td>
