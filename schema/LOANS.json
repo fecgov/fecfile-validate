@@ -649,9 +649,7 @@
                         "const": "SC/9"
                     },
                     "receipt_line_number": {
-                        "enum": [
-                            "null"
-                        ]
+                        "type": "null"
                     },
                     "entity_type": {
                         "const": "COM"
