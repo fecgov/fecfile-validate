@@ -108,8 +108,8 @@
         "receipt_line_number": {
             "title": "RECEIPT LINE NUMBER",
             "description": "",
-            "enum": [
-                "13",
+            "type": [
+                "string",
                 "null"
             ],
             "examples": [
