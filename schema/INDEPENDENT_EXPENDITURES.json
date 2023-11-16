@@ -1004,7 +1004,7 @@
             "if": {
                 "properties": {
                     "election_code": {
-                        "pattern": "^O\\d{4}$",
+                        "pattern": "^O",
                         "type": "string"
                     }
                 },
@@ -1078,7 +1078,8 @@
                         "const": "P"
                     },
                     "election_code": {
-                        "const": "P"
+                        "pattern": "^P",
+                        "type": "string"
                     }
                 },
                 "required": [
