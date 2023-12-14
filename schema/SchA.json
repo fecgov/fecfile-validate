@@ -27,7 +27,7 @@
             "title": "FORM TYPE",
             "description": "",
             "type": "string",
-            "minLength": 0,
+            "minLength": 1,
             "maxLength": 8,
             "pattern": "^[ -~]{0,8}$",
             "examples": [
@@ -48,7 +48,7 @@
             "title": "FILER COMMITTEE ID NUMBER",
             "description": "",
             "type": "string",
-            "minLength": 0,
+            "minLength": 1,
             "maxLength": 9,
             "pattern": "^[ -~]{0,9}$",
             "examples": [
@@ -69,7 +69,7 @@
             "title": "TRANSACTION ID",
             "description": "",
             "type": "string",
-            "minLength": 0,
+            "minLength": 1,
             "maxLength": 20,
             "pattern": "^[ -~]{0,20}$",
             "examples": [
@@ -138,7 +138,7 @@
             "title": "ENTITY TYPE",
             "description": "",
             "type": "string",
-            "minLength": 0,
+            "minLength": 1,
             "maxLength": 3,
             "pattern": "^[ -~]{0,3}$",
             "examples": [
@@ -159,7 +159,7 @@
             "title": "CONTRIBUTOR ORGANIZATION NAME",
             "description": "",
             "type": "string",
-            "minLength": 0,
+            "minLength": 1,
             "maxLength": 200,
             "pattern": "^[ -~]{0,200}$",
             "examples": [
@@ -180,7 +180,7 @@
             "title": "CONTRIBUTOR LAST NAME",
             "description": "",
             "type": "string",
-            "minLength": 0,
+            "minLength": 1,
             "maxLength": 30,
             "pattern": "^[ -~]{0,30}$",
             "examples": [
@@ -201,7 +201,7 @@
             "title": "CONTRIBUTOR FIRST NAME",
             "description": "",
             "type": "string",
-            "minLength": 0,
+            "minLength": 1,
             "maxLength": 20,
             "pattern": "^[ -~]{0,20}$",
             "examples": [

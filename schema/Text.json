@@ -17,7 +17,7 @@
             "title": "REC TYPE",
             "description": "",
             "type": "string",
-            "minLength": 0,
+            "minLength": 1,
             "maxLength": 4,
             "pattern": "^[ -~]{0,4}$",
             "examples": [
@@ -38,7 +38,7 @@
             "title": "FILER COMMITTEE ID NUMBER",
             "description": "",
             "type": "string",
-            "minLength": 0,
+            "minLength": 1,
             "maxLength": 9,
             "pattern": "^[ -~]{0,9}$",
             "examples": [
@@ -59,7 +59,7 @@
             "title": "TRANSACTION ID NUMBER",
             "description": "",
             "type": "string",
-            "minLength": 0,
+            "minLength": 1,
             "maxLength": 20,
             "pattern": "^[ -~]{0,20}$",
             "examples": [
@@ -104,7 +104,7 @@
             "title": "BACK REFERENCE SCHED / FORM NAME",
             "description": "",
             "type": "string",
-            "minLength": 0,
+            "minLength": 1,
             "maxLength": 8,
             "pattern": "^[ -~]{0,8}$",
             "examples": [

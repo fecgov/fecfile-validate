@@ -68,7 +68,10 @@
         "transaction_type_identifier": {
             "title": "TRANSACTION TYPE IDENTIFIER",
             "description": "",
-            "enum": ["INDEPENDENT_EXPENDITURE", "INDEPENDENT_EXPENDITURE_VOID"],
+            "enum": [
+                "INDEPENDENT_EXPENDITURE",
+                "INDEPENDENT_EXPENDITURE_VOID"
+            ],
             "examples": [
                 "INDEPENDENT_EXPENDITURE"
             ],
@@ -83,7 +86,7 @@
             "title": "TRANSACTION ID",
             "description": "",
             "type": "string",
-            "minLength": 0,
+            "minLength": 1,
             "maxLength": 20,
             "pattern": "^[ -~]{0,20}$",
             "examples": [
@@ -151,7 +154,10 @@
         "entity_type": {
             "title": "ENTITY TYPE",
             "description": "",
-            "enum": ["IND", "ORG"],
+            "enum": [
+                "IND",
+                "ORG"
+            ],
             "examples": [
                 "IND"
             ],
@@ -169,7 +175,10 @@
         "payee_organization_name": {
             "title": "PAYEE ORGANIZATION NAME",
             "description": "",
-            "type": ["string", "null"],
+            "type": [
+                "string",
+                "null"
+            ],
             "minLength": 0,
             "maxLength": 200,
             "pattern": "^[ -~]{0,200}$",
@@ -190,7 +199,10 @@
         "payee_last_name": {
             "title": "PAYEE LAST NAME",
             "description": "",
-            "type": ["string", "null"],
+            "type": [
+                "string",
+                "null"
+            ],
             "minLength": 0,
             "maxLength": 30,
             "pattern": "^[ -~]{0,30}$",
@@ -211,7 +223,10 @@
         "payee_first_name": {
             "title": "PAYEE FIRST NAME",
             "description": "",
-            "type": ["string", "null"],
+            "type": [
+                "string",
+                "null"
+            ],
             "minLength": 0,
             "maxLength": 20,
             "pattern": "^[ -~]{0,20}$",
@@ -305,7 +320,7 @@
             "title": "PAYEE STREET  1",
             "description": "",
             "type": "string",
-            "minLength": 0,
+            "minLength": 1,
             "maxLength": 34,
             "pattern": "^[ -~]{0,34}$",
             "examples": [
@@ -350,7 +365,7 @@
             "title": "PAYEE CITY",
             "description": "",
             "type": "string",
-            "minLength": 0,
+            "minLength": 1,
             "maxLength": 30,
             "pattern": "^[ -~]{0,30}$",
             "examples": [
@@ -371,7 +386,7 @@
             "title": "PAYEE STATE",
             "description": "",
             "type": "string",
-            "minLength": 0,
+            "minLength": 1,
             "maxLength": 2,
             "pattern": "^[ -~]{0,2}$",
             "examples": [
@@ -392,7 +407,7 @@
             "title": "PAYEE ZIP",
             "description": "",
             "type": "string",
-            "minLength": 0,
+            "minLength": 1,
             "maxLength": 9,
             "pattern": "^[ -~]{0,9}$",
             "examples": [
@@ -413,7 +428,7 @@
             "title": "ELECTION CODE",
             "description": "",
             "type": "string",
-            "minLength": 0,
+            "minLength": 1,
             "maxLength": 5,
             "pattern": "^[GPRSCEO]\\d{4}$",
             "examples": [
@@ -452,7 +467,10 @@
         "dissemination_date": {
             "title": "DISSEMINATION DATE",
             "description": "",
-            "type": ["string", "null"],
+            "type": [
+                "string",
+                "null"
+            ],
             "minLength": 10,
             "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
             "examples": [
@@ -490,7 +508,10 @@
         "disbursement_date": {
             "title": "DISBURSEMENT DATE",
             "description": "",
-            "type": ["string", "null"],
+            "type": [
+                "string",
+                "null"
+            ],
             "minLength": 10,
             "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
             "examples": [
@@ -547,7 +568,7 @@
             "title": "EXPENDITURE PURPOSE DESCRIPTION",
             "description": "",
             "type": "string",
-            "minLength": 0,
+            "minLength": 1,
             "maxLength": 100,
             "pattern": "^[ -~]{0,100}$",
             "fec_spec": {
@@ -588,7 +609,10 @@
         "support_oppose_code": {
             "title": "SUPPORT/OPPOSE CODE",
             "description": "",
-            "enum": ["S", "O"],
+            "enum": [
+                "S",
+                "O"
+            ],
             "examples": [
                 "S"
             ],
@@ -607,7 +631,7 @@
             "title": "S/O CANDIDATE ID NUMBER",
             "description": "",
             "type": "string",
-            "minLength": 0,
+            "minLength": 1,
             "maxLength": 9,
             "pattern": "^[ -~]{0,9}$",
             "examples": [
@@ -627,7 +651,7 @@
             "title": "S/O CANDIDATE LAST NAME",
             "description": "",
             "type": "string",
-            "minLength": 0,
+            "minLength": 1,
             "maxLength": 30,
             "pattern": "^[ -~]{0,30}$",
             "fec_spec": {
@@ -644,7 +668,7 @@
             "title": "S/O CANDIDATE FIRST NAME",
             "description": "",
             "type": "string",
-            "minLength": 0,
+            "minLength": 1,
             "maxLength": 20,
             "pattern": "^[ -~]{0,20}$",
             "fec_spec": {
@@ -720,7 +744,11 @@
         "so_candidate_office": {
             "title": "S/O CANDIDATE OFFICE",
             "description": "",
-            "enum": ["H", "S", "P"],
+            "enum": [
+                "H",
+                "S",
+                "P"
+            ],
             "examples": [
                 "H"
             ],
@@ -784,7 +812,7 @@
             "title": "COMPLETING LAST NAME",
             "description": "",
             "type": "string",
-            "minLength": 0,
+            "minLength": 1,
             "maxLength": 30,
             "pattern": "^[ -~]{0,30}$",
             "examples": [
@@ -805,7 +833,7 @@
             "title": "COMPLETING FIRST NAME",
             "description": "",
             "type": "string",
-            "minLength": 0,
+            "minLength": 1,
             "maxLength": 20,
             "pattern": "^[ -~]{0,20}$",
             "examples": [
