@@ -9,7 +9,8 @@
         "form_type",
         "filer_committee_id_number",
         "treasurer_last_name",
-        "treasurer_first_name"
+        "treasurer_first_name",
+        "text_message"
     ],
     "properties": {
         "form_type": {
