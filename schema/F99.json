@@ -15,7 +15,8 @@
         "zip",
         "treasurer_last_name",
         "treasurer_first_name",
-        "text_message"
+        "date_signed",
+        "message_text"
     ],
     "properties": {
         "form_type": {
@@ -313,7 +314,7 @@
                 "COL_SEQ": 14,
                 "FIELD_DESCRIPTION": "DATE SIGNED",
                 "TYPE": "NUM-8",
-                "REQUIRED": null,
+                "REQUIRED": "X (error)",
                 "SAMPLE_DATA": 20120729,
                 "VALUE_REFERENCE": "YYYYMMDD",
                 "RULE_REFERENCE": null,
