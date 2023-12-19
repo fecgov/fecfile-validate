@@ -8,6 +8,11 @@
     "required": [
         "form_type",
         "filer_committee_id_number",
+        "committee_name",
+        "street_1",
+        "city",
+        "state",
+        "zip",
         "treasurer_last_name",
         "treasurer_first_name",
         "text_message"
@@ -66,7 +71,7 @@
                 "COL_SEQ": 3,
                 "FIELD_DESCRIPTION": "COMMITTEE NAME",
                 "TYPE": "A/N-200",
-                "REQUIRED": "X (warning)",
+                "REQUIRED": "X (error)",
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": "Filing Committee's Name",
                 "RULE_REFERENCE": null,
@@ -87,7 +92,7 @@
                 "COL_SEQ": 4,
                 "FIELD_DESCRIPTION": "STREET 1",
                 "TYPE": "A/N-34",
-                "REQUIRED": "X (warning)",
+                "REQUIRED": "X (error)",
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": "Committee's Street Address 1",
                 "RULE_REFERENCE": null,
@@ -129,7 +134,7 @@
                 "COL_SEQ": 6,
                 "FIELD_DESCRIPTION": "CITY",
                 "TYPE": "A/N-30",
-                "REQUIRED": "X (warning)",
+                "REQUIRED": "X (error)",
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": "Committee's City/Town",
                 "RULE_REFERENCE": null,
@@ -150,7 +155,7 @@
                 "COL_SEQ": 7,
                 "FIELD_DESCRIPTION": "STATE",
                 "TYPE": "A-2",
-                "REQUIRED": "X (warning)",
+                "REQUIRED": "X (error)",
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": "Committee's State Code",
                 "RULE_REFERENCE": null,
@@ -171,7 +176,7 @@
                 "COL_SEQ": 8,
                 "FIELD_DESCRIPTION": "ZIP",
                 "TYPE": "A/N-9",
-                "REQUIRED": "X (warning)",
+                "REQUIRED": "X (error)",
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": "Committee's Zip Code",
                 "RULE_REFERENCE": null,
@@ -342,8 +347,8 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "text_message": {
-            "title": "TEXT MESSAGE",
+        "message_text": {
+            "title": "MESSAGE TEXT",
             "description": "",
             "type": [
                 "string"
@@ -352,8 +357,8 @@
             "maxLength": 20000,
             "pattern": "^[ -~\r\n\t\f]{1,20000}$",
             "fec_spec": {
-                "COL_SEQ": 16,
-                "FIELD_DESCRIPTION": "TEXT MESSAGE",
+                "COL_SEQ": null,
+                "FIELD_DESCRIPTION": "MESSAGE TEXT",
                 "TYPE": "A/N-20000",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": null,
