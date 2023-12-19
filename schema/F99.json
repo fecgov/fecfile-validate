@@ -61,10 +61,7 @@
         "committee_name": {
             "title": "COMMITTEE NAME",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
+            "type": "string",
             "minLength": 0,
             "maxLength": 200,
             "pattern": "^[ -~]{0,200}$",
@@ -82,10 +79,7 @@
         "street_1": {
             "title": "STREET 1",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
+            "type": "string",
             "minLength": 0,
             "maxLength": 34,
             "pattern": "^[ -~]{0,34}$",
@@ -124,10 +118,7 @@
         "city": {
             "title": "CITY",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
+            "type": "string",
             "minLength": 0,
             "maxLength": 30,
             "pattern": "^[ -~]{0,30}$",
@@ -145,10 +136,7 @@
         "state": {
             "title": "STATE",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
+            "type": "string",
             "minLength": 0,
             "maxLength": 2,
             "pattern": "^[A-Z]{2}$",
@@ -166,10 +154,7 @@
         "zip": {
             "title": "ZIP",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
+            "type": "string",
             "minLength": 0,
             "maxLength": 9,
             "pattern": "^[ -~]{0,9}$",
@@ -301,10 +286,7 @@
         "date_signed": {
             "title": "DATE SIGNED",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
+            "type": "string",
             "minLength": 0,
             "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
             "examples": [
@@ -351,9 +333,7 @@
         "message_text": {
             "title": "MESSAGE TEXT",
             "description": "",
-            "type": [
-                "string"
-            ],
+            "type": "string",
             "minLength": 1,
             "maxLength": 20000,
             "pattern": "^[ -~\r\n\t\f]{1,20000}$",
