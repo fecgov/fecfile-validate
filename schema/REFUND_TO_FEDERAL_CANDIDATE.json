@@ -88,7 +88,7 @@
             "title": "TRANSACTION ID",
             "description": "",
             "type": "string",
-            "minLength": 1,
+            "minLength": 0,
             "maxLength": 20,
             "pattern": "^[ -~]{0,20}$",
             "examples": [
@@ -171,7 +171,7 @@
             "title": "CONTRIBUTOR ORGANIZATION",
             "description": "",
             "type": "string",
-            "minLength": 1,
+            "minLength": 0,
             "maxLength": 200,
             "pattern": "^[ -~]{0,200}$",
             "examples": [
@@ -191,7 +191,7 @@
             "title": "CONTRIBUTOR STREET  1",
             "description": "",
             "type": "string",
-            "minLength": 1,
+            "minLength": 0,
             "maxLength": 34,
             "pattern": "^[ -~]{0,34}$",
             "examples": [
@@ -231,7 +231,7 @@
             "title": "CONTRIBUTOR CITY",
             "description": "",
             "type": "string",
-            "minLength": 1,
+            "minLength": 0,
             "maxLength": 30,
             "pattern": "^[ -~]{0,30}$",
             "examples": [
@@ -251,7 +251,7 @@
             "title": "CONTRIBUTOR STATE",
             "description": "",
             "type": "string",
-            "minLength": 1,
+            "minLength": 0,
             "maxLength": 2,
             "pattern": "^[ -~]{0,2}$",
             "examples": [
@@ -271,7 +271,7 @@
             "title": "CONTRIBUTOR ZIP",
             "description": "",
             "type": "string",
-            "minLength": 1,
+            "minLength": 0,
             "maxLength": 9,
             "pattern": "^[ -~]{0,9}$",
             "examples": [
@@ -291,7 +291,7 @@
             "title": "ELECTION CODE",
             "description": "",
             "type": "string",
-            "minLength": 1,
+            "minLength": 0,
             "maxLength": 5,
             "pattern": "^[GPRSCEO]\\d{4}$",
             "examples": [
@@ -442,7 +442,7 @@
             "title": "DONOR COMMITTEE NAME",
             "description": "",
             "type": "string",
-            "minLength": 1,
+            "minLength": 0,
             "maxLength": 200,
             "pattern": "^[ -~]{0,200}$",
             "examples": [
@@ -462,7 +462,7 @@
             "title": "DONOR CANDIDATE FEC ID",
             "description": "",
             "type": "string",
-            "minLength": 1,
+            "minLength": 0,
             "maxLength": 9,
             "pattern": "^[ -~]{0,9}$",
             "examples": [
@@ -482,7 +482,7 @@
             "title": "DONOR CANDIDATE LAST NAME",
             "description": "",
             "type": "string",
-            "minLength": 1,
+            "minLength": 0,
             "maxLength": 30,
             "pattern": "^[ -~]{0,30}$",
             "fec_spec": {
@@ -499,7 +499,7 @@
             "title": "DONOR CANDIDATE FIRST NAME",
             "description": "",
             "type": "string",
-            "minLength": 1,
+            "minLength": 0,
             "maxLength": 20,
             "pattern": "^[ -~]{0,20}$",
             "fec_spec": {

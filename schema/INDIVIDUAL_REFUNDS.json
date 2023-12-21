@@ -81,7 +81,7 @@
             "title": "TRANSACTION ID",
             "description": "",
             "type": "string",
-            "minLength": 1,
+            "minLength": 0,
             "maxLength": 20,
             "pattern": "^[ -~]{0,20}$",
             "examples": [
@@ -306,7 +306,7 @@
             "title": "PAYEE STREET  1",
             "description": "",
             "type": "string",
-            "minLength": 1,
+            "minLength": 0,
             "maxLength": 34,
             "pattern": "^[ -~]{0,34}$",
             "examples": [
@@ -349,7 +349,7 @@
             "title": "PAYEE CITY",
             "description": "",
             "type": "string",
-            "minLength": 1,
+            "minLength": 0,
             "maxLength": 30,
             "pattern": "^[ -~]{0,30}$",
             "examples": [
@@ -369,7 +369,7 @@
             "title": "PAYEE STATE",
             "description": "",
             "type": "string",
-            "minLength": 1,
+            "minLength": 0,
             "maxLength": 2,
             "pattern": "^[ -~]{0,2}$",
             "examples": [
@@ -389,7 +389,7 @@
             "title": "PAYEE ZIP",
             "description": "",
             "type": "string",
-            "minLength": 1,
+            "minLength": 0,
             "maxLength": 9,
             "pattern": "^[ -~]{0,9}$",
             "examples": [

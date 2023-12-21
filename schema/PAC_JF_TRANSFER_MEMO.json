@@ -87,7 +87,7 @@
             "title": "TRANSACTION ID",
             "description": "",
             "type": "string",
-            "minLength": 1,
+            "minLength": 0,
             "maxLength": 20,
             "pattern": "^[ -~]{0,20}$",
             "examples": [
@@ -110,7 +110,7 @@
                 "string",
                 "null"
             ],
-            "minLength": 1,
+            "minLength": 0,
             "maxLength": 20,
             "pattern": "^[ -~]{0,20}$",
             "examples": [
@@ -164,7 +164,7 @@
             "title": "CONTRIBUTOR ORGANIZATION",
             "description": "",
             "type": "string",
-            "minLength": 1,
+            "minLength": 0,
             "maxLength": 200,
             "pattern": "^[ -~]{0,200}$",
             "examples": [
@@ -184,7 +184,7 @@
             "title": "CONTRIBUTOR STREET  1",
             "description": "",
             "type": "string",
-            "minLength": 1,
+            "minLength": 0,
             "maxLength": 34,
             "pattern": "^[ -~]{0,34}$",
             "examples": [
@@ -224,7 +224,7 @@
             "title": "CONTRIBUTOR CITY",
             "description": "",
             "type": "string",
-            "minLength": 1,
+            "minLength": 0,
             "maxLength": 30,
             "pattern": "^[ -~]{0,30}$",
             "examples": [
@@ -244,7 +244,7 @@
             "title": "CONTRIBUTOR STATE",
             "description": "",
             "type": "string",
-            "minLength": 1,
+            "minLength": 0,
             "maxLength": 2,
             "pattern": "^[ -~]{0,2}$",
             "examples": [
@@ -264,7 +264,7 @@
             "title": "CONTRIBUTOR ZIP",
             "description": "",
             "type": "string",
-            "minLength": 1,
+            "minLength": 0,
             "maxLength": 9,
             "pattern": "^[ -~]{0,9}$",
             "examples": [
@@ -358,7 +358,7 @@
             "title": "CONTRIBUTION PURPOSE DESCRIPTION",
             "description": "",
             "type": "string",
-            "minLength": 1,
+            "minLength": 0,
             "maxLength": 100,
             "pattern": "^Joint Fundraising Memo: [ -~]{0,76}$",
             "fec_spec": {
@@ -375,7 +375,7 @@
             "title": "DONOR COMMITTEE FEC ID",
             "description": "",
             "type": "string",
-            "minLength": 1,
+            "minLength": 0,
             "maxLength": 9,
             "pattern": "^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$",
             "fec_spec": {
@@ -395,7 +395,7 @@
                 "string",
                 "null"
             ],
-            "minLength": 1,
+            "minLength": 0,
             "maxLength": 200,
             "pattern": "^[ -~]{0,200}$",
             "examples": [
