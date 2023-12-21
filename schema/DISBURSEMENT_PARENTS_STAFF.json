@@ -170,10 +170,7 @@
         "payee_last_name": {
             "title": "PAYEE LAST NAME",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
+            "type": "string",
             "minLength": 1,
             "maxLength": 30,
             "pattern": "^[ -~]{0,30}$",
@@ -193,10 +190,7 @@
         "payee_first_name": {
             "title": "PAYEE FIRST NAME",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
+            "type": "string",
             "minLength": 1,
             "maxLength": 20,
             "pattern": "^[ -~]{0,20}$",

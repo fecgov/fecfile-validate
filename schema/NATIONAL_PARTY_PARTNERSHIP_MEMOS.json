@@ -132,10 +132,7 @@
         "back_reference_sched_name": {
             "title": "BACK REFERENCE SCHED NAME",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
+            "type": "string",
             "minLength": 1,
             "maxLength": 8,
             "pattern": "^[ -~]{0,8}$",

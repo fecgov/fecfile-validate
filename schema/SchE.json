@@ -416,10 +416,7 @@
         "election_code": {
             "title": "ELECTION CODE",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
+            "type": "string",
             "minLength": 1,
             "maxLength": 5,
             "pattern": "^[ -~]{0,5}$",
@@ -478,10 +475,7 @@
         "expenditure_amount": {
             "title": "EXPENDITURE AMOUNT",
             "description": "",
-            "type": [
-                "number",
-                "null"
-            ],
+            "type": "string",
             "minimum": -99999999.99,
             "maximum": 999999999.99,
             "examples": [
@@ -649,10 +643,7 @@
         "so_candidate_last_name": {
             "title": "S/O CANDIDATE LAST NAME",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
+            "type": "string",
             "minLength": 1,
             "maxLength": 30,
             "pattern": "^[ -~]{0,30}$",
@@ -669,10 +660,7 @@
         "so_candidate_first_name": {
             "title": "S/O CANDIDATE FIRST NAME",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
+            "type": "string",
             "minLength": 1,
             "maxLength": 20,
             "pattern": "^[ -~]{0,20}$",

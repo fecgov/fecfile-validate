@@ -97,10 +97,7 @@
         "back_reference_tran_id_number": {
             "title": "BACK REFERENCE TRAN ID NUMBER",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
+            "type": "string",
             "minLength": 1,
             "maxLength": 20,
             "pattern": "^[ -~]{0,20}$",

@@ -391,10 +391,7 @@
         "donor_committee_name": {
             "title": "DONOR COMMITTEE NAME",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
+            "type": "string",
             "minLength": 1,
             "maxLength": 200,
             "pattern": "^[ -~]{0,200}$",

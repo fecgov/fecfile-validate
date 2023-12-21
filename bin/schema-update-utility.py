@@ -52,8 +52,14 @@ def process(file, schema):
                 changed = True
 
             if isinstance(property_type, list):
-                if None in property_type:
+                if "null" in property_type:
                     properties[property]['type'] = "string"
+                    changed = True
+
+            if "examples" in properties[property]:
+                examples = properties[property]["examples"]
+                if "none" in examples:
+                    examples.remove("none")
                     changed = True
 
         for condition in conditionals:
@@ -64,7 +70,7 @@ def process(file, schema):
                         changed = True
 
                     if isinstance(property_type, list):
-                        if None in property_type:
+                        if "none" in property_type:
                             condition['then'][property]['type'] = 'string'
                             changed = True
 

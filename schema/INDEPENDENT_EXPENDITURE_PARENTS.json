@@ -767,10 +767,7 @@
         "so_candidate_state": {
             "title": "S/O CANDIDATE STATE",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
+            "type": "string",
             "minLength": 1,
             "maxLength": 2,
             "pattern": "^[ -~]{0,2}$",

@@ -164,10 +164,7 @@
         "payee_organization_name": {
             "title": "PAYEE ORGANIZATION NAME",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
+            "type": "string",
             "minLength": 1,
             "maxLength": 200,
             "pattern": "^[ -~]{0,200}$",
