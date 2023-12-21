@@ -8,8 +8,15 @@
     "required": [
         "form_type",
         "filer_committee_id_number",
+        "committee_name",
+        "street_1",
+        "city",
+        "state",
+        "zip",
         "treasurer_last_name",
-        "treasurer_first_name"
+        "treasurer_first_name",
+        "date_signed",
+        "message_text"
     ],
     "properties": {
         "form_type": {
@@ -54,18 +61,15 @@
         "committee_name": {
             "title": "COMMITTEE NAME",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
+            "type": "string",
             "minLength": 0,
             "maxLength": 200,
             "pattern": "^[ -~]{0,200}$",
             "fec_spec": {
-                "COL_SEQ": 4,
+                "COL_SEQ": 3,
                 "FIELD_DESCRIPTION": "COMMITTEE NAME",
                 "TYPE": "A/N-200",
-                "REQUIRED": "X (warning)",
+                "REQUIRED": "X (error)",
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": "Filing Committee's Name",
                 "RULE_REFERENCE": null,
@@ -75,18 +79,15 @@
         "street_1": {
             "title": "STREET 1",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
+            "type": "string",
             "minLength": 0,
             "maxLength": 34,
             "pattern": "^[ -~]{0,34}$",
             "fec_spec": {
-                "COL_SEQ": 5,
+                "COL_SEQ": 4,
                 "FIELD_DESCRIPTION": "STREET 1",
                 "TYPE": "A/N-34",
-                "REQUIRED": "X (warning)",
+                "REQUIRED": "X (error)",
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": "Committee's Street Address 1",
                 "RULE_REFERENCE": null,
@@ -104,7 +105,7 @@
             "maxLength": 34,
             "pattern": "^[ -~]{0,34}$",
             "fec_spec": {
-                "COL_SEQ": 6,
+                "COL_SEQ": 5,
                 "FIELD_DESCRIPTION": "STREET 2",
                 "TYPE": "A/N-34",
                 "REQUIRED": null,
@@ -117,18 +118,15 @@
         "city": {
             "title": "CITY",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
+            "type": "string",
             "minLength": 0,
             "maxLength": 30,
             "pattern": "^[ -~]{0,30}$",
             "fec_spec": {
-                "COL_SEQ": 7,
+                "COL_SEQ": 6,
                 "FIELD_DESCRIPTION": "CITY",
                 "TYPE": "A/N-30",
-                "REQUIRED": "X (warning)",
+                "REQUIRED": "X (error)",
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": "Committee's City/Town",
                 "RULE_REFERENCE": null,
@@ -138,18 +136,15 @@
         "state": {
             "title": "STATE",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
+            "type": "string",
             "minLength": 0,
             "maxLength": 2,
             "pattern": "^[A-Z]{2}$",
             "fec_spec": {
-                "COL_SEQ": 8,
+                "COL_SEQ": 7,
                 "FIELD_DESCRIPTION": "STATE",
                 "TYPE": "A-2",
-                "REQUIRED": "X (warning)",
+                "REQUIRED": "X (error)",
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": "Committee's State Code",
                 "RULE_REFERENCE": null,
@@ -159,18 +154,15 @@
         "zip": {
             "title": "ZIP",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
+            "type": "string",
             "minLength": 0,
             "maxLength": 9,
             "pattern": "^[ -~]{0,9}$",
             "fec_spec": {
-                "COL_SEQ": 9,
+                "COL_SEQ": 8,
                 "FIELD_DESCRIPTION": "ZIP",
                 "TYPE": "A/N-9",
-                "REQUIRED": "X (warning)",
+                "REQUIRED": "X (error)",
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": "Committee's Zip Code",
                 "RULE_REFERENCE": null,
@@ -188,7 +180,7 @@
                 "Smith"
             ],
             "fec_spec": {
-                "COL_SEQ": 10,
+                "COL_SEQ": 9,
                 "FIELD_DESCRIPTION": "TREASURER LAST NAME",
                 "TYPE": "A/N-30",
                 "REQUIRED": "X (error)",
@@ -209,7 +201,7 @@
                 "Patrick"
             ],
             "fec_spec": {
-                "COL_SEQ": 11,
+                "COL_SEQ": 10,
                 "FIELD_DESCRIPTION": "TREASURER FIRST NAME",
                 "TYPE": "A/N-20",
                 "REQUIRED": "X (error)",
@@ -233,7 +225,7 @@
                 "Thomas"
             ],
             "fec_spec": {
-                "COL_SEQ": 12,
+                "COL_SEQ": 11,
                 "FIELD_DESCRIPTION": "TREASURER MIDDLE NAME",
                 "TYPE": "A/N-20",
                 "REQUIRED": null,
@@ -257,7 +249,7 @@
                 "Mr."
             ],
             "fec_spec": {
-                "COL_SEQ": 13,
+                "COL_SEQ": 12,
                 "FIELD_DESCRIPTION": "TREASURER PREFIX",
                 "TYPE": "A/N-10",
                 "REQUIRED": null,
@@ -281,7 +273,7 @@
                 "Jr."
             ],
             "fec_spec": {
-                "COL_SEQ": 14,
+                "COL_SEQ": 13,
                 "FIELD_DESCRIPTION": "TREASURER SUFFIX",
                 "TYPE": "A/N-10",
                 "REQUIRED": null,
@@ -294,20 +286,17 @@
         "date_signed": {
             "title": "DATE SIGNED",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
+            "type": "string",
             "minLength": 0,
             "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
             "examples": [
                 20120729
             ],
             "fec_spec": {
-                "COL_SEQ": 15,
+                "COL_SEQ": 14,
                 "FIELD_DESCRIPTION": "DATE SIGNED",
                 "TYPE": "NUM-8",
-                "REQUIRED": null,
+                "REQUIRED": "X (error)",
                 "SAMPLE_DATA": 20120729,
                 "VALUE_REFERENCE": "YYYYMMDD",
                 "RULE_REFERENCE": null,
@@ -331,12 +320,30 @@
                 "MST"
             ],
             "fec_spec": {
-                "COL_SEQ": 16,
+                "COL_SEQ": 15,
                 "FIELD_DESCRIPTION": "TEXT CODE",
                 "TYPE": "A/N-3",
                 "REQUIRED": null,
                 "SAMPLE_DATA": "MST",
                 "VALUE_REFERENCE": "Type of Miscellaneous Document:\n  'MSI'    = Disavowal Response                                                                         \n  'MSM'  = Filing Freq. Change Notice                                                                                                                           \n  'MST'   = Misc. Report to the FEC",
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "message_text": {
+            "title": "MESSAGE TEXT",
+            "description": "",
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 20000,
+            "pattern": "^[ -~\r\n\t\f]{1,20000}$",
+            "fec_spec": {
+                "COL_SEQ": null,
+                "FIELD_DESCRIPTION": "MESSAGE TEXT",
+                "TYPE": "A/N-20000",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }
