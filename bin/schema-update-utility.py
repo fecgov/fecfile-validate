@@ -7,13 +7,14 @@ import re
 from decimal import Decimal
 
 
-def encoderOverride(obj):
+def encoder_override(obj):
     if isinstance(obj, Decimal):
-        # We block out Decimals in | symbols so that we can 
+        # We block out Decimals in | symbols so that we can
         # clean them of their surrounding quotation marks later.
         return '|'+str(obj)+'|'
 
     return json.JSONEncoder.default(obj)
+
 
 def restore_decimal_values(json_string):
     regex = re.compile(r'"\|(.*)\|"')
@@ -76,6 +77,7 @@ def process(file, schema):
 
     return [schema, changed]
 
+
 exclude_file_list = [
 ]
 
@@ -93,7 +95,7 @@ for file in (glob.glob('*.json')):
     if changed:
         f = open(file, 'w')
 
-        output = json.dumps(schema, indent=4, default=encoderOverride)
+        output = json.dumps(schema, indent=4, default=encoder_override)
         cleaned_output = restore_decimal_values(output)
 
         f.write(cleaned_output)
