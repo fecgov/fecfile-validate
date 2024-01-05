@@ -46,7 +46,7 @@
 <td></td>
 <td>Must be unique for the life of a report (original + amendments) within each committee account. Letters, if included, must be uppercase.</td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
 </tr>
 <tr>
 <td>BACK REFERENCE TRAN ID NUMBER</td>
@@ -56,7 +56,7 @@
 <td></td>
 <td>Reference to the Tran ID of a Related Record</td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
 </tr>
 <tr>
 <td>BACK REFERENCE SCHED NAME</td>
@@ -67,7 +67,7 @@
 <td>Ref to the Schedule that has the Related Record.  SB3L must be used 
 with the F3L</td>
 <td>F3 | F3X | F3P | F3L</td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 8</li><li>regex: ^[ -~]{0,8}$</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 8</li><li>regex: ^[ -~]{0,8}$</li></td>
 </tr>
 <tr>
 <td>ENTITY TYPE</td>
@@ -87,7 +87,7 @@ with the F3L</td>
 <td></td>
 <td></td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 200</li><li>regex: ^[ -~]{0,200}$</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 200</li><li>regex: ^[ -~]{0,200}$</li></td>
 </tr>
 <tr>
 <td>CONTRIBUTOR STREET  1</td>
@@ -97,7 +97,7 @@ with the F3L</td>
 <td></td>
 <td></td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 34</li><li>regex: ^[ -~]{0,34}$</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 34</li><li>regex: ^[ -~]{0,34}$</li></td>
 </tr>
 <tr>
 <td>CONTRIBUTOR STREET  2</td>
@@ -117,7 +117,7 @@ with the F3L</td>
 <td></td>
 <td></td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 30</li><li>regex: ^[ -~]{0,30}$</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 30</li><li>regex: ^[ -~]{0,30}$</li></td>
 </tr>
 <tr>
 <td>CONTRIBUTOR STATE</td>
@@ -127,7 +127,7 @@ with the F3L</td>
 <td>AK,AL,...,ZZ</td>
 <td>Edit: ST</td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 2</li><li>regex: ^[ -~]{0,2}$</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 2</li><li>regex: ^[ -~]{0,2}$</li></td>
 </tr>
 <tr>
 <td>CONTRIBUTOR ZIP</td>
@@ -137,7 +137,7 @@ with the F3L</td>
 <td></td>
 <td></td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 9</li><li>regex: ^[ -~]{0,9}$</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 9</li><li>regex: ^[ -~]{0,9}$</li></td>
 </tr>
 <tr>
 <td>CONTRIBUTION DATE</td>
@@ -187,7 +187,7 @@ with the F3L</td>
 <td>Recount/Legal Proceedings Account Headquarters Buildings Account JF Memo: XX</td>
 <td>If transaction has no associated Partnership memos, reads 'Headquarters Buildings Account JF Memo: XX (Partnership attributions do not meet itemization threshold)'. If transaction has associated Partnership memos, reads 'Headquarters Buildings Account JF Memo: XX (See Partnership Attribution(s) below)' and XX is auto-populated with name of committee entered in parent transaction JF_TRAN COL SEQ 8.</td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 100</li><li>regex: ^Headquarters Buildings Account JF Memo: [ -~]{0,60}$</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 100</li><li>regex: ^Headquarters Buildings Account JF Memo: [ -~]{0,60}$</li></td>
 </tr>
 <tr>
 <td>MEMO CODE</td>
