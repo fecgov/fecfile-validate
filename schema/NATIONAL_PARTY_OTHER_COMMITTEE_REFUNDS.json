@@ -90,7 +90,7 @@
             "title": "TRANSACTION ID",
             "description": "",
             "type": "string",
-            "minLength": 0,
+            "minLength": 1,
             "maxLength": 20,
             "pattern": "^[ -~]{0,20}$",
             "examples": [
@@ -173,7 +173,7 @@
             "title": "PAYEE ORGANIZATION NAME",
             "description": "",
             "type": "string",
-            "minLength": 0,
+            "minLength": 1,
             "maxLength": 200,
             "pattern": "^[ -~]{0,200}$",
             "examples": [
@@ -193,7 +193,7 @@
             "title": "PAYEE STREET  1",
             "description": "",
             "type": "string",
-            "minLength": 0,
+            "minLength": 1,
             "maxLength": 34,
             "pattern": "^[ -~]{0,34}$",
             "examples": [
@@ -233,7 +233,7 @@
             "title": "PAYEE CITY",
             "description": "",
             "type": "string",
-            "minLength": 0,
+            "minLength": 1,
             "maxLength": 30,
             "pattern": "^[ -~]{0,30}$",
             "examples": [
@@ -253,7 +253,7 @@
             "title": "PAYEE STATE",
             "description": "",
             "type": "string",
-            "minLength": 0,
+            "minLength": 1,
             "maxLength": 2,
             "pattern": "^[ -~]{0,2}$",
             "examples": [
@@ -273,7 +273,7 @@
             "title": "PAYEE ZIP",
             "description": "",
             "type": "string",
-            "minLength": 0,
+            "minLength": 1,
             "maxLength": 9,
             "pattern": "^[ -~]{0,9}$",
             "examples": [
@@ -408,7 +408,7 @@
             "title": "BENEFICIARY COMMITTEE FEC ID",
             "description": "",
             "type": "string",
-            "minLength": 0,
+            "minLength": 1,
             "maxLength": 9,
             "pattern": "^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$",
             "fec_spec": {
@@ -425,7 +425,7 @@
             "title": "BENEFICIARY COMMITTEE NAME",
             "description": "",
             "type": "string",
-            "minLength": 0,
+            "minLength": 1,
             "maxLength": 200,
             "pattern": "^[ -~]{0,200}$",
             "examples": [

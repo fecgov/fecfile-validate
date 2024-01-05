@@ -80,7 +80,7 @@
             "title": "TRANSACTION ID",
             "description": "",
             "type": "string",
-            "minLength": 0,
+            "minLength": 1,
             "maxLength": 20,
             "pattern": "^[ -~]{0,20}$",
             "examples": [
@@ -97,11 +97,8 @@
         "back_reference_tran_id_number": {
             "title": "BACK REFERENCE TRAN ID NUMBER",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
-            "minLength": 0,
+            "type": "string",
+            "minLength": 1,
             "maxLength": 20,
             "pattern": "^[ -~]{0,20}$",
             "examples": [
@@ -160,7 +157,7 @@
             "title": "PAYEE LAST NAME",
             "description": "",
             "type": "string",
-            "minLength": 0,
+            "minLength": 1,
             "maxLength": 30,
             "pattern": "^[ -~]{0,30}$",
             "examples": [
@@ -180,7 +177,7 @@
             "title": "PAYEE FIRST NAME",
             "description": "",
             "type": "string",
-            "minLength": 0,
+            "minLength": 1,
             "maxLength": 20,
             "pattern": "^[ -~]{0,20}$",
             "examples": [
@@ -269,7 +266,7 @@
             "title": "PAYEE STREET  1",
             "description": "",
             "type": "string",
-            "minLength": 0,
+            "minLength": 1,
             "maxLength": 34,
             "pattern": "^[ -~]{0,34}$",
             "examples": [
@@ -309,7 +306,7 @@
             "title": "PAYEE CITY",
             "description": "",
             "type": "string",
-            "minLength": 0,
+            "minLength": 1,
             "maxLength": 30,
             "pattern": "^[ -~]{0,30}$",
             "examples": [
@@ -329,7 +326,7 @@
             "title": "PAYEE STATE",
             "description": "",
             "type": "string",
-            "minLength": 0,
+            "minLength": 1,
             "maxLength": 2,
             "pattern": "^[ -~]{0,2}$",
             "examples": [
@@ -349,7 +346,7 @@
             "title": "PAYEE ZIP",
             "description": "",
             "type": "string",
-            "minLength": 0,
+            "minLength": 1,
             "maxLength": 9,
             "pattern": "^[ -~]{0,9}$",
             "examples": [
@@ -443,7 +440,7 @@
             "title": "EXPENDITURE PURPOSE DESCRIPTION",
             "description": "",
             "type": "string",
-            "minLength": 0,
+            "minLength": 1,
             "maxLength": 100,
             "pattern": "^In-Kind: [ -~]{1,91}$",
             "fec_spec": {

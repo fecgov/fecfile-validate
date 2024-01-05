@@ -46,7 +46,7 @@
 <td></td>
 <td>must be unique and UPPER CASE for the life of the report (original + all amendments)</td>
 <td>F3 | F3X | F3P | F3L</td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
 </tr>
 <tr>
 <td>BACK REFERENCE TRAN ID NUMBER</td>
@@ -86,7 +86,7 @@
 <td></td>
 <td></td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 200</li><li>regex: ^[ -~]{0,200}$</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 200</li><li>regex: ^[ -~]{0,200}$</li></td>
 </tr>
 <tr>
 <td>PAYEE STREET  1</td>
@@ -96,7 +96,7 @@
 <td></td>
 <td></td>
 <td>F3 | F3X | F3P | F3L</td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 34</li><li>regex: ^[ -~]{0,34}$</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 34</li><li>regex: ^[ -~]{0,34}$</li></td>
 </tr>
 <tr>
 <td>PAYEE STREET  2</td>
@@ -116,7 +116,7 @@
 <td></td>
 <td></td>
 <td>F3 | F3X | F3P | F3L</td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 30</li><li>regex: ^[ -~]{0,30}$</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 30</li><li>regex: ^[ -~]{0,30}$</li></td>
 </tr>
 <tr>
 <td>PAYEE STATE</td>
@@ -126,7 +126,7 @@
 <td></td>
 <td></td>
 <td>F3 | F3X | F3P | F3L</td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 2</li><li>regex: ^[ -~]{0,2}$</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 2</li><li>regex: ^[ -~]{0,2}$</li></td>
 </tr>
 <tr>
 <td>PAYEE ZIP</td>
@@ -136,7 +136,7 @@
 <td></td>
 <td></td>
 <td>F3 | F3X | F3P | F3L</td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 9</li><li>regex: ^[ -~]{0,9}$</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 9</li><li>regex: ^[ -~]{0,9}$</li></td>
 </tr>
 <tr>
 <td>EXPENDITURE DATE</td>
@@ -186,7 +186,7 @@
 <td></td>
 <td>Must match PAYEE ID</td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 9</li><li>regex: ^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 9</li><li>regex: ^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$</li></td>
 </tr>
 <tr>
 <td>BENEFICIARY COMMITTEE NAME</td>
@@ -196,7 +196,7 @@
 <td></td>
 <td>Must match PAYEE NAME</td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 200</li><li>regex: ^[ -~]{0,200}$</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 200</li><li>regex: ^[ -~]{0,200}$</li></td>
 </tr>
 <tr>
 <td>MEMO CODE</td>
