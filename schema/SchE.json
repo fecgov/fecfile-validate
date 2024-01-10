@@ -757,29 +757,6 @@
                 "RULE_REFERENCE": "Edit: OFFICE"
             }
         },
-        "so_candidate_state": {
-            "title": "S/O CANDIDATE STATE",
-            "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
-            "minLength": 0,
-            "maxLength": 2,
-            "pattern": "^[ -~]{0,2}$",
-            "examples": [
-                "FL"
-            ],
-            "fec_spec": {
-                "COL_SEQ": 35,
-                "FIELD_DESCRIPTION": "S/O CANDIDATE STATE",
-                "TYPE": "A/N-2",
-                "REQUIRED": null,
-                "SAMPLE_DATA": "FL",
-                "VALUE_REFERENCE": "AK,AL,...",
-                "RULE_REFERENCE": "Edit: ST (if Office = Sen or House)"
-            }
-        },
         "so_candidate_district": {
             "title": "S/O CANDIDATE DISTRICT",
             "description": "",
@@ -794,13 +771,36 @@
                 35
             ],
             "fec_spec": {
-                "COL_SEQ": 36,
+                "COL_SEQ": 35,
                 "FIELD_DESCRIPTION": "S/O CANDIDATE DISTRICT",
                 "TYPE": "NUM-2",
                 "REQUIRED": null,
-                "SAMPLE_DATA": 36,
+                "SAMPLE_DATA": 35,
                 "VALUE_REFERENCE": "01 ... 99",
                 "RULE_REFERENCE": "(if Office = House)"
+            }
+        },
+        "so_candidate_state": {
+            "title": "S/O CANDIDATE STATE",
+            "description": "",
+            "type": [
+                "string",
+                "null"
+            ],
+            "minLength": 0,
+            "maxLength": 2,
+            "pattern": "^[ -~]{0,2}$",
+            "examples": [
+                "FL"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 36,
+                "FIELD_DESCRIPTION": "S/O CANDIDATE STATE",
+                "TYPE": "A/N-2",
+                "REQUIRED": null,
+                "SAMPLE_DATA": "FL",
+                "VALUE_REFERENCE": "AK,AL,...",
+                "RULE_REFERENCE": "Edit: ST (if Office = Sen or House)"
             }
         },
         "completing_last_name": {
