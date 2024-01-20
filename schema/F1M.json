@@ -428,7 +428,8 @@
             "enum": [
                 "H",
                 "S",
-                "P"
+                "P",
+                null
             ],
             "examples": [
                 "H\nS\nP"
@@ -677,7 +678,8 @@
             "enum": [
                 "H",
                 "S",
-                "P"
+                "P",
+                null
             ],
             "examples": [
                 "H\nS\nP"
@@ -926,7 +928,8 @@
             "enum": [
                 "H",
                 "S",
-                "P"
+                "P",
+                null
             ],
             "examples": [
                 "H\nS\nP"
@@ -1175,7 +1178,8 @@
             "enum": [
                 "H",
                 "S",
-                "P"
+                "P",
+                null
             ],
             "examples": [
                 "H\nS\nP"
@@ -1424,7 +1428,8 @@
             "enum": [
                 "H",
                 "S",
-                "P"
+                "P",
+                null
             ],
             "examples": [
                 "H\nS\nP"
