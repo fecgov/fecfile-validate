@@ -31,7 +31,8 @@
                 "F1MN"
             ],
             "fec_spec": {
-                "COL_SEQ": 1,                "FIELD_DESCRIPTION": "FORM TYPE",
+                "COL_SEQ": 1,
+                "FIELD_DESCRIPTION": "FORM TYPE",
                 "TYPE": "A/N-4",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "F1MN",
@@ -51,7 +52,8 @@
                 "C00123456"
             ],
             "fec_spec": {
-                "COL_SEQ": 2,                "FIELD_DESCRIPTION": "FILER COMMITTEE ID NUMBER",
+                "COL_SEQ": 2,
+                "FIELD_DESCRIPTION": "FILER COMMITTEE ID NUMBER",
                 "TYPE": "A/N-9",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "C00123456",
@@ -68,7 +70,8 @@
             "maxLength": 200,
             "pattern": "^[ -~]{0,200}$",
             "fec_spec": {
-                "COL_SEQ": 3,                "FIELD_DESCRIPTION": "COMMITTEE NAME",
+                "COL_SEQ": 3,
+                "FIELD_DESCRIPTION": "COMMITTEE NAME",
                 "TYPE": "A/N-200",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": null,
@@ -85,7 +88,8 @@
             "maxLength": 34,
             "pattern": "^[ -~]{0,34}$",
             "fec_spec": {
-                "COL_SEQ": 4,                "FIELD_DESCRIPTION": "STREET 1",
+                "COL_SEQ": 4,
+                "FIELD_DESCRIPTION": "STREET 1",
                 "TYPE": "A/N-34",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": null,
@@ -105,7 +109,8 @@
             "maxLength": 34,
             "pattern": "^[ -~]{0,34}$",
             "fec_spec": {
-                "COL_SEQ": 5,                "FIELD_DESCRIPTION": "STREET 2",
+                "COL_SEQ": 5,
+                "FIELD_DESCRIPTION": "STREET 2",
                 "TYPE": "A/N-34",
                 "REQUIRED": null,
                 "SAMPLE_DATA": null,
@@ -122,7 +127,8 @@
             "maxLength": 30,
             "pattern": "^[ -~]{0,30}$",
             "fec_spec": {
-                "COL_SEQ": 6,                "FIELD_DESCRIPTION": "CITY",
+                "COL_SEQ": 6,
+                "FIELD_DESCRIPTION": "CITY",
                 "TYPE": "A/N-30",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": null,
@@ -139,7 +145,8 @@
             "maxLength": 2,
             "pattern": "^[ -~]{2}$",
             "fec_spec": {
-                "COL_SEQ": 7,                "FIELD_DESCRIPTION": "STATE",
+                "COL_SEQ": 7,
+                "FIELD_DESCRIPTION": "STATE",
                 "TYPE": "A-2",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": null,
@@ -159,7 +166,8 @@
                 "20643[1234]"
             ],
             "fec_spec": {
-                "COL_SEQ": 8,                "FIELD_DESCRIPTION": "ZIP",
+                "COL_SEQ": 8,
+                "FIELD_DESCRIPTION": "ZIP",
                 "TYPE": "A/N-9",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "20643[1234]",
@@ -180,7 +188,8 @@
                 "X"
             ],
             "fec_spec": {
-                "COL_SEQ": 9,                "FIELD_DESCRIPTION": "COMMITTEE TYPE",
+                "COL_SEQ": 9,
+                "FIELD_DESCRIPTION": "COMMITTEE TYPE",
                 "TYPE": "A-1",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "X",
@@ -257,7 +266,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "I_candidate_id": {
+        "I_candidate_id_number": {
             "title": "I CANDIDATE ID",
             "description": "",
             "type": [
@@ -419,7 +428,8 @@
             "enum": [
                 "H",
                 "S",
-                "P"
+                "P",
+                null
             ],
             "examples": [
                 "H\nS\nP"
@@ -506,7 +516,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "II_candidate_id": {
+        "II_candidate_id_number": {
             "title": "II CANDIDATE ID",
             "description": "",
             "type": [
@@ -668,7 +678,8 @@
             "enum": [
                 "H",
                 "S",
-                "P"
+                "P",
+                null
             ],
             "examples": [
                 "H\nS\nP"
@@ -755,7 +766,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "III_candidate_id": {
+        "III_candidate_id_number": {
             "title": "III CANDIDATE ID",
             "description": "",
             "type": [
@@ -917,7 +928,8 @@
             "enum": [
                 "H",
                 "S",
-                "P"
+                "P",
+                null
             ],
             "examples": [
                 "H\nS\nP"
@@ -1000,11 +1012,11 @@
                 "REQUIRED": "X (conditional error)",
                 "SAMPLE_DATA": 20120729,
                 "VALUE_REFERENCE": "YYYYMMDD",
-                "RULE_REFERENCE":  "Req if requesting by qualification",
+                "RULE_REFERENCE": "Req if requesting by qualification",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "IV_candidate_id": {
+        "IV_candidate_id_number": {
             "title": "IV CANDIDATE ID",
             "description": "",
             "type": [
@@ -1166,7 +1178,8 @@
             "enum": [
                 "H",
                 "S",
-                "P"
+                "P",
+                null
             ],
             "examples": [
                 "H\nS\nP"
@@ -1253,7 +1266,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "V_candidate_id": {
+        "V_candidate_id_number": {
             "title": "V CANDIDATE ID",
             "description": "",
             "type": [
@@ -1415,7 +1428,8 @@
             "enum": [
                 "H",
                 "S",
-                "P"
+                "P",
+                null
             ],
             "examples": [
                 "H\nS\nP"
@@ -1708,7 +1722,7 @@
     },
     "allOf": [
         {
-            "if":{
+            "if": {
                 "properties": {
                     "I_candidate_office": {
                         "enum": [
@@ -1720,462 +1734,514 @@
                 "required": [
                     "I_candidate_office"
                 ]
-            },
-            "then":{
-                "required": ["I_candidate_state"],
-                "properties": {
-                    "I_candidate_state":{
-                        "type": "string"
-                    }
-                }
-            }
-        },
-        {
-            "if":{
-                "properties": {
-                    "I_candidate_office": {
-                        "enum": [
-                            "H"
-                        ]
-                    }
-                },
-                "required": [
-                    "I_candidate_office"
-                ]
-            },
-            "then":{
-                "required": ["I_candidate_district"],
-                "properties": {
-                    "I_candidate_district":{
-                        "type": "string"
-                    }
-                }
-            }
-        },
-        {
-            "if":{
-                "properties": {
-                    "II_candidate_office": {
-                        "enum": [
-                            "S",
-                            "H"
-                        ]
-                    }
-                },
-                "required": [
-                    "II_candidate_office"
-                ]
-            },
-            "then":{
-                "required": ["II_candidate_state"],
-                "properties": {
-                    "II_candidate_state":{
-                        "type": "string"
-                    }
-                }
-            }
-        },
-        {
-            "if":{
-                "properties": {
-                    "II_candidate_office": {
-                        "enum": [
-                            "H"
-                        ]
-                    }
-                },
-                "required": [
-                    "II_candidate_office"
-                ]
-            },
-            "then":{
-                "required": ["II_candidate_district"],
-                "properties": {
-                    "II_candidate_district":{
-                        "type": "string"
-                    }
-                }
-            }
-        },
-        {
-            "if":{
-                "properties": {
-                    "III_candidate_office": {
-                        "enum": [
-                            "S",
-                            "H"
-                        ]
-                    }
-                },
-                "required": [
-                    "III_candidate_office"
-                ]
-            },
-            "then":{
-                "required": ["III_candidate_state"],
-                "properties": {
-                    "III_candidate_state":{
-                        "type": "string"
-                    }
-                }
-            }
-        },
-        {
-            "if":{
-                "properties": {
-                    "III_candidate_office": {
-                        "enum": [
-                            "H"
-                        ]
-                    }
-                },
-                "required": [
-                    "III_candidate_office"
-                ]
-            },
-            "then":{
-                "required": ["III_candidate_district"],
-                "properties": {
-                    "III_candidate_district":{
-                        "type": "string"
-                    }
-                }
-            }
-        },
-        {
-            "if":{
-                "properties": {
-                    "IV_candidate_office": {
-                        "enum": [
-                            "S",
-                            "H"
-                        ]
-                    }
-                },
-                "required": [
-                    "IV_candidate_office"
-                ]
-            },
-            "then":{
-                "required": ["IV_candidate_state"],
-                "properties": {
-                    "IV_candidate_state":{
-                        "type": "string"
-                    }
-                }
-            }
-        },
-        {
-            "if":{
-                "properties": {
-                    "IV_candidate_office": {
-                        "enum": [
-                            "H"
-                        ]
-                    }
-                },
-                "required": [
-                    "IV_candidate_office"
-                ]
-            },
-            "then":{
-                "required": ["IV_candidate_district"],
-                "properties": {
-                    "IV_candidate_district":{
-                        "type": "string"
-                    }
-                }
-            }
-        },
-        {
-            "if":{
-                "properties": {
-                    "V_candidate_office": {
-                        "enum": [
-                            "S",
-                            "H"
-                        ]
-                    }
-                },
-                "required": [
-                    "V_candidate_office"
-                ]
-            },
-            "then":{
-                "required": ["V_candidate_state"],
-                "properties": {
-                    "V_candidate_state":{
-                        "type": "string"
-                    }
-                }
-            }
-        },
-        {
-            "if":{
-                "properties": {
-                    "V_candidate_office": {
-                        "enum": [
-                            "H"
-                        ]
-                    }
-                },
-                "required": [
-                    "V_candidate_office"
-                ]
-            },
-            "then":{
-                "required": ["V_candidate_district"],
-                "properties": {
-                    "V_candidate_district":{
-                        "type": "string"
-                    }
-                }
-            }
-        },
-        {
-            "if":{
-                "properties": {
-                    "affiliated_committee_fec_id":{
-                        "type": "string",
-                        "minLength": 1
-                    }
-                },
-                "required": ["affiliated_committee_fec_id"]
-            },
-            "then":{
-                "required": ["affiliated_committee_name", "affiliated_date_form_f1_filed"],
-                "properties": {
-                    "affiliated_committee_name":{
-                        "type": "string"
-                    },
-                    "affiliated_date_form_f1_filed":{
-                        "type": "string"
-                    }
-                }
-            }
-        },
-        {
-            "if":{
-                "properties": {
-                    "affiliated_committee_name":{
-                        "type": "string",
-                        "minLength": 1
-                    }
-                },
-                "required": ["affiliated_committee_name"]
-            },
-            "then":{
-                "required": ["affiliated_committee_fec_id", "affiliated_date_form_f1_filed"],
-                "properties": {
-                    "affiliated_committee_fec_id":{
-                        "type": "string"
-                    },
-                    "affiliated_date_form_f1_filed":{
-                        "type": "string"
-                    }
-                }
-            }
-        },
-        {
-            "if":{
-                "properties": {
-                    "affiliated_date_form_f1_filed":{
-                        "type": "string",
-                        "minLength": 1
-                    }
-                },
-                "required": ["affiliated_date_form_f1_filed"]
-            },
-            "then":{
-                "required": ["affiliated_committee_name", "affiliated_committee_fec_id"],
-                "properties": {
-                    "affiliated_committee_name":{
-                        "type": "string"
-                    },
-                    "affiliated_committee_fec_id":{
-                        "type": "string"
-                    }
-                }
-            }
-        },
-        {
-            "if":{
-                "properties": {
-                    "date_of_51st_contributor":{
-                        "type": "string",
-                        "minLength": 1
-                    }
-                },
-                "required": ["date_of_51st_contributor"]
-            },
-            "then":{
-                "required": ["date_of_original_registration", "date_committee_met_requirements"],
-                "properties": {
-                    "date_of_original_registration":{
-                        "type": "string"
-                    },
-                    "date_committee_met_requirements":{
-                        "type": "string"
-                    }
-                }
-            }
-        },
-        {
-            "if":{
-                "properties": {
-                    "date_of_original_registration":{
-                        "type": "string",
-                        "minLength": 1
-                    }
-                },
-                "required": ["date_of_original_registration"]
-            },
-            "then":{
-                "required": ["date_of_51st_contributor", "date_committee_met_requirements"],
-                "properties": {
-                    "date_of_51st_contributor":{
-                        "type": "string"
-                    },
-                    "date_committee_met_requirements":{
-                        "type": "string"
-                    }
-                }
-            }
-        },
-        {
-            "if":{
-                "properties": {
-                    "date_committee_met_requirements":{
-                        "type": "string",
-                        "minLength": 1
-                    }
-                },
-                "required": ["date_committee_met_requirements"]
-            },
-            "then":{
-                "required": ["date_of_original_registration", "date_of_51st_contributor"],
-                "properties": {
-                    "date_of_original_registration":{
-                        "type": "string"
-                    },
-                    "date_of_51st_contributor":{
-                        "type": "string"
-                    }
-                }
-            }
-        },
-        {
-            "if":{
-                "properties": {
-                    "date_of_51st_contributor":{
-                        "type": "string",
-                        "minLength": 1
-                    }
-                },
-                "required": ["date_of_51st_contributor"]
             },
             "then": {
                 "required": [
-                    "I_candidate_id",
+                    "I_candidate_state"
+                ],
+                "properties": {
+                    "I_candidate_state": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "I_candidate_office": {
+                        "enum": [
+                            "H"
+                        ]
+                    }
+                },
+                "required": [
+                    "I_candidate_office"
+                ]
+            },
+            "then": {
+                "required": [
+                    "I_candidate_district"
+                ],
+                "properties": {
+                    "I_candidate_district": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "II_candidate_office": {
+                        "enum": [
+                            "S",
+                            "H"
+                        ]
+                    }
+                },
+                "required": [
+                    "II_candidate_office"
+                ]
+            },
+            "then": {
+                "required": [
+                    "II_candidate_state"
+                ],
+                "properties": {
+                    "II_candidate_state": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "II_candidate_office": {
+                        "enum": [
+                            "H"
+                        ]
+                    }
+                },
+                "required": [
+                    "II_candidate_office"
+                ]
+            },
+            "then": {
+                "required": [
+                    "II_candidate_district"
+                ],
+                "properties": {
+                    "II_candidate_district": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "III_candidate_office": {
+                        "enum": [
+                            "S",
+                            "H"
+                        ]
+                    }
+                },
+                "required": [
+                    "III_candidate_office"
+                ]
+            },
+            "then": {
+                "required": [
+                    "III_candidate_state"
+                ],
+                "properties": {
+                    "III_candidate_state": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "III_candidate_office": {
+                        "enum": [
+                            "H"
+                        ]
+                    }
+                },
+                "required": [
+                    "III_candidate_office"
+                ]
+            },
+            "then": {
+                "required": [
+                    "III_candidate_district"
+                ],
+                "properties": {
+                    "III_candidate_district": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "IV_candidate_office": {
+                        "enum": [
+                            "S",
+                            "H"
+                        ]
+                    }
+                },
+                "required": [
+                    "IV_candidate_office"
+                ]
+            },
+            "then": {
+                "required": [
+                    "IV_candidate_state"
+                ],
+                "properties": {
+                    "IV_candidate_state": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "IV_candidate_office": {
+                        "enum": [
+                            "H"
+                        ]
+                    }
+                },
+                "required": [
+                    "IV_candidate_office"
+                ]
+            },
+            "then": {
+                "required": [
+                    "IV_candidate_district"
+                ],
+                "properties": {
+                    "IV_candidate_district": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "V_candidate_office": {
+                        "enum": [
+                            "S",
+                            "H"
+                        ]
+                    }
+                },
+                "required": [
+                    "V_candidate_office"
+                ]
+            },
+            "then": {
+                "required": [
+                    "V_candidate_state"
+                ],
+                "properties": {
+                    "V_candidate_state": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "V_candidate_office": {
+                        "enum": [
+                            "H"
+                        ]
+                    }
+                },
+                "required": [
+                    "V_candidate_office"
+                ]
+            },
+            "then": {
+                "required": [
+                    "V_candidate_district"
+                ],
+                "properties": {
+                    "V_candidate_district": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "affiliated_committee_fec_id": {
+                        "type": "string",
+                        "minLength": 1
+                    }
+                },
+                "required": [
+                    "affiliated_committee_fec_id"
+                ]
+            },
+            "then": {
+                "required": [
+                    "affiliated_committee_name",
+                    "affiliated_date_form_f1_filed"
+                ],
+                "properties": {
+                    "affiliated_committee_name": {
+                        "type": "string"
+                    },
+                    "affiliated_date_form_f1_filed": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "affiliated_committee_name": {
+                        "type": "string",
+                        "minLength": 1
+                    }
+                },
+                "required": [
+                    "affiliated_committee_name"
+                ]
+            },
+            "then": {
+                "required": [
+                    "affiliated_committee_fec_id",
+                    "affiliated_date_form_f1_filed"
+                ],
+                "properties": {
+                    "affiliated_committee_fec_id": {
+                        "type": "string"
+                    },
+                    "affiliated_date_form_f1_filed": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "affiliated_date_form_f1_filed": {
+                        "type": "string",
+                        "minLength": 1
+                    }
+                },
+                "required": [
+                    "affiliated_date_form_f1_filed"
+                ]
+            },
+            "then": {
+                "required": [
+                    "affiliated_committee_name",
+                    "affiliated_committee_fec_id"
+                ],
+                "properties": {
+                    "affiliated_committee_name": {
+                        "type": "string"
+                    },
+                    "affiliated_committee_fec_id": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "date_of_51st_contributor": {
+                        "type": "string",
+                        "minLength": 1
+                    }
+                },
+                "required": [
+                    "date_of_51st_contributor"
+                ]
+            },
+            "then": {
+                "required": [
+                    "date_of_original_registration",
+                    "date_committee_met_requirements"
+                ],
+                "properties": {
+                    "date_of_original_registration": {
+                        "type": "string"
+                    },
+                    "date_committee_met_requirements": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "date_of_original_registration": {
+                        "type": "string",
+                        "minLength": 1
+                    }
+                },
+                "required": [
+                    "date_of_original_registration"
+                ]
+            },
+            "then": {
+                "required": [
+                    "date_of_51st_contributor",
+                    "date_committee_met_requirements"
+                ],
+                "properties": {
+                    "date_of_51st_contributor": {
+                        "type": "string"
+                    },
+                    "date_committee_met_requirements": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "date_committee_met_requirements": {
+                        "type": "string",
+                        "minLength": 1
+                    }
+                },
+                "required": [
+                    "date_committee_met_requirements"
+                ]
+            },
+            "then": {
+                "required": [
+                    "date_of_original_registration",
+                    "date_of_51st_contributor"
+                ],
+                "properties": {
+                    "date_of_original_registration": {
+                        "type": "string"
+                    },
+                    "date_of_51st_contributor": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "date_of_51st_contributor": {
+                        "type": "string",
+                        "minLength": 1
+                    }
+                },
+                "required": [
+                    "date_of_51st_contributor"
+                ]
+            },
+            "then": {
+                "required": [
+                    "I_candidate_id_number",
                     "I_candidate_first_name",
                     "I_candidate_last_name",
                     "I_candidate_office",
                     "I_date_of_contribution",
-                    "II_candidate_id",
+                    "II_candidate_id_number",
                     "II_candidate_first_name",
                     "II_candidate_last_name",
                     "II_candidate_office",
                     "II_date_of_contribution",
-                    "III_candidate_id",
+                    "III_candidate_id_number",
                     "III_candidate_first_name",
                     "III_candidate_last_name",
                     "III_candidate_office",
                     "III_date_of_contribution",
-                    "IV_candidate_id",
+                    "IV_candidate_id_number",
                     "IV_candidate_first_name",
                     "IV_candidate_last_name",
                     "IV_candidate_office",
                     "IV_date_of_contribution",
-                    "V_candidate_id",
+                    "V_candidate_id_number",
                     "V_candidate_first_name",
                     "V_candidate_last_name",
                     "V_candidate_office",
                     "V_date_of_contribution"
                 ],
                 "properties": {
-                    "I_candidate_id":{
+                    "I_candidate_id_number": {
                         "type": "string"
                     },
-                    "I_candidate_first_name":{
+                    "I_candidate_first_name": {
                         "type": "string"
                     },
-                    "I_candidate_last_name":{
+                    "I_candidate_last_name": {
                         "type": "string"
                     },
-                    "I_candidate_office":{
+                    "I_candidate_office": {
                         "type": "string"
                     },
-                    "I_date_of_contribution":{
+                    "I_date_of_contribution": {
                         "type": "string"
                     },
-                    "II_candidate_id":{
+                    "II_candidate_id_number": {
                         "type": "string"
                     },
-                    "II_candidate_first_name":{
+                    "II_candidate_first_name": {
                         "type": "string"
                     },
-                    "II_candidate_last_name":{
+                    "II_candidate_last_name": {
                         "type": "string"
                     },
-                    "II_candidate_office":{
+                    "II_candidate_office": {
                         "type": "string"
                     },
-                    "II_date_of_contribution":{
+                    "II_date_of_contribution": {
                         "type": "string"
                     },
-                    "III_candidate_id":{
+                    "III_candidate_id_number": {
                         "type": "string"
                     },
-                    "III_candidate_first_name":{
+                    "III_candidate_first_name": {
                         "type": "string"
                     },
-                    "III_candidate_last_name":{
+                    "III_candidate_last_name": {
                         "type": "string"
                     },
-                    "III_candidate_office":{
+                    "III_candidate_office": {
                         "type": "string"
                     },
-                    "III_date_of_contribution":{
+                    "III_date_of_contribution": {
                         "type": "string"
                     },
-                    "IV_candidate_id":{
+                    "IV_candidate_id_number": {
                         "type": "string"
                     },
-                    "IV_candidate_first_name":{
+                    "IV_candidate_first_name": {
                         "type": "string"
                     },
-                    "IV_candidate_last_name":{
+                    "IV_candidate_last_name": {
                         "type": "string"
                     },
-                    "IV_candidate_office":{
+                    "IV_candidate_office": {
                         "type": "string"
                     },
-                    "IV_date_of_contributio":{
+                    "IV_date_of_contributio": {
                         "type": "string"
                     },
-                    "V_candidate_id":{
+                    "V_candidate_id_number": {
                         "type": "string"
                     },
-                    "V_candidate_first_name":{
+                    "V_candidate_first_name": {
                         "type": "string"
                     },
-                    "V_candidate_last_name":{
+                    "V_candidate_last_name": {
                         "type": "string"
                     },
-                    "V_candidate_office":{
+                    "V_candidate_office": {
                         "type": "string"
                     },
-                    "V_date_of_contribution":{
+                    "V_date_of_contribution": {
                         "type": "string"
                     }
                 }

@@ -46,7 +46,7 @@
 <td></td>
 <td>Must be unique for the life of a report (original + amendments) within each committee account. Letters, if included, must be uppercase.</td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
 </tr>
 <tr>
 <td>BACK REFERENCE TRAN ID NUMBER</td>
@@ -86,7 +86,7 @@
 <td></td>
 <td></td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 200</li><li>regex: ^[ -~]{0,200}$</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 200</li><li>regex: ^[ -~]{0,200}$</li></td>
 </tr>
 <tr>
 <td>PAYEE STREET  1</td>
@@ -96,7 +96,7 @@
 <td></td>
 <td></td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 34</li><li>regex: ^[ -~]{0,34}$</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 34</li><li>regex: ^[ -~]{0,34}$</li></td>
 </tr>
 <tr>
 <td>PAYEE STREET  2</td>
@@ -116,7 +116,7 @@
 <td></td>
 <td></td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 30</li><li>regex: ^[ -~]{0,30}$</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 30</li><li>regex: ^[ -~]{0,30}$</li></td>
 </tr>
 <tr>
 <td>PAYEE STATE</td>
@@ -126,7 +126,7 @@
 <td>AK,AL,...,ZZ</td>
 <td>Edit: ST</td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 2</li><li>regex: ^[ -~]{0,2}$</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 2</li><li>regex: ^[ -~]{0,2}$</li></td>
 </tr>
 <tr>
 <td>PAYEE ZIP</td>
@@ -136,7 +136,7 @@
 <td></td>
 <td></td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 9</li><li>regex: ^[ -~]{0,9}$</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 9</li><li>regex: ^[ -~]{0,9}$</li></td>
 </tr>
 <tr>
 <td>ELECTION CODE</td>
@@ -146,7 +146,7 @@
 <td>G,P,O[YYYY]</td>
 <td>Values: [G|P|R|S|C|E|O]+Year{YYYY}</td>
 <td>F3 | F3X | F3P</td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 5</li><li>regex: ^[GPRSCEO]\d{4}$</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 5</li><li>regex: ^[GPRSCEO]\d{4}$</li></td>
 </tr>
 <tr>
 <td>ELECTION OTHER DESCRIPTION</td>
@@ -216,7 +216,7 @@
 <td></td>
 <td>Matches the PAYEE org name</td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 200</li><li>regex: ^[ -~]{0,200}$</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 200</li><li>regex: ^[ -~]{0,200}$</li></td>
 </tr>
 <tr>
 <td>BENEFICIARY CANDIDATE FEC ID</td>
@@ -226,7 +226,7 @@
 <td></td>
 <td></td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 9</li><li>regex: ^[ -~]{0,9}$</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 9</li><li>regex: ^[ -~]{0,9}$</li></td>
 </tr>
 <tr>
 <td>BENEFICIARY CANDIDATE LAST NAME</td>
@@ -236,7 +236,7 @@
 <td></td>
 <td></td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 30</li><li>regex: ^[ -~]{0,30}$</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 30</li><li>regex: ^[ -~]{0,30}$</li></td>
 </tr>
 <tr>
 <td>BENEFICIARY CANDIDATE FIRST NAME</td>
@@ -246,7 +246,7 @@
 <td></td>
 <td></td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
 </tr>
 <tr>
 <td>BENEFICIARY CANDIDATE MIDDLE NAME</td>

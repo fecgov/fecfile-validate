@@ -18,7 +18,7 @@
 <td></td>
 <td></td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 4</li><li>regex: ^[ -~]{0,4}$</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 4</li><li>regex: ^[ -~]{0,4}$</li></td>
 </tr>
 <tr>
 <td>2</td>
@@ -29,7 +29,7 @@
 <td></td>
 <td>this is the ID of the Committee Account the report/transaction is associated with</td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 9</li><li>regex: ^[ -~]{0,9}$</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 9</li><li>regex: ^[ -~]{0,9}$</li></td>
 </tr>
 <tr>
 <td>3</td>
@@ -41,7 +41,7 @@
 <td>must be unique and UPPER CASE for the life of the report (original + all amendments).
 If a Report level memo, will be "REPORT_MEMO_TEXT1", where 1 increases as you add report level memos (potential future functionality)</td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
 </tr>
 <tr>
 <td>4</td>
@@ -66,7 +66,7 @@ If Sched/Form Name (Field# 5) references the Form (F3XN,F3N..etc), this field mu
 SC/10, …</td>
 <td>If a transaction-level memo: Should be a valid, coded value equal to the REC TYPE of the schedule to which this text record is related. If report-level memo: Should be a valid, coded value equal to the REC TYPE of the form to which this text record is related.</td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 8</li><li>regex: ^[ -~]{0,8}$</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 8</li><li>regex: ^[ -~]{0,8}$</li></td>
 </tr>
 <tr>
 <td>6</td>

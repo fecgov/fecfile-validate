@@ -54,7 +54,7 @@
             "title": "FEC Version",
             "description": "",
             "type": "string",
-            "minLength": 0,
+            "minLength": 1,
             "maxLength": 4,
             "pattern": "^[0-9]+(?:[.][0-9]+)?$",
             "examples": [
