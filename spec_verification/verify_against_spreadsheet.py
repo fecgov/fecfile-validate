@@ -4,6 +4,7 @@ import json
 import time
 import re
 
+from utils import FIELD_NAME_COLUMN
 from verify_schema_files import verify
 
 
@@ -13,7 +14,7 @@ def get_column_headers(sheet):
     columns = {}
     column_header_row = 0
     for r in range(1, 10):
-        value = sheet[f"A{r}"].value
+        value = sheet[f"{FIELD_NAME_COLUMN}{r}"].value
         if value and value.replace("\n", " ") == "FIELD DESCRIPTION":
             column_header_row = r
             break
@@ -21,7 +22,7 @@ def get_column_headers(sheet):
     if column_header_row == 0:
         return columns
 
-    col_vals = "ABCDEFGHIJKL"
+    col_vals = "ABCDEFGHIJKLMNOPQRSTUVXYZ"
     for c in range(len(col_vals)):
         header = sheet[f"{col_vals[c]}{column_header_row}"].value
         if header:
@@ -91,9 +92,7 @@ def generate_report(
         report += "Failed to load:\n"
         report += "    " + "\n    ".join(failed_to_load) + "\n\n"
 
-    report += f"""
-    {error_count} Errors in {error_sheets_count} out of {sheet_count} sheets total\n
-    """
+    report += f"{error_count} Errors in {error_sheets_count}/{sheet_count} sheets\n\n"
 
     sheets = sheets_with_errors
     if verbose:
@@ -130,7 +129,7 @@ def run_verification(filename, verbose, debug):
             time.sleep(1)
 
     if not filename:
-        print("No excel file found")
+        print("No excel file specified, and none found in local directory")
         exit()
     if not path.exists(filename):
         print("File does not exist:", filename)

@@ -7,6 +7,7 @@ from check_form_type import check_form_type
 from check_required import check_required
 from check_length import check_length
 from check_type import check_type
+from utils import FIELD_NAME_COLUMN
 
 
 def get_schema_fields(sheet, debug):
@@ -29,7 +30,7 @@ def get_schema_fields(sheet, debug):
     fields = {}
     row = None
     for r in range(1, sheet.max_row):
-        field_description = sheet[f"A{r}"].value
+        field_description = sheet[f"{FIELD_NAME_COLUMN}{r}"].value
         if field_description == "FORM TYPE":
             row = r
             break
@@ -40,11 +41,11 @@ def get_schema_fields(sheet, debug):
     if debug:
         print("    Determining the schema spreadsheet's fields")
 
-    while sheet["A" + str(row)].value:
+    while sheet[FIELD_NAME_COLUMN + str(row)].value:
         if debug:
             print(f"        Parsing row {row}")
 
-        field_name_raw = sheet["A" + str(row)].value.lower()
+        field_name_raw = sheet[FIELD_NAME_COLUMN + str(row)].value.lower()
         field_name = "_".join(field_name_raw.split(" "))
         if field_name in name_overrides:
             field_name = name_overrides[field_name]

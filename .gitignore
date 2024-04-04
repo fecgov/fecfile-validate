@@ -60,7 +60,8 @@ testem.log
 *.bower-registry
 *.bower-tmp
 
-
+# Spec Verification XLSX Sheets
+spec_verification/spec-sheets/*.xlsx
 
 # System Files
 .DS_Store
