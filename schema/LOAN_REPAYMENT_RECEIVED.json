@@ -10,6 +10,8 @@
         "filer_committee_id_number",
         "transaction_type_identifier",
         "transaction_id",
+        "back_reference_tran_id_number",
+        "back_reference_sched_name",
         "entity_type",
         "contributor_organization_name",
         "contributor_street_1",
@@ -126,7 +128,7 @@
             "fec_spec": {
                 "FIELD_DESCRIPTION": "BACK REFERENCE SCHED NAME",
                 "TYPE": "A/N-8",
-                "REQUIRED": null,
+                "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "SA11AI",
                 "VALUE_REFERENCE": "SA[line# ref]",
                 "RULE_REFERENCE": "Ref to the Schedule that has the Related Record.  SA3L must be used \nwith the F3L",

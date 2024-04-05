@@ -37,7 +37,7 @@ def get_filename(sheet):
 
     }
 
-    filename = sheet["A2"].value
+    filename = str(sheet["A2"].value).strip(" ")
     if filename in filename_overrides.keys():
         filename = filename_overrides[filename]
 
