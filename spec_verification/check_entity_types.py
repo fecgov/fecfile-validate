@@ -8,8 +8,10 @@ def check_entity_type(row, schema, field_name, columns):
 
     entity_types = row[columns["value_reference"]].value
     if not entity_types:
-        errors.append(f"    Error: {field_name} - Entity Types not found in sheet")
-        return errors
+        entity_types = row[columns["rule_reference"]].value
+        if not entity_types:
+            errors.append(f"    Error: {field_name} - Entity Types not found in sheet")
+            return errors
 
     clean_entity_types = entity_types.replace("[", "").replace("]", "")
 
@@ -29,7 +31,9 @@ def check_single_entity_type(schema, field_name, raw_sheet_entity_type):
         )
         return errors
 
-    sheet_entity_type = raw_sheet_entity_type.replace(" Only", "").replace(" only", "")
+    sheet_entity_type = str(
+        raw_sheet_entity_type.replace("Only", "").replace("only", "").replace(" ", "")
+    )
 
     if sheet_entity_type != json_entity_type:
         errors.append(

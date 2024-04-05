@@ -1,5 +1,6 @@
 def clean_form_types(raw_form_type):
-    no_or = raw_form_type.replace(" or ", "|")
+    no_only = raw_form_type.replace("Only", "").replace("only", "")
+    no_or = no_only.replace(" or ", "|")
     no_whitespace = no_or.replace(" ", "").replace("\n", ",")
     no_quotes = no_whitespace.replace('"', "")
     no_brackets = no_quotes.replace("[", "").replace("]", "")

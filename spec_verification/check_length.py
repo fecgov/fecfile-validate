@@ -47,6 +47,7 @@ def check_length(row, schema, field_name, columns):
         "filer_committee_id_number": committee_id_pattern,
         "donor_committee_fec_id": committee_id_pattern,
         "beneficiary_committee_fec_id": committee_id_pattern,
+        "beneficiary_candidate_fec_id": committee_id_pattern,
         "contribution_date": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
         "expenditure_date": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
         "election_code": "^[GPRSCEO]\\d{4}$",

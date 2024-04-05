@@ -142,12 +142,13 @@ def run_verification(filename, verbose, debug):
     excluded_sheets = [
         "HDR Record",
         "TEXT",
-        "zzEARMARK_MEMO_HEADQUARTERS_ACCOUNT"[:31],
-        "zzEARMARK_RECEIPT_HEADQUARTERS_ACCOUNT"[:31],
-        "zzEARMARK_MEMO_CONVENTION_ACCOUNT"[:31],
-        "zzEARMARK_RECEIPT_CONVENTION_ACCOUNT"[:31],
-        "zzEARMARK_MEMO_RECOUNT_ACCOUNT"[:31],
-        "zzEARMARK_RECEIPT_RECOUNT_ACCOUNT"[:31],
+        "README",
+        # "zzEARMARK_MEMO_HEADQUARTERS_ACCOUNT"[:31],
+        # "zzEARMARK_RECEIPT_HEADQUARTERS_ACCOUNT"[:31],
+        # "zzEARMARK_MEMO_CONVENTION_ACCOUNT"[:31],
+        # "zzEARMARK_RECEIPT_CONVENTION_ACCOUNT"[:31],
+        # "zzEARMARK_MEMO_RECOUNT_ACCOUNT"[:31],
+        # "zzEARMARK_RECEIPT_RECOUNT_ACCOUNT"[:31],
     ]
 
     errors = {}

@@ -362,7 +362,7 @@
             "type": "string",
             "minLength": 1,
             "maxLength": 5,
-            "pattern": "^[ -~]{0,5}$",
+            "pattern": "^[GPRSCEO]\\d{4}$",
             "examples": [
                 "P2012"
             ],
@@ -437,6 +437,7 @@
             "fec_spec": {
                 "FIELD_DESCRIPTION": "AGGREGATE AMOUNT",
                 "REQUIRED": "X (error)",
+                "TYPE": "AMT-12",
                 "SAMPLE_DATA": 1000
             }
         },
@@ -533,7 +534,8 @@
             "pattern": "^[ -~]{0,30}$",
             "fec_spec": {
                 "FIELD_DESCRIPTION": "BENEFICIARY CANDIDATE LAST NAME",
-                "TYPE": "A/N-30"
+                "TYPE": "A/N-30",
+                "REQUIRED": "X (conditional error)"
             }
         },
         "beneficiary_candidate_first_name": {
@@ -548,7 +550,8 @@
             "pattern": "^[ -~]{0,20}$",
             "fec_spec": {
                 "FIELD_DESCRIPTION": "BENEFICIARY CANDIDATE FIRST NAME",
-                "TYPE": "A/N-20"
+                "TYPE": "A/N-20",
+                "REQUIRED": "X (conditional error)"
             }
         },
         "beneficiary_candidate_middle_name": {
