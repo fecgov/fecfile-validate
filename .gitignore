@@ -62,6 +62,7 @@ testem.log
 
 # Spec Verification XLSX Sheets
 spec_verification/spec-sheets/*.xlsx
+spec_verification_report.txt
 
 # System Files
 .DS_Store

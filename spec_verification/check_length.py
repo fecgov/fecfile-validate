@@ -49,7 +49,7 @@ def check_length(row, schema, field_name, columns):
         "beneficiary_committee_fec_id": committee_id_pattern,
         "contribution_date": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
         "expenditure_date": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
-        "election_code": "^[GPRSCE]\\d{4}$",
+        "election_code": "^[GPRSCEO]\\d{4}$",
     }
 
     field_type = row[columns["type"]].value
