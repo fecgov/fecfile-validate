@@ -6,13 +6,16 @@ def check_aggregation_group(row, schema, field_name, columns):
     if field_name != "aggregation_group":
         return errors
 
+    # if schema["title"] == "FEC INDEPENDENT EXPENDITURE_MEMOS":
+    #     return errors  # This one edge case has an aggregation_group of N/A
+
     sheet_aggr_group = row[columns["value_reference"]].value
     if not sheet_aggr_group:
         sheet_aggr_group = row[columns["rule_reference"]].value
 
     if not sheet_aggr_group:
         errors.append(
-            f"    Error: {field_name} - Cannot find aggregation group in sheet"
+            f"Error: {field_name} - Cannot find aggregation group in sheet"
         )
         return errors
 
@@ -44,7 +47,7 @@ def check_aggregation_group_single(sheet_aggr_group, schema, field_name):
     schema_group_name = get_schema_property(schema, field_name, "const")
     if not schema_group_name:
         errors.append(
-            f"    Error: {field_name} - Cannot find aggregation group field in schema"
+            f"Error: {field_name} - Cannot find aggregation group field in schema"
         )
         return errors
 
@@ -54,7 +57,7 @@ def check_aggregation_group_single(sheet_aggr_group, schema, field_name):
 
     if sheet_group_name != schema_group_name:
         errors.append(
-            f"    Error: {field_name} - Sheet has an (adjusted) Aggregation Group "
+            f"Error: {field_name} - Sheet has an (adjusted) Aggregation Group "
             f'of "{sheet_group_name}" while the JSON has "{schema_group_name}"'
         )
 
@@ -81,7 +84,7 @@ def check_aggregation_group_multiple(sheet_aggr_group, schema, field_name):
     schema_group_names = get_schema_property(schema, field_name, "enum")
     if not schema_group_names:
         errors.append(
-            f"    Error: {field_name} - Cannot find aggregation groups field in schema"
+            f"Error: {field_name} - Cannot find aggregation groups field in schema"
         )
         return errors
 

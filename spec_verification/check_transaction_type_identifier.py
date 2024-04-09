@@ -11,7 +11,7 @@ def check_transaction_type_identifier(row, schema, field_name, columns):
         sheet_tti = row[columns["value_reference"]].value
         if not sheet_tti:
             errors.append(
-                f"    Error: {field_name} - The sheet's Transaction Type "
+                f"Error: {field_name} - The sheet's Transaction Type "
                 + "Identifier is blank"
             )
             return errors
@@ -45,7 +45,7 @@ def check_multi_tti(schema, field_name, sheet_tti):
     json_tti = get_schema_property(schema, field_name, "enum")
     if not json_tti:
         errors.append(
-            f"    Error: {field_name} - Schema allows for TTI's of {sheet_tti}"
+            f"Error: {field_name} - Schema allows for TTI's of {sheet_tti}"
             " while the JSON does not have an enumerated value"
         )
     else:

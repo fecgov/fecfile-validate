@@ -10,7 +10,7 @@ def check_entity_type(row, schema, field_name, columns):
     if not entity_types:
         entity_types = row[columns["rule_reference"]].value
         if not entity_types:
-            errors.append(f"    Error: {field_name} - Entity Types not found in sheet")
+            errors.append(f"Error: {field_name} - Entity Types not found in sheet")
             return errors
 
     clean_entity_types = entity_types.replace("[", "").replace("]", "")
@@ -26,7 +26,7 @@ def check_single_entity_type(schema, field_name, raw_sheet_entity_type):
     json_entity_type = get_schema_property(schema, field_name, "const")
     if not json_entity_type:
         errors.append(
-            f"    Error: {field_name} - The sheet has a single entity type"
+            f"Error: {field_name} - The sheet has a single entity type"
             " but the JSON does not have a constant value"
         )
         return errors
@@ -37,7 +37,7 @@ def check_single_entity_type(schema, field_name, raw_sheet_entity_type):
 
     if sheet_entity_type != json_entity_type:
         errors.append(
-            f"    Error: {field_name} - The sheet has an entity type of"
+            f"Error: {field_name} - The sheet has an entity type of"
             f" {sheet_entity_type}, but the JSON has {json_entity_type}"
         )
     return errors
@@ -48,7 +48,7 @@ def check_multiple_entity_types(schema, field_name, raw_sheet_entity_types):
     json_entity_types = get_schema_property(schema, field_name, "enum")
     if not json_entity_types:
         errors.append(
-            f"    Error: {field_name} - The sheet has a single entity type"
+            f"Error: {field_name} - The sheet has a single entity type"
             " but the JSON does not have an enumerated value"
         )
         return errors

@@ -45,6 +45,7 @@ def get_filename(sheet):
 
 
 def generate_report(
+    sheet_filename,
     errors,
     minor_errors,
     missing_schema_files,
@@ -53,9 +54,8 @@ def generate_report(
     failed_to_open,
     failed_to_load,
     verbose=False,
-    save=True,
 ):
-    report = "\n"
+    report = f"---- {sheet_filename} ----\n\n"
 
     sheets_with_errors = list(s for s in errors.keys() if len(errors[s]) > 0)
     sheets_with_minor_errors = list(minor_errors.keys())
@@ -73,26 +73,30 @@ def generate_report(
     error_sheets_count = len(sheets_with_errors)
 
     if len(missing_schema_files) > 0:
-        report += "Sheets without a corresponding JSON file:\n"
-        report += "    " + "\n    ".join(missing_schema_files) + "\n\n"
+        report += "\tSheets without a corresponding JSON file:\n"
+        report += "\t\t" + "\n\t\t".join(missing_schema_files) + "\n\n"
 
     if len(missing_transaction_type_identifiers) > 0:
-        report += "Sheets missing a Transaction Type Identifier:\n"
-        report += "    " + "\n    ".join(missing_transaction_type_identifiers) + "\n\n"
+        report += "\tSheets missing a Transaction Type Identifier:\n"
+        report += "\t\t" + "\n\t\t".join(missing_transaction_type_identifiers) + "\n\n"
 
     if len(missing_column_headers) > 0:
-        report += "Sheets missing Column Headers:\n"
-        report += "    " + "\n    ".join(missing_column_headers) + "\n\n"
+        report += "\tSheets missing Column Headers:\n"
+        report += "\t\t" + "\n\t\t".join(missing_column_headers) + "\n\n"
 
     if len(failed_to_open) > 0:
-        report += "Failed to open:\n"
-        report += "    " + "\n    ".join(failed_to_open) + "\n\n"
+        report += "\tFailed to open:\n"
+        report += "\t\t" + "\n\t\t".join(failed_to_open) + "\n\n"
 
     if len(failed_to_load) > 0:
-        report += "Failed to load:\n"
-        report += "    " + "\n    ".join(failed_to_load) + "\n\n"
+        report += "\tFailed to load:\n"
+        report += "\t\t" + "\n\t\t".join(failed_to_load) + "\n\n"
 
-    report += f"{error_count} Errors in {error_sheets_count}/{sheet_count} sheets\n\n"
+    if (error_count) > 0:
+        sheet_count_str = f"{error_sheets_count}/{sheet_count}"
+        report += f"\t{error_count} Errors in {sheet_count_str} sheets\n\n"
+    else:
+        report += f"\tNo errors found in the {sheet_count} sheets checked\n\n"
 
     sheets = sheets_with_errors
     if verbose:
@@ -100,42 +104,52 @@ def generate_report(
 
     for sheet_name in sheets:
         if len(errors[sheet_name]) > 0:
-            report += sheet_name + "\n"
+            report += f"\t{sheet_name}\n"
             for error in errors[sheet_name]:
-                report += error + "\n"
+                report += f"\t\t{error}\n"
             if verbose:
                 for minor_error in minor_errors[sheet_name]:
-                    report += minor_error + "\n"
+                    report += f"\t\t{minor_error}\n"
             report += "\n\n"
 
-    print(report)
-    if save:
-        file = open(path.join(getcwd(), "spec_verification_report.txt"), "w")
-        file.write(report)
-        file.close()
+    return report+"\n"
 
 
-def run_verification(filename, verbose, debug):
+def run_verification(filename, save, verbose, debug):
+    report = ""
+
+    if filename:
+        if not path.exists(filename):
+            print("File does not exist:", filename)
+            exit()
+        else:
+            report += verify_spreadsheet(filename, verbose, debug)
+
     if not filename:
-        files = listdir(getcwd())
+        files_dir = path.join(path.dirname(path.abspath(__file__)), "spec-sheets")
+        files = listdir(files_dir)
         xlsx_files = []
         for file in files:
             if re.search("\\.xlsx$", file):
-                xlsx_files.append(file)
-        if len(xlsx_files) > 0:
-            xlsx_files.sort()
-            filename = xlsx_files[-1]
-            print("\nTesting against found spreadsheet:", filename)
-            time.sleep(1)
+                xlsx_files.append(path.join(files_dir, file))
+        if len(xlsx_files) == 0:
+            print("No excel file specified, and none found in /spec-sheets")
+            exit()
 
-    if not filename:
-        print("No excel file specified, and none found in local directory")
-        exit()
-    if not path.exists(filename):
-        print("File does not exist:", filename)
-        exit()
+        print("No spreadsheet file specified.")
+        print(f"Found {len(xlsx_files)} files in /spec-sheets to test against...")
+        for spreadsheet in xlsx_files:
+            report += verify_spreadsheet(spreadsheet, verbose, debug)
 
-    workbook = load_workbook(filename)
+    print(report)
+    if save:
+        report_file = open("spec_verification_report.txt", "w")
+        report_file.write(report)
+        report_file.close()
+
+
+def verify_spreadsheet(sheet_filename, verbose, debug):
+    workbook = load_workbook(sheet_filename)
     sheets = workbook._sheets
 
     # Sheet titles cannot be longer than 31 characters
@@ -143,12 +157,15 @@ def run_verification(filename, verbose, debug):
         "HDR Record",
         "TEXT",
         "README",
-        # "zzEARMARK_MEMO_HEADQUARTERS_ACCOUNT"[:31],
-        # "zzEARMARK_RECEIPT_HEADQUARTERS_ACCOUNT"[:31],
-        # "zzEARMARK_MEMO_CONVENTION_ACCOUNT"[:31],
-        # "zzEARMARK_RECEIPT_CONVENTION_ACCOUNT"[:31],
-        # "zzEARMARK_MEMO_RECOUNT_ACCOUNT"[:31],
-        # "zzEARMARK_RECEIPT_RECOUNT_ACCOUNT"[:31],
+        "Sheet2", "Sheet3", "Sheet4",
+        "LOAN_BY_COMMITTEE",  # Duplicate of LOANS.json
+        "LOAN_RECEIVED_FROM_BANK",  # Duplicate of LOANS.json
+        "LOAN_RECEIVED_FROM_INDIVIDUAL",  # Duplicate of LOANS.json
+        "INDEPENDENT_EXPENDITURE",  # Duplicate of INDEPENDENT_EXPENDITURES.json
+        "INDEPENDENT_EXPENDITURE_CREDIT_",  # D. of INDEPENDENT_EXPENDITURE_PARENTS.json
+        "INDEPENDENT_EXPENDITURE_PAYMENT",  # D. of INDEPENDENT_EXPENDITURE_PARENTS.json
+        "INDEPENDENT_EXPENDITURE_STAFF_R",  # D. of INDEPENDENT_EXPENDITURE_PARENTS.json
+        "INDEPENDENT_EXPENDITURE_VOID",  # Duplicate of INDEPENDENT_EXPENDITURES.json
     ]
 
     errors = {}
@@ -191,7 +208,8 @@ def run_verification(filename, verbose, debug):
         errors[filename] = new_errors
         minor_errors[filename] = new_minor_errors
 
-    generate_report(
+    return generate_report(
+        sheet_filename,
         errors,
         minor_errors,
         missing_schema_files,
@@ -200,5 +218,4 @@ def run_verification(filename, verbose, debug):
         failed_to_open,
         failed_to_load,
         verbose,
-        save=True,
     )
