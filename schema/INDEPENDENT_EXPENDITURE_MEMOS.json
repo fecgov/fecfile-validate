@@ -549,17 +549,17 @@
         "aggregation_group": {
             "title": "AGGREGATION GROUP",
             "description": "",
-            "const": "INDEPENDENT_EXPENDITURE",
+            "const": null,
             "examples": [
-                "INDEPENDENT_EXPENDITURE"
+                null
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "AGGREGATION GROUP",
                 "TYPE": null,
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": null,
-                "VALUE_REFERENCE": "INDEPENDENT_EXPENDITURE",
-                "RULE_REFERENCE": "INDEPENDENT_EXPENDITURE",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "N/A",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },

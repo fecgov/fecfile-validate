@@ -24,7 +24,6 @@
         "so_candidate_last_name",
         "so_candidate_first_name",
         "so_candidate_office",
-        "so_candidate_state",
         "completing_last_name",
         "completing_first_name",
         "date_signed"
@@ -758,7 +757,7 @@
             "fec_spec": {
                 "FIELD_DESCRIPTION": "S/O CANDIDATE STATE",
                 "TYPE": "A/N-2",
-                "REQUIRED": "X (error)",
+                "REQUIRED": "X (conditional error)",
                 "SAMPLE_DATA": "FL",
                 "VALUE_REFERENCE": "AK,AL,...",
                 "RULE_REFERENCE": "Edit: ST (if Office = Sen or House)"
@@ -993,6 +992,104 @@
                         "type": "string"
                     },
                     "payee_last_name": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "election_code": {
+                        "pattern": "^O",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "election_code"
+                ]
+            },
+            "then": {
+                "required": [
+                    "election_other_description"
+                ],
+                "properties": {
+                    "election_other_description": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "so_candidate_office": {
+                        "const": "H"
+                    }
+                },
+                "required": [
+                    "so_candidate_office"
+                ]
+            },
+            "then": {
+                "required": [
+                    "so_candidate_state",
+                    "so_candidate_district"
+                ],
+                "properties": {
+                    "so_candidate_state": {
+                        "type": "string"
+                    },
+                    "so_candidate_district": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "so_candidate_office": {
+                        "const": "S"
+                    }
+                },
+                "required": [
+                    "so_candidate_office"
+                ]
+            },
+            "then": {
+                "required": [
+                    "so_candidate_state"
+                ],
+                "properties": {
+                    "so_candidate_state": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "so_candidate_office": {
+                        "const": "P"
+                    },
+                    "election_code": {
+                        "pattern": "^P",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "so_candidate_office",
+                    "election_code"
+                ]
+            },
+            "then": {
+                "required": [
+                    "so_candidate_state"
+                ],
+                "properties": {
+                    "so_candidate_state": {
                         "type": "string"
                     }
                 }
