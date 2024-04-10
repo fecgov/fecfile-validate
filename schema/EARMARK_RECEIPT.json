@@ -29,7 +29,10 @@
             "title": "FORM TYPE",
             "description": "",
             "type": "string",
-            "const": "SA11AI",
+            "enum": [
+                "SA11AI",
+                "SA11AII"
+            ],
             "examples": [
                 "SA11AI"
             ],
@@ -38,7 +41,7 @@
                 "TYPE": "A/N-8",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "SA11AI",
-                "VALUE_REFERENCE": "SA11AI",
+                "VALUE_REFERENCE": "[SA11AI | SA11AII]",
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }

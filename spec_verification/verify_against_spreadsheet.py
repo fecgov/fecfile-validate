@@ -166,6 +166,7 @@ def verify_spreadsheet(sheet_filename, verbose, debug):
         "INDEPENDENT_EXPENDITURE_PAYMENT",  # D. of INDEPENDENT_EXPENDITURE_PARENTS.json
         "INDEPENDENT_EXPENDITURE_STAFF_R",  # D. of INDEPENDENT_EXPENDITURE_PARENTS.json
         "INDEPENDENT_EXPENDITURE_VOID",  # Duplicate of INDEPENDENT_EXPENDITURES.json
+        "REDESIGNATION",
     ]
 
     errors = {}
