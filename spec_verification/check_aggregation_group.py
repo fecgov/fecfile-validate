@@ -6,9 +6,6 @@ def check_aggregation_group(row, schema, field_name, columns):
     if field_name != "aggregation_group":
         return errors
 
-    # if schema["title"] == "FEC INDEPENDENT EXPENDITURE_MEMOS":
-    #     return errors  # This one edge case has an aggregation_group of N/A
-
     sheet_aggr_group = row[columns["value_reference"]].value
     if not sheet_aggr_group:
         sheet_aggr_group = row[columns["rule_reference"]].value
