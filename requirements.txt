@@ -1,5 +1,5 @@
 Sphinx==4.3.1
-pytest
+pytest==7.4.4
 coverage==6.2
 pytest-cov
 pylint==2.13.9
