@@ -1,7 +1,6 @@
-from os import path, listdir, getcwd
+from os import path, listdir
 from openpyxl import load_workbook
 import json
-import time
 import re
 
 from utils import FIELD_NAME_COLUMN

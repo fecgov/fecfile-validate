@@ -1,5 +1,6 @@
 FIELD_NAME_COLUMN = "B"
 
+
 def get_schema_property(schema, field_name, property, is_fec_spec=False):
     if field_name in schema["properties"]:
         field = schema["properties"][field_name]

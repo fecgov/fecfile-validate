@@ -60,7 +60,7 @@ def check_length(row, schema, field_name, columns):
         "dissemination_date": date_patterns,
         "disbursement_date": date_patterns,
         "date_signed": date_patterns,
-        "election_code": ["^[GPRSCEO]\\d{4}$", "^P\d{4}$"],
+        "election_code": ["^[GPRSCEO]\\d{4}$", "^P\\d{4}$"],
     }
 
     field_type = row[columns["type"]].value

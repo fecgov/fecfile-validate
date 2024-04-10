@@ -37,9 +37,9 @@ parser.add_argument(
 )
 parser.add_argument(
     "-s",
-	"--save",
-	help="Saves a copy of the report to a .txt file",
-	action="store_true"
+    "--save",
+    help="Saves a copy of the report to a .txt file",
+    action="store_true"
 )
 args = parser.parse_args()
 VERBOSE = args.verbose  # Controls whether or not checks for minor errors are run
