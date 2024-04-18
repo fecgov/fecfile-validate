@@ -1,3 +1,4 @@
+import re
 from check_transaction_type_identifier import check_transaction_type_identifier
 from check_contribution_amount import check_contribution_amount
 from check_aggregation_group import check_aggregation_group
@@ -70,7 +71,14 @@ def get_schema_fields(sheet, debug):
         "s_o_candidate_office": "so_candidate_office",
         "s_o_candidate_district": "so_candidate_district",
         "s_o_candidate_state": "so_candidate_state",
-
+        "report_type_24_48_hour": "report_type_24_48",
+        "date_of_orig_registration": "date_of_original_registration",
+        "date_cmte_met_requirements": "date_committee_met_requirements",
+        "I_candidate_dist": "I_candidate_district",
+        "II_candidate_dist": "II_candidate_district",
+        "III_candidate_dist": "III_candidate_district",
+        "IV_candidate_dist": "IV_candidate_district",
+        "V_candidate_dist": "V_candidate_district",
     }
 
     skipped_fields = [
@@ -81,7 +89,7 @@ def get_schema_fields(sheet, debug):
     row = None
     for r in range(1, sheet.max_row):
         field_description = sheet[f"{FIELD_NAME_COLUMN}{r}"].value
-        if field_description == "FORM TYPE":
+        if str(field_description).strip(" ") == "FORM TYPE":
             row = r
             break
 
@@ -108,6 +116,15 @@ def get_schema_fields(sheet, debug):
     return fields
 
 
+def handle_roman_numerals(field_name: str):
+    numeral_pattern = re.compile(r"^([vx]?i{1,3}|i?v|i?x)_")
+    match = re.match(numeral_pattern, field_name.lower())
+    if match:
+        numerals = match[1]
+        return f"{numerals.upper()}{field_name[len(numerals):]}"
+
+    return field_name
+
 def clean_field_name(field_name):
     clear_whitespace = field_name.strip(" ")
     underscored = clear_whitespace.replace(" ", "_")
@@ -115,10 +132,13 @@ def clean_field_name(field_name):
     no_percent = no_parens.replace("%", "")
     no_question = no_percent.replace("?", "")
     no_slash = no_question.replace("/", "_")
-    no_yes_no = no_slash.replace("yes_no_", "")
+    no_hyphens = no_slash.replace("-", "")
+    no_yes_no = no_hyphens.replace("yes_no_", "")
     no_double_underscore = no_yes_no.replace("__", "_")
     no_surrounding_underscores = no_double_underscore.strip("_")
-    return no_surrounding_underscores
+    no_braces = no_surrounding_underscores.replace("{", "").replace("}", "")
+    fully_cleaned = handle_roman_numerals(no_braces)
+    return fully_cleaned
 
 
 def verify(sheet, schema, columns, verbose, debug):

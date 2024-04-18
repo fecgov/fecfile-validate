@@ -35,10 +35,24 @@ def get_filename(sheet):
     filename_overrides = {
 
     }
+    reports = {
+        "FORM 1M": "F1M",
+        "FORM 99": "F99",
+        "FORM 24": "F24"
+    }
 
-    filename = str(sheet["A2"].value).strip(" ")
+    filename = sheet["A2"].value
+    if not filename:
+        filename = sheet["A1"].value
+
+    filename = str(filename).strip(" ")
     if filename in filename_overrides.keys():
         filename = filename_overrides[filename]
+    else:
+        for report in reports.keys():
+            if report in filename:
+                return reports[report]
+
 
     return filename
 
