@@ -291,32 +291,32 @@
 <tr>
 <td>BENEFICIARY CANDIDATE FEC ID</td>
 <td>A/N-9</td>
-<td>X (conditional error)</td>
+<td>X (error)</td>
 <td>H98765431</td>
 <td></td>
 <td></td>
 <td></td>
-<td><ul><li>REQUIRED if TRANSACTION_TYPE_IDENTIFIER equals IN_KIND_CONTRIBUTION_TO_CANDIDATE</li><li>type: string</li><li>min length: 0</li><li>max length: 9</li><li>regex: ^[ -~]{0,9}$</li></td>
+<td><ul><li>REQUIRED if TRANSACTION_TYPE_IDENTIFIER equals IN_KIND_CONTRIBUTION_TO_CANDIDATE</li><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 9</li><li>regex: ^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$</li></td>
 </tr>
 <tr>
 <td>BENEFICIARY CANDIDATE LAST NAME</td>
 <td>A/N-30</td>
-<td>X (conditional error)</td>
+<td>X (error)</td>
 <td></td>
 <td></td>
 <td></td>
 <td></td>
-<td><ul><li>REQUIRED if TRANSACTION_TYPE_IDENTIFIER equals IN_KIND_CONTRIBUTION_TO_CANDIDATE</li><li>type: string</li><li>min length: 0</li><li>max length: 30</li><li>regex: ^[ -~]{0,30}$</li></td>
+<td><ul><li>REQUIRED if TRANSACTION_TYPE_IDENTIFIER equals IN_KIND_CONTRIBUTION_TO_CANDIDATE</li><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 30</li><li>regex: ^[ -~]{0,30}$</li></td>
 </tr>
 <tr>
 <td>BENEFICIARY CANDIDATE FIRST NAME</td>
 <td>A/N-20</td>
-<td>X (conditional error)</td>
+<td>X (error)</td>
 <td></td>
 <td></td>
 <td></td>
 <td></td>
-<td><ul><li>REQUIRED if TRANSACTION_TYPE_IDENTIFIER equals IN_KIND_CONTRIBUTION_TO_CANDIDATE</li><li>type: string</li><li>min length: 0</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
+<td><ul><li>REQUIRED if TRANSACTION_TYPE_IDENTIFIER equals IN_KIND_CONTRIBUTION_TO_CANDIDATE</li><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
 </tr>
 <tr>
 <td>BENEFICIARY CANDIDATE MIDDLE NAME</td>
@@ -351,12 +351,12 @@
 <tr>
 <td>BENEFICIARY CANDIDATE OFFICE</td>
 <td>A/N-1</td>
-<td>X (conditional error)</td>
+<td>X (error)</td>
 <td>H</td>
 <td>[H|S|P]</td>
 <td></td>
 <td></td>
-<td><ul><li>REQUIRED if TRANSACTION_TYPE_IDENTIFIER equals IN_KIND_CONTRIBUTION_TO_CANDIDATE</li><li>must be one of: ['H', 'S', 'P']</li></td>
+<td><ul><li>REQUIRED if TRANSACTION_TYPE_IDENTIFIER equals IN_KIND_CONTRIBUTION_TO_CANDIDATE</li><li>REQUIRED</li><li>must be one of: ['H', 'S', 'P']</li></td>
 </tr>
 <tr>
 <td>BENEFICIARY CANDIDATE STATE</td>

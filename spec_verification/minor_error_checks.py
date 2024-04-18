@@ -7,7 +7,7 @@ def check_sample_data(row, schema, field_name, columns):
     schema_sample_data = get_schema_property(schema, field_name, "SAMPLE_DATA", True)
     if sheet_sample_data != schema_sample_data:
         errors.append(
-            f"    Minor Error: {field_name} - The Sheet has Sample Data of "
+            f"Minor Error: {field_name} - The Sheet has Sample Data of "
             f'"{sheet_sample_data}" while the JSON has "{schema_sample_data}"'
         )
 

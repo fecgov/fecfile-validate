@@ -207,7 +207,7 @@ with the F3L</td>
 <td></td>
 <td>Earmarked for XX (Committee)</td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 100</li><li>regex: ^Earmarked for [ -~]{0,76} \(Committee\)$</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 100</li><li>regex: ^Earmarked for [ -~]{0,74} \(Committee\)$</li></td>
 </tr>
 <tr>
 <td>CONTRIBUTOR EMPLOYER</td>
@@ -237,7 +237,7 @@ with the F3L</td>
 <td>X</td>
 <td>X = True</td>
 <td></td>
-<td><ul><li>MEMO_CODE = 'False' if TRANSACTION_TYPE_IDENTIFIER equals CONDUIT_EARMARK_RECEIPT_DEPOSITED</li><li>MEMO_CODE = 'True' if TRANSACTION_TYPE_IDENTIFIER equals CONDUIT_EARMARK_RECEIPT_UNDEPOSITED</li><li>REQUIRED</li><li>type: boolean</li></td>
+<td><ul><li>MEMO_CODE = 'False' if TRANSACTION_TYPE_IDENTIFIER equals CONDUIT_EARMARK_RECEIPT_DEPOSITED</li><li>REQUIRED if TRANSACTION_TYPE_IDENTIFIER equals CONDUIT_EARMARK_RECEIPT_UNDEPOSITED</li><li>MEMO_CODE = 'True' if TRANSACTION_TYPE_IDENTIFIER equals CONDUIT_EARMARK_RECEIPT_UNDEPOSITED</li><li>type: boolean</li></td>
 </tr>
 <tr>
 <td>MEMO TEXT/DESCRIPTION</td>

@@ -42,14 +42,25 @@ def check_length(row, schema, field_name, columns):
     # These are recurring patterns whose lengths are very hard to measure with a function
     # Instead, the fields corresponding to the keys here are considered as matching if
     # their pattern matches the value below
-    committee_id_pattern = "^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$"
+    committee_id_patterns = ["^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$"]
+    date_patterns = ["^[0-9]{4}-[0-9]{2}-[0-9]{2}$"]
     fixed_patterns = {
-        "filer_committee_id_number": committee_id_pattern,
-        "donor_committee_fec_id": committee_id_pattern,
-        "beneficiary_committee_fec_id": committee_id_pattern,
-        "contribution_date": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
-        "expenditure_date": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
-        "election_code": "^[GPRSCE]\\d{4}$",
+        "filer_committee_id_number": committee_id_patterns,
+        "donor_committee_fec_id": committee_id_patterns,
+        "beneficiary_committee_fec_id": committee_id_patterns,
+        "beneficiary_candidate_fec_id": committee_id_patterns,
+        "payee_committee_fec_id": committee_id_patterns,
+        "contribution_date": date_patterns,
+        "expenditure_date": date_patterns,
+        "loan_incurred_date": date_patterns,
+        "loan_originally_incurred_date": date_patterns,
+        "depository_account_established_date": date_patterns,
+        "treasurer_date_signed": date_patterns,
+        "authorized_date_signed": date_patterns,
+        "dissemination_date": date_patterns,
+        "disbursement_date": date_patterns,
+        "date_signed": date_patterns,
+        "election_code": ["^[GPRSCEO]\\d{4}$", "^P\\d{4}$"],
     }
 
     field_type = row[columns["type"]].value
@@ -62,7 +73,7 @@ def check_length(row, schema, field_name, columns):
 
     if json_max_length and json_max_length != expected_length:
         errors.append(
-            f"    Error: {field_name} - Sheet has Type {field_type} but "
+            f"Error: {field_name} - Sheet has Type {field_type} but "
             f"the JSON's max_length is {json_max_length}"
         )
 
@@ -78,22 +89,22 @@ def check_length(row, schema, field_name, columns):
                         substring = f"field has a sub-pattern ({pattern}) whose"
 
                     errors.append(
-                        f"    Error: {field_name} - Sheet has Type {field_type} but "
+                        f"Error: {field_name} - Sheet has Type {field_type} but "
                         f"the JSON {substring} length adds up to {pattern_length}"
                     )
         elif field_name not in fixed_patterns.keys():
             if not re.search(f"{expected_length}}}\\$$", json_pattern_regex):
                 errors.append(
-                    f"    Error: {field_name} - Sheet has Type {field_type} but "
+                    f"Error: {field_name} - Sheet has Type {field_type} but "
                     f"the JSON field's pattern's max length is wrong "
                     f"({json_pattern_regex})"
                 )
         else:
-            if json_pattern_regex != fixed_patterns[field_name]:
+            if json_pattern_regex not in fixed_patterns[field_name]:
                 errors.append(
-                    f"    Error: {field_name} - The JSON has a pattern of "
+                    f"Error: {field_name} - The JSON has a pattern of "
                     f"{json_pattern_regex} "
-                    f"but the expected pattern is {fixed_patterns[field_name]}"
+                    f"but the expected patterns are {fixed_patterns[field_name]}"
                 )
 
     return errors

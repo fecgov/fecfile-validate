@@ -1,4 +1,4 @@
-from utils import get_schema_property
+from utils import get_schema_property, has_schema_property
 
 
 def check_aggregation_group(row, schema, field_name, columns):
@@ -12,7 +12,7 @@ def check_aggregation_group(row, schema, field_name, columns):
 
     if not sheet_aggr_group:
         errors.append(
-            f"    Error: {field_name} - Cannot find aggregation group in sheet"
+            f"Error: {field_name} - Cannot find aggregation group in sheet"
         )
         return errors
 
@@ -41,20 +41,22 @@ def clean_aggregation_group_names(aggr_group_field):
 def check_aggregation_group_single(sheet_aggr_group, schema, field_name):
     errors = []
 
-    schema_group_name = get_schema_property(schema, field_name, "const")
-    if not schema_group_name:
+    if not has_schema_property(schema, field_name, "const"):
         errors.append(
-            f"    Error: {field_name} - Cannot find aggregation group field in schema"
+            f"Error: {field_name} - Cannot find aggregation group field in schema"
         )
         return errors
+    schema_group_name = get_schema_property(schema, field_name, "const")
 
     sheet_group_name = ""
     if sheet_aggr_group:
         sheet_group_name = clean_aggregation_group_name(sheet_aggr_group)
+    if sheet_group_name == "N/A":
+        sheet_group_name = None
 
     if sheet_group_name != schema_group_name:
         errors.append(
-            f"    Error: {field_name} - Sheet has an (adjusted) Aggregation Group "
+            f"Error: {field_name} - Sheet has an (adjusted) Aggregation Group "
             f'of "{sheet_group_name}" while the JSON has "{schema_group_name}"'
         )
 
@@ -81,7 +83,7 @@ def check_aggregation_group_multiple(sheet_aggr_group, schema, field_name):
     schema_group_names = get_schema_property(schema, field_name, "enum")
     if not schema_group_names:
         errors.append(
-            f"    Error: {field_name} - Cannot find aggregation groups field in schema"
+            f"Error: {field_name} - Cannot find aggregation groups field in schema"
         )
         return errors
 

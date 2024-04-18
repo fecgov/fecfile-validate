@@ -27,8 +27,7 @@
         "beneficiary_candidate_fec_id",
         "beneficiary_candidate_first_name",
         "beneficiary_candidate_last_name",
-        "beneficiary_candidate_office",
-        "memo_code"
+        "beneficiary_candidate_office"
     ],
     "properties": {
         "form_type": {
@@ -454,7 +453,7 @@
             "type": "string",
             "minLength": 1,
             "maxLength": 9,
-            "pattern": "^[ -~]{0,9}$",
+            "pattern": "^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$",
             "examples": [
                 "H98765431"
             ],

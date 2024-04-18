@@ -15,7 +15,7 @@ def check_type(row, schema, field_name, columns):
 
     if not match:
         errors.append(
-            f"    Error: {field_name} - Sheet has Type {expected_type} "
+            f"Error: {field_name} - Sheet has Type {expected_type} "
             f"and the JSON has {actual_type}"
         )
 

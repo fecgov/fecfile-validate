@@ -19,7 +19,11 @@
         "expenditure_amount",
         "expenditure_purpose_descrip",
         "beneficiary_committee_fec_id",
-        "beneficiary_committee_name"
+        "beneficiary_committee_name",
+        "beneficiary_candidate_fec_id",
+        "beneficiary_candidate_last_name",
+        "beneficiary_candidate_first_name",
+        "beneficiary_candidate_office"
     ],
     "fec_recommended": [],
     "properties": {
@@ -566,14 +570,14 @@
             "type": "string",
             "minLength": 0,
             "maxLength": 9,
-            "pattern": "^[ -~]{0,9}$",
+            "pattern": "^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$",
             "examples": [
                 "H98765431"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "BENEFICIARY CANDIDATE FEC ID",
                 "TYPE": "A/N-9",
-                "REQUIRED": "X (conditional error)",
+                "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "H98765431",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
@@ -590,7 +594,7 @@
             "fec_spec": {
                 "FIELD_DESCRIPTION": "BENEFICIARY CANDIDATE LAST NAME",
                 "TYPE": "A/N-30",
-                "REQUIRED": "X (conditional error)",
+                "REQUIRED": "X (error)",
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
@@ -607,7 +611,7 @@
             "fec_spec": {
                 "FIELD_DESCRIPTION": "BENEFICIARY CANDIDATE FIRST NAME",
                 "TYPE": "A/N-20",
-                "REQUIRED": "X (conditional error)",
+                "REQUIRED": "X (error)",
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
@@ -688,7 +692,7 @@
             "fec_spec": {
                 "FIELD_DESCRIPTION": "BENEFICIARY CANDIDATE OFFICE",
                 "TYPE": "A/N-1",
-                "REQUIRED": "X (conditional error)",
+                "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "H",
                 "VALUE_REFERENCE": "[H|S|P]",
                 "RULE_REFERENCE": null,

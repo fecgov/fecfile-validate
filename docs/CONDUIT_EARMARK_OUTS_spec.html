@@ -227,7 +227,7 @@ with the F3L</td>
 <td></td>
 <td></td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 9</li><li>regex: ^[ -~]{0,9}$</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 9</li><li>regex: ^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$</li></td>
 </tr>
 <tr>
 <td>BENEFICIARY CANDIDATE LAST NAME</td>
@@ -317,7 +317,7 @@ with the F3L</td>
 <td>X</td>
 <td>Auto-Pull from parent transaction If Transaction Type is (CONDUIT_EARMARK_RECEIPT_DEPOSITED or PAC_CONDUIT_EARMARK_RECEIPT_DEPOSITED), this is required to be unchecked. If Transaction Type is (CONDUIT_EARMARK_RECEIPT_UNDEPOSITED or PAC_CONDUIT_EARMARK_RECEIPT_UNDEPOSITED), this is required to be checked.</td>
 <td></td>
-<td><ul><li>REQUIRED if TRANSACTION_TYPE_IDENTIFIER one of ['CONDUIT_EARMARK_OUT_DEPOSITED', 'PAC_CONDUIT_EARMARK_OUT_DEPOSITED']</li><li>MEMO_CODE = 'False' if TRANSACTION_TYPE_IDENTIFIER one of ['CONDUIT_EARMARK_OUT_DEPOSITED', 'PAC_CONDUIT_EARMARK_OUT_DEPOSITED']</li><li>REQUIRED if TRANSACTION_TYPE_IDENTIFIER one of ['CONDUIT_EARMARK_OUT_UNDEPOSITED', 'PAC_CONDUIT_EARMARK_OUT_UNDEPOSITED']</li><li>MEMO_CODE = 'True' if TRANSACTION_TYPE_IDENTIFIER one of ['CONDUIT_EARMARK_OUT_UNDEPOSITED', 'PAC_CONDUIT_EARMARK_OUT_UNDEPOSITED']</li><li>REQUIRED</li><li>type: boolean</li></td>
+<td><ul><li>REQUIRED if TRANSACTION_TYPE_IDENTIFIER one of ['CONDUIT_EARMARK_OUT_DEPOSITED', 'PAC_CONDUIT_EARMARK_OUT_DEPOSITED']</li><li>MEMO_CODE = 'False' if TRANSACTION_TYPE_IDENTIFIER one of ['CONDUIT_EARMARK_OUT_DEPOSITED', 'PAC_CONDUIT_EARMARK_OUT_DEPOSITED']</li><li>REQUIRED if TRANSACTION_TYPE_IDENTIFIER one of ['CONDUIT_EARMARK_OUT_UNDEPOSITED', 'PAC_CONDUIT_EARMARK_OUT_UNDEPOSITED']</li><li>MEMO_CODE = 'True' if TRANSACTION_TYPE_IDENTIFIER one of ['CONDUIT_EARMARK_OUT_UNDEPOSITED', 'PAC_CONDUIT_EARMARK_OUT_UNDEPOSITED']</li><li>type: boolean</li></td>
 </tr>
 <tr>
 <td>MEMO TEXT/DESCRIPTION</td>
