@@ -196,7 +196,7 @@
 <td>G,P,O[YYYY]</td>
 <td>Values: [G|P|R|S|C|E|O]+Year{YYYY}</td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 5</li><li>regex: ^[ -~]{0,5}$</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 5</li><li>regex: ^[GPRSCEO]\d{4}$</li></td>
 </tr>
 <tr>
 <td>ELECTION OTHER DESCRIPTION</td>
@@ -230,7 +230,7 @@
 </tr>
 <tr>
 <td>AGGREGATE AMOUNT</td>
-<td></td>
+<td>AMT-12</td>
 <td>X (error)</td>
 <td>1000</td>
 <td></td>
@@ -281,7 +281,7 @@
 <tr>
 <td>BENEFICIARY CANDIDATE LAST NAME</td>
 <td>A/N-30</td>
-<td></td>
+<td>X (conditional error)</td>
 <td></td>
 <td></td>
 <td></td>
@@ -291,7 +291,7 @@
 <tr>
 <td>BENEFICIARY CANDIDATE FIRST NAME</td>
 <td>A/N-20</td>
-<td></td>
+<td>X (conditional error)</td>
 <td></td>
 <td></td>
 <td></td>
