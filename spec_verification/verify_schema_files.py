@@ -125,6 +125,7 @@ def handle_roman_numerals(field_name: str):
 
     return field_name
 
+
 def clean_field_name(field_name):
     clear_whitespace = field_name.strip(" ")
     underscored = clear_whitespace.replace(" ", "_")
