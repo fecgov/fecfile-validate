@@ -4,11 +4,15 @@ def clean_form_types(raw_form_type):
     no_whitespace = no_or.replace(" ", "").replace("\n", ",")
     no_quotes = no_whitespace.replace('"', "")
     no_brackets = no_quotes.replace("[", "").replace("]", "")
-    if "," in no_brackets:
-        return no_brackets.split(",")
-    if "|" in no_brackets:
-        return no_brackets.split("|")
-    return [no_brackets]
+    no_braces = no_brackets.replace("{", "").replace("}", "")
+    no_plus = no_braces.replace("+", "")
+
+    cleaned_form_type = no_plus
+    if "," in cleaned_form_type:
+        return cleaned_form_type.split(",")
+    if "|" in cleaned_form_type:
+        return cleaned_form_type.split("|")
+    return [cleaned_form_type]
 
 
 def check_form_type(row, schema, field_name, columns):

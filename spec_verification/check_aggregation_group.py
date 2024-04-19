@@ -23,7 +23,7 @@ def check_aggregation_group(row, schema, field_name, columns):
 
 
 def clean_aggregation_group_name(aggr_group):
-    sheet_aggr_group = aggr_group.replace(" ", "_")
+    sheet_aggr_group = aggr_group.strip(" ").replace(" ", "_")
     sheet_aggr_group = sheet_aggr_group.replace("-", "_")
     sheet_aggr_group = sheet_aggr_group.upper()
     return sheet_aggr_group
@@ -31,7 +31,7 @@ def clean_aggregation_group_name(aggr_group):
 
 def clean_aggregation_group_names(aggr_group_field):
     no_brackets = aggr_group_field.replace("[", "").replace("]", "")
-    no_whitespace = no_brackets.replace(" ", "").replace("\n", "")
+    no_whitespace = no_brackets.replace("\n", "")
     bars_please = no_whitespace.replace(",", "|")
 
     aggr_groups = bars_please.split("|")

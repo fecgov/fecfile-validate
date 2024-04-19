@@ -42,14 +42,23 @@ def check_length(row, schema, field_name, columns):
     # These are recurring patterns whose lengths are very hard to measure with a function
     # Instead, the fields corresponding to the keys here are considered as matching if
     # their pattern matches the value below
-    committee_id_patterns = ["^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$"]
+    fec_id_patterns = [
+        "^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$",
+        "^P[0-9]{8}$|^[H|S][0-9]{1}[A-Z]{2}[0-9]{5}$"
+    ]
     date_patterns = ["^[0-9]{4}-[0-9]{2}-[0-9]{2}$"]
     fixed_patterns = {
-        "filer_committee_id_number": committee_id_patterns,
-        "donor_committee_fec_id": committee_id_patterns,
-        "beneficiary_committee_fec_id": committee_id_patterns,
-        "beneficiary_candidate_fec_id": committee_id_patterns,
-        "payee_committee_fec_id": committee_id_patterns,
+        "filer_committee_id_number": fec_id_patterns,
+        "donor_committee_fec_id": fec_id_patterns,
+        "beneficiary_committee_fec_id": fec_id_patterns,
+        "beneficiary_candidate_fec_id": fec_id_patterns,
+        "affiliated_committee_fec_id": fec_id_patterns,
+        "I_candidate_id_number": fec_id_patterns,
+        "II_candidate_id_number": fec_id_patterns,
+        "III_candidate_id_number": fec_id_patterns,
+        "IV_candidate_id_number": fec_id_patterns,
+        "V_candidate_id_number": fec_id_patterns,
+        "payee_committee_fec_id": fec_id_patterns,
         "contribution_date": date_patterns,
         "expenditure_date": date_patterns,
         "loan_incurred_date": date_patterns,
@@ -60,6 +69,16 @@ def check_length(row, schema, field_name, columns):
         "dissemination_date": date_patterns,
         "disbursement_date": date_patterns,
         "date_signed": date_patterns,
+        "original_amendment_date": date_patterns,
+        "I_date_of_contribution": date_patterns,
+        "II_date_of_contribution": date_patterns,
+        "III_date_of_contribution": date_patterns,
+        "IV_date_of_contribution": date_patterns,
+        "V_date_of_contribution": date_patterns,
+        "date_of_51st_contributor": date_patterns,
+        "date_of_original_registration": date_patterns,
+        "date_committee_met_requirements": date_patterns,
+        "affiliated_date_form_f1_filed": date_patterns,
         "election_code": ["^[GPRSCEO]\\d{4}$", "^P\\d{4}$"],
     }
 
