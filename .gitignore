@@ -5,6 +5,7 @@
 *.pot
 *.pyc
 *.pyo
+.venv/
 build/
 dist/
 helloworld.db
