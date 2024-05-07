@@ -6,6 +6,7 @@
     "description": "SCHEDULE C2 - LOAN GUARANTOR NAME & ADDRESS INFORMATION (SUPPLEMENTARY FOR INFORMATION FOUND ON SCHEDULE C)",
     "type": "object",
     "required": [
+        "report_type",
         "form_type",
         "filer_committee_id_number",
         "transaction_type_identifier",
@@ -20,6 +21,23 @@
         "guaranteed_amount"
     ],
     "properties": {
+        "report_type": {
+            "title": "REPORT TYPE",
+            "description": "",
+            "const": "F3X",
+            "examples": [
+                "F3X"
+            ],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "REPORT TYPE",
+                "TYPE": "A/N-100",
+                "REQUIRED": "X (error)",
+                "SAMPLE DATA": "F3X",
+                "VALUE REFERENCE": null,
+                "RULE REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
         "form_type": {
             "title": "FORM TYPE",
             "description": "",

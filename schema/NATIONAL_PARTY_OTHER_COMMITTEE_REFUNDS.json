@@ -6,6 +6,7 @@
     "description": "Other Committee Refund - National Party Headquarters Buildings Account (Line 21b), Other Committee Refund - National Party Pres. Nominating Convention Account (Line 21b), Other Committee Refund - National Party Recount/Legal Proceedings Account (Line 29)",
     "type": "object",
     "required": [
+        "report_type",
         "form_type",
         "filer_committee_id_number",
         "transaction_type_identifier",
@@ -25,6 +26,23 @@
     ],
     "fec_recommended": [],
     "properties": {
+        "report_type": {
+            "title": "REPORT TYPE",
+            "description": "",
+            "const": "F3X",
+            "examples": [
+                "F3X"
+            ],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "REPORT TYPE",
+                "TYPE": "A/N-100",
+                "REQUIRED": "X (error)",
+                "SAMPLE DATA": "F3X",
+                "VALUE REFERENCE": null,
+                "RULE REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
         "form_type": {
             "title": "FORM TYPE",
             "description": "",

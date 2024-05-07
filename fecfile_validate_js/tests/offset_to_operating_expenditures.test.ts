@@ -3,6 +3,7 @@ import { validate } from "../dist/index.js";
 import { schema } from "../dist/OFFSET_TO_OPERATING_EXPENDITURES.js";
 
 const perfectForm: any = {
+  report_type: "F3X",
   form_type: "SA15",
   filer_committee_id_number: "C00123456",
   transaction_type_identifier: "OFFSET_TO_OPERATING_EXPENDITURES",
