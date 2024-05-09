@@ -6,7 +6,6 @@
     "description": "SCHEDULE B - 100% Federal Election Activity Payment, Void of 100% Federal Election Activity (Line 30b)",
     "type": "object",
     "required": [
-        "report_type",
         "form_type",
         "filer_committee_id_number",
         "transaction_type_identifier",
@@ -27,7 +26,8 @@
         "report_type": {
             "title": "REPORT TYPE",
             "description": "",
-            "const": "F3X",
+            "type": "string",
+            "maxLength": 5,
             "examples": [
                 "F3X"
             ],

@@ -6,7 +6,6 @@
     "description": "SCHEDULE B - Credit Card Memo for Operating Expenditure (line 21b), Credit Card Memo for Other Disbursements (Line 29), Reimbursement Memo for Operating Expenditure  (Line 21b), Reimbursement Memo for Other Disbursements - Line 29, Payroll Memo for Operating Expenditure (Line 21b), Payroll Memo for Other Disbursements - Line 29",
     "type": "object",
     "required": [
-        "report_type",
         "form_type",
         "filer_committee_id_number",
         "back_reference_tran_id_number",
@@ -29,7 +28,8 @@
         "report_type": {
             "title": "REPORT TYPE",
             "description": "",
-            "const": "F3X",
+            "type": "string",
+            "maxLength": 5,
             "examples": [
                 "F3X"
             ],

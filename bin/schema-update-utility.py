@@ -27,7 +27,8 @@ def process(file, schema):
     report_type = {
         "title": "REPORT TYPE",
         "description": "",
-        "const": "F3X",
+        "type": "string",
+        "maxLength": 5,
         "examples": ["F3X"],
         "fec_spec": {
             "FIELD_DESCRIPTION": "REPORT TYPE",
@@ -62,15 +63,9 @@ def process(file, schema):
     # conditionals = schema.get('allOf', [])
     changed = False
 
-    if (
-        "transaction_id" in schema["properties"]
-        and "transaction_type_identifier" in schema["properties"]
-    ):
-        new_properties = {"report_type": report_type}
-        for key, value in schema["properties"].items():
-            new_properties[key] = value
-        schema["properties"] = new_properties
-        schema["required"].insert(0, "report_type")
+    if "report_type" in schema["properties"]:
+        schema["properties"]["report_type"] = report_type
+        schema["required"].pop(0)
         changed = True
 
     # for property in properties.keys():
