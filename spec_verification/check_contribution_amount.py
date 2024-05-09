@@ -23,34 +23,34 @@ def check_contribution_amount(row, schema, field_name, columns):
 
     if json_minimum is None:
         errors.append(
-            f"    Error: {field_name} - The JSON for the field has no minimum value"
+            f"Error: {field_name} - The JSON for the field has no minimum value"
         )
     elif json_minimum != 0 and len(str(json_minimum)) != expected_length:
         errors.append(
-            f"    Error: {field_name} - The JSON's minimum value "
+            f"Error: {field_name} - The JSON's minimum value "
             f"is {json_minimum} when it should have a length of 12"
         )
 
     if not sheet_amount_negative:
         if json_maximum is None:
             errors.append(
-                f"    Error: {field_name} - The JSON for the field "
+                f"Error: {field_name} - The JSON for the field "
                 f"has no maximum value"
             )
         elif len(str(json_maximum)) != expected_length:
             errors.append(
-                f"    Error: {field_name} - The JSON's maximum value "
+                f"Error: {field_name} - The JSON's maximum value "
                 f"is {json_maximum} when it should have a length of 12"
             )
     else:
         if json_exclusive_maximum is None:
             errors.append(
-                f"    Error: {field_name} - The JSON for "
+                f"Error: {field_name} - The JSON for "
                 f"the field has no exclusiveMaximum value"
             )
         elif json_exclusive_maximum != 0:
             errors.append(
-                f"    Error: {field_name} - The JSON's "
+                f"Error: {field_name} - The JSON's "
                 f"exclusiveMaximum should equal 0"
             )
 

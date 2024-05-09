@@ -46,7 +46,7 @@
             "type": "string",
             "minLength": 1,
             "maxLength": 9,
-            "pattern": "^[ -~]{0,9}$",
+            "pattern": "^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$",
             "examples": [
                 "C00123456"
             ],
@@ -316,7 +316,7 @@
                 "COL_SEQ": 15,
                 "FIELD_DESCRIPTION": "GUARANTOR EMPLOYER",
                 "TYPE": "A/N-38",
-                "REQUIRED": "X(conditional error)",
+                "REQUIRED": "X (conditional error)",
                 "SAMPLE_DATA": "XYZ Company",
                 "RULE_REFERENCE": "Req if Guaranteed amount > 200"
             }
@@ -338,7 +338,7 @@
                 "COL_SEQ": 16,
                 "FIELD_DESCRIPTION": "GUARANTOR OCCUPATION",
                 "TYPE": "A/N-38",
-                "REQUIRED": "X(conditional error)",
+                "REQUIRED": "X (conditional error)",
                 "SAMPLE_DATA": "QC Inspector",
                 "RULE_REFERENCE": "Req if Guaranteed amount > 200"
             }
@@ -356,7 +356,7 @@
                 "COL_SEQ": 17,
                 "FIELD_DESCRIPTION": "GUARANTEED AMOUNT",
                 "TYPE": "AMT-12",
-                "REQUIRED": "X(error)",
+                "REQUIRED": "X (error)",
                 "SAMPLE_DATA": 250
             }
         }

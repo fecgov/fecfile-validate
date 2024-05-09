@@ -360,7 +360,7 @@
             "fec_spec": {
                 "COL_SEQ": 15,
                 "FIELD_DESCRIPTION": "LENDER STATE",
-                "TYPE": "A/N-2",
+                "TYPE": "A-2",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "MA",
                 "VALUE_REFERENCE": null,

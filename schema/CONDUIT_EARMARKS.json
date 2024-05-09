@@ -21,8 +21,7 @@
         "contribution_amount",
         "contribution_purpose_descrip",
         "donor_committee_fec_id",
-        "donor_committee_name",
-        "memo_code"
+        "donor_committee_name"
     ],
     "fec_recommended": [],
     "properties": {
@@ -432,7 +431,7 @@
             "type": "string",
             "minLength": 1,
             "maxLength": 100,
-            "pattern": "^Earmarked for [ -~]{0,76} \\(Committee\\)$",
+            "pattern": "^Earmarked for [ -~]{0,74} \\(Committee\\)$",
             "fec_spec": {
                 "FIELD_DESCRIPTION": "CONTRIBUTION PURPOSE DESCRIPTION",
                 "TYPE": "A/N-100",
@@ -613,7 +612,10 @@
                     "memo_code": {
                         "const": true
                     }
-                }
+                },
+                "required": [
+                    "memo_code"
+                ]
             }
         }
     ]

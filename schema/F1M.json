@@ -437,7 +437,7 @@
             "fec_spec": {
                 "COL_SEQ": 19,
                 "FIELD_DESCRIPTION": "I CANDIDATE OFFICE",
-                "TYPE": "Dropdown",
+                "TYPE": "A/N-1",
                 "REQUIRED": "X (conditional error)",
                 "AUTO_POPULATE": null,
                 "SAMPLE_DATA": "House\nSenate\nPresidential",
@@ -484,7 +484,7 @@
             "fec_spec": {
                 "COL_SEQ": 21,
                 "FIELD_DESCRIPTION": "I CANDIDATE DISTRICT",
-                "TYPE": "A/N-2",
+                "TYPE": "NUM-2",
                 "REQUIRED": "X (conditional error)",
                 "AUTO_POPULATE": null,
                 "SAMPLE_DATA": null,
@@ -687,7 +687,7 @@
             "fec_spec": {
                 "COL_SEQ": 29,
                 "FIELD_DESCRIPTION": "II CANDIDATE OFFICE",
-                "TYPE": "Dropdown",
+                "TYPE": "A/N-1",
                 "REQUIRED": "X (conditional error)",
                 "AUTO_POPULATE": null,
                 "SAMPLE_DATA": "House\nSenate\nPresidential",
@@ -734,7 +734,7 @@
             "fec_spec": {
                 "COL_SEQ": 31,
                 "FIELD_DESCRIPTION": "II CANDIDATE DISTRICT",
-                "TYPE": "A/N-2",
+                "TYPE": "NUM-2",
                 "REQUIRED": "X (conditional error)",
                 "AUTO_POPULATE": null,
                 "SAMPLE_DATA": null,
@@ -937,7 +937,7 @@
             "fec_spec": {
                 "COL_SEQ": 39,
                 "FIELD_DESCRIPTION": "III CANDIDATE OFFICE",
-                "TYPE": "Dropdown",
+                "TYPE": "A/N-1",
                 "REQUIRED": "X (conditional error)",
                 "AUTO_POPULATE": null,
                 "SAMPLE_DATA": "House\nSenate\nPresidential",
@@ -984,7 +984,7 @@
             "fec_spec": {
                 "COL_SEQ": 41,
                 "FIELD_DESCRIPTION": "III CANDIDATE DISTRICT",
-                "TYPE": "A/N-2",
+                "TYPE": "NUM-2",
                 "REQUIRED": "X (conditional error)",
                 "AUTO_POPULATE": null,
                 "SAMPLE_DATA": null,
@@ -1187,7 +1187,7 @@
             "fec_spec": {
                 "COL_SEQ": 49,
                 "FIELD_DESCRIPTION": "IV CANDIDATE OFFICE",
-                "TYPE": "Dropdown",
+                "TYPE": "A/N-1",
                 "REQUIRED": "X (conditional error)",
                 "AUTO_POPULATE": null,
                 "SAMPLE_DATA": "House\nSenate\nPresidential",
@@ -1234,7 +1234,7 @@
             "fec_spec": {
                 "COL_SEQ": 51,
                 "FIELD_DESCRIPTION": "IV CANDIDATE DISTRICT",
-                "TYPE": "A/N-2",
+                "TYPE": "NUM-2",
                 "REQUIRED": "X (conditional error)",
                 "AUTO_POPULATE": null,
                 "SAMPLE_DATA": null,
@@ -1437,7 +1437,7 @@
             "fec_spec": {
                 "COL_SEQ": 59,
                 "FIELD_DESCRIPTION": "V CANDIDATE OFFICE",
-                "TYPE": "Dropdown",
+                "TYPE": "A-1",
                 "REQUIRED": "X (conditional error)",
                 "AUTO_POPULATE": null,
                 "SAMPLE_DATA": "House\nSenate\nPresidential",
@@ -1484,7 +1484,7 @@
             "fec_spec": {
                 "COL_SEQ": 61,
                 "FIELD_DESCRIPTION": "V CANDIDATE DISTRICT",
-                "TYPE": "A/N-2",
+                "TYPE": "NUM-2",
                 "REQUIRED": "X (conditional error)",
                 "AUTO_POPULATE": null,
                 "SAMPLE_DATA": null,

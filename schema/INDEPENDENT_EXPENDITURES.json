@@ -395,7 +395,7 @@
             "fec_spec": {
                 "COL_SEQ": 16,
                 "FIELD_DESCRIPTION": "PAYEE STATE",
-                "TYPE": "A-2",
+                "TYPE": "A/N-2",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "NY",
                 "VALUE_REFERENCE": null,
@@ -801,7 +801,7 @@
             "fec_spec": {
                 "COL_SEQ": 36,
                 "FIELD_DESCRIPTION": "S/O CANDIDATE DISTRICT",
-                "TYPE": "NUM-2",
+                "TYPE": "A/N-2",
                 "REQUIRED": "X (conditional error)",
                 "SAMPLE_DATA": 36,
                 "VALUE_REFERENCE": "01 ... 99",

@@ -1,3 +1,6 @@
+FIELD_NAME_COLUMN = "B"
+
+
 def get_schema_property(schema, field_name, property, is_fec_spec=False):
     if field_name in schema["properties"]:
         field = schema["properties"][field_name]
@@ -8,6 +11,16 @@ def get_schema_property(schema, field_name, property, is_fec_spec=False):
             return field[property]
         else:
             return None
+
+
+def has_schema_property(schema, field_name, property, is_fec_spec=False):
+    if field_name in schema["properties"]:
+        field = schema["properties"][field_name]
+        if is_fec_spec:
+            field = field["fec_spec"]
+
+        return property in field.keys()
+    return False
 
 
 def get_length_from_type(type):
