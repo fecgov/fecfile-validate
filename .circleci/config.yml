@@ -32,7 +32,7 @@ jobs:
       - run:
           name: Run python tests, save a coverage report, and save coverage percentage
           command: |
-            pytest --cov=.  --cov-report=xml --cov-report=html:htmlcov_py --cov-report=term | tee pytest.out
+            python3 -m pytest --cov=.  --cov-report=xml --cov-report=html:htmlcov_py --cov-report=term | tee pytest.out
             export NEW_PYTHON_LINES=$(cat pytest.out | grep TOTAL | awk '{print $2}' | grep -oE "[0-9]+" )
             export NEW_PYTHON_HITS=$(($NEW_PYTHON_LINES - $(cat pytest.out | grep TOTAL | awk '{print $3}' | grep -oE "[0-9]+" )))
             export NEW_PYTHON_PERCENT=$(cat pytest.out | grep TOTAL | awk '{print $4}' | grep -oE "[0-9]+" )

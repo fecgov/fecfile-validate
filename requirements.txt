@@ -1,9 +1,7 @@
 Sphinx==4.3.1
-pytest==7.4.4
 coverage==6.2
-pytest-cov
 pylint==2.13.9
 jsonschema==3.2.0
-json-schema-for-humans==0.39.1
+json-schema-for-humans==0.48
 openpyxl==3.0.9
 rfc3339-validator==0.1.4

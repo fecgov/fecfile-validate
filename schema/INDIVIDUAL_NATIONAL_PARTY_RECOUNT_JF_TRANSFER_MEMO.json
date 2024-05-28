@@ -28,6 +28,23 @@
     ],
     "fec_recommended": [],
     "properties": {
+        "report_type": {
+            "title": "REPORT TYPE",
+            "description": "",
+            "type": "string",
+            "maxLength": 5,
+            "examples": [
+                "F3X"
+            ],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "REPORT TYPE",
+                "TYPE": "A/N-100",
+                "SAMPLE DATA": "F3X",
+                "VALUE REFERENCE": null,
+                "RULE REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
         "form_type": {
             "title": "FORM TYPE",
             "description": "",

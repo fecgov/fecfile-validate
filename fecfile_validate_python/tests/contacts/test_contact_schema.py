@@ -1,7 +1,8 @@
 import pytest
 import json
 import os
-from src.fecfile_validate import validate
+
+from fecfile_validate_python.src.fecfile_validate import validate
 
 
 @pytest.fixture

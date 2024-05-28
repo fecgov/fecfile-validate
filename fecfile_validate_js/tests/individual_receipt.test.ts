@@ -3,6 +3,7 @@ import { validate } from "../dist/index.js";
 import { schema } from "../dist/INDIVIDUAL_RECEIPT.js";
 
 const perfectForm: any = {
+  report_type: "F3X",
   form_type: "SA11AI",
   filer_committee_id_number: "C00123456",
   transaction_type_identifier: "INDIVIDUAL_RECEIPT",
