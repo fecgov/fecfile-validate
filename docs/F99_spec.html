@@ -15,8 +15,8 @@
 <td>A/N-3</td>
 <td>X (error)</td>
 <td>F99</td>
-<td>Form Type</td>
 <td></td>
+<td>F99</td>
 <td></td>
 <td><ul><li>REQUIRED</li><li>must equal: F99</li></td>
 </tr>
@@ -37,8 +37,8 @@
 <td>A/N-200</td>
 <td>X (error)</td>
 <td></td>
-<td>Filing Committee's Name</td>
 <td></td>
+<td>Filing Committee's Name</td>
 <td></td>
 <td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 200</li><li>regex: ^[ -~]{0,200}$</li></td>
 </tr>
@@ -48,8 +48,8 @@
 <td>A/N-34</td>
 <td>X (error)</td>
 <td></td>
-<td>Committee's Street Address 1</td>
 <td></td>
+<td>Committee's Street Address 1</td>
 <td></td>
 <td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 34</li><li>regex: ^[ -~]{0,34}$</li></td>
 </tr>
@@ -59,8 +59,8 @@
 <td>A/N-34</td>
 <td></td>
 <td></td>
-<td>Committee's Street Address 2</td>
 <td></td>
+<td>Committee's Street Address 2</td>
 <td></td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 34</li><li>regex: ^[ -~]{0,34}$</li></td>
 </tr>
@@ -70,8 +70,8 @@
 <td>A/N-30</td>
 <td>X (error)</td>
 <td></td>
-<td>Committee's City/Town</td>
 <td></td>
+<td>Committee's City/Town</td>
 <td></td>
 <td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 30</li><li>regex: ^[ -~]{0,30}$</li></td>
 </tr>
@@ -81,8 +81,8 @@
 <td>A-2</td>
 <td>X (error)</td>
 <td></td>
-<td>Committee's State Code</td>
 <td></td>
+<td>Committee's State Code</td>
 <td></td>
 <td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 2</li><li>regex: ^[A-Z]{2}$</li></td>
 </tr>
@@ -92,8 +92,8 @@
 <td>A/N-9</td>
 <td>X (error)</td>
 <td></td>
-<td>Committee's Zip Code</td>
 <td></td>
+<td>Committee's Zip Code</td>
 <td></td>
 <td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 9</li><li>regex: ^[ -~]{0,9}$</li></td>
 </tr>
@@ -179,14 +179,36 @@
 </tr>
 <tr>
 <td></td>
+<td>[BEGINTEXT]</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>.fec file must include [BEGINTEXT] on its own row before the MESSAGE TEXT</td>
+<td></td>
+<td><ul><li>type: ['string', 'null']</li></td>
+</tr>
+<tr>
+<td></td>
 <td>MESSAGE TEXT</td>
 <td>A/N-20000</td>
 <td>X (error)</td>
 <td></td>
 <td></td>
-<td></td>
+<td>Everything following the [BEGINTEXT] marker, which is on its own row, will be treated as the body of the text message. It may include formatting, such as carriage return and line feed and tabs but may not exceed 20,000 characters (including spaces). When the text message is complete, the last line of the form 99 should be [ENDTEXT] marker on its own row.</td>
 <td></td>
 <td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 20000</li><li>regex: ^[ -~
 	]{1,20000}$</li></td>
+</tr>
+<tr>
+<td></td>
+<td>[ENDTEXT]</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>.fec file must include [ENDTEXT] on its own row after the MESSAGE TEXT</td>
+<td></td>
+<td><ul><li>type: ['string', 'null']</li></td>
 </tr>
 </table></body></html>
