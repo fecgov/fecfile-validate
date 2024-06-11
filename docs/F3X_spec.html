@@ -27,7 +27,7 @@
 <td>X (error)</td>
 <td>C00123456</td>
 <td></td>
-<td>this is the ID of the Committee Account the report/transaction is associated with</td>
+<td>Must be either"CXXXXXXXX" where X is a numeric value (C, then 8 numbers) or "PXXXXXXXX" where X is a numeric value (P, then 8 numbers) or [H|S][0-9]{1}[A-Z]{2}[0-9]{5} (H or S, 1 number, 2 letters, 5 numbers)</td>
 <td></td>
 <td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 9</li><li>max length: 9</li><li>regex: ^[C|P][0-9]{8}$|^[H|S][0-9]{1}[A-Z]{2}[0-9]{5}$</li></td>
 </tr>
@@ -35,7 +35,7 @@
 <td>3</td>
 <td>COMMITTEE NAME</td>
 <td>A/N-200</td>
-<td>X (warning)</td>
+<td>X (error)</td>
 <td>Foes of Pat</td>
 <td></td>
 <td></td>
@@ -57,7 +57,7 @@
 <td>5</td>
 <td>STREET  1</td>
 <td>A/N-34</td>
-<td>X (warning)</td>
+<td>X (error)</td>
 <td>125 Sycamore St</td>
 <td></td>
 <td></td>
@@ -79,7 +79,7 @@
 <td>7</td>
 <td>CITY</td>
 <td>A/N-30</td>
-<td>X (warning)</td>
+<td>X (error)</td>
 <td>Anytown</td>
 <td></td>
 <td></td>
@@ -90,7 +90,7 @@
 <td>8</td>
 <td>STATE</td>
 <td>A-2</td>
-<td>X (warning)</td>
+<td>X (error)</td>
 <td>FL</td>
 <td></td>
 <td>Edit: ST</td>
@@ -101,7 +101,7 @@
 <td>9</td>
 <td>ZIP</td>
 <td>A/N-9</td>
-<td>X (warning)</td>
+<td>X (error)</td>
 <td>33034</td>
 <td></td>
 <td></td>
@@ -112,7 +112,7 @@
 <td>10</td>
 <td>REPORT CODE</td>
 <td>A-3</td>
-<td>X (warning)</td>
+<td>X (error)</td>
 <td>12P</td>
 <td>12C,..., TER</td>
 <td>Warning if Code is missing;
@@ -126,7 +126,7 @@ Quarterly Year-End reports will continue to be coded with 'YE'.</td>
 <td>11</td>
 <td>ELECTION CODE  {was RPTPGI}</td>
 <td>A/N-5</td>
-<td>X (warn if REPORT CODE=12[?])</td>
+<td>X (conditional error)</td>
 <td>P2012</td>
 <td>C,G,P,R,S,E[YYYY]</td>
 <td>Edit: PGI</td>
@@ -137,7 +137,7 @@ Quarterly Year-End reports will continue to be coded with 'YE'.</td>
 <td>12</td>
 <td>DATE OF ELECTION</td>
 <td>NUM-8</td>
-<td>X (warn if REPORT CODE=[12?|30?])</td>
+<td>X (conditional error)</td>
 <td>20120715</td>
 <td>YYYYMMDD</td>
 <td></td>
@@ -148,7 +148,7 @@ Quarterly Year-End reports will continue to be coded with 'YE'.</td>
 <td>13</td>
 <td>STATE OF ELECTION</td>
 <td>A-2</td>
-<td>X (warn if REPORT CODE=[12?|30?])</td>
+<td>X (conditional error)</td>
 <td>FL</td>
 <td></td>
 <td>Edit: St</td>
@@ -159,7 +159,7 @@ Quarterly Year-End reports will continue to be coded with 'YE'.</td>
 <td>14</td>
 <td>COVERAGE FROM DATE</td>
 <td>NUM-8</td>
-<td>X (warning)</td>
+<td>X (error)</td>
 <td></td>
 <td></td>
 <td></td>
@@ -170,7 +170,7 @@ Quarterly Year-End reports will continue to be coded with 'YE'.</td>
 <td>15</td>
 <td>COVERAGE THROUGH DATE</td>
 <td>NUM-8</td>
-<td>X (warning)</td>
+<td>X (error)</td>
 <td></td>
 <td></td>
 <td></td>

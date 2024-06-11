@@ -1,5 +1,4 @@
 <!DOCTYPE html><html lang="en"><head><title>SchC2</title><link rel="stylesheet" href="spec_table.css"></head><body><table><caption>Specification for SchC2</caption><tr>
-<th>COL SEQ</th>
 <th>FIELD DESCRIPTION</th>
 <th>TYPE</th>
 <th>REQUIRED</th>
@@ -10,40 +9,46 @@
 <th>VALIDATION RULES</th>
 </tr>
 <tr>
-<td>1</td>
 <td>FORM TYPE</td>
 <td>A/N-8</td>
 <td>X (error)</td>
-<td>SC2/9</td>
-<td>SC2/[line# ref]</td>
-<td>Appendix C</td>
+<td>SC2/10</td>
+<td>SC2/10</td>
+<td>SC2/10</td>
 <td></td>
 <td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 8</li><li>regex: ^[ -~]{0,8}$</li></td>
 </tr>
 <tr>
-<td>2</td>
 <td>FILER COMMITTEE ID NUMBER</td>
 <td>A/N-9</td>
 <td>X (error)</td>
 <td>C00123456</td>
 <td></td>
-<td>this is the ID of the Committee Account the report/transaction is associated with</td>
+<td>Must be either "CXXXXXXXX" where X is a numeric value (C, then 8 numbers) or "PXXXXXXXX" where X is a numeric value (P, then 8 numbers) or [H|S][0-9]{1}[A-Z]{2}[0-9]{5} (H or S, 1 number, 2 letters, 5 numbers)</td>
 <td></td>
 <td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 9</li><li>regex: ^[ -~]{0,9}$</li></td>
 </tr>
 <tr>
-<td>3</td>
+<td>TRANSACTION TYPE IDENTIFIER</td>
+<td></td>
+<td>X (error)</td>
+<td>C2_LOAN_GUARANTOR</td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>type: string</li></td>
+</tr>
+<tr>
 <td>TRANSACTION ID NUMBER</td>
 <td>A/N-20</td>
 <td>X (error)</td>
 <td>C123456789-3456-001</td>
-<td>May be a combination of Parent SC/ TranID + a unique ID for this Child SC1/ record</td>
+<td></td>
 <td>Must be unique for the life of a report (original + amendments) within each committee account. Letters, if included, must be uppercase.</td>
 <td></td>
 <td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
 </tr>
 <tr>
-<td>4</td>
 <td>BACK REFERENCE TRAN ID NUMBER</td>
 <td>A/N-20</td>
 <td>X (error)</td>
@@ -54,7 +59,6 @@
 <td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
 </tr>
 <tr>
-<td>5</td>
 <td>GUARANTOR LAST NAME</td>
 <td>A/N-30</td>
 <td>X (error)</td>
@@ -65,7 +69,6 @@
 <td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 30</li><li>regex: ^[ -~]{0,30}$</li></td>
 </tr>
 <tr>
-<td>6</td>
 <td>GUARANTOR FIRST NAME</td>
 <td>A/N-20</td>
 <td>X (error)</td>
@@ -76,7 +79,6 @@
 <td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
 </tr>
 <tr>
-<td>7</td>
 <td>GUARANTOR MIDDLE NAME</td>
 <td>A/N-20</td>
 <td></td>
@@ -87,7 +89,6 @@
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
 </tr>
 <tr>
-<td>8</td>
 <td>GUARANTOR PREFIX</td>
 <td>A/N-10</td>
 <td></td>
@@ -98,7 +99,6 @@
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 10</li><li>regex: ^[ -~]{0,10}$</li></td>
 </tr>
 <tr>
-<td>9</td>
 <td>GUARANTOR SUFFIX</td>
 <td>A/N-10</td>
 <td></td>
@@ -109,10 +109,9 @@
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 10</li><li>regex: ^[ -~]{0,10}$</li></td>
 </tr>
 <tr>
-<td>10</td>
 <td>GUARANTOR STREET 1</td>
 <td>A/N-34</td>
-<td>X (warning)</td>
+<td>X (error)</td>
 <td>123 Main Street</td>
 <td></td>
 <td></td>
@@ -120,7 +119,6 @@
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 34</li><li>regex: ^[ -~]{0,34}$</li></td>
 </tr>
 <tr>
-<td>11</td>
 <td>GUARANTOR STREET 2</td>
 <td>A/N-34</td>
 <td></td>
@@ -131,10 +129,9 @@
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 34</li><li>regex: ^[ -~]{0,34}$</li></td>
 </tr>
 <tr>
-<td>12</td>
 <td>GUARANTOR CITY</td>
 <td>A/N-30</td>
-<td>X (warning)</td>
+<td>X (error)</td>
 <td>Anytown</td>
 <td></td>
 <td></td>
@@ -142,10 +139,9 @@
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 30</li><li>regex: ^[ -~]{0,30}$</li></td>
 </tr>
 <tr>
-<td>13</td>
 <td>GUARANTOR STATE</td>
 <td>A-2</td>
-<td>X (warning)</td>
+<td>X (error)</td>
 <td>WA</td>
 <td>AK,AL,...,ZZ</td>
 <td>Edit: ST</td>
@@ -153,10 +149,9 @@
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 2</li><li>regex: ^[ -~]{0,2}$</li></td>
 </tr>
 <tr>
-<td>14</td>
 <td>GUARANTOR ZIP</td>
 <td>A/N-9</td>
-<td>X (warning)</td>
+<td>X (error)</td>
 <td>981110123</td>
 <td></td>
 <td></td>
@@ -164,35 +159,32 @@
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 9</li><li>regex: ^[ -~]{0,9}$</li></td>
 </tr>
 <tr>
-<td>15</td>
 <td>GUARANTOR EMPLOYER</td>
 <td>A/N-38</td>
-<td>X(warn if > $200)</td>
+<td>X(conditional error)</td>
 <td>XYZ Company</td>
 <td></td>
-<td></td>
+<td>Req if Guaranteed amount > 200</td>
 <td></td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 38</li><li>regex: ^[ -~]{0,38}$</li></td>
 </tr>
 <tr>
-<td>16</td>
 <td>GUARANTOR OCCUPATION</td>
 <td>A/N-38</td>
-<td>X(warn if > $200)</td>
+<td>X(conditional error)</td>
 <td>QC Inspector</td>
 <td></td>
-<td></td>
+<td>Req if Guaranteed amount > 200</td>
 <td></td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 38</li><li>regex: ^[ -~]{0,38}$</li></td>
 </tr>
 <tr>
-<td>17</td>
 <td>GUARANTEED AMOUNT</td>
 <td>AMT-12</td>
 <td></td>
 <td>250</td>
 <td></td>
-<td></td>
+<td>X(error)</td>
 <td></td>
 <td><ul><li>type: ['number', 'null']</li><li>minimum: -99999999.99</li><li>maximum: 999999999.99</li></td>
 </tr>
