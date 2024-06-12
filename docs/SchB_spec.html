@@ -1,4 +1,5 @@
 <!DOCTYPE html><html lang="en"><head><title>SchB</title><link rel="stylesheet" href="spec_table.css"></head><body><table><caption>Specification for SchB</caption><tr>
+<th>COL SEQ</th>
 <th>FIELD DESCRIPTION</th>
 <th>TYPE</th>
 <th>REQUIRED</th>
@@ -9,6 +10,7 @@
 <th>VALIDATION RULES</th>
 </tr>
 <tr>
+<td>1</td>
 <td>FORM TYPE</td>
 <td>A/N-8</td>
 <td>X (error)</td>
@@ -20,6 +22,7 @@ with the F3L</td>
 <td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 8</li><li>regex: ^[ -~]{0,8}$</li></td>
 </tr>
 <tr>
+<td>2</td>
 <td>FILER COMMITTEE ID NUMBER</td>
 <td>A/N-9</td>
 <td>X (error)</td>
@@ -30,6 +33,7 @@ with the F3L</td>
 <td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 9</li><li>regex: ^[ -~]{0,9}$</li></td>
 </tr>
 <tr>
+<td></td>
 <td>TRANSACTION TYPE IDENTIFIER</td>
 <td></td>
 <td>X (error)</td>
@@ -40,6 +44,7 @@ with the F3L</td>
 <td><ul><li>type: string</li><li>regex: </li></td>
 </tr>
 <tr>
+<td>3</td>
 <td>TRANSACTION ID</td>
 <td>A/N-20</td>
 <td>X (error)</td>
@@ -50,6 +55,7 @@ with the F3L</td>
 <td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
 </tr>
 <tr>
+<td>4</td>
 <td>BACK REFERENCE TRAN ID NUMBER</td>
 <td>A/N-20</td>
 <td></td>
@@ -60,6 +66,7 @@ with the F3L</td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
 </tr>
 <tr>
+<td>5</td>
 <td>BACK REFERENCE SCHED NAME</td>
 <td>A/N-8</td>
 <td></td>
@@ -71,6 +78,7 @@ with the F3L</td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 8</li><li>regex: ^[ -~]{0,8}$</li></td>
 </tr>
 <tr>
+<td>6</td>
 <td>ENTITY TYPE</td>
 <td>A/N-3</td>
 <td>X (error)</td>
@@ -81,6 +89,7 @@ with the F3L</td>
 <td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 3</li><li>regex: ^[ -~]{0,3}$</li></td>
 </tr>
 <tr>
+<td>7</td>
 <td>PAYEE ORGANIZATION NAME</td>
 <td>A/N-200</td>
 <td>X (error)</td>
@@ -91,6 +100,7 @@ with the F3L</td>
 <td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 200</li><li>regex: ^[ -~]{0,200}$</li></td>
 </tr>
 <tr>
+<td>8</td>
 <td>PAYEE LAST NAME</td>
 <td>A/N-30</td>
 <td>X (error)</td>
@@ -101,6 +111,7 @@ with the F3L</td>
 <td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 30</li><li>regex: ^[ -~]{0,30}$</li></td>
 </tr>
 <tr>
+<td>9</td>
 <td>PAYEE FIRST NAME</td>
 <td>A/N-20</td>
 <td>X (error)</td>
@@ -111,6 +122,7 @@ with the F3L</td>
 <td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
 </tr>
 <tr>
+<td>10</td>
 <td>PAYEE MIDDLE NAME</td>
 <td>A/N-20</td>
 <td></td>
@@ -121,6 +133,7 @@ with the F3L</td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
 </tr>
 <tr>
+<td>11</td>
 <td>PAYEE PREFIX</td>
 <td>A/N-10</td>
 <td></td>
@@ -131,6 +144,7 @@ with the F3L</td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 10</li><li>regex: ^[ -~]{0,10}$</li></td>
 </tr>
 <tr>
+<td>12</td>
 <td>PAYEE SUFFIX</td>
 <td>A/N-10</td>
 <td></td>
@@ -141,6 +155,7 @@ with the F3L</td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 10</li><li>regex: ^[ -~]{0,10}$</li></td>
 </tr>
 <tr>
+<td>13</td>
 <td>PAYEE STREET  1</td>
 <td>A/N-34</td>
 <td>X (error)</td>
@@ -151,6 +166,7 @@ with the F3L</td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 34</li><li>regex: ^[ -~]{0,34}$</li></td>
 </tr>
 <tr>
+<td>14</td>
 <td>PAYEE STREET  2</td>
 <td>A/N-34</td>
 <td></td>
@@ -161,6 +177,7 @@ with the F3L</td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 34</li><li>regex: ^[ -~]{0,34}$</li></td>
 </tr>
 <tr>
+<td>15</td>
 <td>PAYEE CITY</td>
 <td>A/N-30</td>
 <td>X (error)</td>
@@ -171,6 +188,7 @@ with the F3L</td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 30</li><li>regex: ^[ -~]{0,30}$</li></td>
 </tr>
 <tr>
+<td>16</td>
 <td>PAYEE STATE</td>
 <td>A/N-2</td>
 <td>X (error)</td>
@@ -181,6 +199,7 @@ with the F3L</td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 2</li><li>regex: ^[ -~]{0,2}$</li></td>
 </tr>
 <tr>
+<td>17</td>
 <td>PAYEE ZIP</td>
 <td>A/N-9</td>
 <td>X (error)</td>
@@ -191,6 +210,7 @@ with the F3L</td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 9</li><li>regex: ^[ -~]{0,9}$</li></td>
 </tr>
 <tr>
+<td>18</td>
 <td>ELECTION CODE</td>
 <td>A/N-5</td>
 <td></td>
@@ -201,6 +221,7 @@ with the F3L</td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 5</li><li>regex: ^[ -~]{0,5}$</li></td>
 </tr>
 <tr>
+<td>19</td>
 <td>ELECTION OTHER DESCRIPTION</td>
 <td>A/N-20</td>
 <td></td>
@@ -211,6 +232,7 @@ with the F3L</td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
 </tr>
 <tr>
+<td>20</td>
 <td>EXPENDITURE DATE</td>
 <td>NUM-8</td>
 <td>X (error)</td>
@@ -221,6 +243,7 @@ with the F3L</td>
 <td><ul><li>type: string</li><li>min length: 10</li><li>regex: ^[0-9]{4}-[0-9]{2}-[0-9]{2}$</li></td>
 </tr>
 <tr>
+<td>21</td>
 <td>EXPENDITURE AMOUNT</td>
 <td>AMT-12</td>
 <td>X (error)</td>
@@ -231,6 +254,7 @@ with the F3L</td>
 <td><ul><li>type: ['number', 'null']</li><li>minimum: -99999999.99</li><li>maximum: 999999999.99</li></td>
 </tr>
 <tr>
+<td>22</td>
 <td>SEMI-ANNUAL REFUNDED BUNDLED AMT</td>
 <td>AMT-12</td>
 <td></td>
@@ -241,6 +265,7 @@ with the F3L</td>
 <td><ul><li>type: ['number', 'null']</li><li>minimum: -99999999.99</li><li>maximum: 999999999.99</li></td>
 </tr>
 <tr>
+<td>23</td>
 <td>EXPENDITURE PURPOSE DESCRIP</td>
 <td>A/N-100</td>
 <td></td>
@@ -251,6 +276,7 @@ with the F3L</td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 100</li><li>regex: ^[ -~]{0,100}$</li></td>
 </tr>
 <tr>
+<td></td>
 <td>AGGREGATION AMOUNT</td>
 <td>AMT-12</td>
 <td>X (error)</td>
@@ -261,6 +287,7 @@ with the F3L</td>
 <td><ul><li>type: ['number', 'null']</li><li>minimum: -99999999.99</li><li>maximum: 999999999.99</li></td>
 </tr>
 <tr>
+<td></td>
 <td>AGGREGATION GROUP</td>
 <td>A/N-100</td>
 <td>X (error)</td>
@@ -271,6 +298,7 @@ with the F3L</td>
 <td><ul><li>type: string</li></td>
 </tr>
 <tr>
+<td>24</td>
 <td>CATEGORY CODE</td>
 <td>A/N-3</td>
 <td></td>
@@ -284,6 +312,7 @@ Codes 101-107 are used only by Presidential Committees</td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 3</li><li>regex: ^[ -~]{0,3}$</li></td>
 </tr>
 <tr>
+<td>25</td>
 <td>BENEFICIARY COMMITTEE FEC ID</td>
 <td>A/N-9</td>
 <td></td>
@@ -294,6 +323,7 @@ Codes 101-107 are used only by Presidential Committees</td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 9</li><li>regex: ^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$</li></td>
 </tr>
 <tr>
+<td>26</td>
 <td>BENEFICIARY COMMITTEE NAME</td>
 <td>A/N-200</td>
 <td>X (conditional error)</td>
@@ -304,6 +334,7 @@ Codes 101-107 are used only by Presidential Committees</td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 200</li><li>regex: ^[ -~]{0,200}$</li></td>
 </tr>
 <tr>
+<td>27</td>
 <td>BENEFICIARY CANDIDATE FEC ID</td>
 <td>A/N-9</td>
 <td>X (conditional error)</td>
@@ -314,6 +345,7 @@ Codes 101-107 are used only by Presidential Committees</td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 9</li><li>regex: ^[ -~]{0,9}$</li></td>
 </tr>
 <tr>
+<td>28</td>
 <td>BENEFICIARY CANDIDATE LAST NAME</td>
 <td>A/N-30</td>
 <td>X (conditional error)</td>
@@ -324,6 +356,7 @@ Codes 101-107 are used only by Presidential Committees</td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 30</li><li>regex: ^[ -~]{0,30}$</li></td>
 </tr>
 <tr>
+<td>29</td>
 <td>BENEFICIARY CANDIDATE FIRST NAME</td>
 <td>A/N-20</td>
 <td>X (conditional error)</td>
@@ -334,6 +367,7 @@ Codes 101-107 are used only by Presidential Committees</td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
 </tr>
 <tr>
+<td>30</td>
 <td>BENEFICIARY CANDIDATE MIDDLE NAME</td>
 <td>A/N-20</td>
 <td></td>
@@ -344,6 +378,7 @@ Codes 101-107 are used only by Presidential Committees</td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
 </tr>
 <tr>
+<td>31</td>
 <td>BENEFICIARY CANDIDATE PREFIX</td>
 <td>A/N-10</td>
 <td></td>
@@ -354,6 +389,7 @@ Codes 101-107 are used only by Presidential Committees</td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 10</li><li>regex: ^[ -~]{0,10}$</li></td>
 </tr>
 <tr>
+<td>32</td>
 <td>BENEFICIARY CANDIDATE SUFFIX</td>
 <td>A/N-10</td>
 <td></td>
@@ -364,6 +400,7 @@ Codes 101-107 are used only by Presidential Committees</td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 10</li><li>regex: ^[ -~]{0,10}$</li></td>
 </tr>
 <tr>
+<td>33</td>
 <td>BENEFICIARY CANDIDATE OFFICE</td>
 <td>A/N-1</td>
 <td></td>
@@ -374,6 +411,7 @@ Codes 101-107 are used only by Presidential Committees</td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 1</li><li>regex: ^[ -~]{0,1}$</li></td>
 </tr>
 <tr>
+<td>34</td>
 <td>BENEFICIARY CANDIDATE STATE</td>
 <td>A/N-2</td>
 <td>X (conditional error)</td>
@@ -384,6 +422,7 @@ Codes 101-107 are used only by Presidential Committees</td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 2</li><li>regex: ^[ -~]{0,2}$</li></td>
 </tr>
 <tr>
+<td>35</td>
 <td>BENEFICIARY CANDIDATE DISTRICT</td>
 <td>NUM-2</td>
 <td>X (conditional error)</td>
@@ -394,6 +433,7 @@ Codes 101-107 are used only by Presidential Committees</td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 2</li><li>max length: 2</li><li>regex: ^\d{2}$</li></td>
 </tr>
 <tr>
+<td>36</td>
 <td>CONDUIT NAME</td>
 <td>A/N-200</td>
 <td></td>
@@ -404,6 +444,7 @@ Codes 101-107 are used only by Presidential Committees</td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 200</li><li>regex: ^[ -~]{0,200}$</li></td>
 </tr>
 <tr>
+<td>37</td>
 <td>CONDUIT STREET 1</td>
 <td>A/N-34</td>
 <td></td>
@@ -414,6 +455,7 @@ Codes 101-107 are used only by Presidential Committees</td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 34</li><li>regex: ^[ -~]{0,34}$</li></td>
 </tr>
 <tr>
+<td>38</td>
 <td>CONDUIT STREET 2</td>
 <td>A/N-34</td>
 <td></td>
@@ -424,6 +466,7 @@ Codes 101-107 are used only by Presidential Committees</td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 34</li><li>regex: ^[ -~]{0,34}$</li></td>
 </tr>
 <tr>
+<td>39</td>
 <td>CONDUIT CITY</td>
 <td>A/N-30</td>
 <td></td>
@@ -434,6 +477,7 @@ Codes 101-107 are used only by Presidential Committees</td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 30</li><li>regex: ^[ -~]{0,30}$</li></td>
 </tr>
 <tr>
+<td>40</td>
 <td>CONDUIT STATE</td>
 <td>A/N-2</td>
 <td></td>
@@ -444,6 +488,7 @@ Codes 101-107 are used only by Presidential Committees</td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 2</li><li>regex: ^[ -~]{0,2}$</li></td>
 </tr>
 <tr>
+<td>41</td>
 <td>CONDUIT ZIP</td>
 <td>A/N-9</td>
 <td></td>
@@ -454,6 +499,7 @@ Codes 101-107 are used only by Presidential Committees</td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 9</li><li>regex: ^[ -~]{0,9}$</li></td>
 </tr>
 <tr>
+<td>42</td>
 <td>MEMO CODE</td>
 <td>A/N-1</td>
 <td></td>
@@ -464,6 +510,7 @@ Codes 101-107 are used only by Presidential Committees</td>
 <td><ul><li>type: ['boolean', 'null']</li></td>
 </tr>
 <tr>
+<td>43</td>
 <td>MEMO TEXT/DESCRIPTION</td>
 <td>A/N-100</td>
 <td></td>
@@ -474,6 +521,7 @@ Codes 101-107 are used only by Presidential Committees</td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 100</li><li>regex: ^[ -~]{0,100}$</li></td>
 </tr>
 <tr>
+<td>44</td>
 <td>Reference to SI or SL system code that identifies the Account</td>
 <td>A/N-9</td>
 <td></td>
