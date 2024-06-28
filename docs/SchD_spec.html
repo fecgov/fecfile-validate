@@ -14,8 +14,8 @@
 <td>FORM TYPE</td>
 <td>A/N-8</td>
 <td>X (error)</td>
-<td>SD10</td>
-<td>SD[line# ref]</td>
+<td>SD9, SD10</td>
+<td>SD9, SD10</td>
 <td>Appendix C</td>
 <td></td>
 <td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 8</li><li>regex: ^[ -~]{0,8}$</li></td>
@@ -27,9 +27,21 @@
 <td>X (error)</td>
 <td>C00123456</td>
 <td></td>
-<td>this is the ID of the Committee Account the report/transaction is associated with</td>
+<td>Must be either "CXXXXXXXX" where X is a numeric value (C, then 8 numbers) or "PXXXXXXXX" where X is a numeric value (P, then 8 numbers) or [H|S][0-9]{1}[A-Z]{2}[0-9]{5} (H or S, 1 number, 2 letters, 5 numbers)</td>
 <td></td>
 <td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 9</li><li>regex: ^[ -~]{0,9}$</li></td>
+</tr>
+<tr>
+<td></td>
+<td>TRANSACTION TYPE IDENTIFIER</td>
+<td></td>
+<td>X (error)</td>
+<td>C2_LOAN_GUARANTOR</td>
+<td></td>
+<td>DEBT_OWED_TO_COMMITTEE
+DEBT_OWED_BY_COMMITTEE</td>
+<td></td>
+<td><ul><li>type: string</li></td>
 </tr>
 <tr>
 <td>3</td>
@@ -48,8 +60,8 @@
 <td>A/N-3</td>
 <td></td>
 <td>IND</td>
-<td>CAN,CCM,...</td>
-<td>Edit: Entity</td>
+<td>IND, ORG, COM</td>
+<td>IND, ORG, COM</td>
 <td></td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 3</li><li>regex: ^[ -~]{0,3}$</li></td>
 </tr>
@@ -57,10 +69,10 @@
 <td>5</td>
 <td>CREDITOR ORGANIZATION NAME</td>
 <td>A/N-200</td>
-<td>X (error)</td>
+<td>X (conditional error)</td>
 <td>The Bank of Banks</td>
 <td></td>
-<td>Required if NOT [IND|CAN]</td>
+<td>Required if NOT [IND]</td>
 <td></td>
 <td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 200</li><li>regex: ^[ -~]{0,200}$</li></td>
 </tr>
@@ -68,10 +80,10 @@
 <td>6</td>
 <td>CREDITOR LAST NAME</td>
 <td>A/N-30</td>
-<td>X (error)</td>
+<td>X (conditional error)</td>
 <td>Smith</td>
 <td></td>
-<td>Required if [IND|CAN]</td>
+<td>Required if [IND]</td>
 <td></td>
 <td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 30</li><li>regex: ^[ -~]{0,30}$</li></td>
 </tr>
@@ -79,10 +91,10 @@
 <td>7</td>
 <td>CREDITOR FIRST NAME</td>
 <td>A/N-20</td>
-<td>X (error)</td>
+<td>X (conditional error)</td>
 <td>John</td>
 <td></td>
-<td>Required if [IND|CAN]</td>
+<td>Required if [IND]</td>
 <td></td>
 <td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
 </tr>
@@ -93,7 +105,7 @@
 <td></td>
 <td>W</td>
 <td></td>
-<td>Optional if [IND|CAN]</td>
+<td>Optional if [IND]</td>
 <td></td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
 </tr>
@@ -104,7 +116,7 @@
 <td></td>
 <td>Dr</td>
 <td></td>
-<td>Optional if [IND|CAN]</td>
+<td>Optional if [IND]</td>
 <td></td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 10</li><li>regex: ^[ -~]{0,10}$</li></td>
 </tr>
@@ -115,7 +127,7 @@
 <td></td>
 <td>Jr</td>
 <td></td>
-<td>Optional if [IND|CAN]</td>
+<td>Optional if [IND]</td>
 <td></td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 10</li><li>regex: ^[ -~]{0,10}$</li></td>
 </tr>
@@ -123,7 +135,7 @@
 <td>11</td>
 <td>CREDITOR STREET  1</td>
 <td>A/N-34</td>
-<td>X (warning)</td>
+<td>X (error)</td>
 <td>The Bank Tower</td>
 <td></td>
 <td></td>
@@ -145,7 +157,7 @@
 <td>13</td>
 <td>CREDITOR CITY</td>
 <td>A/N-30</td>
-<td>X (warning)</td>
+<td>X (error)</td>
 <td>New York</td>
 <td></td>
 <td></td>
@@ -156,7 +168,7 @@
 <td>14</td>
 <td>CREDITOR STATE</td>
 <td>A-2</td>
-<td>X (warning)</td>
+<td>X (error)</td>
 <td>NY</td>
 <td></td>
 <td></td>
@@ -167,7 +179,7 @@
 <td>15</td>
 <td>CREDITOR ZIP</td>
 <td>A/N-9</td>
-<td>X (warning)</td>
+<td>X (error)</td>
 <td>10011</td>
 <td></td>
 <td></td>
@@ -178,7 +190,7 @@
 <td>16</td>
 <td>PURPOSE OF DEBT OR OBLIGATION</td>
 <td>A/N-100</td>
-<td>X (warning)</td>
+<td>X (error)</td>
 <td></td>
 <td></td>
 <td></td>
@@ -189,10 +201,10 @@
 <td>17</td>
 <td>BEGINNING BALANCE (This Period)</td>
 <td>AMT-12</td>
-<td>X (warning)</td>
+<td>X (error)</td>
 <td></td>
 <td></td>
-<td></td>
+<td>Auto-calculated from previous reports "Balance at Close"</td>
 <td></td>
 <td><ul><li>type: ['number', 'null']</li><li>minimum: -99999999.99</li><li>maximum: 999999999.99</li></td>
 </tr>
@@ -200,7 +212,7 @@
 <td>18</td>
 <td>INCURRED AMOUNT (This Period)</td>
 <td>AMT-12</td>
-<td>X (warning)</td>
+<td>X (error)</td>
 <td></td>
 <td></td>
 <td></td>
@@ -211,10 +223,10 @@
 <td>19</td>
 <td>PAYMENT AMOUNT (This Period)</td>
 <td>AMT-12</td>
-<td>X (warning)</td>
+<td>X (error)</td>
 <td></td>
 <td></td>
-<td></td>
+<td>Auto-calculated from debt repayments.</td>
 <td></td>
 <td><ul><li>type: ['number', 'null']</li><li>minimum: -99999999.99</li><li>maximum: 999999999.99</li></td>
 </tr>
@@ -222,10 +234,12 @@
 <td>20</td>
 <td>BALANCE AT CLOSE  (This Period)</td>
 <td>AMT-12</td>
-<td>X (warning)</td>
+<td>X (error)</td>
 <td></td>
 <td></td>
-<td></td>
+<td>Auto-calculated for the user.
+Beginning Balance + (Incurred amount - Payment amount)
+All amounts from current report period.</td>
 <td></td>
 <td><ul><li>type: ['number', 'null']</li><li>minimum: -99999999.99</li><li>maximum: 999999999.99</li></td>
 </tr>

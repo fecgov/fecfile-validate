@@ -15,8 +15,8 @@
 <td>A/N-8</td>
 <td>X (error)</td>
 <td>SC/10</td>
-<td>SC/[line# ref]</td>
-<td>Appendix C</td>
+<td>[SC/9 |SC/10 ]</td>
+<td>[SC/9 |SC/10 ]</td>
 <td></td>
 <td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 8</li><li>regex: ^[ -~]{0,8}$</li></td>
 </tr>
@@ -27,9 +27,22 @@
 <td>X (error)</td>
 <td>C00123456</td>
 <td></td>
-<td></td>
+<td>Must be either "CXXXXXXXX" where X is a numeric value (C, then 8 numbers) or "PXXXXXXXX" where X is a numeric value (P, then 8 numbers) or [H|S][0-9]{1}[A-Z]{2}[0-9]{5} (H or S, 1 number, 2 letters, 5 numbers)</td>
 <td></td>
 <td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 9</li><li>regex: ^[ -~]{0,9}$</li></td>
+</tr>
+<tr>
+<td></td>
+<td>TRANSACTION TYPE IDENTIFIER</td>
+<td></td>
+<td>X (error)</td>
+<td></td>
+<td></td>
+<td>LOAN_RECEIVED_FROM_INDIVIDUAL
+LOAN_RECEIVED_FROM_BANK
+LOAN_BY_COMMITTEE</td>
+<td></td>
+<td><ul><li>type: string</li><li>regex: </li></td>
 </tr>
 <tr>
 <td>3</td>
@@ -46,8 +59,8 @@
 <td>4</td>
 <td>RECEIPT LINE NUMBER</td>
 <td>A/N-8</td>
-<td></td>
-<td>13A</td>
+<td>X (conditional error)</td>
+<td>13</td>
 <td>13A =  Form 3; Sum Pg #13(a)
 13B =  Form 3; Sum Pg #13(b)
 19A = Form 3P; Sum Pg #19(a)
@@ -63,7 +76,7 @@
 <td>A/N-3</td>
 <td></td>
 <td>ORG</td>
-<td></td>
+<td>[IND |ORG | COM]</td>
 <td>Edit: Entity</td>
 <td></td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 3</li><li>regex: ^[ -~]{0,3}$</li></td>
@@ -72,7 +85,7 @@
 <td>6</td>
 <td>LENDER ORGANIZATION NAME</td>
 <td>A/N-200</td>
-<td>X (error)</td>
+<td>X (conditional error)</td>
 <td>The Bank of Banks</td>
 <td></td>
 <td>Required if NOT [IND|CAN]</td>
@@ -83,7 +96,7 @@
 <td>7</td>
 <td>LENDER LAST NAME</td>
 <td>A/N-30</td>
-<td>X (error)</td>
+<td>X (conditional error)</td>
 <td>Smith</td>
 <td></td>
 <td>Required if [IND|CAN]</td>
@@ -94,7 +107,7 @@
 <td>8</td>
 <td>LENDER FIRST NAME</td>
 <td>A/N-20</td>
-<td>X (error)</td>
+<td>X (conditional error)</td>
 <td>John</td>
 <td></td>
 <td>Required if [IND|CAN]</td>
@@ -138,7 +151,7 @@
 <td>12</td>
 <td>LENDER STREET  1</td>
 <td>A/N-34</td>
-<td>X (warning)</td>
+<td>X (error)</td>
 <td>Suite 16</td>
 <td></td>
 <td></td>
@@ -160,7 +173,7 @@
 <td>14</td>
 <td>LENDER CITY</td>
 <td>A/N-30</td>
-<td>X (warning)</td>
+<td>X (error)</td>
 <td>Springfield</td>
 <td></td>
 <td></td>
@@ -171,7 +184,7 @@
 <td>15</td>
 <td>LENDER STATE</td>
 <td>A/N-2</td>
-<td>X (warning)</td>
+<td>X (error)</td>
 <td>MA</td>
 <td></td>
 <td></td>
@@ -182,7 +195,7 @@
 <td>16</td>
 <td>LENDER ZIP</td>
 <td>A/N-9</td>
-<td>X (warning)</td>
+<td>X (error)</td>
 <td>1012</td>
 <td></td>
 <td></td>
@@ -193,7 +206,7 @@
 <td>17</td>
 <td>ELECTION CODE</td>
 <td>A/N-5</td>
-<td>X (warn if Form [F3|F3P]</td>
+<td></td>
 <td>P2012</td>
 <td>[G|P|R|S|C|E|O]+{YYYY}</td>
 <td>Values: [G|P|R|S|C|E|O]+Year{YYYY}</td>
@@ -204,10 +217,10 @@
 <td>18</td>
 <td>ELECTION OTHER DESCRIPTION</td>
 <td>A/N-20</td>
+<td>X (conditional error)</td>
 <td></td>
 <td></td>
-<td></td>
-<td>Req if PGI = "O"</td>
+<td>Req if Item Election Code = O</td>
 <td></td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
 </tr>
@@ -215,7 +228,7 @@
 <td>19</td>
 <td>LOAN AMOUNT</td>
 <td>AMT-12</td>
-<td>X (warning)</td>
+<td>X (error)</td>
 <td>10000</td>
 <td></td>
 <td></td>
@@ -226,10 +239,10 @@
 <td>20</td>
 <td>LOAN PAYMENT TO DATE</td>
 <td>AMT-12</td>
-<td>X (warning)</td>
+<td>X (error)</td>
 <td>1000</td>
 <td></td>
-<td></td>
+<td>Auto-calculated based upon user entering payments on the loan.</td>
 <td></td>
 <td><ul><li>type: ['number', 'null']</li><li>minimum: -99999999.99</li><li>maximum: 999999999.99</li></td>
 </tr>
@@ -237,10 +250,10 @@
 <td>21</td>
 <td>LOAN BALANCE (Original)</td>
 <td>AMT-12</td>
-<td>X (warning)</td>
+<td>X (error)</td>
 <td>9000</td>
 <td></td>
-<td></td>
+<td>Auto-calculated based upon subtracting loan payment to date from original amount of loan</td>
 <td></td>
 <td><ul><li>type: ['number', 'null']</li><li>minimum: -99999999.99</li><li>maximum: 999999999.99</li></td>
 </tr>
@@ -248,7 +261,7 @@
 <td>22</td>
 <td>LOAN INCURRED DATE (Terms)</td>
 <td>NUM-8</td>
-<td>X (warning)</td>
+<td>X (error)</td>
 <td>20120101</td>
 <td>YYYYMMDD</td>
 <td></td>
@@ -259,7 +272,7 @@
 <td>23</td>
 <td>LOAN DUE DATE (Terms)</td>
 <td>A/N-15</td>
-<td>X (warning)</td>
+<td>X (error)</td>
 <td>Whenever</td>
 <td></td>
 <td></td>
@@ -270,7 +283,7 @@
 <td>24</td>
 <td>LOAN INTEREST RATE % (Terms)</td>
 <td>A/N-15</td>
-<td>X (warning)</td>
+<td>X (error)</td>
 <td>.0565</td>
 <td></td>
 <td></td>
@@ -281,7 +294,7 @@
 <td>25</td>
 <td>YES/NO (Secured?)</td>
 <td>A/N-1</td>
-<td>X (warning)</td>
+<td>X (error)</td>
 <td>Y</td>
 <td>Y/N</td>
 <td>Edit: Yes/No</td>
@@ -292,7 +305,7 @@
 <td>26</td>
 <td>YES/NO (Personal Funds)</td>
 <td>A/N-1</td>
-<td>X (warning)</td>
+<td>X (error)</td>
 <td>Y</td>
 <td>Y/N</td>
 <td>Edit: Yes/No</td>
@@ -303,10 +316,10 @@
 <td>27</td>
 <td>LENDER COMMITTEE ID NUMBER</td>
 <td>A/N-9</td>
-<td></td>
+<td>X (conditional error)</td>
 <td>C00123456</td>
 <td></td>
-<td>Used if CCM, COM, PAC or PTY</td>
+<td>Required if [COM]</td>
 <td></td>
 <td><ul><li>type: string</li><li>min length: 0</li><li>max length: 9</li><li>regex: ^[ -~]{0,9}$</li></td>
 </tr>

@@ -109,6 +109,24 @@ git push --set-upstream origin hotfix/my-fix
 ## Additional developer notes
 This section covers a few topics we think might help developers after setup.
 
+### Register changes to the validation JSON files in the fecfile-web-app and fecfile-web-api repositories
+After modified the JSON schema files, those changes must be registered in the [fecfile-web-app](https://github.com/fecgov/fecfile-web-app) and [fecfile-web-api](https://github.com/fecgov/fecfile-web-api) repositories using the hash of the commit of the edits.
+
+In the fecfile-web-app repo:
+1) Update the commit hash in the [package.json](https://github.com/fecgov/fecfile-web-app/blob/develop/front-end/package.json) file for the fecfile-validate dependency
+2) Remove the package-lock.json file
+3) Rebuild the package-lock.json file to commit it to the repo with the "npm install" command
+
+In the fecfile-web-api repo:
+1) Update the commit hash for the fecfile-validate dependency in the [requirements.txt](https://github.com/fecgov/fecfile-web-api/blob/develop/requirements.txt) file.
+
+### How to update the online documentation
+The online documentation for the validation JSON files is hosted on GitHub pages at https://fecgov.github.io/fecfile-validate/
+To update this documentation when changes are made to the JSON validation files, we use the [json-schema-for-humans](https://pypi.org/project/json-schema-for-humans/) python package. To generate the documentation, follow these steps:
+1) pip install -r requirements.txt
+2) cd schema
+3) ../bin/generate_schema_docs.sh
+
 ### Git Secrets
 Set up git secrets to protect oneself from committing sensitive information such as passwords to the repository.
 - First install AWS git-secret utility in your PATH so it can be run at the command line: https://github.com/awslabs/git-secrets#installing-git-secrets

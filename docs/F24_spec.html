@@ -1,5 +1,4 @@
 <!DOCTYPE html><html lang="en"><head><title>F24</title><link rel="stylesheet" href="spec_table.css"></head><body><table><caption>Specification for F24</caption><tr>
-<th>COL SEQ</th>
 <th>FIELD DESCRIPTION</th>
 <th>TYPE</th>
 <th>REQUIRED</th>
@@ -10,7 +9,6 @@
 <th>VALIDATION RULES</th>
 </tr>
 <tr>
-<td>1</td>
 <td>FORM TYPE</td>
 <td>A/N-4</td>
 <td>X (error)</td>
@@ -21,18 +19,16 @@
 <td><ul><li>REQUIRED</li><li>type: string</li><li>must be one of: ['F24N', 'F24A']</li></td>
 </tr>
 <tr>
-<td>2</td>
 <td>FILER COMMITTEE ID NUMBER</td>
 <td>A/N-9</td>
 <td>X (error)</td>
 <td>C00123456</td>
 <td></td>
-<td>this is the ID of the Committee Account the report/transaction is associated with</td>
+<td>Must be either "CXXXXXXXX" where X is a numeric value (C, then 8 numbers) or "PXXXXXXXX" where X is a numeric value (P, then 8 numbers) or [H|S][0-9]{1}[A-Z]{2}[0-9]{5} (H or S, 1 number, 2 letters, 5 numbers)</td>
 <td></td>
 <td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 9</li><li>max length: 9</li><li>regex: ^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$</li></td>
 </tr>
 <tr>
-<td>3</td>
 <td>REPORT TYPE {24/48 Hour}</td>
 <td>A/N-2</td>
 <td>X (error)</td>
@@ -44,18 +40,16 @@ Error if Coded incorrectly.</td>
 <td><ul><li>REQUIRED</li><li>must be one of: ['24', '48']</li></td>
 </tr>
 <tr>
-<td>4</td>
 <td>ORIGINAL AMENDMENT DATE</td>
 <td>NUM-8</td>
 <td>X (conditional error)</td>
 <td>20120729</td>
 <td>YYYYMMDD</td>
-<td>Use date of original report or of most recent amendment.</td>
+<td>REQ if FORM TYPE = F24A</td>
 <td></td>
 <td><ul><li>REQUIRED if FORM_TYPE equals F24A</li><li>type: ['string', 'null']</li><li>min length: 10</li><li>regex: ^[0-9]{4}-[0-9]{2}-[0-9]{2}$</li></td>
 </tr>
 <tr>
-<td>5</td>
 <td>COMMITTEE NAME</td>
 <td>A/N-200</td>
 <td>X (error)</td>
@@ -66,7 +60,6 @@ Error if Coded incorrectly.</td>
 <td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 200</li><li>regex: ^[ -~]{0,200}$</li></td>
 </tr>
 <tr>
-<td>6</td>
 <td>STREET 1</td>
 <td>A/N-34</td>
 <td>X (error)</td>
@@ -77,7 +70,6 @@ Error if Coded incorrectly.</td>
 <td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 34</li><li>regex: ^[ -~]{0,34}$</li></td>
 </tr>
 <tr>
-<td>7</td>
 <td>STREET 2</td>
 <td>A/N-34</td>
 <td></td>
@@ -88,7 +80,6 @@ Error if Coded incorrectly.</td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 34</li><li>regex: ^[ -~]{0,34}$</li></td>
 </tr>
 <tr>
-<td>8</td>
 <td>CITY</td>
 <td>A/N-30</td>
 <td>X (error)</td>
@@ -99,7 +90,6 @@ Error if Coded incorrectly.</td>
 <td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 30</li><li>regex: ^[ -~]{0,30}$</li></td>
 </tr>
 <tr>
-<td>9</td>
 <td>STATE</td>
 <td>A-2</td>
 <td>X (error)</td>
@@ -110,7 +100,6 @@ Error if Coded incorrectly.</td>
 <td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 2</li><li>max length: 2</li><li>regex: ^[ -~]{2}$</li></td>
 </tr>
 <tr>
-<td>10</td>
 <td>ZIP</td>
 <td>A/N-9</td>
 <td>X (error)</td>
@@ -121,7 +110,6 @@ Error if Coded incorrectly.</td>
 <td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 9</li><li>regex: ^[ -~]{1,9}$</li></td>
 </tr>
 <tr>
-<td>11</td>
 <td>TREASURER LAST NAME</td>
 <td>A/N-30</td>
 <td>X (error)</td>
@@ -132,7 +120,6 @@ Error if Coded incorrectly.</td>
 <td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 30</li><li>regex: ^[ -~]{0,30}$</li></td>
 </tr>
 <tr>
-<td>12</td>
 <td>TREASURER FIRST NAME</td>
 <td>A/N-20</td>
 <td>X (error)</td>
@@ -143,7 +130,6 @@ Error if Coded incorrectly.</td>
 <td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
 </tr>
 <tr>
-<td>13</td>
 <td>TREASURER MIDDLE NAME</td>
 <td>A/N-20</td>
 <td></td>
@@ -154,7 +140,6 @@ Error if Coded incorrectly.</td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
 </tr>
 <tr>
-<td>14</td>
 <td>TREASURER PREFIX</td>
 <td>A/N-10</td>
 <td></td>
@@ -165,7 +150,6 @@ Error if Coded incorrectly.</td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 10</li><li>regex: ^[ -~]{0,10}$</li></td>
 </tr>
 <tr>
-<td>15</td>
 <td>TREASURER SUFFIX</td>
 <td>A/N-10</td>
 <td></td>
@@ -176,7 +160,6 @@ Error if Coded incorrectly.</td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 10</li><li>regex: ^[ -~]{0,10}$</li></td>
 </tr>
 <tr>
-<td>16</td>
 <td>DATE SIGNED</td>
 <td>NUM-8</td>
 <td>X (error)</td>

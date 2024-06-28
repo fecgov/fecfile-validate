@@ -204,7 +204,7 @@
         "COL_SEQ": 9,
         "FIELD_DESCRIPTION": "LENDER STATE",
         "TYPE": "A/N-2",
-        "REQUIRED": "X (warerrorning)",
+        "REQUIRED": "X (error)",
         "SAMPLE_DATA": "NY",
         "VALUE_REFERENCE": null,
         "RULE_REFERENCE": null

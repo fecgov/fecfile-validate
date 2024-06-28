@@ -27,9 +27,20 @@
 <td>X (error)</td>
 <td>C00123456</td>
 <td></td>
-<td></td>
+<td>Must be either "CXXXXXXXX" where X is a numeric value (C, then 8 numbers) or "PXXXXXXXX" where X is a numeric value (P, then 8 numbers) or [H|S][0-9]{1}[A-Z]{2}[0-9]{5} (H or S, 1 number, 2 letters, 5 numbers)</td>
 <td></td>
 <td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 9</li><li>regex: ^[ -~]{0,9}$</li></td>
+</tr>
+<tr>
+<td></td>
+<td>TRANSACTION TYPE IDENTIFIER</td>
+<td></td>
+<td>X (error)</td>
+<td>C1_LOAN_AGREEMENT</td>
+<td></td>
+<td>C1_LOAN_AGREEMENT</td>
+<td></td>
+<td><ul><li>type: string</li><li>min length: 0</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
 </tr>
 <tr>
 <td>3</td>
@@ -68,7 +79,7 @@
 <td>6</td>
 <td>LENDER STREET  1</td>
 <td>A/N-34</td>
-<td>X (warning)</td>
+<td>X (error)</td>
 <td>The Bank Tower</td>
 <td></td>
 <td></td>
@@ -90,7 +101,7 @@
 <td>8</td>
 <td>LENDER CITY</td>
 <td>A/N-30</td>
-<td>X (warning)</td>
+<td>X (error)</td>
 <td>New York</td>
 <td></td>
 <td></td>
@@ -101,7 +112,7 @@
 <td>9</td>
 <td>LENDER STATE</td>
 <td>A/N-2</td>
-<td>X (warning)</td>
+<td>X (error)</td>
 <td>NY</td>
 <td></td>
 <td></td>
@@ -112,7 +123,7 @@
 <td>10</td>
 <td>LENDER ZIP</td>
 <td>A/N-9</td>
-<td>X (warning)</td>
+<td>X (error)</td>
 <td>10011</td>
 <td></td>
 <td></td>
@@ -134,7 +145,7 @@
 <td>12</td>
 <td>LOAN INTEREST RATE %</td>
 <td>A/N-15</td>
-<td>X (warning)</td>
+<td>X (error)</td>
 <td>.0565</td>
 <td></td>
 <td></td>
@@ -167,7 +178,7 @@
 <td>15</td>
 <td>A1.YES/NO (Loan Restructured)</td>
 <td>A/N-1</td>
-<td></td>
+<td>X (error)</td>
 <td>N</td>
 <td>Y,N</td>
 <td>Edit: Yes/No</td>
@@ -178,10 +189,10 @@
 <td>16</td>
 <td>A2. DATE (Of Original Loan)</td>
 <td>NUM-8</td>
-<td></td>
+<td>X (conditional error)</td>
 <td>20120101</td>
 <td>YYYYMMDD</td>
-<td></td>
+<td>Req if Loan Restructured is YES</td>
 <td></td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 10</li><li>regex: ^[0-9]{4}-[0-9]{2}-[0-9]{2}$</li></td>
 </tr>
@@ -200,10 +211,10 @@
 <td>18</td>
 <td>B.2. TOTAL BALANCE</td>
 <td>AMT-12</td>
-<td></td>
+<td>X (conditional error)</td>
 <td>10000.0</td>
 <td></td>
-<td></td>
+<td>Req if B.1 Credit Amount this Draw is populated</td>
 <td></td>
 <td><ul><li>type: ['number', 'null']</li><li>minimum: -99999999.99</li><li>maximum: 999999999.99</li></td>
 </tr>
@@ -211,7 +222,7 @@
 <td>19</td>
 <td>C. YES/NO (Others liable?)</td>
 <td>A/N-1</td>
-<td></td>
+<td>X (error)</td>
 <td>Y</td>
 <td>Y,N</td>
 <td>Edit: Yes/No</td>
@@ -222,7 +233,7 @@
 <td>20</td>
 <td>D. YES/NO (Collateral?)</td>
 <td>A/N-1</td>
-<td></td>
+<td>X (error)</td>
 <td>Y</td>
 <td>Y,N</td>
 <td>Edit: Yes/No</td>
@@ -233,10 +244,10 @@
 <td>21</td>
 <td>D.1 DESC (Collateral)</td>
 <td>A/N-100</td>
-<td></td>
+<td>X (conditional error)</td>
 <td>House & Car</td>
 <td></td>
-<td></td>
+<td>Req if Collateral is YES</td>
 <td></td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 100</li><li>regex: ^[ -~]{0,100}$</li></td>
 </tr>
@@ -244,10 +255,10 @@
 <td>22</td>
 <td>D.2 COLLATERAL VALUE/AMOUNT</td>
 <td>AMT-12</td>
-<td></td>
+<td>X (conditional error)</td>
 <td>95000.0</td>
 <td></td>
-<td></td>
+<td>Req if Collateral is YES</td>
 <td></td>
 <td><ul><li>type: ['number', 'null']</li><li>minimum: -99999999.99</li><li>maximum: 999999999.99</li></td>
 </tr>
@@ -266,7 +277,7 @@
 <td>24</td>
 <td>E.1 YES/NO  (Future Income)</td>
 <td>A/N-1</td>
-<td></td>
+<td>X (error)</td>
 <td>N</td>
 <td>Y,N</td>
 <td>Edit: Yes/No</td>
@@ -277,10 +288,10 @@
 <td>25</td>
 <td>E.2  DESC  (Specification of the above)</td>
 <td>A/N-100</td>
+<td>X (conditional error)</td>
 <td></td>
 <td></td>
-<td></td>
-<td></td>
+<td>Req if Future Income is YES</td>
 <td></td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 100</li><li>regex: ^[ -~]{0,100}$</li></td>
 </tr>
@@ -288,10 +299,10 @@
 <td>26</td>
 <td>E.3 ESTIMATED VALUE</td>
 <td>AMT-12</td>
+<td>X (conditional error)</td>
 <td></td>
 <td></td>
-<td></td>
-<td></td>
+<td>Req if Future Income is YES</td>
 <td></td>
 <td><ul><li>type: ['number', 'null']</li><li>minimum: -99999999.99</li><li>maximum: 999999999.99</li></td>
 </tr>
@@ -299,10 +310,10 @@
 <td>27</td>
 <td>E.4 DATE (Depository account established)</td>
 <td>NUM-8</td>
+<td>X (conditional error)</td>
 <td></td>
 <td></td>
-<td></td>
-<td></td>
+<td>Req if Future Income is YES</td>
 <td></td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 10</li><li>regex: ^[0-9]{4}-[0-9]{2}-[0-9]{2}$</li></td>
 </tr>
@@ -310,10 +321,10 @@
 <td>28</td>
 <td>E.5 IND/NAME (Account Location)</td>
 <td>A/N-200</td>
+<td>X (conditional error)</td>
 <td></td>
 <td></td>
-<td></td>
-<td></td>
+<td>Req if Future Income is YES</td>
 <td></td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 200</li><li>regex: ^[ -~]{0,200}$</li></td>
 </tr>
@@ -321,10 +332,10 @@
 <td>29</td>
 <td>E.6 STREET  1</td>
 <td>A/N-34</td>
+<td>X (conditional error)</td>
 <td></td>
 <td></td>
-<td></td>
-<td></td>
+<td>Req if Future Income is YES</td>
 <td></td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 34</li><li>regex: ^[ -~]{0,34}$</li></td>
 </tr>
@@ -335,7 +346,7 @@
 <td></td>
 <td></td>
 <td></td>
-<td></td>
+<td>Opt if Future Income is YES</td>
 <td></td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 34</li><li>regex: ^[ -~]{0,34}$</li></td>
 </tr>
@@ -343,10 +354,10 @@
 <td>31</td>
 <td>E.8 CITY</td>
 <td>A/N-30</td>
+<td>X (conditional error)</td>
 <td></td>
 <td></td>
-<td></td>
-<td></td>
+<td>Req if Future Income is YES</td>
 <td></td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 30</li><li>regex: ^[ -~]{0,30}$</li></td>
 </tr>
@@ -354,10 +365,10 @@
 <td>32</td>
 <td>E.9 STATE</td>
 <td>A/N-2</td>
+<td>X (conditional error)</td>
 <td></td>
 <td></td>
-<td></td>
-<td></td>
+<td>Req if Future Income is YES</td>
 <td></td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 2</li><li>regex: ^[ -~]{0,2}$</li></td>
 </tr>
@@ -365,10 +376,10 @@
 <td>33</td>
 <td>E.10 ZIP</td>
 <td>A/N-9</td>
+<td>X (conditional error)</td>
 <td></td>
 <td></td>
-<td></td>
-<td></td>
+<td>Req if Future Income is YES</td>
 <td></td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 9</li><li>regex: ^[ -~]{0,9}$</li></td>
 </tr>

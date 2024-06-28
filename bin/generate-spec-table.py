@@ -42,7 +42,7 @@ FEC_PROPERTIES = [
     "FIELD_FORM_ASSOCIATION",
 ]
 
-if "transaction_type_identifier" in data["properties"]:
+if not args.filename.startswith("Sch"):
     COLUMNS = COLUMNS[1:]
     FEC_PROPERTIES = FEC_PROPERTIES[1:]
 
