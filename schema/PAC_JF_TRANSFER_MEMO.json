@@ -374,14 +374,14 @@
             "type": "string",
             "minLength": 1,
             "maxLength": 100,
-            "pattern": "^Joint Fundraising Memo: [ -~]{0,76}$",
+            "pattern": "^JF Memo: [ -~]{0,91}$",
             "fec_spec": {
                 "FIELD_DESCRIPTION": "CONTRIBUTION PURPOSE DESCRIPTION",
                 "TYPE": "A/N-100",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "Joint Fundraising Memo: XX",
-                "VALUE_REFERENCE": "Joint Fundraising Memo: XX",
-                "RULE_REFERENCE": "Joint Fundraising Memo: XX, where XX is auto-populated with name of committee entered in parent transaction JOINT_FUNDRAISING_TRANSFER COL SEQ 8",
+                "SAMPLE_DATA": "JF Memo: XX",
+                "VALUE_REFERENCE": "JF Memo: XX",
+                "RULE_REFERENCE": "JF Memo: XX, where XX is auto-populated with name of committee entered in parent transaction JOINT_FUNDRAISING_TRANSFER COL SEQ 8",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
