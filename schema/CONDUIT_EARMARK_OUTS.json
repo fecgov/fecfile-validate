@@ -725,7 +725,7 @@
             "then": {
                 "properties": {
                     "expenditure_purpose_descrip": {
-                        "pattern": "^Earmarked from [ -~]{0,72} \\(Individual\\)$",
+                        "pattern": "^Earmarked from [ -~]{0,85}$",
                         "type": "string"
                     }
                 }
@@ -748,7 +748,7 @@
             "then": {
                 "properties": {
                     "expenditure_purpose_descrip": {
-                        "pattern": "^Earmarked from [ -~]{0,73} \\(Committee\\)$",
+                        "pattern": "^Earmarked from [ -~]{0,85}$",
                         "type": "string"
                     }
                 }

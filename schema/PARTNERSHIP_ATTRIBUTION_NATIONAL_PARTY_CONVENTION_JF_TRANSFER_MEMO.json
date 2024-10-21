@@ -414,7 +414,7 @@
             "type": "string",
             "minLength": 1,
             "maxLength": 100,
-            "pattern": "^Pres. Nominating Convention Account JF Memo: [ -~]{0,29} \\(Partnership Attribution\\)$",
+            "pattern": "^Pres. Nominating Convention Account JF Memo: [ -~]{0,55}$",
             "fec_spec": {
                 "FIELD_DESCRIPTION": "CONTRIBUTION PURPOSE DESCRIPTION",
                 "TYPE": "A/N-100",

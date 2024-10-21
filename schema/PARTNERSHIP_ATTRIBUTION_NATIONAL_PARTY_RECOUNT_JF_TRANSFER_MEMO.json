@@ -414,7 +414,7 @@
             "type": "string",
             "minLength": 1,
             "maxLength": 100,
-            "pattern": "^Recount/Legal Proceedings Account JF Memo: [ -~]{0,31} \\(Partnership Attribution\\)$",
+            "pattern": "^Recount/Legal Proceedings Account JF Memo: [ -~]{0,57}$",
             "fec_spec": {
                 "FIELD_DESCRIPTION": "CONTRIBUTION PURPOSE DESCRIPTION",
                 "TYPE": "A/N-100",
