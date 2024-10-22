@@ -113,6 +113,60 @@
         "FIELD_FORM_ASSOCIATION": null
       }
     },
+    "guarantor_entity": {
+      "title": "GUARANTOR ENTITY",
+      "description": "",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 3,
+      "pattern": "^[ -~]{0,3}$",
+      "examples": ["CCM"],
+      "fec_spec": {
+        "COL_SEQ": 5,
+        "FIELD_DESCRIPTION": "ENTITY TYPE",
+        "TYPE": "A/N-3",
+        "REQUIRED": "X (error)",
+        "SAMPLE_DATA": "IND",
+        "VALUE_REFERENCE": "CAN,CCM,...",
+        "RULE_REFERENCE": "CAN | CCM | COM | IND | ORG | PAC | PTY"
+      }
+    },
+    "guarantor_organization_name": {
+      "title": "GUARANTOR ORGANIZATION NAME",
+      "description": "",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200,
+      "pattern": "^[ -~]{0,200}$",
+      "examples": ["The Bank of Banks"],
+      "fec_spec": {
+        "COL_SEQ": 6,
+        "FIELD_DESCRIPTION": "GUARANTOR ORGANIZATION NAME",
+        "TYPE": "A/N-200",
+        "REQUIRED": "X (conditional error)",
+        "SAMPLE_DATA": "The Bank of Banks",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "Required if NOT [IND|CAN]"
+      }
+    },
+    "guarantor_committee_fec_id": {
+      "title": "GUARANTOR COMMITTEE FEC ID",
+      "description": "",
+      "type": "string",
+      "minLength": 9,
+      "maxLength": 9,
+      "pattern": "^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$",
+      "fec_spec": {
+        "COL_SEQ": 7,
+        "FIELD_DESCRIPTION": "GUARANTOR COMMITTEE FEC ID",
+        "TYPE": "A/N-9",
+        "REQUIRED": "X (error)",
+        "SAMPLE_DATA": "C00123456",
+        "VALUE_REFERENCE": "CCM,PAC,PTY",
+        "RULE_REFERENCE": "Required if CCM, PAC, or PTY",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
     "guarantor_last_name": {
       "title": "GUARANTOR LAST NAME",
       "description": "",
@@ -122,7 +176,7 @@
       "pattern": "^[ -~]{0,30}$",
       "examples": ["Smith"],
       "fec_spec": {
-        "COL_SEQ": 5,
+        "COL_SEQ": 8,
         "FIELD_DESCRIPTION": "GUARANTOR LAST NAME",
         "TYPE": "A/N-30",
         "REQUIRED": "X (error)",
@@ -141,7 +195,7 @@
       "pattern": "^[ -~]{0,20}$",
       "examples": ["John"],
       "fec_spec": {
-        "COL_SEQ": 6,
+        "COL_SEQ": 9,
         "FIELD_DESCRIPTION": "GUARANTOR FIRST NAME",
         "TYPE": "A/N-20",
         "REQUIRED": "X (error)",
@@ -160,7 +214,7 @@
       "pattern": "^[ -~]{0,20}$",
       "examples": ["W"],
       "fec_spec": {
-        "COL_SEQ": 7,
+        "COL_SEQ": 10,
         "FIELD_DESCRIPTION": "GUARANTOR MIDDLE NAME",
         "TYPE": "A/N-20",
         "REQUIRED": null,
@@ -179,7 +233,7 @@
       "pattern": "^[ -~]{0,10}$",
       "examples": ["Dr"],
       "fec_spec": {
-        "COL_SEQ": 8,
+        "COL_SEQ": 11,
         "FIELD_DESCRIPTION": "GUARANTOR PREFIX",
         "TYPE": "A/N-10",
         "REQUIRED": null,
@@ -198,7 +252,7 @@
       "pattern": "^[ -~]{0,10}$",
       "examples": ["Jr"],
       "fec_spec": {
-        "COL_SEQ": 9,
+        "COL_SEQ": 12,
         "FIELD_DESCRIPTION": "GUARANTOR SUFFIX",
         "TYPE": "A/N-10",
         "REQUIRED": null,
@@ -217,7 +271,7 @@
       "pattern": "^[ -~]{0,34}$",
       "examples": ["123 Main Street"],
       "fec_spec": {
-        "COL_SEQ": 10,
+        "COL_SEQ": 13,
         "FIELD_DESCRIPTION": "GUARANTOR STREET 1",
         "TYPE": "A/N-34",
         "REQUIRED": "X (error)",
@@ -235,7 +289,7 @@
       "maxLength": 34,
       "pattern": "^[ -~]{0,34}$",
       "fec_spec": {
-        "COL_SEQ": 11,
+        "COL_SEQ": 14,
         "FIELD_DESCRIPTION": "GUARANTOR STREET 2",
         "TYPE": "A/N-34",
         "REQUIRED": null,
@@ -254,7 +308,7 @@
       "pattern": "^[ -~]{0,30}$",
       "examples": ["Anytown"],
       "fec_spec": {
-        "COL_SEQ": 12,
+        "COL_SEQ": 15,
         "FIELD_DESCRIPTION": "GUARANTOR CITY",
         "TYPE": "A/N-30",
         "REQUIRED": "X (error)",
@@ -273,7 +327,7 @@
       "pattern": "^[ -~]{0,2}$",
       "examples": ["WA"],
       "fec_spec": {
-        "COL_SEQ": 13,
+        "COL_SEQ": 16,
         "FIELD_DESCRIPTION": "GUARANTOR STATE",
         "TYPE": "A-2",
         "REQUIRED": "X (error)",
@@ -292,7 +346,7 @@
       "pattern": "^[ -~]{0,9}$",
       "examples": [981110123],
       "fec_spec": {
-        "COL_SEQ": 14,
+        "COL_SEQ": 17,
         "FIELD_DESCRIPTION": "GUARANTOR ZIP",
         "TYPE": "A/N-9",
         "REQUIRED": "X (error)",
@@ -311,7 +365,7 @@
       "pattern": "^[ -~]{0,38}$",
       "examples": ["XYZ Company"],
       "fec_spec": {
-        "COL_SEQ": 15,
+        "COL_SEQ": 18,
         "FIELD_DESCRIPTION": "GUARANTOR EMPLOYER",
         "TYPE": "A/N-38",
         "REQUIRED": "X(conditional error)",
@@ -330,7 +384,7 @@
       "pattern": "^[ -~]{0,38}$",
       "examples": ["QC Inspector"],
       "fec_spec": {
-        "COL_SEQ": 16,
+        "COL_SEQ": 19,
         "FIELD_DESCRIPTION": "GUARANTOR OCCUPATION",
         "TYPE": "A/N-38",
         "REQUIRED": "X(conditional error)",
@@ -348,7 +402,7 @@
       "maximum": 999999999.99,
       "examples": [250],
       "fec_spec": {
-        "COL_SEQ": 17,
+        "COL_SEQ": 20,
         "FIELD_DESCRIPTION": "GUARANTEED AMOUNT",
         "TYPE": "AMT-12",
         "REQUIRED": "X(error)",
