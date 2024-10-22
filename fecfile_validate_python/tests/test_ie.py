@@ -1,7 +1,6 @@
 import pytest
 import json
 import os
-from jsonschema import Draft7Validator
 from fecfile_validate_python.src.fecfile_validate import validate
 
 
