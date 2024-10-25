@@ -197,7 +197,7 @@ with the F3L</td>
 <td></td>
 <td>JF Memo: XX (If transaction has no associated Partnership memos, "Partnership attributions do not meet itemization threshold". If transaction has associated Partnership memos, "See Partnership Attribution below"), where XX is auto-populated with name of committee entered in parent transaction JF_TRAN COL SEQ 8</td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 100</li><li>regex: ^(JF Memo: [ -~]{0,91}$</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 100</li><li>regex: ^(JF Memo: [ -~]{0,30} \(Partnership attributions do not meet itemization threshold\)|JF Memo: [ -~]{0,52} \(See Partnership Attribution\(s\) below\))$</li></td>
 </tr>
 <tr>
 <td>MEMO CODE</td>
