@@ -392,6 +392,7 @@
             "type": "string",
             "minLength": 1,
             "maxLength": 100,
+            "pattern": "^([ -~]{0,39} \\(Partnership attributions do not meet itemization threshold\\)|[ -~]{0,61} \\(See Partnership Attribution\\(s\\) below\\))$",
             "fec_spec": {
                 "FIELD_DESCRIPTION": "CONTRIBUTION PURPOSE DESCRIPTION",
                 "TYPE": "A/N-100",
