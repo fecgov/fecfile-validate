@@ -1211,24 +1211,6 @@
         "FIELD_FORM_ASSOCIATION": null
       }
     },
-    "date_of_original_registration": {
-      "title": "DATE OF ORIGINAL REGISTRATION",
-      "description": "",
-      "type": ["string", "null"],
-      "minLength": 0,
-      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
-      "examples": [20120729],
-      "fec_spec": {
-        "COL_SEQ": 63,
-        "FIELD_DESCRIPTION": "DATE OF ORIGINAL REGISTRATION",
-        "TYPE": "NUM-8",
-        "REQUIRED": "X (conditional error)",
-        "SAMPLE_DATA": 20120729,
-        "VALUE_REFERENCE": "YYYYMMDD",
-        "RULE_REFERENCE": "Req if requesting by qualification",
-        "FIELD_FORM_ASSOCIATION": null
-      }
-    },
     "date_of_51st_contributor": {
       "title": "DATE OF 51ST CONTRIBUTOR",
       "description": "",
@@ -1237,8 +1219,26 @@
       "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
       "examples": [20120729],
       "fec_spec": {
-        "COL_SEQ": 64,
+        "COL_SEQ": 63,
         "FIELD_DESCRIPTION": "DATE OF 51ST CONTRIBUTOR",
+        "TYPE": "NUM-8",
+        "REQUIRED": "X (conditional error)",
+        "SAMPLE_DATA": 20120729,
+        "VALUE_REFERENCE": "YYYYMMDD",
+        "RULE_REFERENCE": "Req if requesting by qualification",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "date_of_original_registration": {
+      "title": "DATE OF ORIGINAL REGISTRATION",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+      "examples": [20120729],
+      "fec_spec": {
+        "COL_SEQ": 64,
+        "FIELD_DESCRIPTION": "DATE OF ORIGINAL REGISTRATION",
         "TYPE": "NUM-8",
         "REQUIRED": "X (conditional error)",
         "SAMPLE_DATA": 20120729,
