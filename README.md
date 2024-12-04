@@ -34,76 +34,8 @@ is missing a value, the validation passes but with a warning issued about the mi
 
 # Deployment (FEC team only)
 
-*Special Note:* The requirements.txt field in the fecfile-web-api repo must be updated with the most recent commit hash for the commit changes to be pulled into the api build by CircleCI.
+[Deployment instructions...](https://github.com/fecgov/fecfile-web-api/wiki/Deployment)
 
-### Create a feature branch
-
-Using git-flow extensions:
-    ```
-    git flow feature start feature_branch
-    ```
-
-Without the git-flow extensions:
-    ```
-    git checkout develop
-    git pull
-    git checkout -b feature/feature_branch develop
-    ```
-
-* Developer creates a GitHub PR when ready to merge to `develop` branch
-* Reviewer reviews and merges feature branch into `develop` via GitHub
-
-### Create a release branch
-
-* Using git-flow extensions:
-```
-git flow release start sprint-#
-```
-
-* Without the git-flow extensions:
-```
-git checkout develop
-git pull
-git checkout -b release/sprint-# develop
-git push --set-upstream origin release/sprint-#
-```
-* Developer creates a PR in GitHub to merge release/sprint-# branch into the `main` branch to track if commits pass deployment checks. The actual merge will happen when deploying a release to production.
-
-### Create and deploy a hotfix
-
-* Using git-flow extensions:
-```
-git flow hotfix start my-fix
-# Work happens here
-git flow hotfix finish my-fix
-```
-
-* Without the git-flow extensions:
-```
-git checkout -b hotfix/my-fix main
-# Work happens here
-git push --set-upstream origin hotfix/my-fix
-```
-
-* Developer creates a hotfix branch, commits changes, and **makes a PR to the `main` and `develop` branches**:
-* Reviewer merges hotfix/my-fix branch into `develop` and `main`
-* Developer deploys hotfix/my-fix branch to main using **Deploying a release to production** instructions below
-
-### Deploying a release to production
-* Reviewer approves PR and merges into `main`
-* Check CircleCI for passing pipeline tests
-* If tests pass, continue
-* (If commits were made to release/sprint-#) Developer creates a PR in GitHub to merge release/sprint-# branch into the `develop` branch
-* Reviewer approves PR and merges into `develop`
-* Delete release/sprint-# branch
-* Publish a new release using tag sprint-#, be sure to Auto-generate release notes
-  * On Github, click on "Code" tab, then the "tags" link, then the "Releases" toggle
-  * Click the button "Draft a new release"
-  * Enter the new sprint tag "sprint-XX"
-  * Set Target option to "main"
-  * Set Release title to "sprint-XX"
-  * Click the button "Generate release notes"
-  * Click the "Publish release" button
 
 
 ## Additional developer notes
