@@ -1,3 +1,5 @@
 [flake8]
 # https://black.readthedocs.io/en/stable/the_black_code_style/current_style.html#line-length
 max-line-length = 90
+exclude =
+    node_modules
