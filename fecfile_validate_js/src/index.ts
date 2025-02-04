@@ -7,6 +7,8 @@
  */
 
 import { ErrorObject } from "ajv";
+import { BUSINESS_LABOR_NON_CONTRIBUTION_ACCOUNT } from '../dist/BUSINESS_LABOR_NON_CONTRIBUTION_ACCOUNT.mjs';
+import { SchemaNames } from "./schema-names-export";
 
 
 /**
@@ -34,12 +36,11 @@ export type ValidationError = {
  * @returns {ValidationError[]} Modified version of Ajv output, empty array if no errors found
  */
 export function validate(
-  schema: any,
+  schemaName: SchemaNames,
   data: any,
   fieldsToValidate: string[] = []
 ): Promise<ValidationError[]> {
-  const key = schemaToKey(schema);
-  return import(`${key} from '../dist/validate-esm.mjs'`).then(module => {
+  return import(`${schemaName} from '../dist/${schemaName}.mjs'`).then(module => {
     const isValid: boolean = module(data);
     const retval = isValid ? 'IS VALID!' : 'NOT VALID'; 
     console.log(retval);
@@ -75,9 +76,4 @@ function parseError(error: ErrorObject): ValidationError {
     params: error.params,
     message: !!error.message ? error.message : null,
   };
-}
-
-function schemaToKey(schema: any): string {
-  const mappingRegex = ".+/(.+).json$";
-  return schema['$id'].match(mappingRegex)[1];
 }
