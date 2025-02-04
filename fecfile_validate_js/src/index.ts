@@ -35,29 +35,28 @@ export type ValidationError = {
  * @param {string[]} fieldsToValidate
  * @returns {ValidationError[]} Modified version of Ajv output, empty array if no errors found
  */
-export function validate(
+export async function validate(
   schemaName: SchemaNames,
   data: any,
   fieldsToValidate: string[] = []
 ): Promise<ValidationError[]> {
-  return import(`${schemaName} from '../dist/${schemaName}.mjs'`).then(module => {
-    const isValid: boolean = module(data);
-    const retval = isValid ? 'IS VALID!' : 'NOT VALID'; 
-    console.log(retval);
-    const errors: ValidationError[] = [];
-    if (!isValid && !!module.errors?.length) {
-      module.errors.forEach((error: any) => {
-        const parsedError = parseError(error);
-        if (
-          !fieldsToValidate.length ||
-          fieldsToValidate.includes(parsedError.path)
-        ) {
-          errors.push(parsedError);
-        }
-      });
-    }
-    return errors;
-  });
+  const module = await import(`${schemaName} from '../dist/${schemaName}.mjs'`);
+  const isValid: boolean = module(data);
+  const retval = isValid ? 'IS VALID!' : 'NOT VALID';
+  console.log(retval);
+  const errors: ValidationError[] = [];
+  if (!isValid && !!module.errors?.length) {
+    module.errors.forEach((error: any) => {
+      const parsedError = parseError(error);
+      if (
+        !fieldsToValidate.length ||
+        fieldsToValidate.includes(parsedError.path)
+      ) {
+        errors.push(parsedError);
+      }
+    });
+  }
+  return errors;
 }
 
 /**
