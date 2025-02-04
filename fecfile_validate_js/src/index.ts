@@ -6,7 +6,8 @@
  * Tested with spec/index-spec.js
  */
 
-import Ajv, { ErrorObject, ValidateFunction } from "ajv";
+import { ErrorObject } from "ajv";
+
 
 /**
  * Validation error information for a single schema property
@@ -23,8 +24,6 @@ export type ValidationError = {
   message: string | null;
 };
 
-const ajv = new Ajv({ allErrors: true, strictSchema: false });
-
 /**
  * Takes a schema in JSON format and data object to be validated and returns an
  * array of ValidationError objects for all validation errors found by Ajv.
@@ -38,24 +37,26 @@ export function validate(
   schema: any,
   data: any,
   fieldsToValidate: string[] = []
-): ValidationError[] {
-  const validator: ValidateFunction = ajv.compile(schema);
-  const isValid: boolean = validator(data);
-  const errors: ValidationError[] = [];
-
-  if (!isValid && !!validator.errors?.length) {
-    validator.errors.forEach((error) => {
-      const parsedError = parseError(error);
-      if (
-        !fieldsToValidate.length ||
-        fieldsToValidate.includes(parsedError.path)
-      ) {
-        errors.push(parsedError);
-      }
-    });
-  }
-
-  return errors;
+): Promise<ValidationError[]> {
+  const key = schemaToKey(schema);
+  return import(`${key} from '../dist/validate-esm.mjs'`).then(module => {
+    const isValid: boolean = module(data);
+    const retval = isValid ? 'IS VALID!' : 'NOT VALID'; 
+    console.log(retval);
+    const errors: ValidationError[] = [];
+    if (!isValid && !!module.errors?.length) {
+      module.errors.forEach((error: any) => {
+        const parsedError = parseError(error);
+        if (
+          !fieldsToValidate.length ||
+          fieldsToValidate.includes(parsedError.path)
+        ) {
+          errors.push(parsedError);
+        }
+      });
+    }
+    return errors;
+  });
 }
 
 /**
@@ -74,4 +75,9 @@ function parseError(error: ErrorObject): ValidationError {
     params: error.params,
     message: !!error.message ? error.message : null,
   };
+}
+
+function schemaToKey(schema: any): string {
+  const mappingRegex = ".+/(.+).json$";
+  return schema['$id'].match(mappingRegex)[1];
 }
