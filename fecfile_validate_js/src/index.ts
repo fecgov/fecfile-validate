@@ -9,8 +9,6 @@
 import { ErrorObject } from "ajv";
 import { SchemaNames } from "./schema-names-export";
 
-import { Contact_Individual } from '../dist/Contact_Individual_VALIDATOR';
-
 /**
  * Validation error information for a single schema property
  * @typedef {object} ValidationError
@@ -35,14 +33,15 @@ export type ValidationError = {
  * @param {string[]} fieldsToValidate
  * @returns {ValidationError[]} Modified version of Ajv output, empty array if no errors found
  */
-export function validate(
+export async function validate(
   schemaName: SchemaNames,
   data: any,
   fieldsToValidate: string[] = []
-): ValidationError[] {
-  const validator: any = Contact_Individual;
+): Promise<ValidationError[]> {
+  const module = await import(`../dist/${schemaName}_VALIDATOR.js`);
+  const validator: any = module[schemaName];
   const isValid: boolean = validator(data);
-  
+
   const errors: ValidationError[] = [];
 
   if (!isValid && !!validator.errors?.length) {
