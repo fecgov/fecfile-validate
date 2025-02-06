@@ -6,10 +6,10 @@
  * Tested with spec/index-spec.js
  */
 
-import { ErrorObject } from "ajv";
-import { BUSINESS_LABOR_NON_CONTRIBUTION_ACCOUNT } from '../dist/BUSINESS_LABOR_NON_CONTRIBUTION_ACCOUNT.mjs';
+import { ErrorObject, ValidateFunction } from "ajv";
 import { SchemaNames } from "./schema-names-export";
 
+import { INDIVIDUAL_RECEIPT } from '../dist/INDIVIDUAL_RECEIPT_VALIDATOR.js';
 
 /**
  * Validation error information for a single schema property
@@ -40,13 +40,15 @@ export async function validate(
   data: any,
   fieldsToValidate: string[] = []
 ): Promise<ValidationError[]> {
-  const module = await import(`${schemaName} from '../dist/${schemaName}.mjs'`);
-  const isValid: boolean = module(data);
-  const retval = isValid ? 'IS VALID!' : 'NOT VALID';
-  console.log(retval);
+  const validator = INDIVIDUAL_RECEIPT;
+  const isValid: boolean = validator(data, {});
+  console.log('=========1 ' + isValid);
+  //console.log('=========2 ' + validator.errors.length);
+  /*
   const errors: ValidationError[] = [];
-  if (!isValid && !!module.errors?.length) {
-    module.errors.forEach((error: any) => {
+
+  if (!isValid && !!validator.errors?.length) {
+    validator.errors.forEach((error: any) => {
       const parsedError = parseError(error);
       if (
         !fieldsToValidate.length ||
@@ -56,7 +58,8 @@ export async function validate(
       }
     });
   }
-  return errors;
+  */
+  return [];
 }
 
 /**

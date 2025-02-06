@@ -11,7 +11,7 @@
     "schema/*.json"
   ],
   "scripts": {
-    "build": "rm -rf fecfile_validate_js/dist && node fecfile_validate_js/scripts/buildSchemaModules && tsc --project fecfile_validate_js/tsconfig.json",
+    "build": "rm -rf fecfile_validate_js/dist && node fecfile_validate_js/scripts/buildValidators && node fecfile_validate_js/scripts/buildSchemaModules && tsc --project fecfile_validate_js/tsconfig.json",
     "postinstall": "npm run build",
     "lint": "eslint ./fecfile_validate_js/src --ext .ts",
     "test": "npm run build && deno test --coverage=cov_profile --compat --unstable --allow-read --allow-run fecfile_validate_js/tests/*.test.ts"
