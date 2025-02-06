@@ -6,10 +6,10 @@
  * Tested with spec/index-spec.js
  */
 
-import { ErrorObject, ValidateFunction } from "ajv";
+import { ErrorObject } from "ajv";
 import { SchemaNames } from "./schema-names-export";
 
-import { INDIVIDUAL_RECEIPT } from '../dist/INDIVIDUAL_RECEIPT_VALIDATOR.js';
+import { Contact_Individual } from '../dist/Contact_Individual_VALIDATOR';
 
 /**
  * Validation error information for a single schema property
@@ -35,16 +35,14 @@ export type ValidationError = {
  * @param {string[]} fieldsToValidate
  * @returns {ValidationError[]} Modified version of Ajv output, empty array if no errors found
  */
-export async function validate(
+export function validate(
   schemaName: SchemaNames,
   data: any,
   fieldsToValidate: string[] = []
-): Promise<ValidationError[]> {
-  const validator = INDIVIDUAL_RECEIPT;
-  const isValid: boolean = validator(data, {});
-  console.log('=========1 ' + isValid);
-  //console.log('=========2 ' + validator.errors.length);
-  /*
+): ValidationError[] {
+  const validator: any = Contact_Individual;
+  const isValid: boolean = validator(data);
+  
   const errors: ValidationError[] = [];
 
   if (!isValid && !!validator.errors?.length) {
@@ -58,8 +56,7 @@ export async function validate(
       }
     });
   }
-  */
-  return [];
+  return errors;
 }
 
 /**
