@@ -6,6 +6,7 @@
   "main": "fecfile_validate_js/dist/index.js",
   "files": [
     "fecfile_validate_js/src/index.ts",
+    "fecfile_validate_js/src/ucs2length.ts",
     "fecfile_validate_js/tsconfig.json",
     "fecfile_validate_js/scripts/buildValidators.js",
     "fecfile_validate_js/scripts/buildSchemaModules.js",
