@@ -7,7 +7,6 @@
  */
 
 import { ErrorObject } from "ajv";
-import { SchemaNames } from "./schema-names-export";
 
 /**
  * Validation error information for a single schema property
@@ -34,7 +33,7 @@ export type ValidationError = {
  * @returns {ValidationError[]} Modified version of Ajv output, empty array if no errors found
  */
 export async function validate(
-  schemaName: SchemaNames,
+  schemaName: string,
   data: any,
   fieldsToValidate: string[] = []
 ): Promise<ValidationError[]> {
