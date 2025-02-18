@@ -23,6 +23,28 @@ export type ValidationError = {
   message: string | null;
 };
 
+export interface JsonSchema {
+  $schema: string;
+  $id: string;
+  version?: string;
+  title?: string;
+  type: string;
+  required: string[];
+  properties: {
+    [key: string]: {
+      type: string;
+      const?: string | number | boolean;
+      minLength?: number;
+      maxLength?: number;
+      minimum?: number;
+      maximum?: number;
+      exclusiveMinimum?: number;
+      exclusiveMaximum?: number;
+      pattern?: string;
+    };
+  };
+}
+
 /**
  * Takes a schema in JSON format and data object to be validated and returns an
  * array of ValidationError objects for all validation errors found by Ajv.
@@ -33,11 +55,15 @@ export type ValidationError = {
  * @returns {ValidationError[]} Modified version of Ajv output, empty array if no errors found
  */
 export async function validate(
-  schemaName: string,
+  schema: JsonSchema,
   data: any,
   fieldsToValidate: string[] = []
 ): Promise<ValidationError[]> {
-  const module = await import(`../dist/${schemaName}_VALIDATOR.js`);
+  const schemaName = schemaToKey(schema);
+  if (!schemaName) {
+    return Promise.reject();
+  }
+  const module = await import(`../dist/${schemaName}.validator.js`);
   const validator: any = module[schemaName];
   const isValid: boolean = validator(data);
 
@@ -73,4 +99,15 @@ function parseError(error: ErrorObject): ValidationError {
     params: error.params,
     message: !!error.message ? error.message : null,
   };
+}
+
+function schemaToKey(schema: JsonSchema) {
+  if (schema) {
+    const mappingRegex = ".+/(.+).json$";
+    const retval = schema.$id.match(mappingRegex);
+    if (retval) {
+      return retval[1];
+    }
+  }
+  return;
 }
