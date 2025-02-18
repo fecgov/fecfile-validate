@@ -1,0 +1,900 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/SchF.json",
+  "version": "8.3.0.1",
+  "title": "FEC Sch F",
+  "description": "SCHEDULE F - COORDINATED PARTY EXPENDITURES",
+  "type": "object",
+  "required": [
+    "form_type",
+    "filer_committee_id_number",
+    "transaction_type_identifier",
+    "transaction_id_number",
+    "designating_committee_id_number",
+    "designating_committee_name",
+    "subordinate_committee_name",
+    "subordinate_street_1",
+    "subordinate_city",
+    "subordinate_state",
+    "subordinate_zip",
+    "entity_type",
+    "payee_organization_name",
+    "payee_last_name",
+    "payee_first_name",
+    "payee_street_1",
+    "payee_city",
+    "payee_state",
+    "payee_zip",
+    "expenditure_date",
+    "expenditure_amount",
+    "general_election_year",
+    "aggregate_general_elec_expended",
+    "aggregation_group",
+    "expenditure_purpose_descrip",
+    "payee_committee_id_number",
+    "payee_candidate_id_number",
+    "payee_candidate_last_name",
+    "payee_candidate_first_name",
+    "payee_candidate_office",
+    "payee_candidate_state",
+    "payee_candidate_district"
+  ],
+  "properties": {
+    "form_type": {
+      "title": "FORM TYPE",
+      "description": "",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 8,
+      "pattern": "^[ -~]{0,8}$",
+      "examples": ["SE"],
+      "fec_spec": {
+        "COL_SEQ": 1,
+        "FIELD_DESCRIPTION": "FORM TYPE",
+        "TYPE": "A/N-8",
+        "REQUIRED": "X (error)",
+        "SAMPLE_DATA": "SE",
+        "VALUE_REFERENCE": "SE",
+        "RULE_REFERENCE": "SE",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "filer_committee_id_number": {
+      "title": "FILER COMMITTEE ID NUMBER",
+      "description": "",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 9,
+      "pattern": "^[ -~]{0,9}$",
+      "examples": ["C00123456"],
+      "fec_spec": {
+        "COL_SEQ": 2,
+        "FIELD_DESCRIPTION": "FILER COMMITTEE ID NUMBER",
+        "TYPE": "A/N-9",
+        "REQUIRED": "X (error)",
+        "SAMPLE_DATA": "C00123456",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "Must be either \"CXXXXXXXX\" where X is a numeric value (C, then 8 numbers) or \"PXXXXXXXX\" where X is a numeric value (P, then 8 numbers) or [H|S][0-9]{1}[A-Z]{2}[0-9]{5} (H or S, 1 number, 2 letters, 5 numbers)",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "transaction_type_identifier": {
+      "title": "TRANSACTION TYPE IDENTIFIER",
+      "description": "",
+      "type": "string",
+      "examples": ["C2_LOAN_GUARANTOR"],
+      "fec_spec": {
+        "COL_SEQ": 3,
+        "FIELD_DESCRIPTION": "TRANSACTION TYPE IDENTIFIER",
+        "TYPE": "",
+        "REQUIRED": "X (error)",
+        "SAMPLE_DATA": "C2_LOAN_GUARANTOR",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "COORDINATED_PARTY_EXPENDITURE\nCOORDINATED_PARTY_EXPENDITURE_VOID",
+        "FIELD_FORM_ASSOCIATION": ""
+      }
+    },
+    "transaction_id_number": {
+      "title": "TRANSACTION ID NUMBER",
+      "description": "",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 20,
+      "pattern": "^[ -~]{0,20}$",
+      "examples": ["F123456789-3456"],
+      "fec_spec": {
+        "COL_SEQ": 4,
+        "FIELD_DESCRIPTION": "TRANSACTION ID NUMBER",
+        "TYPE": "A/N-20",
+        "REQUIRED": "X (error)",
+        "SAMPLE_DATA": "F123456789-3456",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "must be unique and UPPER CASE for the life of the report (original + all amendments)",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "back_reference_tran_id_number": {
+      "title": "BACK REFERENCE TRAN ID NUMBER",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "maxLength": 20,
+      "pattern": "^[ -~]{0,20}$",
+      "examples": ["F123456789-1234"],
+      "fec_spec": {
+        "COL_SEQ": 5,
+        "FIELD_DESCRIPTION": "BACK REFERENCE TRAN ID NUMBER",
+        "TYPE": "A/N-20",
+        "REQUIRED": null,
+        "SAMPLE_DATA": "F123456789-1234",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+      }
+    },
+    "back_reference_sched_name": {
+      "title": "BACK REFERENCE SCHED NAME",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "maxLength": 8,
+      "pattern": "^[ -~]{0,8}$",
+      "examples": ["SB21"],
+      "fec_spec": {
+        "COL_SEQ": 6,
+        "FIELD_DESCRIPTION": "BACK REFERENCE SCHED NAME",
+        "TYPE": "A/N-8",
+        "REQUIRED": null,
+        "SAMPLE_DATA": "SB21",
+        "VALUE_REFERENCE": "SB[line# ref]",
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
+      }
+    },
+    "filer_designated_to_make_coordianted_expenditures": {
+      "title": "YES/NO  (Has filer been designated to make Coordinated Expenditures?)",
+      "description": "",
+      "type": ["boolean", "null"],
+      "fec_spec": {
+        "COL_SEQ": 7,
+        "FIELD_DESCRIPTION": "YES/NO  (Has filer been designated to make Coordinated Expenditures?)",
+        "TYPE": "A/N-1",
+        "REQUIRED": null,
+        "SAMPLE_DATA": "Y",
+        "VALUE_REFERENCE": "Y/N",
+        "RULE_REFERENCE": "If Y, following two fields are required"
+      }
+    },
+    "designating_committee_id_number": {
+      "title": "DESIGNATED COMMITTEE ID NUMBER",
+      "description": "",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 9,
+      "pattern": "^[ -~]{0,9}$",
+      "examples": ["C00123456"],
+      "fec_spec": {
+        "COL_SEQ": 8,
+        "FIELD_DESCRIPTION": "DESIGNATED COMMITTEE ID NUMBER",
+        "TYPE": "A/N-9",
+        "REQUIRED": "X (conditional error)",
+        "SAMPLE_DATA": "C00123456",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "Required if COL SEQ 7 is YES",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "designating_committee_name": {
+      "title": "DESIGNATING COMMITTEE NAME",
+      "description": "",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200,
+      "pattern": "^[ -~]{0,200}$",
+      "examples": ["The Committee"],
+      "fec_spec": {
+        "COL_SEQ": 9,
+        "FIELD_DESCRIPTION": "DESIGNATING COMMITTEE NAME",
+        "TYPE": "A/N-200",
+        "REQUIRED": "X (conditional error)",
+        "SAMPLE_DATA": "The Committee",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "Required if COL SEQ 7 is YES",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "subordinate_committee_id_number": {
+      "title": "SUBORDINATE COMMITTEE ID NUMBER",
+      "description": "",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 9,
+      "pattern": "^[ -~]{0,9}$",
+      "examples": ["C00123456"],
+      "fec_spec": {
+        "COL_SEQ": 10,
+        "FIELD_DESCRIPTION": "SUBORDINATE COMMITTEE ID NUMBER",
+        "TYPE": "A/N-9",
+        "REQUIRED": null,
+        "SAMPLE_DATA": "C00123456",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "subordinate_committee_name": {
+      "title": "SUBORDINATE COMMITTEE NAME",
+      "description": "",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200,
+      "pattern": "^[ -~]{0,200}$",
+      "examples": ["The Bank of Banks"],
+      "fec_spec": {
+        "COL_SEQ": 11,
+        "FIELD_DESCRIPTION": "SUBORDINATE COMMITTEE NAME",
+        "TYPE": "A/N-200",
+        "REQUIRED": "X (conditional error)",
+        "SAMPLE_DATA": "The Bank of Banks",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "Required if Committee ID number entered",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "subordinate_street_1": {
+      "title": "SUBORDINATE STREET  1",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "maxLength": 34,
+      "pattern": "^[ -~]{0,34}$",
+      "examples": ["The Bank Tower"],
+      "fec_spec": {
+        "COL_SEQ": 12,
+        "FIELD_DESCRIPTION": "SUBORDINATE STREET  1",
+        "TYPE": "A/N-34",
+        "REQUIRED": "X (conditional error)",
+        "SAMPLE_DATA": "The Bank Tower",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "Required if Committee ID number entered",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "subordinate_street_2": {
+      "title": "SUBORDINATE STREET  2",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "maxLength": 34,
+      "pattern": "^[ -~]{0,34}$",
+      "examples": ["100 Broadway"],
+      "fec_spec": {
+        "COL_SEQ": 13,
+        "FIELD_DESCRIPTION": "SUBORDINATE STREET  2",
+        "TYPE": "A/N-34",
+        "REQUIRED": null,
+        "SAMPLE_DATA": "100 Broadway",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "subordinate_city": {
+      "title": "SUBORDINATE CITY",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "maxLength": 30,
+      "pattern": "^[ -~]{0,30}$",
+      "examples": ["New York"],
+      "fec_spec": {
+        "COL_SEQ": 14,
+        "FIELD_DESCRIPTION": "SUBORDINATE CITY",
+        "TYPE": "A/N-30",
+        "REQUIRED": "X (conditional error)",
+        "SAMPLE_DATA": "New York",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "Required if Committee ID number entered",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "subordinate_state": {
+      "title": "SUBORDINATE STATE",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "maxLength": 2,
+      "pattern": "^[ -~]{0,2}$",
+      "examples": ["NY"],
+      "fec_spec": {
+        "COL_SEQ": 15,
+        "FIELD_DESCRIPTION": "SUBORDINATE STATE",
+        "TYPE": "A/N-2",
+        "REQUIRED": "X (conditional error)",
+        "SAMPLE_DATA": "NY",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "Required if Committee ID number entered",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "subordinate_zip": {
+      "title": "SUBORDINATE ZIP",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "maxLength": 9,
+      "pattern": "^[ -~]{0,9}$",
+      "examples": [10011],
+      "fec_spec": {
+        "COL_SEQ": 16,
+        "FIELD_DESCRIPTION": "SUBORDINATE ZIP",
+        "TYPE": "A/N-9",
+        "REQUIRED": "X (conditional error)",
+        "SAMPLE_DATA": 10011,
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "Required if Committee ID number entered",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "entity_type": {
+      "title": "ENTITY TYPE",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "maxLength": 3,
+      "pattern": "^[ -~]{0,3}$",
+      "examples": ["ORG", "IND"],
+      "fec_spec": {
+        "COL_SEQ": 17,
+        "FIELD_DESCRIPTION": "ENTITY TYPE",
+        "TYPE": "A/N-3",
+        "REQUIRED": null,
+        "SAMPLE_DATA": "IND",
+        "VALUE_REFERENCE": "[ORG | IND]",
+        "RULE_REFERENCE": "IND, ORG",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "payee_organization_name": {
+      "title": "PAYEE ORGANIZATION NAME",
+      "description": "",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200,
+      "pattern": "^[ -~]{0,200}$",
+      "examples": ["The Bank of Banks"],
+      "fec_spec": {
+        "COL_SEQ": 18,
+        "FIELD_DESCRIPTION": "PAYEE ORGANIZATION NAME",
+        "TYPE": "A/N-200",
+        "REQUIRED": "X (conditional error)",
+        "SAMPLE_DATA": "The Bank of Banks",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "Required if [ORG]",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "payee_last_name": {
+      "title": "PAYEE LAST NAME",
+      "description": "",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 30,
+      "pattern": "^[ -~]{0,30}$",
+      "examples": ["Smith"],
+      "fec_spec": {
+        "COL_SEQ": 19,
+        "FIELD_DESCRIPTION": "PAYEE LAST NAME",
+        "TYPE": "A/N-30",
+        "REQUIRED": "X (conditional error)",
+        "SAMPLE_DATA": "Smith",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "Required if [IND]",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "payee_first_name": {
+      "title": "PAYEE FIRST NAME",
+      "description": "",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 20,
+      "pattern": "^[ -~]{0,20}$",
+      "examples": ["John"],
+      "fec_spec": {
+        "COL_SEQ": 20,
+        "FIELD_DESCRIPTION": "PAYEE FIRST NAME",
+        "TYPE": "A/N-20",
+        "REQUIRED": "X (conditional error)",
+        "SAMPLE_DATA": "John",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "Required if [IND]",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "payee_middle_name": {
+      "title": "PAYEE MIDDLE NAME",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "maxLength": 20,
+      "pattern": "^[ -~]{0,20}$",
+      "examples": ["W"],
+      "fec_spec": {
+        "COL_SEQ": 21,
+        "FIELD_DESCRIPTION": "PAYEE MIDDLE NAME",
+        "TYPE": "A/N-20",
+        "REQUIRED": null,
+        "SAMPLE_DATA": "W",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "payee_prefix": {
+      "title": "PAYEE PREFIX",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "maxLength": 10,
+      "pattern": "^[ -~]{0,10}$",
+      "examples": ["Dr"],
+      "fec_spec": {
+        "COL_SEQ": 22,
+        "FIELD_DESCRIPTION": "PAYEE PREFIX",
+        "TYPE": "A/N-10",
+        "REQUIRED": null,
+        "SAMPLE_DATA": "Dr",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "payee_suffix": {
+      "title": "PAYEE SUFFIX",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "maxLength": 10,
+      "pattern": "^[ -~]{0,10}$",
+      "examples": ["Jr"],
+      "fec_spec": {
+        "COL_SEQ": 23,
+        "FIELD_DESCRIPTION": "PAYEE SUFFIX",
+        "TYPE": "A/N-10",
+        "REQUIRED": null,
+        "SAMPLE_DATA": "Jr",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "payee_street_1": {
+      "title": "PAYEE STREET  1",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "maxLength": 34,
+      "pattern": "^[ -~]{0,34}$",
+      "examples": ["The Bank Tower"],
+      "fec_spec": {
+        "COL_SEQ": 24,
+        "FIELD_DESCRIPTION": "PAYEE STREET  1",
+        "TYPE": "A/N-34",
+        "REQUIRED": "X (error)",
+        "SAMPLE_DATA": "The Bank Tower",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "payee_street_2": {
+      "title": "PAYEE STREET  2",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "maxLength": 34,
+      "pattern": "^[ -~]{0,34}$",
+      "examples": ["100 Broadway"],
+      "fec_spec": {
+        "COL_SEQ": 25,
+        "FIELD_DESCRIPTION": "PAYEE STREET  2",
+        "TYPE": "A/N-34",
+        "REQUIRED": null,
+        "SAMPLE_DATA": "100 Broadway",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "payee_city": {
+      "title": "PAYEE CITY",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "maxLength": 30,
+      "pattern": "^[ -~]{0,30}$",
+      "examples": ["New York"],
+      "fec_spec": {
+        "COL_SEQ": 26,
+        "FIELD_DESCRIPTION": "PAYEE CITY",
+        "TYPE": "A/N-30",
+        "REQUIRED": "X (error)",
+        "SAMPLE_DATA": "New York",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "payee_state": {
+      "title": "PAYEE STATE",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "maxLength": 2,
+      "pattern": "^[ -~]{0,2}$",
+      "examples": ["NY"],
+      "fec_spec": {
+        "COL_SEQ": 27,
+        "FIELD_DESCRIPTION": "PAYEE STATE",
+        "TYPE": "A/N-2",
+        "REQUIRED": "X (error)",
+        "SAMPLE_DATA": "NY",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "payee_zip": {
+      "title": "PAYEE ZIP",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "maxLength": 9,
+      "pattern": "^[ -~]{0,9}$",
+      "examples": [10011],
+      "fec_spec": {
+        "COL_SEQ": 28,
+        "FIELD_DESCRIPTION": "PAYEE ZIP",
+        "TYPE": "A/N-9",
+        "REQUIRED": "X (error)",
+        "SAMPLE_DATA": 10011,
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "expenditure_date": {
+      "title": "EXPENDITURE DATE",
+      "description": "",
+      "type": "string",
+      "minLength": 8,
+      "pattern": "^[0-9]{4}[0-9]{2}[0-9]{2}$",
+      "examples": ["20120101"],
+      "fec_spec": {
+        "COL_SEQ": 29,
+        "FIELD_DESCRIPTION": "EXPENDITURE DATE",
+        "TYPE": "NUM-8",
+        "REQUIRED": "X (error)",
+        "SAMPLE_DATA": 20120720,
+        "VALUE_REFERENCE": "YYYYMMDD",
+        "RULE_REFERENCE": null
+      }
+    },
+    "expenditure_amount": {
+      "title": "EXPENDITURE AMOUNT",
+      "description": "",
+      "type": "string",
+      "minimum": -99999999.99,
+      "maximum": 999999999.99,
+      "examples": [1500.00],
+      "fec_spec": {
+        "COL_SEQ": 30,
+        "FIELD_DESCRIPTION": "EXPENDITURE AMOUNT",
+        "TYPE": "AMT-12",
+        "REQUIRED": "X (error)",
+        "SAMPLE_DATA": 1500,
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "If Transaction Type is COORDINATED_PARTY_EXPENDITURE_VOID, amount must be negative."
+      }
+    },
+    "general_election_year": {
+      "title": "GENERAL ELECTION YEAR",
+      "description": "",
+      "type": "string",
+      "minLength": 4,
+      "pattern": "^[0-9]{4}$",
+      "examples": ["2024"],
+      "fec_spec": {
+        "FIELD_DESCRIPTION": "GENERAL ELECTION YEAR",
+        "REQUIRED": "X (error)",
+        "SAMPLE_DATA": 2024,
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null
+      }
+    },
+    "aggregate_general_elec_expended": {
+      "title": "AGGREGATE GENERAL ELEC EXPENDED",
+      "description": "",
+      "type": "string",
+      "minimum": -99999999.99,
+      "maximum": 999999999.99,
+      "examples": [123456.00],
+      "fec_spec": {
+        "COL_SEQ": 31,
+        "FIELD_DESCRIPTION": "AGGREGATE GENERAL ELEC EXPENDED",
+        "TYPE": "AMT-12",
+        "REQUIRED": "X (error)",
+        "SAMPLE_DATA": 123456,
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "Aggregate General Election Expenditure for this Candidate"
+      }
+    },
+    "aggregate_group": {
+      "title": "AGGREGATION GROUP",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "maxLength": 100,
+      "pattern": "^[ -~]{0,100}$",
+      "examples": [],
+      "fec_spec": {
+        "FIELD_DESCRIPTION": "AGGREGATION GROUP",
+        "REQUIRED": "X (error)",
+        "SAMPLE_DATA": null,
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "INDEPENDENT_EXPENDITURE",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "expenditure_purpose_descrip": {
+      "title": "EXPENDITURE PURPOSE DESCRIPTION",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "maxLength": 100,
+      "pattern": "^[ -~]{0,100}$",
+      "fec_spec": {
+        "COL_SEQ": 32,
+        "FIELD_DESCRIPTION": "EXPENDITURE PURPOSE DESCRIPTION",
+        "TYPE": "A/N-100",
+        "REQUIRED": "X (error)",
+        "SAMPLE_DATA": null,
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "category_code": {
+      "title": "CATEGORY CODE",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "maxLength": 3,
+      "pattern": "^[ -~]{0,3}$",
+      "examples": [1],
+      "fec_spec": {
+        "COL_SEQ": 33,
+        "FIELD_DESCRIPTION": "CATEGORY CODE",
+        "TYPE": "A/N-3",
+        "REQUIRED": null,
+        "SAMPLE_DATA": 1,
+        "VALUE_REFERENCE": "001-012",
+        "RULE_REFERENCE": "Only codes 001-012",
+        "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P"
+      }
+    },
+    "payee_committee_id_number": {
+      "title": "PAYEE COMMITTEE ID NUMBER",
+      "description": "",
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 9,
+      "pattern": "^[ -~]{0,9}$",
+      "examples": ["C00123456"],
+      "fec_spec": {
+        "COL_SEQ": 34,
+        "FIELD_DESCRIPTION": "PAYEE COMMITTEE ID NUMBER",
+        "TYPE": "A/N-9",
+        "REQUIRED": "X (error)",
+        "SAMPLE_DATA": "C00123456",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "payee_candidate_id_number": {
+      "title": "PAYEE CANDIDATE ID NUMBER",
+      "description": "",
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 9,
+      "pattern": "^[ -~]{0,9}$",
+      "examples": ["H98765431"],
+      "fec_spec": {
+        "COL_SEQ": 35,
+        "FIELD_DESCRIPTION": "PAYEE CANDIDATE ID NUMBER",
+        "TYPE": "A/N-9",
+        "REQUIRED": "X (error)",
+        "SAMPLE_DATA": "H98765431",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null
+      }
+    },
+    "payee_candidate_last_name": {
+      "title": "PAYEE CANDIDATE LAST NAME",
+      "description": "",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 30,
+      "pattern": "^[ -~]{0,30}$",
+      "examples": ["Smith"],
+      "fec_spec": {
+        "COL_SEQ": 36,
+        "FIELD_DESCRIPTION": "PAYEE CANDIDATE LAST NAME",
+        "TYPE": "A/N-30",
+        "REQUIRED": "X (error)",
+        "SAMPLE_DATA": "Smith",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null
+      }
+    },
+    "payee_candidate_first_name": {
+      "title": "PAYEE CANDIDATE FIRST NAME",
+      "description": "",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 20,
+      "pattern": "^[ -~]{0,20}$",
+      "examples": ["Patrick"],
+      "fec_spec": {
+        "COL_SEQ": 37,
+        "FIELD_DESCRIPTION": "PAYEE CANDIDATE FIRST NAME",
+        "TYPE": "A/N-20",
+        "REQUIRED": "X (error)",
+        "SAMPLE_DATA": "Patrick",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null
+      }
+    },
+    "payee_candidate_middle_name": {
+      "title": "PAYEE CANDIDATE MIDDLE NAME",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "maxLength": 20,
+      "pattern": "^[ -~]{0,20}$",
+      "examples": ["Thomas"],
+      "fec_spec": {
+        "COL_SEQ": 38,
+        "FIELD_DESCRIPTION": "PAYEE CANDIDATE MIDDLE NAME",
+        "TYPE": "A/N-20",
+        "REQUIRED": null,
+        "SAMPLE_DATA": "Thomas",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null
+      }
+    },
+    "payee_candidate_prefix": {
+      "title": "PAYEE CANDIDATE PREFIX",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "maxLength": 10,
+      "pattern": "^[ -~]{0,10}$",
+      "examples": ["Mr."],
+      "fec_spec": {
+        "COL_SEQ": 39,
+        "FIELD_DESCRIPTION": "PAYEE CANDIDATE PREFIX",
+        "TYPE": "A/N-10",
+        "REQUIRED": null,
+        "SAMPLE_DATA": "Mr.",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null
+      }
+    },
+    "payee_candidate_suffix": {
+      "title": "PAYEE CANDIDATE SUFFIX",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "maxLength": 10,
+      "pattern": "^[ -~]{0,10}$",
+      "examples": ["Jr."],
+      "fec_spec": {
+        "COL_SEQ": 40,
+        "FIELD_DESCRIPTION": "PAYEE CANDIDATE SUFFIX",
+        "TYPE": "A/N-10",
+        "REQUIRED": null,
+        "SAMPLE_DATA": "Jr.",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null
+      }
+    },
+    "payee_candidate_office": {
+      "title": "PAYEE CANDIDATE OFFICE",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "maxLength": 1,
+      "pattern": "^[ -~]{0,1}$",
+      "examples": ["H"],
+      "fec_spec": {
+        "COL_SEQ": 41,
+        "FIELD_DESCRIPTION": "PAYEE CANDIDATE OFFICE",
+        "TYPE": "A/N-1",
+        "REQUIRED": "X (error)",
+        "SAMPLE_DATA": "H",
+        "VALUE_REFERENCE": "H,S,P",
+        "RULE_REFERENCE": "REQUIRED\ntype: string\nmust be one of: ['H', 'S', 'P']"
+      }
+    },
+    "payee_candidate_state": {
+      "title": "PAYEE CANDIDATE STATE",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "maxLength": 2,
+      "pattern": "^[ -~]{0,2}$",
+      "examples": ["FL"],
+      "fec_spec": {
+        "COL_SEQ": 42,
+        "FIELD_DESCRIPTION": "PAYEE CANDIDATE STATE",
+        "TYPE": "A/N-2",
+        "REQUIRED": "X (error)",
+        "SAMPLE_DATA": "FL",
+        "VALUE_REFERENCE": "AK,AL,...",
+        "RULE_REFERENCE": "REQUIRED if CANDIDATE_OFFICE equals S\nREQUIRED if CANDIDATE_OFFICE equals H"
+      }
+    },
+    "payee_candidate_district": {
+      "title": "PAYEE CANDIDATE DISTRICT",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 2,
+      "maxLength": 2,
+      "pattern": "^\\d{2}$",
+      "examples": [35],
+      "fec_spec": {
+        "COL_SEQ": 43,
+        "FIELD_DESCRIPTION": "PAYEE CANDIDATE DISTRICT",
+        "TYPE": "NUM-2",
+        "REQUIRED": "X (conditional error)",
+        "SAMPLE_DATA": 35,
+        "VALUE_REFERENCE": "01 ... 99",
+        "RULE_REFERENCE": "REQUIRED if CANDIDATE_OFFICE equals H"
+      }
+    },
+    "memo_code": {
+      "title": "MEMO CODE",
+      "description": "",
+      "type": ["boolean", "null"],
+      "fec_spec": {
+        "COL_SEQ": 44,
+        "FIELD_DESCRIPTION": "MEMO CODE",
+        "TYPE": "A/N-1",
+        "REQUIRED": null,
+        "SAMPLE_DATA": null,
+        "VALUE_REFERENCE": "X",
+        "RULE_REFERENCE": "X = True"
+      }
+    },
+    "memo_text_description": {
+      "title": "MEMO TEXT/DESCRIPTION",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "maxLength": 100,
+      "pattern": "^[ -~]{0,100}$",
+      "fec_spec": {
+        "COL_SEQ": 45,
+        "FIELD_DESCRIPTION": "MEMO TEXT/DESCRIPTION",
+        "TYPE": "A/N-100",
+        "REQUIRED": null,
+        "SAMPLE_DATA": null,
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null
+      }
+    }
+  }
+}
