@@ -61,7 +61,7 @@ export async function validate(
 ): Promise<ValidationError[]> {
   const schemaName = schemaToKey(schema);
   if (!schemaName) {
-    return Promise.reject();
+    return Promise.reject(new Error("Failed to retrieve schemaName"));
   }
   const module = await import(`../dist/${schemaName}.validator.js`);
   const validator: any = module[schemaName];
@@ -102,12 +102,9 @@ function parseError(error: ErrorObject): ValidationError {
 }
 
 function schemaToKey(schema: JsonSchema) {
-  if (schema) {
-    const mappingRegex = ".+/(.+).json$";
-    const retval = schema.$id.match(mappingRegex);
-    if (retval) {
-      return retval[1];
-    }
+  if (schema && schema.$id) {
+    const startIndex = schema.$id.lastIndexOf("/");
+    const endIndex = schema.$id.indexOf(".json");
+    return schema.$id.substring(startIndex + 1, endIndex);
   }
-  return;
 }

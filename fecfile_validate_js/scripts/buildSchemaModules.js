@@ -56,13 +56,10 @@ function createValidatorForSchemaFile(schema, baseFilename) {
       optimize: true,
     },
     allErrors: true,
-    strictSchema: false
+    strictSchema: false,
   });
   let moduleCode = removeInvalidCjsRequireStatements(standaloneCode(ajv, schemaMapping));
   const typeExports = `export declare function ${key}(data: any, options: any): boolean;`
-  //const ajv = new Ajv({ code: { source: true, esm: true } });
-  //const validate = ajv.compile(schema);
-  //const moduleCode = removeInvalidCjsRequireStatements(standaloneCode(ajv, validate));
   fs.writeFileSync(path.join(dir, `../dist/${key}.validator.js`), moduleCode);
   fs.writeFileSync(path.join(dir, `../dist/${key}.validator.d.ts`), typeExports);
 }
