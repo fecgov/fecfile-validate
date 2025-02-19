@@ -85,6 +85,6 @@ function removeInvalidCjsRequireStatements(jsCode) {
   // after several field validation cyles which we could not
   // determine why it was happening.  We may need more of these
   // in the future if our schemas add more require statements.
-  importStatements = importStatements.replace("ajv/dist/runtime/ucs2length", "./ucs2length");
+  importStatements = importStatements.replace("ajv/dist/runtime/ucs2length", "./ucs2length.js");
   return preamble + importStatements + retval;
 }
