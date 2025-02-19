@@ -1,5 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><title>SchF</title><link rel="stylesheet" href="spec_table.css"></head><body><table><caption>Specification for SchF</caption><tr>
-<th>COL SEQ</th>
+<!DOCTYPE html><html lang="en"><head><title>COORDINATED_PARTY_EXPENDITURES</title><link rel="stylesheet" href="spec_table.css"></head><body><table><caption>Specification for COORDINATED_PARTY_EXPENDITURES</caption><tr>
 <th>FIELD DESCRIPTION</th>
 <th>TYPE</th>
 <th>REQUIRED</th>
@@ -10,29 +9,37 @@
 <th>VALIDATION RULES</th>
 </tr>
 <tr>
-<td>1</td>
 <td>FORM TYPE</td>
 <td>A/N-8</td>
 <td>X (error)</td>
-<td>SF</td>
-<td>SF</td>
-<td>Appendix C</td>
+<td>SE</td>
+<td>SE</td>
+<td>SE</td>
 <td></td>
 <td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 8</li><li>regex: ^[ -~]{0,8}$</li></td>
 </tr>
 <tr>
-<td>2</td>
 <td>FILER COMMITTEE ID NUMBER</td>
 <td>A/N-9</td>
 <td>X (error)</td>
 <td>C00123456</td>
 <td></td>
-<td></td>
+<td>Must be either "CXXXXXXXX" where X is a numeric value (C, then 8 numbers) or "PXXXXXXXX" where X is a numeric value (P, then 8 numbers) or [H|S][0-9]{1}[A-Z]{2}[0-9]{5} (H or S, 1 number, 2 letters, 5 numbers)</td>
 <td></td>
 <td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 9</li><li>regex: ^[ -~]{0,9}$</li></td>
 </tr>
 <tr>
-<td>3</td>
+<td>TRANSACTION TYPE IDENTIFIER</td>
+<td></td>
+<td>X (error)</td>
+<td>C2_LOAN_GUARANTOR</td>
+<td></td>
+<td>COORDINATED_PARTY_EXPENDITURE
+COORDINATED_PARTY_EXPENDITURE_VOID</td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: string</li></td>
+</tr>
+<tr>
 <td>TRANSACTION ID NUMBER</td>
 <td>A/N-20</td>
 <td>X (error)</td>
@@ -43,7 +50,6 @@
 <td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
 </tr>
 <tr>
-<td>4</td>
 <td>BACK REFERENCE TRAN ID NUMBER</td>
 <td>A/N-20</td>
 <td></td>
@@ -54,260 +60,236 @@
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
 </tr>
 <tr>
-<td>5</td>
 <td>BACK REFERENCE SCHED NAME</td>
 <td>A/N-8</td>
 <td></td>
-<td>SA11AI</td>
-<td>SA[line# ref]</td>
+<td>SB21</td>
+<td>SB[line# ref]</td>
 <td></td>
 <td>F3 | F3X | F3P | F3L</td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 8</li><li>regex: ^[ -~]{0,8}$</li></td>
 </tr>
 <tr>
-<td>6</td>
 <td>YES/NO  (Has filer been designated to make Coordinated Expenditures?)</td>
 <td>A/N-1</td>
 <td></td>
 <td>Y</td>
-<td>Y,N</td>
-<td>Edit: Yes/No</td>
+<td>Y/N</td>
+<td>If Y, following two fields are required</td>
 <td></td>
 <td><ul><li>type: ['boolean', 'null']</li></td>
 </tr>
 <tr>
-<td>7</td>
 <td>DESIGNATED COMMITTEE ID NUMBER</td>
 <td>A/N-9</td>
+<td>X (conditional error)</td>
+<td>C00123456</td>
 <td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>Required if COL SEQ 7 is YES</td>
 <td></td>
 <td><ul><li>type: string</li><li>min length: 1</li><li>max length: 9</li><li>regex: ^[ -~]{0,9}$</li></td>
 </tr>
 <tr>
-<td>8</td>
 <td>DESIGNATING COMMITTEE NAME</td>
 <td>A/N-200</td>
-<td>X (warn if field #6=Y)</td>
+<td>X (conditional error)</td>
+<td>The Committee</td>
 <td></td>
-<td></td>
-<td></td>
+<td>Required if COL SEQ 7 is YES</td>
 <td></td>
 <td><ul><li>type: string</li><li>min length: 1</li><li>max length: 200</li><li>regex: ^[ -~]{0,200}$</li></td>
 </tr>
 <tr>
-<td>9</td>
 <td>SUBORDINATE COMMITTEE ID NUMBER</td>
 <td>A/N-9</td>
 <td></td>
-<td></td>
+<td>C00123456</td>
 <td></td>
 <td></td>
 <td></td>
 <td><ul><li>type: string</li><li>min length: 1</li><li>max length: 9</li><li>regex: ^[ -~]{0,9}$</li></td>
 </tr>
 <tr>
-<td>10</td>
 <td>SUBORDINATE COMMITTEE NAME</td>
 <td>A/N-200</td>
+<td>X (conditional error)</td>
+<td>The Bank of Banks</td>
 <td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>Required if Committee ID number entered</td>
 <td></td>
 <td><ul><li>type: string</li><li>min length: 1</li><li>max length: 200</li><li>regex: ^[ -~]{0,200}$</li></td>
 </tr>
 <tr>
-<td>11</td>
 <td>SUBORDINATE STREET  1</td>
 <td>A/N-34</td>
+<td>X (conditional error)</td>
+<td>The Bank Tower</td>
 <td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>Required if Committee ID number entered</td>
 <td></td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 34</li><li>regex: ^[ -~]{0,34}$</li></td>
 </tr>
 <tr>
-<td>12</td>
 <td>SUBORDINATE STREET  2</td>
 <td>A/N-34</td>
 <td></td>
-<td></td>
+<td>100 Broadway</td>
 <td></td>
 <td></td>
 <td></td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 34</li><li>regex: ^[ -~]{0,34}$</li></td>
 </tr>
 <tr>
-<td>13</td>
 <td>SUBORDINATE CITY</td>
 <td>A/N-30</td>
+<td>X (conditional error)</td>
+<td>New York</td>
 <td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>Required if Committee ID number entered</td>
 <td></td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 30</li><li>regex: ^[ -~]{0,30}$</li></td>
 </tr>
 <tr>
-<td>14</td>
 <td>SUBORDINATE STATE</td>
 <td>A/N-2</td>
+<td>X (conditional error)</td>
+<td>NY</td>
 <td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>Required if Committee ID number entered</td>
 <td></td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 2</li><li>regex: ^[ -~]{0,2}$</li></td>
 </tr>
 <tr>
-<td>15</td>
 <td>SUBORDINATE ZIP</td>
 <td>A/N-9</td>
+<td>X (conditional error)</td>
+<td>10011</td>
 <td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>Required if Committee ID number entered</td>
 <td></td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 9</li><li>regex: ^[ -~]{0,9}$</li></td>
 </tr>
 <tr>
-<td>16</td>
 <td>ENTITY TYPE</td>
 <td>A/N-3</td>
 <td></td>
+<td>IND</td>
+<td>[ORG | IND]</td>
+<td>IND, ORG</td>
 <td></td>
-<td></td>
-<td></td>
-<td></td>
-<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 3</li><li>regex: ^[ -~]{0,3}$</li></td>
+<td><ul><li>REQUIRED</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 3</li><li>regex: ^[ -~]{0,3}$</li></td>
 </tr>
 <tr>
-<td>17</td>
 <td>PAYEE ORGANIZATION NAME</td>
 <td>A/N-200</td>
-<td>X (error)</td>
-<td>John Smith & Co.</td>
+<td>X (conditional error)</td>
+<td>The Bank of Banks</td>
 <td></td>
-<td>Required if NOT [IND|CAN]</td>
+<td>Required if [ORG]</td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 200</li><li>regex: ^[ -~]{0,200}$</li></td>
+<td><ul><li>type: string</li><li>min length: 1</li><li>max length: 200</li><li>regex: ^[ -~]{0,200}$</li></td>
 </tr>
 <tr>
-<td>18</td>
 <td>PAYEE LAST NAME</td>
 <td>A/N-30</td>
-<td>X (error)</td>
+<td>X (conditional error)</td>
 <td>Smith</td>
 <td></td>
-<td>Required if [IND|CAN]</td>
+<td>Required if [IND]</td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 30</li><li>regex: ^[ -~]{0,30}$</li></td>
+<td><ul><li>type: string</li><li>min length: 1</li><li>max length: 30</li><li>regex: ^[ -~]{0,30}$</li></td>
 </tr>
 <tr>
-<td>19</td>
 <td>PAYEE FIRST NAME</td>
 <td>A/N-20</td>
-<td>X (error)</td>
+<td>X (conditional error)</td>
 <td>John</td>
 <td></td>
-<td>Required if [IND|CAN]</td>
+<td>Required if [IND]</td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
+<td><ul><li>type: string</li><li>min length: 1</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
 </tr>
 <tr>
-<td>20</td>
 <td>PAYEE MIDDLE NAME</td>
 <td>A/N-20</td>
 <td></td>
 <td>W</td>
 <td></td>
-<td>Optional if [IND|CAN]</td>
+<td></td>
 <td></td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
 </tr>
 <tr>
-<td>21</td>
 <td>PAYEE PREFIX</td>
 <td>A/N-10</td>
 <td></td>
 <td>Dr</td>
 <td></td>
-<td>Optional if [IND|CAN]</td>
+<td></td>
 <td></td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 10</li><li>regex: ^[ -~]{0,10}$</li></td>
 </tr>
 <tr>
-<td>22</td>
 <td>PAYEE SUFFIX</td>
 <td>A/N-10</td>
 <td></td>
 <td>Jr</td>
 <td></td>
-<td>Optional if [IND|CAN]</td>
+<td></td>
 <td></td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 10</li><li>regex: ^[ -~]{0,10}$</li></td>
 </tr>
 <tr>
-<td>23</td>
 <td>PAYEE STREET  1</td>
 <td>A/N-34</td>
-<td>X (warning)</td>
-<td>Suite 16</td>
+<td>X (error)</td>
+<td>The Bank Tower</td>
 <td></td>
 <td></td>
 <td></td>
-<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 34</li><li>regex: ^[ -~]{0,34}$</li></td>
+<td><ul><li>REQUIRED</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 34</li><li>regex: ^[ -~]{0,34}$</li></td>
 </tr>
 <tr>
-<td>24</td>
 <td>PAYEE STREET  2</td>
 <td>A/N-34</td>
 <td></td>
-<td>30 Oak Street</td>
+<td>100 Broadway</td>
 <td></td>
 <td></td>
 <td></td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 34</li><li>regex: ^[ -~]{0,34}$</li></td>
 </tr>
 <tr>
-<td>25</td>
 <td>PAYEE CITY</td>
 <td>A/N-30</td>
-<td>X (warning)</td>
-<td>Springfield</td>
+<td>X (error)</td>
+<td>New York</td>
 <td></td>
 <td></td>
 <td></td>
-<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 30</li><li>regex: ^[ -~]{0,30}$</li></td>
+<td><ul><li>REQUIRED</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 30</li><li>regex: ^[ -~]{0,30}$</li></td>
 </tr>
 <tr>
-<td>26</td>
 <td>PAYEE STATE</td>
 <td>A/N-2</td>
-<td>X (warning)</td>
-<td>MA</td>
+<td>X (error)</td>
+<td>NY</td>
 <td></td>
 <td></td>
 <td></td>
-<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 2</li><li>regex: ^[ -~]{0,2}$</li></td>
+<td><ul><li>REQUIRED</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 2</li><li>regex: ^[ -~]{0,2}$</li></td>
 </tr>
 <tr>
-<td>27</td>
 <td>PAYEE ZIP</td>
 <td>A/N-9</td>
-<td>X (warning)</td>
-<td>10012</td>
+<td>X (error)</td>
+<td>10011</td>
 <td></td>
 <td></td>
 <td></td>
-<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 9</li><li>regex: ^[ -~]{0,9}$</li></td>
+<td><ul><li>REQUIRED</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 9</li><li>regex: ^[ -~]{0,9}$</li></td>
 </tr>
 <tr>
-<td>28</td>
 <td>EXPENDITURE DATE</td>
 <td>NUM-8</td>
 <td>X (error)</td>
@@ -318,97 +300,106 @@
 <td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 8</li><li>regex: ^[0-9]{4}[0-9]{2}[0-9]{2}$</li></td>
 </tr>
 <tr>
-<td>29</td>
 <td>EXPENDITURE AMOUNT</td>
 <td>AMT-12</td>
 <td>X (error)</td>
 <td>1500</td>
 <td></td>
-<td></td>
+<td>If Transaction Type is COORDINATED_PARTY_EXPENDITURE_VOID, amount must be negative.</td>
 <td></td>
 <td><ul><li>REQUIRED</li><li>type: string</li><li>minimum: -99999999.99</li><li>maximum: 999999999.99</li></td>
 </tr>
 <tr>
-<td>30</td>
-<td>AGGREGATE GENERAL ELEC EXPENDED</td>
-<td>AMT-12</td>
-<td>X (warning)</td>
-<td>123456</td>
+<td>GENERAL ELECTION YEAR</td>
 <td></td>
-<td>Aggregate Gen Elec Amt Expended</td>
+<td>X (error)</td>
+<td>2024</td>
 <td></td>
-<td><ul><li>type: string</li><li>minimum: -99999999.99</li><li>maximum: 999999999.99</li></td>
+<td></td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 4</li><li>regex: ^[0-9]{4}$</li></td>
 </tr>
 <tr>
-<td>31</td>
-<td>EXPENDITURE PURPOSE DESCRIPTION</td>
-<td>A/N-100</td>
-<td>X (warn if Aggreg > 0)</td>
-<td>Repay Loan</td>
+<td>AGGREGATE GENERAL ELEC EXPENDED</td>
+<td>AMT-12</td>
+<td>X (error)</td>
+<td>123456</td>
 <td></td>
-<td>A description is required if the Aggregate Expended for the General Election (field #30) is over $0.00</td>
+<td>Aggregate General Election Expenditure for this Candidate</td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>minimum: -99999999.99</li><li>maximum: 999999999.99</li></td>
+</tr>
+<tr>
+<td>AGGREGATION GROUP</td>
+<td></td>
+<td>X (error)</td>
+<td></td>
+<td></td>
+<td>INDEPENDENT_EXPENDITURE</td>
 <td></td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 100</li><li>regex: ^[ -~]{0,100}$</li></td>
 </tr>
 <tr>
-<td>32</td>
+<td>EXPENDITURE PURPOSE DESCRIPTION</td>
+<td>A/N-100</td>
+<td>X (error)</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 100</li><li>regex: ^[ -~]{0,100}$</li></td>
+</tr>
+<tr>
 <td>CATEGORY CODE</td>
 <td>A/N-3</td>
 <td></td>
-<td>001</td>
+<td>1</td>
 <td>001-012</td>
-<td>Category Code values 001-012</td>
+<td>Only codes 001-012</td>
 <td>F3 | F3X | F3P</td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 3</li><li>regex: ^[ -~]{0,3}$</li></td>
 </tr>
 <tr>
-<td>33</td>
 <td>PAYEE COMMITTEE ID NUMBER</td>
 <td>A/N-9</td>
+<td>X (error)</td>
+<td>C00123456</td>
 <td></td>
-<td>C00654323</td>
 <td></td>
-<td>Used if CCM, COM, PAC or PTY</td>
 <td></td>
-<td><ul><li>type: string</li><li>min length: 0</li><li>max length: 9</li><li>regex: ^[ -~]{0,9}$</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 9</li><li>regex: ^[ -~]{0,9}$</li></td>
 </tr>
 <tr>
-<td>34</td>
 <td>PAYEE CANDIDATE ID NUMBER</td>
 <td>A/N-9</td>
-<td></td>
+<td>X (error)</td>
 <td>H98765431</td>
 <td></td>
-<td>Used if CAN or CCM</td>
 <td></td>
-<td><ul><li>type: string</li><li>min length: 0</li><li>max length: 9</li><li>regex: ^[ -~]{0,9}$</li></td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 9</li><li>regex: ^[ -~]{0,9}$</li></td>
 </tr>
 <tr>
-<td>35</td>
 <td>PAYEE CANDIDATE LAST NAME</td>
 <td>A/N-30</td>
 <td>X (error)</td>
 <td>Smith</td>
 <td></td>
-<td>If either Last or First name coded;
-both Last & First names required.</td>
+<td></td>
 <td></td>
 <td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 30</li><li>regex: ^[ -~]{0,30}$</li></td>
 </tr>
 <tr>
-<td>36</td>
 <td>PAYEE CANDIDATE FIRST NAME</td>
 <td>A/N-20</td>
 <td>X (error)</td>
 <td>Patrick</td>
 <td></td>
-<td>If either Last or First name coded;
-both Last & First names required.</td>
+<td></td>
 <td></td>
 <td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
 </tr>
 <tr>
-<td>37</td>
 <td>PAYEE CANDIDATE MIDDLE NAME</td>
 <td>A/N-20</td>
 <td></td>
@@ -419,7 +410,6 @@ both Last & First names required.</td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
 </tr>
 <tr>
-<td>38</td>
 <td>PAYEE CANDIDATE PREFIX</td>
 <td>A/N-10</td>
 <td></td>
@@ -430,7 +420,6 @@ both Last & First names required.</td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 10</li><li>regex: ^[ -~]{0,10}$</li></td>
 </tr>
 <tr>
-<td>39</td>
 <td>PAYEE CANDIDATE SUFFIX</td>
 <td>A/N-10</td>
 <td></td>
@@ -441,51 +430,49 @@ both Last & First names required.</td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 10</li><li>regex: ^[ -~]{0,10}$</li></td>
 </tr>
 <tr>
-<td>40</td>
 <td>PAYEE CANDIDATE OFFICE</td>
 <td>A/N-1</td>
-<td>X (warning)</td>
+<td>X (error)</td>
 <td>H</td>
 <td>H,S,P</td>
-<td>Edit: OFFICE</td>
+<td>REQUIRED
+type: string
+must be one of: ['H', 'S', 'P']</td>
 <td></td>
-<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 1</li><li>regex: ^[ -~]{0,1}$</li></td>
+<td><ul><li>REQUIRED</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 1</li><li>regex: ^[ -~]{0,1}$</li></td>
 </tr>
 <tr>
-<td>41</td>
 <td>PAYEE CANDIDATE STATE</td>
 <td>A/N-2</td>
-<td>X (warn if Cand Office=H or S)</td>
+<td>X (error)</td>
 <td>FL</td>
 <td>AK,AL,...</td>
-<td>Edit: ST (if Office - Sen or House)</td>
+<td>REQUIRED if CANDIDATE_OFFICE equals S
+REQUIRED if CANDIDATE_OFFICE equals H</td>
 <td></td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 2</li><li>regex: ^[ -~]{0,2}$</li></td>
 </tr>
 <tr>
-<td>42</td>
 <td>PAYEE CANDIDATE DISTRICT</td>
 <td>NUM-2</td>
-<td>X (warn if Cand Office=H)</td>
+<td>X (conditional error)</td>
 <td>35</td>
 <td>01 ... 99</td>
-<td>(if Office = House)</td>
+<td>REQUIRED if CANDIDATE_OFFICE equals H</td>
 <td></td>
 <td><ul><li>type: ['string', 'null']</li><li>min length: 2</li><li>max length: 2</li><li>regex: ^\d{2}$</li></td>
 </tr>
 <tr>
-<td>43</td>
 <td>MEMO CODE</td>
 <td>A/N-1</td>
 <td></td>
 <td></td>
 <td>X</td>
-<td></td>
+<td>X = True</td>
 <td></td>
 <td><ul><li>type: ['boolean', 'null']</li></td>
 </tr>
 <tr>
-<td>44</td>
 <td>MEMO TEXT/DESCRIPTION</td>
 <td>A/N-100</td>
 <td></td>
