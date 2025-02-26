@@ -33,18 +33,18 @@ const perfectForm: any = {
 
 Deno.test({
   name: "it should pass with perfect data",
-  fn: () => {
-    const result = validate(schema, perfectForm);
+  fn: async () => {
+    const result = await validate(schema, perfectForm);
     assertEquals(result, []);
   },
 });
 
 Deno.test({
   name: "it should fail if contribution_amount is null",
-  fn: () => {
+  fn: async () => {
     const thisData = { ...perfectForm };
     thisData.contribution_amount = null;
-    const result = validate(schema, thisData);
+    const result = await validate(schema, thisData);
     assertEquals(result[0].keyword, "type");
     assertEquals(result[0].path, "contribution_amount");
     assertEquals(result[0].params.type, "number");
@@ -53,11 +53,11 @@ Deno.test({
 
 Deno.test({
   name: "it should be contributor_organization_name is required for ORG and contributor_first_name not required",
-  fn: () => {
+  fn: async () => {
     const thisData = { ...perfectForm };
     thisData.entity_type = "ORG";
     thisData.contributor_first_name = null;
-    const result = validate(schema, thisData);
+    const result = await validate(schema, thisData);
     assertEquals(result[0].keyword, "type");
     assertEquals(result[0].path, "contributor_organization_name");
     assertEquals(result[0].params.type, "string");
@@ -67,20 +67,20 @@ Deno.test({
 
 Deno.test({
   name: "it should pass if contribution_amount == 999999999.99",
-  fn: ()=>{
+  fn: async () => {
     const thisData = {...perfectForm};
     thisData.contribution_amount = 999999999.99;
-    const result = validate(schema, thisData);
+    const result = await validate(schema, thisData);
     assertEquals(result, []);
   },
 });
 
 Deno.test({
   name: "it should fail if contribution_amount > 999999999.99",
-  fn: ()=>{
+  fn: async () => {
     const thisData = {...perfectForm};
     thisData.contribution_amount = 1000000000;
-    const result = validate(schema, thisData);
+    const result = await validate(schema, thisData);
     const failure = (result.length > 0);
     assertEquals(failure, true);
   },
