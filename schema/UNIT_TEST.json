@@ -1,0 +1,27 @@
+{
+    "$schema": "https://json-schema.org/draft-07/schema#",
+    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/UNIT_TEST.json",
+    "type": "object",
+    "required": [],
+    "properties": {
+        "in_between": {
+            "type": "string",
+            "minLength": 10,
+            "maxLength": 20
+        },
+        "low_high": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 10
+        },
+        "exclusive_low_high": {
+            "type": "number",
+            "exclusiveMinimum": 0,
+            "exclusiveMaximum": 100
+        },
+        "exclusive_negative_amount": {
+            "type": "number",
+            "exclusiveMaximum": 0
+        }
+    }
+}

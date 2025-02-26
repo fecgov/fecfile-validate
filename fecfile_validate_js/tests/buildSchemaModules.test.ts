@@ -9,7 +9,7 @@ await process.status();
 
 Deno.test({
   name: 'it should create schema *.js files',
-  fn: () => {
+  fn: async () => {
     const result: boolean = existsSync(`${__dirname}/../dist/F3X.js`);
     assertEquals(result, true);
   },
@@ -17,7 +17,7 @@ Deno.test({
 
 Deno.test({
   name: 'it should create schema *.d.ts files',
-  fn: () => {
+  fn: async () => {
     const result: boolean = existsSync(`${__dirname}/../dist/F3X.d.ts`);
     assertEquals(result, true);
   },
