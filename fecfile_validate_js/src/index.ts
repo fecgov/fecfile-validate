@@ -6,7 +6,7 @@
  * Tested with spec/index-spec.js
  */
 
-import Ajv, { ErrorObject, ValidateFunction } from "ajv";
+import { ErrorObject } from "ajv";
 
 /**
  * Validation error information for a single schema property
@@ -23,7 +23,27 @@ export type ValidationError = {
   message: string | null;
 };
 
-const ajv = new Ajv({ allErrors: true, strictSchema: false });
+export interface JsonSchema {
+  $schema: string;
+  $id: string;
+  version?: string;
+  title?: string;
+  type: string;
+  required: string[];
+  properties: {
+    [key: string]: {
+      type: string;
+      const?: string | number | boolean;
+      minLength?: number;
+      maxLength?: number;
+      minimum?: number;
+      maximum?: number;
+      exclusiveMinimum?: number;
+      exclusiveMaximum?: number;
+      pattern?: string;
+    };
+  };
+}
 
 /**
  * Takes a schema in JSON format and data object to be validated and returns an
@@ -34,17 +54,23 @@ const ajv = new Ajv({ allErrors: true, strictSchema: false });
  * @param {string[]} fieldsToValidate
  * @returns {ValidationError[]} Modified version of Ajv output, empty array if no errors found
  */
-export function validate(
-  schema: any,
+export async function validate(
+  schema: JsonSchema,
   data: any,
   fieldsToValidate: string[] = []
-): ValidationError[] {
-  const validator: ValidateFunction = ajv.compile(schema);
+): Promise<ValidationError[]> {
+  const schemaName = schemaToKey(schema);
+  if (!schemaName) {
+    return Promise.reject(new Error("Failed to retrieve schemaName"));
+  }
+  const module = await import(`../dist/${schemaName}.validator.js`);
+  const validator: any = module[schemaName];
   const isValid: boolean = validator(data);
+
   const errors: ValidationError[] = [];
 
   if (!isValid && !!validator.errors?.length) {
-    validator.errors.forEach((error) => {
+    validator.errors.forEach((error: any) => {
       const parsedError = parseError(error);
       if (
         !fieldsToValidate.length ||
@@ -54,7 +80,6 @@ export function validate(
       }
     });
   }
-
   return errors;
 }
 
@@ -74,4 +99,12 @@ function parseError(error: ErrorObject): ValidationError {
     params: error.params,
     message: !!error.message ? error.message : null,
   };
+}
+
+function schemaToKey(schema: JsonSchema) {
+  if (schema && schema.$id) {
+    const startIndex = schema.$id.lastIndexOf("/");
+    const endIndex = schema.$id.indexOf(".json");
+    return schema.$id.substring(startIndex + 1, endIndex);
+  }
 }

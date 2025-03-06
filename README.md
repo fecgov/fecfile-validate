@@ -8,6 +8,7 @@ This project will provide a web application for filling out FEC campaign
 finance information. The project code is distributed across these repositories:
 - [fecfile-web-app](https://github.com/fecgov/fecfile-web-app): this is the browser-based front-end developed in Angular
 - [fecfile-web-api](https://github.com/fecgov/fecfile-web-api): RESTful endpoint supporting the front-end
+- [fecfile-api-proxy](https://github.com/fecgov/fecfile-api-proxy): Reverse proxy for API for IP blocking and rate limiting
 - [fecfile-validate](https://github.com/fecgov/fecfile-validate): data validation rules and engine
 
 The FEC validator is designed around the disemination of FEC defined data
