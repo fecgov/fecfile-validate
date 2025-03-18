@@ -35,15 +35,15 @@
       "minLength": 1,
       "maxLength": 8,
       "pattern": "^[ -~]{0,8}$",
-      "examples": ["SE"],
+      "examples": ["SF"],
       "fec_spec": {
         "COL_SEQ": 1,
         "FIELD_DESCRIPTION": "FORM TYPE",
         "TYPE": "A/N-8",
         "REQUIRED": "X (error)",
-        "SAMPLE_DATA": "SE",
-        "VALUE_REFERENCE": "SE",
-        "RULE_REFERENCE": "SE",
+        "SAMPLE_DATA": "SF",
+        "VALUE_REFERENCE": "SF",
+        "RULE_REFERENCE": "SF",
         "FIELD_FORM_ASSOCIATION": null
       }
     },
@@ -69,13 +69,16 @@
     "transaction_type_identifier": {
       "title": "TRANSACTION TYPE IDENTIFIER",
       "description": "",
-      "type": "string",
-      "examples": ["C2_LOAN_GUARANTOR"],
+      "enum": [
+        "COORDINATED_PARTY_EXPENDITURE",
+        "COORDINATED_PARTY_EXPENDITURE_VOID"
+      ],
+      "examples": ["COORDINATED_PARTY_EXPENDITURE"],
       "fec_spec": {
         "FIELD_DESCRIPTION": "TRANSACTION TYPE IDENTIFIER",
         "TYPE": "",
         "REQUIRED": "X (error)",
-        "SAMPLE_DATA": "C2_LOAN_GUARANTOR",
+        "SAMPLE_DATA": null,
         "VALUE_REFERENCE": null,
         "RULE_REFERENCE": "COORDINATED_PARTY_EXPENDITURE\nCOORDINATED_PARTY_EXPENDITURE_VOID",
         "FIELD_FORM_ASSOCIATION": ""
@@ -155,7 +158,7 @@
     "designating_committee_id_number": {
       "title": "DESIGNATED COMMITTEE ID NUMBER",
       "description": "",
-      "type": "string",
+      "type": ["string", "null"],
       "minLength": 1,
       "maxLength": 9,
       "pattern": "^[ -~]{0,9}$",
@@ -174,7 +177,7 @@
     "designating_committee_name": {
       "title": "DESIGNATING COMMITTEE NAME",
       "description": "",
-      "type": "string",
+      "type": ["string", "null"],
       "minLength": 1,
       "maxLength": 200,
       "pattern": "^[ -~]{0,200}$",
@@ -193,7 +196,7 @@
     "subordinate_committee_id_number": {
       "title": "SUBORDINATE COMMITTEE ID NUMBER",
       "description": "",
-      "type": "string",
+      "type": ["string", "null"],
       "minLength": 1,
       "maxLength": 9,
       "pattern": "^[ -~]{0,9}$",
@@ -212,7 +215,7 @@
     "subordinate_committee_name": {
       "title": "SUBORDINATE COMMITTEE NAME",
       "description": "",
-      "type": "string",
+      "type": ["string", "null"],
       "minLength": 1,
       "maxLength": 200,
       "pattern": "^[ -~]{0,200}$",
@@ -326,11 +329,8 @@
     "entity_type": {
       "title": "ENTITY TYPE",
       "description": "",
-      "type": ["string", "null"],
-      "minLength": 0,
-      "maxLength": 3,
-      "pattern": "^[ -~]{0,3}$",
-      "examples": ["ORG", "IND"],
+      "enum": ["IND", "ORG"],
+      "examples": ["IND"],
       "fec_spec": {
         "COL_SEQ": 16,
         "FIELD_DESCRIPTION": "ENTITY TYPE",
@@ -345,7 +345,7 @@
     "payee_organization_name": {
       "title": "PAYEE ORGANIZATION NAME",
       "description": "",
-      "type": "string",
+      "type": ["string", "null"],
       "minLength": 1,
       "maxLength": 200,
       "pattern": "^[ -~]{0,200}$",
@@ -364,7 +364,7 @@
     "payee_last_name": {
       "title": "PAYEE LAST NAME",
       "description": "",
-      "type": "string",
+      "type": ["string", "null"],
       "minLength": 1,
       "maxLength": 30,
       "pattern": "^[ -~]{0,30}$",
@@ -383,7 +383,7 @@
     "payee_first_name": {
       "title": "PAYEE FIRST NAME",
       "description": "",
-      "type": "string",
+      "type": ["string", "null"],
       "minLength": 1,
       "maxLength": 20,
       "pattern": "^[ -~]{0,20}$",
@@ -459,7 +459,7 @@
     "payee_street_1": {
       "title": "PAYEE STREET  1",
       "description": "",
-      "type": ["string", "null"],
+      "type": "string",
       "minLength": 0,
       "maxLength": 34,
       "pattern": "^[ -~]{0,34}$",
@@ -497,7 +497,7 @@
     "payee_city": {
       "title": "PAYEE CITY",
       "description": "",
-      "type": ["string", "null"],
+      "type": "string",
       "minLength": 0,
       "maxLength": 30,
       "pattern": "^[ -~]{0,30}$",
@@ -516,7 +516,7 @@
     "payee_state": {
       "title": "PAYEE STATE",
       "description": "",
-      "type": ["string", "null"],
+      "type": "string",
       "minLength": 0,
       "maxLength": 2,
       "pattern": "^[ -~]{0,2}$",
@@ -535,7 +535,7 @@
     "payee_zip": {
       "title": "PAYEE ZIP",
       "description": "",
-      "type": ["string", "null"],
+      "type": "string",
       "minLength": 0,
       "maxLength": 9,
       "pattern": "^[ -~]{0,9}$",
@@ -574,7 +574,7 @@
       "type": "string",
       "minimum": -99999999.99,
       "maximum": 999999999.99,
-      "examples": [1500.00],
+      "examples": [1500.0],
       "fec_spec": {
         "COL_SEQ": 29,
         "FIELD_DESCRIPTION": "EXPENDITURE AMOUNT",
@@ -606,7 +606,7 @@
       "type": "string",
       "minimum": -99999999.99,
       "maximum": 999999999.99,
-      "examples": [123456.00],
+      "examples": [123456.0],
       "fec_spec": {
         "COL_SEQ": 30,
         "FIELD_DESCRIPTION": "AGGREGATE GENERAL ELEC EXPENDED",
@@ -617,27 +617,23 @@
         "RULE_REFERENCE": "Aggregate General Election Expenditure for this Candidate"
       }
     },
-    "aggregate_group": {
+    "aggregation_group": {
       "title": "AGGREGATION GROUP",
-      "description": "",
-      "type": ["string", "null"],
-      "minLength": 0,
-      "maxLength": 100,
-      "pattern": "^[ -~]{0,100}$",
-      "examples": [],
+      "const": "COORDINATED_PARTY_EXPENDITURES",
+      "examples": ["COORDINATED_PARTY_EXPENDITURES"],
       "fec_spec": {
         "FIELD_DESCRIPTION": "AGGREGATION GROUP",
         "REQUIRED": "X (error)",
-        "SAMPLE_DATA": null,
+        "SAMPLE_DATA": "COORDINATED_PARTY_EXPENDITURES",
         "VALUE_REFERENCE": null,
-        "RULE_REFERENCE": "INDEPENDENT_EXPENDITURE",
+        "RULE_REFERENCE": "COORDINATED_PARTY_EXPENDITURES",
         "FIELD_FORM_ASSOCIATION": null
       }
     },
     "expenditure_purpose_descrip": {
       "title": "EXPENDITURE PURPOSE DESCRIPTION",
       "description": "",
-      "type": ["string", "null"],
+      "type": "string",
       "minLength": 0,
       "maxLength": 100,
       "pattern": "^[ -~]{0,100}$",
@@ -646,7 +642,7 @@
         "FIELD_DESCRIPTION": "EXPENDITURE PURPOSE DESCRIPTION",
         "TYPE": "A/N-100",
         "REQUIRED": "X (error)",
-        "SAMPLE_DATA": null,
+        "SAMPLE_DATA": "Repay Loan",
         "VALUE_REFERENCE": null,
         "RULE_REFERENCE": null,
         "FIELD_FORM_ASSOCIATION": null
@@ -801,10 +797,7 @@
     "payee_candidate_office": {
       "title": "PAYEE CANDIDATE OFFICE",
       "description": "",
-      "type": ["string", "null"],
-      "minLength": 0,
-      "maxLength": 1,
-      "pattern": "^[ -~]{0,1}$",
+      "enum": ["H","S","P"],
       "examples": ["H"],
       "fec_spec": {
         "COL_SEQ": 40,
@@ -883,5 +876,163 @@
         "RULE_REFERENCE": null
       }
     }
-  }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "entity_type": {
+            "const": "ORG"
+          }
+        },
+        "required": ["entity_type"]
+      },
+      "then": {
+        "required": ["payee_organization_name"],
+        "properties": {
+          "payee_organization_name": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "entity_type": {
+            "const": "IND"
+          }
+        },
+        "required": ["entity_type"]
+      },
+      "then": {
+        "required": ["payee_first_name", "payee_last_name"],
+        "properties": {
+          "payee_first_name": {
+            "type": "string"
+          },
+          "payee_last_name": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "filer_designated_to_make_coordinated_expenditures": {
+            "const": "Y"
+          }
+        },
+        "required": ["filer_designated_to_make_coordinated_expenditures"]
+      },
+      "then": {
+        "required": [
+            "designating_committee_id_number",
+            "designating_committee_name"
+        ],
+        "properties": {
+          "designating_committee_id_number": {
+            "type": "string"
+          },
+          "designating_committee_name": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "designating_committee_id_number": {
+            "type": "string"
+          }
+        },
+        "required": ["designating_committee_id_number"]
+      },
+      "then": {
+        "required": [
+          "subordinate_committee_name",
+          "subordinate_street_1",
+          "subordinate_city",
+          "subordinate_state",
+          "subordinate_zip"
+        ],
+        "properties": {
+          "subordinate_committee_name": {
+            "type": "string"
+          },
+          "subordinate_street_1": {
+            "type": "string"
+          },
+          "subordinate_city": {
+            "type": "string"
+          },
+          "subordinate_state": {
+            "type": "string"
+          },
+          "subordinate_zip": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "transaction_type_identifier": {
+            "const": "COORDINATED_PARTY_EXPENDITURE_VOID"
+          }
+        },
+        "required": ["transaction_type_identifier"]
+      },
+      "then": {
+        "properties": {
+          "expenditure_amount": {
+            "type": "number",
+            "exclusiveMaximum": 0
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "payee_candidate_office": {
+            "const": "S"
+          }
+        },
+        "required": ["payee_candidate_office"]
+      },
+      "then": {
+        "required": ["payee_candidate_state"],
+        "properties": {
+          "payee_candidate_state": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "payee_candidate_office": {
+            "const": "H"
+          }
+        },
+        "required": ["payee_candidate_office"]
+      },
+      "then": {
+        "required": ["payee_candidate_state", "payee_candidate_district"],
+        "properties": {
+          "payee_candidate_state": {
+            "type": "string"
+          },
+          "payee_candidate_district": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  ]
 }
