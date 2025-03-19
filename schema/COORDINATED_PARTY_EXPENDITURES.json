@@ -944,11 +944,11 @@
     {
       "if": {
         "properties": {
-          "designating_committee_id_number": {
+          "subordinate_committee_id_number": {
             "type": "string"
           }
         },
-        "required": ["designating_committee_id_number"]
+        "required": ["subordinate_committee_id_number"]
       },
       "then": {
         "required": [
