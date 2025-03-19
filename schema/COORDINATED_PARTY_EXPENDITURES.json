@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft-07/schema#",
-  "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/SchF.json",
+  "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/COORDINATED_PARTY_EXPENDITURES.json",
   "version": "8.3.0.1",
   "title": "FEC Sch F",
   "description": "SCHEDULE F - COORDINATED PARTY EXPENDITURES",
