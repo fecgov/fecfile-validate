@@ -888,10 +888,9 @@
       "if": {
         "properties": {
           "filer_designated_to_make_coordinated_expenditures": {
-            "const": "Y"
+            "const": true
           }
-        },
-        "required": ["filer_designated_to_make_coordinated_expenditures"]
+        }
       },
       "then": {
         "required": [
@@ -914,8 +913,7 @@
           "subordinate_committee_id_number": {
             "type": "string"
           }
-        },
-        "required": ["subordinate_committee_id_number"]
+        }
       },
       "then": {
         "required": [
