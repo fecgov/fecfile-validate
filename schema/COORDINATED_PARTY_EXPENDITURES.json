@@ -31,8 +31,12 @@
     "form_type": {
       "title": "FORM TYPE",
       "description": "",
-      "enum": ["SF"],
-      "examples": ["SF"],
+      "enum": [
+        "SF"
+      ],
+      "examples": [
+        "SF"
+      ],
       "fec_spec": {
         "FIELD_DESCRIPTION": "FORM TYPE",
         "TYPE": "A/N-8",
@@ -50,7 +54,9 @@
       "minLength": 9,
       "maxLength": 9,
       "pattern": "^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$",
-      "examples": ["C00123456"],
+      "examples": [
+        "C00123456"
+      ],
       "fec_spec": {
         "FIELD_DESCRIPTION": "FILER COMMITTEE ID NUMBER",
         "TYPE": "A/N-9",
@@ -68,7 +74,9 @@
         "COORDINATED_PARTY_EXPENDITURE",
         "COORDINATED_PARTY_EXPENDITURE_VOID"
       ],
-      "examples": ["COORDINATED_PARTY_EXPENDITURE"],
+      "examples": [
+        "COORDINATED_PARTY_EXPENDITURE"
+      ],
       "fec_spec": {
         "FIELD_DESCRIPTION": "TRANSACTION TYPE IDENTIFIER",
         "TYPE": "",
@@ -86,7 +94,9 @@
       "minLength": 1,
       "maxLength": 20,
       "pattern": "^[ -~]{0,20}$",
-      "examples": ["F123456789-3456"],
+      "examples": [
+        "F123456789-3456"
+      ],
       "fec_spec": {
         "FIELD_DESCRIPTION": "TRANSACTION ID NUMBER",
         "TYPE": "A/N-20",
@@ -100,11 +110,16 @@
     "back_reference_tran_id_number": {
       "title": "BACK REFERENCE TRAN ID NUMBER",
       "description": "",
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "minLength": 0,
       "maxLength": 20,
       "pattern": "^[ -~]{0,20}$",
-      "examples": ["F123456789-1234"],
+      "examples": [
+        "F123456789-1234"
+      ],
       "fec_spec": {
         "FIELD_DESCRIPTION": "BACK REFERENCE TRAN ID NUMBER",
         "TYPE": "A/N-20",
@@ -118,11 +133,16 @@
     "back_reference_sched_name": {
       "title": "BACK REFERENCE SCHED NAME",
       "description": "",
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "minLength": 0,
       "maxLength": 8,
       "pattern": "^[ -~]{0,8}$",
-      "examples": ["SB21"],
+      "examples": [
+        "SB21"
+      ],
       "fec_spec": {
         "FIELD_DESCRIPTION": "BACK REFERENCE SCHED NAME",
         "TYPE": "A/N-8",
@@ -136,7 +156,10 @@
     "filer_designated_to_make_coordinated_expenditures": {
       "title": "YES/NO  (Has filer been designated to make Coordinated Expenditures?)",
       "description": "",
-      "type": ["boolean", "null"],
+      "type": [
+        "boolean",
+        "null"
+      ],
       "fec_spec": {
         "FIELD_DESCRIPTION": "YES/NO  (Has filer been designated to make Coordinated Expenditures?)",
         "TYPE": "A/N-1",
@@ -149,11 +172,16 @@
     "designating_committee_id_number": {
       "title": "DESIGNATED COMMITTEE ID NUMBER",
       "description": "",
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "minLength": 9,
       "maxLength": 9,
       "pattern": "^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$",
-      "examples": ["C00123456"],
+      "examples": [
+        "C00123456"
+      ],
       "fec_spec": {
         "FIELD_DESCRIPTION": "DESIGNATED COMMITTEE ID NUMBER",
         "TYPE": "A/N-9",
@@ -167,11 +195,16 @@
     "designating_committee_name": {
       "title": "DESIGNATING COMMITTEE NAME",
       "description": "",
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "minLength": 1,
       "maxLength": 200,
       "pattern": "^[ -~]{0,200}$",
-      "examples": ["The Committee"],
+      "examples": [
+        "The Committee"
+      ],
       "fec_spec": {
         "FIELD_DESCRIPTION": "DESIGNATING COMMITTEE NAME",
         "TYPE": "A/N-200",
@@ -185,11 +218,16 @@
     "subordinate_committee_id_number": {
       "title": "SUBORDINATE COMMITTEE ID NUMBER",
       "description": "",
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "minLength": 9,
       "maxLength": 9,
       "pattern": "^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$",
-      "examples": ["C00123456"],
+      "examples": [
+        "C00123456"
+      ],
       "fec_spec": {
         "FIELD_DESCRIPTION": "SUBORDINATE COMMITTEE ID NUMBER",
         "TYPE": "A/N-9",
@@ -203,11 +241,16 @@
     "subordinate_committee_name": {
       "title": "SUBORDINATE COMMITTEE NAME",
       "description": "",
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "minLength": 1,
       "maxLength": 200,
       "pattern": "^[ -~]{0,200}$",
-      "examples": ["The Bank of Banks"],
+      "examples": [
+        "The Bank of Banks"
+      ],
       "fec_spec": {
         "FIELD_DESCRIPTION": "SUBORDINATE COMMITTEE NAME",
         "TYPE": "A/N-200",
@@ -221,11 +264,16 @@
     "subordinate_street_1": {
       "title": "SUBORDINATE STREET  1",
       "description": "",
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "minLength": 0,
       "maxLength": 34,
       "pattern": "^[ -~]{0,34}$",
-      "examples": ["The Bank Tower"],
+      "examples": [
+        "The Bank Tower"
+      ],
       "fec_spec": {
         "FIELD_DESCRIPTION": "SUBORDINATE STREET  1",
         "TYPE": "A/N-34",
@@ -239,11 +287,16 @@
     "subordinate_street_2": {
       "title": "SUBORDINATE STREET  2",
       "description": "",
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "minLength": 0,
       "maxLength": 34,
       "pattern": "^[ -~]{0,34}$",
-      "examples": ["100 Broadway"],
+      "examples": [
+        "100 Broadway"
+      ],
       "fec_spec": {
         "FIELD_DESCRIPTION": "SUBORDINATE STREET  2",
         "TYPE": "A/N-34",
@@ -257,11 +310,16 @@
     "subordinate_city": {
       "title": "SUBORDINATE CITY",
       "description": "",
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "minLength": 0,
       "maxLength": 30,
       "pattern": "^[ -~]{0,30}$",
-      "examples": ["New York"],
+      "examples": [
+        "New York"
+      ],
       "fec_spec": {
         "FIELD_DESCRIPTION": "SUBORDINATE CITY",
         "TYPE": "A/N-30",
@@ -275,11 +333,16 @@
     "subordinate_state": {
       "title": "SUBORDINATE STATE",
       "description": "",
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "minLength": 0,
       "maxLength": 2,
       "pattern": "^[ -~]{0,2}$",
-      "examples": ["NY"],
+      "examples": [
+        "NY"
+      ],
       "fec_spec": {
         "FIELD_DESCRIPTION": "SUBORDINATE STATE",
         "TYPE": "A/N-2",
@@ -293,11 +356,16 @@
     "subordinate_zip": {
       "title": "SUBORDINATE ZIP",
       "description": "",
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "minLength": 0,
       "maxLength": 9,
       "pattern": "^[ -~]{0,9}$",
-      "examples": [10011],
+      "examples": [
+        10011
+      ],
       "fec_spec": {
         "FIELD_DESCRIPTION": "SUBORDINATE ZIP",
         "TYPE": "A/N-9",
@@ -311,8 +379,13 @@
     "entity_type": {
       "title": "ENTITY TYPE",
       "description": "",
-      "enum": ["IND", "ORG"],
-      "examples": ["IND"],
+      "enum": [
+        "IND",
+        "ORG"
+      ],
+      "examples": [
+        "IND"
+      ],
       "fec_spec": {
         "FIELD_DESCRIPTION": "ENTITY TYPE",
         "TYPE": "A/N-3",
@@ -326,11 +399,16 @@
     "payee_organization_name": {
       "title": "PAYEE ORGANIZATION NAME",
       "description": "",
-      "type": ["string", "null"],
-      "minLength": 1,
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 0,
       "maxLength": 200,
       "pattern": "^[ -~]{0,200}$",
-      "examples": ["The Bank of Banks"],
+      "examples": [
+        "The Bank of Banks"
+      ],
       "fec_spec": {
         "FIELD_DESCRIPTION": "PAYEE ORGANIZATION NAME",
         "TYPE": "A/N-200",
@@ -344,11 +422,16 @@
     "payee_last_name": {
       "title": "PAYEE LAST NAME",
       "description": "",
-      "type": ["string", "null"],
-      "minLength": 1,
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 0,
       "maxLength": 30,
       "pattern": "^[ -~]{0,30}$",
-      "examples": ["Smith"],
+      "examples": [
+        "Smith"
+      ],
       "fec_spec": {
         "FIELD_DESCRIPTION": "PAYEE LAST NAME",
         "TYPE": "A/N-30",
@@ -362,11 +445,16 @@
     "payee_first_name": {
       "title": "PAYEE FIRST NAME",
       "description": "",
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "minLength": 1,
       "maxLength": 20,
       "pattern": "^[ -~]{0,20}$",
-      "examples": ["John"],
+      "examples": [
+        "John"
+      ],
       "fec_spec": {
         "FIELD_DESCRIPTION": "PAYEE FIRST NAME",
         "TYPE": "A/N-20",
@@ -380,11 +468,16 @@
     "payee_middle_name": {
       "title": "PAYEE MIDDLE NAME",
       "description": "",
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "minLength": 0,
       "maxLength": 20,
       "pattern": "^[ -~]{0,20}$",
-      "examples": ["W"],
+      "examples": [
+        "W"
+      ],
       "fec_spec": {
         "FIELD_DESCRIPTION": "PAYEE MIDDLE NAME",
         "TYPE": "A/N-20",
@@ -398,11 +491,16 @@
     "payee_prefix": {
       "title": "PAYEE PREFIX",
       "description": "",
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "minLength": 0,
       "maxLength": 10,
       "pattern": "^[ -~]{0,10}$",
-      "examples": ["Dr"],
+      "examples": [
+        "Dr"
+      ],
       "fec_spec": {
         "FIELD_DESCRIPTION": "PAYEE PREFIX",
         "TYPE": "A/N-10",
@@ -416,11 +514,16 @@
     "payee_suffix": {
       "title": "PAYEE SUFFIX",
       "description": "",
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "minLength": 0,
       "maxLength": 10,
       "pattern": "^[ -~]{0,10}$",
-      "examples": ["Jr"],
+      "examples": [
+        "Jr"
+      ],
       "fec_spec": {
         "FIELD_DESCRIPTION": "PAYEE SUFFIX",
         "TYPE": "A/N-10",
@@ -438,7 +541,9 @@
       "minLength": 0,
       "maxLength": 34,
       "pattern": "^[ -~]{0,34}$",
-      "examples": ["The Bank Tower"],
+      "examples": [
+        "The Bank Tower"
+      ],
       "fec_spec": {
         "FIELD_DESCRIPTION": "PAYEE STREET  1",
         "TYPE": "A/N-34",
@@ -452,11 +557,16 @@
     "payee_street_2": {
       "title": "PAYEE STREET  2",
       "description": "",
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "minLength": 0,
       "maxLength": 34,
       "pattern": "^[ -~]{0,34}$",
-      "examples": ["100 Broadway"],
+      "examples": [
+        "100 Broadway"
+      ],
       "fec_spec": {
         "FIELD_DESCRIPTION": "PAYEE STREET  2",
         "TYPE": "A/N-34",
@@ -474,7 +584,9 @@
       "minLength": 0,
       "maxLength": 30,
       "pattern": "^[ -~]{0,30}$",
-      "examples": ["New York"],
+      "examples": [
+        "New York"
+      ],
       "fec_spec": {
         "FIELD_DESCRIPTION": "PAYEE CITY",
         "TYPE": "A/N-30",
@@ -492,7 +604,9 @@
       "minLength": 0,
       "maxLength": 2,
       "pattern": "^[ -~]{0,2}$",
-      "examples": ["NY"],
+      "examples": [
+        "NY"
+      ],
       "fec_spec": {
         "FIELD_DESCRIPTION": "PAYEE STATE",
         "TYPE": "A/N-2",
@@ -510,7 +624,9 @@
       "minLength": 0,
       "maxLength": 9,
       "pattern": "^[ -~]{0,9}$",
-      "examples": [10011],
+      "examples": [
+        10011
+      ],
       "fec_spec": {
         "FIELD_DESCRIPTION": "PAYEE ZIP",
         "TYPE": "A/N-9",
@@ -527,7 +643,9 @@
       "type": "string",
       "minLength": 10,
       "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
-      "examples": ["2012-07-20"],
+      "examples": [
+        "2012-07-20"
+      ],
       "fec_spec": {
         "FIELD_DESCRIPTION": "EXPENDITURE DATE",
         "TYPE": "NUM-8",
@@ -544,7 +662,9 @@
       "type": "number",
       "minimum": -99999999.99,
       "maximum": 999999999.99,
-      "examples": [1500],
+      "examples": [
+        1500
+      ],
       "fec_spec": {
         "FIELD_DESCRIPTION": "EXPENDITURE AMOUNT",
         "TYPE": "AMT-12",
@@ -561,7 +681,9 @@
       "type": "string",
       "minLength": 4,
       "pattern": "^[0-9]{4}$",
-      "examples": ["2024"],
+      "examples": [
+        "2024"
+      ],
       "fec_spec": {
         "FIELD_DESCRIPTION": "GENERAL ELECTION YEAR",
         "REQUIRED": "X (error)",
@@ -576,7 +698,9 @@
       "type": "number",
       "minimum": -99999999.99,
       "maximum": 999999999.99,
-      "examples": [123456.0],
+      "examples": [
+        123456.0
+      ],
       "fec_spec": {
         "FIELD_DESCRIPTION": "AGGREGATE GENERAL ELEC EXPENDED",
         "TYPE": "AMT-12",
@@ -589,7 +713,9 @@
     "aggregation_group": {
       "title": "AGGREGATION GROUP",
       "const": "COORDINATED_PARTY_EXPENDITURES",
-      "examples": ["COORDINATED_PARTY_EXPENDITURES"],
+      "examples": [
+        "COORDINATED_PARTY_EXPENDITURES"
+      ],
       "fec_spec": {
         "FIELD_DESCRIPTION": "AGGREGATION GROUP",
         "REQUIRED": "X (error)",
@@ -619,7 +745,10 @@
     "category_code": {
       "title": "CATEGORY CODE",
       "description": "",
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "enum": [
         "001",
         "002",
@@ -635,7 +764,9 @@
         "012",
         null
       ],
-      "examples": [1],
+      "examples": [
+        1
+      ],
       "fec_spec": {
         "FIELD_DESCRIPTION": "CATEGORY CODE",
         "TYPE": "A/N-3",
@@ -653,7 +784,9 @@
       "minLength": 9,
       "maxLength": 9,
       "pattern": "^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$",
-      "examples": ["C00123456"],
+      "examples": [
+        "C00123456"
+      ],
       "fec_spec": {
         "FIELD_DESCRIPTION": "PAYEE COMMITTEE ID NUMBER",
         "TYPE": "A/N-9",
@@ -671,7 +804,9 @@
       "minLength": 0,
       "maxLength": 9,
       "pattern": "^[ -~]{0,9}$",
-      "examples": ["H98765431"],
+      "examples": [
+        "H98765431"
+      ],
       "fec_spec": {
         "FIELD_DESCRIPTION": "PAYEE CANDIDATE ID NUMBER",
         "TYPE": "A/N-9",
@@ -688,7 +823,9 @@
       "minLength": 1,
       "maxLength": 30,
       "pattern": "^[ -~]{0,30}$",
-      "examples": ["Smith"],
+      "examples": [
+        "Smith"
+      ],
       "fec_spec": {
         "FIELD_DESCRIPTION": "PAYEE CANDIDATE LAST NAME",
         "TYPE": "A/N-30",
@@ -705,7 +842,9 @@
       "minLength": 1,
       "maxLength": 20,
       "pattern": "^[ -~]{0,20}$",
-      "examples": ["Patrick"],
+      "examples": [
+        "Patrick"
+      ],
       "fec_spec": {
         "FIELD_DESCRIPTION": "PAYEE CANDIDATE FIRST NAME",
         "TYPE": "A/N-20",
@@ -718,11 +857,16 @@
     "payee_candidate_middle_name": {
       "title": "PAYEE CANDIDATE MIDDLE NAME",
       "description": "",
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "minLength": 0,
       "maxLength": 20,
       "pattern": "^[ -~]{0,20}$",
-      "examples": ["Thomas"],
+      "examples": [
+        "Thomas"
+      ],
       "fec_spec": {
         "FIELD_DESCRIPTION": "PAYEE CANDIDATE MIDDLE NAME",
         "TYPE": "A/N-20",
@@ -735,11 +879,16 @@
     "payee_candidate_prefix": {
       "title": "PAYEE CANDIDATE PREFIX",
       "description": "",
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "minLength": 0,
       "maxLength": 10,
       "pattern": "^[ -~]{0,10}$",
-      "examples": ["Mr."],
+      "examples": [
+        "Mr."
+      ],
       "fec_spec": {
         "FIELD_DESCRIPTION": "PAYEE CANDIDATE PREFIX",
         "TYPE": "A/N-10",
@@ -752,11 +901,16 @@
     "payee_candidate_suffix": {
       "title": "PAYEE CANDIDATE SUFFIX",
       "description": "",
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "minLength": 0,
       "maxLength": 10,
       "pattern": "^[ -~]{0,10}$",
-      "examples": ["Jr."],
+      "examples": [
+        "Jr."
+      ],
       "fec_spec": {
         "FIELD_DESCRIPTION": "PAYEE CANDIDATE SUFFIX",
         "TYPE": "A/N-10",
@@ -769,8 +923,14 @@
     "payee_candidate_office": {
       "title": "PAYEE CANDIDATE OFFICE",
       "description": "",
-      "enum": ["H", "S", "P"],
-      "examples": ["H"],
+      "enum": [
+        "H",
+        "S",
+        "P"
+      ],
+      "examples": [
+        "H"
+      ],
       "fec_spec": {
         "FIELD_DESCRIPTION": "PAYEE CANDIDATE OFFICE",
         "TYPE": "A/N-1",
@@ -783,11 +943,16 @@
     "payee_candidate_state": {
       "title": "PAYEE CANDIDATE STATE",
       "description": "",
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "minLength": 0,
       "maxLength": 2,
       "pattern": "^[ -~]{0,2}$",
-      "examples": ["FL"],
+      "examples": [
+        "FL"
+      ],
       "fec_spec": {
         "FIELD_DESCRIPTION": "PAYEE CANDIDATE STATE",
         "TYPE": "A/N-2",
@@ -800,11 +965,16 @@
     "payee_candidate_district": {
       "title": "PAYEE CANDIDATE DISTRICT",
       "description": "",
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "minLength": 2,
       "maxLength": 2,
       "pattern": "^\\d{2}$",
-      "examples": [35],
+      "examples": [
+        35
+      ],
       "fec_spec": {
         "FIELD_DESCRIPTION": "PAYEE CANDIDATE DISTRICT",
         "TYPE": "NUM-2",
@@ -817,7 +987,10 @@
     "memo_code": {
       "title": "MEMO CODE",
       "description": "",
-      "type": ["boolean", "null"],
+      "type": [
+        "boolean",
+        "null"
+      ],
       "fec_spec": {
         "FIELD_DESCRIPTION": "MEMO CODE",
         "TYPE": "A/N-1",
@@ -830,7 +1003,10 @@
     "memo_text_description": {
       "title": "MEMO TEXT/DESCRIPTION",
       "description": "",
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "minLength": 0,
       "maxLength": 100,
       "pattern": "^[ -~]{0,100}$",
@@ -849,13 +1025,19 @@
       "if": {
         "properties": {
           "entity_type": {
-            "const": "ORG"
+            "enum": [
+              "ORG"
+            ]
           }
         },
-        "required": ["entity_type"]
+        "required": [
+          "entity_type"
+        ]
       },
       "then": {
-        "required": ["payee_organization_name"],
+        "required": [
+          "payee_organization_name"
+        ],
         "properties": {
           "payee_organization_name": {
             "type": "string"
@@ -867,13 +1049,20 @@
       "if": {
         "properties": {
           "entity_type": {
-            "const": "IND"
+            "enum": [
+              "IND"
+            ]
           }
         },
-        "required": ["entity_type"]
+        "required": [
+          "entity_type"
+        ]
       },
       "then": {
-        "required": ["payee_first_name", "payee_last_name"],
+        "required": [
+          "payee_last_name",
+          "payee_first_name"
+        ],
         "properties": {
           "payee_first_name": {
             "type": "string"
@@ -890,7 +1079,10 @@
           "filer_designated_to_make_coordinated_expenditures": {
             "const": true
           }
-        }
+        },
+        "required": [
+          "filer_designated_to_make_coordinated_expenditures"
+        ]
       },
       "then": {
         "required": [
@@ -911,13 +1103,13 @@
       "if": {
         "properties": {
           "subordinate_committee_id_number": {
-            "type": "string"
+            "type": "string",
+            "minLength": 1
           }
         },
         "required": [
-            "subordinate_committee_id_number"
+          "subordinate_committee_id_number"
         ]
-        
       },
       "then": {
         "required": [
@@ -953,7 +1145,9 @@
             "const": "COORDINATED_PARTY_EXPENDITURE_VOID"
           }
         },
-        "required": ["transaction_type_identifier"]
+        "required": [
+          "transaction_type_identifier"
+        ]
       },
       "then": {
         "properties": {
@@ -971,10 +1165,14 @@
             "const": "S"
           }
         },
-        "required": ["payee_candidate_office"]
+        "required": [
+          "payee_candidate_office"
+        ]
       },
       "then": {
-        "required": ["payee_candidate_state"],
+        "required": [
+          "payee_candidate_state"
+        ],
         "properties": {
           "payee_candidate_state": {
             "type": "string"
@@ -989,10 +1187,15 @@
             "const": "H"
           }
         },
-        "required": ["payee_candidate_office"]
+        "required": [
+          "payee_candidate_office"
+        ]
       },
       "then": {
-        "required": ["payee_candidate_state", "payee_candidate_district"],
+        "required": [
+          "payee_candidate_state",
+          "payee_candidate_district"
+        ],
         "properties": {
           "payee_candidate_state": {
             "type": "string"
