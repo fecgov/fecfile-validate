@@ -913,7 +913,11 @@
           "subordinate_committee_id_number": {
             "type": "string"
           }
-        }
+        },
+        "required": [
+            "subordinate_committee_id_number"
+        ]
+        
       },
       "then": {
         "required": [
