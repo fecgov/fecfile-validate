@@ -549,7 +549,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "L6a_total_contributions_no_loans": {
+        "L6a_total_contributions_period": {
             "title": "(6a) Total Contributions (NO Loans)",
             "description": "",
             "type": [
@@ -572,7 +572,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "L6b_total_contribution_refunds": {
+        "L6b_total_contribution_refunds_period": {
             "title": "(6b) Total Contribution Refunds",
             "description": "",
             "type": [
@@ -595,7 +595,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "L6c_net_contributions": {
+        "L6c_net_contributions_period": {
             "title": "(6c) Net Contributions",
             "description": "",
             "type": [
@@ -615,7 +615,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "L7a_total_operating_expenditures": {
+        "L7a_total_operating_expenditures_period": {
             "title": "(7a) Total Operating Expenditures",
             "description": "",
             "type": [
@@ -635,8 +635,8 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "L7b_total_offset_to_operating_expenditures": {
-            "title": "(7b) Total Offset to Operating Expenditures",
+        "L7b_total_offsets_to_operating_expenditures_period": {
+            "title": "(7b) Total Offsets to Operating Expenditures",
             "description": "",
             "type": [
                 "number",
@@ -655,7 +655,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "L7c_net_operating_expenditures": {
+        "L7c_net_operating_expenditures_period": {
             "title": "(7c) NET Operating Expenditures.",
             "description": "",
             "type": [
@@ -675,7 +675,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "L8_cash_on_hand_at_close_": {
+        "L8_cash_on_hand_at_close_period": {
             "title": "8. CASH ON HAND AT CLOSE ...",
             "description": "",
             "type": [
@@ -695,7 +695,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "L9_debts_to_totals_from_sch_c_and_or_d": {
+        "L9_debts_owed_to_committee_period": {
             "title": "9. DEBTS TO ( Totals from SCH C and/or D)",
             "description": "",
             "type": [
@@ -715,7 +715,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "L10_debts_by_totals_from_sch_c_and_or_d": {
+        "L10_debts_owed_by_committee_period": {
             "title": "10. DEBTS BY (Totals from SCH C and/or D)",
             "description": "",
             "type": [
@@ -735,7 +735,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "L11a_i_individuals_itemized": {
+        "L11ai_individuals_itemized_period": {
             "title": "11(a i.) Individuals Itemized",
             "description": "",
             "type": [
@@ -755,7 +755,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "L11aii_individuals_unitemized": {
+        "L11aii_individuals_unitemized_period": {
             "title": "11(a.ii) Individuals Unitemized",
             "description": "",
             "type": [
@@ -775,7 +775,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "L11aiii_individual_contribution_total": {
+        "L11aiii_total_individual_period": {
             "title": "11(a.iii) Individual Contribution Total",
             "description": "",
             "type": [
@@ -795,7 +795,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "L11b_political_party_committees": {
+        "L11b_political_party_committees_period": {
             "title": "11(b) Political Party Committees",
             "description": "",
             "type": [
@@ -815,7 +815,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "L11c_other_political_committees": {
+        "L11c_other_political_committees_period": {
             "title": "11(c) Other Political Committees",
             "description": "",
             "type": [
@@ -835,7 +835,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "L11d_the_candidate": {
+        "L11d_the_candidate_period": {
             "title": "11(d) The Candidate",
             "description": "",
             "type": [
@@ -855,7 +855,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "L11e_total_contributions": {
+        "L11e_total_contributions_period": {
             "title": "11(e) Total Contributions",
             "description": "",
             "type": [
@@ -875,7 +875,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "L12_transfers_from_other_authorized_cmttes": {
+        "L12_transfers_from_other_authorized_committees_period": {
             "title": "12. Transfers  From Other Authorized Cmttes",
             "description": "",
             "type": [
@@ -895,7 +895,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "L13a_loans_made_or_guarn_by_the_candidate": {
+        "L13a_loans_made_or_guaranteed_by_the_candidate_period": {
             "title": "13(a) Loans made or guarn. by the Candidate",
             "description": "",
             "type": [
@@ -915,7 +915,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "L13b_all_other_loans": {
+        "L13b_all_other_loans_period": {
             "title": "13(b) All Other Loans",
             "description": "",
             "type": [
@@ -935,7 +935,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "L13c_total_loans": {
+        "L13c_total_loans_period": {
             "title": "13(c) Total Loans",
             "description": "",
             "type": [
@@ -955,7 +955,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "L14_offsets_to_operating_expenditures": {
+        "L14_offsets_to_operating_expenditures_period": {
             "title": "14. Offsets to Operating Expenditures",
             "description": "",
             "type": [
@@ -975,7 +975,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "L15_other_receipts": {
+        "L15_other_receipts_period": {
             "title": "15. Other Receipts",
             "description": "",
             "type": [
@@ -995,7 +995,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "L16_total_receipts": {
+        "L16_total_receipts_period": {
             "title": "16. Total Receipts",
             "description": "",
             "type": [
@@ -1015,7 +1015,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "L17_operating_expenditures": {
+        "L17_operating_expenditures_period": {
             "title": "17. Operating Expenditures",
             "description": "",
             "type": [
@@ -1035,7 +1035,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "L18_transfers_to_other_authorized_committees": {
+        "L18_transfers_to_other_authorized_committees_period": {
             "title": "18. Transfers to Other Authorized Committees",
             "description": "",
             "type": [
@@ -1055,7 +1055,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "L19a_of_loans_made_or_guar_by_the_cand": {
+        "L19a_loan_repayments_of_loans_made_or_guaranteed_by_candidate_period": {
             "title": "19(a) Of Loans made or guar. by the Cand.",
             "description": "",
             "type": [
@@ -1075,7 +1075,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "L19b_loan_repayments,_all_other_loans": {
+        "L19b_loan_repayments_of_all_other_loans_period": {
             "title": "19(b) Loan Repayments, All Other Loans",
             "description": "",
             "type": [
@@ -1095,7 +1095,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "L19c_total_loan_repayments": {
+        "L19c_total_loan_repayments_period": {
             "title": "19(c) Total Loan Repayments",
             "description": "",
             "type": [
@@ -1115,7 +1115,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "L20a_refund_individuals_other_than_pol_cmtes": {
+        "L20a_refunds_to_individuals_period": {
             "title": "20(a) Refund/Individuals Other than Pol. Cmtes",
             "description": "",
             "type": [
@@ -1135,7 +1135,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "L20b_refund_political_party_committees": {
+        "L20b_refunds_to_political_party_committees_period": {
             "title": "20(b) Refund/Political Party Committees",
             "description": "",
             "type": [
@@ -1155,7 +1155,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "L20c_refund_other_political_committees": {
+        "L20c_refunds_to_other_political_committees_period": {
             "title": "20(c) Refund/Other Political Committees",
             "description": "",
             "type": [
@@ -1175,7 +1175,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "L20d_total_contribution_refunds": {
+        "L20d_total_contribution_refunds_period": {
             "title": "20(d) Total Contribution Refunds",
             "description": "",
             "type": [
@@ -1195,7 +1195,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "L21_other_disbursements": {
+        "L21_other_disbursements_period": {
             "title": "21. Other Disbursements",
             "description": "",
             "type": [
@@ -1215,7 +1215,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "L22_total_disbursements": {
+        "L22_total_disbursements_period": {
             "title": "22. Total Disbursements",
             "description": "",
             "type": [
@@ -1235,7 +1235,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "L23_cash_beginning_reporting_period": {
+        "L23_cash_on_hand_beginning_reporting_period": {
             "title": "23. Cash Beginning Reporting Period",
             "description": "",
             "type": [
@@ -1255,7 +1255,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "L24_total_receipts_this_period": {
+        "L24_total_receipts_period": {
             "title": "24. Total Receipts this Period",
             "description": "",
             "type": [
@@ -1275,7 +1275,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "L25_subtotals": {
+        "L25_subtotals_period": {
             "title": "25. Subtotals",
             "description": "",
             "type": [
@@ -1295,7 +1295,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "L26_total_disbursements_this_period": {
+        "L26_total_disbursements_period": {
             "title": "26. Total Disbursements this Period",
             "description": "",
             "type": [
@@ -1335,7 +1335,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "L6a_total_contributions_no_loans-DUPLICATE": {
+        "L6a_total_contributions_ytd": {
             "title": "(6a) Total Contributions (No Loans)",
             "description": "",
             "type": [
@@ -1355,7 +1355,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "L6b_total_contribution_refunds-DUPLICATE": {
+        "L6b_total_contribution_refunds_ytd": {
             "title": "(6b) Total Contribution Refunds",
             "description": "",
             "type": [
@@ -1375,7 +1375,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "L6c_net_contributions-DUPLICATE": {
+        "L6c_net_contributions_ytd": {
             "title": "(6c) Net Contributions",
             "description": "",
             "type": [
@@ -1395,7 +1395,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "L7a_total_operating_expenditures-DUPLICATE": {
+        "L7a_total_operating_expenditures_ytd": {
             "title": "(7a) Total Operating Expenditures",
             "description": "",
             "type": [
@@ -1415,7 +1415,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "L7b_total_offsets_to_operating_expenditures": {
+        "L7b_total_offsets_to_operating_expenditures_ytd": {
             "title": "(7b) Total Offsets to Operating Expenditures",
             "description": "",
             "type": [
@@ -1435,7 +1435,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "L7c_net_operating_expenditures-DUPLICATE": {
+        "L7c_net_operating_expenditures_ytd": {
             "title": "(7c) NET Operating Expenditures.",
             "description": "",
             "type": [
@@ -1455,7 +1455,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "L11a_i_individuals_itemized-DUPLICATE": {
+        "L11ai_individuals_itemized_ytd": {
             "title": "11(a i.) Individuals Itemized",
             "description": "",
             "type": [
@@ -1475,7 +1475,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "L11aii_individuals_unitemized-DUPLICATE": {
+        "L11aii_individuals_unitemized_ytd": {
             "title": "11(a.ii) Individuals Unitemized",
             "description": "",
             "type": [
@@ -1495,7 +1495,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "L11aiii_individuals_total": {
+        "L11aiii_total_individual_ytd": {
             "title": "11(a.iii) Individuals Total",
             "description": "",
             "type": [
@@ -1515,7 +1515,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "L11b_political_party_committees-DUPLICATE": {
+        "L11b_political_party_committees_ytd": {
             "title": "11(b) Political Party Committees",
             "description": "",
             "type": [
@@ -1535,7 +1535,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "L11c_all_other_political_committees_pacs": {
+        "L11c_other_political_committees_ytd": {
             "title": "11(c) All Other Political Committees (PACS)",
             "description": "",
             "type": [
@@ -1555,7 +1555,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "L11d_the_candidate-DUPLICATE": {
+        "L11d_the_candidate_ytd": {
             "title": "11(d) The Candidate",
             "description": "",
             "type": [
@@ -1575,7 +1575,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "L11e_total_contributions-DUPLICATE": {
+        "L11e_total_contributions_ytd": {
             "title": "11(e) Total Contributions",
             "description": "",
             "type": [
@@ -1595,7 +1595,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "L12_transfers_from_other_auth_committees": {
+        "L12_transfers_from_other_authorized_committees_ytd": {
             "title": "12. Transfers From Other AUTH Committees",
             "description": "",
             "type": [
@@ -1615,7 +1615,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "L13a_loans_made_or_guarn_by_the_candidate-DUPLICATE": {
+        "L13a_loans_made_or_guaranteed_by_the_candidate_ytd": {
             "title": "13(a) Loans made or guarn. by the Candidate",
             "description": "",
             "type": [
@@ -1635,7 +1635,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "L13b_all_other_loans-DUPLICATE": {
+        "L13b_all_other_loans_ytd": {
             "title": "13(b) All Other Loans",
             "description": "",
             "type": [
@@ -1655,7 +1655,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "L13c_total_loans-DUPLICATE": {
+        "L13c_total_loans_ytd": {
             "title": "13(c) Total Loans",
             "description": "",
             "type": [
@@ -1675,7 +1675,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "L14_offsets_to_operating_expenditures-DUPLICATE": {
+        "L14_offsets_to_operating_expenditures_ytd": {
             "title": "14. Offsets to Operating Expenditures",
             "description": "",
             "type": [
@@ -1695,7 +1695,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "L15_other_receipts-DUPLICATE": {
+        "L15_other_receipts_ytd": {
             "title": "15. Other Receipts",
             "description": "",
             "type": [
@@ -1715,7 +1715,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "L16_total_receipts-DUPLICATE": {
+        "L16_total_receipts_ytd": {
             "title": "16. Total Receipts",
             "description": "",
             "type": [
@@ -1735,7 +1735,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "L17_operating_expenditures-DUPLICATE": {
+        "L17_operating_expenditures_ytd": {
             "title": "17 Operating Expenditures",
             "description": "",
             "type": [
@@ -1755,7 +1755,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "L18_transfers_to_other_auth_committees": {
+        "L18_transfers_to_other_authorized_committees_ytd": {
             "title": "18. Transfers To Other AUTH Committees",
             "description": "",
             "type": [
@@ -1775,7 +1775,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "L19a_loan_repayment_by_candidate": {
+        "L19a_loan_repayments_of_loans_made_or_guaranteed_by_candidate_ytd": {
             "title": "19(a) Loan Repayment By Candidate",
             "description": "",
             "type": [
@@ -1795,7 +1795,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "L19b_loan_repayments,_all_other_loans-DUPLICATE": {
+        "L19b_loan_repayments_of_all_other_loans_ytd": {
             "title": "19(b) Loan Repayments,  ALL Other Loans",
             "description": "",
             "type": [
@@ -1815,7 +1815,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "L19c_total_loan_repayments-DUPLICATE": {
+        "L19c_total_loan_repayments_ytd": {
             "title": "19(c) Total Loan Repayments",
             "description": "",
             "type": [
@@ -1835,7 +1835,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "L20a_refund_individuals_other_than_pol_cmtes-DUPLICATE": {
+        "L20a_refunds_to_individuals_ytd": {
             "title": "20(a) Refund/Individuals Other than Pol. Cmtes",
             "description": "",
             "type": [
@@ -1855,7 +1855,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "L20b_refund,_political_party_committees": {
+        "L20b_refunds_to_political_party_committees_ytd": {
             "title": "20(b) Refund, Political Party Committees",
             "description": "",
             "type": [
@@ -1875,7 +1875,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "L20c_refund,_other_political_committees": {
+        "L20c_refunds_to_other_political_committees_ytd": {
             "title": "20(c) Refund, Other Political Committees",
             "description": "",
             "type": [
@@ -1895,7 +1895,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "L20d_total_contributions_refunds": {
+        "L20d_total_contribution_refunds_ytd": {
             "title": "20(d) Total Contributions Refunds",
             "description": "",
             "type": [
@@ -1915,7 +1915,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "L21_other_disbursements-DUPLICATE": {
+        "L21_other_disbursements_ytd": {
             "title": "21. Other Disbursements",
             "description": "",
             "type": [
@@ -1935,7 +1935,7 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
-        "L22_total_disbursements-DUPLICATE": {
+        "L22_total_disbursements_ytd": {
             "title": "22. Total Disbursements",
             "description": "",
             "type": [
