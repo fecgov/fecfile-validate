@@ -138,7 +138,7 @@
         "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
       }
     },
-    "filer_designated_to_make_coordianted_expenditures": {
+    "filer_designated_to_make_coordinated_expenditures": {
       "title": "YES/NO  (Has filer been designated to make Coordinated Expenditures?)",
       "description": "",
       "type": ["boolean", "null"],
