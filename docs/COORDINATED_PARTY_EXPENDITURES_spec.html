@@ -12,11 +12,11 @@
 <td>FORM TYPE</td>
 <td>A/N-8</td>
 <td>X (error)</td>
-<td>SE</td>
-<td>SE</td>
-<td>SE</td>
-<td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 8</li><li>regex: ^[ -~]{0,8}$</li></td>
+<td>SF</td>
+<td>SF</td>
+<td>SF</td>
+<td>F3 | F3X | F3P | F3L</td>
+<td><ul><li>REQUIRED</li><li>must be one of: ['SF']</li></td>
 </tr>
 <tr>
 <td>FILER COMMITTEE ID NUMBER</td>
@@ -24,23 +24,23 @@
 <td>X (error)</td>
 <td>C00123456</td>
 <td></td>
-<td>Must be either "CXXXXXXXX" where X is a numeric value (C, then 8 numbers) or "PXXXXXXXX" where X is a numeric value (P, then 8 numbers) or [H|S][0-9]{1}[A-Z]{2}[0-9]{5} (H or S, 1 number, 2 letters, 5 numbers)</td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 9</li><li>regex: ^[ -~]{0,9}$</li></td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 9</li><li>max length: 9</li><li>regex: ^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$</li></td>
 </tr>
 <tr>
 <td>TRANSACTION TYPE IDENTIFIER</td>
 <td></td>
 <td>X (error)</td>
-<td>C2_LOAN_GUARANTOR</td>
+<td></td>
 <td></td>
 <td>COORDINATED_PARTY_EXPENDITURE
 COORDINATED_PARTY_EXPENDITURE_VOID</td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li></td>
+<td><ul><li>REQUIRED</li><li>must be one of: ['COORDINATED_PARTY_EXPENDITURE', 'COORDINATED_PARTY_EXPENDITURE_VOID']</li></td>
 </tr>
 <tr>
-<td>TRANSACTION ID NUMBER</td>
+<td>TRANSACTION ID</td>
 <td>A/N-20</td>
 <td>X (error)</td>
 <td>F123456789-3456</td>
@@ -82,12 +82,12 @@ COORDINATED_PARTY_EXPENDITURE_VOID</td>
 <tr>
 <td>DESIGNATED COMMITTEE ID NUMBER</td>
 <td>A/N-9</td>
-<td>X (conditional error)</td>
+<td>X (error)</td>
 <td>C00123456</td>
 <td></td>
-<td>Required if COL SEQ 7 is YES</td>
 <td></td>
-<td><ul><li>type: string</li><li>min length: 1</li><li>max length: 9</li><li>regex: ^[ -~]{0,9}$</li></td>
+<td></td>
+<td><ul><li>REQUIRED if FILER_DESIGNATED_TO_MAKE_COORDINATED_EXPENDITURES equals True</li><li>type: ['string', 'null']</li><li>min length: 9</li><li>max length: 9</li><li>regex: ^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$</li></td>
 </tr>
 <tr>
 <td>DESIGNATING COMMITTEE NAME</td>
@@ -97,17 +97,17 @@ COORDINATED_PARTY_EXPENDITURE_VOID</td>
 <td></td>
 <td>Required if COL SEQ 7 is YES</td>
 <td></td>
-<td><ul><li>type: string</li><li>min length: 1</li><li>max length: 200</li><li>regex: ^[ -~]{0,200}$</li></td>
+<td><ul><li>REQUIRED if FILER_DESIGNATED_TO_MAKE_COORDINATED_EXPENDITURES equals True</li><li>type: ['string', 'null']</li><li>min length: 1</li><li>max length: 200</li><li>regex: ^[ -~]{0,200}$</li></td>
 </tr>
 <tr>
 <td>SUBORDINATE COMMITTEE ID NUMBER</td>
 <td>A/N-9</td>
-<td></td>
+<td>X (error)</td>
 <td>C00123456</td>
 <td></td>
 <td></td>
 <td></td>
-<td><ul><li>type: string</li><li>min length: 1</li><li>max length: 9</li><li>regex: ^[ -~]{0,9}$</li></td>
+<td><ul><li>type: ['string', 'null']</li><li>min length: 9</li><li>max length: 9</li><li>regex: ^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$</li></td>
 </tr>
 <tr>
 <td>SUBORDINATE COMMITTEE NAME</td>
@@ -117,7 +117,7 @@ COORDINATED_PARTY_EXPENDITURE_VOID</td>
 <td></td>
 <td>Required if Committee ID number entered</td>
 <td></td>
-<td><ul><li>type: string</li><li>min length: 1</li><li>max length: 200</li><li>regex: ^[ -~]{0,200}$</li></td>
+<td><ul><li>REQUIRED if </li><li>type: ['string', 'null']</li><li>min length: 1</li><li>max length: 200</li><li>regex: ^[ -~]{0,200}$</li></td>
 </tr>
 <tr>
 <td>SUBORDINATE STREET  1</td>
@@ -127,7 +127,7 @@ COORDINATED_PARTY_EXPENDITURE_VOID</td>
 <td></td>
 <td>Required if Committee ID number entered</td>
 <td></td>
-<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 34</li><li>regex: ^[ -~]{0,34}$</li></td>
+<td><ul><li>REQUIRED if </li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 34</li><li>regex: ^[ -~]{0,34}$</li></td>
 </tr>
 <tr>
 <td>SUBORDINATE STREET  2</td>
@@ -147,7 +147,7 @@ COORDINATED_PARTY_EXPENDITURE_VOID</td>
 <td></td>
 <td>Required if Committee ID number entered</td>
 <td></td>
-<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 30</li><li>regex: ^[ -~]{0,30}$</li></td>
+<td><ul><li>REQUIRED if </li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 30</li><li>regex: ^[ -~]{0,30}$</li></td>
 </tr>
 <tr>
 <td>SUBORDINATE STATE</td>
@@ -157,7 +157,7 @@ COORDINATED_PARTY_EXPENDITURE_VOID</td>
 <td></td>
 <td>Required if Committee ID number entered</td>
 <td></td>
-<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 2</li><li>regex: ^[ -~]{0,2}$</li></td>
+<td><ul><li>REQUIRED if </li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 2</li><li>regex: ^[ -~]{0,2}$</li></td>
 </tr>
 <tr>
 <td>SUBORDINATE ZIP</td>
@@ -167,7 +167,7 @@ COORDINATED_PARTY_EXPENDITURE_VOID</td>
 <td></td>
 <td>Required if Committee ID number entered</td>
 <td></td>
-<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 9</li><li>regex: ^[ -~]{0,9}$</li></td>
+<td><ul><li>REQUIRED if </li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 9</li><li>regex: ^[ -~]{0,9}$</li></td>
 </tr>
 <tr>
 <td>ENTITY TYPE</td>
@@ -177,7 +177,7 @@ COORDINATED_PARTY_EXPENDITURE_VOID</td>
 <td>[ORG | IND]</td>
 <td>IND, ORG</td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 3</li><li>regex: ^[ -~]{0,3}$</li></td>
+<td><ul><li>REQUIRED</li><li>must be one of: ['IND', 'ORG']</li></td>
 </tr>
 <tr>
 <td>PAYEE ORGANIZATION NAME</td>
@@ -187,7 +187,7 @@ COORDINATED_PARTY_EXPENDITURE_VOID</td>
 <td></td>
 <td>Required if [ORG]</td>
 <td></td>
-<td><ul><li>type: string</li><li>min length: 1</li><li>max length: 200</li><li>regex: ^[ -~]{0,200}$</li></td>
+<td><ul><li>REQUIRED if ENTITY_TYPE one of ['ORG']</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 200</li><li>regex: ^[ -~]{0,200}$</li></td>
 </tr>
 <tr>
 <td>PAYEE LAST NAME</td>
@@ -197,7 +197,7 @@ COORDINATED_PARTY_EXPENDITURE_VOID</td>
 <td></td>
 <td>Required if [IND]</td>
 <td></td>
-<td><ul><li>type: string</li><li>min length: 1</li><li>max length: 30</li><li>regex: ^[ -~]{0,30}$</li></td>
+<td><ul><li>REQUIRED if ENTITY_TYPE one of ['IND']</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 30</li><li>regex: ^[ -~]{0,30}$</li></td>
 </tr>
 <tr>
 <td>PAYEE FIRST NAME</td>
@@ -207,7 +207,7 @@ COORDINATED_PARTY_EXPENDITURE_VOID</td>
 <td></td>
 <td>Required if [IND]</td>
 <td></td>
-<td><ul><li>type: string</li><li>min length: 1</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
+<td><ul><li>REQUIRED if ENTITY_TYPE one of ['IND']</li><li>type: ['string', 'null']</li><li>min length: 1</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
 </tr>
 <tr>
 <td>PAYEE MIDDLE NAME</td>
@@ -247,7 +247,7 @@ COORDINATED_PARTY_EXPENDITURE_VOID</td>
 <td></td>
 <td></td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 34</li><li>regex: ^[ -~]{0,34}$</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 34</li><li>regex: ^[ -~]{0,34}$</li></td>
 </tr>
 <tr>
 <td>PAYEE STREET  2</td>
@@ -267,7 +267,7 @@ COORDINATED_PARTY_EXPENDITURE_VOID</td>
 <td></td>
 <td></td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 30</li><li>regex: ^[ -~]{0,30}$</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 30</li><li>regex: ^[ -~]{0,30}$</li></td>
 </tr>
 <tr>
 <td>PAYEE STATE</td>
@@ -277,7 +277,7 @@ COORDINATED_PARTY_EXPENDITURE_VOID</td>
 <td></td>
 <td></td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 2</li><li>regex: ^[ -~]{0,2}$</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 2</li><li>regex: ^[ -~]{0,2}$</li></td>
 </tr>
 <tr>
 <td>PAYEE ZIP</td>
@@ -287,7 +287,7 @@ COORDINATED_PARTY_EXPENDITURE_VOID</td>
 <td></td>
 <td></td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 9</li><li>regex: ^[ -~]{0,9}$</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 9</li><li>regex: ^[ -~]{0,9}$</li></td>
 </tr>
 <tr>
 <td>EXPENDITURE DATE</td>
@@ -296,8 +296,8 @@ COORDINATED_PARTY_EXPENDITURE_VOID</td>
 <td>20120720</td>
 <td>YYYYMMDD</td>
 <td></td>
-<td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 8</li><li>regex: ^[0-9]{4}[0-9]{2}[0-9]{2}$</li></td>
+<td>F3 | F3X | F3P</td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 10</li><li>regex: ^[0-9]{4}-[0-9]{2}-[0-9]{2}$</li></td>
 </tr>
 <tr>
 <td>EXPENDITURE AMOUNT</td>
@@ -305,9 +305,9 @@ COORDINATED_PARTY_EXPENDITURE_VOID</td>
 <td>X (error)</td>
 <td>1500</td>
 <td></td>
-<td>If Transaction Type is COORDINATED_PARTY_EXPENDITURE_VOID, amount must be negative.</td>
-<td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>minimum: -99999999.99</li><li>maximum: 999999999.99</li></td>
+<td>If Transaction Type is OPERATING_EXPENDITURE_VOID or OTHER_DISBURSEMENT_VOID, amount must be negative.</td>
+<td>F3 | F3X | F3P | F3L</td>
+<td><ul><li>EXPENDITURE_AMOUNT < 0 if TRANSACTION_TYPE_IDENTIFIER equals COORDINATED_PARTY_EXPENDITURE_VOID</li><li>REQUIRED</li><li>type: number</li><li>minimum: -99999999.99</li><li>maximum: 999999999.99</li></td>
 </tr>
 <tr>
 <td>GENERAL ELECTION YEAR</td>
@@ -327,37 +327,37 @@ COORDINATED_PARTY_EXPENDITURE_VOID</td>
 <td></td>
 <td>Aggregate General Election Expenditure for this Candidate</td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>minimum: -99999999.99</li><li>maximum: 999999999.99</li></td>
+<td><ul><li>REQUIRED</li><li>type: number</li><li>minimum: -99999999.99</li><li>maximum: 999999999.99</li></td>
 </tr>
 <tr>
 <td>AGGREGATION GROUP</td>
 <td></td>
 <td>X (error)</td>
+<td>COORDINATED_PARTY_EXPENDITURES</td>
 <td></td>
+<td>COORDINATED_PARTY_EXPENDITURES</td>
 <td></td>
-<td>INDEPENDENT_EXPENDITURE</td>
-<td></td>
-<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 100</li><li>regex: ^[ -~]{0,100}$</li></td>
+<td><ul><li>REQUIRED</li><li>must equal: COORDINATED_PARTY_EXPENDITURES</li></td>
 </tr>
 <tr>
 <td>EXPENDITURE PURPOSE DESCRIPTION</td>
 <td>A/N-100</td>
 <td>X (error)</td>
+<td>Repay Loan</td>
 <td></td>
 <td></td>
 <td></td>
-<td></td>
-<td><ul><li>REQUIRED</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 100</li><li>regex: ^[ -~]{0,100}$</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 100</li><li>regex: ^[ -~]{0,100}$</li></td>
 </tr>
 <tr>
 <td>CATEGORY CODE</td>
 <td>A/N-3</td>
 <td></td>
 <td>1</td>
-<td>001-012</td>
+<td>001, 002, ... 012</td>
 <td>Only codes 001-012</td>
 <td>F3 | F3X | F3P</td>
-<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 3</li><li>regex: ^[ -~]{0,3}$</li></td>
+<td><ul><li>type: ['string', 'null']</li><li>must be one of: ['001', '002', '003', '004', '005', '006', '007', '008', '009', '010', '011', '012', None]</li></td>
 </tr>
 <tr>
 <td>PAYEE COMMITTEE ID NUMBER</td>
@@ -367,7 +367,7 @@ COORDINATED_PARTY_EXPENDITURE_VOID</td>
 <td></td>
 <td></td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 0</li><li>max length: 9</li><li>regex: ^[ -~]{0,9}$</li></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 9</li><li>max length: 9</li><li>regex: ^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$</li></td>
 </tr>
 <tr>
 <td>PAYEE CANDIDATE ID NUMBER</td>
@@ -439,7 +439,7 @@ COORDINATED_PARTY_EXPENDITURE_VOID</td>
 type: string
 must be one of: ['H', 'S', 'P']</td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 1</li><li>regex: ^[ -~]{0,1}$</li></td>
+<td><ul><li>REQUIRED</li><li>must be one of: ['H', 'S', 'P']</li></td>
 </tr>
 <tr>
 <td>PAYEE CANDIDATE STATE</td>
@@ -450,7 +450,7 @@ must be one of: ['H', 'S', 'P']</td>
 <td>REQUIRED if CANDIDATE_OFFICE equals S
 REQUIRED if CANDIDATE_OFFICE equals H</td>
 <td></td>
-<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 2</li><li>regex: ^[ -~]{0,2}$</li></td>
+<td><ul><li>REQUIRED if PAYEE_CANDIDATE_OFFICE equals S</li><li>REQUIRED if PAYEE_CANDIDATE_OFFICE equals H</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 2</li><li>regex: ^[ -~]{0,2}$</li></td>
 </tr>
 <tr>
 <td>PAYEE CANDIDATE DISTRICT</td>
@@ -460,7 +460,7 @@ REQUIRED if CANDIDATE_OFFICE equals H</td>
 <td>01 ... 99</td>
 <td>REQUIRED if CANDIDATE_OFFICE equals H</td>
 <td></td>
-<td><ul><li>type: ['string', 'null']</li><li>min length: 2</li><li>max length: 2</li><li>regex: ^\d{2}$</li></td>
+<td><ul><li>REQUIRED if PAYEE_CANDIDATE_OFFICE equals H</li><li>type: ['string', 'null']</li><li>min length: 2</li><li>max length: 2</li><li>regex: ^\d{2}$</li></td>
 </tr>
 <tr>
 <td>MEMO CODE</td>
