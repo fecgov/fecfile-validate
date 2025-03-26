@@ -6,7 +6,7 @@ const perfectSchedule: any = {
   form_type: "SF",
   filer_committee_id_number: "C00000000",
   transaction_type_identifier: "COORDINATED_PARTY_EXPENDITURE",
-  transaction_id_number: "F123456",
+  transaction_id: "F123456",
   entity_type: "ORG",
   payee_organization_name: "Org Name",
   payee_street_1: "123 main street",
