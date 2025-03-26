@@ -9,7 +9,7 @@
     "form_type",
     "filer_committee_id_number",
     "transaction_type_identifier",
-    "transaction_id_number",
+    "transaction_id",
     "entity_type",
     "payee_street_1",
     "payee_city",
@@ -87,8 +87,8 @@
         "FIELD_FORM_ASSOCIATION": ""
       }
     },
-    "transaction_id_number": {
-      "title": "TRANSACTION ID NUMBER",
+    "transaction_id": {
+      "title": "TRANSACTION ID",
       "description": "",
       "type": "string",
       "minLength": 1,
@@ -98,7 +98,7 @@
         "F123456789-3456"
       ],
       "fec_spec": {
-        "FIELD_DESCRIPTION": "TRANSACTION ID NUMBER",
+        "FIELD_DESCRIPTION": "TRANSACTION ID",
         "TYPE": "A/N-20",
         "REQUIRED": "X (error)",
         "SAMPLE_DATA": "F123456789-3456",
