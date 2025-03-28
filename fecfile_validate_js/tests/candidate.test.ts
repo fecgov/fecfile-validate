@@ -28,18 +28,18 @@ const data: any = {
 
 Deno.test({
   name: "it should pass with perfect data",
-  fn: () => {
-    const result = validate(candidateContactSchema, data);
+  fn: async () => {
+    const result = await validate(candidateContactSchema, data);
     assertEquals(result, []);
   },
 });
 
 Deno.test({
   name: "it should fail as S candidate office missing",
-  fn: () => {
+  fn: async () => {
     const testData = { ...data };
     delete testData.candidate_office;
-    const result = validate(candidateContactSchema, testData);
+    const result = await validate(candidateContactSchema, testData);
     assertEquals(result[0].keyword, "required");
     assertEquals(result[0].path, "candidate_office");
     assertEquals(result[0].message, "must have required property 'candidate_office'");
@@ -48,10 +48,10 @@ Deno.test({
 
 Deno.test({
   name: "it should fail as S candidate office and null for candidate_state",
-  fn: () => {
+  fn: async () => {
     const testData = { ...data };
     testData.candidate_office = "S";
-    const result = validate(candidateContactSchema, testData);
+    const result = await validate(candidateContactSchema, testData);
     assertEquals(result[0].path, "candidate_state");
     assertEquals(result[0].message, "must be string");
   },
@@ -59,11 +59,11 @@ Deno.test({
 
 Deno.test({
   name: "it should fail as S candidate office and candidate_state missing",
-  fn: () => {
+  fn: async () => {
     const testData = { ...data };
     testData.candidate_office = "S";
     delete testData.candidate_state;
-    const result = validate(candidateContactSchema, testData);
+    const result = await validate(candidateContactSchema, testData);
     assertEquals(result[0].keyword, "required");
     assertEquals(result[0].path, "candidate_state");
     assertEquals(result[0].message, "must have required property 'candidate_state'");
@@ -72,11 +72,11 @@ Deno.test({
 
 Deno.test({
   name: "it should fail with for candidate office S with an invalid candidate state format",
-  fn: () => {
+  fn: async () => {
     const testData = { ...data };
     testData.candidate_office = "S";
     testData.candidate_state = "M1";
-    const result = validate(candidateContactSchema, testData);
+    const result = await validate(candidateContactSchema, testData);
     assertEquals(result[0].path, "candidate_state");
     assertEquals(result[0].message, 'must match pattern "^[A-Z]{2}$"');
   },
@@ -84,21 +84,21 @@ Deno.test({
 
 Deno.test({
   name: "it should pass with for candidate office S with a candidate state",
-  fn: () => {
+  fn: async () => {
     const testData = { ...data };
     testData.candidate_office = "S";
     testData.candidate_state = "VA";
-    const result = validate(candidateContactSchema, testData);
+    const result = await validate(candidateContactSchema, testData);
     assertEquals(result, []);
   },
 });
 
 Deno.test({
   name: "it should fail as H candidate office and null for candidate_state",
-  fn: () => {
+  fn: async () => {
     const testData = { ...data };
     testData.candidate_office = "H";
-    const result = validate(candidateContactSchema, testData);
+    const result = await validate(candidateContactSchema, testData);
     assertEquals(result[0].path, "candidate_state");
     assertEquals(result[0].message, "must be string");
   },
@@ -106,11 +106,11 @@ Deno.test({
 
 Deno.test({
   name: "it should fail as H candidate office and candidate_state missing",
-  fn: () => {
+  fn: async () => {
     const testData = { ...data };
     testData.candidate_office = "H";
     delete testData.candidate_state;
-    const result = validate(candidateContactSchema, testData);
+    const result = await validate(candidateContactSchema, testData);
     assertEquals(result[0].keyword, "required");
     assertEquals(result[0].path, "candidate_state");
     assertEquals(result[0].message, "must have required property 'candidate_state'");
@@ -119,11 +119,11 @@ Deno.test({
 
 Deno.test({
   name: "it should fail as H candidate office and null for candidate_district",
-  fn: () => {
+  fn: async () => {
     const testData = { ...data };
     testData.candidate_office = "H";
     testData.candidate_state = "MD";
-    const result = validate(candidateContactSchema, testData);
+    const result = await validate(candidateContactSchema, testData);
     assertEquals(result[0].path, "candidate_district");
     assertEquals(result[0].message, "must be string");
   },
@@ -131,12 +131,12 @@ Deno.test({
 
 Deno.test({
   name: "it should fail as H candidate office and candidate_district missing",
-  fn: () => {
+  fn: async () => {
     const testData = { ...data };
     testData.candidate_office = "H";
     testData.candidate_state = "VA";
     delete testData.candidate_district;
-    const result = validate(candidateContactSchema, testData);
+    const result = await validate(candidateContactSchema, testData);
     assertEquals(result[0].keyword, "required");
     assertEquals(result[0].path, "candidate_district");
     assertEquals(result[0].message, "must have required property 'candidate_district'");
@@ -145,12 +145,12 @@ Deno.test({
 
 Deno.test({
   name: "it should pass with for candidate office H with a candidate state and candidate district",
-  fn: () => {
+  fn: async () => {
     const testData = { ...data };
     testData.candidate_office = "H";
     testData.candidate_state = "VA";
     testData.candidate_district = "01";
-    const result = validate(candidateContactSchema, testData);
+    const result = await validate(candidateContactSchema, testData);
     assertEquals(result, []);
   },
 });

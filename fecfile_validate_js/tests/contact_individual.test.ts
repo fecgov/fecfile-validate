@@ -22,15 +22,15 @@ const perfectForm: any = {
 
 Deno.test({
   name: "it should pass with perfect data",
-  fn: () => {
-    const result = validate(schema, perfectForm);
+  fn: async () => {
+    const result = await validate(schema, perfectForm);
     assertEquals(result, []);
   },
 });
 
 Deno.test({
   name: "it should pass containing every allowed character",
-  fn: () => {
+  fn: async () => {
     const thisData = { ...perfectForm };
     const specialChars =
       " !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~";
@@ -38,7 +38,7 @@ Deno.test({
     thisData.first_name = specialChars.substring(29, 48);
     thisData.middle_name = specialChars.substring(48, 67);
     thisData.street_1 = specialChars.substring(67);
-    const result = validate(schema, thisData);
+    const result = await validate(schema, thisData);
 
     assertEquals(
       thisData.last_name + thisData.first_name + thisData.middle_name + thisData.street_1,
@@ -50,7 +50,7 @@ Deno.test({
 
 Deno.test({
   name: "it should fail containing disallowed character (tab) in last_name",
-  fn: () => {
+  fn: async () => {
     const thisData = { ...perfectForm };
     const disallowedChar = "\t";
     const specialChars =
@@ -64,7 +64,7 @@ Deno.test({
       thisData.last_name + thisData.first_name + thisData.middle_name + thisData.street_1,
       specialChars
     );
-    const result = validate(schema, thisData);
+    const result = await validate(schema, thisData);
 
     assertEquals(result[0].keyword, "pattern");
     assertEquals(result[0].message, 'must match pattern "^[ -~]{0,30}$"');

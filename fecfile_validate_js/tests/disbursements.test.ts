@@ -33,18 +33,18 @@ const perfectForm: any = {
 
 Deno.test({
   name: "it should pass with perfect data",
-  fn: () => {
-    const result = validate(schema, perfectForm);
+  fn: async () => {
+    const result = await validate(schema, perfectForm);
     assertEquals(result, []);
   },
 });
 
 Deno.test({
   name: "it should fail if VOID transaction type and expenditure amount positive",
-  fn: () => {
+  fn: async () => {
     const thisData = { ...perfectForm };
     thisData.transaction_type_identifier = "OPERATING_EXPENDITURE_VOID";
-    const result = validate(schema, thisData);
+    const result = await validate(schema, thisData);
     assertEquals(result[0].keyword, "exclusiveMaximum");
     assertEquals(result[0].path, "expenditure_amount");
     assertEquals(result[0].keyword, "exclusiveMaximum");
@@ -53,22 +53,22 @@ Deno.test({
 
 Deno.test({
   name: "it should pass if VOID transaction type and expenditure amout negative",
-  fn: () => {
+  fn: async () => {
     const thisData = { ...perfectForm };
     thisData.transaction_type_identifier = "OPERATING_EXPENDITURE_VOID";
     thisData.expenditure_amount = -55.01;
-    const result = validate(schema, thisData);
+    const result = await validate(schema, thisData);
     assertEquals(result, []);
   },
 });
 
 Deno.test({
   name: "it should fail if VOID transaction type and expenditure is zero",
-  fn: () => {
+  fn: async () => {
     const thisData = { ...perfectForm };
     thisData.transaction_type_identifier = "OPERATING_EXPENDITURE_VOID";
     thisData.expenditure_amount = -0.0;
-    const result = validate(schema, thisData);
+    const result = await validate(schema, thisData);
     assertEquals(result[0].keyword, "exclusiveMaximum");
     assertEquals(result[0].path, "expenditure_amount");
     assertEquals(result[0].keyword, "exclusiveMaximum");
