@@ -3,7 +3,7 @@
     "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/F3.json",
     "version": "8.3.0.1",
     "title": "FEC F3",
-    "description": "FORM 3 - REPORT OF RECEIPTS AND DISBURSEMENTS FOR AN AUTHORIZED COMMITTEE ",
+    "description": "FORM 3 - REPORT OF RECEIPTS AND DISBURSEMENTS FOR AN AUTHORIZED COMMITTEE",
     "type": "object",
     "required": [
         "form_type",
