@@ -668,6 +668,7 @@
             "then": {
                 "properties": {
                     "expenditure_purpose_descrip": {
+                        "type": "string",
                         "pattern": "^Recount Account: [ -~]{0,83}$"
                     }
                 }
@@ -687,6 +688,7 @@
             "then": {
                 "properties": {
                     "expenditure_purpose_descrip": {
+                        "type": "string",
                         "pattern": "^Recount/Legal Proceedings Account: [ -~]{0,65}$"
                     }
                 }
@@ -706,6 +708,7 @@
             "then": {
                 "properties": {
                     "expenditure_purpose_descrip": {
+                        "type": "string",
                         "pattern": "^Headquarters Buildings Account: [ -~]{0,68}$"
                     }
                 }
@@ -725,6 +728,7 @@
             "then": {
                 "properties": {
                     "expenditure_purpose_descrip": {
+                        "type": "string",
                         "pattern": "^Pres. Nominating Convention Account: [ -~]{0,63}$"
                     }
                 }
