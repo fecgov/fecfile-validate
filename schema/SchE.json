@@ -30,7 +30,9 @@
       "minLength": 1,
       "maxLength": 8,
       "pattern": "^[ -~]{0,8}$",
-      "examples": ["SE"],
+      "examples": [
+        "SE"
+      ],
       "fec_spec": {
         "COL_SEQ": 1,
         "FIELD_DESCRIPTION": "FORM TYPE",
@@ -49,7 +51,9 @@
       "minLength": 1,
       "maxLength": 9,
       "pattern": "^[ -~]{0,9}$",
-      "examples": ["C00123456"],
+      "examples": [
+        "C00123456"
+      ],
       "fec_spec": {
         "COL_SEQ": 2,
         "FIELD_DESCRIPTION": "FILER COMMITTEE ID NUMBER",
@@ -65,7 +69,9 @@
       "title": "TRANSACTION TYPE IDENTIFIER",
       "description": "",
       "type": "string",
-      "examples": ["C2_LOAN_GUARANTOR"],
+      "examples": [
+        "C2_LOAN_GUARANTOR"
+      ],
       "fec_spec": {
         "FIELD_DESCRIPTION": "TRANSACTION TYPE IDENTIFIER",
         "TYPE": "",
@@ -83,7 +89,9 @@
       "minLength": 1,
       "maxLength": 20,
       "pattern": "^[ -~]{0,20}$",
-      "examples": ["D123456789-3456"],
+      "examples": [
+        "D123456789-3456"
+      ],
       "fec_spec": {
         "COL_SEQ": 3,
         "FIELD_DESCRIPTION": "TRANSACTION ID",
@@ -98,11 +106,16 @@
     "back_reference_tran_id_number": {
       "title": "BACK REFERENCE TRAN ID NUMBER",
       "description": "",
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "minLength": 0,
       "maxLength": 20,
       "pattern": "^[ -~]{0,20}$",
-      "examples": ["B123456789-1234"],
+      "examples": [
+        "B123456789-1234"
+      ],
       "fec_spec": {
         "COL_SEQ": 4,
         "FIELD_DESCRIPTION": "BACK REFERENCE TRAN ID NUMBER",
@@ -117,11 +130,16 @@
     "back_reference_sched_name": {
       "title": "BACK REFERENCE SCHED NAME",
       "description": "",
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "minLength": 0,
       "maxLength": 8,
       "pattern": "^[ -~]{0,8}$",
-      "examples": ["SB21"],
+      "examples": [
+        "SB21"
+      ],
       "fec_spec": {
         "COL_SEQ": 5,
         "FIELD_DESCRIPTION": "BACK REFERENCE SCHED NAME",
@@ -136,11 +154,17 @@
     "entity_type": {
       "title": "ENTITY TYPE",
       "description": "",
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "minLength": 0,
       "maxLength": 3,
       "pattern": "^[ -~]{0,3}$",
-      "examples": ["ORG", "IND"],
+      "examples": [
+        "ORG",
+        "IND"
+      ],
       "fec_spec": {
         "COL_SEQ": 6,
         "FIELD_DESCRIPTION": "ENTITY TYPE",
@@ -159,7 +183,9 @@
       "minLength": 1,
       "maxLength": 200,
       "pattern": "^[ -~]{0,200}$",
-      "examples": ["The Bank of Banks"],
+      "examples": [
+        "The Bank of Banks"
+      ],
       "fec_spec": {
         "COL_SEQ": 7,
         "FIELD_DESCRIPTION": "PAYEE ORGANIZATION NAME",
@@ -178,7 +204,9 @@
       "minLength": 1,
       "maxLength": 30,
       "pattern": "^[ -~]{0,30}$",
-      "examples": ["Smith"],
+      "examples": [
+        "Smith"
+      ],
       "fec_spec": {
         "COL_SEQ": 8,
         "FIELD_DESCRIPTION": "PAYEE LAST NAME",
@@ -197,7 +225,9 @@
       "minLength": 1,
       "maxLength": 20,
       "pattern": "^[ -~]{0,20}$",
-      "examples": ["John"],
+      "examples": [
+        "John"
+      ],
       "fec_spec": {
         "COL_SEQ": 9,
         "FIELD_DESCRIPTION": "PAYEE FIRST NAME",
@@ -212,11 +242,16 @@
     "payee_middle_name": {
       "title": "PAYEE MIDDLE NAME",
       "description": "",
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "minLength": 0,
       "maxLength": 20,
       "pattern": "^[ -~]{0,20}$",
-      "examples": ["W"],
+      "examples": [
+        "W"
+      ],
       "fec_spec": {
         "COL_SEQ": 10,
         "FIELD_DESCRIPTION": "PAYEE MIDDLE NAME",
@@ -231,11 +266,16 @@
     "payee_prefix": {
       "title": "PAYEE PREFIX",
       "description": "",
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "minLength": 0,
       "maxLength": 10,
       "pattern": "^[ -~]{0,10}$",
-      "examples": ["Dr"],
+      "examples": [
+        "Dr"
+      ],
       "fec_spec": {
         "COL_SEQ": 11,
         "FIELD_DESCRIPTION": "PAYEE PREFIX",
@@ -250,11 +290,16 @@
     "payee_suffix": {
       "title": "PAYEE SUFFIX",
       "description": "",
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "minLength": 0,
       "maxLength": 10,
       "pattern": "^[ -~]{0,10}$",
-      "examples": ["Jr"],
+      "examples": [
+        "Jr"
+      ],
       "fec_spec": {
         "COL_SEQ": 12,
         "FIELD_DESCRIPTION": "PAYEE SUFFIX",
@@ -269,11 +314,16 @@
     "payee_street_1": {
       "title": "PAYEE STREET  1",
       "description": "",
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "minLength": 0,
       "maxLength": 34,
       "pattern": "^[ -~]{0,34}$",
-      "examples": ["The Bank Tower"],
+      "examples": [
+        "The Bank Tower"
+      ],
       "fec_spec": {
         "COL_SEQ": 13,
         "FIELD_DESCRIPTION": "PAYEE STREET  1",
@@ -288,11 +338,16 @@
     "payee_street_2": {
       "title": "PAYEE STREET  2",
       "description": "",
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "minLength": 0,
       "maxLength": 34,
       "pattern": "^[ -~]{0,34}$",
-      "examples": ["100 Broadway"],
+      "examples": [
+        "100 Broadway"
+      ],
       "fec_spec": {
         "COL_SEQ": 14,
         "FIELD_DESCRIPTION": "PAYEE STREET  2",
@@ -307,11 +362,16 @@
     "payee_city": {
       "title": "PAYEE CITY",
       "description": "",
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "minLength": 0,
       "maxLength": 30,
       "pattern": "^[ -~]{0,30}$",
-      "examples": ["New York"],
+      "examples": [
+        "New York"
+      ],
       "fec_spec": {
         "COL_SEQ": 15,
         "FIELD_DESCRIPTION": "PAYEE CITY",
@@ -326,11 +386,16 @@
     "payee_state": {
       "title": "PAYEE STATE",
       "description": "",
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "minLength": 0,
       "maxLength": 2,
       "pattern": "^[ -~]{0,2}$",
-      "examples": ["NY"],
+      "examples": [
+        "NY"
+      ],
       "fec_spec": {
         "COL_SEQ": 16,
         "FIELD_DESCRIPTION": "PAYEE STATE",
@@ -345,11 +410,16 @@
     "payee_zip": {
       "title": "PAYEE ZIP",
       "description": "",
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "minLength": 0,
       "maxLength": 9,
       "pattern": "^[ -~]{0,9}$",
-      "examples": [10011],
+      "examples": [
+        10011
+      ],
       "fec_spec": {
         "COL_SEQ": 17,
         "FIELD_DESCRIPTION": "PAYEE ZIP",
@@ -368,7 +438,9 @@
       "minLength": 1,
       "maxLength": 5,
       "pattern": "^[ -~]{0,5}$",
-      "examples": ["P2012"],
+      "examples": [
+        "P2012"
+      ],
       "fec_spec": {
         "COL_SEQ": 18,
         "FIELD_DESCRIPTION": "ELECTION CODE",
@@ -382,7 +454,10 @@
     "election_other_description": {
       "title": "ELECTION OTHER DESCRIPTION",
       "description": "",
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "minLength": 0,
       "maxLength": 20,
       "pattern": "^[ -~]{0,20}$",
@@ -402,7 +477,9 @@
       "type": "string",
       "minLength": 10,
       "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
-      "examples": ["2012-01-01"],
+      "examples": [
+        "2012-01-01"
+      ],
       "fec_spec": {
         "COL_SEQ": 20,
         "FIELD_DESCRIPTION": "DISSEMINATION DATE",
@@ -416,10 +493,12 @@
     "expenditure_amount": {
       "title": "EXPENDITURE AMOUNT",
       "description": "",
-      "type": "string",
+      "type": "number",
       "minimum": -99999999.99,
       "maximum": 999999999.99,
-      "examples": [10000],
+      "examples": [
+        10000
+      ],
       "fec_spec": {
         "COL_SEQ": 21,
         "FIELD_DESCRIPTION": "EXPENDITURE AMOUNT",
@@ -436,7 +515,9 @@
       "type": "string",
       "minLength": 10,
       "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
-      "examples": ["2012-01-01"],
+      "examples": [
+        "2012-01-01"
+      ],
       "fec_spec": {
         "COL_SEQ": 22,
         "FIELD_DESCRIPTION": "DISBURSEMENT DATE",
@@ -453,7 +534,9 @@
       "type": "number",
       "minimum": 0,
       "maximum": 999999999999,
-      "examples": [11000.95],
+      "examples": [
+        11000.95
+      ],
       "fec_spec": {
         "COL_SEQ": 23,
         "FIELD_DESCRIPTION": "CALENDAR Y-T-D (per election/office)",
@@ -468,7 +551,10 @@
     "aggregate_group": {
       "title": "AGGREGATION GROUP",
       "description": "",
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "minLength": 0,
       "maxLength": 100,
       "pattern": "^[ -~]{0,100}$",
@@ -485,7 +571,10 @@
     "expenditure_purpose_descrip": {
       "title": "EXPENDITURE PURPOSE DESCRIPTION",
       "description": "",
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "minLength": 0,
       "maxLength": 100,
       "pattern": "^[ -~]{0,100}$",
@@ -503,11 +592,16 @@
     "category_code": {
       "title": "CATEGORY CODE",
       "description": "",
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "minLength": 0,
       "maxLength": 3,
       "pattern": "^[ -~]{0,3}$",
-      "examples": [1],
+      "examples": [
+        1
+      ],
       "fec_spec": {
         "COL_SEQ": 25,
         "FIELD_DESCRIPTION": "CATEGORY CODE",
@@ -526,7 +620,9 @@
       "minLength": 0,
       "maxLength": 9,
       "pattern": "^[ -~]{0,9}$",
-      "examples": ["C00123456"],
+      "examples": [
+        "C00123456"
+      ],
       "fec_spec": {
         "COL_SEQ": 26,
         "FIELD_DESCRIPTION": "PAYEE CMTTE FEC ID NUMBER",
@@ -541,11 +637,16 @@
     "support_oppose_code": {
       "title": "SUPPORT/OPPOSE CODE",
       "description": "",
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "minLength": 0,
       "maxLength": 1,
       "pattern": "[S|O]",
-      "examples": ["S"],
+      "examples": [
+        "S"
+      ],
       "fec_spec": {
         "COL_SEQ": 27,
         "FIELD_DESCRIPTION": "SUPPORT/OPPOSE CODE",
@@ -564,7 +665,9 @@
       "minLength": 0,
       "maxLength": 9,
       "pattern": "^[ -~]{0,9}$",
-      "examples": ["H98765431"],
+      "examples": [
+        "H98765431"
+      ],
       "fec_spec": {
         "COL_SEQ": 28,
         "FIELD_DESCRIPTION": "S/O CANDIDATE ID NUMBER",
@@ -612,7 +715,10 @@
     "so_candidate_middle_name": {
       "title": "S/O CANDIDATE MIDDLE NAME",
       "description": "",
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "minLength": 0,
       "maxLength": 20,
       "pattern": "^[ -~]{0,20}$",
@@ -629,7 +735,10 @@
     "so_candidate_prefix": {
       "title": "S/O CANDIDATE PREFIX",
       "description": "",
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "minLength": 0,
       "maxLength": 10,
       "pattern": "^[ -~]{0,10}$",
@@ -646,7 +755,10 @@
     "so_candidate_suffix": {
       "title": "S/O CANDIDATE SUFFIX",
       "description": "",
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "minLength": 0,
       "maxLength": 10,
       "pattern": "^[ -~]{0,10}$",
@@ -663,11 +775,16 @@
     "so_candidate_office": {
       "title": "S/O CANDIDATE OFFICE",
       "description": "",
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "minLength": 0,
       "maxLength": 1,
       "pattern": "^[ -~]{0,1}$",
-      "examples": ["H"],
+      "examples": [
+        "H"
+      ],
       "fec_spec": {
         "COL_SEQ": 34,
         "FIELD_DESCRIPTION": "S/O CANDIDATE OFFICE",
@@ -681,11 +798,16 @@
     "so_candidate_district": {
       "title": "S/O CANDIDATE DISTRICT",
       "description": "",
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "minLength": 2,
       "maxLength": 2,
       "pattern": "^\\d{2}$",
-      "examples": [35],
+      "examples": [
+        35
+      ],
       "fec_spec": {
         "COL_SEQ": 35,
         "FIELD_DESCRIPTION": "S/O CANDIDATE DISTRICT",
@@ -699,11 +821,16 @@
     "so_candidate_state": {
       "title": "S/O CANDIDATE STATE",
       "description": "",
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "minLength": 0,
       "maxLength": 2,
       "pattern": "^[ -~]{0,2}$",
-      "examples": ["FL"],
+      "examples": [
+        "FL"
+      ],
       "fec_spec": {
         "COL_SEQ": 36,
         "FIELD_DESCRIPTION": "S/O CANDIDATE STATE",
@@ -721,7 +848,9 @@
       "minLength": 1,
       "maxLength": 30,
       "pattern": "^[ -~]{0,30}$",
-      "examples": ["Smith"],
+      "examples": [
+        "Smith"
+      ],
       "fec_spec": {
         "COL_SEQ": 37,
         "FIELD_DESCRIPTION": "COMPLETING LAST NAME",
@@ -740,7 +869,9 @@
       "minLength": 1,
       "maxLength": 20,
       "pattern": "^[ -~]{0,20}$",
-      "examples": ["John"],
+      "examples": [
+        "John"
+      ],
       "fec_spec": {
         "COL_SEQ": 38,
         "FIELD_DESCRIPTION": "COMPLETING FIRST NAME",
@@ -755,11 +886,16 @@
     "completing_middle_name": {
       "title": "COMPLETING MIDDLE NAME",
       "description": "",
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "minLength": 0,
       "maxLength": 20,
       "pattern": "^[ -~]{0,20}$",
-      "examples": ["W"],
+      "examples": [
+        "W"
+      ],
       "fec_spec": {
         "COL_SEQ": 39,
         "FIELD_DESCRIPTION": "COMPLETING MIDDLE NAME",
@@ -774,11 +910,16 @@
     "completing_prefix": {
       "title": "COMPLETING PREFIX",
       "description": "",
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "minLength": 0,
       "maxLength": 10,
       "pattern": "^[ -~]{0,10}$",
-      "examples": ["Dr"],
+      "examples": [
+        "Dr"
+      ],
       "fec_spec": {
         "COL_SEQ": 40,
         "FIELD_DESCRIPTION": "COMPLETING PREFIX",
@@ -793,11 +934,16 @@
     "completing_suffix": {
       "title": "COMPLETING SUFFIX",
       "description": "",
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "minLength": 0,
       "maxLength": 10,
       "pattern": "^[ -~]{0,10}$",
-      "examples": ["Jr"],
+      "examples": [
+        "Jr"
+      ],
       "fec_spec": {
         "COL_SEQ": 41,
         "FIELD_DESCRIPTION": "COMPLETING SUFFIX",
@@ -815,7 +961,9 @@
       "type": "string",
       "minLength": 10,
       "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
-      "examples": ["2012-01-01"],
+      "examples": [
+        "2012-01-01"
+      ],
       "fec_spec": {
         "COL_SEQ": 42,
         "FIELD_DESCRIPTION": "DATE SIGNED",
@@ -829,7 +977,10 @@
     "memo_code": {
       "title": "MEMO CODE",
       "description": "",
-      "type": ["boolean", "null"],
+      "type": [
+        "boolean",
+        "null"
+      ],
       "fec_spec": {
         "COL_SEQ": 43,
         "FIELD_DESCRIPTION": "MEMO CODE",
@@ -843,7 +994,10 @@
     "memo_text_description": {
       "title": "MEMO TEXT/DESCRIPTION",
       "description": "",
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "minLength": 0,
       "maxLength": 100,
       "pattern": "^[ -~]{0,100}$",
