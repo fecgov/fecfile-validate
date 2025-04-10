@@ -16,6 +16,7 @@
     "treasurer_last_name",
     "treasurer_first_name",
     "date_signed",
+    "text_code",
     "message_text"
   ],
   "properties": {
@@ -278,14 +279,17 @@
     "text_code": {
       "title": "TEXT CODE",
       "description": "",
-      "type": ["string", "null"],
-      "enum": ["MSI", "MSM", "MST", null],
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 3,
+      "pattern": "^[A-Z]{3,3}$",
+      "enum": ["MSI", "MSM", "MST"],
       "examples": ["MST"],
       "fec_spec": {
         "COL_SEQ": 15,
         "FIELD_DESCRIPTION": "TEXT CODE",
         "TYPE": "A/N-3",
-        "REQUIRED": null,
+        "REQUIRED": "X (error)",
         "SAMPLE_DATA": "MST",
         "VALUE_REFERENCE": "Type of Miscellaneous Document:\n  'MSI'    = Disavowal Response                                                                         \n  'MSM'  = Filing Freq. Change Notice                                                                                                                           \n  'MST'   = Misc. Report to the FEC",
         "RULE_REFERENCE": null,

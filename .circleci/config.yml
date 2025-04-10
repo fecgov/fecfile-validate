@@ -56,7 +56,7 @@ jobs:
             curl -fsSL https://deno.land/x/install/install.sh | sh
             export DENO_INSTALL="/home/circleci/.deno"
             export PATH="$DENO_INSTALL/bin:$PATH"
-            deno upgrade --version 1.22.0
+            deno upgrade --version 2.0.1
 
             LCOV_DIRECTORY=/tmp/cache/lcov
             mkdir -p $LCOV_DIRECTORY
