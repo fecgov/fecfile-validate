@@ -16,8 +16,8 @@
     "treasurer_last_name",
     "treasurer_first_name",
     "date_signed",
-    "message_text",
-    "text_code"
+    "text_code",
+    "message_text"
   ],
   "properties": {
     "form_type": {
