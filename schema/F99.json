@@ -16,7 +16,8 @@
     "treasurer_last_name",
     "treasurer_first_name",
     "date_signed",
-    "message_text"
+    "message_text",
+    "text_code"
   ],
   "properties": {
     "form_type": {
@@ -278,19 +279,53 @@
     "text_code": {
       "title": "TEXT CODE",
       "description": "",
-      "type": ["string", "null"],
-      "enum": ["MSI", "MSM", "MST", null],
+      "type": "string",
+      "enum": ["MSI", "MSM", "MST", "MSR", "MSW"],
       "examples": ["MST"],
       "fec_spec": {
         "COL_SEQ": 15,
         "FIELD_DESCRIPTION": "TEXT CODE",
         "TYPE": "A/N-3",
-        "REQUIRED": null,
+        "REQUIRED": "X (error)",
         "SAMPLE_DATA": "MST",
-        "VALUE_REFERENCE": "Type of Miscellaneous Document:\n  'MSI'    = Disavowal Response                                                                         \n  'MSM'  = Filing Freq. Change Notice                                                                                                                           \n  'MST'   = Misc. Report to the FEC",
+        "VALUE_REFERENCE": "Type of Miscellaneous Document:\n  'MSI'    = Disavowal Response                                                                         \n  'MSM'  = Filing Freq. Change Notice                                                                                                                           \n  'MST'   = Misc. Report to the FEC                                                                                                                           \n  'MSR'   = Form 3L Filing Frequency Chance Notice                                                                                                                           \n  'MSW'   = Loan Agreement",
         "RULE_REFERENCE": null,
         "FIELD_FORM_ASSOCIATION": null
       }
+    },
+    "filing_frequency": {
+      "title": "FILING FREQUENCY",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "maxLength": 1,
+      "pattern": "^[QM]{0,1}$",
+      "examples": ["Q"],
+      "fec_spec": {
+        "COL_SEQ": 16,
+        "FIELD_DESCRIPTION": "FILING FREQUENCY",
+        "TYPE": "A-1",
+        "REQUIRED": "X (conditional error)",
+        "SAMPLE_DATA": "Q",
+        "VALUE_REFERENCE": "M = Monthly\nQ = Quarterly",
+        "RULE_REFERENCE": "Required if TEXT CODE = MSM or MSR",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "pdf_attachment": {
+        "title": "PDF ATTACHMENT",
+        "description": "",
+        "type": "boolean",
+        "const": true,
+        "fec_spec": {
+          "COL_SEQ": 17,
+          "FIELD_DESCRIPTION": "PDF ATTACHMENT",
+          "TYPE": "A/N-1",
+          "REQUIRED": "X (conditional error)",
+          "SAMPLE_DATA": null,
+          "VALUE_REFERENCE": "X",
+          "RULE_REFERENCE": "Required if PDF is attached"
+        }
     },
     "begin_text": {
       "title": "[BEGINTEXT]",
@@ -338,5 +373,30 @@
         "FIELD_FORM_ASSOCIATION": null
       }
     }
-  }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "text_code": {
+            "type": "string",
+            "pattern": "^MSR|MSW$"
+          }
+        },
+        "required": [
+          "text_code"
+        ]
+      },
+      "then": {
+        "required": [
+          "filing_frequency"
+        ],
+        "properties": {
+          "filing_frequency": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  ]
 }
