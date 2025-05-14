@@ -380,7 +380,7 @@
         "properties": {
           "text_code": {
             "type": "string",
-            "pattern": "^MSR|MSW$"
+            "pattern": "^MSM|MSR$"
           }
         },
         "required": [
