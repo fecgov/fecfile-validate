@@ -7,21 +7,25 @@
         "in_between": {
             "type": "string",
             "minLength": 10,
-            "maxLength": 20
+            "maxLength": 20,
+            "fec_spec": {}
         },
         "low_high": {
             "type": "number",
             "minimum": 0,
-            "maximum": 10
+            "maximum": 10,
+            "fec_spec": {}
         },
         "exclusive_low_high": {
             "type": "number",
             "exclusiveMinimum": 0,
-            "exclusiveMaximum": 100
+            "exclusiveMaximum": 100,
+            "fec_spec": {}
         },
         "exclusive_negative_amount": {
             "type": "number",
-            "exclusiveMaximum": 0
+            "exclusiveMaximum": 0,
+            "fec_spec": {}
         }
     }
 }
