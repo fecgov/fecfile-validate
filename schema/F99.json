@@ -291,8 +291,43 @@
         "TYPE": "A/N-3",
         "REQUIRED": "X (error)",
         "SAMPLE_DATA": "MST",
-        "VALUE_REFERENCE": "Type of Miscellaneous Document:\n  'MSI'    = Disavowal Response                                                                         \n  'MSM'  = Filing Freq. Change Notice                                                                                                                           \n  'MST'   = Misc. Report to the FEC",
+        "VALUE_REFERENCE": "Type of Miscellaneous Document:\n  'MSI'    = Disavowal Response                                                                         \n  'MSM'  = Filing Freq. Change Notice                                                                                                                           \n  'MST'   = Misc. Report to the FEC \n 'MSR' = Form 3L Filing Frequency Change Notice    \n'MSW' = Loan Agreement",
         "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "filing_frequency": {
+      "title": "FILING FREQUENCY",
+      "description": "",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1,
+      "pattern": "^[A-Z]{1}$",
+      "examples": ["M", "Q"],
+      "fec_spec": {
+        "COL_SEQ": 16,
+        "FIELD_DESCRIPTION": "FILING FREQUENCY",
+        "TYPE": "A-1",
+        "REQUIRED": "X (conditional error)",
+        "SAMPLE_DATA": "M",
+        "VALUE_REFERENCE": "M = Monthly \n Q = Quarterly",
+        "RULE_REFERENCE": "Required if TEXT CODE = MSM or MSR",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "pdf_attachment": {
+      "title": "PDF ATTACHMENT",
+      "description": "",
+      "type": "boolean",
+      "examples": ["X"],
+      "fec_spec": {
+        "COL_SEQ": 17,
+        "FIELD_DESCRIPTION": "PDF ATTACHMENT",
+        "TYPE": "A/N-1",
+        "REQUIRED": "X (conditional error)",
+        "SAMPLE_DATA": "X",
+        "VALUE_REFERENCE": "X = Yes",
+        "RULE_REFERENCE": "Required if PDF is attached",
         "FIELD_FORM_ASSOCIATION": null
       }
     },
