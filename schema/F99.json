@@ -299,7 +299,7 @@
       "type": ["string", "null"],
       "minLength": 0,
       "maxLength": 1,
-      "pattern": "^[QM]{0,1}$",
+      "enum": ["Q", "M"],
       "examples": ["Q"],
       "fec_spec": {
         "COL_SEQ": 16,
@@ -316,7 +316,6 @@
         "title": "PDF ATTACHMENT",
         "description": "",
         "type": "boolean",
-        "const": true,
         "fec_spec": {
           "COL_SEQ": 17,
           "FIELD_DESCRIPTION": "PDF ATTACHMENT",
