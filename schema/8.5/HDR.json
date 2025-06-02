@@ -1,0 +1,174 @@
+{
+    "$schema": "https://json-schema.org/draft-07/schema#",
+    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/HDR.json",
+    "version": "8.3.0.1",
+    "title": "FEC HDR",
+    "description": "HDR - Header Record",
+    "type": "object",
+    "required": [
+        "record_type",
+        "ef_type",
+        "fec_version"
+    ],
+    "fec_recommended": [],
+    "properties": {
+        "record_type": {
+            "title": "Record Type",
+            "description": "",
+            "type": "string",
+            "const": "HDR",
+            "examples": [
+                "HDR"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 1,
+                "FIELD_DESCRIPTION": "Record Type",
+                "TYPE": "A/N-3",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "HDR",
+                "VALUE_REFERENCE": "HDR",
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "ef_type": {
+            "title": "EF Type",
+            "description": "",
+            "type": "string",
+            "const": "FEC",
+            "examples": [
+                "FEC"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 2,
+                "FIELD_DESCRIPTION": "EF Type",
+                "TYPE": "A/N-3",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "FEC",
+                "VALUE_REFERENCE": "FEC",
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "fec_version": {
+            "title": "FEC Version",
+            "description": "",
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4,
+            "pattern": "^[0-9]+(?:[.][0-9]+)?$",
+            "examples": [
+                "8.3"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 3,
+                "FIELD_DESCRIPTION": "FEC Version #",
+                "TYPE": "A/N-4",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "8.3",
+                "VALUE_REFERENCE": "8.3",
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "soft_name": {
+            "title": "Soft Name",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 90,
+            "pattern": "^[ -~]{0,90}$",
+            "examples": [
+                "FECFile Online"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 4,
+                "FIELD_DESCRIPTION": "Soft Name",
+                "TYPE": "A/N-90",
+                "REQUIRED": null,
+                "SAMPLE_DATA": "FECFile Online",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "soft_ver": {
+            "title": "Soft Ver",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 16,
+            "pattern": "^[ -~]{0,16}$",
+            "examples": [
+                "1.0"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 5,
+                "FIELD_DESCRIPTION": "Soft Ver",
+                "TYPE": "A/N-16",
+                "REQUIRED": null,
+                "SAMPLE_DATA": "1.0",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "rpt_id": {
+            "title": "Rpt ID",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 16,
+            "pattern": "^[ -~]{0,16}$",
+            "examples": [
+                "FEC-123467"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 6,
+                "FIELD_DESCRIPTION": "Rpt ID",
+                "TYPE": "A/N-16",
+                "REQUIRED": null,
+                "SAMPLE_DATA": "FEC-123467",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "FEC report ID of original report (Amendment only)",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "rpt_number": {
+            "title": "Rpt Number",
+            "description": "",
+            "examples": [
+                "1"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 7,
+                "FIELD_DESCRIPTION": "Rpt Number",
+                "TYPE": "N-3",
+                "REQUIRED": null,
+                "SAMPLE_DATA": "1",
+                "VALUE_REFERENCE": "1,2,3,4\u2026",
+                "RULE_REFERENCE": "Sequential number of amendments. For an Original Report, this field is blank.",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "hdrcomment": {
+            "title": "HDRcomment",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 200,
+            "pattern": "^[ -~]{0,200}$",
+            "fec_spec": {
+                "COL_SEQ": 8,
+                "FIELD_DESCRIPTION": "HDRcomment",
+                "TYPE": "A/N-200",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "Use as needed  {no tabs, line-feeds, etc. allowed}",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        }
+    },
+    "additionalProperties": false
+}

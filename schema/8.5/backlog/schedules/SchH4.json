@@ -1,0 +1,701 @@
+{
+    "$schema": "https://json-schema.org/draft-07/schema#",
+    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/SchH4.json",
+    "version": "8.3.0.1",
+    "title": "FEC Sch H4",
+    "description": "SCHEDULE H4 - DISBURSEMENTS FOR ALLOCATED FEDERAL/NON-FEDERAL ACTIVITY",
+    "type": "object",
+    "required": [
+        "form_type",
+        "filer_committee_id_number",
+        "transaction_id_number",
+        "payee_organization_name",
+        "payee_last_name",
+        "payee_first_name"
+    ],
+    "fec_recommended": [
+        "payee_street_1",
+        "payee_city",
+        "payee_state",
+        "payee_zip",
+        "expenditure_date",
+        "total_fed-nonfed_amount",
+        "federal_share",
+        "nonfederal_share",
+        "activity_event_total_ytd",
+        "yes_no_activity_is_administrative_-_only",
+        "yes_no_activity_is_direct_fundraising",
+        "yes_no_activity_is_an_exempt_activity",
+        "yes_no_activity_is_generic_voter_drive_-_only",
+        "yes_no_activity_is_direct_candidate_support",
+        "yes_no_activity_is_public_communications_{referring_only_to_party}_made_by_pac"
+    ],
+    "properties": {
+        "form_type": {
+            "title": "FORM TYPE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 8,
+            "pattern": "^[ -~]{0,8}$",
+            "examples": [
+                "H4"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 1,
+                "FIELD_DESCRIPTION": "FORM TYPE",
+                "TYPE": "A/N-8",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "H4",
+                "VALUE_REFERENCE": "H4",
+                "RULE_REFERENCE": "Appendix C",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "filer_committee_id_number": {
+            "title": "FILER COMMITTEE ID NUMBER",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 9,
+            "pattern": "^[ -~]{0,9}$",
+            "examples": [
+                "C00123456"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 2,
+                "FIELD_DESCRIPTION": "FILER COMMITTEE ID NUMBER",
+                "TYPE": "A/N-9",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "C00123456",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "this is the ID of the Committee Account the report/transaction is associated with",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "transaction_id_number": {
+            "title": "TRANSACTION ID NUMBER",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 20,
+            "pattern": "^[ -~]{0,20}$",
+            "examples": [
+                "H4.123.456"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 3,
+                "FIELD_DESCRIPTION": "TRANSACTION ID NUMBER",
+                "TYPE": "A/N-20",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "H4.123.456",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "Must be unique for the life of a report (original + amendments) within each committee account. Letters, if included, must be uppercase.",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "back_reference_tran_id_number": {
+            "title": "BACK REFERENCE TRAN ID NUMBER",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 20,
+            "pattern": "^[ -~]{0,20}$",
+            "examples": [
+                "A.1234.5678"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 4,
+                "FIELD_DESCRIPTION": "BACK REFERENCE TRAN ID NUMBER",
+                "TYPE": "A/N-20",
+                "REQUIRED": null,
+                "SAMPLE_DATA": "A.1234.5678",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "must contain a valid tran id",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "back_reference_sched_name": {
+            "title": "BACK REFERENCE SCHED NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 8,
+            "pattern": "^[ -~]{0,8}$",
+            "examples": [
+                "SA11AI"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 5,
+                "FIELD_DESCRIPTION": "BACK REFERENCE SCHED NAME",
+                "TYPE": "A/N-8",
+                "REQUIRED": null,
+                "SAMPLE_DATA": "SA11AI",
+                "VALUE_REFERENCE": "SA[line# ref]",
+                "RULE_REFERENCE": "schedule of related tran id",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "entity_type": {
+            "title": "ENTITY TYPE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 3,
+            "pattern": "^[ -~]{0,3}$",
+            "examples": [
+                "IND"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 6,
+                "FIELD_DESCRIPTION": "ENTITY TYPE",
+                "TYPE": "A/N-3",
+                "REQUIRED": null,
+                "SAMPLE_DATA": "IND",
+                "VALUE_REFERENCE": "CAN,CCM,...",
+                "RULE_REFERENCE": "Edit: Entity",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "payee_organization_name": {
+            "title": "PAYEE ORGANIZATION NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 200,
+            "pattern": "^[ -~]{0,200}$",
+            "examples": [
+                "John Smith Co."
+            ],
+            "fec_spec": {
+                "COL_SEQ": 7,
+                "FIELD_DESCRIPTION": "PAYEE ORGANIZATION NAME",
+                "TYPE": "A/N-200",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "John Smith Co.",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "Required if NOT [IND|CAN]",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "payee_last_name": {
+            "title": "PAYEE LAST NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 30,
+            "pattern": "^[ -~]{0,30}$",
+            "examples": [
+                "Smith"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 8,
+                "FIELD_DESCRIPTION": "PAYEE LAST NAME",
+                "TYPE": "A/N-30",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "Smith",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "Required if [IND|CAN]",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "payee_first_name": {
+            "title": "PAYEE FIRST NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 20,
+            "pattern": "^[ -~]{0,20}$",
+            "examples": [
+                "John"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 9,
+                "FIELD_DESCRIPTION": "PAYEE FIRST NAME",
+                "TYPE": "A/N-20",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "John",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "Required if [IND|CAN]",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "payee_middle_name": {
+            "title": "PAYEE MIDDLE NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 20,
+            "pattern": "^[ -~]{0,20}$",
+            "examples": [
+                "W"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 10,
+                "FIELD_DESCRIPTION": "PAYEE MIDDLE NAME",
+                "TYPE": "A/N-20",
+                "REQUIRED": null,
+                "SAMPLE_DATA": "W",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "Optional if [IND|CAN]",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "payee_prefix": {
+            "title": "PAYEE PREFIX",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 10,
+            "pattern": "^[ -~]{0,10}$",
+            "examples": [
+                "Dr"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 11,
+                "FIELD_DESCRIPTION": "PAYEE PREFIX",
+                "TYPE": "A/N-10",
+                "REQUIRED": null,
+                "SAMPLE_DATA": "Dr",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "Optional if [IND|CAN]",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "payee_suffix": {
+            "title": "PAYEE SUFFIX",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 10,
+            "pattern": "^[ -~]{0,10}$",
+            "examples": [
+                "Jr"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 12,
+                "FIELD_DESCRIPTION": "PAYEE SUFFIX",
+                "TYPE": "A/N-10",
+                "REQUIRED": null,
+                "SAMPLE_DATA": "Jr",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "Optional if [IND|CAN]",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "payee_street_1": {
+            "title": "PAYEE STREET  1",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 34,
+            "pattern": "^[ -~]{0,34}$",
+            "examples": [
+                "Suite 16"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 13,
+                "FIELD_DESCRIPTION": "PAYEE STREET  1",
+                "TYPE": "A/N-34",
+                "REQUIRED": "X (warning)",
+                "SAMPLE_DATA": "Suite 16",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "payee_street_2": {
+            "title": "PAYEE STREET  2",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 34,
+            "pattern": "^[ -~]{0,34}$",
+            "examples": [
+                "30 Oak Street"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 14,
+                "FIELD_DESCRIPTION": "PAYEE STREET  2",
+                "TYPE": "A/N-34",
+                "REQUIRED": null,
+                "SAMPLE_DATA": "30 Oak Street",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "payee_city": {
+            "title": "PAYEE CITY",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 30,
+            "pattern": "^[ -~]{0,30}$",
+            "examples": [
+                "Springfield"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 15,
+                "FIELD_DESCRIPTION": "PAYEE CITY",
+                "TYPE": "A/N-30",
+                "REQUIRED": "X (warning)",
+                "SAMPLE_DATA": "Springfield",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "payee_state": {
+            "title": "PAYEE STATE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 2,
+            "pattern": "^[ -~]{0,2}$",
+            "examples": [
+                "MA"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 16,
+                "FIELD_DESCRIPTION": "PAYEE STATE",
+                "TYPE": "A/N-2",
+                "REQUIRED": "X (warning)",
+                "SAMPLE_DATA": "MA",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "payee_zip": {
+            "title": "PAYEE ZIP",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 9,
+            "pattern": "^[ -~]{0,9}$",
+            "examples": [
+                1012
+            ],
+            "fec_spec": {
+                "COL_SEQ": 17,
+                "FIELD_DESCRIPTION": "PAYEE ZIP",
+                "TYPE": "A/N-9",
+                "REQUIRED": "X (warning)",
+                "SAMPLE_DATA": 1012,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "account_event_identifier": {
+            "title": "ACCOUNT/EVENT IDENTIFIER",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 90,
+            "pattern": "^[ -~]{0,90}$",
+            "fec_spec": {
+                "COL_SEQ": 18,
+                "FIELD_DESCRIPTION": "ACCOUNT/EVENT IDENTIFIER",
+                "TYPE": "A/N-90",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": "(Activity or Event Identifier)",
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "expenditure_date": {
+            "title": "EXPENDITURE DATE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 8,
+            "pattern": "^\\d{0,8}$",
+            "examples": [
+                20120720
+            ],
+            "fec_spec": {
+                "COL_SEQ": 19,
+                "FIELD_DESCRIPTION": "EXPENDITURE DATE",
+                "TYPE": "NUM-8",
+                "REQUIRED": "X (warning)",
+                "SAMPLE_DATA": 20120720,
+                "VALUE_REFERENCE": "YYYYMMDD",
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "total_fed-nonfed_amount": {
+            "title": "TOTAL FED-NONFED AMOUNT",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "examples": [
+                10000
+            ],
+            "fec_spec": {
+                "COL_SEQ": 20,
+                "FIELD_DESCRIPTION": "TOTAL FED-NONFED AMOUNT",
+                "TYPE": "AMT-12",
+                "REQUIRED": "X (warning)",
+                "SAMPLE_DATA": 10000,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "federal_share": {
+            "title": "FEDERAL SHARE",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "examples": [
+                5000
+            ],
+            "fec_spec": {
+                "COL_SEQ": 21,
+                "FIELD_DESCRIPTION": "FEDERAL SHARE",
+                "TYPE": "AMT-12",
+                "REQUIRED": "X (warning)",
+                "SAMPLE_DATA": 5000,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "nonfederal_share": {
+            "title": "NONFEDERAL SHARE",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "examples": [
+                5000
+            ],
+            "fec_spec": {
+                "COL_SEQ": 22,
+                "FIELD_DESCRIPTION": "NONFEDERAL SHARE",
+                "TYPE": "AMT-12",
+                "REQUIRED": "X (warning)",
+                "SAMPLE_DATA": 5000,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "activity_event_total_ytd": {
+            "title": "ACTIVITY/EVENT TOTAL YTD",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "examples": [
+                30000
+            ],
+            "fec_spec": {
+                "COL_SEQ": 23,
+                "FIELD_DESCRIPTION": "ACTIVITY/EVENT TOTAL YTD",
+                "TYPE": "AMT-12",
+                "REQUIRED": "X (warning)",
+                "SAMPLE_DATA": 30000,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "expenditure_purpose_descrip": {
+            "title": "EXPENDITURE PURPOSE DESCRIP",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 100,
+            "pattern": "^[ -~]{0,100}$",
+            "examples": [
+                "Repay Loan"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 24,
+                "FIELD_DESCRIPTION": "EXPENDITURE PURPOSE DESCRIP",
+                "TYPE": "A/N-100",
+                "REQUIRED": null,
+                "SAMPLE_DATA": "Repay Loan",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "category_code": {
+            "title": "CATEGORY CODE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 3,
+            "pattern": "^[ -~]{0,3}$",
+            "examples": [
+                1
+            ],
+            "fec_spec": {
+                "COL_SEQ": 25,
+                "FIELD_DESCRIPTION": "CATEGORY CODE",
+                "TYPE": "A/N-3",
+                "REQUIRED": null,
+                "SAMPLE_DATA": 1,
+                "VALUE_REFERENCE": "001, 002, ... 010",
+                "RULE_REFERENCE": "Category Code values 001-010",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "yes_no_activity_is_administrative_-_only": {
+            "title": "YES/NO  (Activity is Administrative - Only)",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 1,
+            "pattern": "^[ -~]{0,1}$",
+            "fec_spec": {
+                "COL_SEQ": 26,
+                "FIELD_DESCRIPTION": "YES/NO  (Activity is Administrative - Only)",
+                "TYPE": "A/N-1",
+                "REQUIRED": "X(warning)\n(see rule ref)",
+                "SAMPLE_DATA": "",
+                "VALUE_REFERENCE": "X=yes",
+                "RULE_REFERENCE": "One Act/Event required, but only one may be selected",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "yes_no_activity_is_direct_fundraising": {
+            "title": "YES/NO  (Activity is Direct Fundraising)",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 1,
+            "pattern": "^[ -~]{0,1}$",
+            "examples": [
+                "X"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 27,
+                "FIELD_DESCRIPTION": "YES/NO  (Activity is Direct Fundraising)",
+                "TYPE": "A/N-1",
+                "REQUIRED": "X(warning)\n(see rule ref)",
+                "SAMPLE_DATA": "X",
+                "VALUE_REFERENCE": "X=yes",
+                "RULE_REFERENCE": "One Act/Event required, but only one may be selected",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "yes_no_activity_is_an_exempt_activity": {
+            "title": "YES/NO  (Activity is an Exempt Activity)",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 1,
+            "pattern": "^[ -~]{0,1}$",
+            "fec_spec": {
+                "COL_SEQ": 28,
+                "FIELD_DESCRIPTION": "YES/NO  (Activity is an Exempt Activity)",
+                "TYPE": "A/N-1",
+                "REQUIRED": "X(warning)\n(see rule ref)",
+                "SAMPLE_DATA": "",
+                "VALUE_REFERENCE": "X=yes",
+                "RULE_REFERENCE": "One Act/Event required, but only one may be selected",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "yes_no_activity_is_generic_voter_drive_-_only": {
+            "title": "YES/NO  (Activity is Generic Voter Drive - Only)",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 1,
+            "pattern": "^[ -~]{0,1}$",
+            "fec_spec": {
+                "COL_SEQ": 29,
+                "FIELD_DESCRIPTION": "YES/NO  (Activity is Generic Voter Drive - Only)",
+                "TYPE": "A/N-1",
+                "REQUIRED": "X(warning)\n(see rule ref)",
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": "X=yes",
+                "RULE_REFERENCE": "One Act/Event required, but only one may be selected",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "yes_no_activity_is_direct_candidate_support": {
+            "title": "YES/NO  (Activity is Direct Candidate Support)",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 1,
+            "pattern": "^[ -~]{0,1}$",
+            "fec_spec": {
+                "COL_SEQ": 30,
+                "FIELD_DESCRIPTION": "YES/NO  (Activity is Direct Candidate Support)",
+                "TYPE": "A/N-1",
+                "REQUIRED": "X(warning)\n(see rule ref)",
+                "SAMPLE_DATA": "",
+                "VALUE_REFERENCE": "X=yes",
+                "RULE_REFERENCE": "One Act/Event required, but only one may be selected",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "yes_no_activity_is_public_communications_{referring_only_to_party}_made_by_pac": {
+            "title": "YES/NO  (Activity is Public Communications {Referring Only to Party} Made by PAC",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 1,
+            "pattern": "^[ -~]{0,1}$",
+            "fec_spec": {
+                "COL_SEQ": 31,
+                "FIELD_DESCRIPTION": "YES/NO  (Activity is Public Communications {Referring Only to Party} Made by PAC",
+                "TYPE": "A/N-1",
+                "REQUIRED": "X(warning)\n(see rule ref)",
+                "SAMPLE_DATA": "",
+                "VALUE_REFERENCE": "X=yes",
+                "RULE_REFERENCE": "One Act/Event required, but only one may be selected",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "memo_code": {
+            "title": "MEMO CODE",
+            "description": "",
+            "type": [
+                "boolean",
+                "null"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 32,
+                "FIELD_DESCRIPTION": "MEMO CODE",
+                "TYPE": "A/N-1",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": "X",
+                "RULE_REFERENCE": "X = True    (added 2/4/2000)",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "memo_text_description": {
+            "title": "MEMO TEXT/DESCRIPTION",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 100,
+            "pattern": "^[ -~]{0,100}$",
+            "fec_spec": {
+                "COL_SEQ": 33,
+                "FIELD_DESCRIPTION": "MEMO TEXT/DESCRIPTION",
+                "TYPE": "A/N-100",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        }
+    },
+    "additionalProperties": false
+}

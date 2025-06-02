@@ -1,6 +1,6 @@
 import { assertEquals } from "https://deno.land/std/testing/asserts.ts";
 import { validate } from "../dist/index.js";
-import { schema } from "../dist/COORDINATED_PARTY_EXPENDITURES.js";
+import { schema } from "../dist/8.5/COORDINATED_PARTY_EXPENDITURES.js";
 
 const perfectSchedule: any = {
   form_type: "SF",

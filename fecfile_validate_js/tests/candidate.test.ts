@@ -1,6 +1,6 @@
 import { assertEquals } from "https://deno.land/std/testing/asserts.ts";
 import { validate } from "../dist/index.js";
-import { schema as candidateContactSchema } from "../dist/Contact_Candidate.js";
+import { schema as candidateContactSchema } from "../dist/8.5/Contact_Candidate.js";
 
 const data: any = {
   type: "CAN",
@@ -42,7 +42,10 @@ Deno.test({
     const result = await validate(candidateContactSchema, testData);
     assertEquals(result[0].keyword, "required");
     assertEquals(result[0].path, "candidate_office");
-    assertEquals(result[0].message, "must have required property 'candidate_office'");
+    assertEquals(
+      result[0].message,
+      "must have required property 'candidate_office'"
+    );
   },
 });
 
@@ -66,7 +69,10 @@ Deno.test({
     const result = await validate(candidateContactSchema, testData);
     assertEquals(result[0].keyword, "required");
     assertEquals(result[0].path, "candidate_state");
-    assertEquals(result[0].message, "must have required property 'candidate_state'");
+    assertEquals(
+      result[0].message,
+      "must have required property 'candidate_state'"
+    );
   },
 });
 
@@ -113,7 +119,10 @@ Deno.test({
     const result = await validate(candidateContactSchema, testData);
     assertEquals(result[0].keyword, "required");
     assertEquals(result[0].path, "candidate_state");
-    assertEquals(result[0].message, "must have required property 'candidate_state'");
+    assertEquals(
+      result[0].message,
+      "must have required property 'candidate_state'"
+    );
   },
 });
 
@@ -139,7 +148,10 @@ Deno.test({
     const result = await validate(candidateContactSchema, testData);
     assertEquals(result[0].keyword, "required");
     assertEquals(result[0].path, "candidate_district");
-    assertEquals(result[0].message, "must have required property 'candidate_district'");
+    assertEquals(
+      result[0].message,
+      "must have required property 'candidate_district'"
+    );
   },
 });
 

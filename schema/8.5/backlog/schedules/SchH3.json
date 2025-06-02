@@ -1,0 +1,221 @@
+{
+    "$schema": "https://json-schema.org/draft-07/schema#",
+    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/SchH3.json",
+    "version": "8.3.0.1",
+    "title": "FEC Sch H3",
+    "description": "SCHEDULE H3 - TRANSFERS FROM NON-FEDERAL ACCOUNTS",
+    "type": "object",
+    "required": [
+        "form_type",
+        "filer_committee_id_number",
+        "transaction_id_number",
+        "back_reference_tran_id",
+        "account_name",
+        "event_type",
+        "receipt_date",
+        "total_amount_transferred",
+        "transferred_amount"
+    ],
+    "fec_recommended": [
+        "event_activity_id_name"
+    ],
+    "properties": {
+        "form_type": {
+            "title": "FORM TYPE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 8,
+            "pattern": "^[ -~]{0,8}$",
+            "examples": [
+                "H3"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 1,
+                "FIELD_DESCRIPTION": "FORM TYPE",
+                "TYPE": "A/N-8",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "H3",
+                "VALUE_REFERENCE": "H3",
+                "RULE_REFERENCE": "Appendix C",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "filer_committee_id_number": {
+            "title": "FILER COMMITTEE ID NUMBER",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 9,
+            "pattern": "^[ -~]{0,9}$",
+            "examples": [
+                "C00123456"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 2,
+                "FIELD_DESCRIPTION": "FILER COMMITTEE ID NUMBER",
+                "TYPE": "A/N-9",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "C00123456",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "this is the ID of the Committee Account the report/transaction is associated with",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "transaction_id_number": {
+            "title": "TRANSACTION ID NUMBER",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 20,
+            "pattern": "^[ -~]{0,20}$",
+            "examples": [
+                "H21234-3456"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 3,
+                "FIELD_DESCRIPTION": "TRANSACTION ID NUMBER",
+                "TYPE": "A/N-20",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "H21234-3456",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "Must be unique for the life of a report (original + amendments) within each committee account. Letters, if included, must be uppercase.",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "back_reference_tran_id": {
+            "title": "BACK REFERENCE TRAN ID",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 20,
+            "pattern": "^[ -~]{0,20}$",
+            "examples": [
+                "H31234-1234"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 4,
+                "FIELD_DESCRIPTION": "BACK REFERENCE TRAN ID",
+                "TYPE": "A/N-20",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "H31234-1234",
+                "VALUE_REFERENCE": "Ref to TRAN ID of Type=AD record",
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "account_name": {
+            "title": "ACCOUNT NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 90,
+            "pattern": "^[ -~]{0,90}$",
+            "fec_spec": {
+                "COL_SEQ": 5,
+                "FIELD_DESCRIPTION": "ACCOUNT NAME",
+                "TYPE": "A/N-90",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "Repeat all recs",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "event_type": {
+            "title": "EVENT TYPE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 2,
+            "pattern": "^[ -~]{0,2}$",
+            "examples": [
+                "DF"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 6,
+                "FIELD_DESCRIPTION": "EVENT TYPE",
+                "TYPE": "A/N-2",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "DF",
+                "VALUE_REFERENCE": "Post-BCRA code values: AD=ADministrative;\nGV=Generic Voter Drive;\nDF=Direct Fundraising;\nDC=Direct Candidate Support;\nEA=Exempt Activities;\nPC=Public Communications Referring\n      Only to Party (made by PAC)",
+                "RULE_REFERENCE": "Note: H3 records for all Event Types must have a Back Reference Tran ID (field #4) that points to the Transaction ID (field #3) of the ADministrative H3 record. {One AD record is required and any number of \"non-AD\" records are optional.}",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "event_activity_id_name": {
+            "title": "EVENT/ACTIVITY ID/NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 90,
+            "pattern": "^[ -~]{0,90}$",
+            "fec_spec": {
+                "COL_SEQ": 7,
+                "FIELD_DESCRIPTION": "EVENT/ACTIVITY ID/NAME",
+                "TYPE": "A/N-90",
+                "REQUIRED": "X (warn if Type = [DF|DC])",
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "receipt_date": {
+            "title": "RECEIPT DATE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 8,
+            "pattern": "^\\d{0,8}$",
+            "examples": [
+                20120214
+            ],
+            "fec_spec": {
+                "COL_SEQ": 8,
+                "FIELD_DESCRIPTION": "RECEIPT DATE",
+                "TYPE": "NUM-8",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": 20120214,
+                "VALUE_REFERENCE": "YYYYMMDD",
+                "RULE_REFERENCE": "Repeat all recs",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "total_amount_transferred": {
+            "title": "TOTAL AMOUNT TRANSFERRED",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_spec": {
+                "COL_SEQ": 9,
+                "FIELD_DESCRIPTION": "TOTAL AMOUNT TRANSFERRED",
+                "TYPE": "AMT-12",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "Repeat all recs",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "transferred_amount": {
+            "title": "TRANSFERRED AMOUNT",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "fec_spec": {
+                "COL_SEQ": 10,
+                "FIELD_DESCRIPTION": "TRANSFERRED AMOUNT",
+                "TYPE": "AMT-12",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "Breakdown Amt for Items: i, ii, iii, iv)a), iv)b), ... v)a), v)b), ... & vi.",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        }
+    },
+    "additionalProperties": false
+}

@@ -1,0 +1,493 @@
+{
+    "$schema": "https://json-schema.org/draft-07/schema#",
+    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/PAC_RETURN.json",
+    "version": "v0.0.0.0",
+    "title": "FEC PAC Returned/Bounced Receipt 11c",
+    "description": "PAC Returned/Bounced Receipt (11c)",
+    "type": "object",
+    "required": [
+        "form_type",
+        "filer_committee_id_number",
+        "transaction_type_identifier",
+        "transaction_id",
+        "entity_type",
+        "contributor_organization_name",
+        "contributor_street_1",
+        "contributor_city",
+        "contributor_state",
+        "contributor_zip",
+        "contribution_date",
+        "contribution_amount",
+        "contribution_aggregate",
+        "contribution_purpose_descrip",
+        "aggregation_group",
+        "donor_committee_fec_id",
+        "donor_committee_name"
+    ],
+    "fec_recommended": [],
+    "properties": {
+        "report_type": {
+            "title": "REPORT TYPE",
+            "description": "",
+            "type": "string",
+            "maxLength": 5,
+            "examples": [
+                "F3X"
+            ],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "REPORT TYPE",
+                "TYPE": "A/N-100",
+                "SAMPLE DATA": "F3X",
+                "VALUE REFERENCE": null,
+                "RULE REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "form_type": {
+            "title": "FORM TYPE",
+            "description": "",
+            "const": "SA11C",
+            "examples": [
+                "SA11C"
+            ],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "FORM TYPE",
+                "TYPE": "A/N-8",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "SA11C",
+                "VALUE_REFERENCE": "SA11C Only",
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "filer_committee_id_number": {
+            "title": "FILER COMMITTEE ID NUMBER",
+            "description": "",
+            "type": "string",
+            "minLength": 9,
+            "maxLength": 9,
+            "pattern": "^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$",
+            "examples": [
+                "C00123456"
+            ],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "FILER COMMITTEE ID NUMBER",
+                "TYPE": "A/N-9",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "C00123456",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "this is the ID of the Committee Account the report/transaction is associated with",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "transaction_type_identifier": {
+            "title": "TRANSACTION TYPE IDENTIFIER",
+            "description": "",
+            "const": "PAC_RETURN",
+            "examples": [
+                "PAC_RETURN"
+            ],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "TRANSACTION TYPE IDENTIFIER",
+                "TYPE": "A/N-12",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "PAC_RETURN",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "transaction_id": {
+            "title": "TRANSACTION ID",
+            "description": "",
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 20,
+            "pattern": "^[ -~]{0,20}$",
+            "examples": [
+                "A56123456789-1234"
+            ],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "TRANSACTION ID",
+                "TYPE": "A/N-20",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "A56123456789-1234",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "Must be unique for the life of a report (original + amendments) within each committee account. Letters, if included, must be uppercase.",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "back_reference_tran_id_number": {
+            "title": "BACK REFERENCE TRAN ID NUMBER",
+            "description": "",
+            "type": [
+                "string",
+                "null"
+            ],
+            "minLength": 0,
+            "maxLength": 20,
+            "pattern": "^[ -~]{0,20}$",
+            "examples": [
+                "A123456789-1234"
+            ],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "BACK REFERENCE TRAN ID NUMBER",
+                "TYPE": "A/N-20",
+                "REQUIRED": null,
+                "SAMPLE_DATA": "A123456789-1234",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "Reference to the Tran ID of a Related Record",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "back_reference_sched_name": {
+            "title": "BACK REFERENCE SCHED NAME",
+            "description": "",
+            "type": [
+                "string",
+                "null"
+            ],
+            "minLength": 0,
+            "maxLength": 8,
+            "pattern": "^[ -~]{0,8}$",
+            "examples": [
+                "SA11AI"
+            ],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "BACK REFERENCE SCHED NAME",
+                "TYPE": "A/N-8",
+                "REQUIRED": null,
+                "SAMPLE_DATA": "SA11AI",
+                "VALUE_REFERENCE": "SA[line# ref]",
+                "RULE_REFERENCE": "Ref to the Schedule that has the Related Record.  SA3L must be used \nwith the F3L",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "entity_type": {
+            "title": "ENTITY TYPE",
+            "description": "",
+            "const": "COM",
+            "examples": [
+                "COM"
+            ],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "ENTITY TYPE",
+                "TYPE": "A/N-3",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "COM",
+                "VALUE_REFERENCE": "COM only",
+                "RULE_REFERENCE": "[COM]",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "contributor_organization_name": {
+            "title": "CONTRIBUTOR ORGANIZATION",
+            "description": "",
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200,
+            "pattern": "^[ -~]{0,200}$",
+            "examples": [
+                "John Smith & Co."
+            ],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "CONTRIBUTOR ORGANIZATION",
+                "TYPE": "A/N-200",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "John Smith & Co.",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "contributor_street_1": {
+            "title": "CONTRIBUTOR STREET  1",
+            "description": "",
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 34,
+            "pattern": "^[ -~]{0,34}$",
+            "examples": [
+                "123 Main Street"
+            ],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "CONTRIBUTOR STREET  1",
+                "TYPE": "A/N-34",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "123 Main Street",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "contributor_street_2": {
+            "title": "CONTRIBUTOR STREET  2",
+            "description": "",
+            "type": [
+                "string",
+                "null"
+            ],
+            "minLength": 0,
+            "maxLength": 34,
+            "pattern": "^[ -~]{0,34}$",
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "CONTRIBUTOR STREET  2",
+                "TYPE": "A/N-34",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "contributor_city": {
+            "title": "CONTRIBUTOR CITY",
+            "description": "",
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 30,
+            "pattern": "^[ -~]{0,30}$",
+            "examples": [
+                "Anytown"
+            ],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "CONTRIBUTOR CITY",
+                "TYPE": "A/N-30",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "Anytown",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "contributor_state": {
+            "title": "CONTRIBUTOR STATE",
+            "description": "",
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2,
+            "pattern": "^[ -~]{0,2}$",
+            "examples": [
+                "WA"
+            ],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "CONTRIBUTOR STATE",
+                "TYPE": "A/N-2",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "WA",
+                "VALUE_REFERENCE": "AK,AL,...,ZZ",
+                "RULE_REFERENCE": "Edit: ST",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "contributor_zip": {
+            "title": "CONTRIBUTOR ZIP",
+            "description": "",
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 9,
+            "pattern": "^[ -~]{0,9}$",
+            "examples": [
+                981110123
+            ],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "CONTRIBUTOR ZIP",
+                "TYPE": "A/N-9",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": 981110123,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "contribution_date": {
+            "title": "CONTRIBUTION DATE",
+            "description": "",
+            "type": "string",
+            "minLength": 10,
+            "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+            "examples": [
+                "2018-11-13"
+            ],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "CONTRIBUTION DATE",
+                "TYPE": "NUM-8",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": 20120615,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "contribution_amount": {
+            "title": "CONTRIBUTION AMOUNT",
+            "description": "",
+            "type": "number",
+            "minimum": -99999999.99,
+            "exclusiveMaximum": 0,
+            "examples": [
+                -250
+            ],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "CONTRIBUTION AMOUNT",
+                "TYPE": "AMT-12",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": -250,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "Negative amount",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "contribution_aggregate": {
+            "title": "CONTRIBUTION AGGREGATE",
+            "description": "",
+            "type": "number",
+            "minimum": -99999999.99,
+            "maximum": 999999999.99,
+            "examples": [
+                1000
+            ],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "CONTRIBUTION AGGREGATE",
+                "TYPE": "AMT-12",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": 1000,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "YTD",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "aggregation_group": {
+            "title": "AGGREGATION GROUP",
+            "description": "",
+            "const": "GENERAL",
+            "examples": [
+                "GENERAL"
+            ],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "AGGREGATION GROUP",
+                "TYPE": "A/N-100",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "GENERAL",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "contribution_purpose_descrip": {
+            "title": "CONTRIBUTION PURPOSE DESCRIPTION",
+            "description": "",
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100,
+            "pattern": "^[ -~]{0,100}$",
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "CONTRIBUTION PURPOSE DESCRIPTION",
+                "TYPE": "A/N-100",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "donor_committee_fec_id": {
+            "title": "DONOR COMMITTEE FEC ID",
+            "description": "",
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 9,
+            "pattern": "^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$",
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "DONOR COMMITTEE FEC ID",
+                "TYPE": "A/N-9",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "Should populate with information from FEC database",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "donor_committee_name": {
+            "title": "DONOR COMMITTEE NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200,
+            "pattern": "^[ -~]{0,200}$",
+            "examples": [
+                "Action PAC"
+            ],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "DONOR COMMITTEE NAME",
+                "TYPE": "A/N-200",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "Action PAC",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "Should populate with information from FEC database",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "memo_code": {
+            "title": "MEMO CODE",
+            "description": "",
+            "type": [
+                "boolean",
+                "null"
+            ],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "MEMO CODE",
+                "TYPE": "A/N-1",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": "X",
+                "RULE_REFERENCE": "X = True",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "memo_text_description": {
+            "title": "MEMO TEXT/DESCRIPTION",
+            "description": "",
+            "type": [
+                "string",
+                "null"
+            ],
+            "minLength": 0,
+            "maxLength": 100,
+            "pattern": "^[ -~]{0,100}$",
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "MEMO TEXT/DESCRIPTION",
+                "TYPE": "A/N-100",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "reattribution_redesignation_tag": {
+            "title": "REATTRIBUTION REDESIGNATION TAG",
+            "description": "",
+            "enum": [
+                "REATTRIBUTED",
+                "REDESIGNATED",
+                "REATTRIBUTION_FROM",
+                "REATTRIBUTION_TO",
+                "REDESIGNATION_FROM",
+                "REDESIGNATION_TO",
+                null
+            ],
+            "examples": [
+                "REATTRIBUTED"
+            ],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "REATTRIBUTION REDESIGNATION TAG",
+                "TYPE": "A/N-20",
+                "REQUIRED": null,
+                "SAMPLE_DATA": "REATTRIBUTED",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null
+            }
+        }
+    }
+}

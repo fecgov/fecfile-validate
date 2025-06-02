@@ -1,6 +1,6 @@
 import { assertEquals } from "https://deno.land/std/testing/asserts.ts";
 import { validate } from "../dist/index.js";
-import { schema } from "../dist/DISBURSEMENTS.js";
+import { schema } from "../dist/8.5/DISBURSEMENTS.js";
 
 const perfectForm: any = {
   report_type: "F3X",

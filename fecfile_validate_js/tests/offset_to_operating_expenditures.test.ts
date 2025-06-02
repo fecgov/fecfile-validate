@@ -1,6 +1,6 @@
 import { assertEquals } from "https://deno.land/std/testing/asserts.ts";
 import { validate } from "../dist/index.js";
-import { schema } from "../dist/OFFSET_TO_OPERATING_EXPENDITURES.js";
+import { schema } from "../dist/8.5/OFFSET_TO_OPERATING_EXPENDITURES.js";
 
 const perfectForm: any = {
   report_type: "F3X",
@@ -68,7 +68,7 @@ Deno.test({
 Deno.test({
   name: "it should pass if contribution_amount == 999999999.99",
   fn: async () => {
-    const thisData = {...perfectForm};
+    const thisData = { ...perfectForm };
     thisData.contribution_amount = 999999999.99;
     const result = await validate(schema, thisData);
     assertEquals(result, []);
@@ -78,10 +78,10 @@ Deno.test({
 Deno.test({
   name: "it should fail if contribution_amount > 999999999.99",
   fn: async () => {
-    const thisData = {...perfectForm};
+    const thisData = { ...perfectForm };
     thisData.contribution_amount = 1000000000;
     const result = await validate(schema, thisData);
-    const failure = (result.length > 0);
+    const failure = result.length > 0;
     assertEquals(failure, true);
   },
 });

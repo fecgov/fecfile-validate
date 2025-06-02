@@ -1,6 +1,6 @@
 import { assertEquals } from "https://deno.land/std/testing/asserts.ts";
 import { validate } from "../dist/index.js";
-import { schema } from "../dist/Contact_Individual.js";
+import { schema } from "../dist/8.5/Contact_Individual.js";
 
 const perfectForm: any = {
   type: "IND",
@@ -41,7 +41,10 @@ Deno.test({
     const result = await validate(schema, thisData);
 
     assertEquals(
-      thisData.last_name + thisData.first_name + thisData.middle_name + thisData.street_1,
+      thisData.last_name +
+        thisData.first_name +
+        thisData.middle_name +
+        thisData.street_1,
       specialChars
     );
     assertEquals(result, []);
@@ -61,7 +64,10 @@ Deno.test({
     thisData.middle_name = specialChars.substring(48, 67);
     thisData.street_1 = specialChars.substring(67);
     assertEquals(
-      thisData.last_name + thisData.first_name + thisData.middle_name + thisData.street_1,
+      thisData.last_name +
+        thisData.first_name +
+        thisData.middle_name +
+        thisData.street_1,
       specialChars
     );
     const result = await validate(schema, thisData);

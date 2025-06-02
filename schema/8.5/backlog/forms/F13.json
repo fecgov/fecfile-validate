@@ -1,0 +1,479 @@
+{
+    "$schema": "https://json-schema.org/draft-07/schema#",
+    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/F13.json",
+    "version": "8.3.0.1",
+    "title": "FEC F13",
+    "description": "FORM 13 - REPORT OF DONATIONS ACCEPTED FOR INAUGURAL COMMITTEE",
+    "type": "object",
+    "required": [
+        "form_type",
+        "filer_committee_id_number",
+        "committee_name",
+        "amendment_date",
+        "designated_last_name",
+        "designated_first_name",
+        "date_signed"
+    ],
+    "fec_recommended": [
+        "street_1",
+        "city",
+        "state",
+        "zip",
+        "report_code",
+        "coverage_from_date",
+        "coverage_through_date",
+        "L5_total_donations_accepted",
+        "L6_total_donations_refunded",
+        "L7_net_donations"
+    ],
+    "properties": {
+        "form_type": {
+            "title": "FORM TYPE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 4,
+            "pattern": "^[ -~]{0,4}$",
+            "examples": [
+                "F13N"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 1,
+                "FIELD_DESCRIPTION": "FORM TYPE",
+                "TYPE": "A/N-4",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "F13N",
+                "VALUE_REFERENCE": "F13+[N|A]",
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "filer_committee_id_number": {
+            "title": "FILER COMMITTEE ID NUMBER",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 9,
+            "pattern": "^[ -~]{0,9}$",
+            "examples": [
+                "C00123456"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 2,
+                "FIELD_DESCRIPTION": "FILER COMMITTEE ID NUMBER",
+                "TYPE": "A/N-9",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "C00123456",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "this is the ID of the Committee Account the report/transaction is associated with",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "committee_name": {
+            "title": "COMMITTEE NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 200,
+            "pattern": "^[ -~]{0,200}$",
+            "examples": [
+                "Pat Smith Inaugural Committee"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 3,
+                "FIELD_DESCRIPTION": "COMMITTEE NAME",
+                "TYPE": "A/N-200",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "Pat Smith Inaugural Committee",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "change_of_address": {
+            "title": "CHANGE OF ADDRESS",
+            "description": "",
+            "type": "boolean",
+            "examples": [
+                "X"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 4,
+                "FIELD_DESCRIPTION": "CHANGE OF ADDRESS",
+                "TYPE": "A-1",
+                "REQUIRED": null,
+                "SAMPLE_DATA": "X",
+                "VALUE_REFERENCE": "X = Yes",
+                "RULE_REFERENCE": "Check-box",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "street_1": {
+            "title": "STREET  1",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 34,
+            "pattern": "^[ -~]{0,34}$",
+            "examples": [
+                "125 Sycamore St"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 5,
+                "FIELD_DESCRIPTION": "STREET  1",
+                "TYPE": "A/N-34",
+                "REQUIRED": "X (warning)",
+                "SAMPLE_DATA": "125 Sycamore St",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "street_2": {
+            "title": "STREET  2",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 34,
+            "pattern": "^[ -~]{0,34}$",
+            "fec_spec": {
+                "COL_SEQ": 6,
+                "FIELD_DESCRIPTION": "STREET  2",
+                "TYPE": "A/N-34",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "city": {
+            "title": "CITY",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 30,
+            "pattern": "^[ -~]{0,30}$",
+            "examples": [
+                "Anytown"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 7,
+                "FIELD_DESCRIPTION": "CITY",
+                "TYPE": "A/N-30",
+                "REQUIRED": "X (warning)",
+                "SAMPLE_DATA": "Anytown",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "state": {
+            "title": "STATE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 2,
+            "pattern": "^[ -~]{0,2}$",
+            "examples": [
+                "FL"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 8,
+                "FIELD_DESCRIPTION": "STATE",
+                "TYPE": "A-2",
+                "REQUIRED": "X (warning)",
+                "SAMPLE_DATA": "FL",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "Edit: ST",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "zip": {
+            "title": "ZIP",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 9,
+            "pattern": "^[ -~]{0,9}$",
+            "examples": [
+                33034
+            ],
+            "fec_spec": {
+                "COL_SEQ": 9,
+                "FIELD_DESCRIPTION": "ZIP",
+                "TYPE": "A/N-9",
+                "REQUIRED": "X (warning)",
+                "SAMPLE_DATA": 33034,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "report_code": {
+            "title": "REPORT CODE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 3,
+            "pattern": "^[ -~]{0,3}$",
+            "examples": [
+                "90D"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 10,
+                "FIELD_DESCRIPTION": "REPORT CODE",
+                "TYPE": "A-3",
+                "REQUIRED": "X (warning)",
+                "SAMPLE_DATA": "90D",
+                "VALUE_REFERENCE": "90D,90S",
+                "RULE_REFERENCE": "90D=1st Report; 90S=Supplemental.\nWarning if Code is missing;\nError if Coded incorrectly.",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "amendment_date": {
+            "title": "AMENDMENT DATE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 8,
+            "pattern": "^\\d{0,8}$",
+            "examples": [
+                20120220
+            ],
+            "fec_spec": {
+                "COL_SEQ": 11,
+                "FIELD_DESCRIPTION": "AMENDMENT DATE",
+                "TYPE": "NUM-8",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": 20120220,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "Required if FormType=F13A",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "coverage_from_date": {
+            "title": "COVERAGE FROM DATE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 8,
+            "pattern": "^\\d{0,8}$",
+            "fec_spec": {
+                "COL_SEQ": 12,
+                "FIELD_DESCRIPTION": "COVERAGE FROM DATE",
+                "TYPE": "NUM-8",
+                "REQUIRED": "X (warning)",
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "coverage_through_date": {
+            "title": "COVERAGE THROUGH DATE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 8,
+            "pattern": "^\\d{0,8}$",
+            "fec_spec": {
+                "COL_SEQ": 13,
+                "FIELD_DESCRIPTION": "COVERAGE THROUGH DATE",
+                "TYPE": "NUM-8",
+                "REQUIRED": "X (warning)",
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "L5_total_donations_accepted": {
+            "title": "5 TOTAL DONATIONS ACCEPTED",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "examples": [
+                1123123.45
+            ],
+            "fec_spec": {
+                "COL_SEQ": 14,
+                "FIELD_DESCRIPTION": "5 TOTAL DONATIONS ACCEPTED",
+                "TYPE": "AMT-12",
+                "REQUIRED": "X (warning)",
+                "SAMPLE_DATA": 1123123.45,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "= Total of F132 since committee's inception (If report code is a 90D or an amendment to a 90D and the value is > NULL , the value will be validated against the total of all F132 records)",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "L6_total_donations_refunded": {
+            "title": "6 TOTAL DONATIONS REFUNDED",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "examples": [
+                1123123.45
+            ],
+            "fec_spec": {
+                "COL_SEQ": 15,
+                "FIELD_DESCRIPTION": "6 TOTAL DONATIONS REFUNDED",
+                "TYPE": "AMT-12",
+                "REQUIRED": "X (warning)",
+                "SAMPLE_DATA": 1123123.45,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "= Total of F133 since committee's inception (If report code is a 90D or an amendment to a 90D and the value is > NULL , the value will be validated against the total of all F133 records)",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "L7_net_donations": {
+            "title": "7 NET DONATIONS",
+            "description": "",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999999,
+            "examples": [
+                1123123.45
+            ],
+            "fec_spec": {
+                "COL_SEQ": 16,
+                "FIELD_DESCRIPTION": "7 NET DONATIONS",
+                "TYPE": "AMT-12",
+                "REQUIRED": "X (warning)",
+                "SAMPLE_DATA": 1123123.45,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "= 5 - 6",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "designated_last_name": {
+            "title": "DESIGNATED LAST NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 30,
+            "pattern": "^[ -~]{0,30}$",
+            "examples": [
+                "Smith"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 17,
+                "FIELD_DESCRIPTION": "DESIGNATED LAST NAME",
+                "TYPE": "A/N-30",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "Smith",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "designated_first_name": {
+            "title": "DESIGNATED FIRST NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 20,
+            "pattern": "^[ -~]{0,20}$",
+            "examples": [
+                "Patrick"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 18,
+                "FIELD_DESCRIPTION": "DESIGNATED FIRST NAME",
+                "TYPE": "A/N-20",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "Patrick",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "designated_middle_name": {
+            "title": "DESIGNATED MIDDLE NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 20,
+            "pattern": "^[ -~]{0,20}$",
+            "examples": [
+                "Thomas"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 19,
+                "FIELD_DESCRIPTION": "DESIGNATED MIDDLE NAME",
+                "TYPE": "A/N-20",
+                "REQUIRED": null,
+                "SAMPLE_DATA": "Thomas",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "designated_prefix": {
+            "title": "DESIGNATED PREFIX",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 10,
+            "pattern": "^[ -~]{0,10}$",
+            "examples": [
+                "Mr."
+            ],
+            "fec_spec": {
+                "COL_SEQ": 20,
+                "FIELD_DESCRIPTION": "DESIGNATED PREFIX",
+                "TYPE": "A/N-10",
+                "REQUIRED": null,
+                "SAMPLE_DATA": "Mr.",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "designated_suffix": {
+            "title": "DESIGNATED SUFFIX",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 10,
+            "pattern": "^[ -~]{0,10}$",
+            "examples": [
+                "Jr."
+            ],
+            "fec_spec": {
+                "COL_SEQ": 21,
+                "FIELD_DESCRIPTION": "DESIGNATED SUFFIX",
+                "TYPE": "A/N-10",
+                "REQUIRED": null,
+                "SAMPLE_DATA": "Jr.",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "date_signed": {
+            "title": "DATE SIGNED",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 8,
+            "pattern": "^\\d{0,8}$",
+            "examples": [
+                20120820
+            ],
+            "fec_spec": {
+                "COL_SEQ": 22,
+                "FIELD_DESCRIPTION": "DATE SIGNED",
+                "TYPE": "NUM-8",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": 20120820,
+                "VALUE_REFERENCE": "YYYYMMDD",
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        }
+    },
+    "additionalProperties": false
+}

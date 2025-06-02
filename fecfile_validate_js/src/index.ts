@@ -57,13 +57,14 @@ export interface JsonSchema {
 export async function validate(
   schema: JsonSchema,
   data: any,
-  fieldsToValidate: string[] = []
+  fieldsToValidate: string[] = [],
+  version = "8.5"
 ): Promise<ValidationError[]> {
   const schemaName = schemaToKey(schema);
   if (!schemaName) {
     return Promise.reject(new Error("Failed to retrieve schemaName"));
   }
-  const module = await import(`../dist/${schemaName}.validator.js`);
+  const module = await import(`../dist/${version}/${schemaName}.validator.js`);
   const validator: any = module[schemaName];
   const isValid: boolean = validator(data);
 

@@ -1,6 +1,6 @@
 import { assertEquals } from "https://deno.land/std/testing/asserts.ts";
 import { validate } from "../dist/index.js";
-import { schema as f3xSchema } from "../dist/F3X.js";
+import { schema as f3xSchema } from "../dist/8.5/F3X.js";
 
 const perfectForm_F3X: any = {
   form_type: "F3XA",

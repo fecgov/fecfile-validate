@@ -1,0 +1,1832 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/F1M.json",
+  "version": "8.3.0.1",
+  "title": "FEC F1M",
+  "description": "FORM 1M - NOTIFICATION OF MULTICANDIDATE STATUS",
+  "type": "object",
+  "required": [
+    "form_type",
+    "filer_committee_id_number",
+    "committee_name",
+    "street_1",
+    "city",
+    "state",
+    "zip",
+    "committee_type",
+    "treasurer_last_name",
+    "treasurer_first_name",
+    "date_signed"
+  ],
+  "properties": {
+    "form_type": {
+      "title": "FORM TYPE",
+      "description": "",
+      "type": "string",
+      "enum": ["F1MN", "F1MA"],
+      "examples": ["F1MN"],
+      "fec_spec": {
+        "COL_SEQ": 1,
+        "FIELD_DESCRIPTION": "FORM TYPE",
+        "TYPE": "A/N-4",
+        "REQUIRED": "X (error)",
+        "SAMPLE_DATA": "F1MN",
+        "VALUE_REFERENCE": "F1M+[N|A]",
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "filer_committee_id_number": {
+      "title": "FILER COMMITTEE ID NUMBER",
+      "description": "",
+      "type": "string",
+      "minLength": 9,
+      "maxLength": 9,
+      "pattern": "^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$",
+      "examples": ["C00123456"],
+      "fec_spec": {
+        "COL_SEQ": 2,
+        "FIELD_DESCRIPTION": "FILER COMMITTEE ID NUMBER",
+        "TYPE": "A/N-9",
+        "REQUIRED": "X (error)",
+        "SAMPLE_DATA": "C00123456",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "Must be either \"CXXXXXXXX\" where X is a numeric value (C, then 8 numbers) or \"PXXXXXXXX\" where X is a numeric value (P, then 8 numbers) or [H|S][0-9]{1}[A-Z]{2}[0-9]{5} (H or S, 1 number, 2 letters, 5 numbers)",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "committee_name": {
+      "title": "COMMITTEE NAME",
+      "description": "",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200,
+      "pattern": "^[ -~]{0,200}$",
+      "fec_spec": {
+        "COL_SEQ": 3,
+        "FIELD_DESCRIPTION": "COMMITTEE NAME",
+        "TYPE": "A/N-200",
+        "REQUIRED": "X (error)",
+        "SAMPLE_DATA": null,
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "street_1": {
+      "title": "STREET 1",
+      "description": "",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 34,
+      "pattern": "^[ -~]{0,34}$",
+      "fec_spec": {
+        "COL_SEQ": 4,
+        "FIELD_DESCRIPTION": "STREET 1",
+        "TYPE": "A/N-34",
+        "REQUIRED": "X (error)",
+        "SAMPLE_DATA": null,
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "street_2": {
+      "title": "STREET 2",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "maxLength": 34,
+      "pattern": "^[ -~]{0,34}$",
+      "fec_spec": {
+        "COL_SEQ": 5,
+        "FIELD_DESCRIPTION": "STREET 2",
+        "TYPE": "A/N-34",
+        "REQUIRED": null,
+        "SAMPLE_DATA": null,
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "city": {
+      "title": "CITY",
+      "description": "",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 30,
+      "pattern": "^[ -~]{0,30}$",
+      "fec_spec": {
+        "COL_SEQ": 6,
+        "FIELD_DESCRIPTION": "CITY",
+        "TYPE": "A/N-30",
+        "REQUIRED": "X (error)",
+        "SAMPLE_DATA": null,
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "state": {
+      "title": "STATE",
+      "description": "",
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 2,
+      "pattern": "^[ -~]{2}$",
+      "fec_spec": {
+        "COL_SEQ": 7,
+        "FIELD_DESCRIPTION": "STATE",
+        "TYPE": "A-2",
+        "REQUIRED": "X (error)",
+        "SAMPLE_DATA": null,
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "Edit: ST",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "zip": {
+      "title": "ZIP",
+      "description": "",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 9,
+      "pattern": "^[ -~]{1,9}$",
+      "examples": ["20643[1234]"],
+      "fec_spec": {
+        "COL_SEQ": 8,
+        "FIELD_DESCRIPTION": "ZIP",
+        "TYPE": "A/N-9",
+        "REQUIRED": "X (error)",
+        "SAMPLE_DATA": "20643[1234]",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "committee_type": {
+      "title": "COMMITTEE TYPE",
+      "description": "",
+      "type": "string",
+      "enum": ["X", "N"],
+      "examples": ["X"],
+      "fec_spec": {
+        "COL_SEQ": 9,
+        "FIELD_DESCRIPTION": "COMMITTEE TYPE",
+        "TYPE": "A-1",
+        "REQUIRED": "X (error)",
+        "SAMPLE_DATA": "X",
+        "VALUE_REFERENCE": "X=State Pty; N=Other",
+        "RULE_REFERENCE": "X=State Pty; N=Other",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "affiliated_date_form_f1_filed": {
+      "title": "AFFILIATED - DATE FORM F1 FILED",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+      "examples": [20120729],
+      "fec_spec": {
+        "COL_SEQ": 10,
+        "FIELD_DESCRIPTION": "AFFILIATED - DATE FORM F1 FILED",
+        "TYPE": "NUM-8",
+        "REQUIRED": "X (conditional error)",
+        "SAMPLE_DATA": 20120729,
+        "VALUE_REFERENCE": "YYYYMMDD",
+        "RULE_REFERENCE": "Req if requesting by affiliation",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "affiliated_committee_fec_id": {
+      "title": "AFFILIATED COMMITTEE FEC ID",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "maxLength": 9,
+      "pattern": "^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$",
+      "examples": ["C00123456"],
+      "fec_spec": {
+        "COL_SEQ": 11,
+        "FIELD_DESCRIPTION": "AFFILIATED COMMITTEE FEC ID",
+        "TYPE": "A/N-9",
+        "REQUIRED": "X (conditional error)",
+        "SAMPLE_DATA": "C00123456",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "Req if requesting by affiliation",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "affiliated_committee_name": {
+      "title": "AFFILIATED COMMITTEE NAME",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "maxLength": 200,
+      "pattern": "^[ -~]{0,200}$",
+      "fec_spec": {
+        "COL_SEQ": 12,
+        "FIELD_DESCRIPTION": "AFFILIATED COMMITTEE NAME",
+        "TYPE": "A/N-200",
+        "REQUIRED": "X (conditional error)",
+        "SAMPLE_DATA": null,
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "Req if requesting by affiliation",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "I_candidate_id_number": {
+      "title": "I CANDIDATE ID NUMBER",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "maxLength": 9,
+      "pattern": "^P[0-9]{8}$|^[H|S][0-9]{1}[A-Z]{2}[0-9]{5}$",
+      "examples": ["P01234567", "H0MD12345", "S0MD12345"],
+      "fec_spec": {
+        "COL_SEQ": 13,
+        "FIELD_DESCRIPTION": "I CANDIDATE ID NUMBER",
+        "TYPE": "A/N-9",
+        "REQUIRED": "X (conditional error)",
+        "AUTO_POPULATE": null,
+        "SAMPLE_DATA": "H01234567",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "Req if requesting by qualification",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "I_candidate_last_name": {
+      "title": "I CANDIDATE LAST NAME",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "maxLength": 30,
+      "pattern": "^[ -~]{0,30}$",
+      "examples": ["Smith"],
+      "fec_spec": {
+        "COL_SEQ": 14,
+        "FIELD_DESCRIPTION": "I CANDIDATE LAST NAME",
+        "TYPE": "A/N-30",
+        "REQUIRED": "X (conditional error)",
+        "AUTO_POPULATE": null,
+        "SAMPLE_DATA": "Smith",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "Req if requesting by qualification",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "I_candidate_first_name": {
+      "title": "I CANDIDATE FIRST NAME",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "maxLength": 20,
+      "pattern": "^[ -~]{0,20}$",
+      "examples": ["John"],
+      "fec_spec": {
+        "COL_SEQ": 15,
+        "FIELD_DESCRIPTION": "I CANDIDATE FIRST NAME",
+        "TYPE": "A/N-20",
+        "REQUIRED": "X (conditional error)",
+        "AUTO_POPULATE": null,
+        "SAMPLE_DATA": "John",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "Req if requesting by qualification",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "I_candidate_middle_name": {
+      "title": "I CANDIDATE MIDDLE NAME",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "maxLength": 20,
+      "pattern": "^[ -~]{0,20}$",
+      "examples": ["W"],
+      "fec_spec": {
+        "COL_SEQ": 16,
+        "FIELD_DESCRIPTION": "I CANDIDATE MIDDLE NAME",
+        "TYPE": "A/N-20",
+        "REQUIRED": null,
+        "AUTO_POPULATE": null,
+        "SAMPLE_DATA": "W",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "I_candidate_prefix": {
+      "title": "I CANDIDATE PREFIX",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "maxLength": 10,
+      "pattern": "^[ -~]{0,10}$",
+      "examples": ["Dr"],
+      "fec_spec": {
+        "COL_SEQ": 17,
+        "FIELD_DESCRIPTION": "I CANDIDATE PREFIX",
+        "TYPE": "A/N-10",
+        "REQUIRED": null,
+        "AUTO_POPULATE": null,
+        "SAMPLE_DATA": "Dr",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "I_candidate_suffix": {
+      "title": "I CANDIDATE SUFFIX",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "maxLength": 10,
+      "pattern": "^[ -~]{0,10}$",
+      "examples": ["Jr"],
+      "fec_spec": {
+        "COL_SEQ": 18,
+        "FIELD_DESCRIPTION": "I CANDIDATE SUFFIX",
+        "TYPE": "A/N-10",
+        "REQUIRED": null,
+        "AUTO_POPULATE": null,
+        "SAMPLE_DATA": "Jr",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "I_candidate_office": {
+      "title": "I CANDIDATE OFFICE",
+      "description": "",
+      "type": ["string", "null"],
+      "enum": ["H", "S", "P", null],
+      "examples": ["H"],
+      "fec_spec": {
+        "COL_SEQ": 19,
+        "FIELD_DESCRIPTION": "I CANDIDATE OFFICE",
+        "TYPE": "A/N-1",
+        "REQUIRED": "X (conditional error)",
+        "AUTO_POPULATE": null,
+        "SAMPLE_DATA": "H",
+        "VALUE_REFERENCE": "H,S,P",
+        "RULE_REFERENCE": "Req if requesting by qualification",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "I_candidate_state": {
+      "title": "I CANDIDATE STATE",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "maxLength": 2,
+      "pattern": "^[A-Z]{2}$",
+      "examples": ["WA"],
+      "fec_spec": {
+        "COL_SEQ": 20,
+        "FIELD_DESCRIPTION": "I CANDIDATE STATE",
+        "TYPE": "A/N-2",
+        "REQUIRED": "X (conditional error)",
+        "AUTO_POPULATE": null,
+        "SAMPLE_DATA": "WA",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "Req if I CANDIDATE_OFFICE equals S or H",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "I_candidate_district": {
+      "title": "I CANDIDATE DISTRICT",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "maxLength": 2,
+      "pattern": "^[0-9]{2}$",
+      "fec_spec": {
+        "COL_SEQ": 21,
+        "FIELD_DESCRIPTION": "I CANDIDATE DISTRICT",
+        "TYPE": "NUM-2",
+        "REQUIRED": "X (conditional error)",
+        "AUTO_POPULATE": null,
+        "SAMPLE_DATA": null,
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "Req if I CANDIDATE_OFFICE equals H",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "I_date_of_contribution": {
+      "title": "I DATE OF CONTRIBUTION",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+      "examples": [20120729],
+      "fec_spec": {
+        "COL_SEQ": 22,
+        "FIELD_DESCRIPTION": "I DATE OF CONTRIBUTION",
+        "TYPE": "NUM-8",
+        "REQUIRED": "X (conditional error)",
+        "SAMPLE_DATA": 20120729,
+        "VALUE_REFERENCE": "YYYYMMDD",
+        "RULE_REFERENCE": "Req if requesting by qualification",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "II_candidate_id_number": {
+      "title": "II CANDIDATE ID",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "maxLength": 9,
+      "pattern": "^P[0-9]{8}$|^[H|S][0-9]{1}[A-Z]{2}[0-9]{5}$",
+      "examples": ["P01234567", "H0MD12345", "S0MD12345"],
+      "fec_spec": {
+        "COL_SEQ": 23,
+        "FIELD_DESCRIPTION": "II CANDIDATE ID",
+        "TYPE": "A/N-9",
+        "REQUIRED": "X (conditional error)",
+        "AUTO_POPULATE": null,
+        "SAMPLE_DATA": "H01234567",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "Req if requesting by qualification",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "II_candidate_last_name": {
+      "title": "II CANDIDATE LAST NAME",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "maxLength": 30,
+      "pattern": "^[ -~]{0,30}$",
+      "examples": ["Smith"],
+      "fec_spec": {
+        "COL_SEQ": 24,
+        "FIELD_DESCRIPTION": "II CANDIDATE LAST NAME",
+        "TYPE": "A/N-30",
+        "REQUIRED": "X (conditional error)",
+        "AUTO_POPULATE": null,
+        "SAMPLE_DATA": "Smith",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "Req if requesting by qualification",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "II_candidate_first_name": {
+      "title": "II CANDIDATE FIRST NAME",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "maxLength": 20,
+      "pattern": "^[ -~]{0,20}$",
+      "examples": ["John"],
+      "fec_spec": {
+        "COL_SEQ": 25,
+        "FIELD_DESCRIPTION": "II CANDIDATE FIRST NAME",
+        "TYPE": "A/N-20",
+        "REQUIRED": "X (conditional error)",
+        "AUTO_POPULATE": null,
+        "SAMPLE_DATA": "John",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "Req if requesting by qualification",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "II_candidate_middle_name": {
+      "title": "II CANDIDATE MIDDLE NAME",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "maxLength": 20,
+      "pattern": "^[ -~]{0,20}$",
+      "examples": ["W"],
+      "fec_spec": {
+        "COL_SEQ": 26,
+        "FIELD_DESCRIPTION": "II CANDIDATE MIDDLE NAME",
+        "TYPE": "A/N-20",
+        "REQUIRED": null,
+        "AUTO_POPULATE": null,
+        "SAMPLE_DATA": "W",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "II_candidate_prefix": {
+      "title": "II CANDIDATE PREFIX",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "maxLength": 10,
+      "pattern": "^[ -~]{0,10}$",
+      "examples": ["Dr"],
+      "fec_spec": {
+        "COL_SEQ": 27,
+        "FIELD_DESCRIPTION": "II CANDIDATE PREFIX",
+        "TYPE": "A/N-10",
+        "REQUIRED": null,
+        "AUTO_POPULATE": null,
+        "SAMPLE_DATA": "Dr",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "II_candidate_suffix": {
+      "title": "II CANDIDATE SUFFIX",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "maxLength": 10,
+      "pattern": "^[ -~]{0,10}$",
+      "examples": ["Jr"],
+      "fec_spec": {
+        "COL_SEQ": 28,
+        "FIELD_DESCRIPTION": "II CANDIDATE SUFFIX",
+        "TYPE": "A/N-10",
+        "REQUIRED": null,
+        "AUTO_POPULATE": null,
+        "SAMPLE_DATA": "Jr",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "II_candidate_office": {
+      "title": "II CANDIDATE OFFICE",
+      "description": "",
+      "type": ["string", "null"],
+      "enum": ["H", "S", "P", null],
+      "examples": ["H\nS\nP"],
+      "fec_spec": {
+        "COL_SEQ": 29,
+        "FIELD_DESCRIPTION": "II CANDIDATE OFFICE",
+        "TYPE": "A/N-1",
+        "REQUIRED": "X (conditional error)",
+        "AUTO_POPULATE": null,
+        "SAMPLE_DATA": "H",
+        "VALUE_REFERENCE": "H,S,P",
+        "RULE_REFERENCE": "Req if requesting by qualification",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "II_candidate_state": {
+      "title": "II CANDIDATE STATE",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "maxLength": 2,
+      "pattern": "^[A-Z]{2}$",
+      "examples": ["WA"],
+      "fec_spec": {
+        "COL_SEQ": 30,
+        "FIELD_DESCRIPTION": "II CANDIDATE STATE",
+        "TYPE": "A/N-2",
+        "REQUIRED": "X (conditional error)",
+        "AUTO_POPULATE": null,
+        "SAMPLE_DATA": "WA",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "Req if II CANDIDATE_OFFICE equals S or H",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "II_candidate_district": {
+      "title": "II CANDIDATE DISTRICT",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "maxLength": 2,
+      "pattern": "^[0-9]{2}$",
+      "fec_spec": {
+        "COL_SEQ": 31,
+        "FIELD_DESCRIPTION": "II CANDIDATE DISTRICT",
+        "TYPE": "NUM-2",
+        "REQUIRED": "X (conditional error)",
+        "AUTO_POPULATE": null,
+        "SAMPLE_DATA": null,
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "Req if II CANDIDATE_OFFICE equals H",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "II_date_of_contribution": {
+      "title": "II DATE OF CONTRIBUTION",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+      "examples": [20120729],
+      "fec_spec": {
+        "COL_SEQ": 32,
+        "FIELD_DESCRIPTION": "II DATE OF CONTRIBUTION",
+        "TYPE": "NUM-8",
+        "REQUIRED": "X (conditional error)",
+        "SAMPLE_DATA": 20120729,
+        "VALUE_REFERENCE": "YYYYMMDD",
+        "RULE_REFERENCE": "Req if requesting by qualification",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "III_candidate_id_number": {
+      "title": "III CANDIDATE ID",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "maxLength": 9,
+      "pattern": "^P[0-9]{8}$|^[H|S][0-9]{1}[A-Z]{2}[0-9]{5}$",
+      "examples": ["P01234567", "H0MD12345", "S0MD12345"],
+      "fec_spec": {
+        "COL_SEQ": 33,
+        "FIELD_DESCRIPTION": "III CANDIDATE ID",
+        "TYPE": "A/N-9",
+        "REQUIRED": "X (conditional error)",
+        "AUTO_POPULATE": null,
+        "SAMPLE_DATA": "H01234567",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "Req if requesting by qualification",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "III_candidate_last_name": {
+      "title": "III CANDIDATE LAST NAME",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "maxLength": 30,
+      "pattern": "^[ -~]{0,30}$",
+      "examples": ["Smith"],
+      "fec_spec": {
+        "COL_SEQ": 34,
+        "FIELD_DESCRIPTION": "III CANDIDATE LAST NAME",
+        "TYPE": "A/N-30",
+        "REQUIRED": "X (conditional error)",
+        "AUTO_POPULATE": null,
+        "SAMPLE_DATA": "Smith",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "Req if requesting by qualification",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "III_candidate_first_name": {
+      "title": "III CANDIDATE FIRST NAME",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "maxLength": 20,
+      "pattern": "^[ -~]{0,20}$",
+      "examples": ["John"],
+      "fec_spec": {
+        "COL_SEQ": 35,
+        "FIELD_DESCRIPTION": "III CANDIDATE FIRST NAME",
+        "TYPE": "A/N-20",
+        "REQUIRED": "X (conditional error)",
+        "AUTO_POPULATE": null,
+        "SAMPLE_DATA": "John",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "Req if requesting by qualification",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "III_candidate_middle_name": {
+      "title": "III CANDIDATE MIDDLE NAME",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "maxLength": 20,
+      "pattern": "^[ -~]{0,20}$",
+      "examples": ["W"],
+      "fec_spec": {
+        "COL_SEQ": 36,
+        "FIELD_DESCRIPTION": "III CANDIDATE MIDDLE NAME",
+        "TYPE": "A/N-20",
+        "REQUIRED": null,
+        "AUTO_POPULATE": null,
+        "SAMPLE_DATA": "W",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "III_candidate_prefix": {
+      "title": "III CANDIDATE PREFIX",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "maxLength": 10,
+      "pattern": "^[ -~]{0,10}$",
+      "examples": ["Dr"],
+      "fec_spec": {
+        "COL_SEQ": 37,
+        "FIELD_DESCRIPTION": "III CANDIDATE PREFIX",
+        "TYPE": "A/N-10",
+        "REQUIRED": null,
+        "AUTO_POPULATE": null,
+        "SAMPLE_DATA": "Dr",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "III_candidate_suffix": {
+      "title": "III CANDIDATE SUFFIX",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "maxLength": 10,
+      "pattern": "^[ -~]{0,10}$",
+      "examples": ["Jr"],
+      "fec_spec": {
+        "COL_SEQ": 38,
+        "FIELD_DESCRIPTION": "III CANDIDATE SUFFIX",
+        "TYPE": "A/N-10",
+        "REQUIRED": null,
+        "AUTO_POPULATE": null,
+        "SAMPLE_DATA": "Jr",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "III_candidate_office": {
+      "title": "III CANDIDATE OFFICE",
+      "description": "",
+      "type": ["string", "null"],
+      "enum": ["H", "S", "P", null],
+      "examples": ["H\nS\nP"],
+      "fec_spec": {
+        "COL_SEQ": 39,
+        "FIELD_DESCRIPTION": "III CANDIDATE OFFICE",
+        "TYPE": "A/N-1",
+        "REQUIRED": "X (conditional error)",
+        "AUTO_POPULATE": null,
+        "SAMPLE_DATA": "H",
+        "VALUE_REFERENCE": "H,S,P",
+        "RULE_REFERENCE": "Req if requesting by qualification",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "III_candidate_state": {
+      "title": "III CANDIDATE STATE",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "maxLength": 2,
+      "pattern": "^[A-Z]{2}$",
+      "examples": ["WA"],
+      "fec_spec": {
+        "COL_SEQ": 40,
+        "FIELD_DESCRIPTION": "III CANDIDATE STATE",
+        "TYPE": "A/N-2",
+        "REQUIRED": "X (conditional error)",
+        "AUTO_POPULATE": null,
+        "SAMPLE_DATA": "WA",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "Req if III CANDIDATE_OFFICE equals S or H",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "III_candidate_district": {
+      "title": "III CANDIDATE DISTRICT",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "maxLength": 2,
+      "pattern": "^[0-9]{2}$",
+      "fec_spec": {
+        "COL_SEQ": 41,
+        "FIELD_DESCRIPTION": "III CANDIDATE DISTRICT",
+        "TYPE": "NUM-2",
+        "REQUIRED": "X (conditional error)",
+        "AUTO_POPULATE": null,
+        "SAMPLE_DATA": null,
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "Req if III CANDIDATE_OFFICE equals H",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "III_date_of_contribution": {
+      "title": "III DATE OF CONTRIBUTION",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+      "examples": [20120729],
+      "fec_spec": {
+        "COL_SEQ": 42,
+        "FIELD_DESCRIPTION": "III DATE OF CONTRIBUTION",
+        "TYPE": "NUM-8",
+        "REQUIRED": "X (conditional error)",
+        "SAMPLE_DATA": 20120729,
+        "VALUE_REFERENCE": "YYYYMMDD",
+        "RULE_REFERENCE": "Req if requesting by qualification",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "IV_candidate_id_number": {
+      "title": "IV CANDIDATE ID",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "maxLength": 9,
+      "pattern": "^P[0-9]{8}$|^[H|S][0-9]{1}[A-Z]{2}[0-9]{5}$",
+      "examples": ["P01234567", "H0MD12345", "S0MD12345"],
+      "fec_spec": {
+        "COL_SEQ": 43,
+        "FIELD_DESCRIPTION": "IV CANDIDATE ID",
+        "TYPE": "A/N-9",
+        "REQUIRED": "X (conditional error)",
+        "AUTO_POPULATE": null,
+        "SAMPLE_DATA": "H01234567",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "Req if requesting by qualification",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "IV_candidate_last_name": {
+      "title": "IV CANDIDATE LAST NAME",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "maxLength": 30,
+      "pattern": "^[ -~]{0,30}$",
+      "examples": ["Smith"],
+      "fec_spec": {
+        "COL_SEQ": 44,
+        "FIELD_DESCRIPTION": "IV CANDIDATE LAST NAME",
+        "TYPE": "A/N-30",
+        "REQUIRED": "X (conditional error)",
+        "AUTO_POPULATE": null,
+        "SAMPLE_DATA": "Smith",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "Req if requesting by qualification",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "IV_candidate_first_name": {
+      "title": "IV CANDIDATE FIRST NAME",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "maxLength": 20,
+      "pattern": "^[ -~]{0,20}$",
+      "examples": ["John"],
+      "fec_spec": {
+        "COL_SEQ": 45,
+        "FIELD_DESCRIPTION": "IV CANDIDATE FIRST NAME",
+        "TYPE": "A/N-20",
+        "REQUIRED": "X (conditional error)",
+        "AUTO_POPULATE": null,
+        "SAMPLE_DATA": "John",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "Req if requesting by qualification",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "IV_candidate_middle_name": {
+      "title": "IV CANDIDATE MIDDLE NAME",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "maxLength": 20,
+      "pattern": "^[ -~]{0,20}$",
+      "examples": ["W"],
+      "fec_spec": {
+        "COL_SEQ": 46,
+        "FIELD_DESCRIPTION": "IV CANDIDATE MIDDLE NAME",
+        "TYPE": "A/N-20",
+        "REQUIRED": null,
+        "AUTO_POPULATE": null,
+        "SAMPLE_DATA": "W",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "IV_candidate_prefix": {
+      "title": "IV CANDIDATE PREFIX",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "maxLength": 10,
+      "pattern": "^[ -~]{0,10}$",
+      "examples": ["Dr"],
+      "fec_spec": {
+        "COL_SEQ": 47,
+        "FIELD_DESCRIPTION": "IV CANDIDATE PREFIX",
+        "TYPE": "A/N-10",
+        "REQUIRED": null,
+        "AUTO_POPULATE": null,
+        "SAMPLE_DATA": "Dr",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "IV_candidate_suffix": {
+      "title": "IV CANDIDATE SUFFIX",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "maxLength": 10,
+      "pattern": "^[ -~]{0,10}$",
+      "examples": ["Jr"],
+      "fec_spec": {
+        "COL_SEQ": 48,
+        "FIELD_DESCRIPTION": "IV CANDIDATE SUFFIX",
+        "TYPE": "A/N-10",
+        "REQUIRED": null,
+        "AUTO_POPULATE": null,
+        "SAMPLE_DATA": "Jr",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "IV_candidate_office": {
+      "title": "IV CANDIDATE OFFICE",
+      "description": "",
+      "type": ["string", "null"],
+      "enum": ["H", "S", "P", null],
+      "examples": ["H\nS\nP"],
+      "fec_spec": {
+        "COL_SEQ": 49,
+        "FIELD_DESCRIPTION": "IV CANDIDATE OFFICE",
+        "TYPE": "A/N-1",
+        "REQUIRED": "X (conditional error)",
+        "AUTO_POPULATE": null,
+        "SAMPLE_DATA": "H",
+        "VALUE_REFERENCE": "H,S,P",
+        "RULE_REFERENCE": "Req if requesting by qualification",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "IV_candidate_state": {
+      "title": "IV CANDIDATE STATE",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "maxLength": 2,
+      "pattern": "^[A-Z]{2}$",
+      "examples": ["WA"],
+      "fec_spec": {
+        "COL_SEQ": 50,
+        "FIELD_DESCRIPTION": "IV CANDIDATE STATE",
+        "TYPE": "A/N-2",
+        "REQUIRED": "X (conditional error)",
+        "AUTO_POPULATE": null,
+        "SAMPLE_DATA": "WA",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "Req if IV CANDIDATE_OFFICE equals S or H",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "IV_candidate_district": {
+      "title": "IV CANDIDATE DISTRICT",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "maxLength": 2,
+      "pattern": "^[0-9]{2}$",
+      "fec_spec": {
+        "COL_SEQ": 51,
+        "FIELD_DESCRIPTION": "IV CANDIDATE DISTRICT",
+        "TYPE": "NUM-2",
+        "REQUIRED": "X (conditional error)",
+        "AUTO_POPULATE": null,
+        "SAMPLE_DATA": null,
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "Req if IV CANDIDATE_OFFICE equals H",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "IV_date_of_contribution": {
+      "title": "IV DATE OF CONTRIBUTION",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+      "examples": [20120729],
+      "fec_spec": {
+        "COL_SEQ": 52,
+        "FIELD_DESCRIPTION": "IV DATE OF CONTRIBUTION",
+        "TYPE": "NUM-8",
+        "REQUIRED": "X (conditional error)",
+        "SAMPLE_DATA": 20120729,
+        "VALUE_REFERENCE": "YYYYMMDD",
+        "RULE_REFERENCE": "Req if requesting by qualification",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "V_candidate_id_number": {
+      "title": "V CANDIDATE ID",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "maxLength": 9,
+      "pattern": "^P[0-9]{8}$|^[H|S][0-9]{1}[A-Z]{2}[0-9]{5}$",
+      "examples": ["P01234567", "H0MD12345", "S0MD12345"],
+      "fec_spec": {
+        "COL_SEQ": 53,
+        "FIELD_DESCRIPTION": "V CANDIDATE ID",
+        "TYPE": "A/N-9",
+        "REQUIRED": "X (conditional error)",
+        "AUTO_POPULATE": null,
+        "SAMPLE_DATA": "H01234567",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "Req if requesting by qualification",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "V_candidate_last_name": {
+      "title": "V CANDIDATE LAST NAME",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "maxLength": 30,
+      "pattern": "^[ -~]{0,30}$",
+      "examples": ["Smith"],
+      "fec_spec": {
+        "COL_SEQ": 54,
+        "FIELD_DESCRIPTION": "V CANDIDATE LAST NAME",
+        "TYPE": "A/N-30",
+        "REQUIRED": "X (conditional error)",
+        "AUTO_POPULATE": null,
+        "SAMPLE_DATA": "Smith",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "Req if requesting by qualification",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "V_candidate_first_name": {
+      "title": "V CANDIDATE FIRST NAME",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "maxLength": 20,
+      "pattern": "^[ -~]{0,20}$",
+      "examples": ["John"],
+      "fec_spec": {
+        "COL_SEQ": 55,
+        "FIELD_DESCRIPTION": "V CANDIDATE FIRST NAME",
+        "TYPE": "A/N-20",
+        "REQUIRED": "X (conditional error)",
+        "AUTO_POPULATE": null,
+        "SAMPLE_DATA": "John",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "Req if requesting by qualification",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "V_candidate_middle_name": {
+      "title": "V CANDIDATE MIDDLE NAME",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "maxLength": 20,
+      "pattern": "^[ -~]{0,20}$",
+      "examples": ["W"],
+      "fec_spec": {
+        "COL_SEQ": 56,
+        "FIELD_DESCRIPTION": "V CANDIDATE MIDDLE NAME",
+        "TYPE": "A/N-20",
+        "REQUIRED": null,
+        "AUTO_POPULATE": null,
+        "SAMPLE_DATA": "W",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "V_candidate_prefix": {
+      "title": "V CANDIDATE PREFIX",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "maxLength": 10,
+      "pattern": "^[ -~]{0,10}$",
+      "examples": ["Dr"],
+      "fec_spec": {
+        "COL_SEQ": 57,
+        "FIELD_DESCRIPTION": "V CANDIDATE PREFIX",
+        "TYPE": "A/N-10",
+        "REQUIRED": null,
+        "AUTO_POPULATE": null,
+        "SAMPLE_DATA": "Dr",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "V_candidate_suffix": {
+      "title": "V CANDIDATE SUFFIX",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "maxLength": 10,
+      "pattern": "^[ -~]{0,10}$",
+      "examples": ["Jr"],
+      "fec_spec": {
+        "COL_SEQ": 58,
+        "FIELD_DESCRIPTION": "V CANDIDATE SUFFIX",
+        "TYPE": "A/N-10",
+        "REQUIRED": null,
+        "AUTO_POPULATE": null,
+        "SAMPLE_DATA": "Jr",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "V_candidate_office": {
+      "title": "V CANDIDATE OFFICE",
+      "description": "",
+      "type": ["string", "null"],
+      "enum": ["H", "S", "P", null],
+      "examples": ["H\nS\nP"],
+      "fec_spec": {
+        "COL_SEQ": 59,
+        "FIELD_DESCRIPTION": "V CANDIDATE OFFICE",
+        "TYPE": "A-1",
+        "REQUIRED": "X (conditional error)",
+        "AUTO_POPULATE": null,
+        "SAMPLE_DATA": "H",
+        "VALUE_REFERENCE": "H,S,P",
+        "RULE_REFERENCE": "Req if requesting by qualification",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "V_candidate_state": {
+      "title": "V CANDIDATE STATE",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "maxLength": 2,
+      "pattern": "^[A-Z]{2}$",
+      "examples": ["WA"],
+      "fec_spec": {
+        "COL_SEQ": 60,
+        "FIELD_DESCRIPTION": "V CANDIDATE STATE",
+        "TYPE": "A/N-2",
+        "REQUIRED": "X (conditional error)",
+        "AUTO_POPULATE": null,
+        "SAMPLE_DATA": "WA",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "Req if V CANDIDATE_OFFICE equals S or H",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "V_candidate_district": {
+      "title": "V CANDIDATE DISTRICT",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "maxLength": 2,
+      "pattern": "^[0-9]{2}$",
+      "fec_spec": {
+        "COL_SEQ": 61,
+        "FIELD_DESCRIPTION": "V CANDIDATE DISTRICT",
+        "TYPE": "NUM-2",
+        "REQUIRED": "X (conditional error)",
+        "AUTO_POPULATE": null,
+        "SAMPLE_DATA": null,
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "Req if V CANDIDATE_OFFICE equals H",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "V_date_of_contribution": {
+      "title": "V DATE OF CONTRIBUTION",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+      "examples": [20120729],
+      "fec_spec": {
+        "COL_SEQ": 62,
+        "FIELD_DESCRIPTION": "V DATE OF CONTRIBUTION",
+        "TYPE": "NUM-8",
+        "REQUIRED": "X (conditional error)",
+        "SAMPLE_DATA": 20120729,
+        "VALUE_REFERENCE": "YYYYMMDD",
+        "RULE_REFERENCE": "Req if requesting by qualification",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "date_of_51st_contributor": {
+      "title": "DATE OF 51ST CONTRIBUTOR",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+      "examples": [20120729],
+      "fec_spec": {
+        "COL_SEQ": 63,
+        "FIELD_DESCRIPTION": "DATE OF 51ST CONTRIBUTOR",
+        "TYPE": "NUM-8",
+        "REQUIRED": "X (conditional error)",
+        "SAMPLE_DATA": 20120729,
+        "VALUE_REFERENCE": "YYYYMMDD",
+        "RULE_REFERENCE": "Req if requesting by qualification",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "date_of_original_registration": {
+      "title": "DATE OF ORIGINAL REGISTRATION",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+      "examples": [20120729],
+      "fec_spec": {
+        "COL_SEQ": 64,
+        "FIELD_DESCRIPTION": "DATE OF ORIGINAL REGISTRATION",
+        "TYPE": "NUM-8",
+        "REQUIRED": "X (conditional error)",
+        "SAMPLE_DATA": 20120729,
+        "VALUE_REFERENCE": "YYYYMMDD",
+        "RULE_REFERENCE": "Req if requesting by qualification",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "date_committee_met_requirements": {
+      "title": "DATE COMMITTEE MET REQUIREMENTS",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+      "examples": [20120729],
+      "fec_spec": {
+        "COL_SEQ": 65,
+        "FIELD_DESCRIPTION": "DATE COMMITTEE MET REQUIREMENTS",
+        "TYPE": "NUM-8",
+        "REQUIRED": "X (conditional error)",
+        "SAMPLE_DATA": 20120729,
+        "VALUE_REFERENCE": "YYYYMMDD",
+        "RULE_REFERENCE": "Req if requesting by qualification",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "treasurer_last_name": {
+      "title": "TREASURER LAST NAME",
+      "description": "",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 30,
+      "pattern": "^[ -~]{0,30}$",
+      "examples": ["Smith"],
+      "fec_spec": {
+        "COL_SEQ": 66,
+        "FIELD_DESCRIPTION": "TREASURER LAST NAME",
+        "TYPE": "A/N-30",
+        "REQUIRED": "X (error)",
+        "SAMPLE_DATA": "Smith",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "treasurer_first_name": {
+      "title": "TREASURER FIRST NAME",
+      "description": "",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 20,
+      "pattern": "^[ -~]{0,20}$",
+      "examples": ["Patrick"],
+      "fec_spec": {
+        "COL_SEQ": 67,
+        "FIELD_DESCRIPTION": "TREASURER FIRST NAME",
+        "TYPE": "A/N-20",
+        "REQUIRED": "X (error)",
+        "SAMPLE_DATA": "Patrick",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "treasurer_middle_name": {
+      "title": "TREASURER MIDDLE NAME",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "maxLength": 20,
+      "pattern": "^[ -~]{0,20}$",
+      "examples": ["Thomas"],
+      "fec_spec": {
+        "COL_SEQ": 68,
+        "FIELD_DESCRIPTION": "TREASURER MIDDLE NAME",
+        "TYPE": "A/N-20",
+        "REQUIRED": null,
+        "SAMPLE_DATA": "Thomas",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "treasurer_prefix": {
+      "title": "TREASURER PREFIX",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "maxLength": 10,
+      "pattern": "^[ -~]{0,10}$",
+      "examples": ["Mr."],
+      "fec_spec": {
+        "COL_SEQ": 69,
+        "FIELD_DESCRIPTION": "TREASURER PREFIX",
+        "TYPE": "A/N-10",
+        "REQUIRED": null,
+        "SAMPLE_DATA": "Mr.",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "treasurer_suffix": {
+      "title": "TREASURER SUFFIX",
+      "description": "",
+      "type": ["string", "null"],
+      "minLength": 0,
+      "maxLength": 10,
+      "pattern": "^[ -~]{0,10}$",
+      "examples": ["Jr."],
+      "fec_spec": {
+        "COL_SEQ": 70,
+        "FIELD_DESCRIPTION": "TREASURER SUFFIX",
+        "TYPE": "A/N-10",
+        "REQUIRED": null,
+        "SAMPLE_DATA": "Jr.",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "date_signed": {
+      "title": "DATE SIGNED",
+      "description": "",
+      "type": "string",
+      "minLength": 10,
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+      "examples": [20120729],
+      "fec_spec": {
+        "COL_SEQ": 71,
+        "FIELD_DESCRIPTION": "DATE SIGNED",
+        "TYPE": "NUM-8",
+        "REQUIRED": "X (error)",
+        "SAMPLE_DATA": 20120729,
+        "VALUE_REFERENCE": "YYYYMMDD",
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "I_candidate_office": {
+            "enum": ["S", "H"]
+          }
+        },
+        "required": ["I_candidate_office"]
+      },
+      "then": {
+        "required": ["I_candidate_state"],
+        "properties": {
+          "I_candidate_state": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "I_candidate_office": {
+            "enum": ["H"]
+          }
+        },
+        "required": ["I_candidate_office"]
+      },
+      "then": {
+        "required": ["I_candidate_district"],
+        "properties": {
+          "I_candidate_district": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "II_candidate_office": {
+            "enum": ["S", "H"]
+          }
+        },
+        "required": ["II_candidate_office"]
+      },
+      "then": {
+        "required": ["II_candidate_state"],
+        "properties": {
+          "II_candidate_state": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "II_candidate_office": {
+            "enum": ["H"]
+          }
+        },
+        "required": ["II_candidate_office"]
+      },
+      "then": {
+        "required": ["II_candidate_district"],
+        "properties": {
+          "II_candidate_district": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "III_candidate_office": {
+            "enum": ["S", "H"]
+          }
+        },
+        "required": ["III_candidate_office"]
+      },
+      "then": {
+        "required": ["III_candidate_state"],
+        "properties": {
+          "III_candidate_state": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "III_candidate_office": {
+            "enum": ["H"]
+          }
+        },
+        "required": ["III_candidate_office"]
+      },
+      "then": {
+        "required": ["III_candidate_district"],
+        "properties": {
+          "III_candidate_district": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "IV_candidate_office": {
+            "enum": ["S", "H"]
+          }
+        },
+        "required": ["IV_candidate_office"]
+      },
+      "then": {
+        "required": ["IV_candidate_state"],
+        "properties": {
+          "IV_candidate_state": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "IV_candidate_office": {
+            "enum": ["H"]
+          }
+        },
+        "required": ["IV_candidate_office"]
+      },
+      "then": {
+        "required": ["IV_candidate_district"],
+        "properties": {
+          "IV_candidate_district": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "V_candidate_office": {
+            "enum": ["S", "H"]
+          }
+        },
+        "required": ["V_candidate_office"]
+      },
+      "then": {
+        "required": ["V_candidate_state"],
+        "properties": {
+          "V_candidate_state": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "V_candidate_office": {
+            "enum": ["H"]
+          }
+        },
+        "required": ["V_candidate_office"]
+      },
+      "then": {
+        "required": ["V_candidate_district"],
+        "properties": {
+          "V_candidate_district": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "affiliated_committee_fec_id": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": ["affiliated_committee_fec_id"]
+      },
+      "then": {
+        "required": [
+          "affiliated_committee_name",
+          "affiliated_date_form_f1_filed"
+        ],
+        "properties": {
+          "affiliated_committee_name": {
+            "type": "string"
+          },
+          "affiliated_date_form_f1_filed": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "affiliated_committee_name": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": ["affiliated_committee_name"]
+      },
+      "then": {
+        "required": [
+          "affiliated_committee_fec_id",
+          "affiliated_date_form_f1_filed"
+        ],
+        "properties": {
+          "affiliated_committee_fec_id": {
+            "type": "string"
+          },
+          "affiliated_date_form_f1_filed": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "affiliated_date_form_f1_filed": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": ["affiliated_date_form_f1_filed"]
+      },
+      "then": {
+        "required": [
+          "affiliated_committee_name",
+          "affiliated_committee_fec_id"
+        ],
+        "properties": {
+          "affiliated_committee_name": {
+            "type": "string"
+          },
+          "affiliated_committee_fec_id": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "date_of_51st_contributor": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": ["date_of_51st_contributor"]
+      },
+      "then": {
+        "required": [
+          "date_of_original_registration",
+          "date_committee_met_requirements"
+        ],
+        "properties": {
+          "date_of_original_registration": {
+            "type": "string"
+          },
+          "date_committee_met_requirements": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "date_of_original_registration": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": ["date_of_original_registration"]
+      },
+      "then": {
+        "required": [
+          "date_of_51st_contributor",
+          "date_committee_met_requirements"
+        ],
+        "properties": {
+          "date_of_51st_contributor": {
+            "type": "string"
+          },
+          "date_committee_met_requirements": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "date_committee_met_requirements": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": ["date_committee_met_requirements"]
+      },
+      "then": {
+        "required": [
+          "date_of_original_registration",
+          "date_of_51st_contributor"
+        ],
+        "properties": {
+          "date_of_original_registration": {
+            "type": "string"
+          },
+          "date_of_51st_contributor": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "date_of_51st_contributor": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": ["date_of_51st_contributor"]
+      },
+      "then": {
+        "required": [
+          "I_candidate_id_number",
+          "I_candidate_first_name",
+          "I_candidate_last_name",
+          "I_candidate_office",
+          "I_date_of_contribution",
+          "II_candidate_id_number",
+          "II_candidate_first_name",
+          "II_candidate_last_name",
+          "II_candidate_office",
+          "II_date_of_contribution",
+          "III_candidate_id_number",
+          "III_candidate_first_name",
+          "III_candidate_last_name",
+          "III_candidate_office",
+          "III_date_of_contribution",
+          "IV_candidate_id_number",
+          "IV_candidate_first_name",
+          "IV_candidate_last_name",
+          "IV_candidate_office",
+          "IV_date_of_contribution",
+          "V_candidate_id_number",
+          "V_candidate_first_name",
+          "V_candidate_last_name",
+          "V_candidate_office",
+          "V_date_of_contribution"
+        ],
+        "properties": {
+          "I_candidate_id_number": {
+            "type": "string"
+          },
+          "I_candidate_first_name": {
+            "type": "string"
+          },
+          "I_candidate_last_name": {
+            "type": "string"
+          },
+          "I_candidate_office": {
+            "type": "string"
+          },
+          "I_date_of_contribution": {
+            "type": "string"
+          },
+          "II_candidate_id_number": {
+            "type": "string"
+          },
+          "II_candidate_first_name": {
+            "type": "string"
+          },
+          "II_candidate_last_name": {
+            "type": "string"
+          },
+          "II_candidate_office": {
+            "type": "string"
+          },
+          "II_date_of_contribution": {
+            "type": "string"
+          },
+          "III_candidate_id_number": {
+            "type": "string"
+          },
+          "III_candidate_first_name": {
+            "type": "string"
+          },
+          "III_candidate_last_name": {
+            "type": "string"
+          },
+          "III_candidate_office": {
+            "type": "string"
+          },
+          "III_date_of_contribution": {
+            "type": "string"
+          },
+          "IV_candidate_id_number": {
+            "type": "string"
+          },
+          "IV_candidate_first_name": {
+            "type": "string"
+          },
+          "IV_candidate_last_name": {
+            "type": "string"
+          },
+          "IV_candidate_office": {
+            "type": "string"
+          },
+          "IV_date_of_contributio": {
+            "type": "string"
+          },
+          "V_candidate_id_number": {
+            "type": "string"
+          },
+          "V_candidate_first_name": {
+            "type": "string"
+          },
+          "V_candidate_last_name": {
+            "type": "string"
+          },
+          "V_candidate_office": {
+            "type": "string"
+          },
+          "V_date_of_contribution": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  ],
+  "additionalProperties": false
+}

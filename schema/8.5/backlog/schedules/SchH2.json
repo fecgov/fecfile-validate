@@ -1,0 +1,202 @@
+{
+    "$schema": "https://json-schema.org/draft-07/schema#",
+    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/SchH2.json",
+    "version": "8.3.0.1",
+    "title": "FEC Sch H2",
+    "description": "SCHEDULE H2 - ALLOCATION RATIOS",
+    "type": "object",
+    "required": [
+        "form_type",
+        "filer_committee_id_number",
+        "transaction_id_number"
+    ],
+    "fec_recommended": [
+        "activity_event_name"
+    ],
+    "properties": {
+        "form_type": {
+            "title": "FORM TYPE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 8,
+            "pattern": "^[ -~]{0,8}$",
+            "examples": [
+                "H2"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 1,
+                "FIELD_DESCRIPTION": "FORM TYPE",
+                "TYPE": "A/N-8",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "H2",
+                "VALUE_REFERENCE": "H2",
+                "RULE_REFERENCE": "Appendix C",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "filer_committee_id_number": {
+            "title": "FILER COMMITTEE ID NUMBER",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 9,
+            "pattern": "^[ -~]{0,9}$",
+            "examples": [
+                "C00123456"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 2,
+                "FIELD_DESCRIPTION": "FILER COMMITTEE ID NUMBER",
+                "TYPE": "A/N-9",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "C00123456",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "this is the ID of the Committee Account the report/transaction is associated with",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "transaction_id_number": {
+            "title": "TRANSACTION ID NUMBER",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 20,
+            "pattern": "^[ -~]{0,20}$",
+            "examples": [
+                "H21234-3456"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 3,
+                "FIELD_DESCRIPTION": "TRANSACTION ID NUMBER",
+                "TYPE": "A/N-20",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "H21234-3456",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "Must be unique for the life of a report (original + amendments) within each committee account. Letters, if included, must be uppercase.",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "activity_event_name": {
+            "title": "ACTIVITY/EVENT NAME",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 90,
+            "pattern": "^[ -~]{0,90}$",
+            "fec_spec": {
+                "COL_SEQ": 4,
+                "FIELD_DESCRIPTION": "ACTIVITY/EVENT NAME",
+                "TYPE": "A/N-90",
+                "REQUIRED": "X (warning)",
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "yes_no_direct_fundraising?": {
+            "title": "YES/NO  (Direct Fundraising?)",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 1,
+            "pattern": "^[ -~]{0,1}$",
+            "examples": [
+                "X"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 5,
+                "FIELD_DESCRIPTION": "YES/NO  (Direct Fundraising?)",
+                "TYPE": "A/N-1",
+                "REQUIRED": null,
+                "SAMPLE_DATA": "X",
+                "VALUE_REFERENCE": "X=yes",
+                "RULE_REFERENCE": "Check-box (mutually exclusive)",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "yes_no_direct_candidate_support?": {
+            "title": "YES/NO  (Direct Candidate Support?)",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 1,
+            "pattern": "^[ -~]{0,1}$",
+            "fec_spec": {
+                "COL_SEQ": 6,
+                "FIELD_DESCRIPTION": "YES/NO  (Direct Candidate Support?)",
+                "TYPE": "A/N-1",
+                "REQUIRED": null,
+                "SAMPLE_DATA": "",
+                "VALUE_REFERENCE": "X=yes",
+                "RULE_REFERENCE": "Check-box (mutually exclusive)",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "ratio_code": {
+            "title": "RATIO CODE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 1,
+            "pattern": "^[ -~]{0,1}$",
+            "examples": [
+                "N"
+            ],
+            "fec_spec": {
+                "COL_SEQ": 7,
+                "FIELD_DESCRIPTION": "RATIO CODE",
+                "TYPE": "A/N-1",
+                "REQUIRED": null,
+                "SAMPLE_DATA": "N",
+                "VALUE_REFERENCE": "N,R,S",
+                "RULE_REFERENCE": "Edit: RATIO-CD",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "federal_percentage": {
+            "title": "FEDERAL PERCENTAGE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 5,
+            "pattern": "^\\d{0,5}$",
+            "examples": [
+                0.5
+            ],
+            "fec_spec": {
+                "COL_SEQ": 8,
+                "FIELD_DESCRIPTION": "FEDERAL PERCENTAGE",
+                "TYPE": "NUM-5",
+                "REQUIRED": null,
+                "SAMPLE_DATA": 0.5,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "Percents / Rates",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "non-federal_percentage": {
+            "title": "NON-FEDERAL PERCENTAGE",
+            "description": "",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 5,
+            "pattern": "^\\d{0,5}$",
+            "examples": [
+                0.5
+            ],
+            "fec_spec": {
+                "COL_SEQ": 9,
+                "FIELD_DESCRIPTION": "NON-FEDERAL PERCENTAGE",
+                "TYPE": "NUM-5",
+                "REQUIRED": null,
+                "SAMPLE_DATA": 0.5,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "Percents / Rates",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        }
+    },
+    "additionalProperties": false
+}

@@ -21,7 +21,7 @@ class ValidationResult:
         self.warnings = warnings
 
 
-def get_schema(schema_name):
+def get_schema(schema_name, version="8.5"):
     """Return form schema as JSON object
 
     Args:
@@ -30,12 +30,14 @@ def get_schema(schema_name):
     Returns:
         dict: JSON schema that matches the schema_name"""
     schema_file = f"{schema_name}.json"
-    schema_path = os.path.join(os.path.dirname(__file__), "schema/", schema_file)
+    schema_path = os.path.join(
+        os.path.dirname(__file__), f"schema/{version}/", schema_file
+    )
     #: Handle case where we are not running from a pip package
     if not os.path.isfile(schema_path):
         logger.warning(f"Schema file ({schema_path}) not found in package.")
         schema_path = os.path.join(
-            os.path.dirname(__file__), "../../../schema/", schema_file
+            os.path.dirname(__file__), f"../../../schema/{version}/", schema_file
         )
     with open(schema_path) as fp:
         form_schema = json.load(fp)
@@ -62,7 +64,7 @@ def parse_schema_error(error):
     return ValidationError(error.message, path)
 
 
-def validate(schema_name, form_data, fields_to_validate=None):
+def validate(schema_name, form_data, fields_to_validate=None, version="8.5"):
     """Wrapper function around jsonschema validator
 
     Args:
@@ -76,7 +78,7 @@ def validate(schema_name, form_data, fields_to_validate=None):
 
     Returns:
         list of ValidationError: A list of all errors found in form_data"""
-    form_schema = get_schema(schema_name)
+    form_schema = get_schema(schema_name, version)
 
     validator = Draft7Validator(form_schema, format_checker=draft7_format_checker)
     errors = list(map(parse_schema_error, validator.iter_errors(form_data)))
