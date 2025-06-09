@@ -21,7 +21,7 @@ class ValidationResult:
         self.warnings = warnings
 
 
-def get_schema(schema_name):
+def get_schema(schema_name, override=False):
     """Return form schema as JSON object
 
     Args:
@@ -29,15 +29,24 @@ def get_schema(schema_name):
 
     Returns:
         dict: JSON schema that matches the schema_name"""
+
     schema_file = f"{schema_name}.json"
-    schema_path = os.path.join(os.path.dirname(__file__), "schema/", schema_file)
+    schema_path_8_4 = os.path.join(os.path.dirname(__file__), "schema/8.4", schema_file)
+    schema_path_default = os.path.join(
+        os.path.dirname(__file__), "schema/", schema_file
+    )
+    if override and os.path.isfile(schema_path_8_4):
+        chosen_path = schema_path_8_4
+    elif os.path.isfile(schema_path_default):
+        chosen_path = schema_path_default
     #: Handle case where we are not running from a pip package
-    if not os.path.isfile(schema_path):
-        logger.warning(f"Schema file ({schema_path}) not found in package.")
-        schema_path = os.path.join(
+    else:
+        logger.warning(f"Schema file ({schema_path_default}) not found in package.")
+        chosen_path = os.path.join(
             os.path.dirname(__file__), "../../../schema/", schema_file
         )
-    with open(schema_path) as fp:
+
+    with open(chosen_path) as fp:
         form_schema = json.load(fp)
 
     return form_schema
@@ -62,7 +71,7 @@ def parse_schema_error(error):
     return ValidationError(error.message, path)
 
 
-def validate(schema_name, form_data, fields_to_validate=None):
+def validate(schema_name, form_data, fields_to_validate=None, override=False):
     """Wrapper function around jsonschema validator
 
     Args:
@@ -76,7 +85,7 @@ def validate(schema_name, form_data, fields_to_validate=None):
 
     Returns:
         list of ValidationError: A list of all errors found in form_data"""
-    form_schema = get_schema(schema_name)
+    form_schema = get_schema(schema_name, override)
 
     validator = Draft7Validator(form_schema, format_checker=draft7_format_checker)
     errors = list(map(parse_schema_error, validator.iter_errors(form_data)))
