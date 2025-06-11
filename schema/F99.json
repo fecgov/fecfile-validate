@@ -24,7 +24,9 @@
       "title": "FORM TYPE",
       "description": "",
       "const": "F99",
-      "examples": ["F99"],
+      "examples": [
+        "F99"
+      ],
       "fec_spec": {
         "COL_SEQ": 1,
         "FIELD_DESCRIPTION": "FORM TYPE",
@@ -43,7 +45,9 @@
       "minLength": 9,
       "maxLength": 9,
       "pattern": "^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$",
-      "examples": ["C00123456"],
+      "examples": [
+        "C00123456"
+      ],
       "fec_spec": {
         "COL_SEQ": 2,
         "FIELD_DESCRIPTION": "FILER COMMITTEE ID NUMBER",
@@ -94,7 +98,10 @@
     "street_2": {
       "title": "STREET 2",
       "description": "",
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "minLength": 0,
       "maxLength": 34,
       "pattern": "^[ -~]{0,34}$",
@@ -170,7 +177,9 @@
       "minLength": 1,
       "maxLength": 30,
       "pattern": "^[ -~]{0,30}$",
-      "examples": ["Smith"],
+      "examples": [
+        "Smith"
+      ],
       "fec_spec": {
         "COL_SEQ": 9,
         "FIELD_DESCRIPTION": "TREASURER LAST NAME",
@@ -189,7 +198,9 @@
       "minLength": 1,
       "maxLength": 20,
       "pattern": "^[ -~]{0,20}$",
-      "examples": ["Patrick"],
+      "examples": [
+        "Patrick"
+      ],
       "fec_spec": {
         "COL_SEQ": 10,
         "FIELD_DESCRIPTION": "TREASURER FIRST NAME",
@@ -204,11 +215,16 @@
     "treasurer_middle_name": {
       "title": "TREASURER MIDDLE NAME",
       "description": "",
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "minLength": 0,
       "maxLength": 20,
       "pattern": "^[ -~]{0,20}$",
-      "examples": ["Thomas"],
+      "examples": [
+        "Thomas"
+      ],
       "fec_spec": {
         "COL_SEQ": 11,
         "FIELD_DESCRIPTION": "TREASURER MIDDLE NAME",
@@ -223,11 +239,16 @@
     "treasurer_prefix": {
       "title": "TREASURER PREFIX",
       "description": "",
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "minLength": 0,
       "maxLength": 10,
       "pattern": "^[ -~]{0,10}$",
-      "examples": ["Mr."],
+      "examples": [
+        "Mr."
+      ],
       "fec_spec": {
         "COL_SEQ": 12,
         "FIELD_DESCRIPTION": "TREASURER PREFIX",
@@ -242,11 +263,16 @@
     "treasurer_suffix": {
       "title": "TREASURER SUFFIX",
       "description": "",
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "minLength": 0,
       "maxLength": 10,
       "pattern": "^[ -~]{0,10}$",
-      "examples": ["Jr."],
+      "examples": [
+        "Jr."
+      ],
       "fec_spec": {
         "COL_SEQ": 13,
         "FIELD_DESCRIPTION": "TREASURER SUFFIX",
@@ -264,7 +290,9 @@
       "type": "string",
       "minLength": 1,
       "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
-      "examples": [20120729],
+      "examples": [
+        20120729
+      ],
       "fec_spec": {
         "COL_SEQ": 14,
         "FIELD_DESCRIPTION": "DATE SIGNED",
@@ -280,34 +308,61 @@
       "title": "TEXT CODE",
       "description": "",
       "type": "string",
-      "minLength": 3,
-      "maxLength": 3,
-      "pattern": "^[A-Z]{3,3}$",
-      "enum": ["MSI", "MSM", "MST"],
-      "examples": ["MST"],
+      "enum": [
+        "MSI",
+        "MSM",
+        "MST",
+        "MSR",
+        "MSW"
+      ],
+      "examples": [
+        "MST"
+      ],
       "fec_spec": {
         "COL_SEQ": 15,
         "FIELD_DESCRIPTION": "TEXT CODE",
         "TYPE": "A/N-3",
         "REQUIRED": "X (error)",
         "SAMPLE_DATA": "MST",
-        "VALUE_REFERENCE": "Type of Miscellaneous Document:\n  'MSI'    = Disavowal Response                                                                         \n  'MSM'  = Filing Freq. Change Notice                                                                                                                           \n  'MST'   = Misc. Report to the FEC",
+        "VALUE_REFERENCE": "Type of Miscellaneous Document:\n  'MSI'    = Disavowal Response                                                                         \n  'MSM'  = Filing Freq. Change Notice                                                                                                                           \n  'MST'   = Misc. Report to the FEC                                                                                                                           \n  'MSR'   = Form 3L Filing Frequency Chance Notice                                                                                                                           \n  'MSW'   = Loan Agreement",
         "RULE_REFERENCE": null,
         "FIELD_FORM_ASSOCIATION": null
       }
     },
-    "begin_text": {
-      "title": "[BEGINTEXT]",
+    "filing_frequency": {
+      "title": "FILING FREQUENCY",
       "description": "",
-      "type": ["string", "null"],
+      "enum": [
+        "Q",
+        "M",
+        null
+      ],
+      "examples": [
+        "Q"
+      ],
       "fec_spec": {
-        "COL_SEQ": null,
-        "FIELD_DESCRIPTION": "[BEGINTEXT]",
-        "REQUIRED": null,
-        "SAMPLE_DATA": null,
-        "VALUE_REFERENCE": null,
-        "RULE_REFERENCE": ".fec file must include [BEGINTEXT] on its own row before the MESSAGE TEXT",
+        "COL_SEQ": 16,
+        "FIELD_DESCRIPTION": "FILING FREQUENCY",
+        "TYPE": "A-1",
+        "REQUIRED": "X (conditional error)",
+        "SAMPLE_DATA": "Q",
+        "VALUE_REFERENCE": "M = Monthly\nQ = Quarterly",
+        "RULE_REFERENCE": "Required if TEXT CODE = MSM or MSR",
         "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "pdf_attachment": {
+      "title": "PDF ATTACHMENT",
+      "description": "",
+      "type": "boolean",
+      "fec_spec": {
+        "COL_SEQ": 17,
+        "FIELD_DESCRIPTION": "PDF ATTACHMENT",
+        "TYPE": "A/N-1",
+        "REQUIRED": "X (conditional error)",
+        "SAMPLE_DATA": null,
+        "VALUE_REFERENCE": "X",
+        "RULE_REFERENCE": "Required if PDF is attached"
       }
     },
     "message_text": {
@@ -327,20 +382,31 @@
         "RULE_REFERENCE": "Everything following the [BEGINTEXT] marker, which is on its own row, will be treated as the body of the text message. It may include formatting, such as carriage return and line feed and tabs but may not exceed 20,000 characters (including spaces). When the text message is complete, the last line of the form 99 should be [ENDTEXT] marker on its own row.",
         "FIELD_FORM_ASSOCIATION": null
       }
-    },
-    "end_text": {
-      "title": "[ENDTEXT]",
-      "description": "",
-      "type": ["string", "null"],
-      "fec_spec": {
-        "COL_SEQ": null,
-        "FIELD_DESCRIPTION": "[ENDTEXT]",
-        "REQUIRED": null,
-        "SAMPLE_DATA": null,
-        "VALUE_REFERENCE": null,
-        "RULE_REFERENCE": ".fec file must include [ENDTEXT] on its own row after the MESSAGE TEXT",
-        "FIELD_FORM_ASSOCIATION": null
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "text_code": {
+            "type": "string",
+            "pattern": "^MSM|MSR$"
+          }
+        },
+        "required": [
+          "text_code"
+        ]
+      },
+      "then": {
+        "required": [
+          "filing_frequency"
+        ],
+        "properties": {
+          "filing_frequency": {
+            "type": "string"
+          }
+        }
       }
     }
-  }
+  ]
 }
