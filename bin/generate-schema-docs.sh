@@ -15,5 +15,7 @@ for schema in ${SCHEMAS//,/ }
 do
     # call your procedure/other scripts here below
     target_file="${schema%.*}_spec.html"
-    python ../bin/generate-spec-table.py $schema > ../docs/$target_file
+    python ../bin/generate-spec-table.py $schema > ../docs/$target_file || {
+        echo ERROR: generate-spec-table.py failed to process $target_file
+    }
 done
