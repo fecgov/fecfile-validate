@@ -25,7 +25,9 @@
       "description": "",
       "type": "string",
       "maxLength": 5,
-      "examples": ["F3X"],
+      "examples": [
+        "F3X"
+      ],
       "fec_spec": {
         "FIELD_DESCRIPTION": "REPORT TYPE",
         "TYPE": "A/N-100",
@@ -38,8 +40,13 @@
     "form_type": {
       "title": "FORM TYPE",
       "description": "",
-      "enum": ["SC2/9", "SC2/10"],
-      "examples": ["SC2/10"],
+      "enum": [
+        "SC2/9",
+        "SC2/10"
+      ],
+      "examples": [
+        "SC2/10"
+      ],
       "fec_spec": {
         "COL_SEQ": 1,
         "FIELD_DESCRIPTION": "FORM TYPE",
@@ -57,7 +64,9 @@
       "minLength": 1,
       "maxLength": 9,
       "pattern": "^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$",
-      "examples": ["C00123456"],
+      "examples": [
+        "C00123456"
+      ],
       "fec_spec": {
         "COL_SEQ": 2,
         "FIELD_DESCRIPTION": "FILER COMMITTEE ID NUMBER",
@@ -70,7 +79,9 @@
       "title": "TRANSACTION TYPE IDENTIFIER",
       "description": "",
       "const": "C2_LOAN_GUARANTOR",
-      "examples": ["C2_LOAN_GUARANTOR"],
+      "examples": [
+        "C2_LOAN_GUARANTOR"
+      ],
       "fec_spec": {
         "FIELD_DESCRIPTION": "TRANSACTION TYPE IDENTIFIER",
         "TYPE": "A/N-12",
@@ -85,7 +96,9 @@
       "minLength": 1,
       "maxLength": 20,
       "pattern": "^[ -~]{0,20}$",
-      "examples": ["C123456789-3456-001"],
+      "examples": [
+        "C123456789-3456-001"
+      ],
       "fec_spec": {
         "COL_SEQ": 3,
         "FIELD_DESCRIPTION": "TRANSACTION ID NUMBER",
@@ -103,7 +116,9 @@
       "minLength": 1,
       "maxLength": 20,
       "pattern": "^[ -~]{0,20}$",
-      "examples": ["C123456789-3456"],
+      "examples": [
+        "C123456789-3456"
+      ],
       "fec_spec": {
         "COL_SEQ": 4,
         "FIELD_DESCRIPTION": "BACK REFERENCE TRAN ID NUMBER",
@@ -121,7 +136,9 @@
       "minLength": 1,
       "maxLength": 30,
       "pattern": "^[ -~]{0,30}$",
-      "examples": ["Smith"],
+      "examples": [
+        "Smith"
+      ],
       "fec_spec": {
         "COL_SEQ": 5,
         "FIELD_DESCRIPTION": "GUARANTOR LAST NAME",
@@ -138,7 +155,9 @@
       "minLength": 1,
       "maxLength": 20,
       "pattern": "^[ -~]{0,20}$",
-      "examples": ["John"],
+      "examples": [
+        "John"
+      ],
       "fec_spec": {
         "COL_SEQ": 6,
         "FIELD_DESCRIPTION": "GUARANTOR FIRST NAME",
@@ -150,11 +169,16 @@
     "guarantor_middle_name": {
       "title": "GUARANTOR MIDDLE NAME",
       "description": "",
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "minLength": 0,
       "maxLength": 20,
       "pattern": "^[ -~]{0,20}$",
-      "examples": ["W"],
+      "examples": [
+        "W"
+      ],
       "fec_spec": {
         "COL_SEQ": 7,
         "FIELD_DESCRIPTION": "GUARANTOR MIDDLE NAME",
@@ -165,11 +189,16 @@
     "guarantor_prefix": {
       "title": "GUARANTOR PREFIX",
       "description": "",
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "minLength": 0,
       "maxLength": 10,
       "pattern": "^[ -~]{0,10}$",
-      "examples": ["Dr"],
+      "examples": [
+        "Dr"
+      ],
       "fec_spec": {
         "COL_SEQ": 8,
         "FIELD_DESCRIPTION": "GUARANTOR PREFIX",
@@ -180,11 +209,16 @@
     "guarantor_suffix": {
       "title": "GUARANTOR SUFFIX",
       "description": "",
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "minLength": 0,
       "maxLength": 10,
       "pattern": "^[ -~]{0,10}$",
-      "examples": ["Jr"],
+      "examples": [
+        "Jr"
+      ],
       "fec_spec": {
         "COL_SEQ": 9,
         "FIELD_DESCRIPTION": "GUARANTOR SUFFIX",
@@ -199,7 +233,9 @@
       "minLength": 1,
       "maxLength": 34,
       "pattern": "^[ -~]{0,34}$",
-      "examples": ["123 Main Street"],
+      "examples": [
+        "123 Main Street"
+      ],
       "fec_spec": {
         "COL_SEQ": 10,
         "FIELD_DESCRIPTION": "GUARANTOR STREET 1",
@@ -211,7 +247,10 @@
     "guarantor_street_2": {
       "title": "GUARANTOR STREET 2",
       "description": "",
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "minLength": 0,
       "maxLength": 34,
       "pattern": "^[ -~]{0,34}$",
@@ -228,7 +267,9 @@
       "minLength": 1,
       "maxLength": 30,
       "pattern": "^[ -~]{0,30}$",
-      "examples": ["Anytown"],
+      "examples": [
+        "Anytown"
+      ],
       "fec_spec": {
         "COL_SEQ": 12,
         "FIELD_DESCRIPTION": "GUARANTOR CITY",
@@ -244,7 +285,9 @@
       "minLength": 1,
       "maxLength": 2,
       "pattern": "^[ -~]{0,2}$",
-      "examples": ["WA"],
+      "examples": [
+        "WA"
+      ],
       "fec_spec": {
         "COL_SEQ": 13,
         "FIELD_DESCRIPTION": "GUARANTOR STATE",
@@ -262,7 +305,9 @@
       "minLength": 1,
       "maxLength": 9,
       "pattern": "^[ -~]{0,9}$",
-      "examples": [981110123],
+      "examples": [
+        981110123
+      ],
       "fec_spec": {
         "COL_SEQ": 14,
         "FIELD_DESCRIPTION": "GUARANTOR ZIP",
@@ -274,11 +319,16 @@
     "guarantor_employer": {
       "title": "GUARANTOR EMPLOYER",
       "description": "",
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "minLength": 0,
       "maxLength": 38,
       "pattern": "^[ -~]{0,38}$",
-      "examples": ["XYZ Company"],
+      "examples": [
+        "XYZ Company"
+      ],
       "fec_spec": {
         "COL_SEQ": 15,
         "FIELD_DESCRIPTION": "GUARANTOR EMPLOYER",
@@ -291,11 +341,16 @@
     "guarantor_occupation": {
       "title": "GUARANTOR OCCUPATION",
       "description": "",
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "minLength": 0,
       "maxLength": 38,
       "pattern": "^[ -~]{0,38}$",
-      "examples": ["QC Inspector"],
+      "examples": [
+        "QC Inspector"
+      ],
       "fec_spec": {
         "COL_SEQ": 16,
         "FIELD_DESCRIPTION": "GUARANTOR OCCUPATION",
@@ -311,7 +366,9 @@
       "type": "number",
       "minimum": -99999999.99,
       "maximum": 999999999.99,
-      "examples": [250],
+      "examples": [
+        250
+      ],
       "fec_spec": {
         "COL_SEQ": 17,
         "FIELD_DESCRIPTION": "GUARANTEED AMOUNT",
@@ -330,10 +387,15 @@
             "minimum": 200.01
           }
         },
-        "required": ["guaranteed_amount"]
+        "required": [
+          "guaranteed_amount"
+        ]
       },
       "then": {
-        "required": ["guarantor_employer", "guarantor_occupation"],
+        "required": [
+          "guarantor_employer",
+          "guarantor_occupation"
+        ],
         "properties": {
           "guarantor_employer": {
             "type": "string",
