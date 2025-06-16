@@ -714,28 +714,7 @@
                     "transaction_type_identifier": {
                         "enum": [
                             "CONDUIT_EARMARK_OUT_DEPOSITED",
-                            "CONDUIT_EARMARK_OUT_UNDEPOSITED"
-                        ]
-                    }
-                },
-                "required": [
-                    "transaction_type_identifier"
-                ]
-            },
-            "then": {
-                "properties": {
-                    "expenditure_purpose_descrip": {
-                        "pattern": "^Earmarked from [ -~]{0,72} \\(Individual\\)$",
-                        "type": "string"
-                    }
-                }
-            }
-        },
-        {
-            "if": {
-                "properties": {
-                    "transaction_type_identifier": {
-                        "enum": [
+                            "CONDUIT_EARMARK_OUT_UNDEPOSITED",
                             "PAC_CONDUIT_EARMARK_OUT_DEPOSITED",
                             "PAC_CONDUIT_EARMARK_OUT_UNDEPOSITED"
                         ]
@@ -748,7 +727,7 @@
             "then": {
                 "properties": {
                     "expenditure_purpose_descrip": {
-                        "pattern": "^Earmarked from [ -~]{0,73} \\(Committee\\)$",
+                        "pattern": "^Earmarked from [ -~]{0,84}$",
                         "type": "string"
                     }
                 }

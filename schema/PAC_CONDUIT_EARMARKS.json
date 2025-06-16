@@ -345,12 +345,12 @@
             "type": "string",
             "minLength": 1,
             "maxLength": 100,
-            "pattern": "^Earmarked for [ -~]{0,74} \\(Committee\\)$",
+            "pattern": "^Earmarked for [ -~]{0,85}$",
             "fec_spec": {
                 "FIELD_DESCRIPTION": "CONTRIBUTION PURPOSE DESCRIPTION",
                 "TYPE": "A/N-100",
                 "REQUIRED": "X (error)",
-                "RULE_REFERENCE": "\"Earmarked for XX (Committee)\", where \"XX\" is the Committee name from the Earmark Memo",
+                "RULE_REFERENCE": "\"Earmarked for XX\", where \"XX\" is the Committee name from the Earmark Memo",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
