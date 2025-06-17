@@ -448,14 +448,14 @@
             "type": "string",
             "minLength": 1,
             "maxLength": 100,
-            "pattern": "^Earmarked for [ -~]{0,74} \\(Committee\\)$",
+            "pattern": "^Earmarked for [ -~]{0,86}$",
             "fec_spec": {
                 "FIELD_DESCRIPTION": "CONTRIBUTION PURPOSE DESCRIPTION",
                 "TYPE": "A/N-100",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "Earmarked for XX (Committee)",
+                "RULE_REFERENCE": "Earmarked for XX",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
