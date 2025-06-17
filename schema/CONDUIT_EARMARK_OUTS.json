@@ -389,7 +389,7 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": null,
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "If Transaction type is (CONDUIT_EARMARK_OUT_DEPOSITED or CONDUIT_EARMARK_OUT_UNDEPOSITED) then\"Earmark from XX (Individual)\", where \"XX\" is Individual First Name Last Name from the parent Conduit Earmark Receipt on Schedule A; If Transaction type is (PAC_CONDUIT_EARMARK_OUT_DEPOSITED or PAC_CONDUIT_EARMARK_OUT_UNDEPOSITED) then \"Earmark from XX (Committee)\", where \"XX\" is Committee Name from the parent PAC Conduit Earmark Receipt on Schedule A",
+                "RULE_REFERENCE": "If Transaction type is (CONDUIT_EARMARK_OUT_DEPOSITED or CONDUIT_EARMARK_OUT_UNDEPOSITED) then\"Earmark from XX\", where \"XX\" is Individual First Name Last Name from the parent Conduit Earmark Receipt on Schedule A; If Transaction type is (PAC_CONDUIT_EARMARK_OUT_DEPOSITED or PAC_CONDUIT_EARMARK_OUT_UNDEPOSITED) then \"Earmark from XX\", where \"XX\" is Committee Name from the parent PAC Conduit Earmark Receipt on Schedule A",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -727,7 +727,7 @@
             "then": {
                 "properties": {
                     "expenditure_purpose_descrip": {
-                        "pattern": "^Earmarked from [ -~]{0,84}$",
+                        "pattern": "^Earmarked from [ -~]{0,85}$",
                         "type": "string"
                     }
                 }
