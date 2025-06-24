@@ -12,8 +12,6 @@
     "transaction_id",
     "back_reference_tran_id_number",
     "entity_type",
-    "guarantor_last_name",
-    "guarantor_first_name",
     "guarantor_street_1",
     "guarantor_city",
     "guarantor_state",
@@ -118,7 +116,7 @@
     "entity_type": {
       "title": "ENTITY TYPE",
       "description": "",
-      "enum": ["IND", "ORG"],
+      "enum": ["IND", "COM"],
       "examples": ["IND"],
       "fec_spec": {
         "COL_SEQ": 5,
@@ -134,8 +132,8 @@
     "guarantor_organization_name": {
       "title": "GUARANTOR ORGANIZATION NAME",
       "description": "",
-      "type": "string",
-      "minLength": 1,
+      "type": ["string", "null"],
+      "minLength": 0,
       "maxLength": 200,
       "pattern": "^[ -~]{0,200}$",
       "examples": ["John Smith & Co."],
@@ -153,8 +151,8 @@
     "guarantor_committee_fec_id": {
       "title": "GUARANTOR COMMITTEE FEC ID",
       "description": "",
-      "type": "string",
-      "minLength": 9,
+      "type": ["string", "null"],
+      "minLength": 0,
       "maxLength": 9,
       "pattern": "^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$",
       "examples": ["C00123456"],
@@ -171,8 +169,8 @@
     "guarantor_last_name": {
       "title": "GUARANTOR LAST NAME",
       "description": "",
-      "type": "string",
-      "minLength": 1,
+      "type": ["string", "null"],
+      "minLength": 0,
       "maxLength": 30,
       "pattern": "^[ -~]{0,30}$",
       "examples": ["Smith"],
@@ -189,8 +187,8 @@
     "guarantor_first_name": {
       "title": "GUARANTOR FIRST NAME",
       "description": "",
-      "type": "string",
-      "minLength": 1,
+      "type": ["string", "null"],
+      "minLength": 0,
       "maxLength": 20,
       "pattern": "^[ -~]{0,20}$",
       "examples": ["John"],
@@ -434,12 +432,15 @@
     {
       "if": {
         "properties": {
+          "entity_type": {
+            "const": "IND"
+          },
           "guaranteed_amount": {
             "type": "number",
             "minimum": 200.01
           }
         },
-        "required": ["guaranteed_amount"]
+        "required": ["entity_type", "guaranteed_amount"]
       },
       "then": {
         "required": ["guarantor_employer", "guarantor_occupation"],
