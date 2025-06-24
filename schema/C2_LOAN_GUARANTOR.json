@@ -12,8 +12,6 @@
     "transaction_id",
     "back_reference_tran_id_number",
     "entity_type",
-    "guarantor_last_name",
-    "guarantor_first_name",
     "guarantor_street_1",
     "guarantor_city",
     "guarantor_state",
