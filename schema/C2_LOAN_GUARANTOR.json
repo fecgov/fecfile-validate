@@ -169,8 +169,8 @@
     "guarantor_last_name": {
       "title": "GUARANTOR LAST NAME",
       "description": "",
-      "type": "string",
-      "minLength": 1,
+      "type": ["string", "null"],
+      "minLength": 0,
       "maxLength": 30,
       "pattern": "^[ -~]{0,30}$",
       "examples": ["Smith"],
@@ -187,8 +187,8 @@
     "guarantor_first_name": {
       "title": "GUARANTOR FIRST NAME",
       "description": "",
-      "type": "string",
-      "minLength": 1,
+      "type": ["string", "null"],
+      "minLength": 0,
       "maxLength": 20,
       "pattern": "^[ -~]{0,20}$",
       "examples": ["John"],
