@@ -132,8 +132,8 @@
     "guarantor_organization_name": {
       "title": "GUARANTOR ORGANIZATION NAME",
       "description": "",
-      "type": "string",
-      "minLength": 1,
+      "type": ["string", "null"],
+      "minLength": 0,
       "maxLength": 200,
       "pattern": "^[ -~]{0,200}$",
       "examples": ["John Smith & Co."],
@@ -151,8 +151,8 @@
     "guarantor_committee_fec_id": {
       "title": "GUARANTOR COMMITTEE FEC ID",
       "description": "",
-      "type": "string",
-      "minLength": 9,
+      "type": ["string", "null"],
+      "minLength": 0,
       "maxLength": 9,
       "pattern": "^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$",
       "examples": ["C00123456"],
