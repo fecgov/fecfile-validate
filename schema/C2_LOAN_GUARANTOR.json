@@ -118,7 +118,7 @@
     "entity_type": {
       "title": "ENTITY TYPE",
       "description": "",
-      "enum": ["IND", "ORG"],
+      "enum": ["IND", "COM"],
       "examples": ["IND"],
       "fec_spec": {
         "COL_SEQ": 5,
@@ -434,12 +434,15 @@
     {
       "if": {
         "properties": {
+          "entity_type": {
+            "const": "IND"
+          },
           "guaranteed_amount": {
             "type": "number",
             "minimum": 200.01
           }
         },
-        "required": ["guaranteed_amount"]
+        "required": ["entity_type", "guaranteed_amount"]
       },
       "then": {
         "required": ["guarantor_employer", "guarantor_occupation"],
