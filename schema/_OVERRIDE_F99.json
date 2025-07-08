@@ -1,0 +1,348 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/F99.json",
+  "version": "8.3.0.1",
+  "title": "FEC F99",
+  "description": "FORM 99 - MISCELLANEOUS TEXT",
+  "type": "object",
+  "required": [
+    "form_type",
+    "filer_committee_id_number",
+    "committee_name",
+    "street_1",
+    "city",
+    "state",
+    "zip",
+    "treasurer_last_name",
+    "treasurer_first_name",
+    "date_signed",
+    "message_text"
+  ],
+  "properties": {
+    "form_type": {
+      "title": "FORM TYPE",
+      "description": "",
+      "const": "F99",
+      "examples": [
+        "F99"
+      ],
+      "fec_spec": {
+        "COL_SEQ": 1,
+        "FIELD_DESCRIPTION": "FORM TYPE",
+        "TYPE": "A/N-3",
+        "REQUIRED": "X (error)",
+        "SAMPLE_DATA": "F99",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "F99",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "filer_committee_id_number": {
+      "title": "FILER COMMITTEE ID NUMBER",
+      "description": "",
+      "type": "string",
+      "minLength": 9,
+      "maxLength": 9,
+      "pattern": "^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$",
+      "examples": [
+        "C00123456"
+      ],
+      "fec_spec": {
+        "COL_SEQ": 2,
+        "FIELD_DESCRIPTION": "FILER COMMITTEE ID NUMBER",
+        "TYPE": "A/N-9",
+        "REQUIRED": "X (error)",
+        "SAMPLE_DATA": "C00123456",
+        "VALUE_REFERENCE": "Filing Committee ID",
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "committee_name": {
+      "title": "COMMITTEE NAME",
+      "description": "",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200,
+      "pattern": "^[ -~]{0,200}$",
+      "fec_spec": {
+        "COL_SEQ": 3,
+        "FIELD_DESCRIPTION": "COMMITTEE NAME",
+        "TYPE": "A/N-200",
+        "REQUIRED": "X (error)",
+        "SAMPLE_DATA": null,
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "Filing Committee's Name",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "street_1": {
+      "title": "STREET 1",
+      "description": "",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 34,
+      "pattern": "^[ -~]{0,34}$",
+      "fec_spec": {
+        "COL_SEQ": 4,
+        "FIELD_DESCRIPTION": "STREET 1",
+        "TYPE": "A/N-34",
+        "REQUIRED": "X (error)",
+        "SAMPLE_DATA": null,
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "Committee's Street Address 1",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "street_2": {
+      "title": "STREET 2",
+      "description": "",
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 0,
+      "maxLength": 34,
+      "pattern": "^[ -~]{0,34}$",
+      "fec_spec": {
+        "COL_SEQ": 5,
+        "FIELD_DESCRIPTION": "STREET 2",
+        "TYPE": "A/N-34",
+        "REQUIRED": null,
+        "SAMPLE_DATA": null,
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "Committee's Street Address 2",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "city": {
+      "title": "CITY",
+      "description": "",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 30,
+      "pattern": "^[ -~]{0,30}$",
+      "fec_spec": {
+        "COL_SEQ": 6,
+        "FIELD_DESCRIPTION": "CITY",
+        "TYPE": "A/N-30",
+        "REQUIRED": "X (error)",
+        "SAMPLE_DATA": null,
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "Committee's City/Town",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "state": {
+      "title": "STATE",
+      "description": "",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 2,
+      "pattern": "^[A-Z]{2}$",
+      "fec_spec": {
+        "COL_SEQ": 7,
+        "FIELD_DESCRIPTION": "STATE",
+        "TYPE": "A-2",
+        "REQUIRED": "X (error)",
+        "SAMPLE_DATA": null,
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "Committee's State Code",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "zip": {
+      "title": "ZIP",
+      "description": "",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 9,
+      "pattern": "^[ -~]{0,9}$",
+      "fec_spec": {
+        "COL_SEQ": 8,
+        "FIELD_DESCRIPTION": "ZIP",
+        "TYPE": "A/N-9",
+        "REQUIRED": "X (error)",
+        "SAMPLE_DATA": null,
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "Committee's Zip Code",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "treasurer_last_name": {
+      "title": "TREASURER LAST NAME",
+      "description": "",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 30,
+      "pattern": "^[ -~]{0,30}$",
+      "examples": [
+        "Smith"
+      ],
+      "fec_spec": {
+        "COL_SEQ": 9,
+        "FIELD_DESCRIPTION": "TREASURER LAST NAME",
+        "TYPE": "A/N-30",
+        "REQUIRED": "X (error)",
+        "SAMPLE_DATA": "Smith",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "treasurer_first_name": {
+      "title": "TREASURER FIRST NAME",
+      "description": "",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 20,
+      "pattern": "^[ -~]{0,20}$",
+      "examples": [
+        "Patrick"
+      ],
+      "fec_spec": {
+        "COL_SEQ": 10,
+        "FIELD_DESCRIPTION": "TREASURER FIRST NAME",
+        "TYPE": "A/N-20",
+        "REQUIRED": "X (error)",
+        "SAMPLE_DATA": "Patrick",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "treasurer_middle_name": {
+      "title": "TREASURER MIDDLE NAME",
+      "description": "",
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 0,
+      "maxLength": 20,
+      "pattern": "^[ -~]{0,20}$",
+      "examples": [
+        "Thomas"
+      ],
+      "fec_spec": {
+        "COL_SEQ": 11,
+        "FIELD_DESCRIPTION": "TREASURER MIDDLE NAME",
+        "TYPE": "A/N-20",
+        "REQUIRED": null,
+        "SAMPLE_DATA": "Thomas",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "treasurer_prefix": {
+      "title": "TREASURER PREFIX",
+      "description": "",
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 0,
+      "maxLength": 10,
+      "pattern": "^[ -~]{0,10}$",
+      "examples": [
+        "Mr."
+      ],
+      "fec_spec": {
+        "COL_SEQ": 12,
+        "FIELD_DESCRIPTION": "TREASURER PREFIX",
+        "TYPE": "A/N-10",
+        "REQUIRED": null,
+        "SAMPLE_DATA": "Mr.",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "treasurer_suffix": {
+      "title": "TREASURER SUFFIX",
+      "description": "",
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 0,
+      "maxLength": 10,
+      "pattern": "^[ -~]{0,10}$",
+      "examples": [
+        "Jr."
+      ],
+      "fec_spec": {
+        "COL_SEQ": 13,
+        "FIELD_DESCRIPTION": "TREASURER SUFFIX",
+        "TYPE": "A/N-10",
+        "REQUIRED": null,
+        "SAMPLE_DATA": "Jr.",
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "date_signed": {
+      "title": "DATE SIGNED",
+      "description": "",
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+      "examples": [
+        20120729
+      ],
+      "fec_spec": {
+        "COL_SEQ": 14,
+        "FIELD_DESCRIPTION": "DATE SIGNED",
+        "TYPE": "NUM-8",
+        "REQUIRED": "X (error)",
+        "SAMPLE_DATA": 20120729,
+        "VALUE_REFERENCE": "YYYYMMDD",
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "text_code": {
+      "title": "TEXT CODE",
+      "description": "",
+      "type": "string",
+      "enum": [
+        "MSI",
+        "MSM",
+        "MST"
+      ],
+      "examples": [
+        "MST"
+      ],
+      "fec_spec": {
+        "COL_SEQ": 15,
+        "FIELD_DESCRIPTION": "TEXT CODE",
+        "TYPE": "A/N-3",
+        "REQUIRED": "X (error)",
+        "SAMPLE_DATA": "MST",
+        "VALUE_REFERENCE": "Type of Miscellaneous Document:\n  'MSI'    = Disavowal Response                                                                         \n  'MSM'  = Filing Freq. Change Notice                                                                                                                           \n  'MST'   = Misc. Report to the FEC                                                                                                                           \n  'MSR'   = Form 3L Filing Frequency Chance Notice                                                                                                                           \n  'MSW'   = Loan Agreement",
+        "RULE_REFERENCE": null,
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    },
+    "message_text": {
+      "title": "MESSAGE TEXT",
+      "description": "",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 20000,
+      "pattern": "^[ -~\r\n\t\f]{1,20000}$",
+      "fec_spec": {
+        "COL_SEQ": null,
+        "FIELD_DESCRIPTION": "MESSAGE TEXT",
+        "TYPE": "A/N-20000",
+        "REQUIRED": "X (error)",
+        "SAMPLE_DATA": null,
+        "VALUE_REFERENCE": null,
+        "RULE_REFERENCE": "Everything following the [BEGINTEXT] marker, which is on its own row, will be treated as the body of the text message. It may include formatting, such as carriage return and line feed and tabs but may not exceed 20,000 characters (including spaces). When the text message is complete, the last line of the form 99 should be [ENDTEXT] marker on its own row.",
+        "FIELD_FORM_ASSOCIATION": null
+      }
+    }
+  }
+}

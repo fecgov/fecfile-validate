@@ -197,7 +197,7 @@ with the F3L</td>
 <td></td>
 <td>If Transaction type is (CONDUIT_EARMARK_OUT_DEPOSITED or CONDUIT_EARMARK_OUT_UNDEPOSITED) then"Earmark from XX (Individual)", where "XX" is Individual First Name Last Name from the parent Conduit Earmark Receipt on Schedule A; If Transaction type is (PAC_CONDUIT_EARMARK_OUT_DEPOSITED or PAC_CONDUIT_EARMARK_OUT_UNDEPOSITED) then "Earmark from XX (Committee)", where "XX" is Committee Name from the parent PAC Conduit Earmark Receipt on Schedule A</td>
 <td></td>
-<td><ul><li>EXPENDITURE_PURPOSE_DESCRIP must match ^Earmarked from [ -~]{0,72} \(Individual\)$ if TRANSACTION_TYPE_IDENTIFIER one of ['CONDUIT_EARMARK_OUT_DEPOSITED', 'CONDUIT_EARMARK_OUT_UNDEPOSITED']</li><li>EXPENDITURE_PURPOSE_DESCRIP must match ^Earmarked from [ -~]{0,73} \(Committee\)$ if TRANSACTION_TYPE_IDENTIFIER one of ['PAC_CONDUIT_EARMARK_OUT_DEPOSITED', 'PAC_CONDUIT_EARMARK_OUT_UNDEPOSITED']</li><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 100</li></td>
+<td><ul><li>EXPENDITURE_PURPOSE_DESCRIP must match ^Earmarked from [ -~]{0,84}$ if TRANSACTION_TYPE_IDENTIFIER one of ['CONDUIT_EARMARK_OUT_DEPOSITED', 'CONDUIT_EARMARK_OUT_UNDEPOSITED', 'PAC_CONDUIT_EARMARK_OUT_DEPOSITED', 'PAC_CONDUIT_EARMARK_OUT_UNDEPOSITED']</li><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 100</li></td>
 </tr>
 <tr>
 <td>CATEGORY CODE</td>
