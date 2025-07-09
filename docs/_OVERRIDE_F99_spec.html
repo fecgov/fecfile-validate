@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><title>F99</title><link rel="stylesheet" href="spec_table.css"></head><body><table><caption>Specification for F99</caption><tr>
+<!DOCTYPE html><html lang="en"><head><title>_OVERRIDE_F99</title><link rel="stylesheet" href="spec_table.css"></head><body><table><caption>Specification for _OVERRIDE_F99</caption><tr>
 <th>FIELD DESCRIPTION</th>
 <th>TYPE</th>
 <th>REQUIRED</th>
@@ -161,28 +161,7 @@
   'MSW'   = Loan Agreement</td>
 <td></td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>must be one of: ['MSI', 'MSM', 'MST', 'MSR', 'MSW']</li></td>
-</tr>
-<tr>
-<td>FILING FREQUENCY</td>
-<td>A-1</td>
-<td>X (conditional error)</td>
-<td>Q</td>
-<td>M = Monthly
-Q = Quarterly</td>
-<td>Required if TEXT CODE = MSM or MSR</td>
-<td></td>
-<td><ul><li>REQUIRED if TEXT_CODE matches regex: ^MSM|MSR$</li><li>must be one of: ['Q', 'M', None]</li></td>
-</tr>
-<tr>
-<td>PDF ATTACHMENT</td>
-<td>A/N-1</td>
-<td>X (conditional error)</td>
-<td></td>
-<td>X</td>
-<td>Required if PDF is attached</td>
-<td></td>
-<td><ul><li>type: boolean</li></td>
+<td><ul><li>type: string</li><li>must be one of: ['MSI', 'MSM', 'MST']</li></td>
 </tr>
 <tr>
 <td>MESSAGE TEXT</td>
