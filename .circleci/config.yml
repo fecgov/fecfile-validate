@@ -196,6 +196,10 @@ jobs:
           command: ../bin/generate-schema-docs.sh
           working_directory: ~/project/schema
 
+      - persist_to_workspace:
+          root: ~/project/
+          paths: docs
+
   docs-deploy:
     docker:
       - image: node:8.10.0
@@ -237,4 +241,4 @@ workflows:
             - docs-build
           filters:
             branches:
-              only: feature/2091b
+              only: feature/2091
