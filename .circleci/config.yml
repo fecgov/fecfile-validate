@@ -198,7 +198,7 @@ jobs:
 
       - persist_to_workspace:
           root: ~/project
-          path: docs
+          paths: docs
 
   docs-deploy:
     docker:
