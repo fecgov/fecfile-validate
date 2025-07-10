@@ -235,10 +235,10 @@ workflows:
             - test
           filters:
             branches:
-              only: develop
+              only: feature/2091
       - docs-deploy:
           requires:
             - docs-build
           filters:
             branches:
-              only: develop
+              only: feature/2091
