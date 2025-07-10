@@ -197,7 +197,7 @@ jobs:
           working_directory: ~/project/schema
 
       - persist_to_workspace:
-          root: ~/project/
+          root: ~/project
           path: docs
 
   docs-deploy:
