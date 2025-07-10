@@ -170,9 +170,75 @@ jobs:
             echo "----------------------------------------------------"
             eval $command
 
+  docs-build:
+    docker:
+      - image: cimg/python:3.12
+
+    steps:
+      - checkout
+
+      - run:
+          name: Create unified requirements so CircleCI can cache them
+          command: |
+            cd ~/project/
+            ls -l
+            cat requirements.txt > requirements-all.txt
+            echo >> requirements-all.txt  # blank in case new newline at end of requirements.txt
+            cat requirements-test.txt >> requirements-all.txt
+
+      - python/install-packages:
+          pkg-manager: pip
+          app-dir: ~/project/
+          pip-dependency-file: requirements-all.txt
+
+      - run:
+          name: Generate Schema Docs
+          command: ../bin/generate-schema-docs.sh
+          working_directory: ~/project/schema
+
+      - persist_to_workspace:
+          root: ~/project/
+          path: docs
+
+  docs-deploy:
+    docker:
+      - image: node:8.10.0
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/project/docs/
+      - node/install:
+          install-yarn: false
+          node-version: "16.13"
+      - node/install-packages:
+          pkg-manager: npm
+      - run:
+          name: Configure git
+          command: |
+            git config user.email "apiinfo@fec.gov"
+            git config user.name "apiinfo"
+      - add_ssh_keys:
+          fingerprints:
+            - "0f:22:e1:9d:81:ea:82:a0:fa:18:f2:0f:25:f7:3f:6f"
+      - run:
+          name: Deploy docs to gh-pages branch
+          command: npx gh-pages --dist ~/project/docs/
+
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
   test:
     jobs:
       - test
       - dependency-check
+      - docs-build:
+          requires:
+            - test
+          filters:
+            branches:
+              only: develop
+      - docs-deploy:
+          requires:
+            - docs-build
+          filters:
+            branches:
+              only: develop
