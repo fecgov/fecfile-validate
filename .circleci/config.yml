@@ -173,6 +173,7 @@ jobs:
   docs-build:
     docker:
       - image: cimg/python:3.12
+      - image: node:8.10.0
 
     steps:
       - checkout
@@ -191,14 +192,28 @@ jobs:
           app-dir: ~/project/
           pip-dependency-file: requirements-all.txt
 
+      - node/install:
+          install-yarn: false
+          node-version: "16.13"
+      - node/install-packages:
+          pkg-manager: npm
       - run:
-          name: Generate Schema Docs
+          name: Configure git
+          command: |
+            git config user.email "apiinfo@fec.gov"
+            git config user.name "apiinfo"
+      - add_ssh_keys:
+          fingerprints:
+            - "SHA256:Sq2uvovZr3cnJ5/lG9F8nkCRVTxiDUQ4XmFvGqW27vM"
+
+      - run:
+          name: Generate schema docs
           command: ../bin/generate-schema-docs.sh
           working_directory: ~/project/schema
 
-      - persist_to_workspace:
-          root: ~/project/
-          paths: docs
+      - run:
+          name: Deploy docs to gh-pages branch
+          command: npx gh-pages --dist ~/project/docs/
 
   docs-deploy:
     docker:
@@ -231,8 +246,8 @@ workflows:
       - test
       - dependency-check
       - docs-build:
-          requires:
-            - test
+          # requires:
+          #   - test
           filters:
             branches:
               only: feature/2091
@@ -241,4 +256,4 @@ workflows:
             - docs-build
           filters:
             branches:
-              only: feature/2091
+              only: feature/2091b
