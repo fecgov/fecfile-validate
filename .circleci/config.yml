@@ -173,7 +173,7 @@ jobs:
   docs-build:
     docker:
       - image: cimg/python:3.12
-      - image: node:8.10.0
+      # - image: node:8.10.0
 
     steps:
       - checkout
