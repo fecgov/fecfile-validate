@@ -1,0 +1,231 @@
+<!DOCTYPE html><html lang="en"><head><title>DEBTS</title><link rel="stylesheet" href="spec_table.css"></head><body><table><caption>Specification for DEBTS</caption><tr>
+<th>FIELD DESCRIPTION</th>
+<th>TYPE</th>
+<th>REQUIRED</th>
+<th>SAMPLE DATA</th>
+<th>VALUE REFERENCE</th>
+<th>RULE REFERENCE</th>
+<th>FIELD FORM ASSOCIATION</th>
+<th>VALIDATION RULES</th>
+</tr>
+<tr>
+<td>REPORT TYPE</td>
+<td>A/N-100</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>type: string</li><li>max length: 5</li></td>
+</tr>
+<tr>
+<td>FORM TYPE</td>
+<td>A/N-8</td>
+<td>X (error)</td>
+<td>SD9, SD10</td>
+<td>[SD9 | SD10]</td>
+<td>If Transaction Type is DEBT_OWED_TO_COMMITTEE, then Form Type is SD9 If Transaction Type is DEBT_OWED_BY_COMMITTEE, then Form Type is SD10</td>
+<td></td>
+<td><ul><li>FORM_TYPE = 'SD9' if TRANSACTION_TYPE_IDENTIFIER equals DEBT_OWED_TO_COMMITTEE</li><li>FORM_TYPE = 'SD10' if TRANSACTION_TYPE_IDENTIFIER equals DEBT_OWED_BY_COMMITTEE</li><li>REQUIRED</li><li>must be one of: ['SD9', 'SD10']</li></td>
+</tr>
+<tr>
+<td>FILER COMMITTEE ID NUMBER</td>
+<td>A/N-9</td>
+<td>X (error)</td>
+<td>C00123456</td>
+<td></td>
+<td>this is the ID of the Committee Account the report/transaction is associated with</td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 9</li><li>max length: 9</li><li>regex: ^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$</li></td>
+</tr>
+<tr>
+<td>TRANSACTION TYPE IDENTIFIER</td>
+<td>A/N-12</td>
+<td>X (error)</td>
+<td></td>
+<td></td>
+<td>DEBT_OWED_TO_COMMITTEE DEBT_OWED_BY_COMMITTEE</td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>must be one of: ['DEBT_OWED_TO_COMMITTEE', 'DEBT_OWED_BY_COMMITTEE']</li></td>
+</tr>
+<tr>
+<td>TRANSACTION ID</td>
+<td>A/N-20</td>
+<td>X (error)</td>
+<td>D123456789-3456</td>
+<td></td>
+<td>Note: If pulled forward from a prior report, this MUST retain the same transaction ID for FEC tracking purposes. Note: the deferred receipt/disbursement paid against this debt MUST have this transaction ID in their back reference ID field.</td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
+</tr>
+<tr>
+<td>ENTITY TYPE</td>
+<td>A/N-3</td>
+<td>X (error)</td>
+<td>IND</td>
+<td>IND | ORG | COM</td>
+<td>IND | ORG | COM</td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>must be one of: ['IND', 'ORG', 'COM']</li></td>
+</tr>
+<tr>
+<td>CREDITOR ORGANIZATION NAME</td>
+<td>A/N-200</td>
+<td>X (conditional error)</td>
+<td>The Bank of Banks</td>
+<td></td>
+<td>Required if NOT [IND]</td>
+<td></td>
+<td><ul><li>REQUIRED if ENTITY_TYPE one of ['ORG', 'COM']</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 200</li><li>regex: ^[ -~]{0,200}$</li></td>
+</tr>
+<tr>
+<td>CREDITOR LAST NAME</td>
+<td>A/N-30</td>
+<td>X (conditional error)</td>
+<td>Smith</td>
+<td></td>
+<td>Required if [IND]</td>
+<td></td>
+<td><ul><li>REQUIRED if ENTITY_TYPE equals IND</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 30</li><li>regex: ^[ -~]{0,30}$</li></td>
+</tr>
+<tr>
+<td>CREDITOR FIRST NAME</td>
+<td>A/N-20</td>
+<td>X (conditional error)</td>
+<td>John</td>
+<td></td>
+<td>Required if [IND]</td>
+<td></td>
+<td><ul><li>REQUIRED if ENTITY_TYPE equals IND</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
+</tr>
+<tr>
+<td>CREDITOR MIDDLE NAME</td>
+<td>A/N-20</td>
+<td></td>
+<td>W</td>
+<td></td>
+<td>Optional if [IND]</td>
+<td></td>
+<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
+</tr>
+<tr>
+<td>CREDITOR PREFIX</td>
+<td>A/N-10</td>
+<td></td>
+<td>Dr</td>
+<td></td>
+<td>Optional if [IND]</td>
+<td></td>
+<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 10</li><li>regex: ^[ -~]{0,10}$</li></td>
+</tr>
+<tr>
+<td>CREDITOR SUFFIX</td>
+<td>A/N-10</td>
+<td></td>
+<td>Jr</td>
+<td></td>
+<td>Optional if [IND]</td>
+<td></td>
+<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 10</li><li>regex: ^[ -~]{0,10}$</li></td>
+</tr>
+<tr>
+<td>CREDITOR STREET  1</td>
+<td>A/N-34</td>
+<td>X (error)</td>
+<td>The Bank Tower</td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 34</li><li>regex: ^[ -~]{0,34}$</li></td>
+</tr>
+<tr>
+<td>CREDITOR STREET  2</td>
+<td>A/N-34</td>
+<td></td>
+<td>100 Broadway</td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 34</li><li>regex: ^[ -~]{0,34}$</li></td>
+</tr>
+<tr>
+<td>CREDITOR CITY</td>
+<td>A/N-30</td>
+<td>X (error)</td>
+<td>New York</td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 30</li><li>regex: ^[ -~]{0,30}$</li></td>
+</tr>
+<tr>
+<td>CREDITOR STATE</td>
+<td>A-2</td>
+<td>X (error)</td>
+<td>NY</td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 2</li><li>regex: ^[ -~]{0,2}$</li></td>
+</tr>
+<tr>
+<td>CREDITOR ZIP</td>
+<td>A/N-9</td>
+<td>X (error)</td>
+<td>10011</td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 9</li><li>regex: ^[ -~]{0,9}$</li></td>
+</tr>
+<tr>
+<td>PURPOSE OF DEBT OR OBLIGATION</td>
+<td>A/N-100</td>
+<td>X (error)</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 100</li><li>regex: ^[ -~]{0,100}$</li></td>
+</tr>
+<tr>
+<td>BEGINNING BALANCE (This Period)</td>
+<td>AMT-12</td>
+<td>X (error)</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: number</li><li>minimum: -99999999.99</li><li>maximum: 999999999.99</li></td>
+</tr>
+<tr>
+<td>INCURRED AMOUNT (This Period)</td>
+<td>AMT-12</td>
+<td>X (error)</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: number</li><li>minimum: -99999999.99</li><li>maximum: 999999999.99</li></td>
+</tr>
+<tr>
+<td>PAYMENT AMOUNT (This Period)</td>
+<td>AMT-12</td>
+<td>X (error)</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: number</li><li>minimum: -99999999.99</li><li>maximum: 999999999.99</li></td>
+</tr>
+<tr>
+<td>BALANCE AT CLOSE  (This Period)</td>
+<td>AMT-12</td>
+<td>X (error)</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: number</li><li>minimum: -99999999.99</li><li>maximum: 999999999.99</li></td>
+</tr>
+</table></body></html>

@@ -1,0 +1,538 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Overpass:300,400,600,800">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<link rel="stylesheet" type="text/css" href="schema_doc.css">
+    <script src="https://use.fontawesome.com/facf9fa52c.js"></script>
+    <script src="schema_doc.min.js"></script>
+    <meta charset="utf-8"/>
+        
+    
+    <title>FEC Committee</title>
+</head>
+<body onload="anchorOnLoad();" id="root">
+
+    <div class="breadcrumbs"></div> <h1>FEC Committee</h1><span class="badge badge-dark value-type">Type: object</span><br/>
+<span class="description"><p>Committee Contact</p>
+</span><h2 class="handle">
+    <label>Conditional Subschema</label>
+</h2>
+<p>If the conditions in the "If" tab are respected, then the conditions in the "Then" tab should be respected.
+    Otherwise, the conditions in the "Else" tab should be respected.</p>
+<ul class="nav nav-tabs" id="root_condition_tabs" role="tablist">
+    
+    <li class="nav-item">
+        <a class="nav-link active"
+           id="if" data-toggle="tab" href="#tab-pane_if" role="tab"
+           onclick="setAnchor('#if')"
+        >If</a>
+    </li>
+
+    
+        
+        <li class="nav-item">
+            <a class="nav-link"
+               id="then" data-toggle="tab" href="#tab-pane_then" role="tab"
+               onclick="setAnchor('#then')"
+            >Then</a>
+        </li></ul>
+
+<div class="tab-content card">
+    
+    <div class="tab-pane fade card-body active show"
+         id="tab-pane_if" role="tabpanel">
+        
+
+    <div class="breadcrumbs">root
+        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-right-short" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path
+                fill-rule="evenodd"
+                d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"
+            />
+        </svg>
+    <a href="#if" onclick="anchorLink('if')">if</a></div><span class="badge badge-dark value-type">Type: object</span><br/>
+
+        
+
+        
+        
+
+        
+<div class="accordion" id="accordionif_country">
+    <div class="card">
+        <div class="card-header" id="headingif_country">
+            <h2 class="mb-0">
+                <button class="btn btn-link property-name-button" type="button" data-toggle="collapse" data-target="#if_country"
+                        aria-expanded="" aria-controls="if_country" onclick="setAnchor('#if_country')"><span class="property-name">country</span> <span class="badge badge-warning required-property">Required</span></button>
+            </h2>
+        </div>
+
+        <div id="if_country"
+             class="collapse property-definition-div" aria-labelledby="headingif_country"
+             data-parent="#accordionif_country">
+            <div class="card-body pl-5">
+
+    <div class="breadcrumbs">root
+        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-right-short" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path
+                fill-rule="evenodd"
+                d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"
+            />
+        </svg>
+    <a href="#if" onclick="anchorLink('if')">if</a>
+        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-right-short" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path
+                fill-rule="evenodd"
+                d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"
+            />
+        </svg>
+    <a href="#if_country" onclick="anchorLink('if_country')">country</a></div><span class="badge badge-dark value-type">Type: const</span><br/>
+<span class="const-value" id="if_country_const">Specific value: <code>"USA"</code></span>
+        
+
+        
+        
+
+        
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+
+    
+        
+        <div class="tab-pane fade card-body"
+             id="tab-pane_then" role="tabpanel">
+            
+
+    <div class="breadcrumbs">root
+        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-right-short" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path
+                fill-rule="evenodd"
+                d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"
+            />
+        </svg>
+    <a href="#then" onclick="anchorLink('then')">then</a></div><span class="badge badge-dark value-type">Type: object</span><br/>
+
+        
+
+        
+        
+
+        
+<div class="accordion" id="accordionthen_zip">
+    <div class="card">
+        <div class="card-header" id="headingthen_zip">
+            <h2 class="mb-0">
+                <button class="btn btn-link property-name-button" type="button" data-toggle="collapse" data-target="#then_zip"
+                        aria-expanded="" aria-controls="then_zip" onclick="setAnchor('#then_zip')"><span class="property-name">zip</span> <span class="badge badge-warning required-property">Required</span></button>
+            </h2>
+        </div>
+
+        <div id="then_zip"
+             class="collapse property-definition-div" aria-labelledby="headingthen_zip"
+             data-parent="#accordionthen_zip">
+            <div class="card-body pl-5">
+
+    <div class="breadcrumbs">root
+        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-right-short" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path
+                fill-rule="evenodd"
+                d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"
+            />
+        </svg>
+    <a href="#then" onclick="anchorLink('then')">then</a>
+        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-right-short" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path
+                fill-rule="evenodd"
+                d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"
+            />
+        </svg>
+    <a href="#then_zip" onclick="anchorLink('then_zip')">zip</a></div><span class="badge badge-dark value-type">Type: string</span><br/>
+
+        
+
+        
+        
+
+        
+            </div>
+        </div>
+    </div>
+</div>
+        </div></div>
+        
+
+        
+        
+
+        
+<div class="accordion" id="accordiontype">
+    <div class="card">
+        <div class="card-header" id="headingtype">
+            <h2 class="mb-0">
+                <button class="btn btn-link property-name-button" type="button" data-toggle="collapse" data-target="#type"
+                        aria-expanded="" aria-controls="type" onclick="setAnchor('#type')"><span class="property-name">type</span> <span class="badge badge-warning required-property">Required</span></button>
+            </h2>
+        </div>
+
+        <div id="type"
+             class="collapse property-definition-div" aria-labelledby="headingtype"
+             data-parent="#accordiontype">
+            <div class="card-body pl-5">
+
+    <div class="breadcrumbs">root
+        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-right-short" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path
+                fill-rule="evenodd"
+                d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"
+            />
+        </svg>
+    <a href="#type" onclick="anchorLink('type')">type</a></div><h4>TYPE</h4><span class="badge badge-dark value-type">Type: const</span><br/>
+<span class="const-value" id="type_const">Specific value: <code>"COM"</code></span>
+        
+
+        
+        
+
+        <br/>
+<div class="badge badge-secondary">Example:</div>
+<br/><div id="type_ex1" class="jumbotron examples"><div class="highlight"><pre><span></span><span class="s2">&quot;COM&quot;</span>
+</pre></div>
+</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="accordion" id="accordioncommittee_id">
+    <div class="card">
+        <div class="card-header" id="headingcommittee_id">
+            <h2 class="mb-0">
+                <button class="btn btn-link property-name-button" type="button" data-toggle="collapse" data-target="#committee_id"
+                        aria-expanded="" aria-controls="committee_id" onclick="setAnchor('#committee_id')"><span class="property-name">committee_id</span> <span class="badge badge-warning required-property">Required</span></button>
+            </h2>
+        </div>
+
+        <div id="committee_id"
+             class="collapse property-definition-div" aria-labelledby="headingcommittee_id"
+             data-parent="#accordioncommittee_id">
+            <div class="card-body pl-5">
+
+    <div class="breadcrumbs">root
+        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-right-short" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path
+                fill-rule="evenodd"
+                d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"
+            />
+        </svg>
+    <a href="#committee_id" onclick="anchorLink('committee_id')">committee_id</a></div><h4>COMMITTEE ID</h4><span class="badge badge-dark value-type">Type: string</span><br/>
+<span class="pattern-value" id="committee_id_pattern">Must match regular expression: <code>^C[0-9]{8}$</code></span>
+        
+
+        
+        <p><span class="badge badge-light restriction min-length-restriction" id="committee_id_minLength">Must be at least <code>1</code> characters long</span></p><p><span class="badge badge-light restriction max-length-restriction" id="committee_id_maxLength">Must be at most <code>9</code> characters long</span></p>
+
+        <br/>
+<div class="badge badge-secondary">Example:</div>
+<br/><div id="committee_id_ex1" class="jumbotron examples"><div class="highlight"><pre><span></span><span class="s2">&quot;c01234567&quot;</span>
+</pre></div>
+</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="accordion" id="accordionname">
+    <div class="card">
+        <div class="card-header" id="headingname">
+            <h2 class="mb-0">
+                <button class="btn btn-link property-name-button" type="button" data-toggle="collapse" data-target="#name"
+                        aria-expanded="" aria-controls="name" onclick="setAnchor('#name')"><span class="property-name">name</span> <span class="badge badge-warning required-property">Required</span></button>
+            </h2>
+        </div>
+
+        <div id="name"
+             class="collapse property-definition-div" aria-labelledby="headingname"
+             data-parent="#accordionname">
+            <div class="card-body pl-5">
+
+    <div class="breadcrumbs">root
+        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-right-short" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path
+                fill-rule="evenodd"
+                d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"
+            />
+        </svg>
+    <a href="#name" onclick="anchorLink('name')">name</a></div><h4>NAME</h4><span class="badge badge-dark value-type">Type: string</span><br/>
+<span class="pattern-value" id="name_pattern">Must match regular expression: <code>^[ -~]{0,200}$</code></span>
+        
+
+        
+        <p><span class="badge badge-light restriction min-length-restriction" id="name_minLength">Must be at least <code>1</code> characters long</span></p><p><span class="badge badge-light restriction max-length-restriction" id="name_maxLength">Must be at most <code>200</code> characters long</span></p>
+
+        <br/>
+<div class="badge badge-secondary">Example:</div>
+<br/><div id="name_ex1" class="jumbotron examples"><div class="highlight"><pre><span></span><span class="s2">&quot;SEIU COPE (Service Employees International Union Committee On Political Education)&quot;</span>
+</pre></div>
+</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="accordion" id="accordionstreet_1">
+    <div class="card">
+        <div class="card-header" id="headingstreet_1">
+            <h2 class="mb-0">
+                <button class="btn btn-link property-name-button" type="button" data-toggle="collapse" data-target="#street_1"
+                        aria-expanded="" aria-controls="street_1" onclick="setAnchor('#street_1')"><span class="property-name">street_1</span> <span class="badge badge-warning required-property">Required</span></button>
+            </h2>
+        </div>
+
+        <div id="street_1"
+             class="collapse property-definition-div" aria-labelledby="headingstreet_1"
+             data-parent="#accordionstreet_1">
+            <div class="card-body pl-5">
+
+    <div class="breadcrumbs">root
+        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-right-short" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path
+                fill-rule="evenodd"
+                d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"
+            />
+        </svg>
+    <a href="#street_1" onclick="anchorLink('street_1')">street_1</a></div><h4>STREET  1</h4><span class="badge badge-dark value-type">Type: string</span><br/>
+<span class="pattern-value" id="street_1_pattern">Must match regular expression: <code>^[ -~]{0,34}$</code></span>
+        
+
+        
+        <p><span class="badge badge-light restriction min-length-restriction" id="street_1_minLength">Must be at least <code>1</code> characters long</span></p><p><span class="badge badge-light restriction max-length-restriction" id="street_1_maxLength">Must be at most <code>34</code> characters long</span></p>
+
+        <br/>
+<div class="badge badge-secondary">Example:</div>
+<br/><div id="street_1_ex1" class="jumbotron examples"><div class="highlight"><pre><span></span><span class="s2">&quot;123 Main Street&quot;</span>
+</pre></div>
+</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="accordion" id="accordionstreet_2">
+    <div class="card">
+        <div class="card-header" id="headingstreet_2">
+            <h2 class="mb-0">
+                <button class="btn btn-link property-name-button" type="button" data-toggle="collapse" data-target="#street_2"
+                        aria-expanded="" aria-controls="street_2" onclick="setAnchor('#street_2')"><span class="property-name">street_2</span></button>
+            </h2>
+        </div>
+
+        <div id="street_2"
+             class="collapse property-definition-div" aria-labelledby="headingstreet_2"
+             data-parent="#accordionstreet_2">
+            <div class="card-body pl-5">
+
+    <div class="breadcrumbs">root
+        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-right-short" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path
+                fill-rule="evenodd"
+                d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"
+            />
+        </svg>
+    <a href="#street_2" onclick="anchorLink('street_2')">street_2</a></div><h4>STREET  2</h4><span class="badge badge-dark value-type">Type: string or null</span><br/>
+<span class="pattern-value" id="street_2_pattern">Must match regular expression: <code>^[ -~]{0,34}$</code></span>
+        
+
+        
+        
+
+        
+            </div>
+        </div>
+    </div>
+</div>
+<div class="accordion" id="accordioncity">
+    <div class="card">
+        <div class="card-header" id="headingcity">
+            <h2 class="mb-0">
+                <button class="btn btn-link property-name-button" type="button" data-toggle="collapse" data-target="#city"
+                        aria-expanded="" aria-controls="city" onclick="setAnchor('#city')"><span class="property-name">city</span> <span class="badge badge-warning required-property">Required</span></button>
+            </h2>
+        </div>
+
+        <div id="city"
+             class="collapse property-definition-div" aria-labelledby="headingcity"
+             data-parent="#accordioncity">
+            <div class="card-body pl-5">
+
+    <div class="breadcrumbs">root
+        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-right-short" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path
+                fill-rule="evenodd"
+                d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"
+            />
+        </svg>
+    <a href="#city" onclick="anchorLink('city')">city</a></div><h4>CITY</h4><span class="badge badge-dark value-type">Type: string</span><br/>
+<span class="pattern-value" id="city_pattern">Must match regular expression: <code>^[ -~]{0,30}$</code></span>
+        
+
+        
+        <p><span class="badge badge-light restriction min-length-restriction" id="city_minLength">Must be at least <code>1</code> characters long</span></p><p><span class="badge badge-light restriction max-length-restriction" id="city_maxLength">Must be at most <code>30</code> characters long</span></p>
+
+        <br/>
+<div class="badge badge-secondary">Example:</div>
+<br/><div id="city_ex1" class="jumbotron examples"><div class="highlight"><pre><span></span><span class="s2">&quot;Anytown&quot;</span>
+</pre></div>
+</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="accordion" id="accordionstate">
+    <div class="card">
+        <div class="card-header" id="headingstate">
+            <h2 class="mb-0">
+                <button class="btn btn-link property-name-button" type="button" data-toggle="collapse" data-target="#state"
+                        aria-expanded="" aria-controls="state" onclick="setAnchor('#state')"><span class="property-name">state</span> <span class="badge badge-warning required-property">Required</span></button>
+            </h2>
+        </div>
+
+        <div id="state"
+             class="collapse property-definition-div" aria-labelledby="headingstate"
+             data-parent="#accordionstate">
+            <div class="card-body pl-5">
+
+    <div class="breadcrumbs">root
+        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-right-short" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path
+                fill-rule="evenodd"
+                d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"
+            />
+        </svg>
+    <a href="#state" onclick="anchorLink('state')">state</a></div><h4>STATE</h4><span class="badge badge-dark value-type">Type: string</span><br/>
+<span class="pattern-value" id="state_pattern">Must match regular expression: <code>^[ -~]{0,2}$</code></span>
+        
+
+        
+        <p><span class="badge badge-light restriction min-length-restriction" id="state_minLength">Must be at least <code>1</code> characters long</span></p><p><span class="badge badge-light restriction max-length-restriction" id="state_maxLength">Must be at most <code>2</code> characters long</span></p>
+
+        <br/>
+<div class="badge badge-secondary">Example:</div>
+<br/><div id="state_ex1" class="jumbotron examples"><div class="highlight"><pre><span></span><span class="s2">&quot;WA&quot;</span>
+</pre></div>
+</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="accordion" id="accordionzip">
+    <div class="card">
+        <div class="card-header" id="headingzip">
+            <h2 class="mb-0">
+                <button class="btn btn-link property-name-button" type="button" data-toggle="collapse" data-target="#zip"
+                        aria-expanded="" aria-controls="zip" onclick="setAnchor('#zip')"><span class="property-name">zip</span></button>
+            </h2>
+        </div>
+
+        <div id="zip"
+             class="collapse property-definition-div" aria-labelledby="headingzip"
+             data-parent="#accordionzip">
+            <div class="card-body pl-5">
+
+    <div class="breadcrumbs">root
+        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-right-short" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path
+                fill-rule="evenodd"
+                d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"
+            />
+        </svg>
+    <a href="#zip" onclick="anchorLink('zip')">zip</a></div><h4>ZIP</h4><span class="badge badge-dark value-type">Type: string or null</span><br/>
+<span class="pattern-value" id="zip_pattern">Must match regular expression: <code>^[ -~]{0,9}$</code></span>
+        
+
+        
+        
+
+        <br/>
+<div class="badge badge-secondary">Example:</div>
+<br/><div id="zip_ex1" class="jumbotron examples"><div class="highlight"><pre><span></span><span class="mf">981110123</span>
+</pre></div>
+</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="accordion" id="accordiontelephone">
+    <div class="card">
+        <div class="card-header" id="headingtelephone">
+            <h2 class="mb-0">
+                <button class="btn btn-link property-name-button" type="button" data-toggle="collapse" data-target="#telephone"
+                        aria-expanded="" aria-controls="telephone" onclick="setAnchor('#telephone')"><span class="property-name">telephone</span></button>
+            </h2>
+        </div>
+
+        <div id="telephone"
+             class="collapse property-definition-div" aria-labelledby="headingtelephone"
+             data-parent="#accordiontelephone">
+            <div class="card-body pl-5">
+
+    <div class="breadcrumbs">root
+        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-right-short" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path
+                fill-rule="evenodd"
+                d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"
+            />
+        </svg>
+    <a href="#telephone" onclick="anchorLink('telephone')">telephone</a></div><h4>TELEPHONE</h4><span class="badge badge-dark value-type">Type: string or null</span><br/>
+<span class="pattern-value" id="telephone_pattern">Must match regular expression: <code>^\+\d{1,3} \d{10}$</code></span>
+        
+
+        
+        
+
+        
+            </div>
+        </div>
+    </div>
+</div>
+<div class="accordion" id="accordioncountry">
+    <div class="card">
+        <div class="card-header" id="headingcountry">
+            <h2 class="mb-0">
+                <button class="btn btn-link property-name-button" type="button" data-toggle="collapse" data-target="#country"
+                        aria-expanded="" aria-controls="country" onclick="setAnchor('#country')"><span class="property-name">country</span> <span class="badge badge-warning required-property">Required</span></button>
+            </h2>
+        </div>
+
+        <div id="country"
+             class="collapse property-definition-div" aria-labelledby="headingcountry"
+             data-parent="#accordioncountry">
+            <div class="card-body pl-5">
+
+    <div class="breadcrumbs">root
+        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-right-short" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path
+                fill-rule="evenodd"
+                d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"
+            />
+        </svg>
+    <a href="#country" onclick="anchorLink('country')">country</a></div><h4>COUNTRY</h4><span class="badge badge-dark value-type">Type: string</span><br/>
+
+        
+
+        
+        
+
+        
+            </div>
+        </div>
+    </div>
+</div>
+
+    <footer>
+        <p class="generated-by-footer">Generated using <a href="https://github.com/coveooss/json-schema-for-humans">json-schema-for-humans</a> on 2025-07-09 at 11:02:45 -0400</p>
+    </footer></body>
+</html>

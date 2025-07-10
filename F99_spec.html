@@ -1,0 +1,198 @@
+<!DOCTYPE html><html lang="en"><head><title>F99</title><link rel="stylesheet" href="spec_table.css"></head><body><table><caption>Specification for F99</caption><tr>
+<th>FIELD DESCRIPTION</th>
+<th>TYPE</th>
+<th>REQUIRED</th>
+<th>SAMPLE DATA</th>
+<th>VALUE REFERENCE</th>
+<th>RULE REFERENCE</th>
+<th>FIELD FORM ASSOCIATION</th>
+<th>VALIDATION RULES</th>
+</tr>
+<tr>
+<td>FORM TYPE</td>
+<td>A/N-3</td>
+<td>X (error)</td>
+<td>F99</td>
+<td></td>
+<td>F99</td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>must equal: F99</li></td>
+</tr>
+<tr>
+<td>FILER COMMITTEE ID NUMBER</td>
+<td>A/N-9</td>
+<td>X (error)</td>
+<td>C00123456</td>
+<td>Filing Committee ID</td>
+<td></td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 9</li><li>max length: 9</li><li>regex: ^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$</li></td>
+</tr>
+<tr>
+<td>COMMITTEE NAME</td>
+<td>A/N-200</td>
+<td>X (error)</td>
+<td></td>
+<td></td>
+<td>Filing Committee's Name</td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 200</li><li>regex: ^[ -~]{0,200}$</li></td>
+</tr>
+<tr>
+<td>STREET 1</td>
+<td>A/N-34</td>
+<td>X (error)</td>
+<td></td>
+<td></td>
+<td>Committee's Street Address 1</td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 34</li><li>regex: ^[ -~]{0,34}$</li></td>
+</tr>
+<tr>
+<td>STREET 2</td>
+<td>A/N-34</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Committee's Street Address 2</td>
+<td></td>
+<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 34</li><li>regex: ^[ -~]{0,34}$</li></td>
+</tr>
+<tr>
+<td>CITY</td>
+<td>A/N-30</td>
+<td>X (error)</td>
+<td></td>
+<td></td>
+<td>Committee's City/Town</td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 30</li><li>regex: ^[ -~]{0,30}$</li></td>
+</tr>
+<tr>
+<td>STATE</td>
+<td>A-2</td>
+<td>X (error)</td>
+<td></td>
+<td></td>
+<td>Committee's State Code</td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 2</li><li>regex: ^[A-Z]{2}$</li></td>
+</tr>
+<tr>
+<td>ZIP</td>
+<td>A/N-9</td>
+<td>X (error)</td>
+<td></td>
+<td></td>
+<td>Committee's Zip Code</td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 9</li><li>regex: ^[ -~]{0,9}$</li></td>
+</tr>
+<tr>
+<td>TREASURER LAST NAME</td>
+<td>A/N-30</td>
+<td>X (error)</td>
+<td>Smith</td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 30</li><li>regex: ^[ -~]{0,30}$</li></td>
+</tr>
+<tr>
+<td>TREASURER FIRST NAME</td>
+<td>A/N-20</td>
+<td>X (error)</td>
+<td>Patrick</td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
+</tr>
+<tr>
+<td>TREASURER MIDDLE NAME</td>
+<td>A/N-20</td>
+<td></td>
+<td>Thomas</td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
+</tr>
+<tr>
+<td>TREASURER PREFIX</td>
+<td>A/N-10</td>
+<td></td>
+<td>Mr.</td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 10</li><li>regex: ^[ -~]{0,10}$</li></td>
+</tr>
+<tr>
+<td>TREASURER SUFFIX</td>
+<td>A/N-10</td>
+<td></td>
+<td>Jr.</td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 10</li><li>regex: ^[ -~]{0,10}$</li></td>
+</tr>
+<tr>
+<td>DATE SIGNED</td>
+<td>NUM-8</td>
+<td>X (error)</td>
+<td>20120729</td>
+<td>YYYYMMDD</td>
+<td></td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>regex: ^[0-9]{4}-[0-9]{2}-[0-9]{2}$</li></td>
+</tr>
+<tr>
+<td>TEXT CODE</td>
+<td>A/N-3</td>
+<td>X (error)</td>
+<td>MST</td>
+<td>Type of Miscellaneous Document:
+  'MSI'    = Disavowal Response                                                                         
+  'MSM'  = Filing Freq. Change Notice                                                                                                                           
+  'MST'   = Misc. Report to the FEC                                                                                                                           
+  'MSR'   = Form 3L Filing Frequency Chance Notice                                                                                                                           
+  'MSW'   = Loan Agreement</td>
+<td></td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>must be one of: ['MSI', 'MSM', 'MST', 'MSR', 'MSW']</li></td>
+</tr>
+<tr>
+<td>FILING FREQUENCY</td>
+<td>A-1</td>
+<td>X (conditional error)</td>
+<td>Q</td>
+<td>M = Monthly
+Q = Quarterly</td>
+<td>Required if TEXT CODE = MSM or MSR</td>
+<td></td>
+<td><ul><li>REQUIRED if TEXT_CODE matches regex: ^MSM|MSR$</li><li>must be one of: ['Q', 'M', None]</li></td>
+</tr>
+<tr>
+<td>PDF ATTACHMENT</td>
+<td>A/N-1</td>
+<td>X (conditional error)</td>
+<td></td>
+<td>X</td>
+<td>Required if PDF is attached</td>
+<td></td>
+<td><ul><li>type: boolean</li></td>
+</tr>
+<tr>
+<td>MESSAGE TEXT</td>
+<td>A/N-20000</td>
+<td>X (error)</td>
+<td></td>
+<td></td>
+<td>Everything following the [BEGINTEXT] marker, which is on its own row, will be treated as the body of the text message. It may include formatting, such as carriage return and line feed and tabs but may not exceed 20,000 characters (including spaces). When the text message is complete, the last line of the form 99 should be [ENDTEXT] marker on its own row.</td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 20000</li><li>regex: ^[ -~
+	]{1,20000}$</li></td>
+</tr>
+</table></body></html>

@@ -1,0 +1,76 @@
+*~
+*.egg-info
+*.EGG-INFO
+*.log
+*.pot
+*.pyc
+*.pyo
+.venv/
+build/
+dist/
+helloworld.db
+local_settings.py
+*.swp
+*/hist.txt
+*/CACHE
+*/package-lock.json
+*.editorconfig
+cov_profile/*
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# compiled output
+/dist
+/tmp
+/out-tsc
+
+# dependencies
+fecfile_validate_js/node_modules/*
+node_modules/*
+
+# IDEs and editors
+*.idea
+*.project
+*.classpath
+*.c9/
+*.launch
+*.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# misc
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+npm-debug.log
+yarn-error.log
+testem.log
+/typings
+*.env
+*/target
+
+### Bower ###
+*/bower_components
+*.bower-cache
+*.bower-registry
+*.bower-tmp
+
+# Spec Verification XLSX Sheets
+spec_verification/spec-sheets/*.xlsx
+spec_verification_report.txt
+
+# System Files
+.DS_Store
+Thumbs.db
+
+# package build output
+fecfile_validate_python/schema/*
+fecfile_validate_python/src/fecfile_validate/schema/*
+
+node_modules
