@@ -170,7 +170,7 @@ jobs:
             echo "----------------------------------------------------"
             eval $command
 
-  docs-build:
+  docs-build-and-deploy:
     docker:
       - image: cimg/python:3.12
       # - image: node:8.10.0
@@ -215,9 +215,41 @@ jobs:
           name: Deploy docs to gh-pages branch
           command: npx gh-pages --dist ~/project/docs/
 
+  docs-build:
+    docker:
+      - image: cimg/python:3.12
+      # - image: node:8.10.0
+
+    steps:
+      - checkout
+
+      - run:
+          name: Create unified requirements so CircleCI can cache them
+          command: |
+            cd ~/project/
+            ls -l
+            cat requirements.txt > requirements-all.txt
+            echo >> requirements-all.txt  # blank in case new newline at end of requirements.txt
+            cat requirements-test.txt >> requirements-all.txt
+
+      - python/install-packages:
+          pkg-manager: pip
+          app-dir: ~/project/
+          pip-dependency-file: requirements-all.txt
+
+      - run:
+          name: Generate schema docs
+          command: ../bin/generate-schema-docs.sh
+          working_directory: ~/project/schema
+
+      - persist_to_workspace:
+          root: ~/project
+          paths: docs
+
   docs-deploy:
     docker:
-      - image: node:8.10.0
+      - image: cimg/python:3.12
+      # - image: node:8.10.0
     steps:
       - checkout
       - attach_workspace:
@@ -256,4 +288,4 @@ workflows:
             - docs-build
           filters:
             branches:
-              only: feature/2091b
+              only: feature/2091
