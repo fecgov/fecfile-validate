@@ -229,20 +229,20 @@ workflows:
   test:
     jobs:
       - test:
-        filters:
-          branches:
-            ignore: gh\-pages
+          filters:
+            branches:
+              ignore: gh-pages
       - dependency-check:
-        filters:
-          branches:
-            ignore: gh\-pages
+          filters:
+            branches:
+              ignore: gh-pages
       - docs-build:
-        filters:
-          branches:
-            only: feature/2091
+          filters:
+            branches:
+              only: feature/2091
       - docs-deploy:
-        requires:
-          - docs-build
-        filters:
-          branches:
-            only: feature/2091
+          requires:
+            - docs-build
+          filters:
+            branches:
+              only: feature/2091
