@@ -204,7 +204,7 @@ jobs:
             git config user.name "apiinfo"
       - add_ssh_keys:
           fingerprints:
-            - "SHA256:Sq2uvovZr3cnJ5/lG9F8nkCRVTxiDUQ4XmFvGqW27vM"
+            - "1b:c5:ae:db:bf:f1:41:2f:41:8f:4c:ff:76:ec:6e:ee"
 
       - run:
           name: Generate schema docs
