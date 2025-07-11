@@ -170,55 +170,9 @@ jobs:
             echo "----------------------------------------------------"
             eval $command
 
-  docs-build-and-deploy:
-    docker:
-      - image: cimg/python:3.12
-      # - image: node:8.10.0
-
-    steps:
-      - checkout
-
-      - run:
-          name: Create unified requirements so CircleCI can cache them
-          command: |
-            cd ~/project/
-            ls -l
-            cat requirements.txt > requirements-all.txt
-            echo >> requirements-all.txt  # blank in case new newline at end of requirements.txt
-            cat requirements-test.txt >> requirements-all.txt
-
-      - python/install-packages:
-          pkg-manager: pip
-          app-dir: ~/project/
-          pip-dependency-file: requirements-all.txt
-
-      - node/install:
-          install-yarn: false
-          node-version: "16.13"
-      - node/install-packages:
-          pkg-manager: npm
-      - run:
-          name: Configure git
-          command: |
-            git config user.email "apiinfo@fec.gov"
-            git config user.name "apiinfo"
-      - add_ssh_keys:
-          fingerprints:
-            - "1b:c5:ae:db:bf:f1:41:2f:41:8f:4c:ff:76:ec:6e:ee"
-
-      - run:
-          name: Generate schema docs
-          command: ../bin/generate-schema-docs.sh
-          working_directory: ~/project/schema
-
-      - run:
-          name: Deploy docs to gh-pages branch
-          command: npx gh-pages --dist ~/project/docs/
-
   docs-build:
     docker:
       - image: cimg/python:3.12
-      # - image: node:8.10.0
 
     steps:
       - checkout
@@ -248,8 +202,8 @@ jobs:
 
   docs-deploy:
     docker:
-      - image: cimg/python:3.12
-      # - image: node:8.10.0
+      # - image: cimg/python:3.12
+      - image: node:8.10.0
     steps:
       - checkout
       - attach_workspace:
@@ -275,11 +229,15 @@ jobs:
 workflows:
   test:
     jobs:
-      - test
-      - dependency-check
+      - test:
+        filters:
+          branches:
+            ignore: gh-pages
+      - dependency-check:
+        filters:
+          branches:
+            ignore: gh-pages
       - docs-build:
-          # requires:
-          #   - test
           filters:
             branches:
               only: feature/2091
