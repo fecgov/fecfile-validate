@@ -207,6 +207,9 @@ jobs:
       - checkout
       - attach_workspace:
           at: ~/project/docs/
+      - run:
+          name: Disable jekyll builds
+          command: touch ~/project/docs/.nojekyll
       - node/install:
           install-yarn: false
           node-version: "16.13"
