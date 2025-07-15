@@ -234,11 +234,13 @@ workflows:
       - test:
           filters:
             branches:
-              ignore: gh-pages
+              ignore:
+                - ^gh-pages$
       - dependency-check:
           filters:
             branches:
-              ignore: gh-pages
+              ignore:
+                - ^gh-pages$
       - docs-build:
           filters:
             branches:
