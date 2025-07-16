@@ -224,8 +224,11 @@ jobs:
           fingerprints:
             - "1b:c5:ae:db:bf:f1:41:2f:41:8f:4c:ff:76:ec:6e:ee"
       - run:
+          name: Copy CircleCI config to docs
+          command: cp -r ~/project/.circleci ~/project/docs
+      - run:
           name: Deploy docs to gh-pages branch
-          command: npx gh-pages --dist ~/project/docs/
+          command: npx gh-pages --dotfiles --dist ~/project/docs/
 
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
