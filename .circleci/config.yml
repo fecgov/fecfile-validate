@@ -205,14 +205,8 @@ jobs:
       - image: cimg/python:3.12
     steps:
       - checkout
-      - run:
-          name: Debugging docs
-          command: ls -a ~/project/docs/
       - attach_workspace:
           at: ~/project/
-      - run:
-          name: Debugging docs 2
-          command: ls -a ~/project/docs/
       - run:
           name: Disable jekyll builds
           command: touch ~/project/docs/.nojekyll
@@ -230,9 +224,6 @@ jobs:
           fingerprints:
             - "1b:c5:ae:db:bf:f1:41:2f:41:8f:4c:ff:76:ec:6e:ee"
       - run:
-          name: Debugging docs 3
-          command: ls -a ~/project/docs/
-      - run:
           name: Deploy docs to gh-pages branch
           command: npx gh-pages --dotfiles --dist ~/project/docs/
 
@@ -240,14 +231,8 @@ jobs:
 workflows:
   test:
     jobs:
-      - test:
-          filters:
-            branches:
-              ignore: gh-pages
-      - dependency-check:
-          filters:
-            branches:
-              ignore: gh-pages
+      - test
+      - dependency-check
       - docs-build:
           filters:
             branches:
