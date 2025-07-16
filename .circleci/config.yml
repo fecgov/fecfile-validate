@@ -170,9 +170,85 @@ jobs:
             echo "----------------------------------------------------"
             eval $command
 
+  docs-build:
+    docker:
+      - image: cimg/python:3.12
+
+    steps:
+      - checkout
+
+      - run:
+          name: Create unified requirements so CircleCI can cache them
+          command: |
+            cd ~/project/
+            ls -l
+            cat requirements.txt > requirements-all.txt
+            echo >> requirements-all.txt  # blank in case new newline at end of requirements.txt
+            cat requirements-test.txt >> requirements-all.txt
+
+      - python/install-packages:
+          pkg-manager: pip
+          app-dir: ~/project/
+          pip-dependency-file: requirements-all.txt
+
+      - run:
+          name: Generate schema docs
+          command: ../bin/generate-schema-docs.sh
+          working_directory: ~/project/schema
+
+      - persist_to_workspace:
+          root: ~/project
+          paths: docs
+
+  docs-deploy:
+    docker:
+      - image: cimg/python:3.12
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/project/docs/
+      - run:
+          name: Disable jekyll builds
+          command: touch ~/project/docs/.nojekyll
+      - node/install:
+          install-yarn: false
+          node-version: "16.13"
+      - node/install-packages:
+          pkg-manager: npm
+      - run:
+          name: Configure git
+          command: |
+            git config user.email "apiinfo@fec.gov"
+            git config user.name "apiinfo"
+      - add_ssh_keys:
+          fingerprints:
+            - "1b:c5:ae:db:bf:f1:41:2f:41:8f:4c:ff:76:ec:6e:ee"
+      - run:
+          name: Copy CircleCI config to docs
+          command: cp -r ~/project/.circleci ~/project/docs
+      - run:
+          name: Deploy docs to gh-pages branch
+          command: npx gh-pages --dotfiles --dist ~/project/docs/
+
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
   test:
     jobs:
-      - test
-      - dependency-check
+      - test:
+          filters:
+            branches:
+              ignore: gh-pages
+      - dependency-check:
+          filters:
+            branches:
+              ignore: gh-pages
+      - docs-build:
+          filters:
+            branches:
+              only: feature/2091
+      - docs-deploy:
+          requires:
+            - docs-build
+          filters:
+            branches:
+              only: feature/2091
