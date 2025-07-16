@@ -63,7 +63,7 @@ def get_conditions(all_of):
         if "enum" in all_of["if"]["properties"][q]:
             conditions.append(
                 f"{q.upper()} one of {all_of['if']['properties'][q]['enum']}"
-            )
+                )
         if "minimum" in all_of["if"]["properties"][q]:
             conditions.append(
                 f"{q.upper()} >= {all_of['if']['properties'][q]['minimum']}"
