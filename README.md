@@ -60,4 +60,4 @@ To update this documentation when changes are made to the JSON validation files,
 2) cd schema
 3) ../bin/generate_schema_docs.sh
 
-See also [Additional Developer Notes](https://github.com/fecgov/fecfile-web-api/wiki/Additional-Developer-Notes).
+### See also [Additional Developer Notes](https://github.com/fecgov/fecfile-web-api/wiki/Additional-Developer-Notes).
