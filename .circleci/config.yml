@@ -4,8 +4,8 @@ version: 2.1
 # See: https://circleci.com/docs/2.0/orb-intro/
 orbs:
   # See the orb documentation here: https://circleci.com/developer/orbs/orb/circleci/python
-  python: circleci/python@1.2
-  node: circleci/node@5.0.2
+  python: circleci/python@3.2.0
+  node: circleci/node@7.1.1
 
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
@@ -13,7 +13,7 @@ jobs:
     # These next lines defines a Docker executors: https://circleci.com/docs/2.0/executor-types/
     # A list of available CircleCI Docker convenience images are available here: https://circleci.com/developer/images/image/cimg/python
     docker:
-      - image: cimg/python:3.8-node
+      - image: cimg/python:3.13-node
 
     steps:
       - checkout
@@ -41,10 +41,6 @@ jobs:
 
       - store_artifacts:
           path: htmlcov_py
-
-      - node/install:
-          install-yarn: false
-          node-version: "16.13"
 
       - node/install-packages:
           pkg-manager: npm
@@ -141,7 +137,7 @@ jobs:
 
   dependency-check:
     docker:
-      - image: cimg/python:3.8
+      - image: cimg/python:3.13
 
     steps:
       - checkout
@@ -155,7 +151,7 @@ jobs:
           command: |
             export today=$(date "+%Y-%m-%d")
 
-            # gather up the -i ignore IDs fro safety check
+            # gather up the -i ignore IDs for safety check
             export ignores=$(
             grep -vE "^\s*#" .safety.dependency.ignore |  # print out any non-comment line
               grep "[0-9]" |  # filter out any line that doesn't have a number in it
@@ -172,7 +168,7 @@ jobs:
 
   docs-build:
     docker:
-      - image: cimg/python:3.12
+      - image: cimg/python:3.13
 
     steps:
       - checkout
@@ -202,7 +198,7 @@ jobs:
 
   docs-deploy:
     docker:
-      - image: cimg/python:3.12
+      - image: cimg/python:3.13
     steps:
       - checkout
       - attach_workspace:
@@ -210,9 +206,6 @@ jobs:
       - run:
           name: Disable jekyll builds
           command: touch ~/project/docs/.nojekyll
-      - node/install:
-          install-yarn: false
-          node-version: "16.13"
       - node/install-packages:
           pkg-manager: npm
       - run:
