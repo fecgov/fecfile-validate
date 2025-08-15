@@ -60,17 +60,4 @@ To update this documentation when changes are made to the JSON validation files,
 2) cd schema
 3) ../bin/generate_schema_docs.sh
 
-### Git Secrets
-Set up git secrets to protect oneself from committing sensitive information such as passwords to the repository.
-- First install AWS git-secret utility in your PATH so it can be run at the command line: https://github.com/awslabs/git-secrets#installing-git-secrets
-- Pull the script to install git-secrets globally on your local machine. This only has to be done one time as you clone the different fecfile github repositories: https://github.com/fecgov/fecfile-web-api/blob/main/install-git-secrets-hook.sh
-- Once you have git-secrets installed, run the fecfile-online/install-git-secrets-hook.sh shell script in the root directory of your cloned fecfile-online repo to install the pre-commit hooks.
-NOTE: The pre-commit hook is installed GLOBALLY by default so commits to all cloned repositories on your computer will be scanned for sensitive data. See the comments at the top of the script for local install options.
-- See git-secrets README for more features: https://github.com/awslabs/git-secrets#readme
-
-### Commit local code changes to origin daily
-As a best practice policy, please commit any feature code changes made during the day to origin each evening before signing off for the day.
-
-### Google-style inline documentation
-The project is using the Google Python Style Guide as the baseline to keep code style consistent across project repositories.
-See here for comment style rules: https://google.github.io/styleguide/pyguide.html#38-comments-and-docstrings
+### See also [Additional Developer Notes](https://github.com/fecgov/fecfile-web-api/wiki/Additional-Developer-Notes).
