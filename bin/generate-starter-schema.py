@@ -137,7 +137,7 @@ def convert_row_to_property(row, sheet_has_autopopulate):  # noqa
             prop["type"] = "string"
             prop["minLength"] = 0
             prop["maxLength"] = int(length)
-            prop["pattern"] = f"^[ -~]{0,9}$"
+            prop["pattern"] = f"^[ -~]{0, 9}$"
 
     if sample_data:
         prop["examples"] = [sample_data]
