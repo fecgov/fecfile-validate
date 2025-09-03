@@ -3,13 +3,10 @@
 
 <head>
     <link rel=stylesheet type=text/css href="https://fonts.googleapis.com/css?family=Overpass:300,400,600,800">
-    <script src=https://code.jquery.com/jquery-3.4.1.min.js
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin=anonymous></script>
-    <link href=https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css rel=stylesheet
-        integrity=sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T crossorigin=anonymous>
-    <script src=https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js
-        integrity=sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM
-        crossorigin=anonymous></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin=anonymous></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin=anonymous></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel=stylesheet integrity=sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T crossorigin=anonymous>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"	integrity=sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM crossorigin=anonymous></script>
     <link rel=stylesheet type=text/css href=schema_doc.css>
     <link rel=stylesheet type=text/css href=spec_table.css>
     <script src=schema_doc.min.js></script>
@@ -22,8 +19,8 @@
 <hr>
 
 <h5>FORMS & SCHEDULES</h5>
-<table>
-    <caption>List of forms and schdules with links to schema and specification</caption>
+<table style="width: 50%">
+    <caption>List of forms and schedules with links to schema and specifications</caption>
     <tr>
         <th>Form/Schedule</th>
         <th>Description</th>
@@ -46,7 +43,7 @@
     </tr>
     <tr>
         <td>TEXT</td>
-        <td>TEXT - MISC. TEXT RELATED TO A REPORT, SCHEDULE OR ITEMIZATION</td>
+        <td>TEXT - MISC. TEXT RELATED TO A REPORT, SCHEDULE, OR ITEMIZATION</td>
         <td>
             <div class="link"><a href="https://github.com/fecgov/fecfile-validate/blob/develop/schema/Text.json" target="_blank" rel="noopener">json</a></div>
         </td>
@@ -172,6 +169,7 @@
         </td>
         <td>
             <div class="link"><a href="SchC2_spec.html" target="_blank" rel="noopener">spec</a></div>
+        </td>
     </tr>
     <tr>
         <td>Schedule D</td>
@@ -215,7 +213,7 @@
 </table>
 <h5>ENTITIES</h5>
 <table style="width: 50%">
-    <caption>List of entities with links to schema and specification</caption>
+    <caption>List of entities with links to schema and specifications</caption>
     <tr>
         <th>Entity</th>
         <th>Description</th>
@@ -276,10 +274,9 @@
         </td>
     </tr>
 </table>
-
 <h5>RECEIPTS</h5>
 <table style="width: 50%">
-    <caption>List of receipt transaction types with links to schema and specification</caption>
+    <caption>List of receipt transaction types with links to schema and specifications</caption>
     <tr>
         <th>Transaction Type Identifier</th>
         <th>Description</th>
@@ -287,7 +284,6 @@
         <th>DOC</th>
         <th>Specification</th>
     </tr>
-
     <tr>
         <td>BUSINESS_LABOR_NON_CONTRIBUTION_ACCOUNT</td>
         <td></td>
@@ -301,7 +297,6 @@
             <div class="link"><a href="BUSINESS_LABOR_NON_CONTRIBUTION_ACCOUNT_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>EARMARK_MEMO</td>
         <td></td>
@@ -315,8 +310,6 @@
             <div class="link"><a href="EARMARK_MEMO_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
-
     <tr>
         <td>EARMARK_RECEIPT</td>
         <td></td>
@@ -330,7 +323,6 @@
             <div class="link"><a href="EARMARK_RECEIPT_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>INDIVIDUAL_JF_TRANSFER_MEMO</td>
         <td></td>
@@ -344,7 +336,6 @@
             <div class="link"><a href="INDIVIDUAL_JF_TRANSFER_MEMO_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>INDIVIDUAL_NATIONAL_PARTY_CONVENTION_ACCOUNT</td>
         <td></td>
@@ -358,7 +349,6 @@
             <div class="link"><a href="INDIVIDUAL_NATIONAL_PARTY_CONVENTION_ACCOUNT_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>INDIVIDUAL_NATIONAL_PARTY_CONVENTION_JF_TRANSFER_MEMO</td>
         <td></td>
@@ -372,7 +362,6 @@
             <div class="link"><a href="INDIVIDUAL_NATIONAL_PARTY_CONVENTION_JF_TRANSFER_MEMO_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>INDIVIDUAL_RECEIPT</td>
         <td></td>
@@ -386,7 +375,6 @@
             <div class="link"><a href="INDIVIDUAL_RECEIPT_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>INDIVIDUAL_RECEIPT_NON_CONTRIBUTION_ACCOUNT</td>
         <td></td>
@@ -400,7 +388,6 @@
             <div class="link"><a href="INDIVIDUAL_RECEIPT_NON_CONTRIBUTION_ACCOUNT_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>INDIVIDUAL_RECOUNT_RECEIPT</td>
         <td></td>
@@ -414,7 +401,6 @@
             <div class="link"><a href="INDIVIDUAL_RECOUNT_RECEIPT_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>INDIVIDUAL_NATIONAL_PARTY_HEADQUARTERS_ACCOUNT</td>
         <td></td>
@@ -467,7 +453,6 @@
             <div class="link"><a href="PAC_NATIONAL_PARTY_CONVENTION_ACCOUNT_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>PAC_NATIONAL_PARTY_HEADQUARTERS_ACCOUNT</td>
         <td></td>
@@ -481,7 +466,6 @@
             <div class="link"><a href="PAC_NATIONAL_PARTY_HEADQUARTERS_ACCOUNT_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>PARTNERSHIP_RECOUNT_ACCOUNT_RECEIPT</td>
         <td></td>
@@ -495,7 +479,6 @@
             <div class="link"><a href="PARTNERSHIP_RECOUNT_ACCOUNT_RECEIPT_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>PARTNERSHIP_ATTRIBUTION_RECOUNT_ACCOUNT_RECEIPT_MEMO</td>
         <td></td>
@@ -509,7 +492,6 @@
             <div class="link"><a href="PARTNERSHIP_ATTRIBUTION_RECOUNT_ACCOUNT_RECEIPT_MEMO_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>PARTNERSHIP_NATIONAL_PARTY_RECOUNT_ACCOUNT</td>
         <td></td>
@@ -523,7 +505,6 @@
             <div class="link"><a href="NATIONAL_PARTY_PARTNERSHIP_RECEIPTS_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>PARTNERSHIP_ATTRIBUTION_NATIONAL_PARTY_RECOUNT_ACCOUNT_MEMO</td>
         <td></td>
@@ -537,7 +518,6 @@
             <div class="link"><a href="NATIONAL_PARTY_PARTNERSHIP_MEMOS_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>PARTNERSHIP_NATIONAL_PARTY_HEADQUARTERS_ACCOUNT</td>
         <td></td>
@@ -551,7 +531,6 @@
             <div class="link"><a href="NATIONAL_PARTY_PARTNERSHIP_RECEIPTS_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>PARTNERSHIP_ATTRIBUTION_NATIONAL_PARTY_HEADQUARTERS_ACCOUNT_MEMO</td>
         <td></td>
@@ -565,7 +544,6 @@
             <div class="link"><a href="NATIONAL_PARTY_PARTNERSHIP_MEMOS_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>PARTNERSHIP_NATIONAL_PARTY_CONVENTION_ACCOUNT</td>
         <td></td>
@@ -579,7 +557,6 @@
             <div class="link"><a href="NATIONAL_PARTY_PARTNERSHIP_RECEIPTS_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>PARTNERSHIP_ATTRIBUTION_NATIONAL_PARTY_CONVENTION_ACCOUNT_MEMO</td>
         <td></td>
@@ -593,7 +570,6 @@
             <div class="link"><a href="NATIONAL_PARTY_PARTNERSHIP_MEMOS_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>PARTNERSHIP_RECEIPT</td>
         <td></td>
@@ -607,7 +583,6 @@
             <div class="link"><a href="PARTNERSHIP_RECEIPT_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>PARTY_NATIONAL_PARTY_HEADQUARTERS_ACCOUNT</td>
         <td></td>
@@ -621,7 +596,6 @@
             <div class="link"><a href="PARTY_NATIONAL_PARTY_HEADQUARTERS_ACCOUNT_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>PARTY_NATIONAL_PARTY_RECOUNT_ACCOUNT</td>
         <td></td>
@@ -635,7 +609,6 @@
             <div class="link"><a href="PARTY_NATIONAL_PARTY_RECOUNT_ACCOUNT_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>PARTY_NATIONAL_PARTY_CONVENTION_ACCOUNT</td>
         <td></td>
@@ -649,7 +622,6 @@
             <div class="link"><a href="PARTY_NATIONAL_PARTY_CONVENTION_ACCOUNT_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>JF_TRANSFER_NATIONAL_PARTY_CONVENTION_ACCOUNT</td>
         <td></td>
@@ -663,7 +635,6 @@
             <div class="link"><a href="JF_TRANSFER_NATIONAL_PARTY_CONVENTION_ACCOUNT_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>JF_TRANSFER_NATIONAL_PARTY_HEADQUARTERS_ACCOUNT</td>
         <td></td>
@@ -677,7 +648,6 @@
             <div class="link"><a href="JF_TRANSFER_NATIONAL_PARTY_HEADQUARTERS_ACCOUNT_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>INDIVIDUAL_NATIONAL_PARTY_HEADQUARTERS_JF_TRANSFER_MEMO</td>
         <td></td>
@@ -691,7 +661,6 @@
             <div class="link"><a href="INDIVIDUAL_NATIONAL_PARTY_HEADQUARTERS_JF_TRANSFER_MEMO_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>PAC_NATIONAL_PARTY_HEADQUARTERS_JF_TRANSFER_MEMO</td>
         <td></td>
@@ -705,7 +674,6 @@
             <div class="link"><a href="PAC_NATIONAL_PARTY_HEADQUARTERS_JF_TRANSFER_MEMO_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-    
     <tr>
         <td>JF_TRANSFER_NATIONAL_PARTY_RECOUNT_ACCOUNT</td>
         <td></td>
@@ -719,7 +687,6 @@
             <div class="link"><a href="JF_TRANSFER_NATIONAL_PARTY_RECOUNT_ACCOUNT_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-    
     <tr>
         <td>JOINT_FUNDRAISING_TRANSFER</td>
         <td></td>
@@ -733,7 +700,6 @@
             <div class="link"><a href="JOINT_FUNDRAISING_TRANSFER_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>INDIVIDUAL_NATIONAL_PARTY_RECOUNT_JF_TRANSFER_MEMO</td>
         <td></td>
@@ -747,7 +713,6 @@
             <div class="link"><a href="INDIVIDUAL_NATIONAL_PARTY_RECOUNT_JF_TRANSFER_MEMO_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>INDIVIDUAL_NATIONAL_PARTY_RECOUNT_ACCOUNT</td>
         <td></td>
@@ -761,7 +726,6 @@
             <div class="link"><a href="INDIVIDUAL_NATIONAL_PARTY_RECOUNT_ACCOUNT_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>PAC_NATIONAL_PARTY_RECOUNT_ACCOUNT</td>
         <td></td>
@@ -775,12 +739,11 @@
             <div class="link"><a href="PAC_NATIONAL_PARTY_RECOUNT_ACCOUNT_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>PAC_NATIONAL_PARTY_RECOUNT_JF_TRANSFER_MEMO</td>
         <td></td>
         <td>
-        <div class="link"><a href="https://github.com/fecgov/fecfile-validate/blob/develop/schema/PAC_NATIONAL_PARTY_RECOUNT_JF_TRANSFER_MEMO.json" target="_blank" rel="noopener">json</a></div>
+            <div class="link"><a href="https://github.com/fecgov/fecfile-validate/blob/develop/schema/PAC_NATIONAL_PARTY_RECOUNT_JF_TRANSFER_MEMO.json" target="_blank" rel="noopener">json</a></div>
         </td>
         <td>
             <div class="link"><a href="PAC_NATIONAL_PARTY_RECOUNT_JF_TRANSFER_MEMO.html" target="_blank" rel="noopener">doc</a></div>
@@ -789,7 +752,6 @@
             <div class="link"><a href="PAC_NATIONAL_PARTY_RECOUNT_JF_TRANSFER_MEMO_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>TRIBAL_NATIONAL_PARTY_RECOUNT_JF_TRANSFER_MEMO</td>
         <td></td>
@@ -803,7 +765,6 @@
             <div class="link"><a href="TRIBAL_NATIONAL_PARTY_RECOUNT_JF_TRANSFER_MEMO_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>TRIBAL_NATIONAL_PARTY_RECOUNT_ACCOUNT</td>
         <td></td>
@@ -817,7 +778,6 @@
             <div class="link"><a href="TRIBAL_NATIONAL_PARTY_RECOUNT_ACCOUNT_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>TRIBAL_NATIONAL_PARTY_HEADQUARTERS_ACCOUNT</td>
         <td></td>
@@ -825,13 +785,12 @@
             <div class="link"><a href="https://github.com/fecgov/fecfile-validate/blob/develop/schema/TRIBAL_NATIONAL_PARTY_HEADQUARTERS_ACCOUNT.json" target="_blank" rel="noopener">json</a></div>
         </td>
         <td>
-            <div class="link"><a href="TRIBAL_NATIONAL_PARTY_HEADQUARTERS_ACCOUNT" target="_blank" rel="noopener">doc</a></div>
+            <div class="link"><a href="TRIBAL_NATIONAL_PARTY_HEADQUARTERS_ACCOUNT.html" target="_blank" rel="noopener">doc</a></div>
         </td>
         <td>
             <div class="link"><a href="TRIBAL_NATIONAL_PARTY_HEADQUARTERS_ACCOUNT_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>TRIBAL_NATIONAL_PARTY_CONVENTION_ACCOUNT</td>
         <td></td>
@@ -845,7 +804,6 @@
             <div class="link"><a href="TRIBAL_NATIONAL_PARTY_CONVENTION_ACCOUNT_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>OFFSET_TO_OPERATING_EXPENDITURES</td>
         <td></td>
@@ -859,7 +817,6 @@
             <div class="link"><a href="OFFSET_TO_OPERATING_EXPENDITURES_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>OTHER_COMMITTEE_NON_CONTRIBUTION_ACCOUNT</td>
         <td></td>
@@ -873,7 +830,6 @@
             <div class="link"><a href="OTHER_COMMITTEE_NON_CONTRIBUTION_ACCOUNT_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>OTHER_RECEIPT</td>
         <td></td>
@@ -887,7 +843,6 @@
             <div class="link"><a href="OTHER_RECEIPT_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>PAC_EARMARK_MEMO</td>
         <td></td>
@@ -901,7 +856,6 @@
             <div class="link"><a href="PAC_EARMARK_MEMO_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>PAC_EARMARK_RECEIPT</td>
         <td></td>
@@ -915,7 +869,6 @@
             <div class="link"><a href="PAC_EARMARK_RECEIPT_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>PAC_JF_TRANSFER_MEMO</td>
         <td></td>
@@ -929,7 +882,6 @@
             <div class="link"><a href="PAC_JF_TRANSFER_MEMO_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>PAC_NATIONAL_PARTY_CONVENTION_JF_TRANSFER_MEMO</td>
         <td></td>
@@ -943,7 +895,6 @@
             <div class="link"><a href="PAC_NATIONAL_PARTY_CONVENTION_JF_TRANSFER_MEMO_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>PAC_RECEIPT</td>
         <td></td>
@@ -957,7 +908,6 @@
             <div class="link"><a href="PAC_RECEIPT_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-    
     <tr>
         <td>PAC_RECOUNT_RECEIPT</td>
         <td></td>
@@ -971,7 +921,6 @@
             <div class="link"><a href="PAC_RECOUNT_RECEIPT_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-    
     <tr>
         <td>PAC_RETURN</td>
         <td></td>
@@ -985,7 +934,6 @@
             <div class="link"><a href="PAC_RETURN_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>PARTY_JF_TRANSFER_MEMO</td>
         <td></td>
@@ -999,7 +947,6 @@
             <div class="link"><a href="PARTY_JF_TRANSFER_MEMO_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>PARTY_RECEIPT</td>
         <td></td>
@@ -1013,7 +960,6 @@
             <div class="link"><a href="PARTY_RECEIPT_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>PARTY_RECOUNT_RECEIPT</td>
         <td></td>
@@ -1027,7 +973,6 @@
             <div class="link"><a href="PARTY_RECOUNT_RECEIPT_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>REFUND_TO_FEDERAL_CANDIDATE</td>
         <td></td>
@@ -1041,7 +986,6 @@
             <div class="link"><a href="REFUND_TO_FEDERAL_CANDIDATE_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>REFUND_TO_UNREGISTERED_COMMITTEE</td>
         <td></td>
@@ -1055,7 +999,6 @@
             <div class="link"><a href="REFUND_TO_UNREGISTERED_COMMITTEE_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>RETURN_RECEIPT</td>
         <td></td>
@@ -1069,7 +1012,6 @@
             <div class="link"><a href="RETURN_RECEIPT_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>TRANSFER</td>
         <td></td>
@@ -1083,7 +1025,6 @@
             <div class="link"><a href="TRANSFER_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>TRIBAL_JF_TRANSFER_MEMO</td>
         <td></td>
@@ -1097,7 +1038,6 @@
             <div class="link"><a href="TRIBAL_JF_TRANSFER_MEMO_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>TRIBAL_NATIONAL_PARTY_CONVENTION_JF_TRANSFER_MEMO</td>
         <td></td>
@@ -1111,7 +1051,6 @@
             <div class="link"><a href="TRIBAL_NATIONAL_PARTY_CONVENTION_JF_TRANSFER_MEMO_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>TRIBAL_NATIONAL_PARTY_HEADQUARTERS_JF_TRANSFER_MEMO</td>
         <td></td>
@@ -1125,7 +1064,6 @@
             <div class="link"><a href="TRIBAL_NATIONAL_PARTY_HEADQUARTERS_JF_TRANSFER_MEMO_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>TRIBAL_RECEIPT</td>
         <td></td>
@@ -1139,7 +1077,6 @@
             <div class="link"><a href="TRIBAL_RECEIPT_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>TRIBAL_RECOUNT_RECEIPT</td>
         <td></td>
@@ -1153,7 +1090,6 @@
             <div class="link"><a href="TRIBAL_RECOUNT_RECEIPT_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>RECEIPT_FROM_UNREGISTERED_ENTITY_RETURN</td>
         <td></td>
@@ -1180,7 +1116,6 @@
             <div class="link"><a href="RECEIPT_FROM_UNREGISTERED_ENTITY_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>PARTY_RETURN</td>
         <td></td>
@@ -1194,7 +1129,6 @@
             <div class="link"><a href="PARTY_RETURN_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>PARTNERSHIP_ATTRIBUTION</td>
         <td></td>
@@ -1208,7 +1142,6 @@
             <div class="link"><a href="PARTNERSHIP_ATTRIBUTION_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>NATIONAL_PARTY_EARMARK_RECEIPTS</td>
         <td></td>
@@ -1222,7 +1155,6 @@
             <div class="link"><a href="NATIONAL_PARTY_EARMARK_RECEIPTS_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>NATIONAL_PARTY_EARMARK_MEMOS</td>
         <td></td>
@@ -1236,7 +1168,6 @@
             <div class="link"><a href="NATIONAL_PARTY_EARMARK_MEMOS_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>REFUND_TO_OTHER_POLITICAL_COMMITTEE</td>
         <td></td>
@@ -1250,7 +1181,6 @@
             <div class="link"><a href="REFUND_TO_OTHER_POLITICAL_COMMITTEE_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>PARTNERSHIP_ATTRIBUTION_JF_TRANSFER_MEMO</td>
         <td></td>
@@ -1264,7 +1194,6 @@
             <div class="link"><a href="PARTNERSHIP_ATTRIBUTION_JF_TRANSFER_MEMO_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>PARTNERSHIP_JF_TRANSFER_MEMO</td>
         <td></td>
@@ -1278,7 +1207,6 @@
             <div class="link"><a href="PARTNERSHIP_JF_TRANSFER_MEMO_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>PARTNERSHIP_NATIONAL_PARTY_HEADQUARTERS_JF_TRANSFER_MEMO</td>
         <td></td>
@@ -1290,8 +1218,8 @@
         </td>
         <td>
             <div class="link"><a href="PARTNERSHIP_NATIONAL_PARTY_HEADQUARTERS_JF_TRANSFER_MEMO_spec.html" target="_blank" rel="noopener">spec</a></div>
+        </td>
     </tr>
-
     <tr>
         <td>PARTNERSHIP_NATIONAL_PARTY_RECOUNT_JF_TRANSFER_MEMO</td>
         <td></td>
@@ -1305,7 +1233,6 @@
             <div class="link"><a href="PARTNERSHIP_NATIONAL_PARTY_RECOUNT_JF_TRANSFER_MEMO_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>PARTNERSHIP_ATTRIBUTION_NATIONAL_PARTY_HEADQUARTERS_JF_TRANSFER_MEMO</td>
         <td></td>
@@ -1319,7 +1246,6 @@
             <div class="link"><a href="PARTNERSHIP_ATTRIBUTION_NATIONAL_PARTY_HEADQUARTERS_JF_TRANSFER_MEMO_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>PARTNERSHIP_ATTRIBUTION_NATIONAL_PARTY_RECOUNT_JF_TRANSFER_MEMO</td>
         <td></td>
@@ -1333,7 +1259,6 @@
             <div class="link"><a href="PARTNERSHIP_ATTRIBUTION_NATIONAL_PARTY_RECOUNT_JF_TRANSFER_MEMO_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>PARTNERSHIP_ATTRIBUTION_NATIONAL_PARTY_CONVENTION_JF_TRANSFER_MEMO</td>
         <td></td>
@@ -1347,7 +1272,6 @@
             <div class="link"><a href="PARTNERSHIP_ATTRIBUTION_NATIONAL_PARTY_CONVENTION_JF_TRANSFER_MEMO_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>PARTNERSHIP_NATIONAL_PARTY_CONVENTION_JF_TRANSFER_MEMO</td>
         <td></td>
@@ -1361,7 +1285,6 @@
             <div class="link"><a href="PARTNERSHIP_NATIONAL_PARTY_CONVENTION_JF_TRANSFER_MEMO_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>IN_KIND_RECEIPT</td>
         <td></td>
@@ -1375,7 +1298,6 @@
             <div class="link"><a href="IN_KIND_RECEIPT_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>PARTY_IN_KIND_RECEIPT</td>
         <td></td>
@@ -1389,7 +1311,6 @@
             <div class="link"><a href="COM_IN_KIND_RECEIPTS_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>PAC_IN_KIND_RECEIPT</td>
         <td></td>
@@ -1403,7 +1324,6 @@
             <div class="link"><a href="COM_IN_KIND_RECEIPTS_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>IN_KIND_TRANSFER</td>
         <td></td>
@@ -1417,7 +1337,6 @@
             <div class="link"><a href="COM_IN_KIND_RECEIPTS_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>IN_KIND_TRANSFER_FEDERAL_ELECTION_ACTIVITY</td>
         <td></td>
@@ -1431,7 +1350,6 @@
             <div class="link"><a href="COM_IN_KIND_RECEIPTS_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>CONDUIT_EARMARKS</td>
         <td></td>
@@ -1445,7 +1363,6 @@
             <div class="link"><a href="CONDUIT_EARMARKS_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>LOAN_RECEIVED_FROM_INDIVIDUAL</td>
         <td></td>
@@ -1459,7 +1376,6 @@
             <div class="link"><a href="LOANS_RECEIVED_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>LOAN_RECEIVED_FROM_BANK</td>
         <td></td>
@@ -1473,8 +1389,6 @@
             <div class="link"><a href="LOANS_RECEIVED_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
-
     <tr>
         <td>LOAN_REPAYMENT_RECEIVED</td>
         <td></td>
@@ -1491,7 +1405,7 @@
 </table>
 <h5>DISBURSEMENTS</h5>
 <table style="width: 50%">
-    <caption>List of disbursement transaction types with links to schema and specification</caption>
+    <caption>List of disbursement transaction types with links to schema and specifications</caption>
     <tr>
         <th>Transaction Type Identifier</th>
         <th>Description</th>
@@ -1499,7 +1413,6 @@
         <th>DOC</th>
         <th>Specification</th>
     </tr>
-
     <tr>
         <td>OPERATING_EXPENDITURE</td>
         <td></td>
@@ -1513,7 +1426,6 @@
             <div class="link"><a href="DISBURSEMENTS_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>OPERATING_EXPENDITURE_VOID</td>
         <td></td>
@@ -1527,7 +1439,6 @@
             <div class="link"><a href="DISBURSEMENTS_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>OTHER_DISBURSEMENT</td>
         <td></td>
@@ -1541,7 +1452,6 @@
             <div class="link"><a href="DISBURSEMENTS_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>OTHER_DISBURSEMENT_VOID</td>
         <td></td>
@@ -1555,7 +1465,6 @@
             <div class="link"><a href="DISBURSEMENTS_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>OPERATING_EXPENDITURE_CREDIT_CARD_PAYMENT</td>
         <td></td>
@@ -1569,7 +1478,6 @@
             <div class="link"><a href="DISBURSEMENT_PARENTS_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>OPERATING_EXPENDITURE_PAYMENT_TO_PAYROLL</td>
         <td></td>
@@ -1583,7 +1491,6 @@
             <div class="link"><a href="DISBURSEMENT_PARENTS_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>OTHER_DISBURSEMENT_CREDIT_CARD_PAYMENT</td>
         <td></td>
@@ -1597,7 +1504,6 @@
             <div class="link"><a href="DISBURSEMENT_PARENTS_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>OTHER_DISBURSEMENT_PAYMENT_TO_PAYROLL</td>
         <td></td>
@@ -1611,7 +1517,6 @@
             <div class="link"><a href="DISBURSEMENT_PARENTS_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>OPERATING_EXPENDITURE_STAFF_REIMBURSEMENT</td>
         <td></td>
@@ -1625,7 +1530,6 @@
             <div class="link"><a href="DISBURSEMENT_PARENTS_STAFF_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>OTHER_DISBURSEMENT_STAFF_REIMBURSEMENT</td>
         <td></td>
@@ -1639,7 +1543,6 @@
             <div class="link"><a href="DISBURSEMENT_PARENTS_STAFF_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>OPERATING_EXPENDITURE_CREDIT_CARD_PAYMENT_MEMO</td>
         <td></td>
@@ -1653,7 +1556,6 @@
             <div class="link"><a href="DISBURSEMENT_MEMOS_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>OTHER_DISBURSEMENT_CREDIT_CARD_PAYMENT_MEMO</td>
         <td></td>
@@ -1667,7 +1569,6 @@
             <div class="link"><a href="DISBURSEMENT_MEMOS_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>OPERATING_EXPENDITURE_STAFF_REIMBURSEMENT_MEMO</td>
         <td></td>
@@ -1681,7 +1582,6 @@
             <div class="link"><a href="DISBURSEMENT_MEMOS_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>OTHER_DISBURSEMENT_STAFF_REIMBURSEMENT_MEMO</td>
         <td></td>
@@ -1695,7 +1595,6 @@
             <div class="link"><a href="DISBURSEMENT_MEMOS_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>OPERATING_EXPENDITURE_PAYMENT_TO_PAYROLL_MEMO</td>
         <td></td>
@@ -1709,7 +1608,6 @@
             <div class="link"><a href="DISBURSEMENT_MEMOS_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>OTHER_DISBURSEMENT_PAYMENT_TO_PAYROLL_MEMO</td>
         <td></td>
@@ -1723,7 +1621,6 @@
             <div class="link"><a href="DISBURSEMENT_MEMOS_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>INDIVIDUAL_REFUND_NON_CONTRIBUTION_ACCOUNT</td>
         <td></td>
@@ -1737,7 +1634,6 @@
             <div class="link"><a href="NON_CONTRIBUTION_ACCOUNT_REFUNDS_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>NON_CONTRIBUTION_ACCOUNT_STAFF_REIMBURSEMENT</td>
         <td></td>
@@ -1751,7 +1647,6 @@
             <div class="link"><a href="NON_CONTRIBUTION_ACCOUNT_STAFF_REIMBURSEMENT_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>NON_CONTRIBUTION_ACCOUNT_STAFF_REIMBURSEMENT_MEMO</td>
         <td></td>
@@ -1765,7 +1660,6 @@
             <div class="link"><a href="NON_CONTRIBUTION_MEMOS_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>NON_CONTRIBUTION_ACCOUNT_CREDIT_CARD_PAYMENT</td>
         <td></td>
@@ -1779,7 +1673,6 @@
             <div class="link"><a href="NON_CONTRIBUTION_PARENTS_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>NON_CONTRIBUTION_ACCOUNT_CREDIT_CARD_PAYMENT_MEMO</td>
         <td></td>
@@ -1793,7 +1686,6 @@
             <div class="link"><a href="NON_CONTRIBUTION_MEMOS_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>NON_CONTRIBUTION_ACCOUNT_PAYMENT_TO_PAYROLL</td>
         <td></td>
@@ -1807,7 +1699,6 @@
             <div class="link"><a href="NON_CONTRIBUTION_PARENTS_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>NON_CONTRIBUTION_ACCOUNT_PAYMENT_TO_PAYROLLS_MEMO</td>
         <td></td>
@@ -1821,7 +1712,6 @@
             <div class="link"><a href="NON_CONTRIBUTION_MEMOS_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>BUSINESS_LABOR_REFUND_NON_CONTRIBUTION_ACCOUNT</td>
         <td></td>
@@ -1835,7 +1725,6 @@
             <div class="link"><a href="NON_CONTRIBUTION_ACCOUNT_REFUNDS_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>INDIVIDUAL_REFUND_NP_HEADQUARTERS_ACCOUNT</td>
         <td></td>
@@ -1849,7 +1738,6 @@
             <div class="link"><a href="NATIONAL_PARTY_INDIVIDUAL_REFUNDS_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>TRIBAL_REFUND_NP_HEADQUARTERS_ACCOUNT</td>
         <td></td>
@@ -1863,7 +1751,6 @@
             <div class="link"><a href="NATIONAL_PARTY_TRIBAL_REFUNDS_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>INDIVIDUAL_REFUND_NP_CONVENTION_ACCOUNT</td>
         <td></td>
@@ -1877,7 +1764,6 @@
             <div class="link"><a href="NATIONAL_PARTY_INDIVIDUAL_REFUNDS_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>TRIBAL_REFUND_NP_CONVENTION_ACCOUNT</td>
         <td></td>
@@ -1891,7 +1777,6 @@
             <div class="link"><a href="NATIONAL_PARTY_TRIBAL_REFUNDS_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>INDIVIDUAL_REFUND_NP_RECOUNT_ACCOUNT</td>
         <td></td>
@@ -1905,7 +1790,6 @@
             <div class="link"><a href="NATIONAL_PARTY_INDIVIDUAL_REFUNDS_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>TRIBAL_REFUND_NP_RECOUNT_ACCOUNT</td>
         <td></td>
@@ -1919,7 +1803,6 @@
             <div class="link"><a href="NATIONAL_PARTY_TRIBAL_REFUNDS_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>REFUND_UNREGISTERED_CONTRIBUTION</td>
         <td></td>
@@ -1933,7 +1816,6 @@
             <div class="link"><a href="UNREGISTERED_REFUNDS_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>REFUND_UNREGISTERED_CONTRIBUTION_VOID</td>
         <td></td>
@@ -1947,7 +1829,6 @@
             <div class="link"><a href="UNREGISTERED_REFUNDS_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>REFUND_INDIVIDUAL_CONTRIBUTION</td>
         <td></td>
@@ -1961,7 +1842,6 @@
             <div class="link"><a href="INDIVIDUAL_REFUNDS_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>REFUND_INDIVIDUAL_CONTRIBUTION_VOID</td>
         <td></td>
@@ -1975,7 +1855,6 @@
             <div class="link"><a href="INDIVIDUAL_REFUNDS_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>REFUND_PARTY_CONTRIBUTION</td>
         <td></td>
@@ -1989,7 +1868,6 @@
             <div class="link"><a href="PARTY_PAC_REFUNDS_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>REFUND_PARTY_CONTRIBUTION_VOID</td>
         <td></td>
@@ -2003,7 +1881,6 @@
             <div class="link"><a href="PARTY_PAC_REFUNDS_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>REFUND_PAC_CONTRIBUTION</td>
         <td></td>
@@ -2017,7 +1894,6 @@
             <div class="link"><a href="PARTY_PAC_REFUNDS_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>REFUND_PAC_CONTRIBUTION_VOID</td>
         <td></td>
@@ -2031,7 +1907,6 @@
             <div class="link"><a href="PARTY_PAC_REFUNDS_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>OTHER_COMMITTEE_REFUND_REFUND_NP_HEADQUARTERS_ACCOUNT</td>
         <td></td>
@@ -2045,7 +1920,6 @@
             <div class="link"><a href="NATIONAL_PARTY_OTHER_COMMITTEE_REFUNDS_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>OTHER_COMMITTEE_REFUND_REFUND_NP_RECOUNT_ACCOUNT</td>
         <td></td>
@@ -2059,7 +1933,6 @@
             <div class="link"><a href="NATIONAL_PARTY_OTHER_COMMITTEE_REFUNDS_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>OTHER_COMMITTEE_REFUND_REFUND_NP_CONVENTION_ACCOUNT</td>
         <td></td>
@@ -2073,7 +1946,6 @@
             <div class="link"><a href="NATIONAL_PARTY_OTHER_COMMITTEE_REFUNDS_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>FEDERAL_ELECTION_ACTIVITY_100PCT_PAYMENT</td>
         <td></td>
@@ -2087,7 +1959,6 @@
             <div class="link"><a href="DISBURSEMENTS_FEA_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>FEDERAL_ELECTION_ACTIVITY_CREDIT_CARD_PAYMENT</td>
         <td></td>
@@ -2101,7 +1972,6 @@
             <div class="link"><a href="DISBURSEMENT_PARENTS_FEA_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>FEDERAL_ELECTION_ACTIVITY_STAFF_REIMBURSEMENT</td>
         <td></td>
@@ -2115,7 +1985,6 @@
             <div class="link"><a href="FEDERAL_ELECTION_ACTIVITY_STAFF_REIMBURSEMENT_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>FEDERAL_ELECTION_ACTIVITY_STAFF_REIMBURSEMENT_MEMO</td>
         <td></td>
@@ -2129,7 +1998,6 @@
             <div class="link"><a href="DISBURSEMENT_MEMOS_FEA_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>FEDERAL_ELECTION_ACTIVITY_PAYMENT_TO_PAYROLL</td>
         <td></td>
@@ -2143,7 +2011,6 @@
             <div class="link"><a href="DISBURSEMENT_PARENTS_FEA_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>FEDERAL_ELECTION_ACTIVITY_VOID</td>
         <td></td>
@@ -2157,7 +2024,6 @@
             <div class="link"><a href="DISBURSEMENTS_FEA_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>NON_CONTRIBUTION_ACCOUNT_DISBURSEMENT</td>
         <td></td>
@@ -2171,7 +2037,6 @@
             <div class="link"><a href="NON_CONTRIBUTION_ACCOUNT_DISBURSEMENT_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>TRANSFER_TO_AFFILIATES</td>
         <td></td>
@@ -2185,7 +2050,6 @@
             <div class="link"><a href="TRANSFER_TO_AFFILIATES_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>RECOUNT_ACCOUNT_DISBURSEMENT</td>
         <td></td>
@@ -2199,7 +2063,6 @@
             <div class="link"><a href="RECOUNT_AND_NP_DISBURSEMENTS_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>NATIONAL_PARTY_RECOUNT_ACCOUNT_DISBURSEMENT</td>
         <td></td>
@@ -2213,7 +2076,6 @@
             <div class="link"><a href="RECOUNT_AND_NP_DISBURSEMENTS_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>NATIONAL_PARTY_HEADQUARTERS_ACCOUNT_DISBURSEMENT</td>
         <td></td>
@@ -2227,7 +2089,6 @@
             <div class="link"><a href="RECOUNT_AND_NP_DISBURSEMENTS_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>NATIONAL_PARTY_CONVENTION_ACCOUNT_DISBURSEMENT</td>
         <td></td>
@@ -2241,7 +2102,6 @@
             <div class="link"><a href="RECOUNT_AND_NP_DISBURSEMENTS_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>OTHER_COMMITTEE_CONTRIBUTIONS</td>
         <td></td>
@@ -2255,7 +2115,6 @@
             <div class="link"><a href="OTHER_COMMITTEE_CONTRIBUTIONS_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>IN_KIND_CONTRIBUTIONS</td>
         <td></td>
@@ -2269,7 +2128,6 @@
             <div class="link"><a href="IN_KIND_CONTRIBUTIONS_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>IN_KIND_OUT</td>
         <td></td>
@@ -2283,7 +2141,6 @@
             <div class="link"><a href="IN_KIND_OUT_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>PAC_IN_KIND_OUT</td>
         <td></td>
@@ -2297,7 +2154,6 @@
             <div class="link"><a href="COM_IN_KIND_OUTS_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>PARTY_IN_KIND_OUT</td>
         <td></td>
@@ -2311,7 +2167,6 @@
             <div class="link"><a href="COM_IN_KIND_OUTS_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>IN_KIND_TRANSFER_OUT</td>
         <td></td>
@@ -2325,7 +2180,6 @@
             <div class="link"><a href="COM_IN_KIND_OUTS_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>IN_KIND_TRANSFER_FEA_OUT</td>
         <td></td>
@@ -2339,7 +2193,6 @@
             <div class="link"><a href="COM_IN_KIND_OUTS_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>CONTRIBUTION_TO_CANDIDATE</td>
         <td></td>
@@ -2353,7 +2206,6 @@
             <div class="link"><a href="CANDIDATE_CONTRIBUTIONS_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>PAC_CONDUIT_EARMARK_OUT_UNDEPOSITED</td>
         <td></td>
@@ -2367,7 +2219,6 @@
             <div class="link"><a href="CONDUIT_EARMARK_OUTS_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>CONDUIT_EARMARK_OUT_DEPOSITED</td>
         <td></td>
@@ -2381,7 +2232,6 @@
             <div class="link"><a href="CONDUIT_EARMARK_OUTS_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>CONDUIT_EARMARK_OUT_UNDEPOSITED</td>
         <td></td>
@@ -2395,7 +2245,6 @@
             <div class="link"><a href="CONDUIT_EARMARK_OUTS_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>PAC_CONDUIT_EARMARK_OUT_DEPOSITED</td>
         <td></td>
@@ -2409,7 +2258,6 @@
             <div class="link"><a href="CONDUIT_EARMARK_OUTS_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>CONTRIBUTION_TO_CANDIDATE_VOID</td>
         <td></td>
@@ -2423,7 +2271,6 @@
             <div class="link"><a href="CANDIDATE_CONTRIBUTIONS_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>LOAN_REPAYMENT_MADE</td>
         <td></td>
@@ -2437,7 +2284,6 @@
             <div class="link"><a href="LOAN_REPAYMENT_MADE_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
     </tr>
-
     <tr>
         <td>COORDINATED_PARTY_EXPENDITURES</td>
         <td></td>
@@ -2450,11 +2296,11 @@
         <td>
             <div class="link"><a href="COORDINATED_PARTY_EXPENDITURES_spec.html" target="_blank" rel="noopener">spec</a></div>
         </td>
-    </tr></table>
-
+    </tr>
+</table>
 <h5>LOANS</h5>
 <table style="width: 50%">
-    <caption>List of loan transaction types with links to schema and specification</caption>
+    <caption>List of loan transaction types with links to schema and specifications</caption>
     <tr>
         <th>Transaction Type Identifier</th>
         <th>Description</th>
@@ -2541,10 +2387,9 @@
         </td>
     </tr>
 </table>
-
 <h5>DEBTS</h5>
 <table style="width: 50%">
-    <caption>List of debt transaction types with links to schema and specification</caption>
+    <caption>List of debt transaction types with links to schema and specifications</caption>
     <tr>
         <th>Transaction Type Identifier</th>
         <th>Description</th>
@@ -2579,10 +2424,9 @@
         </td>
     </tr>
 </table>
-
 <h5>ITEMIZED INDEPENDENT EXPENDITURES</h5>
 <table style="width: 50%">
-    <caption>List of independent expenditure transaction types with links to schema and specification</caption>
+    <caption>List of independent expenditure transaction types with links to schema and specifications</caption>
     <tr>
         <th>Transaction Type Identifier</th>
         <th>Description</th>

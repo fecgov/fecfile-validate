@@ -13,9 +13,13 @@ sed -e 's/<script src=https:\/\/use\.fontawesome\.com\/facf9fa52c\.js><\/script>
 # Generate spec files
 for schema in ${SCHEMAS//,/ }
 do
+    echo $schema
     # call your procedure/other scripts here below
     target_file="${schema%.*}_spec.html"
     python ../bin/generate-spec-table.py $schema > ../docs/$target_file || {
         echo ERROR: generate-spec-table.py failed to process $target_file
     }
 done
+
+# Generate index.html
+python ../bin/generate-index.py
