@@ -57,7 +57,7 @@ def build_html_for_schema_category(schema_map, category):
 	output_str += format_html('<th>JSON</th>', 2)
 	output_str += format_html('<th>DOC</th>', 2)
 	output_str += format_html('<th>Specification</th>', 2)
-	output_str += format_html('</tr>', 1)
+	output_str += format_html('</tr>\n', 1)
 	for TTI in category_map["files"].keys():
 		value = category_map["files"][TTI]
 		if value is None:
@@ -74,7 +74,9 @@ def build_html_for_schema_category(schema_map, category):
 		output_str += format_html(f'<td>{TTI}</td>', 2)
 		output_str += format_html(f'<td>{subtitle}</td>', 2)
 		output_str += gen_html_for_link_specs(file_name)
-		output_str += format_html('</tr>', 1)
+		output_str += format_html('</tr>\n', 1)
+
+	output_str = output_str[:-1]  # strip off last newline
 	output_str += '</table>\n'
 
 	return output_str
