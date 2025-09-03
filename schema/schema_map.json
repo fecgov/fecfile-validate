@@ -23,6 +23,7 @@
 	"entities":{
 		"title": "ENTITIES",
 		"caption": "List of entities with links to schema and specifications",
+		"style": "width: 50%",
 		"file_type": "Entity",
 		"files": {
 			"Candidate Contact": "Contact_Candidate",
@@ -34,6 +35,7 @@
 	"receipts":{
 		"title": "RECEIPTS",
 		"caption": "List of receipt transaction types with links to schema and specifications",
+		"style": "width: 50%",
 		"file_type": "Transaction Type Identifier",
 		"files": {
 			"BUSINESS_LABOR_NON_CONTRIBUTION_ACCOUNT": null,
@@ -127,6 +129,7 @@
 	"disbursements":{
 		"title": "DISBURSEMENTS",
 		"caption": "List of disbursement transaction types with links to schema and specifications",
+		"style": "width: 50%",
 		"file_type": "Transaction Type Identifier",
 		"files": {
 			"OPERATING_EXPENDITURE": "DISBURSEMENTS",
@@ -202,6 +205,7 @@
 	"loans":{
 		"title": "LOANS",
 		"caption": "List of loan transaction types with links to schema and specifications",
+		"style": "width: 50%",
 		"file_type": "Transaction Type Identifier",
 		"files": {
 			"LOAN_RECEIVED_FROM_INDIVIDUAL": "LOANS",
@@ -215,6 +219,7 @@
 	"debts":{
 		"title": "DEBTS",
 		"caption": "List of debt transaction types with links to schema and specifications",
+		"style": "width: 50%",
 		"file_type": "Transaction Type Identifier",
 		"files": {
         	"DEBT_OWED_TO_COMMITTEE": "DEBTS",
@@ -224,6 +229,7 @@
 	"itemized_independent_expenditures":{
 		"title": "ITEMIZED INDEPENDENT EXPENDITURES",
 		"caption": "List of independent expenditure transaction types with links to schema and specifications",
+		"style": "width: 50%",
 		"file_type": "Transaction Type Identifier",
 		"files": {
 			"INDEPENDENT_EXPENDITURE": "INDEPENDENT_EXPENDITURES",

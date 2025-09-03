@@ -48,8 +48,14 @@ def build_html_for_head():
 def build_html_for_schema_category(schema_map, category):
 	category_map = schema_map[category]
 
+	style = category_map.get("style", None)
+	if style is not None:
+		style_string = f'style="{style}"'
+	else:
+		style_string = ""
+
 	output_str = format_html(f"<h5>{category_map["title"]}</h5>")
-	output_str += format_html('<table style="width: 50%">')
+	output_str += format_html(f'<table {style_string}>')
 	output_str += format_html(f'<caption>{category_map["caption"]}</caption>', 1)
 	output_str += format_html('<tr>', 1)
 	output_str += format_html(f'<th>{category_map["file_type"]}</th>', 2)
