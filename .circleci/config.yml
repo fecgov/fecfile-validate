@@ -76,6 +76,11 @@ jobs:
           path: htmlcov_js
 
       - run:
+          name: Generate index.html to test schema file coverage
+          command: ../bin/generate-index.sh
+          working_directory: ~/project/schema
+
+      - run:
           name: Compare the actual code coverage to the minimum target coverage
           command: |
             export PYTHON_LINES=$(cat htmlcov_js/total_percent.txt | awk '{print $1}' )
