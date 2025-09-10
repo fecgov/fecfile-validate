@@ -4,7 +4,6 @@ import os
 
 INDENTATION_WIDTH = 4
 EXCLUDED_FILES = [
-    "schema_map.json",
     "_OVERRIDE_SchC2.json",
     "_OVERRIDE_F99.json",
     "UNIT_TEST.json"
@@ -64,9 +63,6 @@ def build_html_for_head():
 
 
 def build_html_for_schema_category(schema_map, category, schema_files):
-    if category in ["$schema", "$id"]:
-        return ""
-
     category_map = schema_map[category]
 
     style = category_map.get("style", None)
@@ -110,10 +106,10 @@ def build_html_for_schema_category(schema_map, category, schema_files):
 
 
 def gen_index_dot_html():
-    if not os.path.isfile("schema_map.json"):
+    if not os.path.isfile("../schema_map.json"):
         raise FileNotFoundError("schema_map.json not found")
 
-    schema_map_file = open("schema_map.json", "r")
+    schema_map_file = open("../schema_map.json", "r")
     schema_map = json.load(schema_map_file)
     schema_map_file.close()
 
