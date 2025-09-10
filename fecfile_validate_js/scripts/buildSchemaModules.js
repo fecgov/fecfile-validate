@@ -4,7 +4,7 @@
  */
 
 import * as fs from 'fs';
-import glob from 'glob';
+import { globSync } from 'glob';
 import * as path from 'path';
 import * as url from 'url';
 
@@ -13,7 +13,7 @@ import standaloneCode from 'ajv/dist/standalone/index.js';
 
 const dir = path.dirname(url.fileURLToPath(import.meta.url));
 fs.mkdirSync(path.join(dir, `../dist`), { recursive: true });
-const files = glob.sync(path.join(dir, '../../schema/*.json'));
+const files = globSync(path.join(dir, '../../schema/*.json'));
 
 for (const file of files) {
   const schema = JSON.parse(fs.readFileSync(file, 'utf-8'));
