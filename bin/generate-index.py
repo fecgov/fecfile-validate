@@ -41,6 +41,7 @@ def gen_html_for_link_specs(file_name, schema_files):
             output_str += format_html(f'<div class="link"><a href="{spec_link}" target="_blank" rel="noopener">{spec_type}</a></div>', 3)  # noqa: E501
         else:
             output_str += format_html('<div class="link">WARNING: FILE NOT FOUND</div>')
+            print(f"SCHEMA FILE IN SCHEMA MAP NOT FOUND: {file_name}")
         output_str += format_html('</td>', 2)
 
     return output_str
@@ -63,6 +64,9 @@ def build_html_for_head():
 
 
 def build_html_for_schema_category(schema_map, category, schema_files):
+    if category in ["$schema", "$id"]:
+        return ""
+
     category_map = schema_map[category]
 
     style = category_map.get("style", None)
@@ -111,12 +115,14 @@ def gen_index_dot_html():
 
     schema_map_file = open("schema_map.json", "r")
     schema_map = json.load(schema_map_file)
+    schema_map_file.close()
 
     schema_files = {}  # Values are whether or not files are found in schema_map
     for f in os.listdir():
         if f[-5:] == ".json" and f not in EXCLUDED_FILES:
             schema_files[f] = False
 
+    print("Generating index.html ...")
     output_file = open("../docs/index.html", "w")
 
     output_file.write(
@@ -137,6 +143,8 @@ def gen_index_dot_html():
     output_file.write(
         format_html('</body>\n\n</html>')
     )
+    output_file.close()
+    print("index.html generated successfully")
 
     found_files = []
     not_found_files = []
