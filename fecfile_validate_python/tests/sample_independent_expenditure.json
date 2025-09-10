@@ -2,7 +2,7 @@
     "children": [],
     "transaction_id": "123",
     "form_type": "SE",
-    "filer_committee_id_number": "C12345678",
+    "filer_committee_id_number": "C00345678",
     "transaction_type_identifier": "INDEPENDENT_EXPENDITURE_CREDIT_CARD_PAYMENT",
     "aggregation_group": "INDEPENDENT_EXPENDITURE",
     "schema_name": "INDEPENDENT_EXPENDITURE_PARENTS",

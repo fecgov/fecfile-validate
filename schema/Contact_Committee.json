@@ -41,9 +41,9 @@
             "type": "string",
             "minLength": 1,
             "maxLength": 9,
-            "pattern": "^C[0-9]{8}$",
+            "pattern": "^C[03679]0\\d{6}$",
             "examples": [
-                "c01234567"
+                "C01234567"
             ],
             "fec_spec": {
                 "COL_SEQ": 2,
@@ -51,7 +51,7 @@
                 "TYPE": "A/N-9",
                 "REQUIRED": "X (error)",
                 "AUTO_POPULATE": null,
-                "SAMPLE_DATA": "c01234567",
+                "SAMPLE_DATA": "C01234567",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null

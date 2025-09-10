@@ -54,8 +54,7 @@ def test_required_candidate_state(sample_can_contact):
     validation_result = validate.validate("Contact_Candidate", sample_can_contact)
     assert validation_result.errors[0].path == "candidate_state"
     assert (
-        validation_result.errors[0].message
-        == "'candidate_state' is a required property"
+        validation_result.errors[0].message == "'candidate_state' is a required property"
     )
 
     # Fail null for candidate district when office is H
@@ -90,7 +89,10 @@ def test_committee_id_format(sample_com_contact):
     sample_com_contact["committee_id"] = "C123"
     validation_result = validate.validate("Contact_Committee", sample_com_contact)
     assert validation_result.errors[0].path == "committee_id"
-    assert validation_result.errors[0].message == "'C123' does not match '^C[0-9]{8}$'"
+    assert (
+        validation_result.errors[0].message
+        == "'C123' does not match '^C[03679]0\\\\d{6}$'"
+    )
 
     # Wrong characters
     sample_com_contact["committee_id"] = "123ABCDEF"
@@ -98,7 +100,7 @@ def test_committee_id_format(sample_com_contact):
     assert validation_result.errors[0].path == "committee_id"
     assert (
         validation_result.errors[0].message
-        == "'123ABCDEF' does not match '^C[0-9]{8}$'"
+        == "'123ABCDEF' does not match '^C[03679]0\\\\d{6}$'"
     )
 
 
@@ -110,27 +112,37 @@ def test_candidate_id_format(sample_can_contact):
     # Presidential format
     sample_can_contact["candidate_id"] = "P12345678"
     validation_result = validate.validate("Contact_Candidate", sample_can_contact)
+    expected_message = (
+        "does not match '^(H\\\\d(?:AL|AK|AZ|AR|CA|CO|CT|DE|DC|FL|GA|HI|"
+        "ID|IL|IN|IA|KS|KY|LA|ME|MD|MA|MI|MN|MS|MO|MT|NE|NV|NH|NJ|NM|NY|"
+        "NC|ND|OH|OK|OR|PA|RI|SC|SD|TN|TX|UT|VT|VA|WA|WV|WI|WY)\\\\d{2}|"
+        "S\\\\d(?:AL|AK|AZ|AR|CA|CO|CT|DE|DC|FL|GA|HI|ID|IL|IN|IA|KS|KY|"
+        "LA|ME|MD|MA|MI|MN|MS|MO|MT|NE|NV|NH|NJ|NM|NY|NC|ND|OH|OK|OR|PA|"
+        "RI|SC|SD|TN|TX|UT|VT|VA|WA|WV|WI|WY)00|P\\\\d0000)\\\\d{3}$'"
+    )
+    assert validation_result.errors[0].message == f"'P12345678' {expected_message}"
+
+    sample_can_contact["candidate_id"] = "P00000123"
+    validation_result = validate.validate("Contact_Candidate", sample_can_contact)
     assert validation_result.errors == []
 
     # Senate format
-    sample_can_contact["candidate_id"] = "S0VA12345"
+    sample_can_contact["candidate_id"] = "S0VA00345"
     validation_result = validate.validate("Contact_Candidate", sample_can_contact)
     assert validation_result.errors == []
+
+    sample_can_contact["candidate_id"] = "S0VA12345"
+    validation_result = validate.validate("Contact_Candidate", sample_can_contact)
+    assert validation_result.errors[0].message == f"'S0VA12345' {expected_message}"
 
     # Too short
     sample_can_contact["candidate_id"] = "P123"
     validation_result = validate.validate("Contact_Candidate", sample_can_contact)
     assert validation_result.errors[0].path == "candidate_id"
-    assert (
-        validation_result.errors[0].message
-        == "'P123' does not match '^P[0-9]{8}$|^[H|S][0-9]{1}[A-Z]{2}[0-9]{5}$'"
-    )
+    assert validation_result.errors[0].message == f"'P123' {expected_message}"
 
     # Wrong characters
     sample_can_contact["candidate_id"] = "12345AB1"
     validation_result = validate.validate("Contact_Candidate", sample_can_contact)
     assert validation_result.errors[0].path == "candidate_id"
-    assert (
-        validation_result.errors[0].message
-        == "'12345AB1' does not match '^P[0-9]{8}$|^[H|S][0-9]{1}[A-Z]{2}[0-9]{5}$'"
-    )
+    assert validation_result.errors[0].message == f"'12345AB1' {expected_message}"

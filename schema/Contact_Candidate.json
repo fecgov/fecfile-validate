@@ -43,7 +43,7 @@
             "type": "string",
             "minLength": 1,
             "maxLength": 9,
-            "pattern": "^P[0-9]{8}$|^[H|S][0-9]{1}[A-Z]{2}[0-9]{5}$",
+            "pattern": "^(H\\d(?:AL|AK|AZ|AR|CA|CO|CT|DE|DC|FL|GA|HI|ID|IL|IN|IA|KS|KY|LA|ME|MD|MA|MI|MN|MS|MO|MT|NE|NV|NH|NJ|NM|NY|NC|ND|OH|OK|OR|PA|RI|SC|SD|TN|TX|UT|VT|VA|WA|WV|WI|WY)\\d{2}|S\\d(?:AL|AK|AZ|AR|CA|CO|CT|DE|DC|FL|GA|HI|ID|IL|IN|IA|KS|KY|LA|ME|MD|MA|MI|MN|MS|MO|MT|NE|NV|NH|NJ|NM|NY|NC|ND|OH|OK|OR|PA|RI|SC|SD|TN|TX|UT|VT|VA|WA|WV|WI|WY)00|P\\d0000)\\d{3}$",
             "examples": [
                 "P01234567",
                 "H0MD12345",
