@@ -22,7 +22,7 @@ def get_spec_links(file_name):
     }
 
 
-def gen_html_for_link_specs(file_name, schema_files):
+def gen_html_for_link_specs(file_name, schema_files, invalid_links):
     spec_links = get_spec_links(file_name)
 
     json_link = f"{file_name}.json"
@@ -30,6 +30,8 @@ def gen_html_for_link_specs(file_name, schema_files):
         schema_files[json_link] = True
     else:
         spec_links["json"] = None
+        invalid_links.append(file_name)
+        print(f"WARNING - Broken link in schema map - file doesn't exist: {file_name}.json")  # noqa: E501
 
     output_str = ""
     for spec_type in spec_links.keys():
@@ -62,7 +64,7 @@ def build_html_for_head():
     return output_str
 
 
-def build_html_for_schema_category(schema_map, category, schema_files):
+def build_html_for_schema_category(schema_map, category, schema_files, invalid_links):
     category_map = schema_map[category]
 
     style = category_map.get("style", None)
@@ -96,7 +98,7 @@ def build_html_for_schema_category(schema_map, category, schema_files):
         output_str += format_html('<tr>', 1)
         output_str += format_html(f'<td>{TTI}</td>', 2)
         output_str += format_html(f'<td>{subtitle}</td>', 2)
-        output_str += gen_html_for_link_specs(file_name, schema_files)
+        output_str += gen_html_for_link_specs(file_name, schema_files, invalid_links)
         output_str += format_html('</tr>\n', 1)
 
     output_str = output_str[:-1]  # strip off last newline
@@ -114,6 +116,8 @@ def gen_index_dot_html():
     schema_map_file.close()
 
     schema_files = {}  # Values are whether or not files are found in schema_map
+    invalid_links = []
+
     for f in os.listdir():
         if f[-5:] == ".json" and f not in EXCLUDED_FILES:
             schema_files[f] = False
@@ -133,26 +137,31 @@ def gen_index_dot_html():
 
     for schema_category in schema_map.keys():
         output_file.write(
-            build_html_for_schema_category(schema_map, schema_category, schema_files)
+            build_html_for_schema_category(schema_map, schema_category, schema_files, invalid_links)
         )
 
     output_file.write(
         format_html('</body>\n\n</html>')
     )
     output_file.close()
-    print("index.html generated successfully")
 
     found_files = []
     not_found_files = []
     for file_name in schema_files.keys():
         if not schema_files.get(file_name):
-            print(f"WARNING - FILE NOT FOUND IN SCHEMA MAP: {file_name}")
+            print(f"WARNING - Json schema file not included in schema map: {file_name}")
             not_found_files.append(file_name)
         else:
             found_files.append(file_name)
 
-    print(f"\nSchema files found in schema map: {len(found_files)}")
-    print(f"Schema files not found in schema map: {len(not_found_files)}")
+    print(f"  - Schema files found in schema map: {len(found_files)}")
+    print(f"  - Schema files not found in schema map: {len(not_found_files)}")
+    print(f"  - Invalid links in Schema Map: {len(invalid_links)}")
+
+    if len(not_found_files) + len(invalid_links) > 0:
+        raise RuntimeError("Failed to generate index.html")
+    else:
+        print("Successfully generated index.html")
 
 
 if __name__ == "__main__":
