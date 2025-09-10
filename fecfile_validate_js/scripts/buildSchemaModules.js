@@ -16,10 +16,6 @@ fs.mkdirSync(path.join(dir, `../dist`), { recursive: true });
 const files = globSync(path.join(dir, '../../schema/*.json'));
 
 for (const file of files) {
-  console.log(file)
-  if (file === "schema_map.json")
-    continue;
-
   const schema = JSON.parse(fs.readFileSync(file, 'utf-8'));
 
   // Ajv package is looking for 'http' in the schema definition URL and errors on 'https'
