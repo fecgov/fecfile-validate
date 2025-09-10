@@ -136,7 +136,12 @@ def gen_index_dot_html():
 
     for schema_category in schema_map.keys():
         output_file.write(
-            build_html_for_schema_category(schema_map, schema_category, schema_files, invalid_links)
+            build_html_for_schema_category(
+                schema_map,
+                schema_category,
+                schema_files,
+                invalid_links
+            )
         )
 
     output_file.write(
