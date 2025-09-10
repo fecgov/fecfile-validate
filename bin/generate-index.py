@@ -2,7 +2,7 @@ import json
 import os
 
 
-INDENTATION_WIDTH=4
+INDENTATION_WIDTH = 4
 EXCLUDED_FILES = [
     "schema_map.json",
     "_OVERRIDE_SchC2.json",
@@ -17,7 +17,7 @@ def format_html(string, indentation_level=0):
 
 def get_spec_links(file_name):
     return {
-        "json": f"https://github.com/fecgov/fecfile-validate/blob/develop/schema/{file_name}.json",
+        "json": f"https://github.com/fecgov/fecfile-validate/blob/develop/schema/{file_name}.json",  # noqa: E501
         "doc": f"{file_name}.html",
         "spec": f"{file_name}_spec.html",
     }
@@ -38,7 +38,7 @@ def gen_html_for_link_specs(file_name, schema_files):
 
         output_str += format_html('<td>', 2)
         if spec_link is not None:
-            output_str += format_html(f'<div class="link"><a href="{spec_link}" target="_blank" rel="noopener">{spec_type}</a></div>', 3)
+            output_str += format_html(f'<div class="link"><a href="{spec_link}" target="_blank" rel="noopener">{spec_type}</a></div>', 3)  # noqa: E501
         else:
             output_str += format_html('<div class="link">WARNING: FILE NOT FOUND</div>')
         output_str += format_html('</td>', 2)
@@ -48,13 +48,13 @@ def gen_html_for_link_specs(file_name, schema_files):
 
 def build_html_for_head():
     output_str = format_html("<head>")
-    output_str += format_html('<link rel=stylesheet type=text/css href="https://fonts.googleapis.com/css?family=Overpass:300,400,600,800">', 1)
-    output_str += format_html('<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin=anonymous></script>', 1)
-    output_str += format_html('<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin=anonymous></script>', 1)
-    output_str += format_html('<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel=stylesheet integrity=sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T crossorigin=anonymous>', 1)
-    output_str += format_html('<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"    integrity=sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM crossorigin=anonymous></script>', 1)
-    output_str += format_html('<link rel=stylesheet type=text/css href=schema_doc.css>', 1)
-    output_str += format_html('<link rel=stylesheet type=text/css href=spec_table.css>', 1)
+    output_str += format_html('<link rel=stylesheet type=text/css href="https://fonts.googleapis.com/css?family=Overpass:300,400,600,800">', 1)  # noqa: E501
+    output_str += format_html('<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin=anonymous></script>', 1)  # noqa: E501
+    output_str += format_html('<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin=anonymous></script>', 1)  # noqa: E501
+    output_str += format_html('<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel=stylesheet integrity=sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T crossorigin=anonymous>', 1)  # noqa: E501
+    output_str += format_html('<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"    integrity=sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM crossorigin=anonymous></script>', 1)  # noqa: E501
+    output_str += format_html('<link rel=stylesheet type=text/css href=schema_doc.css>', 1)  # noqa: E501
+    output_str += format_html('<link rel=stylesheet type=text/css href=spec_table.css>', 1)  # noqa: E501
     output_str += format_html('<script src=schema_doc.min.js></script>', 1)
     output_str += format_html('<meta charset=utf-8>', 1)
     output_str += format_html('<title>FEC Form Data Dictionaries</title>', 1)
@@ -81,7 +81,7 @@ def build_html_for_schema_category(schema_map, category, schema_files):
     output_str += format_html('<th>DOC</th>', 2)
     output_str += format_html('<th>Specification</th>', 2)
     output_str += format_html('</tr>\n', 1)
-    for TTI in category_map["files"].keys():
+    for TTI in category_map["files"].keys():  # noqa: N806
         value = category_map["files"][TTI]
         if value is None:
             file_name = TTI
@@ -117,7 +117,6 @@ def gen_index_dot_html():
         if f[-5:] == ".json" and f not in EXCLUDED_FILES:
             schema_files[f] = False
 
-
     output_file = open("../docs/index.html", "w")
 
     output_file.write(
@@ -139,17 +138,17 @@ def gen_index_dot_html():
         format_html('</body>\n\n</html>')
     )
 
-    trues = []
-    falses = []
+    found_files = []
+    not_found_files = []
     for file_name in schema_files.keys():
-        if schema_files[file_name] == False:
+        if not schema_files.get(file_name):
             print(f"WARNING - FILE NOT FOUND IN SCHEMA MAP: {file_name}")
-            falses.append(file_name)
+            not_found_files.append(file_name)
         else:
-            trues.append(file_name)
+            found_files.append(file_name)
 
-    print(f"\nSchema files found in schema map: {len(trues)}")
-    print(f"Schema files not found in schema map: {len(falses)}")
+    print(f"\nSchema files found in schema map: {len(found_files)}")
+    print(f"Schema files not found in schema map: {len(not_found_files)}")
 
 
 if __name__ == "__main__":
