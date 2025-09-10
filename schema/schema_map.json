@@ -7,6 +7,7 @@
 			"HDR": "HDR",
 			"TEXT": {"filename": "Text", "subtitle": "TEXT - MISC. TEXT RELATED TO A REPORT, SCHEDULE, OR ITEMIZATION"},
 			"Form 3X": {"filename": "F3X", "subtitle": "Form 3X summary and detailed summary pages. (pages 1-5)"},
+			"Form 3": {"filename": "F3", "subtitle": "Form 3 summary and detailed summary pages."},
 			"Form 24": {"filename": "F24", "subtitle": "Form 24 report form"},
 			"Form 99": {"filename": "F99", "subtitle": "Form 99 - miscellaneous text"},
 			"Form 1M": {"filename": "F1M", "subtitle": "Form 1M - notification of multicandidate status"},
