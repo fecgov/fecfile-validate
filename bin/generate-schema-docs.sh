@@ -20,6 +20,3 @@ do
         echo ERROR: generate-spec-table.py failed to process $target_file
     }
 done
-
-# Generate index.html
-python ../bin/generate-index.py

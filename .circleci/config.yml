@@ -192,6 +192,11 @@ jobs:
           command: ../bin/generate-schema-docs.sh
           working_directory: ~/project/schema
 
+      - run:
+          name: Generate index.html
+          command: ../bin/generate-index.sh
+          working_directory: ~/project/schema
+
       - persist_to_workspace:
           root: ~/project
           paths: docs
