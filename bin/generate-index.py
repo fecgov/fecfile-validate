@@ -42,7 +42,6 @@ def gen_html_for_link_specs(file_name, schema_files, invalid_links):
             output_str += format_html(f'<div class="link"><a href="{spec_link}" target="_blank" rel="noopener">{spec_type}</a></div>', 3)  # noqa: E501
         else:
             output_str += format_html('<div class="link">WARNING: FILE NOT FOUND</div>')
-            print(f"SCHEMA FILE IN SCHEMA MAP NOT FOUND: {file_name}", 3)
         output_str += format_html('</td>', 2)
 
     return output_str
