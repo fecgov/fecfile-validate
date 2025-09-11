@@ -211,6 +211,11 @@ def print_status(message, value, width):
 
 
 def print_status_messages(schema_files, status, invalid_links, width):
+    for warning in status["warnings"]:
+        print(warning)
+    if len(status["warnings"]) > 0:
+        print()  # Empty line for readability
+
     print_status("Files present in schema directory:", len(schema_files.keys()) + len(EXCLUDED_FILES), width)  # noqa: E501
     print_status("Files excluded from search:", len(EXCLUDED_FILES), width)
     print_status("Files found in schema map:", status['found_files'], width)
@@ -226,16 +231,10 @@ def gen_index_dot_html():
     invalid_links = []
 
     print("Generating index.html ...\n")
-    print()
 
     html_for_head, html_for_body = gen_html(schema_map, schema_files, invalid_links)
 
     status = evaluate_run_status(schema_files, invalid_links)
-
-    for warning in status["warnings"]:
-        print(warning)
-    if len(status["warnings"]) > 0:
-        print()
 
     print_status_messages(schema_files, status, invalid_links, 36)
 
