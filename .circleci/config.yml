@@ -140,37 +140,6 @@ jobs:
           name: flake8 lint tests
           command: flake8 .
 
-  dependency-check:
-    docker:
-      - image: cimg/python:3.13
-
-    steps:
-      - checkout
-
-      - python/install-packages:
-          pkg-manager: pip
-          pip-dependency-file: requirements-test.txt
-
-      - run:
-          name: Run depency check
-          command: |
-            export today=$(date "+%Y-%m-%d")
-
-            # gather up the -i ignore IDs for safety check
-            export ignores=$(
-            grep -vE "^\s*#" .safety.dependency.ignore |  # print out any non-comment line
-              grep "[0-9]" |  # filter out any line that doesn't have a number in it
-              awk -v "today=${today}" '{ if ($2 > today || $2 == "") print "-i", $1}' | # print any line with date after today
-              xargs echo  # put all the output from previous command on one line
-            )
-            export command="safety check -r requirements.txt --full-report $ignores"
-
-            echo "----------------------------------------------------"
-            echo "If you need to modify the ignore list for the safety"
-            echo "check, edit .safety.dependency.ignore file"
-            echo "----------------------------------------------------"
-            eval $command
-
   docs-build:
     docker:
       - image: cimg/python:3.13
@@ -235,7 +204,6 @@ workflows:
   test:
     jobs:
       - test
-      - dependency-check
       - docs-build:
           filters:
             branches:
