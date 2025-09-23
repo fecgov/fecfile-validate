@@ -5,8 +5,6 @@ import os
 
 INDENTATION_WIDTH = 4
 EXCLUDED_FILES = [
-    "_OVERRIDE_SchC2.json",
-    "_OVERRIDE_F99.json",
     "UNIT_TEST.json"
 ]
 
