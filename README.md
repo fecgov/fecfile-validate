@@ -35,9 +35,7 @@ is missing a value, the validation passes but with a warning issued about the mi
 
 # Deployment (FEC team only)
 
-[Deployment instructions...](https://github.com/fecgov/fecfile-web-api/wiki/Deployment)
-
-
+[Deployment instructions](https://github.com/fecgov/fecfile-web-api/wiki/Deployment)
 
 ## Additional developer notes
 This section covers a few topics we think might help developers after setup.
@@ -48,7 +46,7 @@ After modified the JSON schema files, those changes must be registered in the [f
 In the fecfile-web-app repo:
 1) Update the commit hash in the [package.json](https://github.com/fecgov/fecfile-web-app/blob/develop/front-end/package.json) file for the fecfile-validate dependency
 2) Remove the package-lock.json file
-3) Rebuild the package-lock.json file to commit it to the repo with the "npm install" command
+3) Rebuild the package-lock.json file to commit it to the repo with the `npm install` command
 
 In the fecfile-web-api repo:
 1) Update the commit hash for the fecfile-validate dependency in the [requirements.txt](https://github.com/fecgov/fecfile-web-api/blob/develop/requirements.txt) file.
@@ -56,8 +54,8 @@ In the fecfile-web-api repo:
 ### How to update the online documentation
 The online documentation for the validation JSON files is hosted on GitHub pages at https://fecgov.github.io/fecfile-validate/
 To update this documentation when changes are made to the JSON validation files, we use the [json-schema-for-humans](https://pypi.org/project/json-schema-for-humans/) python package. To generate the documentation, follow these steps:
-1) pip install -r requirements.txt
-2) cd schema
-3) ../bin/generate_schema_docs.sh
+1) `pip install -r requirements.txt`
+2) `cd schema`
+3) `../bin/generate_schema_docs.sh`
 
 ### See also [Additional Developer Notes](https://github.com/fecgov/fecfile-web-api/wiki/Additional-Developer-Notes).
