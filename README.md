@@ -20,7 +20,7 @@ the FEC Format MS Excel spreadsheet found in the FEC Vendor Pack.
 See bin/generate-starter-schema.py for the script that created the initial
 schema definition files that were then manually curated and updated.
 
-The data dictionary can be found in a human-freindly HTML format at:
+The data dictionary can be found in a human-friendly HTML format at:
 https://fecgov.github.io/fecfile-validate/
 
 ### Custom Validation Algorithms
@@ -41,7 +41,7 @@ is missing a value, the validation passes but with a warning issued about the mi
 This section covers a few topics we think might help developers after setup.
 
 ### Register changes to the validation JSON files in the fecfile-web-app and fecfile-web-api repositories
-After modified the JSON schema files, those changes must be registered in the [fecfile-web-app](https://github.com/fecgov/fecfile-web-app) and [fecfile-web-api](https://github.com/fecgov/fecfile-web-api) repositories using the hash of the commit of the edits.
+After the JSON schema files have been modified, those changes must be registered in the [fecfile-web-app](https://github.com/fecgov/fecfile-web-app) and [fecfile-web-api](https://github.com/fecgov/fecfile-web-api) repositories using the hash of the commit of the edits.
 
 In the fecfile-web-app repo:
 1) Update the commit hash in the [package.json](https://github.com/fecgov/fecfile-web-app/blob/develop/front-end/package.json) file for the fecfile-validate dependency
