@@ -17,7 +17,7 @@ jobs:
 
     steps:
       - checkout
-        method: blobless
+          method: blobless
 
       - run:
           name: Create unified requirements so CircleCI can cache them
@@ -147,7 +147,7 @@ jobs:
 
     steps:
       - checkout
-        method: blobless
+          method: blobless
 
       - run:
           name: Create unified requirements so CircleCI can cache them
@@ -182,7 +182,7 @@ jobs:
       - image: cimg/python:3.13-node
     steps:
       - checkout
-        method: blobless
+          method: blobless
       - attach_workspace:
           at: ~/project/
       - run:
