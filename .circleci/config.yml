@@ -210,7 +210,7 @@ workflows:
       - docs-build:
           filters:
             branches:
-              only: develop|feature\/2578-circleci_blobless
+              only: /develop|feature\/2578-circleci_blobless/
       - docs-deploy:
           requires:
             - docs-build
