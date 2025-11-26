@@ -140,6 +140,10 @@ jobs:
           name: flake8 lint tests
           command: flake8 .
 
+      - run:
+          name: Check for unused dependencies
+          command: npx knip
+
   docs-build:
     docker:
       - image: cimg/python:3.13
