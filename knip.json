@@ -1,5 +1,9 @@
 {
   "$schema": "https://unpkg.com/knip@5/schema.json",
+  "ignoreDependencies": [
+    "@typescript-eslint/eslint-plugin",
+    "@typescript-eslint/parser"
+  ],
   "workspaces": {
     "fecfile_validate_js": {
       "entry": [
