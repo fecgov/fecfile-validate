@@ -4,15 +4,10 @@
     "@typescript-eslint/eslint-plugin",
     "@typescript-eslint/parser"
   ],
-  "workspaces": {
-    "fecfile_validate_js": {
-      "entry": [
-        "src/index.ts"
-      ],
-      "project": [
-        "src/**/*.ts"
-      ]
-    }
-  },
+  "entry": [
+    "**/{index,cli,main}.{js,cjs,mjs,jsx,ts,cts,mts,tsx}",
+    "fecfile_validate_js/tests/**/*.test.ts"
+  ],
+  "project": ["fecfile_validate_js/**/*.{js,cjs,mjs,jsx,ts,cts,mts,tsx}"],
   "tags": ["-lintignore"]
 }
