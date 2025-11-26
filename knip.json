@@ -1,13 +1,15 @@
 {
   "$schema": "https://unpkg.com/knip@5/schema.json",
-  "ignoreDependencies": [
-    "@typescript-eslint/eslint-plugin",
-    "@typescript-eslint/parser"
-  ],
   "entry": [
     "**/{index,cli,main}.{js,cjs,mjs,jsx,ts,cts,mts,tsx}",
     "fecfile_validate_js/tests/**/*.test.ts"
   ],
   "project": ["fecfile_validate_js/**/*.{js,cjs,mjs,jsx,ts,cts,mts,tsx}"],
+  "eslint": {
+    "config": [
+      "fecfile_validate_js/.eslintrc.{js,json,cjs}",
+      "package.json"
+    ]
+  },
   "tags": ["-lintignore"]
 }
