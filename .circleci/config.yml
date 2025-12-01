@@ -16,7 +16,8 @@ jobs:
       - image: cimg/python:3.13-node
 
     steps:
-      - checkout
+      - checkout:
+          method: full
 
       - run:
           name: Create unified requirements so CircleCI can cache them
