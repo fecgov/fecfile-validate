@@ -16,7 +16,8 @@ jobs:
       - image: cimg/python:3.13-node
 
     steps:
-      - checkout
+      - checkout:
+          method: full
 
       - run:
           name: Create unified requirements so CircleCI can cache them
@@ -139,6 +140,10 @@ jobs:
       - run:
           name: flake8 lint tests
           command: flake8 .
+
+      - run:
+          name: Check for unused dependencies
+          command: npx knip
 
   docs-build:
     docker:
