@@ -313,7 +313,9 @@
         "MSM",
         "MST",
         "MSR",
-        "MSW"
+        "MSW",
+        "MSA",
+        "MSX"
       ],
       "examples": [
         "MST"
@@ -324,7 +326,7 @@
         "TYPE": "A/N-3",
         "REQUIRED": "X (error)",
         "SAMPLE_DATA": "MST",
-        "VALUE_REFERENCE": "Type of Miscellaneous Document:\n  'MSI'    = Disavowal Response                                                                         \n  'MSM'  = Filing Freq. Change Notice                                                                                                                           \n  'MST'   = Misc. Report to the FEC                                                                                                                           \n  'MSR'   = Form 3L Filing Frequency Chance Notice                                                                                                                           \n  'MSW'   = Loan Agreement",
+        "VALUE_REFERENCE": "Type of Miscellaneous Document:\n'MSI' = Disavowal Response\n'MSM' = Filing Frequency Change Notice\n'MSR' = Form 3L Filing Frequency Change Notice\n'MST' = Miscellaneous Electronic Submission to the FEC\n'MSW' = C-1/Loan Agreement\n'MSA' = Debt Settlement Plan\n'MSX' = Loan Forgiveness",
         "RULE_REFERENCE": null,
         "FIELD_FORM_ASSOCIATION": null
       }
