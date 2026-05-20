@@ -13,12 +13,12 @@
     <meta charset="utf-8"/>
         
     
-    <title>FEC Receipt from Unregistered Entity</title>
+    <title>FEC Receipt from Unregistered Organization - Returned/Bounced Receipt</title>
 </head>
 <body onload="anchorOnLoad();" id="root">
 
-    <div class="breadcrumbs"></div> <h1>FEC Receipt from Unregistered Entity</h1><span class="badge badge-dark value-type">Type: object</span><br/>
-<span class="description"><p>Receipt from Unregistered Entity (11a)</p>
+    <div class="breadcrumbs"></div> <h1>FEC Receipt from Unregistered Organization - Returned/Bounced Receipt</h1><span class="badge badge-dark value-type">Type: object</span><br/>
+<span class="description"><p>Receipt from Unregistered Organization - Returned/Bounced Receipt (11a)</p>
 </span>
         
 
@@ -164,7 +164,7 @@
             />
         </svg>
     <a href="#transaction_type_identifier" onclick="anchorLink('transaction_type_identifier')">transaction_type_identifier</a></div><h4>TRANSACTION TYPE IDENTIFIER</h4><span class="badge badge-dark value-type">Type: const</span><br/>
-<span class="const-value" id="transaction_type_identifier_const">Specific value: <code>"RECEIPT_FROM_UNREGISTERED_ENTITY"</code></span>
+<span class="const-value" id="transaction_type_identifier_const">Specific value: <code>"RECEIPT_FROM_UNREGISTERED_ORGANIZATION_RETURN"</code></span>
         
 
         
@@ -172,7 +172,7 @@
 
         <br/>
 <div class="badge badge-secondary">Example:</div>
-<br/><div id="transaction_type_identifier_ex1" class="jumbotron examples"><div class="highlight"><pre><span></span><span class="s2">&quot;RECEIPT_FROM_UNREGISTERED_ENTITY&quot;</span>
+<br/><div id="transaction_type_identifier_ex1" class="jumbotron examples"><div class="highlight"><pre><span></span><span class="s2">&quot;RECEIPT_FROM_UNREGISTERED_ORGANIZATION_RETURN&quot;</span>
 </pre></div>
 </div>
             </div>
@@ -608,11 +608,11 @@
         
 
         
-        <p><span class="badge badge-light restriction numeric-restriction" id="contribution_amount_number">Value must be greater or equal to <code>-99999999.99</code> and lesser or equal to <code>999999999.99</code></span></p>
+        <p><span class="badge badge-light restriction numeric-restriction" id="contribution_amount_number">Value must be greater or equal to <code>-99999999.99</code> and strictly lesser than <code>0</code></span></p>
 
         <br/>
 <div class="badge badge-secondary">Example:</div>
-<br/><div id="contribution_amount_ex1" class="jumbotron examples"><div class="highlight"><pre><span></span><span class="mf">250</span>
+<br/><div id="contribution_amount_ex1" class="jumbotron examples"><div class="highlight"><pre><span></span><span class="o">-</span><span class="mf">250</span>
 </pre></div>
 </div>
             </div>
@@ -715,7 +715,7 @@
             />
         </svg>
     <a href="#contribution_purpose_descrip" onclick="anchorLink('contribution_purpose_descrip')">contribution_purpose_descrip</a></div><h4>CONTRIBUTION PURPOSE DESCRIPTION</h4><span class="badge badge-dark value-type">Type: string</span><br/>
-<span class="pattern-value" id="contribution_purpose_descrip_pattern">Must match regular expression: <code>^[ -~]{0,100}$</code></span>
+<span class="pattern-value" id="contribution_purpose_descrip_pattern">Must match regular expression: <code>^[ -~]{1,100}$</code></span>
         
 
         
@@ -834,6 +834,6 @@
 </div>
 
     <footer>
-        <p class="generated-by-footer">Generated using <a href="https://github.com/coveooss/json-schema-for-humans">json-schema-for-humans</a> on 2026-05-14 at 13:08:44 +0000</p>
+        <p class="generated-by-footer">Generated using <a href="https://github.com/coveooss/json-schema-for-humans">json-schema-for-humans</a> on 2026-05-20 at 20:25:44 +0000</p>
     </footer></body>
 </html>
