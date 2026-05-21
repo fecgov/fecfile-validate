@@ -420,7 +420,7 @@
       "if": {
         "properties": {
           "transaction_type_identifier": {
-            "const": "REFUND_UNREGISTERED_ORGANIZATION_VOID"
+            "const": "REFUND_RECEIPTS_FROM_UNREGISTERED_ORGANIZATION_VOID"
           }
         },
         "required": ["transaction_type_identifier"]
