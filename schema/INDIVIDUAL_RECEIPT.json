@@ -678,13 +678,32 @@
             },
             "then": {
                 "required": [
-                    "election_code",
-                    "election_other_description"
+                    "election_code"
                 ],
                 "properties": {
                     "election_code": {
                         "type": "string"
-                    },
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "election_code": {
+                        "pattern": "^O\\d{4}$",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "election_code"
+                ]
+            },
+            "then": {
+                "required": [
+                    "election_other_description"
+                ],
+                "properties": {
                     "election_other_description": {
                         "type": "string"
                     }
