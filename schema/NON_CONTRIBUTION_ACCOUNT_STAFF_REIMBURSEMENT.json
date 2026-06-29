@@ -420,15 +420,18 @@
             "title": "EXPENDITURE PURPOSE DESCRIP",
             "description": "",
             "type": "string",
-            "const": "Non-contribution Account - Reimbursement: See Below",
+            "enum": [
+                "Reimbursement Memo: See Below",
+                "Reimbursement memo entries do not meet itemization threshold."
+            ],
             "examples": [
-                "Non-contribution Account - Reimbursement: See Below"
+                "Reimbursement Memo: See Below"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "EXPENDITURE PURPOSE DESCRIP",
                 "TYPE": "A/N-100",
                 "REQUIRED": "X (error)",
-                "VALUE_REFERENCE": "Non-contribution Account - Reimbursement: See Below"
+                "VALUE_REFERENCE": "Reimbursement Memo: See Below"
             }
         },
         "category_code": {

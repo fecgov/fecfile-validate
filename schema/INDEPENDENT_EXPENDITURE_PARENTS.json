@@ -1041,7 +1041,10 @@
             "then": {
                 "properties": {
                     "expenditure_purpose_descrip": {
-                        "const": "Credit Card: See Below"
+                        "enum": [
+                            "Credit Card Memo: See Below",
+                            "Credit card memo entries do not meet itemization threshold."
+                        ]
                     }
                 }
             }
@@ -1060,7 +1063,10 @@
             "then": {
                 "properties": {
                     "expenditure_purpose_descrip": {
-                        "const": "Payroll: See Below"
+                        "enum": [
+                            "Payroll Memo: See Below",
+                            "Payroll memo entries do not meet itemization threshold."
+                        ]
                     }
                 }
             }
@@ -1079,7 +1085,10 @@
             "then": {
                 "properties": {
                     "expenditure_purpose_descrip": {
-                        "const": "Reimbursement: See Below"
+                        "enum": [
+                            "Reimbursement Memo: See Below",
+                            "Reimbursement memo entries do not meet itemization threshold."
+                        ]
                     }
                 }
             }
