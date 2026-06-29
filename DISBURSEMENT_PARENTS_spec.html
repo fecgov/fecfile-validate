@@ -193,11 +193,11 @@ with the F3L</td>
 <td>EXPENDITURE PURPOSE DESCRIP</td>
 <td>A/N-100</td>
 <td>X (error)</td>
-<td>Credit Card: See Below</td>
-<td>Credit Card: See Below | Payroll: See Below</td>
+<td>Credit Card Memo: See Below</td>
+<td>Credit Card Memo: See Below | Payroll Memo: See Below</td>
 <td></td>
 <td>F3 | F3X | F3P</td>
-<td><ul><li>EXPENDITURE_PURPOSE_DESCRIP = 'Credit Card: See Below' if TRANSACTION_TYPE_IDENTIFIER one of ['OTHER_DISBURSEMENT_CREDIT_CARD_PAYMENT', 'OPERATING_EXPENDITURE_CREDIT_CARD_PAYMENT']</li><li>EXPENDITURE_PURPOSE_DESCRIP = 'Payroll: See Below' if TRANSACTION_TYPE_IDENTIFIER one of ['OTHER_DISBURSEMENT_PAYMENT_TO_PAYROLL', 'OPERATING_EXPENDITURE_PAYMENT_TO_PAYROLL']</li><li>REQUIRED</li><li>type: string</li><li>must be one of: ['Credit Card: See Below', 'Payroll: See Below']</li></td>
+<td><ul><li>EXPENDITURE_PURPOSE_DESCRIP must be one of ['Credit Card Memo: See Below', 'Credit card memo entries do not meet itemization threshold.'] if TRANSACTION_TYPE_IDENTIFIER one of ['OTHER_DISBURSEMENT_CREDIT_CARD_PAYMENT', 'OPERATING_EXPENDITURE_CREDIT_CARD_PAYMENT']</li><li>EXPENDITURE_PURPOSE_DESCRIP must be one of ['Payroll Memo: See Below', 'Payroll memo entries do not meet itemization threshold.'] if TRANSACTION_TYPE_IDENTIFIER one of ['OTHER_DISBURSEMENT_PAYMENT_TO_PAYROLL', 'OPERATING_EXPENDITURE_PAYMENT_TO_PAYROLL']</li><li>REQUIRED</li><li>type: string</li><li>must be one of: ['Credit Card Memo: See Below', 'Credit card memo entries do not meet itemization threshold.', 'Payroll Memo: See Below', 'Payroll memo entries do not meet itemization threshold.']</li></td>
 </tr>
 <tr>
 <td>CATEGORY CODE</td>

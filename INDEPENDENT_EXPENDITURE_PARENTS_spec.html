@@ -277,7 +277,7 @@ with the F3L</td>
 <td></td>
 <td></td>
 <td></td>
-<td><ul><li>EXPENDITURE_PURPOSE_DESCRIP = 'Credit Card: See Below' if TRANSACTION_TYPE_IDENTIFIER equals INDEPENDENT_EXPENDITURE_CREDIT_CARD_PAYMENT</li><li>EXPENDITURE_PURPOSE_DESCRIP = 'Payroll: See Below' if TRANSACTION_TYPE_IDENTIFIER equals INDEPENDENT_EXPENDITURE_PAYMENT_TO_PAYROLL</li><li>EXPENDITURE_PURPOSE_DESCRIP = 'Reimbursement: See Below' if TRANSACTION_TYPE_IDENTIFIER equals INDEPENDENT_EXPENDITURE_STAFF_REIMBURSEMENT</li><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 100</li><li>regex: ^[ -~]{0,100}$</li></td>
+<td><ul><li>EXPENDITURE_PURPOSE_DESCRIP must be one of ['Credit Card Memo: See Below', 'Credit card memo entries do not meet itemization threshold.'] if TRANSACTION_TYPE_IDENTIFIER equals INDEPENDENT_EXPENDITURE_CREDIT_CARD_PAYMENT</li><li>EXPENDITURE_PURPOSE_DESCRIP must be one of ['Payroll Memo: See Below', 'Payroll memo entries do not meet itemization threshold.'] if TRANSACTION_TYPE_IDENTIFIER equals INDEPENDENT_EXPENDITURE_PAYMENT_TO_PAYROLL</li><li>EXPENDITURE_PURPOSE_DESCRIP must be one of ['Reimbursement Memo: See Below', 'Reimbursement memo entries do not meet itemization threshold.'] if TRANSACTION_TYPE_IDENTIFIER equals INDEPENDENT_EXPENDITURE_STAFF_REIMBURSEMENT</li><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 100</li><li>regex: ^[ -~]{0,100}$</li></td>
 </tr>
 <tr>
 <td>CATEGORY CODE</td>
