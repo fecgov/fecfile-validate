@@ -43,6 +43,26 @@ export interface JsonSchema {
       pattern?: string;
     };
   };
+  allOf?: IfThen[];
+}
+
+export interface IfThen {
+  if: {
+    properties: {
+      [key: string]: {
+        const: string;
+      };
+    };
+    required: string[];
+  };
+  then: {
+    required: string[];
+    properties: {
+      [key: string]: {
+        type: string;
+      };
+    };
+  };
 }
 
 /**
@@ -57,7 +77,7 @@ export interface JsonSchema {
 export async function validate(
   schema: JsonSchema,
   data: any,
-  fieldsToValidate: string[] = []
+  fieldsToValidate: string[] = [],
 ): Promise<ValidationError[]> {
   const schemaName = schemaToKey(schema);
   if (!schemaName) {
