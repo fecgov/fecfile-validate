@@ -341,17 +341,19 @@
             "description": "",
             "type": "string",
             "enum": [
-                "Non-contribution Account - Credit Card: See Below",
-                "Non-contribution Account - Payroll: See Below"
+                "Credit Card Memo: See Below",
+                "Credit card memo entries do not meet itemization threshold.",
+                "Payroll Memo: See Below",
+                "Payroll memo entries do not meet itemization threshold."
             ],
             "examples": [
-                "Non-contribution Account - Payroll: See Below"
+                "Payroll Memo: See Below"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "EXPENDITURE PURPOSE DESCRIP",
                 "TYPE": "A/N-100",
                 "REQUIRED": "X (error)",
-                "VALUE_REFERENCE": "Non-contribution Account - Payroll: See Below"
+                "VALUE_REFERENCE": "Payroll Memo: See Below"
             }
         },
         "category_code": {
@@ -456,7 +458,10 @@
             "then": {
                 "properties": {
                     "expenditure_purpose_descrip": {
-                        "const": "Non-contribution Account - Payroll: See Below"
+                        "enum": [
+                            "Payroll Memo: See Below",
+                            "Payroll memo entries do not meet itemization threshold."
+                        ]
                     }
                 }
             }
@@ -475,7 +480,10 @@
             "then": {
                 "properties": {
                     "expenditure_purpose_descrip": {
-                        "const": "Non-contribution Account - Credit Card: See Below"
+                        "enum": [
+                            "Credit Card Memo: See Below",
+                            "Credit card memo entries do not meet itemization threshold."
+                        ]
                     }
                 }
             }

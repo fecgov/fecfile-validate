@@ -405,16 +405,19 @@
             "title": "EXPENDITURE PURPOSE DESCRIP",
             "description": "",
             "type": "string",
-            "const": "Reimbursement: See Below",
+            "enum": [
+                "Reimbursement Memo: See Below",
+                "Reimbursement memo entries do not meet itemization threshold."
+            ],
             "examples": [
-                "Reimbursement: See Below"
+                "Reimbursement Memo: See Below"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "EXPENDITURE PURPOSE DESCRIP",
                 "TYPE": "A/N-100",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "Reimbursement: See Below",
-                "RULE_REFERENCE": "Reimbursement: See Below"
+                "SAMPLE_DATA": "Reimbursement Memo: See Below",
+                "RULE_REFERENCE": "Reimbursement Memo: See Below"
             }
         },
         "category_code": {

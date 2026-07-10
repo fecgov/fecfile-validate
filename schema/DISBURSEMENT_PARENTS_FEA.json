@@ -422,19 +422,21 @@
             "title": "EXPENDITURE PURPOSE DESCRIP",
             "description": "",
             "enum": [
-                "Credit Card: See Below",
-                "Payroll: See Below"
+                "Credit Card Memo: See Below",
+                "Credit card memo entries do not meet itemization threshold.",
+                "Payroll Memo: See Below",
+                "Payroll memo entries do not meet itemization threshold."
             ],
             "examples": [
-                "Credit Card: See Below"
+                "Credit Card Memo: See Below"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "EXPENDITURE PURPOSE DESCRIP",
                 "TYPE": "A/N-100",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "Credit Card: See Below",
-                "VALUE_REFERENCE": "Credit Card: See Below\nPayroll: See Below",
-                "RULE_REFERENCE": "If Transaction Type is FEDERAL_ELECTION_ACTIVITY_CREDIT_CARD_PAYMENT, must read \u201cCredit Card: See Below\u201c. \nIf Transaction Type is FEDERAL_ELECTION_ACTIVITY_PAYMENT_TO_PAYROLL, must read \u201cPayroll: See Below\u201c.",
+                "SAMPLE_DATA": "Credit Card Memo: See Below",
+                "VALUE_REFERENCE": "Credit Card Memo: See Below\nPayroll Memo: See Below",
+                "RULE_REFERENCE": "If Transaction Type is FEDERAL_ELECTION_ACTIVITY_CREDIT_CARD_PAYMENT, must read \u201cCredit Card Memo: See Below\u201c. \nIf Transaction Type is FEDERAL_ELECTION_ACTIVITY_PAYMENT_TO_PAYROLL, must read \u201cPayroll Memo: See Below\u201c.",
                 "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P"
             }
         },
@@ -550,7 +552,10 @@
             "then": {
                 "properties": {
                     "expenditure_purpose_descrip": {
-                        "const": "Credit Card: See Below"
+                        "enum": [
+                            "Credit Card Memo: See Below",
+                            "Credit card memo entries do not meet itemization threshold."
+                        ]
                     }
                 }
             }
@@ -569,7 +574,10 @@
             "then": {
                 "properties": {
                     "expenditure_purpose_descrip": {
-                        "const": "Payroll: See Below"
+                        "enum": [
+                            "Payroll Memo: See Below",
+                            "Payroll memo entries do not meet itemization threshold."
+                        ]
                     }
                 }
             }
