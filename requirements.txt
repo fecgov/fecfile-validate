@@ -1,4 +1,4 @@
-coverage==6.2
+coverage==7.15.0
 pylint==2.13.9
 jsonschema==3.2.0
 json-schema-for-humans==1.4.1
