@@ -16,8 +16,7 @@
     "treasurer_last_name",
     "treasurer_first_name",
     "date_signed",
-    "text_code",
-    "message_text"
+    "text_code"
   ],
   "properties": {
     "form_type": {
@@ -392,7 +391,7 @@
         "properties": {
           "text_code": {
             "type": "string",
-            "pattern": "^MSM|MSR$"
+            "enum": ["MSM","MSR"]
           }
         },
         "required": [
@@ -406,6 +405,28 @@
         "properties": {
           "filing_frequency": {
             "type": "string"
+          }
+        }
+      }
+    },
+      {  
+        "if": {
+        "properties": {
+          "text_code": {
+            "const": "MST"
+          }
+        },  
+        "required": [
+         "text_code"
+        ]
+     },
+      "then": {
+       "required": [
+          "message_text"
+       ],
+       "properties": {
+         "message_text": {
+           "type": "string"
           }
         }
       }
