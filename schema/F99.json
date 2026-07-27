@@ -370,9 +370,9 @@
       "title": "MESSAGE TEXT",
       "description": "",
       "type": ["string", "null"],
-      "minLength": 1,
+      "minLength": 0,
       "maxLength": 20000,
-      "pattern": "^[ -~\r\n\t\f]{1,20000}$",
+      "pattern": "^[ -~\r\n\t\f]{0,20000}$",
       "fec_spec": {
         "COL_SEQ": null,
         "FIELD_DESCRIPTION": "MESSAGE TEXT",
@@ -408,28 +408,29 @@
           }
         }
       }
-    },
-    {  
+    },  
+    {
       "if": {
-      "properties": {
-        "text_code": {
-          "const": "MST"
-        }
+        "properties": {
+          "text_code": {
+            "const": "MST"
+          }
+        },
+        "required": [
+          "text_code"
+        ]
       },
-      "required": [
-        "text_code"
-      ]
-    },
-    "then": {
-      "required": [
-        "message_text"
-      ],
-      "properties": {
-        "message_text": {
-          "type": "string"
+      "then": {
+        "required": [
+          "message_text"
+        ],
+        "properties": {
+          "message_text": {
+            "type": "string",
+            "minLength": 1
+          }
         }
       }
-    }
     }
   ]
 }
