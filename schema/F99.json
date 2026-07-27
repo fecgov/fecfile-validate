@@ -369,7 +369,7 @@
     "message_text": {
       "title": "MESSAGE TEXT",
       "description": "",
-      "type": "string",
+      "type": ["string", "null"],
       "minLength": 1,
       "maxLength": 20000,
       "pattern": "^[ -~\r\n\t\f]{1,20000}$",
@@ -409,27 +409,27 @@
         }
       }
     },
-      {  
-        "if": {
-        "properties": {
-          "text_code": {
-            "const": "MST"
-          }
-        },  
-        "required": [
-         "text_code"
-        ]
-     },
-      "then": {
-       "required": [
-          "message_text"
-       ],
-       "properties": {
-         "message_text": {
-           "type": "string"
-          }
+    {  
+      "if": {
+      "properties": {
+        "text_code": {
+          "const": "MST"
+        }
+      },
+      "required": [
+        "text_code"
+      ]
+    },
+    "then": {
+      "required": [
+        "message_text"
+      ],
+      "properties": {
+        "message_text": {
+          "type": "string"
         }
       }
+    }
     }
   ]
 }
