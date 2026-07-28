@@ -430,6 +430,14 @@
             "minLength": 1
           }
         }
+      },
+      "else": {
+        "properties": {
+          "message_text": { 
+            "type": ["string", "null"], 
+            "maxLength": 20000 
+          }
+        }
       }
     }
   ]
