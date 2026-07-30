@@ -174,7 +174,7 @@
 Q = Quarterly</td>
 <td>Required if TEXT CODE = MSM or MSR</td>
 <td></td>
-<td><ul><li>REQUIRED if TEXT_CODE matches regex: ^MSM|MSR$</li><li>must be one of: ['Q', 'M', None]</li></td>
+<td><ul><li>REQUIRED if TEXT_CODE one of ['MSM', 'MSR']</li><li>must be one of: ['Q', 'M', None]</li></td>
 </tr>
 <tr>
 <td>PDF ATTACHMENT</td>
@@ -194,7 +194,7 @@ Q = Quarterly</td>
 <td></td>
 <td>Everything following the [BEGINTEXT] marker, which is on its own row, will be treated as the body of the text message. It may include formatting, such as carriage return and line feed and tabs but may not exceed 20,000 characters (including spaces). When the text message is complete, the last line of the form 99 should be [ENDTEXT] marker on its own row.</td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 20000</li><li>regex: ^[ -~
-	]{1,20000}$</li></td>
+<td><ul><li>REQUIRED if TEXT_CODE equals MST</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 20000</li><li>regex: ^[ -~
+	]{0,20000}$</li></td>
 </tr>
 </table></body></html>
