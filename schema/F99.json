@@ -16,8 +16,7 @@
     "treasurer_last_name",
     "treasurer_first_name",
     "date_signed",
-    "text_code",
-    "message_text"
+    "text_code"
   ],
   "properties": {
     "form_type": {
@@ -370,10 +369,10 @@
     "message_text": {
       "title": "MESSAGE TEXT",
       "description": "",
-      "type": "string",
-      "minLength": 1,
+      "type": ["string", "null"],
+      "minLength": 0,
       "maxLength": 20000,
-      "pattern": "^[ -~\r\n\t\f]{1,20000}$",
+      "pattern": "^[ -~\r\n\t\f]{0,20000}$",
       "fec_spec": {
         "COL_SEQ": null,
         "FIELD_DESCRIPTION": "MESSAGE TEXT",
@@ -392,7 +391,7 @@
         "properties": {
           "text_code": {
             "type": "string",
-            "pattern": "^MSM|MSR$"
+            "enum": ["MSM","MSR"]
           }
         },
         "required": [
@@ -406,6 +405,29 @@
         "properties": {
           "filing_frequency": {
             "type": "string"
+          }
+        }
+      }
+    },  
+    {
+      "if": {
+        "properties": {
+          "text_code": {
+            "const": "MST"
+          }
+        },
+        "required": [
+          "text_code"
+        ]
+      },
+      "then": {
+        "required": [
+          "message_text"
+        ],
+        "properties": {
+          "message_text": {
+            "type": "string",
+            "minLength": 1
           }
         }
       }
