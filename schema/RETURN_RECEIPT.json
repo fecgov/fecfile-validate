@@ -29,12 +29,13 @@
             "type": "string",
             "maxLength": 5,
             "examples": [
+                "F3",
                 "F3X"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "REPORT TYPE",
                 "TYPE": "A/N-100",
-                "SAMPLE DATA": "F3X",
+                "SAMPLE DATA": "F3",
                 "VALUE REFERENCE": null,
                 "RULE REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
@@ -161,7 +162,7 @@
                 "REQUIRED": null,
                 "SAMPLE_DATA": "SA11AI",
                 "VALUE_REFERENCE": "SA[line# ref]",
-                "RULE_REFERENCE": "Ref to the Schedule that has the Related Record.  SA3L must be used \nwith the F3L",
+                "RULE_REFERENCE": "Ref to the Schedule that has the Related Record. SA3L must be used with the F3L",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -423,6 +424,52 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
+        "election_code": {
+            "title": "ELECTION CODE",
+            "description": "",
+            "type": [
+                "string",
+                "null"
+            ],
+            "minLength": 1,
+            "maxLength": 5,
+            "pattern": "^[GPRSCEO]\\d{4}$",
+            "examples": [
+                "P2012"
+            ],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "ELECTION CODE",
+                "TYPE": "A/N-5",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "P2012",
+                "VALUE_REFERENCE": "G,P,O[YYYY]",
+                "RULE_REFERENCE": "Values: [G|P|R|S|C|E|O]+Year{YYYY}",
+                "FIELD_FORM_ASSOCIATION": "F3 | F3P"
+            }
+        },
+        "election_other_description": {
+            "title": "ELECTION OTHER DESCRIPTION",
+            "description": "",
+            "type": [
+                "string",
+                "null"
+            ],
+            "minLength": 0,
+            "maxLength": 20,
+            "pattern": "^[ -~]{0,20}$",
+            "examples": [
+                "Special Election"
+            ],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "ELECTION OTHER DESCRIPTION",
+                "TYPE": "A/N-20",
+                "REQUIRED": "X (conditional error)",
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "Req if Item Election Code = O",
+                "FIELD_FORM_ASSOCIATION": "F3 | F3P"
+            }
+        },
         "contribution_date": {
             "title": "CONTRIBUTION DATE",
             "description": "",
@@ -504,6 +551,9 @@
             "minLength": 1,
             "maxLength": 100,
             "pattern": "^[ -~]{1,100}$",
+            "examples": [
+                "Returned contribution"
+            ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "CONTRIBUTION PURPOSE DESCRIPTION",
                 "TYPE": "A/N-100",
@@ -699,6 +749,79 @@
                     "contributor_last_name": {
                         "type": "string"
                     }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "report_type": {
+                        "const": "F3"
+                    }
+                },
+                "required": [
+                    "report_type"
+                ]
+            },
+            "then": {
+                "required": [
+                    "election_code"
+                ],
+                "properties": {
+                    "election_code": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "election_code": {
+                        "pattern": "^O\\d{4}$",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "election_code"
+                ]
+            },
+            "then": {
+                "required": [
+                    "election_other_description"
+                ],
+                "properties": {
+                    "election_other_description": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "report_type": {
+                        "const": "F3X"
+                    }
+                },
+                "required": [
+                    "report_type"
+                ]
+            },
+            "then": {
+                "not": {
+                    "anyOf": [
+                        {
+                            "required": [
+                                "election_code"
+                            ]
+                        },
+                        {
+                            "required": [
+                                "election_other_description"
+                            ]
+                        }
+                    ]
                 }
             }
         }
