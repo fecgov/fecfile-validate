@@ -2,6 +2,7 @@ import os
 import sys
 import time
 import pkg_resources
+import json
 from inspect import getsourcefile
 
 FRONT_END_ROOT_DIR = "fecfile-web-app"
@@ -44,21 +45,24 @@ def patch_app(commit_hash):
     print("Patching package.json...")
     sleep(0.5)
 
-    packages = open("package.json", "r")
-    package_lines = ""
-    for line in packages:
-        if "fecfile-validate" in line:
-            key, value = line.split(": ")
-            url = value.split("#")[0]
-            new_line = key+": "+url+"#"+commit_hash+'",\n'
-            package_lines += new_line
-        else:
-            package_lines += line
+    package_manifest = json.load("package.json")
 
-    packages.close()
-    new_packages = open("package.json", "w")
-    new_packages.write(package_lines)
-    new_packages.close()
+    package_manifest["dependencies"]["fecfile-validate"] = (
+        f"https://github.com/fecgov/fecfile-validate#{commit_hash}"
+    )
+
+    allowedScripts = package_manifest["allowScripts"].keys()
+
+    newAllowedScripts = {}
+    for allowedScript in allowedScripts:
+        if "fecfile-validate" in allowedScript:
+            scriptName = f"github:fecgov/fecfile-validate#{commit_hash}"
+            newAllowedScripts[scriptName] = package_manifest["allowScripts"][allowedScript]
+        else:
+            newAllowedScripts[allowedScript] = package_manifest["allowScripts"][allowedScript]
+
+    package_manifest["allowScripts"] = newAllowedScripts
+    json.dump(package_manifest, "test-package.json")
 
     print("Done!\n")
     sleep(0.5)
