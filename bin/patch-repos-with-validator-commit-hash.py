@@ -149,7 +149,7 @@ def check_directories_are_correct():
     return ask_true_false("\nAre these directories correct?")
 
 
-def main():
+def parse_args():
     description = (
         "This script updates the validator commit hash in fecfile-web-api's\n"
         "requirements.txt file and in fecfile-web-app's package.json file.\n\n"
@@ -186,6 +186,10 @@ def main():
     if args.quick:
         global QUICK
         QUICK = True
+
+
+def main():
+    parse_args()
 
     if not check_directories_are_correct():
         return
