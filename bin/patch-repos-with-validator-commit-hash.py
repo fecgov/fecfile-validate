@@ -1,9 +1,9 @@
 import os
 import sys
 import time
-import pkg_resources
 import json
 from inspect import getsourcefile
+
 
 FRONT_END_ROOT_DIR = "fecfile-web-app"
 BACK_END_ROOT_DIR = "fecfile-web-api"
@@ -14,27 +14,46 @@ BASE_DIR = "/".join(FILE_PATH.split("/")[:-3])
 YES_TO_ALL = False
 
 
-def gitpython_is_installed():
-    installed_packages = pkg_resources.working_set
-    for package in installed_packages:
-        if package.key == "gitpython":
-            return True
-    return False
-
-
-def get_commit_hash():
+def get_commit_hash_automatic():
     import git
 
     os.chdir(BASE_DIR)
     os.chdir(VALIDATOR_ROOT_DIR)
 
     repo = git.Repo()
-    commit_hash = repo.head.object.hexsha
+    return repo.head.object.hexsha
 
-    print("\nValidator Commit Hash:", commit_hash+"\n")
-    sleep(1)
 
-    return commit_hash
+def get_commit_hash_manual(skip_gitpython_install_recommendation=True):
+    if not skip_gitpython_install_recommendation:
+        print(
+            "\n\n"
+            "This script can optionally use the gitpython module to automatically\n"
+            "retrieve the most recent commit hash of your validate repo's active branch"
+            "\n\n"
+            "You can install it with: python -m pip install gitpython\n"
+            "\n\n"
+            "Alternatively:"
+        )
+
+    return input("Please input the commit hash: ")
+
+
+def get_commit_hash():
+    try:
+        print("\n\nAttempting to automatically retrieve commit hash...")
+        commit_hash = get_commit_hash_automatic()
+
+        sleep(1)
+        print("\nValidator Commit Hash:", commit_hash+"\n")
+        correct = ask_true_false("Is this correct?")
+        if correct:
+            return commit_hash
+        else:
+            return get_commit_hash_manual(True)
+    except:
+        print("Failed to automatically retrieve commit hash")
+        return get_commit_hash_manual(YES_TO_ALL)
 
 
 def patch_app(commit_hash):
@@ -118,17 +137,13 @@ def delete_app_cache():
     sleep(0.5)
 
 
-def delete_api_docker_images(docker_images):
-    print("Deleting .angular & node_modules...")
+def spin_down_docker():
+    print("Spinning down Docker...")
     os.chdir(BASE_DIR)
     os.chdir(BACK_END_ROOT_DIR)
-    print("Spinning down Docker...")
     os.system("docker-compose down")
-    for image in docker_images:
-        print("Removing", image, "...")
-        os.system("docker rmi "+image)
 
-    print("Done!\nBe sure to run `docker-compose up`")
+    print("Done!\nBe sure to run `docker-compose build --no-cache`")
     sleep(0.5)
 
 
@@ -178,35 +193,12 @@ def main():
         global YES_TO_ALL
         YES_TO_ALL = True
 
-    if not gitpython_is_installed():
-        print("Please install gitpython!")
-        print("python -m pip install gitpython")
-        return
-
     if not check_user_is_ready():
         return
 
     commit_hash = get_commit_hash()
     patch_app(commit_hash)
     patch_api(commit_hash)
-
-    if ask_true_false(
-        "Would you like to delete the .angular and node_modules directories within " +
-        FRONT_END_ROOT_DIR
-    ):
-        delete_app_cache()
-
-    docker_images = [
-        "fecfile-db",
-        "fecfile-api",
-        "fecfile-celery-worker",
-        "redis:6.2-alpine"
-    ]
-    if ask_true_false(
-        "Would you like to delete the following docker images?\n" +
-        "\n".join(docker_images)+"\n"
-    ):
-        delete_api_docker_images(docker_images)
 
 
 if __name__ == "__main__":
