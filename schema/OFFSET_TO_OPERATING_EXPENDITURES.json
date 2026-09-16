@@ -700,17 +700,13 @@
         {
             "if": {
                 "properties": {
-                    "report_type": {
-                        "const": "F3"
-                    },
                     "election_code": {
                         "pattern": "^O\\d{4}$",
                         "type": "string"
                     }
                 },
                 "required": [
-                    "election_code",
-                    "report_type"
+                    "election_code"
                 ]
             },
             "then": {
