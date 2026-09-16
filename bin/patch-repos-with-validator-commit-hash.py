@@ -74,18 +74,18 @@ def patch_app(commit_hash):
         f"https://github.com/fecgov/fecfile-validate#{commit_hash}"
     )
 
-    allowScripts = package_manifest["allowScripts"]
-    allowScriptKeys = allowScripts.keys()
+    allow_scripts = package_manifest["allowScripts"]
+    allow_script_keys = allow_scripts.keys()
 
-    newAllowedScripts = {}
-    for allowScriptKey in allowScriptKeys:
+    new_allowed_scripts = {}
+    for allowScriptKey in allow_script_keys:
         if "fecfile-validate" in allowScriptKey:
-            scriptName = f"github:fecgov/fecfile-validate#{commit_hash}"
-            newAllowedScripts[scriptName] = allowScripts[allowScriptKey]
+            script_name = f"github:fecgov/fecfile-validate#{commit_hash}"
+            new_allowed_scripts[script_name] = allow_scripts[allowScriptKey]
         else:
-            newAllowedScripts[allowScriptKey] = allowScripts[allowScriptKey]
+            new_allowed_scripts[allowScriptKey] = allow_scripts[allowScriptKey]
 
-    package_manifest["allowScripts"] = newAllowedScripts
+    package_manifest["allowScripts"] = new_allowed_scripts
 
     package = open("package.json", "w")
     json.dump(
