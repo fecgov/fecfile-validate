@@ -124,29 +124,6 @@ def patch_api(commit_hash):
     sleep(0.5)
 
 
-def delete_app_cache():
-    print("Deleting .angular & node_modules...")
-
-    os.chdir(BASE_DIR)
-    os.chdir(FRONT_END_ROOT_DIR)
-    os.chdir("front-end")
-    os.system("rm -r .angular")
-    os.system("rm -r node_modules")
-
-    print("Done!\nBe sure to run `npm install`\n")
-    sleep(0.5)
-
-
-def spin_down_docker():
-    print("Spinning down Docker...")
-    os.chdir(BASE_DIR)
-    os.chdir(BACK_END_ROOT_DIR)
-    os.system("docker-compose down")
-
-    print("Done!\nBe sure to run `docker-compose build --no-cache`")
-    sleep(0.5)
-
-
 def sleep(t):
     if "-q" not in sys.argv:
         time.sleep(t)
@@ -172,16 +149,15 @@ def check_user_is_ready():
 
 def help():
     help_string = """
-        This script uses the active branch of your fecfile-validate repo to
-        update the validator commit hashes of your local app and api repos.
-        Optionally, it also deletes the .angular and node_modules directories
-        as well as the relevant docker images.
-
-        For this script to work, it needs to be placed in the directory
-        wherein each of the three repos can be found.
+        This script updates the validator commit hash in fecfile-web-api's requirements.txt file 
+        and in fecfile-web-app's package.json file.  If the gitpython module is installed, this 
+        script will automatically retrieve the commit hash for the most recent commit on the 
+        working branch of your fecfile-validate repo.  Alternatively, you can manually enter the 
+        commit hash.
 
         Command line arguments:
             -y or --yes |    auto-confirm all options
+            -q          |    skip all sleep() calls
     """
     print(help_string)
 
