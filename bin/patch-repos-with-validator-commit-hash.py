@@ -1,5 +1,4 @@
 import os
-import sys
 import time
 import json
 import argparse
@@ -78,12 +77,12 @@ def patch_app(commit_hash):
     allow_script_keys = allow_scripts.keys()
 
     new_allowed_scripts = {}
-    for allowScriptKey in allow_script_keys:
-        if "fecfile-validate" in allowScriptKey:
+    for allow_script_key in allow_script_keys:
+        if "fecfile-validate" in allow_script_key:
             script_name = f"github:fecgov/fecfile-validate#{commit_hash}"
-            new_allowed_scripts[script_name] = allow_scripts[allowScriptKey]
+            new_allowed_scripts[script_name] = allow_scripts[allow_script_key]
         else:
-            new_allowed_scripts[allowScriptKey] = allow_scripts[allowScriptKey]
+            new_allowed_scripts[allow_script_key] = allow_scripts[allow_script_key]
 
     package_manifest["allowScripts"] = new_allowed_scripts
 
