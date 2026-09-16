@@ -2,6 +2,7 @@ import os
 import sys
 import time
 import json
+import argparse
 from inspect import getsourcefile
 
 
@@ -12,6 +13,7 @@ FILE_PATH = os.path.abspath(getsourcefile(lambda: 0))
 # Get the directory three steps above the directory containing this file
 BASE_DIR = "/".join(FILE_PATH.split("/")[:-3])
 YES_TO_ALL = False
+QUICK = False
 
 
 def get_commit_hash_automatic():
@@ -24,7 +26,7 @@ def get_commit_hash_automatic():
     return repo.head.object.hexsha
 
 
-def get_commit_hash_manual(skip_gitpython_install_recommendation=True):
+def get_commit_hash_manual(skip_gitpython_install_recommendation):
     if not skip_gitpython_install_recommendation:
         print(
             "\n\n"
@@ -51,7 +53,7 @@ def get_commit_hash():
             return commit_hash
         else:
             return get_commit_hash_manual(True)
-    except:
+    except ModuleNotFoundError:
         print("Failed to automatically retrieve commit hash")
         return get_commit_hash_manual(YES_TO_ALL)
 
@@ -125,7 +127,7 @@ def patch_api(commit_hash):
 
 
 def sleep(t):
-    if "-q" not in sys.argv:
+    if not QUICK:
         time.sleep(t)
 
 
@@ -139,7 +141,7 @@ def ask_true_false(question):
     return True
 
 
-def check_user_is_ready():
+def check_directories_are_correct():
     print("This script acts upon the active branches of the following repos:")
     for repo in [FRONT_END_ROOT_DIR, BACK_END_ROOT_DIR, VALIDATOR_ROOT_DIR]:
         padded_repo = repo+" "*(48-len(repo))
@@ -147,29 +149,45 @@ def check_user_is_ready():
     return ask_true_false("\nAre these directories correct?")
 
 
-def help():
-    help_string = """
-        This script updates the validator commit hash in fecfile-web-api's requirements.txt file 
-        and in fecfile-web-app's package.json file.  If the gitpython module is installed, this 
-        script will automatically retrieve the commit hash for the most recent commit on the 
-        working branch of your fecfile-validate repo.  Alternatively, you can manually enter the 
-        commit hash.
-
-        Command line arguments:
-            -y or --yes |    auto-confirm all options
-            -q          |    skip all sleep() calls
-    """
-    print(help_string)
-
-
 def main():
-    if "-h" in sys.argv or "--help" in sys.argv:
-        return help()
-    if "-y" in sys.argv or "--yes" in sys.argv:
+    description = (
+        "This script updates the validator commit hash in fecfile-web-api's\n"
+        "requirements.txt file and in fecfile-web-app's package.json file.\n\n"
+        "If the gitpython module is installed, this script will automatically\n"
+        "retrieve the commit hash for the most recent commit on the working\n"
+        "branch of your fecfile-validate repo.  Alternatively, you can enter\n"
+        "the commit hash manually."
+    )
+
+    parser = argparse.ArgumentParser(
+        prog="patch-repos-with-validator-commit-hash",
+        description=description,
+    )
+
+    parser.add_argument(
+        '-y',
+        '--yes',
+        action="store_true",
+        default=False,
+        help="auto-confirm all y/n prompts"
+    )
+    parser.add_argument(
+        '-q',
+        '--quick',
+        action="store_true",
+        default=False,
+        help="Skip all sleep() calls"
+    )
+
+    args = parser.parse_args()
+    if args.yes:
         global YES_TO_ALL
         YES_TO_ALL = True
+    if args.quick:
+        global QUICK
+        QUICK = True
 
-    if not check_user_is_ready():
+    if not check_directories_are_correct():
         return
 
     commit_hash = get_commit_hash()
