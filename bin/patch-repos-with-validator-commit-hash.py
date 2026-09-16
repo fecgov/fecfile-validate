@@ -45,7 +45,9 @@ def patch_app(commit_hash):
     print("Patching package.json...")
     sleep(0.5)
 
-    package_manifest = json.load("package.json")
+    package = open("package.json", "r")
+    package_manifest = json.load(package)
+    package.close()
 
     package_manifest["dependencies"]["fecfile-validate"] = (
         f"https://github.com/fecgov/fecfile-validate#{commit_hash}"
@@ -62,7 +64,15 @@ def patch_app(commit_hash):
             newAllowedScripts[allowedScript] = package_manifest["allowScripts"][allowedScript]
 
     package_manifest["allowScripts"] = newAllowedScripts
-    json.dump(package_manifest, "test-package.json")
+
+    package = open("package.json", "w")
+    json.dump(
+        package_manifest,
+        package,
+        indent=2,
+    )
+    package.write("\n")
+    package.close()
 
     print("Done!\n")
     sleep(0.5)
