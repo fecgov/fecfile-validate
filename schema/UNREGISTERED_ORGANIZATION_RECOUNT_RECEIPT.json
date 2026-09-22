@@ -1,9 +1,9 @@
 {
     "$schema": "https://json-schema.org/draft-07/schema#",
-    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/PARTNERSHIP_RECEIPT.json",
+    "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/UNREGISTERED_ORGANIZATION_RECOUNT_RECEIPT.json",
     "version": "v0.0.0.0",
-    "title": "FEC Partnership Receipt",
-    "description": "Partnership Receipt (11a)",
+    "title": "FEC Unregistered Organization Recount Receipt",
+    "description": "Unregistered Organization Recount Receipt (15)",
     "type": "object",
     "required": [
         "form_type",
@@ -16,6 +16,7 @@
         "contributor_city",
         "contributor_state",
         "contributor_zip",
+        "election_code",
         "contribution_date",
         "contribution_amount",
         "contribution_aggregate",
@@ -30,14 +31,14 @@
             "type": "string",
             "maxLength": 5,
             "examples": [
-                "F3X"
+                "F3"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "REPORT TYPE",
                 "TYPE": "A/N-100",
-                "SAMPLE DATA": "F3X",
-                "VALUE REFERENCE": null,
-                "RULE REFERENCE": null,
+                "SAMPLE DATA": "F3",
+                "VALUE REFERENCE": "[F3 | F3P]",
+                "RULE REFERENCE": "F3 | F3P",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -46,20 +47,19 @@
             "description": "",
             "type": "string",
             "enum": [
-                "SA11AI",
-                "SA11AII"
+                "SA15",
+                "SA21"
             ],
             "examples": [
-                "SA11AI",
-                "SA11AII"
+                "SA15"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "FORM TYPE",
                 "TYPE": "A/N-8",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "SA11AI",
-                "VALUE_REFERENCE": "SA11AI or SA11AII only",
-                "RULE_REFERENCE": "SA11AI or SA11AII only",
+                "SAMPLE_DATA": "SA15",
+                "VALUE_REFERENCE": "[SA15 | SA21]",
+                "RULE_REFERENCE": "If Report Type is F3, then SA15\nIf Report Type is F3P, then SA21",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -79,22 +79,22 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "C00123456",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "this is the ID of the Committee Account the report/transaction is associated with",
+                "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
         "transaction_type_identifier": {
             "title": "TRANSACTION TYPE IDENTIFIER",
             "description": "",
-            "const": "PARTNERSHIP_RECEIPT",
+            "const": "UNREGISTERED_ORGANIZATION_RECOUNT_RECEIPT",
             "examples": [
-                "PARTNERSHIP_RECEIPT"
+                "UNREGISTERED_ORGANIZATION_RECOUNT_RECEIPT"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "TRANSACTION TYPE IDENTIFIER",
                 "TYPE": "A/N-12",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "PARTNERSHIP_RECEIPT",
+                "SAMPLE_DATA": "UNREGISTERED_ORGANIZATION_RECOUNT_RECEIPT",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
@@ -154,13 +154,13 @@
             "maxLength": 8,
             "pattern": "^[ -~]{0,8}$",
             "examples": [
-                "SA11AI"
+                "SA15"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "BACK REFERENCE SCHED NAME",
                 "TYPE": "A/N-8",
                 "REQUIRED": null,
-                "SAMPLE_DATA": "SA11AI",
+                "SAMPLE_DATA": "SA15",
                 "VALUE_REFERENCE": "SA[line# ref]",
                 "RULE_REFERENCE": "Ref to the Schedule that has the Related Record.  SA3L must be used \nwith the F3L",
                 "FIELD_FORM_ASSOCIATION": null
@@ -169,17 +169,17 @@
         "entity_type": {
             "title": "ENTITY TYPE",
             "description": "",
-            "const": "ORG",
+            "const": "COM",
             "examples": [
-                "ORG"
+                "COM"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "ENTITY TYPE",
                 "TYPE": "A/N-3",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "ORG",
-                "VALUE_REFERENCE": "ORG",
-                "RULE_REFERENCE": "ORG Only",
+                "SAMPLE_DATA": "COM",
+                "VALUE_REFERENCE": "COM only",
+                "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -306,10 +306,7 @@
         "election_code": {
             "title": "ELECTION CODE",
             "description": "",
-            "type": [
-                "string",
-                "null"
-            ],
+            "type": "string",
             "minLength": 1,
             "maxLength": 5,
             "pattern": "^[GPRSCEO]\\d{4}$",
@@ -399,42 +396,41 @@
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": 1000,
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": "YTD",
+                "RULE_REFERENCE": "F3 | F3P - Cycle to Date; F3X - YTD;\nF3L - Semi-annual Bundled Total",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
         "aggregation_group": {
             "title": "AGGREGATION GROUP",
             "description": "",
-            "const": "GENERAL",
+            "const": "RECOUNT_ACCOUNT",
             "examples": [
-                "GENERAL"
+                "RECOUNT_ACCOUNT"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "AGGREGATION GROUP",
-                "TYPE": null,
+                "TYPE": "A/N-100",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": null,
-                "VALUE_REFERENCE": "General",
-                "RULE_REFERENCE": "General",
+                "SAMPLE_DATA": "RECOUNT_ACCOUNT",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
         "contribution_purpose_descrip": {
             "title": "CONTRIBUTION PURPOSE DESCRIPTION",
             "description": "",
-            "type": "string",
-            "enum": [
-                "Partnership attributions do not meet itemization threshold",
-                "See Partnership Attribution(s) below"
+            "const": "Recount Account",
+            "examples": [
+                "Recount Account"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "CONTRIBUTION PURPOSE DESCRIPTION",
                 "TYPE": "A/N-100",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": null,
+                "SAMPLE_DATA": "Recount Account",
                 "VALUE_REFERENCE": null,
-                "RULE_REFERENCE": null,
+                "RULE_REFERENCE": "Recount Account",
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
@@ -514,11 +510,11 @@
             },
             "then": {
                 "required": [
-                    "election_code"
+                    "form_type"
                 ],
                 "properties": {
-                    "election_code": {
-                        "type": "string"
+                    "form_type": {
+                        "const": "SA15"
                     }
                 }
             }
@@ -546,5 +542,6 @@
                 }
             }
         }
-    ]
+    ],
+    "additionalProperties": false
 }
