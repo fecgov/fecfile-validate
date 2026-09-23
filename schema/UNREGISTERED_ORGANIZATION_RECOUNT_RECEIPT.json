@@ -169,16 +169,16 @@
         "entity_type": {
             "title": "ENTITY TYPE",
             "description": "",
-            "const": "COM",
+            "const": "ORG",
             "examples": [
-                "COM"
+                "ORG"
             ],
             "fec_spec": {
                 "FIELD_DESCRIPTION": "ENTITY TYPE",
                 "TYPE": "A/N-3",
                 "REQUIRED": "X (error)",
-                "SAMPLE_DATA": "COM",
-                "VALUE_REFERENCE": "COM only",
+                "SAMPLE_DATA": "ORG",
+                "VALUE_REFERENCE": "ORG only",
                 "RULE_REFERENCE": null,
                 "FIELD_FORM_ASSOCIATION": null
             }
