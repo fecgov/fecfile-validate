@@ -26,140 +26,454 @@
     ],
     "fec_recommended": [],
     "properties": {
-        "report_type": {"type": "string", "maxLength": 5},
-        "form_type": {"const": "SA11D"},
+        "report_type": {
+            "type": "string", "maxLength": 5,
+            "examples": ["F3"],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "REPORT TYPE",
+                "TYPE": "A/N-100",
+                "REQUIRED": null,
+                "SAMPLE_DATA": "F3",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
+        "form_type": {
+            "const": "SA11D",
+            "examples": ["SA11D"],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "FORM TYPE",
+                "TYPE": "A/N-8",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "SA11D",
+                "VALUE_REFERENCE": "SA11D",
+                "RULE_REFERENCE": "SA11D Only",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
         "filer_committee_id_number": {
             "type": "string",
             "minLength": 9,
             "maxLength": 9,
-            "pattern": "^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$"
+            "pattern": "^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$",
+            "examples": ["C00123456"],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "FILER COMMITTEE ID NUMBER",
+                "TYPE": "A/N-9",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "C00123456",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
         },
-        "transaction_type_identifier": {"const": "CONTRIBUTION_FROM_CANDIDATE"},
+        "transaction_type_identifier": {
+            "const": "CONTRIBUTION_FROM_CANDIDATE",
+            "examples": ["CONTRIBUTION_FROM_CANDIDATE"],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "TRANSACTION TYPE IDENTIFIER",
+                "TYPE": null,
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "CONTRIBUTION_FROM_CANDIDATE",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
         "transaction_id": {
             "type": "string",
             "minLength": 1,
             "maxLength": 20,
-            "pattern": "^[ -~]{0,20}$"
+            "pattern": "^[ -~]{0,20}$",
+            "examples": ["A56123456789-1234"],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "TRANSACTION ID",
+                "TYPE": "A/N-20",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "A56123456789-1234",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "Must be unique for the life of a report (original + amendments) within each committee account. Letters, if included, must be uppercase.",
+                "FIELD_FORM_ASSOCIATION": null
+            }
         },
-        "entity_type": {"const": "CAN"},
+        "entity_type": {
+            "const": "CAN",
+            "examples": ["CAN"],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "ENTITY TYPE",
+                "TYPE": "A/N-3",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "CAN",
+                "VALUE_REFERENCE": "CAN",
+                "RULE_REFERENCE": "CAN Only",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
         "contributor_street_1": {
             "type": "string",
             "minLength": 1,
             "maxLength": 34,
-            "pattern": "^[ -~]{0,34}$"
+            "pattern": "^[ -~]{0,34}$",
+            "examples": ["123 Main Street"],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "CONTRIBUTOR STREET 1",
+                "TYPE": "A/N-34",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "123 Main Street",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
         },
         "contributor_city": {
             "type": "string",
             "minLength": 1,
             "maxLength": 30,
-            "pattern": "^[ -~]{0,30}$"
+            "pattern": "^[ -~]{0,30}$",
+            "examples": ["Anytown"],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "CONTRIBUTOR CITY",
+                "TYPE": "A/N-30",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "Anytown",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
         },
         "contributor_state": {
             "type": "string",
             "minLength": 1,
             "maxLength": 2,
-            "pattern": "^[ -~]{0,2}$"
+            "pattern": "^[ -~]{0,2}$",
+            "examples": ["VA"],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "CONTRIBUTOR STATE",
+                "TYPE": "A/N-2",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "VA",
+                "VALUE_REFERENCE": "AK,AL,...",
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
         },
         "contributor_zip": {
             "type": "string",
             "minLength": 1,
             "maxLength": 9,
-            "pattern": "^[ -~]{0,9}$"
+            "pattern": "^[ -~]{0,9}$",
+            "examples": ["22314"],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "CONTRIBUTOR ZIP",
+                "TYPE": "A/N-9",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "22314",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
         },
         "contributor_employer": {
             "type": ["string", "null"],
             "maxLength": 38,
-            "pattern": "^[ -~]{0,38}$"
+            "pattern": "^[ -~]{0,38}$",
+            "examples": ["Acme Corporation"],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "CONTRIBUTOR EMPLOYER",
+                "TYPE": "A/N-38",
+                "REQUIRED": null,
+                "SAMPLE_DATA": "Acme Corporation",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
         },
         "contributor_occupation": {
             "type": ["string", "null"],
             "maxLength": 38,
-            "pattern": "^[ -~]{0,38}$"
+            "pattern": "^[ -~]{0,38}$",
+            "examples": ["Engineer"],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "CONTRIBUTOR OCCUPATION",
+                "TYPE": "A/N-38",
+                "REQUIRED": null,
+                "SAMPLE_DATA": "Engineer",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
         },
         "donor_candidate_fec_id": {
             "type": "string",
             "minLength": 1,
             "maxLength": 9,
-            "pattern": "^(?:P[0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$"
+            "pattern": "^(?:P[0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$",
+            "examples": ["P00123456"],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "DONOR CANDIDATE FEC ID",
+                "TYPE": "A/N-9",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "P00123456",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
         },
         "donor_candidate_last_name": {
             "type": "string",
             "minLength": 1,
             "maxLength": 30,
-            "pattern": "^[ -~]{0,30}$"
+            "pattern": "^[ -~]{0,30}$",
+            "examples": ["Smith"],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "DONOR CANDIDATE LAST NAME",
+                "TYPE": "A/N-30",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "Smith",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
         },
         "donor_candidate_first_name": {
             "type": "string",
             "minLength": 1,
             "maxLength": 20,
-            "pattern": "^[ -~]{0,20}$"
+            "pattern": "^[ -~]{0,20}$",
+            "examples": ["John"],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "DONOR CANDIDATE FIRST NAME",
+                "TYPE": "A/N-20",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "John",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
         },
         "donor_candidate_middle_name": {
             "type": ["string", "null"],
             "maxLength": 20,
-            "pattern": "^[ -~]{0,20}$"
+            "pattern": "^[ -~]{0,20}$",
+            "examples": ["W"],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "DONOR CANDIDATE MIDDLE NAME",
+                "TYPE": "A/N-20",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
         },
         "donor_candidate_prefix": {
             "type": ["string", "null"],
             "maxLength": 10,
-            "pattern": "^[ -~]{0,10}$"
+            "pattern": "^[ -~]{0,10}$",
+            "examples": ["Dr"],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "DONOR CANDIDATE PREFIX",
+                "TYPE": "A/N-10",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
         },
         "donor_candidate_suffix": {
             "type": ["string", "null"],
             "maxLength": 10,
-            "pattern": "^[ -~]{0,10}$"
+            "pattern": "^[ -~]{0,10}$",
+            "examples": ["Jr"],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "DONOR CANDIDATE SUFFIX",
+                "TYPE": "A/N-10",
+                "REQUIRED": null,
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
         },
-        "donor_candidate_office": {"enum": ["H", "S", "P"]},
+        "donor_candidate_office": {
+            "enum": ["H", "S", "P"],
+            "examples": ["H"],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "DONOR CANDIDATE OFFICE",
+                "TYPE": "A/N-1",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "H",
+                "VALUE_REFERENCE": "[H|S|P]",
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
         "donor_candidate_state": {
             "type": ["string", "null"],
             "minLength": 2,
             "maxLength": 2,
-            "pattern": "^[A-Z]{2}$"
+            "pattern": "^[A-Z]{2}$",
+            "examples": ["VA"],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "DONOR CANDIDATE STATE",
+                "TYPE": "A/N-2",
+                "REQUIRED": "X (conditional error)",
+                "SAMPLE_DATA": "VA",
+                "VALUE_REFERENCE": "AK,AL,...",
+                "RULE_REFERENCE": "Req if Office = Sen or House",
+                "FIELD_FORM_ASSOCIATION": null
+            }
         },
         "donor_candidate_district": {
             "type": ["string", "null"],
             "minLength": 2,
             "maxLength": 2,
-            "pattern": "^[0-9]{2}$"
+            "pattern": "^[0-9]{2}$",
+            "examples": ["01"],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "DONOR CANDIDATE DISTRICT",
+                "TYPE": "NUM-2",
+                "REQUIRED": "X (conditional error)",
+                "SAMPLE_DATA": 1,
+                "VALUE_REFERENCE": "01-99",
+                "RULE_REFERENCE": "Req if Office = House",
+                "FIELD_FORM_ASSOCIATION": null
+            }
         },
         "election_code": {
             "type": ["string", "null"],
             "minLength": 1,
             "maxLength": 5,
-            "pattern": "^[GPRSCEO]\\d{4}$"
+            "pattern": "^[GPRSCEO]\\d{4}$",
+            "examples": ["G2024"],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "ELECTION CODE",
+                "TYPE": "A/N-5",
+                "REQUIRED": "X (conditional error)",
+                "SAMPLE_DATA": "G2024",
+                "VALUE_REFERENCE": "G,R,P,S,C,E,O",
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
         },
         "election_other_description": {
             "type": ["string", "null"],
             "minLength": 0,
             "maxLength": 20,
-            "pattern": "^[ -~]{0,20}$"
+            "pattern": "^[ -~]{0,20}$",
+            "examples": ["Special Election"],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "ELECTION OTHER DESCRIPTION",
+                "TYPE": "A/N-20",
+                "REQUIRED": "X (conditional error)",
+                "SAMPLE_DATA": "Special Election",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "Required if Election Code = O",
+                "FIELD_FORM_ASSOCIATION": null
+            }
         },
         "contribution_date": {
             "type": "string",
             "minLength": 10,
-            "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+            "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+            "examples": ["2024-01-15"],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "CONTRIBUTION DATE",
+                "TYPE": "DATE",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "2024-01-15",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
         },
         "contribution_amount": {
             "type": "number",
             "minimum": -99999999.99,
-            "maximum": 999999999.99
+            "maximum": 999999999.99,
+            "examples": [1000.00],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "CONTRIBUTION AMOUNT",
+                "TYPE": "NUM",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": 1000.00,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
         },
         "contribution_aggregate": {
             "type": "number",
             "minimum": -99999999.99,
-            "maximum": 999999999.99
+            "maximum": 999999999.99,
+            "examples": [1000.00],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "CONTRIBUTION AGGREGATE",
+                "TYPE": "NUM",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": 1000.00,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
         },
-        "aggregation_group": {"const": "GENERAL"},
+        "aggregation_group": {
+            "const": "GENERAL",
+            "examples": ["GENERAL"],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "AGGREGATION GROUP",
+                "TYPE": "A/N-7",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "GENERAL",
+                "VALUE_REFERENCE": "GENERAL",
+                "RULE_REFERENCE": "GENERAL Only",
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
         "contribution_purpose_descrip": {
             "type": ["string", "null"],
             "maxLength": 100,
-            "pattern": "^[ -~]{0,100}$"
+            "pattern": "^[ -~]{0,100}$",
+            "examples": ["Candidate contribution"],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "CONTRIBUTION PURPOSE DESCRIPTION",
+                "TYPE": "A/N-100",
+                "REQUIRED": null,
+                "SAMPLE_DATA": "Candidate contribution",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
         },
-        "memo_code": {"type": ["boolean", "null"]},
+        "memo_code": {
+            "type": ["boolean", "null"],
+            "examples": [true],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "MEMO CODE",
+                "TYPE": "BOOLEAN",
+                "REQUIRED": null,
+                "SAMPLE_DATA": true,
+                "VALUE_REFERENCE": "TRUE/FALSE",
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
+        },
         "memo_text_description": {
             "type": ["string", "null"],
             "maxLength": 100,
-            "pattern": "^[ -~]{0,100}$"
+            "pattern": "^[ -~]{0,100}$",
+            "examples": ["Memo"],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "MEMO TEXT DESCRIPTION",
+                "TYPE": "A/N-100",
+                "REQUIRED": null,
+                "SAMPLE_DATA": "Memo",
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": null,
+                "FIELD_FORM_ASSOCIATION": null
+            }
         }
     },
     "allOf": [
