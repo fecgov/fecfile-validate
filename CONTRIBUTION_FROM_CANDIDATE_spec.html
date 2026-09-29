@@ -1,0 +1,311 @@
+<!DOCTYPE html><html lang="en"><head><title>CONTRIBUTION_FROM_CANDIDATE</title><link rel="stylesheet" href="spec_table.css"></head><body><table><caption>Specification for CONTRIBUTION_FROM_CANDIDATE</caption><tr>
+<th>FIELD DESCRIPTION</th>
+<th>TYPE</th>
+<th>REQUIRED</th>
+<th>SAMPLE DATA</th>
+<th>VALUE REFERENCE</th>
+<th>RULE REFERENCE</th>
+<th>FIELD FORM ASSOCIATION</th>
+<th>VALIDATION RULES</th>
+</tr>
+<tr>
+<td>REPORT TYPE</td>
+<td>A/N-100</td>
+<td></td>
+<td>F3</td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>type: string</li><li>max length: 5</li></td>
+</tr>
+<tr>
+<td>FORM TYPE</td>
+<td>A/N-8</td>
+<td>X (error)</td>
+<td>SA11D</td>
+<td>SA11D</td>
+<td>SA11D Only</td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>must equal: SA11D</li></td>
+</tr>
+<tr>
+<td>FILER COMMITTEE ID NUMBER</td>
+<td>A/N-9</td>
+<td>X (error)</td>
+<td>C00123456</td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 9</li><li>max length: 9</li><li>regex: ^(?:[PC][0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$</li></td>
+</tr>
+<tr>
+<td>TRANSACTION TYPE IDENTIFIER</td>
+<td></td>
+<td>X (error)</td>
+<td></td>
+<td></td>
+<td>CONTRIBUTION_FROM_CANDIDATE</td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>must equal: CONTRIBUTION_FROM_CANDIDATE</li></td>
+</tr>
+<tr>
+<td>TRANSACTION ID</td>
+<td>A/N-20</td>
+<td>X (error)</td>
+<td>A56123456789-1234</td>
+<td></td>
+<td>Must be unique for the life of a report (original + amendments) within each committee account. Letters, if included, must be uppercase.</td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
+</tr>
+<tr>
+<td>ENTITY TYPE</td>
+<td>A/N-3</td>
+<td>X (error)</td>
+<td>CAN</td>
+<td>CAN</td>
+<td>CAN Only</td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>must equal: CAN</li></td>
+</tr>
+<tr>
+<td>CONTRIBUTOR STREET 1</td>
+<td>A/N-34</td>
+<td>X (error)</td>
+<td>123 Main Street</td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 34</li><li>regex: ^[ -~]{0,34}$</li></td>
+</tr>
+<tr>
+<td>CONTRIBUTOR CITY</td>
+<td>A/N-30</td>
+<td>X (error)</td>
+<td>Anytown</td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 30</li><li>regex: ^[ -~]{0,30}$</li></td>
+</tr>
+<tr>
+<td>CONTRIBUTOR STATE</td>
+<td>A/N-2</td>
+<td>X (error)</td>
+<td>VA</td>
+<td>AK,AL,...</td>
+<td></td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 2</li><li>regex: ^[ -~]{0,2}$</li></td>
+</tr>
+<tr>
+<td>CONTRIBUTOR ZIP</td>
+<td>A/N-9</td>
+<td>X (error)</td>
+<td>22314</td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 9</li><li>regex: ^[ -~]{0,9}$</li></td>
+</tr>
+<tr>
+<td>CONTRIBUTOR EMPLOYER</td>
+<td>A/N-38</td>
+<td></td>
+<td>Acme Corporation</td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>type: ['string', 'null']</li><li>max length: 38</li><li>regex: ^[ -~]{0,38}$</li></td>
+</tr>
+<tr>
+<td>CONTRIBUTOR OCCUPATION</td>
+<td>A/N-38</td>
+<td></td>
+<td>Engineer</td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>type: ['string', 'null']</li><li>max length: 38</li><li>regex: ^[ -~]{0,38}$</li></td>
+</tr>
+<tr>
+<td>DONOR CANDIDATE FEC ID</td>
+<td>A/N-9</td>
+<td>X (error)</td>
+<td>P00123456</td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 9</li><li>regex: ^(?:P[0-9]{8}|[HS][0-9]{1}[A-Z]{2}[0-9]{5})$</li></td>
+</tr>
+<tr>
+<td>DONOR CANDIDATE LAST NAME</td>
+<td>A/N-30</td>
+<td>X (error)</td>
+<td>Smith</td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 30</li><li>regex: ^[ -~]{0,30}$</li></td>
+</tr>
+<tr>
+<td>DONOR CANDIDATE FIRST NAME</td>
+<td>A/N-20</td>
+<td>X (error)</td>
+<td>John</td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
+</tr>
+<tr>
+<td>DONOR CANDIDATE MIDDLE NAME</td>
+<td>A/N-20</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>type: ['string', 'null']</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
+</tr>
+<tr>
+<td>DONOR CANDIDATE PREFIX</td>
+<td>A/N-10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>type: ['string', 'null']</li><li>max length: 10</li><li>regex: ^[ -~]{0,10}$</li></td>
+</tr>
+<tr>
+<td>DONOR CANDIDATE SUFFIX</td>
+<td>A/N-10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>type: ['string', 'null']</li><li>max length: 10</li><li>regex: ^[ -~]{0,10}$</li></td>
+</tr>
+<tr>
+<td>DONOR CANDIDATE OFFICE</td>
+<td>A/N-1</td>
+<td>X (error)</td>
+<td>H</td>
+<td>[H|S|P]</td>
+<td></td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>must be one of: ['H', 'S', 'P']</li></td>
+</tr>
+<tr>
+<td>DONOR CANDIDATE STATE</td>
+<td>A/N-2</td>
+<td>X (conditional error)</td>
+<td>VA</td>
+<td>AK,AL,...</td>
+<td>Req if Office = Sen or House</td>
+<td></td>
+<td><ul><li>REQUIRED if DONOR_CANDIDATE_OFFICE equals H</li><li>REQUIRED if DONOR_CANDIDATE_OFFICE equals S</li><li>type: ['string', 'null']</li><li>min length: 2</li><li>max length: 2</li><li>regex: ^[A-Z]{2}$</li></td>
+</tr>
+<tr>
+<td>DONOR CANDIDATE DISTRICT</td>
+<td>NUM-2</td>
+<td>X (conditional error)</td>
+<td>1</td>
+<td>01-99</td>
+<td>Req if Office = House</td>
+<td></td>
+<td><ul><li>REQUIRED if DONOR_CANDIDATE_OFFICE equals H</li><li>type: ['string', 'null']</li><li>min length: 2</li><li>max length: 2</li><li>regex: ^[0-9]{2}$</li></td>
+</tr>
+<tr>
+<td>ELECTION CODE</td>
+<td>A/N-5</td>
+<td>X (conditional error)</td>
+<td>G2024</td>
+<td>G,R,P,S,C,E,O</td>
+<td></td>
+<td></td>
+<td><ul><li>REQUIRED if REPORT_TYPE equals F3</li><li>type: ['string', 'null']</li><li>min length: 1</li><li>max length: 5</li><li>regex: ^[GPRSCEO]\d{4}$</li></td>
+</tr>
+<tr>
+<td>ELECTION OTHER DESCRIPTION</td>
+<td>A/N-20</td>
+<td>X (conditional error)</td>
+<td>Special Election</td>
+<td></td>
+<td>Required if Election Code = O</td>
+<td></td>
+<td><ul><li>REQUIRED if ELECTION_CODE matches regex: ^O\d{4}$</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
+</tr>
+<tr>
+<td>CONTRIBUTION DATE</td>
+<td>DATE</td>
+<td>X (error)</td>
+<td>2024-01-15</td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 10</li><li>regex: ^[0-9]{4}-[0-9]{2}-[0-9]{2}$</li></td>
+</tr>
+<tr>
+<td>CONTRIBUTION AMOUNT</td>
+<td>NUM</td>
+<td>X (error)</td>
+<td>1000.0</td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: number</li><li>minimum: -99999999.99</li><li>maximum: 999999999.99</li></td>
+</tr>
+<tr>
+<td>CONTRIBUTION AGGREGATE</td>
+<td>NUM</td>
+<td>X (error)</td>
+<td>1000.0</td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>type: number</li><li>minimum: -99999999.99</li><li>maximum: 999999999.99</li></td>
+</tr>
+<tr>
+<td>AGGREGATION GROUP</td>
+<td>A/N-7</td>
+<td>X (error)</td>
+<td>GENERAL</td>
+<td>GENERAL</td>
+<td>GENERAL Only</td>
+<td></td>
+<td><ul><li>REQUIRED</li><li>must equal: GENERAL</li></td>
+</tr>
+<tr>
+<td>CONTRIBUTION PURPOSE DESCRIPTION</td>
+<td>A/N-100</td>
+<td></td>
+<td>Candidate contribution</td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>type: ['string', 'null']</li><li>max length: 100</li><li>regex: ^[ -~]{0,100}$</li></td>
+</tr>
+<tr>
+<td>MEMO CODE</td>
+<td>BOOLEAN</td>
+<td></td>
+<td>True</td>
+<td>TRUE/FALSE</td>
+<td></td>
+<td></td>
+<td><ul><li>type: ['boolean', 'null']</li></td>
+</tr>
+<tr>
+<td>MEMO TEXT DESCRIPTION</td>
+<td>A/N-100</td>
+<td></td>
+<td>Memo</td>
+<td></td>
+<td></td>
+<td></td>
+<td><ul><li>type: ['string', 'null']</li><li>max length: 100</li><li>regex: ^[ -~]{0,100}$</li></td>
+</tr>
+</table></body></html>
