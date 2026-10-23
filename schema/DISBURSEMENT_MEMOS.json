@@ -47,7 +47,9 @@
             "description": "",
             "enum": [
                 "SB21B",
-                "SB29"
+                "SB29",
+                "SB17",
+                "SB23"
             ],
             "examples": [
                 "SB21B"
@@ -57,8 +59,8 @@
                 "TYPE": "A/N-8",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "SB21B",
-                "VALUE_REFERENCE": "SB[line# ref]",
-                "RULE_REFERENCE": "If Transaction Type is 'OPERATING_EXPENDITURE_CREDIT_CARD_PAYMENT_MEMO' or 'OPERATING_EXPENDITURE_STAFF_REIMBURSEMENT_MEMO' or 'OPERATING_EXPENDITURE_PAYMENT_TO_PAYROLL_MEMO' then Form type is SB21B; If Transaction Type is 'OTHER_DISBURSEMENT_CREDIT_CARD_PAYMENT_MEMO' or 'OTHER_DISBURSEMENT_STAFF_REIMBURSEMENT_MEMO' or 'OTHER_DISBURSEMENT_PAYMENT_TO_PAYROLL_MEMO'  then Form Type is SB29.",
+                "VALUE_REFERENCE": "[SB21B|SB29|SB17|SB23]",
+                "RULE_REFERENCE": "If Transaction Type is 'OPERATING_EXPENDITURE_CREDIT_CARD_PAYMENT_MEMO' or 'OPERATING_EXPENDITURE_STAFF_REIMBURSEMENT_MEMO'  or 'OPERATING_EXPENDITURE_PAYMENT_TO_PAYROLL_MEMO': If Report Type is F3X then SB21B. If Report Type is F3 then SB17. If Report Type is F3P then SB23. If Transaction Type is 'OTHER_DISBURSEMENT_CREDIT_CARD_PAYMENT_MEMO' or 'OTHER_DISBURSEMENT_STAFF_REIMBURSEMENT_MEMO' or 'OTHER_DISBURSEMENT_PAYMENT_TO_PAYROLL_MEMO': If Report Type is F3X or F3P then SB29. If Report Type is F3 then SB21.",
                 "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
             }
         },
@@ -430,6 +432,49 @@
                 "FIELD_FORM_ASSOCIATION": "F3 | F3X | F3P | F3L"
             }
         },
+        "election_code": {
+            "title": "ELECTION CODE",
+            "description": "",
+            "type": [
+                "string",
+                "null"
+            ],
+            "minLength": 1,
+            "maxLength": 5,
+            "pattern": "^[GPRSCEO]\\d{4}$",
+            "examples": [
+                "P2012"
+            ],
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "ELECTION CODE",
+                "TYPE": "A/N-5",
+                "REQUIRED": "X (error)",
+                "SAMPLE_DATA": "P2012",
+                "VALUE_REFERENCE": "G,P,O[YYYY]",
+                "RULE_REFERENCE": "Values: [G|P|R|S|C|E|O]+Year{YYYY}",
+                "FIELD_FORM_ASSOCIATION": "F3 | F3P"
+            }
+        },
+        "election_other_description": {
+            "title": "ELECTION OTHER DESCRIPTION",
+            "description": "",
+            "type": [
+                "string",
+                "null"
+            ],
+            "minLength": 0,
+            "maxLength": 20,
+            "pattern": "^[ -~]{0,20}$",
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "ELECTION OTHER DESCRIPTION",
+                "TYPE": "A/N-20",
+                "REQUIRED": "X (conditional error)",
+                "SAMPLE_DATA": null,
+                "VALUE_REFERENCE": null,
+                "RULE_REFERENCE": "Req if Item Election Code = O",
+                "FIELD_FORM_ASSOCIATION": "F3 | F3P"
+            }
+        },
         "expenditure_date": {
             "title": "EXPENDITURE DATE",
             "description": "",
@@ -621,6 +666,51 @@
         {
             "if": {
                 "properties": {
+                    "report_type": {
+                        "const": "F3"
+                    }
+                },
+                "required": [
+                    "report_type"
+                ]
+            },
+            "then": {
+                "required": [
+                    "election_code"
+                ],
+                "properties": {
+                    "election_code": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "election_code": {
+                        "pattern": "^O\\d{4}$",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "election_code"
+                ]
+            },
+            "then": {
+                "required": [
+                    "election_other_description"
+                ],
+                "properties": {
+                    "election_other_description": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
                     "transaction_type_identifier": {
                         "enum": [
                             "OPERATING_EXPENDITURE_CREDIT_CARD_PAYMENT_MEMO",
@@ -634,11 +724,65 @@
                 ]
             },
             "then": {
-                "properties": {
-                    "form_type": {
-                        "const": "SB21B"
+                "allOf": [
+                    {
+                        "if": {
+                            "properties": {
+                                "report_type": {
+                                    "const": "F3X"
+                                }
+                            },
+                            "required": [
+                                "report_type"
+                            ]
+                        },
+                        "then": {
+                            "properties": {
+                                "form_type": {
+                                    "const": "SB21B"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "if": {
+                            "properties": {
+                                "report_type": {
+                                    "const": "F3"
+                                }
+                            },
+                            "required": [
+                                "report_type"
+                            ]
+                        },
+                        "then": {
+                            "properties": {
+                                "form_type": {
+                                    "const": "SB17"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "if": {
+                            "properties": {
+                                "report_type": {
+                                    "const": "F3P"
+                                }
+                            },
+                            "required": [
+                                "report_type"
+                            ]
+                        },
+                        "then": {
+                            "properties": {
+                                "form_type": {
+                                    "const": "SB23"
+                                }
+                            }
+                        }
                     }
-                }
+                ]
             }
         },
         {
@@ -657,11 +801,60 @@
                 ]
             },
             "then": {
-                "properties": {
-                    "form_type": {
-                        "const": "SB29"
+                "allOf": [
+                    {
+                        "if": {
+                            "anyOf": [
+                                {
+                                    "properties": {
+                                        "report_type": {
+                                            "const": "F3X"
+                                        }
+                                    },
+                                    "required": [
+                                        "report_type"
+                                    ]
+                                },
+                                {
+                                    "properties": {
+                                        "report_type": {
+                                            "const": "F3P"
+                                        }
+                                    },
+                                    "required": [
+                                        "report_type"
+                                    ]
+                                }
+                            ]
+                        },
+                        "then": {
+                            "properties": {
+                                "form_type": {
+                                    "const": "SB29"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "if": {
+                            "properties": {
+                                "report_type": {
+                                    "const": "F3"
+                                }
+                            },
+                            "required": [
+                                "report_type"
+                            ]
+                        },
+                        "then": {
+                            "properties": {
+                                "form_type": {
+                                    "const": "SB21"
+                                }
+                            }
+                        }
                     }
-                }
+                ]
             }
         },
         {
