@@ -130,7 +130,7 @@
             ],
             "minLength": 0,
             "maxLength": 4000,
-            "pattern": "^[ -~\r]{0,4000}$",
+            "pattern": "^[ -~␍]{0,4000}$",
             "fec_spec": {
                 "COL_SEQ": 6,
                 "FIELD_DESCRIPTION": "TEXT4000",
