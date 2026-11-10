@@ -35,7 +35,6 @@ The following dependencies are used by this application:
 | pluggy | 1.0.0 | MIT |
 | py | 1.11.0 | MIT |
 | Pygments | 2.11.2 | BSD |
-| pylint | 2.12.2 | GNU General Public License v2 (GPLv2) |
 | pyparsing | 3.0.7 | MIT |
 | pyrsistent | 0.18.1 | MIT |
 | pytest | 7.0.1 | MIT |
