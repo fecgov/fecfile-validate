@@ -480,5 +480,90 @@
                 "RULE_REFERENCE": null
             }
         }
-    }
+    },
+    "allOf": [
+        {
+            "if": {
+                "properties": {
+                    "report_type": {
+                        "const": "F3"
+                    }
+                },
+                "required": [
+                    "report_type"
+                ]
+            },
+            "then": {
+                "required": [
+                    "election_code"
+                ],
+                "properties": {
+                    "election_code": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "election_code": {
+                        "pattern": "^O\\d{4}$",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "election_code"
+                ]
+            },
+            "then": {
+                "required": [
+                    "election_other_description"
+                ],
+                "properties": {
+                    "election_other_description": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "report_type": {
+                        "enum": ["F3X", "F3"]
+                    }
+                },
+                "required": [
+                    "report_type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "form_type": {
+                        "const": "SA12"
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "report_type": {
+                        "const": "F3P"
+                    }
+                },
+                "required": [
+                    "report_type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "form_type": {
+                        "const": "SA18"
+                    }
+                }
+            }
+        }
+    ]
 }
