@@ -157,7 +157,7 @@ with the F3L</td>
 <td>G,P,O[YYYY]</td>
 <td>Values: [G|P|R|S|C|E|O]+Year{YYYY}</td>
 <td>F3 | F3P</td>
-<td><ul><li>type: ['string', 'null']</li><li>min length: 1</li><li>max length: 5</li><li>regex: ^[GPRSCEO]\d{4}$</li></td>
+<td><ul><li>REQUIRED if REPORT_TYPE equals F3</li><li>type: ['string', 'null']</li><li>min length: 1</li><li>max length: 5</li><li>regex: ^[GPRSCEO]\d{4}$</li></td>
 </tr>
 <tr>
 <td>ELECTION OTHER DESCRIPTION</td>
@@ -167,7 +167,7 @@ with the F3L</td>
 <td></td>
 <td>Req if Item Election Code = O</td>
 <td>F3 | F3P</td>
-<td><ul><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
+<td><ul><li>REQUIRED if ELECTION_CODE matches regex: ^O\d{4}$</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
 </tr>
 <tr>
 <td>CONTRIBUTION DATE</td>
