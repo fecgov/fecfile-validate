@@ -23,10 +23,10 @@
 <td>A/N-8</td>
 <td>X (error)</td>
 <td>SB21B</td>
-<td>SB21B Only</td>
-<td>SB21B Only</td>
+<td>SB17 or SB21B</td>
+<td>SB17 on F3; SB21B on F3X</td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>must equal: SB21B</li></td>
+<td><ul><li>REQUIRED if REPORT_TYPE equals F3</li><li>FORM_TYPE = 'SB17' if REPORT_TYPE equals F3</li><li>FORM_TYPE = 'SB21B' if REPORT_TYPE equals F3X</li><li>REQUIRED</li><li>type: string</li><li>must be one of: ['SB17', 'SB21B']</li></td>
 </tr>
 <tr>
 <td>FILER COMMITTEE ID NUMBER</td>
@@ -188,6 +188,26 @@ with the F3L</td>
 <td>Auto-generated from associated IN_KIND_RECEIPT</td>
 <td></td>
 <td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 9</li><li>regex: ^[ -~]{0,9}$</li></td>
+</tr>
+<tr>
+<td>ELECTION CODE</td>
+<td>A/N-5</td>
+<td>X (error)</td>
+<td></td>
+<td>G,P,O[YYYY]</td>
+<td>Values: [G|P|R|S|C|E|O]+Year{YYYY}</td>
+<td>F3</td>
+<td><ul><li>REQUIRED if REPORT_TYPE equals F3</li><li>type: ['string', 'null']</li><li>min length: 1</li><li>max length: 5</li><li>regex: ^[GPRSCEO]\d{4}$</li></td>
+</tr>
+<tr>
+<td>ELECTION OTHER DESCRIPTION</td>
+<td>A/N-20</td>
+<td>X (conditional error)</td>
+<td></td>
+<td></td>
+<td>Req if Item Election Code = O</td>
+<td>F3</td>
+<td><ul><li>REQUIRED if ELECTION_CODE matches regex: ^O\d{4}$</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
 </tr>
 <tr>
 <td>EXPENDITURE DATE</td>
