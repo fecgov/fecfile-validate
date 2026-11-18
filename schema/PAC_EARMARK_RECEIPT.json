@@ -530,54 +530,54 @@
                 "SAMPLE_DATA": "REATTRIBUTED",
                 "VALUE_REFERENCE": null,
                 "RULE_REFERENCE": null
-            },
-            "allOf": [
-                {
-                    "if": {
-                        "properties": {
-                            "report_type": {
-                                "const": "F3"
-                            }
-                        },
-                        "required": [
-                            "report_type"
-                        ]
-                    },
-                    "then": {
-                        "required": [
-                            "election_code"
-                        ],
-                        "properties": {
-                            "election_code": {
-                                "type": "string"
-                            }
-                        }
+            }
+        }
+    },
+    "allOf": [
+        {
+            "if": {
+                "properties": {
+                    "report_type": {
+                        "const": "F3"
                     }
                 },
-                {
-                    "if": {
-                        "properties": {
-                            "election_code": {
-                                "pattern": "^O\\d{4}$",
-                                "type": "string"
-                            }
-                        },
-                        "required": [
-                            "election_code"
-                        ]
-                    },
-                    "then": {
-                        "required": [
-                            "election_other_description"
-                        ],
-                        "properties": {
-                            "election_other_description": {
-                                "type": "string"
-                            }
-                        }
+                "required": [
+                    "report_type"
+                ]
+            },
+            "then": {
+                "required": [
+                    "election_code"
+                ],
+                "properties": {
+                    "election_code": {
+                        "type": "string"
                     }
                 }
-            ]
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "election_code": {
+                        "pattern": "^O\\d{4}$",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "election_code"
+                ]
+            },
+            "then": {
+                "required": [
+                    "election_other_description"
+                ],
+                "properties": {
+                    "election_other_description": {
+                        "type": "string"
+                    }
+                }
+            }
         }
-    }
+    ]
 }
