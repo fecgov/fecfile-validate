@@ -59,7 +59,7 @@ function createValidatorForSchemaFile(schema, baseFilename) {
     strictSchema: false,
   });
   let moduleCode = removeInvalidCjsRequireStatements(standaloneCode(ajv, schemaMapping));
-  const typeExports = `export declare function ${key}(data: any, options: any): boolean;`
+  const typeExports = `export declare function ${key}(data: any, options: any): boolean;`;
   fs.writeFileSync(path.join(dir, `../dist/${key}.validator.js`), moduleCode);
   fs.writeFileSync(path.join(dir, `../dist/${key}.validator.d.ts`), typeExports);
 }
@@ -73,15 +73,16 @@ function removeInvalidCjsRequireStatements(jsCode) {
   const preamble = '"use strict";';
   let importStatements = '';
   const requireRegex = /const (\S+)\s*=\s*require\((.+)\)\.(\S+);/g;
-  const retval = jsCode.replace(requireRegex, (_match, p1, p2, p3) => {
-    importStatements += `import { ${p3} as ${p1} } from ${p2};`;
-    return "";
-  })
-    .replace(preamble, "");
+  const retval = jsCode
+    .replace(requireRegex, (_match, p1, p2, p3) => {
+      importStatements += `import { ${p3} as ${p1} } from ${p2};`;
+      return '';
+    })
+    .replace(preamble, '');
   // Individual lib replacement to avoid webpack import issue
   // after several field validation cyles which we could not
   // determine why it was happening.  We may need more of these
   // in the future if our schemas add more require statements.
-  importStatements = importStatements.replace("ajv/dist/runtime/ucs2length", "./ucs2length.js");
+  importStatements = importStatements.replace('ajv/dist/runtime/ucs2length', './ucs2length.js');
   return preamble + importStatements + retval;
 }
