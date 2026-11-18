@@ -23,10 +23,12 @@
 <td>A/N-8</td>
 <td>X (error)</td>
 <td>SA17</td>
-<td>SA17</td>
-<td>SA17 only</td>
+<td>SA15 | SA17 | SA21</td>
+<td>If Report Type is F3, then SA15.
+If Report Type is F3X, then SA17.
+If Report Type is F3P, then SA21</td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>type: string</li><li>must equal: SA17</li></td>
+<td><ul><li>REQUIRED if REPORT_TYPE equals F3X</li><li>FORM_TYPE = 'SA17' if REPORT_TYPE equals F3X</li><li>REQUIRED if REPORT_TYPE equals F3</li><li>FORM_TYPE = 'SA15' if REPORT_TYPE equals F3</li><li>REQUIRED</li><li>type: string</li><li>must be one of: ['SA15', 'SA17', 'SA21']</li></td>
 </tr>
 <tr>
 <td>FILER COMMITTEE ID NUMBER</td>
