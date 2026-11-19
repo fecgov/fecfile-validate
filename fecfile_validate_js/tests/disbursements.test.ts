@@ -74,3 +74,108 @@ Deno.test({
     assertEquals(result[0].keyword, "exclusiveMaximum");
   },
 });
+
+Deno.test({
+  name: "it should pass with perfect Form 3 data",
+  fn: async () => {
+    const thisData = {
+      ...perfectForm,
+      report_type: "F3",
+      form_type: "SB17",
+      election_code: "P2024",
+      election_other_description: null,
+    };
+    const result = await validate(schema, thisData);
+    assertEquals(result, []);
+  },
+});
+
+Deno.test({
+  name: "it should fail Form 3 if election_code is missing",
+  fn: async () => {
+    const thisData = {
+      ...perfectForm,
+      report_type: "F3",
+      form_type: "SB17",
+    };
+    const result = await validate(schema, thisData);
+    assertEquals(result.some((err: any) => err.params?.missingProperty === "election_code"), true);
+  },
+});
+
+Deno.test({
+  name: "it should fail Form 3 if election_code is Other and election_other_description is missing",
+  fn: async () => {
+    const thisData = {
+      ...perfectForm,
+      report_type: "F3",
+      form_type: "SB17",
+      election_code: "O2024",
+    };
+    const result = await validate(schema, thisData);
+    assertEquals(result.some((err: any) => err.params?.missingProperty === "election_other_description"), true);
+  },
+});
+
+Deno.test({
+  name: "it should fail Form 3 if form_type is not SB17",
+  fn: async () => {
+    const thisData = {
+      ...perfectForm,
+      report_type: "F3",
+      form_type: "SB21B",
+      election_code: "P2024",
+    };
+    const result = await validate(schema, thisData);
+    assertEquals(result.some((err: any) => err.keyword === "const" && err.params?.allowedValue === "SB17"), true);
+  },
+});
+
+Deno.test({
+  name: "it should pass Form 3 Other Disbursement with SB21",
+  fn: async () => {
+    const thisData = {
+      ...perfectForm,
+      transaction_type_identifier: "OTHER_DISBURSEMENT",
+      report_type: "F3",
+      form_type: "SB21",
+      election_code: "P2024",
+      election_other_description: null,
+    };
+    const result = await validate(schema, thisData);
+    assertEquals(result, []);
+  },
+});
+
+Deno.test({
+  name: "it should pass Form 3 Other Disbursement - Void with negative amount and SB21",
+  fn: async () => {
+    const thisData = {
+      ...perfectForm,
+      transaction_type_identifier: "OTHER_DISBURSEMENT_VOID",
+      report_type: "F3",
+      form_type: "SB21",
+      expenditure_amount: -150.00,
+      election_code: "P2024",
+      election_other_description: null,
+    };
+    const result = await validate(schema, thisData);
+    assertEquals(result, []);
+  },
+});
+
+Deno.test({
+  name: "it should fail Form 3 Other Disbursement if form_type is SB29 instead of SB21",
+  fn: async () => {
+    const thisData = {
+      ...perfectForm,
+      transaction_type_identifier: "OTHER_DISBURSEMENT",
+      report_type: "F3",
+      form_type: "SB29",
+      election_code: "P2024",
+    };
+    const result = await validate(schema, thisData);
+    assertEquals(result.some((err: any) => err.keyword === "const" && err.params?.allowedValue === "SB21"), true);
+  },
+});
+
