@@ -23,10 +23,10 @@
 <td>A/N-8</td>
 <td>X (error)</td>
 <td>SA12</td>
-<td>SA12 Only</td>
+<td>[SA12 | SA18]</td>
 <td></td>
 <td></td>
-<td><ul><li>REQUIRED</li><li>must equal: SA12</li></td>
+<td><ul><li>REQUIRED</li><li>must be one of: ['SA12', 'SA18']</li></td>
 </tr>
 <tr>
 <td>FILER COMMITTEE ID NUMBER</td>
@@ -148,6 +148,26 @@ with the F3L</td>
 <td></td>
 <td></td>
 <td><ul><li>REQUIRED</li><li>type: string</li><li>min length: 1</li><li>max length: 9</li><li>regex: ^[ -~]{0,9}$</li></td>
+</tr>
+<tr>
+<td>ELECTION CODE</td>
+<td>A/N-5</td>
+<td>X (conditional error)</td>
+<td>G2024</td>
+<td>G,R,P,S,C,E,O</td>
+<td></td>
+<td></td>
+<td><ul><li>REQUIRED if REPORT_TYPE equals F3</li><li>type: ['string', 'null']</li><li>min length: 1</li><li>max length: 5</li><li>regex: ^[GPRSCEO]\d{4}$</li></td>
+</tr>
+<tr>
+<td>ELECTION OTHER DESCRIPTION</td>
+<td>A/N-20</td>
+<td>X (conditional error)</td>
+<td>Special Election</td>
+<td></td>
+<td>Required if Election Code = O</td>
+<td></td>
+<td><ul><li>REQUIRED if ELECTION_CODE matches regex: ^O\d{4}$</li><li>type: ['string', 'null']</li><li>min length: 0</li><li>max length: 20</li><li>regex: ^[ -~]{0,20}$</li></td>
 </tr>
 <tr>
 <td>CONTRIBUTION DATE</td>
