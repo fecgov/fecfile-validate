@@ -338,7 +338,7 @@
     "expenditure_purpose_descrip": {
       "title": "EXPENDITURE PURPOSE DESCRIP",
       "description": "",
-      "type": ["string", "null"],
+      "type": "string",
       "minLength": 1,
       "maxLength": 100,
       "pattern": "^[ -~]{0,100}$",
