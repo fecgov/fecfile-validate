@@ -3,7 +3,7 @@
     "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/IN_KIND_OUT.json",
     "version": "v0.0.0.0",
     "title": "FEC In-Kind Out",
-    "description": "In-Kind Out (line 21b)",
+    "description": "In-Kind Out (line 17 / 21b)",
     "type": "object",
     "required": [
         "form_type",
@@ -48,8 +48,12 @@
             "title": "FORM TYPE",
             "description": "",
             "type": "string",
-            "const": "SB21B",
+            "enum": [
+                "SB17",
+                "SB21B"
+            ],
             "examples": [
+                "SB17",
                 "SB21B"
             ],
             "fec_spec": {
@@ -57,8 +61,8 @@
                 "TYPE": "A/N-8",
                 "REQUIRED": "X (error)",
                 "SAMPLE_DATA": "SB21B",
-                "VALUE_REFERENCE": "SB21B Only",
-                "RULE_REFERENCE": "SB21B Only"
+                "VALUE_REFERENCE": "SB17 or SB21B",
+                "RULE_REFERENCE": "SB17 on F3; SB21B on F3X"
             }
         },
         "filer_committee_id_number": {
@@ -379,6 +383,43 @@
                 "FIELD_FORM_ASSOCIATION": null
             }
         },
+        "election_code": {
+            "title": "ELECTION CODE",
+            "description": "",
+            "type": [
+                "string",
+                "null"
+            ],
+            "minLength": 1,
+            "maxLength": 5,
+            "pattern": "^[GPRSCEO]\\d{4}$",
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "ELECTION CODE",
+                "TYPE": "A/N-5",
+                "REQUIRED": "X (error)",
+                "VALUE_REFERENCE": "G,P,O[YYYY]",
+                "RULE_REFERENCE": "Values: [G|P|R|S|C|E|O]+Year{YYYY}",
+                "FIELD_FORM_ASSOCIATION": "F3"
+            }
+        },
+        "election_other_description": {
+            "title": "ELECTION OTHER DESCRIPTION",
+            "description": "",
+            "type": [
+                "string",
+                "null"
+            ],
+            "minLength": 0,
+            "maxLength": 20,
+            "pattern": "^[ -~]{0,20}$",
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "ELECTION OTHER DESCRIPTION",
+                "TYPE": "A/N-20",
+                "REQUIRED": "X (conditional error)",
+                "RULE_REFERENCE": "Req if Item Election Code = O",
+                "FIELD_FORM_ASSOCIATION": "F3"
+            }
+        },
         "expenditure_date": {
             "title": "EXPENDITURE DATE",
             "description": "",
@@ -566,5 +607,76 @@
                 "RULE_REFERENCE": null
             }
         }
-    }
+    },
+    "allOf": [
+        {
+            "if": {
+                "properties": {
+                    "report_type": {
+                        "const": "F3"
+                    }
+                },
+                "required": [
+                    "report_type"
+                ]
+            },
+            "then": {
+                "required": [
+                    "form_type",
+                    "election_code"
+                ],
+                "properties": {
+                    "form_type": {
+                        "const": "SB17"
+                    },
+                    "election_code": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "report_type": {
+                        "const": "F3X"
+                    }
+                },
+                "required": [
+                    "report_type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "form_type": {
+                        "const": "SB21B"
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "election_code": {
+                        "pattern": "^O\\d{4}$",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "election_code"
+                ]
+            },
+            "then": {
+                "required": [
+                    "election_other_description"
+                ],
+                "properties": {
+                    "election_other_description": {
+                        "type": "string",
+                        "minLength": 1
+                    }
+                }
+            }
+        }
+    ]
 }
