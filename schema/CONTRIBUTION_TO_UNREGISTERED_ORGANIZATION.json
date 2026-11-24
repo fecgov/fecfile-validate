@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft-07/schema#",
   "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/CONTRIBUTION_TO_UNREGISTERED_ORGANIZATION.json",
   "version": "8.3.0.1",
-  "title": "Contribution to Other Federal Committee",
+  "title": "Contribution to Unregistered Organization",
   "description": "SCHEDULE B - Contribution to Unregistered Organization (Line SB21/SB29)",
   "type": "object",
   "required": [
@@ -75,13 +75,13 @@
       "title": "TRANSACTION TYPE IDENTIFIER",
       "description": "",
       "type": "string",
-      "const": "CONTRIBUTION_TO_OTHER_FEDERAL_COMMITTEE",
-      "examples": ["CONTRIBUTION_TO_OTHER_FEDERAL_COMMITTEE"],
+      "const": "CONTRIBUTION_TO_UNREGISTERED_ORGANIZATION",
+      "examples": ["CONTRIBUTION_TO_UNREGISTERED_ORGANIZATION"],
       "fec_spec": {
         "FIELD_DESCRIPTION": "TRANSACTION TYPE IDENTIFIER",
         "TYPE": "A/N-12",
         "REQUIRED": "X (error)",
-        "SAMPLE_DATA": "CONTRIBUTION_TO_OTHER_FEDERAL_COMMITTEE",
+        "SAMPLE_DATA": "CONTRIBUTION_TO_UNREGISTERED_ORGANIZATION",
         "VALUE_REFERENCE": null,
         "RULE_REFERENCE": null,
         "FIELD_FORM_ASSOCIATION": null
@@ -359,7 +359,7 @@
     "expenditure_purpose_descrip": {
       "title": "EXPENDITURE PURPOSE DESCRIP",
       "description": "",
-      "type": ["string", "null"],
+      "type": "string",
       "minLength": 1,
       "maxLength": 100,
       "pattern": "^[ -~]{0,100}$",
