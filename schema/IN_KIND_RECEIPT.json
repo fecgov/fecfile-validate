@@ -3,7 +3,7 @@
     "$id": "https://github.com/fecgov/fecfile-validate/blob/main/schema/IN_KIND_RECEIPT.json",
     "version": "v0.0.0.0",
     "title": "FEC In-Kind Receipt",
-    "description": "In-Kind Receipt (11a)",
+    "description": "In-Kind Receipt (line 11(a)(i))",
     "type": "object",
     "required": [
         "form_type",
@@ -344,6 +344,43 @@
                 "SAMPLE_DATA": 981110123
             }
         },
+        "election_code": {
+            "title": "ELECTION CODE",
+            "description": "",
+            "type": [
+                "string",
+                "null"
+            ],
+            "minLength": 1,
+            "maxLength": 5,
+            "pattern": "^[GPRSCEO]\\d{4}$",
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "ELECTION CODE",
+                "TYPE": "A/N-5",
+                "REQUIRED": "X (error)",
+                "VALUE_REFERENCE": "G,P,O[YYYY]",
+                "RULE_REFERENCE": "Values: [G|P|R|S|C|E|O]+Year{YYYY}",
+                "FIELD_FORM_ASSOCIATION": "F3"
+            }
+        },
+        "election_other_description": {
+            "title": "ELECTION OTHER DESCRIPTION",
+            "description": "",
+            "type": [
+                "string",
+                "null"
+            ],
+            "minLength": 0,
+            "maxLength": 20,
+            "pattern": "^[ -~]{0,20}$",
+            "fec_spec": {
+                "FIELD_DESCRIPTION": "ELECTION OTHER DESCRIPTION",
+                "TYPE": "A/N-20",
+                "REQUIRED": "X (conditional error)",
+                "RULE_REFERENCE": "Req if Item Election Code = O",
+                "FIELD_FORM_ASSOCIATION": "F3"
+            }
+        },
         "contribution_date": {
             "title": "CONTRIBUTION DATE",
             "description": "",
@@ -560,6 +597,52 @@
                     },
                     "contributor_occupation": {
                         "type": "string"
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "report_type": {
+                        "const": "F3"
+                    }
+                },
+                "required": [
+                    "report_type"
+                ]
+            },
+            "then": {
+                "required": [
+                    "election_code"
+                ],
+                "properties": {
+                    "election_code": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "election_code": {
+                        "pattern": "^O\\d{4}$",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "election_code"
+                ]
+            },
+            "then": {
+                "required": [
+                    "election_other_description"
+                ],
+                "properties": {
+                    "election_other_description": {
+                        "type": "string",
+                        "minLength": 1
                     }
                 }
             }
