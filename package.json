@@ -40,7 +40,7 @@
   },
   "overrides": {
     "ajv": {
-      "fast-uri": "3.1.9"
+      "fast-uri": "^3.1.9"
     }
   }
 }
